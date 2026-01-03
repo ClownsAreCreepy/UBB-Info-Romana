@@ -1,5 +1,0 @@
-D:/C,C++/CLion 2024.3.4/Projects/Lab6_7/cmake-build-debug/CMakeFiles/Lab6_7.dir
-D:/C,C++/CLion 2024.3.4/Projects/Lab6_7/cmake-build-debug/CMakeFiles/edit_cache.dir
-D:/C,C++/CLion 2024.3.4/Projects/Lab6_7/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-D:/C,C++/CLion 2024.3.4/Projects/Lab6_7/cmake-build-debug/CMakeFiles/Lab6_7_autogen_timestamp_deps.dir
-D:/C,C++/CLion 2024.3.4/Projects/Lab6_7/cmake-build-debug/CMakeFiles/Lab6_7_autogen.dir

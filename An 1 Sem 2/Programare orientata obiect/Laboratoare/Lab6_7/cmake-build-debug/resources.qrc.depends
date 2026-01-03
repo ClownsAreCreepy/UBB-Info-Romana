@@ -1,9 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>Imagini/Oreo_din_geam.jpg</file>
-        <file>Imagini/Oreo_palarie.jpg</file>
-        <file>Imagini/Oana_album.jpg</file>
-        <file>Imagini/Oreo_la_usa.jpg</file>
-        <file>Imagini/Oreo_toanta.jpg</file>
-    </qresource>
-</RCC>
