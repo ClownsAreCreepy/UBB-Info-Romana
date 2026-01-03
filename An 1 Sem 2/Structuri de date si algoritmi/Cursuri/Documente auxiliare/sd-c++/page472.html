@@ -1,0 +1,112 @@
+<HTML>
+<HEAD>
+<TITLE>Generating Random Numbers</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html7753" HREF="page473.html" tppabs="http://www.brpreiss.com/books/opus4/html/page473.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7751" HREF="page471.html" tppabs="http://www.brpreiss.com/books/opus4/html/page471.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7745" HREF="page471.html" tppabs="http://www.brpreiss.com/books/opus4/html/page471.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7755" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7756" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0015510000000000000000">Generating Random Numbers</A></H2>
+<A NAME="secalgsrng">&#160;</A>
+<P>
+In this section we consider the problem
+of generating a sequence of <em>random numbers</em><A NAME=33932>&#160;</A>
+on a computer.
+Specifically, we desire an infinite sequence
+of statistically independent random numbers
+uniformly distributed between zero and one.
+In practice,
+because the sequence is generated algorithmically
+using finite-precision arithmetic,
+it is neither infinite nor truly random.
+Instead, we say that an algorithm is ``good enough''
+if the sequence it generates satisfies almost any
+statistical test of randomness.
+Such a sequence is said to be <em>pseudorandom</em><A NAME=33934>&#160;</A>.
+<P>
+The most common algorithms for generating pseudorandom numbers
+are based on the <em>linear congruential</em><A NAME=33936>&#160;</A><A NAME=33937>&#160;</A>
+random number generator invented by Lehmer.
+Given a positive integer <I>m</I> called the <em>modulus</em><A NAME=33939>&#160;</A>
+and an initial <em>seed</em><A NAME=33941>&#160;</A> value  <IMG WIDTH=19 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline69291" SRC="img1996.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1996.gif"  > ( <IMG WIDTH=84 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline69293" SRC="img1997.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1997.gif"  >),
+Lehmer's algorithm computes a sequence
+of integers between 0 and <I>m</I>-1.
+The elements of the sequence are given by
+<P><A NAME="eqnalgslcrng">&#160;</A> <IMG WIDTH=500 HEIGHT=16 ALIGN=BOTTOM ALT="equation33942" SRC="img1998.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1998.gif"  ><P>
+where <I>a</I> and <I>c</I> are carefully chosen integers
+such that  <IMG WIDTH=72 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline69301" SRC="img1999.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1999.gif"  > and  <IMG WIDTH=70 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline69303" SRC="img2000.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2000.gif"  >.
+<P>
+For example, the parameters <I>a</I>=13, <I>c</I>=1, <I>m</I>=16 and  <IMG WIDTH=49 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline69311" SRC="img2001.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2001.gif"  >
+produce the sequence
+<P> <IMG WIDTH=410 HEIGHT=14 ALIGN=BOTTOM ALT="displaymath69279" SRC="img2002.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2002.gif"  ><P>
+The first <I>m</I> elements of this sequence are distinct
+and appear to have been drawn at random from the set
+ <IMG WIDTH=100 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69315" SRC="img2003.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2003.gif"  >.
+However since  <IMG WIDTH=65 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline69317" SRC="img2004.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2004.gif"  > the sequence is cyclic
+with <em>period</em><A NAME=33947>&#160;</A> <I>m</I>.
+<P>
+Notice that the elements of the sequence alternate between
+odd and even integers.
+This follows directly from Equation&nbsp;<A HREF="page472.html#eqnalgslcrng" tppabs="http://www.brpreiss.com/books/opus4/html/page472.html#eqnalgslcrng"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> and the fact
+that <I>m</I>=16 is a multiple of 2.
+Similar patterns arise when we consider the elements
+as binary numbers:
+<P> <IMG WIDTH=433 HEIGHT=14 ALIGN=BOTTOM ALT="displaymath69280" SRC="img2005.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2005.gif"  ><P>
+The least significant two bits are cyclic with period four
+and the least significant three bits are cycle with period eight!
+(These patterns arise because <I>m</I>=16 is also a multiple of 4 and 8).
+The existence of such patterns make the sequence <em>less random</em>.
+This suggests that the best choice for the modulus <I>m</I> is a prime number.
+<P>
+Not all parameter values result in a period of <I>m</I>.
+For example, changing the multiplier <I>a</I> to 11 produces the sequence
+<P> <IMG WIDTH=334 HEIGHT=14 ALIGN=BOTTOM ALT="displaymath69281" SRC="img2006.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2006.gif"  ><P>
+the period of which is only <I>m</I>/2.
+In general because each subsequent element of the sequence
+is determined solely from its predecessor
+and because there are <I>m</I> possible values,
+the longest possible period is <I>m</I>.
+Such a generator is called a <em>full period</em> generator.
+<P>
+In practice the <em>increment</em><A NAME=33952>&#160;</A> <I>c</I> is often set to zero.
+In this case, Equation&nbsp;<A HREF="page472.html#eqnalgslcrng" tppabs="http://www.brpreiss.com/books/opus4/html/page472.html#eqnalgslcrng"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> becomes
+<P><A NAME="eqnalgsmcrng">&#160;</A> <IMG WIDTH=500 HEIGHT=16 ALIGN=BOTTOM ALT="equation33954" SRC="img2007.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2007.gif"  ><P>
+This is called a <em>multiplicative linear congruential</em><A NAME=33959>&#160;</A><A NAME=33960>&#160;</A>
+random number generator.
+(For  <IMG WIDTH=35 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline69341" SRC="img2008.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2008.gif"  > it is called a <em>mixed linear congruential</em><A NAME=33962>&#160;</A><A NAME=33963>&#160;</A> generator).
+<P>
+In order to prevent the sequence generated by Equation&nbsp;<A HREF="page472.html#eqnalgsmcrng" tppabs="http://www.brpreiss.com/books/opus4/html/page472.html#eqnalgsmcrng"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+from collapsing to zero,
+the modulus <I>m</I> must be prime and  <IMG WIDTH=19 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline69291" SRC="img1996.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1996.gif"  > cannot be zero.
+For example, the parameters <I>a</I>=6, <I>m</I>=13 and  <IMG WIDTH=49 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline69351" SRC="img2009.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2009.gif"  >
+produce the sequence
+<P> <IMG WIDTH=368 HEIGHT=14 ALIGN=BOTTOM ALT="displaymath69282" SRC="img2010.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2010.gif"  ><P>
+Notice that the first 12 elements of the sequence are distinct.
+Since a multiplicative congruential generator can never produce a zero,
+the maximum possible period is <I>m</I>-1.
+Therefore, this is a full period generator.
+<P>
+As the final step of the process,
+the elements of the sequence are <em>normalized</em><A NAME=33966>&#160;</A>
+by division by the modulus:
+<P> <IMG WIDTH=289 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath69283" SRC="img2011.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2011.gif"  ><P>
+In so doing, we obtain a sequence of random numbers
+that fall between zero and one.
+Specifically, a mixed congruential generator ( <IMG WIDTH=35 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline69341" SRC="img2008.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2008.gif"  >)
+produces numbers in the interval [0,1),
+whereas a multiplicative congruential generator (<I>c</I>=0)
+produces numbers in the interval (0,1).
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html7757" HREF="page473.html#SECTION0015511000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page473.html#SECTION0015511000000000000000">The Minimal Standard Random Number Generator</A>
+<LI> <A NAME="tex2html7758" HREF="page474.html#SECTION0015512000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page474.html#SECTION0015512000000000000000">Implementation</A>
+</UL>
+<HR><A NAME="tex2html7753" HREF="page473.html" tppabs="http://www.brpreiss.com/books/opus4/html/page473.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7751" HREF="page471.html" tppabs="http://www.brpreiss.com/books/opus4/html/page471.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7745" HREF="page471.html" tppabs="http://www.brpreiss.com/books/opus4/html/page471.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7755" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7756" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

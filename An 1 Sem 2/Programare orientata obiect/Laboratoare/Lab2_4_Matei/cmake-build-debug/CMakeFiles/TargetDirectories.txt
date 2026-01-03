@@ -1,0 +1,3 @@
+/mnt/d/C,C++/CLion 2024.3.4/Projects/Lab2_4_Matei/cmake-build-debug/CMakeFiles/Lab03.dir
+/mnt/d/C,C++/CLion 2024.3.4/Projects/Lab2_4_Matei/cmake-build-debug/CMakeFiles/edit_cache.dir
+/mnt/d/C,C++/CLion 2024.3.4/Projects/Lab2_4_Matei/cmake-build-debug/CMakeFiles/rebuild_cache.dir

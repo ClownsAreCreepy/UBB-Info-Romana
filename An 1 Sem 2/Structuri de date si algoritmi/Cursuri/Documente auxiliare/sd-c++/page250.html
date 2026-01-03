@@ -1,0 +1,81 @@
+<HTML>
+<HEAD>
+<TITLE>Trees</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html5001" HREF="page251.html" tppabs="http://www.brpreiss.com/books/opus4/html/page251.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4999" HREF="book.html" tppabs="http://www.brpreiss.com/books/opus4/html/book.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4993" HREF="page249.html" tppabs="http://www.brpreiss.com/books/opus4/html/page249.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5003" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5004" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION0010000000000000000000">Trees</A></H1>
+<P>
+<A NAME="chaptrees">&#160;</A>
+<P>
+In this chapter we consider one of the most important
+non-linear information structures--<em>trees</em>.
+A tree is often used to represent a <em>hierarchy</em><A NAME=14729>&#160;</A>.
+This is because the relationships between the items
+in the hierarchy suggest the branches of a botanical tree.
+<P>
+For example, a tree-like <em>organization chart</em> is often used
+to represent the lines of responsibility in a business
+as shown in Figure&nbsp;<A HREF="page250.html#figtree0" tppabs="http://www.brpreiss.com/books/opus4/html/page250.html#figtree0"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+The president of the company is shown at the top of the tree
+and the vice-presidents are indicated below her.
+Under the vice-presidents we find the managers
+and below the managers the rest of the clerks.
+Each clerk reports to a manager,
+each manager reports to a vice-president,
+and each vice-president reports to the president.
+<P>
+<P><A NAME="14831">&#160;</A><A NAME="figtree0">&#160;</A> <IMG WIDTH=575 HEIGHT=193 ALIGN=BOTTOM ALT="figure14732" SRC="img1084.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1084.gif"  ><BR>
+<STRONG>Figure:</STRONG> Representing a Hierarchy using a Tree<BR>
+<P>
+<P>
+It just takes a little imagination to see the tree in Figure&nbsp;<A HREF="page250.html#figtree0" tppabs="http://www.brpreiss.com/books/opus4/html/page250.html#figtree0"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+Of course, the tree is upside-down.
+However, this is the usual way the data structure is drawn.
+The president is called the <em>root</em> of the tree
+and the clerks are the <em>leaves</em>.
+<P>
+A tree is extremely useful for certain kinds of computations.
+For example, suppose we wish to determine the total salaries
+paid to employees by division or by department.
+The total of the salaries in division&nbsp;A
+can be found by computing the sum of the salaries paid in departments&nbsp;A1
+and&nbsp;A2 plus the salary of the vice-president of division&nbsp;A.
+Similarly, the total of the salaries paid in department&nbsp;A1
+is the sum of the salaries of the manager of department&nbsp;A1
+and of the two clerks below her.
+<P>
+Clearly, in order to compute all the totals,
+it is necessary to consider the salary of every employee.
+Therefore, an implementation of this computation
+must <em>visit</em> all the employees in the tree.
+An algorithm that systematically <em>visits</em>
+all the items in a tree is called a <em>tree traversal</em>.
+<P>
+In this chapter we consider several different kinds of trees
+as well as several different tree traversal algorithms.
+In addition,
+we show how trees can be used to represent arithmetic expressions
+and how we can evaluate an arithmetic expression by doing a tree traversal.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html5005" HREF="page251.html#SECTION0010100000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page251.html#SECTION0010100000000000000000">Basics</A>
+<LI> <A NAME="tex2html5006" HREF="page255.html#SECTION0010200000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page255.html#SECTION0010200000000000000000"><I>N</I>-ary Trees</A>
+<LI> <A NAME="tex2html5007" HREF="page256.html#SECTION0010300000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page256.html#SECTION0010300000000000000000">Binary Trees</A>
+<LI> <A NAME="tex2html5008" HREF="page257.html#SECTION0010400000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page257.html#SECTION0010400000000000000000">Tree Traversals</A>
+<LI> <A NAME="tex2html5009" HREF="page262.html#SECTION0010500000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page262.html#SECTION0010500000000000000000">Expression Trees</A>
+<LI> <A NAME="tex2html5010" HREF="page266.html#SECTION0010600000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page266.html#SECTION0010600000000000000000">Implementing Trees</A>
+<LI> <A NAME="tex2html5011" HREF="page297.html#SECTION0010700000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page297.html#SECTION0010700000000000000000">Exercises</A>
+<LI> <A NAME="tex2html5012" HREF="page298.html#SECTION0010800000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page298.html#SECTION0010800000000000000000">Projects</A>
+</UL>
+<HR><A NAME="tex2html5001" HREF="page251.html" tppabs="http://www.brpreiss.com/books/opus4/html/page251.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4999" HREF="book.html" tppabs="http://www.brpreiss.com/books/opus4/html/book.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4993" HREF="page249.html" tppabs="http://www.brpreiss.com/books/opus4/html/page249.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5003" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5004" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

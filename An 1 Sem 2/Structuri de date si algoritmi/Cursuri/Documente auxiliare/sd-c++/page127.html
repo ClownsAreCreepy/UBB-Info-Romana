@@ -1,0 +1,91 @@
+<HTML>
+<HEAD>
+<TITLE>Searchable Containers</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html3474" HREF="page128.html" tppabs="http://www.brpreiss.com/books/opus4/html/page128.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3472" HREF="page109.html" tppabs="http://www.brpreiss.com/books/opus4/html/page109.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3468" HREF="page126.html" tppabs="http://www.brpreiss.com/books/opus4/html/page126.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3476" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3477" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0062120000000000000000">Searchable Containers</A></H2>
+<A NAME="secadtssrchcont">&#160;</A>
+<P>
+A <em>searchable container</em> is an extension of the container abstraction.
+It adds to the interface provided for containers
+functions for putting objects in and taking objects out,
+for testing whether a given object is in the container,
+and a routine to search the container for a given object.
+<P>
+The declaration of the <tt>SearchableContainer</tt> class is
+shown in Program&nbsp;<A HREF="page127.html#progsrchconth" tppabs="http://www.brpreiss.com/books/opus4/html/page127.html#progsrchconth"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+The <tt>SearchableContainer</tt> class is an abstract class
+derived from the abstract base class <tt>Container</tt>.
+It adds four more pure virtual member functions
+to the inherited abstract interface.
+<P>
+<P><A NAME="5563">&#160;</A><A NAME="progsrchconth">&#160;</A> <IMG WIDTH=575 HEIGHT=161 ALIGN=BOTTOM ALT="program5306" SRC="img702.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img702.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>SearchableContainer</tt> Class Definition<BR>
+<P>
+<P>
+The <tt>IsMember</tt> function is a Boolean-valued
+function which takes as its lone argument a <tt>const</tt>
+reference to <tt>Object</tt>.
+The purpose of this routine is to test whether the
+given object instance is in the container.
+In effect, the routine searches the container
+for a pointer to the given object.
+<P>
+The purpose of the <tt>Insert</tt> member function
+is to put an object into the container.
+The <tt>Insert</tt> function takes as its argument
+a reference to <tt>Object</tt>.
+Remember, we have chosen to implement containers using indirect containment.
+In addition, it depends on the ownership status of the container
+whether it will delete the objects it contains.
+<P>
+The <tt>Withdraw</tt> function is used to remove an object from a container.
+The lone argument is a reference to the object to be removed.
+After an object has been removed from a container,
+the container no longer owns that object.
+In any event, the container never deletes an object which is removed
+from the container.
+<P>
+The final member function, <tt>Find</tt>,
+is used to locate an object in a container
+and to return a reference to that object.
+In this case,
+it is understood that the search is to be done
+using the object comparison functions.
+I.e., the routine is <em>not</em> to be implemented
+as a search of the container for a pointer to the given object
+but rather as a search of the container for an object
+which compares equal to the given object.
+<P>
+There is an important subtlety in the semantics of <tt>Find</tt>.
+The search is not for the given object,
+but rather for an object which compares equal to the given object.
+These semantics are particularly useful when using associations.
+Recall that two associations will compare equal
+if their keys compare equal--the values may be different.
+<P>
+In the event that the <tt>Find</tt> function fails to find
+an object equal to the specified object,
+then it will return a reference to the <tt>NullObject</tt> instance.
+Therefore, the user of the <tt>Find</tt> function should test
+whether the object which is returned is the <tt>NullObject</tt> instance
+by calling the <tt>IsNull()</tt> member function.
+<P>
+The <tt>Find</tt> function does <em>not</em> remove the object it finds
+from the container.
+Therefore, a container which owns its contained objects
+retains ownership of the result of the search. 
+An explicit call of the <tt>Withdraw</tt> function is needed
+to actually remove the object from the container.
+<P>
+<HR><A NAME="tex2html3474" HREF="page128.html" tppabs="http://www.brpreiss.com/books/opus4/html/page128.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3472" HREF="page109.html" tppabs="http://www.brpreiss.com/books/opus4/html/page109.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3468" HREF="page126.html" tppabs="http://www.brpreiss.com/books/opus4/html/page126.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3476" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3477" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

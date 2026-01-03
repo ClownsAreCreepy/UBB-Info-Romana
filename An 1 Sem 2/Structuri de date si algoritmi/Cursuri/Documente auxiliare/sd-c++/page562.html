@@ -1,0 +1,102 @@
+<HTML>
+<HEAD>
+<TITLE>Connectedness of a Directed Graph</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html8858" HREF="page563.html" tppabs="http://www.brpreiss.com/books/opus4/html/page563.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8856" HREF="page560.html" tppabs="http://www.brpreiss.com/books/opus4/html/page560.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8850" HREF="page561.html" tppabs="http://www.brpreiss.com/books/opus4/html/page561.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8860" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8861" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0017342000000000000000">Connectedness of a Directed Graph</A></H3>
+<P>
+When dealing with directed graphs,
+we define two kinds of connectedness, <em>strong</em> and <em>weak</em>.
+Strong connectedness of a directed graph is defined as follows:
+<P>
+<BLOCKQUOTE> <b>Definition (Strong Connectedness of a Directed Graph)</b>
+<A NAME="defngraphsstrongcon">&#160;</A>
+A directed graph  <IMG WIDTH=72 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71355" SRC="img2282.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2282.gif"  > is <em>strongly connected</em><A NAME=51041>&#160;</A><A NAME=51042>&#160;</A>
+if there is a path in <I>G</I> between every pair of vertices in  <IMG WIDTH=10 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline71357" SRC="img2283.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2283.gif"  >.
+</BLOCKQUOTE>
+<P>
+For example, Figure&nbsp;<A HREF="page562.html#figgraph10" tppabs="http://www.brpreiss.com/books/opus4/html/page562.html#figgraph10"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> shows the directed graph
+ <IMG WIDTH=83 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72121" SRC="img2423.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2423.gif"  > given by
+<P> <IMG WIDTH=500 HEIGHT=39 ALIGN=BOTTOM ALT="eqnarray51045" SRC="img2424.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2424.gif"  ><P>
+Notice that the graph  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline72123" SRC="img2425.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2425.gif"  > is <em>not</em> connected!
+E.g., there is no path from any of the vertices in  <IMG WIDTH=52 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72125" SRC="img2426.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2426.gif"  >
+to any of the vertices in  <IMG WIDTH=49 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline67128" SRC="img1591.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1591.gif"  >.
+Nevertheless, the graph ``looks'' connected
+in the sense that it is not made of up of separate parts
+in the way that the graph  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline72097" SRC="img2420.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2420.gif"  > in Figure&nbsp;<A HREF="page561.html#figgraph9" tppabs="http://www.brpreiss.com/books/opus4/html/page561.html#figgraph9"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> is.
+<P>
+This idea of ``looking'' connected
+is what <em>weak connectedness</em> represents.
+To define weak connectedness we need to introduce first
+the notion of the undirected graph that underlies a directed graph:
+Consider a directed graph  <IMG WIDTH=72 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71355" SRC="img2282.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2282.gif"  >.
+The underlying undirected graph is the graph
+ <IMG WIDTH=72 HEIGHT=31 ALIGN=MIDDLE ALT="tex2html_wrap_inline72133" SRC="img2427.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2427.gif"  > where
+ <IMG WIDTH=11 HEIGHT=16 ALIGN=BOTTOM ALT="tex2html_wrap_inline72135" SRC="img2428.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2428.gif"  > represents the set of undirected edges that is obtained
+by removing the arrowheads from the directed edges in <I>G</I>:
+<P> <IMG WIDTH=382 HEIGHT=22 ALIGN=BOTTOM ALT="displaymath72113" SRC="img2429.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2429.gif"  ><P>
+<P>
+<P><A NAME="51208">&#160;</A><A NAME="figgraph10">&#160;</A> <IMG WIDTH=575 HEIGHT=291 ALIGN=BOTTOM ALT="figure51054" SRC="img2430.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2430.gif"  ><BR>
+<STRONG>Figure:</STRONG> An Weakly Connected Directed Graph and the Underlying Undirected Graph<BR>
+<P>
+<P>
+Weak connectedness of a directed graph is defined
+with respect to its underlying, undirected graph:
+<P>
+<BLOCKQUOTE> <b>Definition (Weak Connectedness of a Directed Graph)</b>
+A directed graph  <IMG WIDTH=72 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71355" SRC="img2282.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2282.gif"  > is <em>weakly connected</em><A NAME=51214>&#160;</A><A NAME=51215>&#160;</A>
+if the underlying undirected graph  <IMG WIDTH=12 HEIGHT=16 ALIGN=BOTTOM ALT="tex2html_wrap_inline72145" SRC="img2431.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2431.gif"  > is connected.
+</BLOCKQUOTE>
+<P>
+For example,
+since the undirected graph  <IMG WIDTH=18 HEIGHT=32 ALIGN=MIDDLE ALT="tex2html_wrap_inline72147" SRC="img2432.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2432.gif"  > in Figure&nbsp;<A HREF="page562.html#figgraph10" tppabs="http://www.brpreiss.com/books/opus4/html/page562.html#figgraph10"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> is connected,
+the directed graph  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline72123" SRC="img2425.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2425.gif"  > is <em>weakly connected</em>.
+Consider what happens when we remove the edge (<I>b</I>,<I>e</I>)
+from the directed graph  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline72123" SRC="img2425.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2425.gif"  >.
+The underlying undirected graph that we get is  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline72097" SRC="img2420.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2420.gif"  > in Figure&nbsp;<A HREF="page561.html#figgraph9" tppabs="http://www.brpreiss.com/books/opus4/html/page561.html#figgraph9"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+Therefore,
+when we remove edge (<I>b</I>,<I>e</I>) from  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline72123" SRC="img2425.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2425.gif"  >,
+the graph that remains is neither strongly connected nor weakly connected.
+<P>
+A traversal of a directed graph (either depth-first or breadth-first)
+starting from a given vertex
+will only visit all the vertices of an undirected graph
+if there is a path from the start vertex to every other vertex.
+Therefore,
+a simple way to test whether a directed graph is strongly connected
+uses  <IMG WIDTH=17 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71781" SRC="img2365.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2365.gif"  > traversals--one starting from each vertex in  <IMG WIDTH=10 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline71357" SRC="img2283.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2283.gif"  >.
+Each time the number of vertices visited is counted.
+The graph is strongly connected if all the vertices are visited
+in each traversal.
+<P>
+Program&nbsp;<A HREF="page562.html#proggraph5c" tppabs="http://www.brpreiss.com/books/opus4/html/page562.html#proggraph5c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> shows how this can be implemented.
+It shows the <tt>IsConnected</tt> member function of the <tt>Digraph</tt>
+class which returns the Boolean value <tt>true</tt> if the graph
+is <em>strongly</em> connected.
+<P>
+<P><A NAME="51276">&#160;</A><A NAME="proggraph5c">&#160;</A> <IMG WIDTH=575 HEIGHT=238 ALIGN=BOTTOM ALT="program51227" SRC="img2433.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2433.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>Digraph</tt> Class <tt>IsConnected</tt> Member Function Definition<BR>
+<P>
+<P>
+The routine consists of a loop over all the vertices of the graph.
+Each iteration does a <tt>DepthFirstTraversal</tt> using
+the <tt>CountingVisitor</tt> given in Program&nbsp;<A HREF="page561.html#proggraph4c" tppabs="http://www.brpreiss.com/books/opus4/html/page561.html#proggraph4c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+The running time for one iteration
+is essentially that of the <tt>DepthOrderTraversal</tt>
+since  <IMG WIDTH=120 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline61332" SRC="img715.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img715.gif"  > for the counting visitor.
+Therefore, the worst-case running time for the <tt>IsConnected</tt> routine
+is  <IMG WIDTH=50 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline72167" SRC="img2434.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2434.gif"  > when adjacency matrices are used
+and  <IMG WIDTH=120 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline72169" SRC="img2435.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2435.gif"  >
+when adjacency lists are used to represent the graph.
+<P>
+<HR><A NAME="tex2html8858" HREF="page563.html" tppabs="http://www.brpreiss.com/books/opus4/html/page563.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8856" HREF="page560.html" tppabs="http://www.brpreiss.com/books/opus4/html/page560.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8850" HREF="page561.html" tppabs="http://www.brpreiss.com/books/opus4/html/page561.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8860" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8861" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

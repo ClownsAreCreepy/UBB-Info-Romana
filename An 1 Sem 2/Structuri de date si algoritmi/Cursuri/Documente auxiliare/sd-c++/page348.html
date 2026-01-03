@@ -1,0 +1,85 @@
+<HTML>
+<HEAD>
+<TITLE>Removing Items from a B-Tree</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html6223" HREF="page349.html" tppabs="http://www.brpreiss.com/books/opus4/html/page349.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6221" HREF="page340.html" tppabs="http://www.brpreiss.com/books/opus4/html/page340.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6217" HREF="page347.html" tppabs="http://www.brpreiss.com/books/opus4/html/page347.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6225" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6226" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0011730000000000000000">Removing Items from a B-Tree</A></H2>
+<P>
+The procedure for removing items from a B-tree
+is similar to the algorithm for removing item from an AVL tree.
+I.e., once the item to be removed has be found,
+it is pushed down the tree to a leaf node where it can be easily deleted.
+When an item is deleted from a node
+it is possible that the number of keys remaining
+is less than  <IMG WIDTH=71 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline65656" SRC="img1386.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1386.gif"  >.
+In this case, balancing is necessary.
+<P>
+The procedure of balancing after deletion is like the balancing
+after insertion in that it progresses from the leaf node
+up the tree toward the root.
+Given a node <I>T</I> which has  <IMG WIDTH=71 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline65856" SRC="img1415.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1415.gif"  > keys,
+there are four cases to consider.
+<P>
+In the first case, <I>T</I> is the root.
+If no keys remain, <I>T</I> becomes the empty tree.
+Otherwise, no balancing is needed because the root is permitted to have
+as few as two subtrees and one key.
+For the remaining cases <I>T</I> is not the root.
+<P>
+In the second case <I>T</I> has  <IMG WIDTH=71 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline65856" SRC="img1415.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1415.gif"  > keys
+and it also has a sibling immediately on the left
+with at least  <IMG WIDTH=43 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline65628" SRC="img1383.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1383.gif"  > keys.
+The tree can be balanced by doing
+an LL rotation<A NAME=22728>&#160;</A><A NAME=22729>&#160;</A>
+as shown in Figure&nbsp;<A HREF="page348.html#figbtree4" tppabs="http://www.brpreiss.com/books/opus4/html/page348.html#figbtree4"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+Notice that after the rotation,
+both siblings have at least  <IMG WIDTH=71 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline65656" SRC="img1386.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1386.gif"  > keys.
+Furthermore, the heights of the siblings remain unchanged.
+Therefore, the resulting tree is a valid B-tree.
+<P>
+<P><A NAME="23210">&#160;</A><A NAME="figbtree4">&#160;</A> <IMG WIDTH=575 HEIGHT=368 ALIGN=BOTTOM ALT="figure22731" SRC="img1416.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1416.gif"  ><BR>
+<STRONG>Figure:</STRONG> LL Rotation in a B-Tree<BR>
+<P>
+<P>
+The third case is the left-right mirror of the second case.
+I.e., <I>T</I> has  <IMG WIDTH=71 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline65856" SRC="img1415.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1415.gif"  > keys
+and it also has a sibling immediately on the right
+with a least  <IMG WIDTH=43 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline65628" SRC="img1383.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1383.gif"  > keys.
+In this case, the tree can be balanced by doing an
+RR rotation<A NAME=23213>&#160;</A><A NAME=23214>&#160;</A>.
+<P>
+In the fourth and final case, <I>T</I> has  <IMG WIDTH=71 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline65856" SRC="img1415.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1415.gif"  > keys,
+and its immediate sibling(s) have  <IMG WIDTH=71 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline65656" SRC="img1386.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1386.gif"  > keys.
+In this case, the sibling(s) cannot give-up a key in a rotation
+because they already have the minimum number of keys.
+The solution is to <em>merge</em><A NAME=23216>&#160;</A>
+<I>T</I> with one of its siblings
+as shown in Figure&nbsp;<A HREF="page348.html#figbtree5" tppabs="http://www.brpreiss.com/books/opus4/html/page348.html#figbtree5"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+<P>
+<P><A NAME="23618">&#160;</A><A NAME="figbtree5">&#160;</A> <IMG WIDTH=575 HEIGHT=368 ALIGN=BOTTOM ALT="figure23218" SRC="img1417.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1417.gif"  ><BR>
+<STRONG>Figure:</STRONG> Merging nodes in a B-Tree<BR>
+<P>
+<P>
+The merged node contains  <IMG WIDTH=71 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline65856" SRC="img1415.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1415.gif"  > keys from <I>T</I>,
+ <IMG WIDTH=71 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline65656" SRC="img1386.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1386.gif"  > keys from the sibling,
+and one key from the parent (the key <I>x</I> in Figure&nbsp;<A HREF="page348.html#figbtree5" tppabs="http://www.brpreiss.com/books/opus4/html/page348.html#figbtree5"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>).
+The resulting node contains  <IMG WIDTH=80 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline66046" SRC="img1418.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1418.gif"  > keys altogether,
+which is <I>M</I>-2 if <I>M</I> is even and <I>M</I>-1 if <I>M</I> is odd.
+Either way, the resulting node contains no more than <I>M</I>-1 keys
+and is a valid B-tree node.
+Notice that in this case a key has been removed from the parent of <I>T</I>.
+Therefore, it may be necessary to balance the parent.
+Balancing the parent may necessitate balancing the grandparent,
+and so on, up the tree to the root.
+<P>
+<HR><A NAME="tex2html6223" HREF="page349.html" tppabs="http://www.brpreiss.com/books/opus4/html/page349.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6221" HREF="page340.html" tppabs="http://www.brpreiss.com/books/opus4/html/page340.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6217" HREF="page347.html" tppabs="http://www.brpreiss.com/books/opus4/html/page347.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6225" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6226" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

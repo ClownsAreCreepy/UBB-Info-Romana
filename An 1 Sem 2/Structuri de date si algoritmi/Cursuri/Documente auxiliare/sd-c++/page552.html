@@ -1,0 +1,53 @@
+<HTML>
+<HEAD>
+<TITLE>Implementation</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html8739" HREF="page553.html" tppabs="http://www.brpreiss.com/books/opus4/html/page553.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8737" HREF="page551.html" tppabs="http://www.brpreiss.com/books/opus4/html/page551.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8731" HREF="page551.html" tppabs="http://www.brpreiss.com/books/opus4/html/page551.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8741" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8742" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0017311000000000000000">Implementation</A></H3>
+<P>
+Program&nbsp;<A HREF="page552.html#proggraph1c" tppabs="http://www.brpreiss.com/books/opus4/html/page552.html#proggraph1c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives the code for the two <tt>DepthFirstTraversal</tt>
+routines of the <tt>Graph</tt> class.
+One of them accepts two arguments, the other, three.
+As indicated in Program&nbsp;<A HREF="page539.html#proggraph3h" tppabs="http://www.brpreiss.com/books/opus4/html/page539.html#proggraph3h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+the two-argument routine is declared <tt>public</tt>
+whereas the three-argument one is <tt>protected</tt>.
+<P>
+The user of the <tt>Graph</tt> class only sees the two-argument
+<tt>DepthFirstTraversal</tt> routine.
+This routine takes a reference to a <tt>Visitor</tt> instance
+and a reference to a <tt>Vertex</tt> instance.
+The idea is that the <tt>Visit</tt> function of the visitor
+is called once for each vertex in the graph
+and the vertices are visited in depth-first traversal order
+starting from the specified vertex.
+<P>
+<P><A NAME="50367">&#160;</A><A NAME="proggraph1c">&#160;</A> <IMG WIDTH=575 HEIGHT=544 ALIGN=BOTTOM ALT="program50318" SRC="img2396.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2396.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>Graph</tt> Class <tt>DepthFirstTraversal</tt> Member Function Definition<BR>
+<P>
+<P>
+In order to ensure that each vertex is visited at most once,
+an array of length  <IMG WIDTH=17 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71781" SRC="img2365.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2365.gif"  > of Boolean values
+called <tt>visited</tt> is used (line&nbsp;4).
+I.e.,  <IMG WIDTH=128 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71975" SRC="img2397.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2397.gif"  > only if vertex <I>i</I> has been visited.
+All the array elements are initially <tt>false</tt> (lines&nbsp;5-6).
+After initializing the array,
+the two-argument routine calls the three-argument one,
+passing it a reference to the array as the third argument.
+<P>
+The three-argument routine returns immediately if the visitor is done.
+Otherwise, it visits the specified node,
+and then it follows all the edges emanating from that node
+and recursively visits the adjacent vertices
+<em>if those vertices have not already been visited</em>.
+<P>
+<HR><A NAME="tex2html8739" HREF="page553.html" tppabs="http://www.brpreiss.com/books/opus4/html/page553.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8737" HREF="page551.html" tppabs="http://www.brpreiss.com/books/opus4/html/page551.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8731" HREF="page551.html" tppabs="http://www.brpreiss.com/books/opus4/html/page551.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8741" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8742" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,51 @@
+<HTML>
+<HEAD>
+<TITLE>Sparse vs. Dense Graphs</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html8514" HREF="page535.html" tppabs="http://www.brpreiss.com/books/opus4/html/page535.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8512" HREF="page532.html" tppabs="http://www.brpreiss.com/books/opus4/html/page532.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8506" HREF="page533.html" tppabs="http://www.brpreiss.com/books/opus4/html/page533.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8516" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8517" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0017112000000000000000">Sparse vs. Dense Graphs</A></H3>
+<P>
+Informally, a graph with relatively few edges is <em>sparse</em>,
+and a graph with many edges is <em>dense</em>.
+The following definition defines precisely what we mean
+when we say that a graph ``has relatively few edges'':
+<P>
+<BLOCKQUOTE> <b>Definition (Sparse Graph)</b>
+    A <em>sparse graph</em><A NAME=49387>&#160;</A><A NAME=49388>&#160;</A>
+    is a graph  <IMG WIDTH=72 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71355" SRC="img2282.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2282.gif"  >
+    in which  <IMG WIDTH=82 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71739" SRC="img2360.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2360.gif"  >.
+</BLOCKQUOTE>
+<P>
+For example, consider a graph  <IMG WIDTH=72 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71355" SRC="img2282.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2282.gif"  > with <I>n</I> nodes.
+Suppose that the out-degree of each vertex in <I>G</I> is
+some fixed constant <I>k</I>.
+Graph <I>G</I> is a <em>sparse graph</em> because
+ <IMG WIDTH=132 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71751" SRC="img2361.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2361.gif"  >.
+<P>
+A graph that is not sparse is said to be <em>dense</em>:
+<P>
+<BLOCKQUOTE> <b>Definition (Dense Graph)</b>
+    A <em>dense graph</em><A NAME=49395>&#160;</A><A NAME=49396>&#160;</A>
+    is a graph  <IMG WIDTH=72 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71355" SRC="img2282.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2282.gif"  >
+    in which  <IMG WIDTH=88 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline71755" SRC="img2362.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2362.gif"  >.
+</BLOCKQUOTE>
+<P>
+For example, consider a graph  <IMG WIDTH=72 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71355" SRC="img2282.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2282.gif"  > with <I>n</I> nodes.
+Suppose that the out-degree of each vertex in <I>G</I> is
+some fraction <I>f</I> of <I>n</I>,  <IMG WIDTH=66 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71767" SRC="img2363.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2363.gif"  >.
+E.g., if <I>n</I>=16 and <I>f</I>=0.25,
+the out-degree of each node is 4.
+Graph <I>G</I> is a <em>dense graph</em> because
+ <IMG WIDTH=146 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline71777" SRC="img2364.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2364.gif"  >.
+<P>
+<HR><A NAME="tex2html8514" HREF="page535.html" tppabs="http://www.brpreiss.com/books/opus4/html/page535.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8512" HREF="page532.html" tppabs="http://www.brpreiss.com/books/opus4/html/page532.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8506" HREF="page533.html" tppabs="http://www.brpreiss.com/books/opus4/html/page533.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8516" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8517" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

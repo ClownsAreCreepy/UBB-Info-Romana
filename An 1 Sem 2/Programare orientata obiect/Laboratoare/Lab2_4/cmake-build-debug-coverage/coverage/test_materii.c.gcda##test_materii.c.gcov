@@ -1,0 +1,424 @@
+        -:    0:Source:/mnt/d/C,C++/CLion 2024.3.4/Projects/Lab2_4/test/test_materii.c
+        -:    0:Graph:/mnt/d/C,C++/CLion 2024.3.4/Projects/Lab2_4/cmake-build-debug-coverage/CMakeFiles/Lab2_4.dir/test/test_materii.c.gcno
+        -:    0:Data:/mnt/d/C,C++/CLion 2024.3.4/Projects/Lab2_4/cmake-build-debug-coverage/CMakeFiles/Lab2_4.dir/test/test_materii.c.gcda
+        -:    0:Runs:1
+        -:    1:#include <assert.h>
+        -:    2:#include <string.h>
+        -:    3:
+        -:    4:#include "../service/materie_service.h"
+        -:    5:
+        -:    6:
+function test_validare called 1 returned 100% blocks executed 69%
+        1:    7:void test_validare() {
+        1:    8:    MateriePrima m1 = {"Faina", "Producator1", 50};
+        1:    9:    MateriePrima m2 = {"", "Producator2", 30};
+        1:   10:    MateriePrima m3 = {"Zahar", "", 20};
+        1:   11:    MateriePrima m4 = {"Unt", "Producator3", -5};
+        -:   12:
+       1*:   13:    assert(validare(m1) == 1);
+        1:   13-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:   13-block  1
+call    3 never executed
+       1*:   14:    assert(validare(m2) == 0);
+        1:   14-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:   14-block  1
+call    3 never executed
+       1*:   15:    assert(validare(m3) == 0);
+        1:   15-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:   15-block  1
+call    3 never executed
+       1*:   16:    assert(validare(m4) == 0);
+        1:   16-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:   16-block  1
+call    3 never executed
+        1:   17:}
+        -:   18:
+        -:   19:
+function test_creeare called 1 returned 100% blocks executed 71%
+        1:   20:void test_creeare() {
+        1:   21:    ListaMaterii lista = creeare();
+        1:   21-block  0
+call    0 returned 1
+       1*:   22:    assert(lista.nr_elemente == 0);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   22-block  0
+call    2 never executed
+       1*:   23:    assert(lista.capacitate == 2);
+        1:   23-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   23-block  1
+call    2 never executed
+        1:   24:    eliberare(&lista);
+        1:   24-block  0
+call    0 returned 1
+        1:   25:}
+        -:   26:
+        -:   27:
+function test_redimensionareCrestere called 1 returned 100% blocks executed 80%
+        1:   28:void test_redimensionareCrestere() {
+        1:   29:    ListaMaterii lista = creeare();
+        1:   29-block  0
+call    0 returned 1
+        1:   30:    MateriePrima m = {"Faina", "Producator1", 50};
+        1:   31:    MateriePrima n = {"Carne", "Producator2", 150};
+        1:   32:    MateriePrima p = {"Varza", "Producator3", 900};
+        -:   33:
+        1:   34:    adaugare(&lista, m);
+call    0 returned 1
+        1:   35:    adaugare(&lista, n);
+call    0 returned 1
+       1*:   36:    assert(lista.capacitate == 2);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   36-block  0
+call    2 never executed
+        -:   37:
+        1:   38:    adaugare(&lista, p);
+        1:   38-block  0
+call    0 returned 1
+       1*:   39:    assert(lista.capacitate == 4);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   39-block  0
+call    2 never executed
+        1:   40:    eliberare(&lista);
+        1:   40-block  0
+call    0 returned 1
+        1:   41:}
+        -:   42:
+        -:   43:
+function test_redimensionareScadere called 1 returned 100% blocks executed 88%
+        1:   44:void test_redimensionareScadere() {
+        1:   45:    ListaMaterii lista = creeare();
+        1:   45-block  0
+call    0 returned 1
+        1:   46:    MateriePrima m1={"Faina", "Marcel", 20};
+        1:   47:    MateriePrima m2={"Lalele", "Ciolacu", 300};
+        1:   48:    MateriePrima m3={"Varza", "Vasile", 150};
+        1:   49:    MateriePrima m4={"Oua", "Ciprian", 100};
+        1:   50:    MateriePrima m5={"Carne", "Oana", 240};
+        -:   51:
+        1:   52:    adaugare(&lista, m1);
+call    0 returned 1
+        1:   53:    adaugare(&lista, m2);
+call    0 returned 1
+        1:   54:    adaugare(&lista, m3);
+call    0 returned 1
+        1:   55:    adaugare(&lista, m4);
+call    0 returned 1
+        1:   56:    adaugare(&lista, m5);
+call    0 returned 1
+        -:   57:
+       1*:   58:    assert(lista.capacitate == 8);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   58-block  0
+call    2 never executed
+        -:   59:
+        1:   60:    stergere(&lista, 0);
+        1:   60-block  0
+call    0 returned 1
+        1:   61:    stergere(&lista, 1);
+call    0 returned 1
+        1:   62:    stergere(&lista, 2);
+call    0 returned 1
+        1:   63:    stergere(&lista, 3);
+call    0 returned 1
+        -:   64:
+       1*:   65:    assert(lista.capacitate == 4);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   65-block  0
+call    2 never executed
+        -:   66:
+        1:   67:    eliberare(&lista);
+        1:   67-block  0
+call    0 returned 1
+        1:   68:}
+        -:   69:
+        -:   70:
+function test_adaugare called 1 returned 100% blocks executed 71%
+        1:   71:void test_adaugare() {
+        1:   72:    ListaMaterii lista = creeare();
+        1:   72-block  0
+call    0 returned 1
+        1:   73:    MateriePrima m = {"Faina", "Producator1", 50};
+        1:   74:    adaugare_validata(&lista, m);
+call    0 returned 1
+       1*:   75:    assert(lista.nr_elemente == 1);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   75-block  0
+call    2 never executed
+        -:   76:
+        1:   77:    MateriePrima m2 = {"Faina", "Producator2", 150};
+        1:   78:    adaugare_validata(&lista, m2);
+        1:   78-block  0
+call    0 returned 1
+       1*:   79:    assert(lista.nr_elemente == 1);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   79-block  0
+call    2 never executed
+       1*:   80:    assert(lista.materii[0].cantitate == 200);
+        1:   80-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   80-block  1
+call    2 never executed
+        -:   81:
+        1:   82:    MateriePrima m3 = {"", "Producator1", 20};
+        1:   83:    adaugare_validata(&lista, m3);
+        1:   83-block  0
+call    0 returned 1
+       1*:   84:    assert(lista.nr_elemente == 1);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   84-block  0
+call    2 never executed
+        -:   85:
+        1:   86:    eliberare(&lista);
+        1:   86-block  0
+call    0 returned 1
+        1:   87:}
+        -:   88:
+        -:   89:
+function test_modificare called 1 returned 100% blocks executed 80%
+        1:   90:void test_modificare() {
+        1:   91:    ListaMaterii lista = creeare();
+        1:   91-block  0
+call    0 returned 1
+        1:   92:    MateriePrima m1 = {"Faina", "Producator1", 50};
+        1:   93:    MateriePrima m2 = {"Faina", "Producator2", 100};
+        1:   94:    adaugare_validata(&lista, m1);
+call    0 returned 1
+        1:   95:    modificare_validata(&lista, 0, m2);
+call    0 returned 1
+       1*:   96:    assert(lista.materii[0].cantitate == 100);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   96-block  0
+call    2 never executed
+        -:   97:
+        1:   98:    MateriePrima m3 = {"Zahar", "", 20};
+        1:   99:    modificare_validata(&lista,0, m3);
+        1:   99-block  0
+call    0 returned 1
+       1*:  100:    assert(lista.materii[0].cantitate == 100);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  100-block  0
+call    2 never executed
+        -:  101:
+        1:  102:    eliberare(&lista);
+        1:  102-block  0
+call    0 returned 1
+        1:  103:}
+        -:  104:
+        -:  105:
+function test_stergere called 1 returned 100% blocks executed 77%
+        1:  106:void test_stergere() {
+        1:  107:    ListaMaterii lista = creeare();
+        1:  107-block  0
+call    0 returned 1
+        1:  108:    MateriePrima m1 = {"Faina", "Producator1", 50};
+        1:  109:    MateriePrima m2 = {"Zahar", "Producator2", 30};
+        1:  110:    adaugare_validata(&lista, m1);
+call    0 returned 1
+        1:  111:    adaugare_validata(&lista, m2);
+call    0 returned 1
+        -:  112:
+        1:  113:    stergere_validata(&lista, 0);
+call    0 returned 1
+       1*:  114:    assert(lista.nr_elemente == 1);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  114-block  0
+call    2 never executed
+       1*:  115:    assert(strcmp(lista.materii[0].nume, "Zahar") == 0);
+        1:  115-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  115-block  1
+call    2 never executed
+        -:  116:
+        1:  117:    stergere_validata(&lista,20);
+        1:  117-block  0
+call    0 returned 1
+       1*:  118:    assert(lista.nr_elemente == 1);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  118-block  0
+call    2 never executed
+        -:  119:
+        1:  120:    eliberare(&lista);
+        1:  120-block  0
+call    0 returned 1
+        1:  121:}
+        -:  122:
+        -:  123:
+function test_filtrare_dupa_nume called 1 returned 100% blocks executed 82%
+        1:  124:void test_filtrare_dupa_nume() {
+        1:  125:    ListaMaterii lista = creeare();
+        1:  125-block  0
+call    0 returned 1
+        1:  126:    adaugare_validata(&lista, (MateriePrima){"Faina", "Producator1", 50});
+call    0 returned 1
+        1:  127:    adaugare_validata(&lista, (MateriePrima){"Zahar", "Producator2", 30});
+call    0 returned 1
+        1:  128:    ListaMaterii filtrata = filtrare_dupa_nume(lista, 'F');
+call    0 returned 1
+       1*:  129:    assert(filtrata.nr_elemente == 1);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  129-block  0
+call    2 never executed
+       1*:  130:    assert(strcmp(filtrata.materii[0].nume, "Faina") == 0);
+        1:  130-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  130-block  1
+call    2 never executed
+        -:  131:
+        1:  132:    eliberare(&lista);
+        1:  132-block  0
+call    0 returned 1
+        1:  133:    eliberare(&filtrata);
+call    0 returned 1
+        1:  134:}
+        -:  135:
+        -:  136:
+function test_filtrare_dupa_cantitate called 1 returned 100% blocks executed 82%
+        1:  137:void test_filtrare_dupa_cantitate() {
+        1:  138:    ListaMaterii lista = creeare();
+        1:  138-block  0
+call    0 returned 1
+        1:  139:    adaugare_validata(&lista, (MateriePrima){"Faina", "Producator1", 50});
+call    0 returned 1
+        1:  140:    adaugare_validata(&lista, (MateriePrima){"Zahar", "Producator2", 30});
+call    0 returned 1
+        1:  141:    ListaMaterii filtrata = filtrare_dupa_cantitate(lista, 40);
+call    0 returned 1
+       1*:  142:    assert(filtrata.nr_elemente == 1);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  142-block  0
+call    2 never executed
+       1*:  143:    assert(filtrata.materii[0].cantitate == 30);
+        1:  143-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  143-block  1
+call    2 never executed
+        -:  144:
+        1:  145:    eliberare(&lista);
+        1:  145-block  0
+call    0 returned 1
+        1:  146:    eliberare(&filtrata);
+call    0 returned 1
+        1:  147:}
+        -:  148:
+        -:  149:
+function test_cmpDupaNume called 1 returned 100% blocks executed 75%
+        1:  150:void test_cmpDupaNume() {
+        1:  151:    MateriePrima m = {"Faina", "Producator1", 50};
+        1:  152:    MateriePrima n = {"Carne", "Producator2", 150};
+        -:  153:
+       1*:  154:    assert(cmpDupaNume(m,n)>0);
+        1:  154-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  154-block  1
+call    3 never executed
+        1:  155:}
+        -:  156:
+function test_cmpDupaCantitate called 1 returned 100% blocks executed 75%
+        1:  157:void test_cmpDupaCantitate() {
+        1:  158:    MateriePrima m = {"Faina", "Producator1", 50};
+        1:  159:    MateriePrima n = {"Carne", "Producator2", 150};
+        -:  160:
+       1*:  161:    assert(cmpDupaCantitate(m,n)<0);
+        1:  161-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  161-block  1
+call    3 never executed
+        1:  162:}
+        -:  163:
+        -:  164:
+function test_sortare called 1 returned 100% blocks executed 82%
+        1:  165:void test_sortare() {
+        1:  166:    ListaMaterii lista = creeare();
+        1:  166-block  0
+call    0 returned 1
+        1:  167:    adaugare_validata(&lista, (MateriePrima){"Zahar", "Producator2", 30});
+call    0 returned 1
+        1:  168:    adaugare_validata(&lista, (MateriePrima){"Faina", "Producator1", 50});
+call    0 returned 1
+        -:  169:
+        1:  170:    sortare(&lista, cmpDupaNume);
+call    0 returned 1
+       1*:  171:    assert(strcmp(lista.materii[0].nume, "Faina") == 0);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  171-block  0
+call    2 never executed
+        -:  172:
+        1:  173:    sortare(&lista, cmpDupaCantitate);
+        1:  173-block  0
+call    0 returned 1
+       1*:  174:    assert(lista.materii[0].cantitate == 30);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  174-block  0
+call    2 never executed
+        -:  175:
+        1:  176:    eliberare(&lista);
+        1:  176-block  0
+call    0 returned 1
+        1:  177:}
+        -:  178:
+function run_tests called 1 returned 100% blocks executed 100%
+        1:  179:void run_tests() {
+        1:  180:    test_validare();
+        1:  180-block  0
+call    0 returned 1
+        1:  181:    test_creeare();
+call    0 returned 1
+        1:  182:    test_redimensionareCrestere();
+call    0 returned 1
+        1:  183:    test_redimensionareScadere();
+call    0 returned 1
+        1:  184:    test_adaugare();
+call    0 returned 1
+        1:  185:    test_modificare();
+call    0 returned 1
+        1:  186:    test_stergere();
+call    0 returned 1
+        1:  187:    test_filtrare_dupa_nume();
+call    0 returned 1
+        1:  188:    test_filtrare_dupa_cantitate();
+call    0 returned 1
+        1:  189:    test_cmpDupaNume();
+call    0 returned 1
+        1:  190:    test_cmpDupaCantitate();
+call    0 returned 1
+        1:  191:    test_sortare();
+call    0 returned 1
+        1:  192:}

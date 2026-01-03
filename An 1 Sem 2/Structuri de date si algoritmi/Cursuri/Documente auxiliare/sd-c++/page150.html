@@ -1,0 +1,50 @@
+<HTML>
+<HEAD>
+<TITLE>Constructor and Destructor</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html3766" HREF="page151.html" tppabs="http://www.brpreiss.com/books/opus4/html/page151.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3764" HREF="page148.html" tppabs="http://www.brpreiss.com/books/opus4/html/page148.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3758" HREF="page149.html" tppabs="http://www.brpreiss.com/books/opus4/html/page149.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3768" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3769" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION007212000000000000000">Constructor and Destructor</A></H3>
+<P>
+The definitions of the <tt>QueueAsArray</tt> class constructor
+and destructor are given in Program&nbsp;<A HREF="page150.html#progqueue1c" tppabs="http://www.brpreiss.com/books/opus4/html/page150.html#progqueue1c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+The constructor takes a single parameter, <tt>size</tt>,
+which specifies the maximum number of items that can be stored in the queue.
+The constructor initializes the member variables as follows:
+The variable <tt>array</tt> is initialized to an array of length <tt>size</tt>
+and the remaining variables, <tt>head</tt> and <tt>tail</tt>,
+are initialized to represent the empty queue.
+Therefore, the total running time for the <tt>QueueAsArray</tt>
+constructor is <I>O</I>(1).
+<P>
+<P><A NAME="7430">&#160;</A><A NAME="progqueue1c">&#160;</A> <IMG WIDTH=575 HEIGHT=432 ALIGN=BOTTOM ALT="program7244" SRC="img743.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img743.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>QueueAsArray</tt> Class Constructor, Destructor 	and <tt>Purge</tt> Member Function Definitions<BR>
+<P>
+<P>
+The <tt>QueueAsArray</tt> destructor
+simply calls the <tt>Purge</tt> member function.
+The <tt>Purge</tt> function is responsible for
+deleting the contained objects if the queue (as a container)
+is the owner of those objects.
+If the queue owns the contained objects,
+the <tt>Purge</tt> function deletes them all one-by-one,
+starting from at the head and moving toward the tail.
+Because we cannot know the types of the objects contained,
+we cannot know the running time required to delete each of them.
+However, if we assume that the destructors for all the objects
+each run in constant time,
+the total running time for the <tt>QueueAsArray</tt> class
+<tt>Purge</tt> function is <I>O</I>(<I>n</I>),
+where  <IMG WIDTH=72 HEIGHT=9 ALIGN=BOTTOM ALT="tex2html_wrap_inline61308" SRC="img709.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img709.gif"  >,
+i.e., <I>n</I> is the number of items in the queue.
+<P>
+<HR><A NAME="tex2html3766" HREF="page151.html" tppabs="http://www.brpreiss.com/books/opus4/html/page151.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3764" HREF="page148.html" tppabs="http://www.brpreiss.com/books/opus4/html/page148.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3758" HREF="page149.html" tppabs="http://www.brpreiss.com/books/opus4/html/page149.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3768" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3769" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

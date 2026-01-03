@@ -1,0 +1,66 @@
+<HTML>
+<HEAD>
+<TITLE>Push, Pop, and Top Member Functions</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html3581" HREF="page136.html" tppabs="http://www.brpreiss.com/books/opus4/html/page136.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3579" HREF="page132.html" tppabs="http://www.brpreiss.com/books/opus4/html/page132.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3573" HREF="page134.html" tppabs="http://www.brpreiss.com/books/opus4/html/page134.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3583" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3584" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION007113000000000000000"><tt>Push</tt>, <tt>Pop</tt>, and <tt>Top</tt> Member Functions</A></H3>
+<P>
+Program&nbsp;<A HREF="page135.html#progstack2c" tppabs="http://www.brpreiss.com/books/opus4/html/page135.html#progstack2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> defines the
+<tt>Push</tt>, <tt>Pop</tt>, and <tt>Top</tt>,
+member functions of the <tt>StackAsArray</tt> class.
+The first of these, <tt>Push</tt>,
+adds an element to the stack.
+It takes as its lone argument a reference to the <tt>Object</tt>
+to be pushed onto the stack.
+<P>
+<P><A NAME="6282">&#160;</A><A NAME="progstack2c">&#160;</A> <IMG WIDTH=575 HEIGHT=391 ALIGN=BOTTOM ALT="program5873" SRC="img710.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img710.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>StackAsArray</tt> Class <tt>Push</tt>, <tt>Pop</tt>,     and <tt>Top</tt> Member Function Definitions<BR>
+<P>
+<P>
+The <tt>Push</tt> function first checks to see
+if there is room left in the stack.
+If no room is left, it throws a <tt>domainerror</tt> exception.
+Otherwise, it simply puts a pointer to the object into the array,
+and then increases the <tt>count</tt> variable by one.
+In a correctly functioning program,
+stack overflow should not occur.
+If we assume that overflow does not occur,
+the running time of the <tt>Push</tt> function is clearly <I>O</I>(1).
+<P>
+The <tt>Pop</tt> function removes an item from the stack
+and returns a reference to that item.
+If the stack is the owner of its contained objects,
+then when an item is removed from the stack,
+that item ceases to be owned by the stack.
+Consequently, the <tt>Pop</tt> function never invokes <tt>operator delete</tt>.
+The <tt>Pop</tt> function first checks if the stack is empty.
+If the stack is empty, it throws a <tt>domainerror</tt> exception.
+Otherwise, it simply decreases <tt>count</tt> by one
+and returns a reference to the item found at the top of the stack.
+In a correctly functioning program,
+stack underflow will not occur normally.
+The running time of the <tt>Pop</tt> function is <I>O</I>(1).
+<P>
+Finally, the <tt>Top</tt> function is a stack accessor
+which returns a <tt>const</tt> reference to the top item in the stack.
+The <tt>Top</tt> function is a <tt>const</tt> member function
+since it does not modify the stack.
+In particular, it does <em>not</em> remove the top item from the stack.
+The <tt>Top</tt> function first checks if the stack is empty.
+If the stack is empty, it throws a <tt>domainerror</tt> exception.
+Otherwise, it returns a reference to the top item,
+which is found at position  <IMG WIDTH=68 HEIGHT=20 ALIGN=MIDDLE ALT="tex2html_wrap_inline61316" SRC="img711.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img711.gif"  > in the array.
+Assuming stack underflow does not occur normally,
+the running time of the <tt>Top</tt> function is <I>O</I>(1).
+<P>
+<HR><A NAME="tex2html3581" HREF="page136.html" tppabs="http://www.brpreiss.com/books/opus4/html/page136.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3579" HREF="page132.html" tppabs="http://www.brpreiss.com/books/opus4/html/page132.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3573" HREF="page134.html" tppabs="http://www.brpreiss.com/books/opus4/html/page134.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3583" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3584" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,41 @@
+<HTML>
+<HEAD>
+<TITLE>Positions of Items in a List</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html4051" HREF="page174.html" tppabs="http://www.brpreiss.com/books/opus4/html/page174.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4049" HREF="page168.html" tppabs="http://www.brpreiss.com/books/opus4/html/page168.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4043" HREF="page172.html" tppabs="http://www.brpreiss.com/books/opus4/html/page172.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4053" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4054" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION008115000000000000000">Positions of Items in a List</A></H3>
+<P>
+As shown in Program&nbsp;<A HREF="page167.html#proglist1h" tppabs="http://www.brpreiss.com/books/opus4/html/page167.html#proglist1h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+the abstract class <tt>Position</tt> is
+derived from the class <tt>Iterator</tt>.
+Recall from Chapter&nbsp;<A HREF="page107.html#chapadts" tppabs="http://www.brpreiss.com/books/opus4/html/page107.html#chapadts"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> that an iterator
+is used to systematically visit one-by-one
+all of the items in a container.
+An essential characteristic of an iterator is that at any instant,
+it <em>refers</em> to exactly one item in the container.
+To refer to an item in the container,
+it must keep track of the position of the item.
+Therefore, we may view an iterator as a kind of abstract position
+in an ordered list.
+<P>
+Program&nbsp;<A HREF="page173.html#proglist3h" tppabs="http://www.brpreiss.com/books/opus4/html/page173.html#proglist3h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives the declaration of the
+<tt>ListAsArray::Pos</tt> class which is a <tt>Position</tt>
+(and therefore an <tt>Iterator</tt>)
+associated with the <tt>ListAsArray</tt> ordered list class.
+<tt>ListAsArray::Pos</tt> objects contain two member variables--<tt>list</tt> and <tt>offset</tt>.
+The former is a reference to an ordered list;
+the latter records an offset in the corresponding array.
+<P>
+<P><A NAME="9611">&#160;</A><A NAME="proglist3h">&#160;</A> <IMG WIDTH=575 HEIGHT=200 ALIGN=BOTTOM ALT="program9527" SRC="img794.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img794.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>ListAsArray::Pos</tt> Class Definition<BR>
+<P><HR><A NAME="tex2html4051" HREF="page174.html" tppabs="http://www.brpreiss.com/books/opus4/html/page174.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4049" HREF="page168.html" tppabs="http://www.brpreiss.com/books/opus4/html/page168.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4043" HREF="page172.html" tppabs="http://www.brpreiss.com/books/opus4/html/page172.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4053" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4054" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

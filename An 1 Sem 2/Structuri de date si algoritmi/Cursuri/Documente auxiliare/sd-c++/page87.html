@@ -1,0 +1,44 @@
+<HTML>
+<HEAD>
+<TITLE>Resizing an Array</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html2975" HREF="page88.html" tppabs="http://www.brpreiss.com/books/opus4/html/page88.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2973" HREF="page80.html" tppabs="http://www.brpreiss.com/books/opus4/html/page80.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2969" HREF="page86.html" tppabs="http://www.brpreiss.com/books/opus4/html/page86.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2977" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2978" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION005170000000000000000">Resizing an Array</A></H2>
+<A NAME="secfdsresize">&#160;</A>
+<P>
+The definitions the <tt>SetBase</tt> and <tt>SetLength</tt> member functions
+of the <tt>Array&lt;T&gt;</tt> class are given in Program&nbsp;<A HREF="page87.html#progarray7c" tppabs="http://www.brpreiss.com/books/opus4/html/page87.html#progarray7c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+The <tt>SetBase</tt> function simply modifies the <tt>base</tt> field as required.
+The <tt>SetLength</tt> function provides a means
+to change the size of an array at run time.
+This function can be used both to increase and to decrease
+the size of an array.
+<P>
+<P><A NAME="2884">&#160;</A><A NAME="progarray7c">&#160;</A> <IMG WIDTH=575 HEIGHT=313 ALIGN=BOTTOM ALT="program2812" SRC="img607.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img607.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>Array&lt;T&gt;</tt> Class <tt>SetBase</tt> and <tt>SetLength</tt>      Member Function Definitions<BR>
+<P>
+<P>
+The running time of this algorithm depends on two parameters.
+If <I>n</I> is the original size of the array
+and <I>m</I> is the new size of the array,
+then the running time of <tt>Resize</tt> is
+ <IMG WIDTH=478 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline60993" SRC="img608.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img608.gif"  >.
+This is because the program first allocates and initializes
+a new array of size <I>m</I>;
+then it copies at most  <IMG WIDTH=69 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60997" SRC="img609.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img609.gif"  > elements from the old array
+to the new array;
+and then it deletes the old array.
+And in the case where <tt>T</tt> is a built-in C++ data type,
+this simplifies to  <IMG WIDTH=288 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline60999" SRC="img610.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img610.gif"  >.
+<P>
+<HR><A NAME="tex2html2975" HREF="page88.html" tppabs="http://www.brpreiss.com/books/opus4/html/page88.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2973" HREF="page80.html" tppabs="http://www.brpreiss.com/books/opus4/html/page80.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2969" HREF="page86.html" tppabs="http://www.brpreiss.com/books/opus4/html/page86.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2977" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2978" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

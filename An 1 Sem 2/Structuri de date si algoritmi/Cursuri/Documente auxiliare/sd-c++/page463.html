@@ -1,0 +1,53 @@
+<HTML>
+<HEAD>
+<TITLE>Summary</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html7642" HREF="page464.html" tppabs="http://www.brpreiss.com/books/opus4/html/page464.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7640" HREF="page459.html" tppabs="http://www.brpreiss.com/books/opus4/html/page459.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7636" HREF="page462.html" tppabs="http://www.brpreiss.com/books/opus4/html/page462.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7644" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7645" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H4><A NAME="SECTION0015340400000000000000">Summary</A></H4>
+<P>
+For many divide-and-conquer algorithms
+the running time is given by the general recurrence
+shown in Equation&nbsp;<A HREF="page459.html#eqnalgsdandq" tppabs="http://www.brpreiss.com/books/opus4/html/page459.html#eqnalgsdandq"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+Solutions to the recurrence depend on the relative
+values of the constants <I>a</I>, <I>b</I> and <I>k</I>.
+Specifically, the solutions satisfy the following bounds:
+<P><A NAME="eqnalgsdandqsoln">&#160;</A> <IMG WIDTH=500 HEIGHT=66 ALIGN=BOTTOM ALT="equation33113" SRC="img1914.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1914.gif"  ><P>
+<P>
+Table&nbsp;<A HREF="page463.html#tblalgstimes2" tppabs="http://www.brpreiss.com/books/opus4/html/page463.html#tblalgstimes2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> how to apply Equation&nbsp;<A HREF="page463.html#eqnalgsdandqsoln" tppabs="http://www.brpreiss.com/books/opus4/html/page463.html#eqnalgsdandqsoln"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+to find the running times of the divide-and-conquer algorithms
+described in the preceding sections.
+Comparing the solutions in Table&nbsp;<A HREF="page463.html#tblalgstimes2" tppabs="http://www.brpreiss.com/books/opus4/html/page463.html#tblalgstimes2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> with those
+given in Table&nbsp;<A HREF="page459.html#tblalgstimes" tppabs="http://www.brpreiss.com/books/opus4/html/page459.html#tblalgstimes"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> shows the results obtained using
+the general formula agree with the analyses done in the preceding sections.
+<P>
+<P><A NAME="33645">&#160;</A>
+<P>
+    <A NAME="tblalgstimes2">&#160;</A>
+    <DIV ALIGN=CENTER><P ALIGN=CENTER><TABLE COLS=7 BORDER FRAME=HSIDES RULES=GROUPS>
+<COL ALIGN=LEFT><COL ALIGN=LEFT><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=LEFT>
+<TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP>
+	    program </TD><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> recurrence
+		</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>a</I> </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>b</I> </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>k</I> </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> case </TD><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> solution </TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP>Program&nbsp;<A HREF="page456.html#progalgs1c" tppabs="http://www.brpreiss.com/books/opus4/html/page456.html#progalgs1c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> </TD><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> <I>T</I>(<I>n</I>)=<I>T</I>(<I>n</I>/2)+<I>O</I>(1)
+		</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 1 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 2 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 0 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=42 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline68839" SRC="img1908.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1908.gif"  > </TD><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP>  <IMG WIDTH=83 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline68869" SRC="img1915.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1915.gif"  > </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> 
+	    Program&nbsp;<A HREF="page457.html#progalgs2c" tppabs="http://www.brpreiss.com/books/opus4/html/page457.html#progalgs2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> </TD><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> <I>T</I>(<I>n</I>)=2<I>T</I>(<I>n</I>/2)+<I>O</I>(1)
+		</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 2 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 2 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 0 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=42 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline68825" SRC="img1902.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1902.gif"  > </TD><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP>  <IMG WIDTH=64 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline68875" SRC="img1916.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1916.gif"  > </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> 
+	    Program&nbsp;<A HREF="page458.html#progalgs3c" tppabs="http://www.brpreiss.com/books/opus4/html/page458.html#progalgs3c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> </TD><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> <I>T</I>(<I>n</I>)=2<I>T</I>(<I>n</I>/2)+<I>O</I>(<I>n</I>)
+		</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 2 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 2 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 1 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=42 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline68839" SRC="img1908.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1908.gif"  > </TD><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP>  <IMG WIDTH=83 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline68881" SRC="img1917.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1917.gif"  > </TD></TR>
+</TBODY>
+<CAPTION ALIGN=BOTTOM><STRONG>Table:</STRONG> Computing Running Times using Equation&nbsp;<A HREF="page463.html#eqnalgsdandqsoln" tppabs="http://www.brpreiss.com/books/opus4/html/page463.html#eqnalgsdandqsoln"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A></CAPTION></TABLE>
+</P></DIV><P><HR><A NAME="tex2html7642" HREF="page464.html" tppabs="http://www.brpreiss.com/books/opus4/html/page464.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7640" HREF="page459.html" tppabs="http://www.brpreiss.com/books/opus4/html/page459.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7636" HREF="page462.html" tppabs="http://www.brpreiss.com/books/opus4/html/page462.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7644" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7645" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

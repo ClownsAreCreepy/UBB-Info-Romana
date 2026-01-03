@@ -1,0 +1,13 @@
+Cerinte site:
+
+1. Find all the usernames that logged in from "economica" on a Sunday
+
+2. Find all the users that logged into the system after 11 PM
+
+3. Display the full names of the users having a username that starts with "m" and with a user ID divisible by 7
+
+4. Display all the distinct TTYs used by user root
+
+5. Find the full names of all the users whose username ends in 88
+
+6. Find all the users whose user ID has three digits and starts with 23

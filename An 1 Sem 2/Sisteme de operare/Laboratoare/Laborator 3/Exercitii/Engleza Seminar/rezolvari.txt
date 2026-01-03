@@ -1,0 +1,11 @@
+1. grep -E '^$'
+
+2. grep -Ei "^([^:]*:){4}([^aeiou]*[aeiou][^aeiou]*){22,}(:[^:]*){2}$" passwd.fake
+
+3. sed -E 's/^(([^:]*:){4})([^:]*)((:[^:]*){2})$/\3/' passwd.fake
+
+4. sed -Ei 's/([a-z])([a-z])/\2\1/g' files/lowercase.txt
+
+5. sed -E 's/((a)(b))|((b)(a))/\3\2\6\5/g' files/abba.txt
+
+6. sed -E 's/^[^a-z,]*([a-z]{2})[^,]*,(.*)$/\1@\2.com/' files/email.txt

@@ -1,0 +1,38 @@
+<HTML>
+<HEAD>
+<TITLE>Worst-Case Running Time</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html4820" HREF="page236.html" tppabs="http://www.brpreiss.com/books/opus4/html/page236.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4818" HREF="page230.html" tppabs="http://www.brpreiss.com/books/opus4/html/page230.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4814" HREF="page234.html" tppabs="http://www.brpreiss.com/books/opus4/html/page234.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4822" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4823" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION009515000000000000000">Worst-Case Running Time</A></H3>
+<P>
+Computing a tight bound on the worst-case running time of
+Program&nbsp;<A HREF="page234.html#proghashtbl7c" tppabs="http://www.brpreiss.com/books/opus4/html/page234.html#proghashtbl7c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> is tricky.
+Assuming the item to be removed is actually in the table,
+then the time required to find the item (lines&nbsp;3-9) is
+<P> <IMG WIDTH=382 HEIGHT=17 ALIGN=BOTTOM ALT="displaymath62950" SRC="img1009.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1009.gif"  ><P>
+in the worst case.
+<P>
+The worst-case running time of the main loop occurs
+when the table is full, there is only one chain,
+and no items can be safely moved up in the chain.
+In this case, the running time of the main loop (lines&nbsp;10-32) is
+<P> <IMG WIDTH=375 HEIGHT=38 ALIGN=BOTTOM ALT="displaymath62951" SRC="img1010.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1010.gif"  ><P>
+Finally, the worst case running time of the last loop (lines&nbsp;35-43) is <I>O</I>(<I>M</I>).
+<P>
+Therefore, the worst-case running time of the <tt>Withdraw</tt> function
+for chained scatter tables is
+<P> <IMG WIDTH=452 HEIGHT=38 ALIGN=BOTTOM ALT="displaymath62952" SRC="img1011.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1011.gif"  ><P>
+Clearly we don't want to be removing items
+from a chained scatter table very often!
+<P>
+<HR><A NAME="tex2html4820" HREF="page236.html" tppabs="http://www.brpreiss.com/books/opus4/html/page236.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4818" HREF="page230.html" tppabs="http://www.brpreiss.com/books/opus4/html/page230.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4814" HREF="page234.html" tppabs="http://www.brpreiss.com/books/opus4/html/page234.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4822" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4823" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

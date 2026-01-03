@@ -1,0 +1,46 @@
+<HTML>
+<HEAD>
+<TITLE>Copy Constructor and Assignment Operator</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html3106" HREF="page98.html" tppabs="http://www.brpreiss.com/books/opus4/html/page98.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3104" HREF="page88.html" tppabs="http://www.brpreiss.com/books/opus4/html/page88.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3098" HREF="page96.html" tppabs="http://www.brpreiss.com/books/opus4/html/page96.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3108" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3109" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION005290000000000000000">Copy Constructor and Assignment Operator</A></H2>
+<P>
+The code for the copy constructor and assignment operator (<tt>operator=</tt>)
+of the <tt>LinkedList&lt;T&gt;</tt> class is given in Program&nbsp;<A HREF="page97.html#proglinklist7c" tppabs="http://www.brpreiss.com/books/opus4/html/page97.html#proglinklist7c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+These functions are similar in that they both build a copy of a given list.
+The copy constructor first initializes
+the member variables to represent the empty list.
+Then, it traverses the referenced list one-by-one,
+calling the <tt>Append</tt> function to append the items
+of the referenced list to the list begin constructed.
+<P>
+<P><A NAME="3843">&#160;</A><A NAME="proglinklist7c">&#160;</A> <IMG WIDTH=575 HEIGHT=447 ALIGN=BOTTOM ALT="program3683" SRC="img628.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img628.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>LinkedList&lt;T&gt;</tt> Class Copy Constructor Definition<BR>
+<P>
+<P>
+In Section&nbsp;<A HREF="page96.html#secfdsappend" tppabs="http://www.brpreiss.com/books/opus4/html/page96.html#secfdsappend"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> the running time for the <tt>Append</tt>
+function was determined to be  <IMG WIDTH=124 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline61025" SRC="img621.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img621.gif"  >.
+If the resulting list has <I>n</I> elements,
+the <tt>Append</tt> function will be called <I>n</I> times.
+Therefore, the running time of the copy constructor is  <IMG WIDTH=190 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline61053" SRC="img629.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img629.gif"  >.
+If <tt>T</tt> is one of the built-in types,  <IMG WIDTH=126 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline60973" SRC="img601.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img601.gif"  >.
+As a result, the running time of the copy constructor would be <I>T</I>(<I>n</I>)=<I>O</I>(<I>n</I>).
+<P>
+The assignment operator first calls <tt>Purge</tt> to make sure
+that the list to which new contents are being assigned is empty.
+It then builds a copy of the given list
+in the same way as discussed above for the copy constructor.
+The running time is equal to that of the <tt>Purge</tt> function
+plus that of the copy constructor.
+<P>
+<HR><A NAME="tex2html3106" HREF="page98.html" tppabs="http://www.brpreiss.com/books/opus4/html/page98.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3104" HREF="page88.html" tppabs="http://www.brpreiss.com/books/opus4/html/page88.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3098" HREF="page96.html" tppabs="http://www.brpreiss.com/books/opus4/html/page96.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3108" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3109" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

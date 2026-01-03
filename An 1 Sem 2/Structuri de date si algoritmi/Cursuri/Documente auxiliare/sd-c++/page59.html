@@ -1,0 +1,59 @@
+<HTML>
+<HEAD>
+<TITLE>Big Oh Fallacies and Pitfalls</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html2629" HREF="page60.html" tppabs="http://www.brpreiss.com/books/opus4/html/page60.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2627" HREF="page57.html" tppabs="http://www.brpreiss.com/books/opus4/html/page57.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2621" HREF="page58.html" tppabs="http://www.brpreiss.com/books/opus4/html/page58.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2631" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2632" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION004120000000000000000">Big Oh Fallacies and Pitfalls</A></H2>
+<P>
+Unfortunately, the way we write big oh notation
+can be misleading to the na&#305;ve reader.
+This section presents two fallacies which arise
+because of a misinterpretation of the notation.
+<P>
+<BLOCKQUOTE> <b>Fallacy</b><A NAME="fallacyi">&#160;</A>
+Given that  <IMG WIDTH=111 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59165" SRC="img254.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img254.gif"  > and  <IMG WIDTH=111 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59167" SRC="img255.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img255.gif"  >,
+then  <IMG WIDTH=93 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59169" SRC="img256.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img256.gif"  >.
+</BLOCKQUOTE>
+<P>
+Consider the equations:
+<P> <IMG WIDTH=500 HEIGHT=41 ALIGN=BOTTOM ALT="eqnarray1375" SRC="img257.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img257.gif"  ><P>
+Clearly, it is reasonable to conclude that  <IMG WIDTH=93 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59169" SRC="img256.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img256.gif"  >.
+<P>
+However, consider these equations:
+<P> <IMG WIDTH=500 HEIGHT=41 ALIGN=BOTTOM ALT="eqnarray1377" SRC="img258.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img258.gif"  ><P>
+It <em>does not</em> follow that  <IMG WIDTH=93 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59169" SRC="img256.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img256.gif"  >.
+E.g.,  <IMG WIDTH=66 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59175" SRC="img259.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img259.gif"  > and  <IMG WIDTH=72 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59177" SRC="img260.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img260.gif"  > are both  <IMG WIDTH=40 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59179" SRC="img261.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img261.gif"  >, but they are not equal.
+<P>
+<BLOCKQUOTE> <b>Fallacy</b><A NAME="fallacyii">&#160;</A>
+If <I>f</I>(<I>n</I>)=<I>O</I>(<I>g</I>(<I>n</I>)),
+then  <IMG WIDTH=123 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59183" SRC="img262.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img262.gif"  >.
+</BLOCKQUOTE>
+<P>
+Consider functions <I>f</I>, <I>g</I>, and <I>h</I>, such that <I>f</I>(<I>n</I>)=<I>h</I>(<I>g</I>(<I>n</I>)).
+It is reasonable to conclude that  <IMG WIDTH=120 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59193" SRC="img263.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img263.gif"  >
+provided that  <IMG WIDTH=24 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59195" SRC="img264.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img264.gif"  > is an invertible function.
+However, while we may write <I>f</I>(<I>n</I>)=<I>O</I>(<I>h</I>(<I>n</I>)),
+the equation  <IMG WIDTH=123 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59183" SRC="img262.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img262.gif"  > is nonsensical and meaningless.
+Big oh is not a mathematical function,
+so it has no inverse!
+<P>
+The reason for these difficulties is that
+we should read the notation  <IMG WIDTH=92 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59085" SRC="img244.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img244.gif"  > as
+``<I>f</I>(<I>n</I>) is big oh <I>n</I> squared''
+not
+``<I>f</I>(<I>n</I>) equals big oh of <I>n</I> squared.''
+The equal sign in the expression does not really denote mathematical equality!
+And the use of the functional form,  <IMG WIDTH=28 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline58163" SRC="img1.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1.gif"  >,
+does not really mean that <I>O</I> is a mathematical function!
+<P>
+<HR><A NAME="tex2html2629" HREF="page60.html" tppabs="http://www.brpreiss.com/books/opus4/html/page60.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2627" HREF="page57.html" tppabs="http://www.brpreiss.com/books/opus4/html/page57.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2621" HREF="page58.html" tppabs="http://www.brpreiss.com/books/opus4/html/page58.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2631" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2632" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

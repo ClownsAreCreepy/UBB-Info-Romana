@@ -1,0 +1,63 @@
+<HTML>
+<HEAD>
+<TITLE>An Implementation</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html3010" HREF="page90.html" tppabs="http://www.brpreiss.com/books/opus4/html/page90.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3008" HREF="page88.html" tppabs="http://www.brpreiss.com/books/opus4/html/page88.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3002" HREF="page88.html" tppabs="http://www.brpreiss.com/books/opus4/html/page88.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3012" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3013" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION005210000000000000000">An Implementation</A></H2>
+<P>
+Figure&nbsp;<A HREF="page89.html#figlinklist3" tppabs="http://www.brpreiss.com/books/opus4/html/page89.html#figlinklist3"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> illustrates the
+the singly-linked list scheme we have chosen to implement.
+Two structures are used.
+The elements of the list are represented using a structure
+which comprises two fields--<tt>datum</tt> and <tt>next</tt>.
+The former holds the a single data item;
+the latter is a pointer to the next array element.
+The main structure also comprises two fields-<tt>head</tt> and <tt>tail</tt>.
+Which contain pointers to the first and last list elements, respectively.
+<P>
+<P><A NAME="3436">&#160;</A><A NAME="figlinklist3">&#160;</A> <IMG WIDTH=575 HEIGHT=284 ALIGN=BOTTOM ALT="figure3255" SRC="img613.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img613.gif"  ><BR>
+<STRONG>Figure:</STRONG> Memory Representation of Linked List Objects<BR>
+<P>
+<P>
+Program&nbsp;<A HREF="page89.html#proglinklist1h" tppabs="http://www.brpreiss.com/books/opus4/html/page89.html#proglinklist1h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives the declaration of the
+<tt>LinkedList&lt;T&gt;</tt> and <tt>ListElement&lt;T&gt;</tt> class templates.
+The <tt>ListElement&lt;T&gt;</tt> class
+is used to represent the elements of a linked list.
+It has two private member variables,
+<tt>datum</tt> and <tt>next</tt>,
+a private constructor, and two public accessor functions.
+<P>
+<P><A NAME="3797">&#160;</A><A NAME="proglinklist1h">&#160;</A> <IMG WIDTH=575 HEIGHT=811 ALIGN=BOTTOM ALT="program3445" SRC="img614.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img614.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>LinkedList&lt;T&gt;</tt> and <tt>ListElement&lt;T&gt;</tt> 	Class Definitions<BR>
+<P>
+<P>
+A <tt>LinkedList&lt;T&gt;</tt> class object has two protected member variables,
+<tt>head</tt> and <tt>tail</tt>,
+several constructors, a destructor,
+and various other member functions.
+<P>
+We can calculate the total storage required, <I>S</I>(<I>n</I>),
+to hold a linked list of <I>n</I> items
+from the class definitions given in Program&nbsp;<A HREF="page89.html#proglinklist1h" tppabs="http://www.brpreiss.com/books/opus4/html/page89.html#proglinklist1h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> as follows:
+<P> <IMG WIDTH=500 HEIGHT=87 ALIGN=BOTTOM ALT="eqnarray3492" SRC="img615.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img615.gif"  ><P>
+Since <tt>LinkedList&lt;T&gt;</tt> and <tt>ListElement&lt;T&gt;</tt>
+are generic classes,
+we have no <em>a priori</em> knowledge of the amount of storage
+used by an object of type <tt>T</tt>.
+However, it is often reasonable to assume that  <IMG WIDTH=123 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline61013" SRC="img616.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img616.gif"  >.<A NAME="tex2html140" HREF="footnode.html#3817" tppabs="http://www.brpreiss.com/books/opus4/html/footnode.html#3817"><IMG  ALIGN=BOTTOM ALT="gif" SRC="foot_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/foot_motif.gif"></A>
+And since a pointer requires a constant amount of space,
+ <IMG WIDTH=189 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline61019" SRC="img619.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img619.gif"  >.
+If we assume that the amount of storage used by an object
+of type <tt>T</tt> is <I>O</I>(1), then <I>S</I>(<I>n</I>)=<I>O</I>(<I>n</I>).
+<P>
+<HR><A NAME="tex2html3010" HREF="page90.html" tppabs="http://www.brpreiss.com/books/opus4/html/page90.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3008" HREF="page88.html" tppabs="http://www.brpreiss.com/books/opus4/html/page88.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3002" HREF="page88.html" tppabs="http://www.brpreiss.com/books/opus4/html/page88.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3012" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3013" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,73 @@
+<HTML>
+<HEAD>
+<TITLE>Reality Check</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html2825" HREF="page76.html" tppabs="http://www.brpreiss.com/books/opus4/html/page76.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2823" HREF="page70.html" tppabs="http://www.brpreiss.com/books/opus4/html/page70.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2817" HREF="page74.html" tppabs="http://www.brpreiss.com/books/opus4/html/page74.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2827" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2828" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION004450000000000000000">Reality Check</A></H2>
+<P>
+``Asymptotic analysis is nice in theory,'' you say,
+``but of what practical value is it when I don't know what <I>c</I> and  <IMG WIDTH=16 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline59043" SRC="img238.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img238.gif"  > are?''
+Fallacies&nbsp;<A HREF="page64.html#fallacyiii" tppabs="http://www.brpreiss.com/books/opus4/html/page64.html#fallacyiii"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> and&nbsp;<A HREF="page64.html#fallacyiv" tppabs="http://www.brpreiss.com/books/opus4/html/page64.html#fallacyiv"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> showed us that if we have two programs, <I>A</I> and <I>B</I>,
+that solve a given problem,
+whose running times are  <IMG WIDTH=81 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline60637" SRC="img518.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img518.gif"  > and  <IMG WIDTH=83 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline60639" SRC="img519.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img519.gif"  > say,
+we cannot conclude in general that we should use algorithm <I>A</I>
+rather than algorithm <I>B</I> to solve a particular instance of the problem.
+Even if the bounds are both known to be tight,
+we still don't have enough information.
+What we do know for sure is that <em>eventually</em>,
+for large enough <I>n</I>, program <I>A</I> is the better choice.
+<P>
+In practice we need not be so conservative.
+It is almost always the right choice to select program <I>A</I>.
+To see why this is the case,
+consider the times shown in Table&nbsp;<A HREF="page75.html#tblreality" tppabs="http://www.brpreiss.com/books/opus4/html/page75.html#tblreality"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+This table shows the running times computed for a very conservative scenario.
+We assume that the constant of proportionality, <I>c</I>,
+is one cycle of a 100&nbsp;MHz clock.
+This table shows the running times we can expect
+even if only one instruction is done for each element of the input.
+<P>
+<P><A NAME="2425">&#160;</A>
+<P>
+    <A NAME="tblreality">&#160;</A>
+    <DIV ALIGN=CENTER><P ALIGN=CENTER><TABLE COLS=5 BORDER FRAME=HSIDES RULES=GROUPS>
+<COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER>
+<TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+	    </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>n</I>=1 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>n</I>=8 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=50 HEIGHT=11 ALIGN=BOTTOM ALT="tex2html_wrap_inline60661" SRC="img521.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img521.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=74 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline60663" SRC="img522.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img522.gif"  > </TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <IMG WIDTH=30 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60665" SRC="img523.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img523.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=35 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline60667" SRC="img524.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img524.gif"  >
+		</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=35 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline60667" SRC="img524.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img524.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=35 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline60667" SRC="img524.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img524.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=35 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline60667" SRC="img524.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img524.gif"  > </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	     <IMG WIDTH=55 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60675" SRC="img525.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img525.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=35 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline60667" SRC="img524.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img524.gif"  >
+		</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=35 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline60679" SRC="img526.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img526.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=43 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline60681" SRC="img527.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img527.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=43 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline60683" SRC="img528.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img528.gif"  > </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	     <IMG WIDTH=32 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60685" SRC="img529.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img529.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=35 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline60667" SRC="img524.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img524.gif"  >
+		</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=35 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline60689" SRC="img530.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img530.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=49 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60691" SRC="img531.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img531.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=53 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline60693" SRC="img532.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img532.gif"  > </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	     <IMG WIDTH=67 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60695" SRC="img533.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img533.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=35 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline60667" SRC="img524.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img524.gif"  >
+		</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=43 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline60699" SRC="img534.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img534.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=49 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60691" SRC="img531.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img531.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=48 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline60703" SRC="img535.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img535.gif"  > </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	     <IMG WIDTH=38 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline60705" SRC="img536.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img536.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=35 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline60667" SRC="img524.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img524.gif"  >
+		</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=43 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline60709" SRC="img537.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img537.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=44 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60711" SRC="img538.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img538.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=71 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline60713" SRC="img539.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img539.gif"  > </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	     <IMG WIDTH=38 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline60715" SRC="img540.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img540.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=35 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline60667" SRC="img524.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img524.gif"  >
+		</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=49 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60719" SRC="img541.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img541.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=39 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline60721" SRC="img542.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img542.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=64 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline60723" SRC="img543.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img543.gif"  > </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	     <IMG WIDTH=38 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60725" SRC="img544.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img544.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=35 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline60667" SRC="img524.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img524.gif"  >
+		</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=49 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60729" SRC="img545.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img545.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=75 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline60731" SRC="img546.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img546.gif"  >
+		</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=76 HEIGHT=31 ALIGN=MIDDLE ALT="tex2html_wrap_inline60733" SRC="img547.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img547.gif"  > </TD></TR>
+</TBODY>
+<CAPTION ALIGN=BOTTOM><STRONG>Table:</STRONG> Actual lower bounds assuming a 100&nbsp;Mhz clock,
+	 <IMG WIDTH=74 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline60653" SRC="img520.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img520.gif"  > and  <IMG WIDTH=45 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline59955" SRC="img415.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img415.gif"  ></CAPTION></TABLE>
+</P></DIV><P><HR><A NAME="tex2html2825" HREF="page76.html" tppabs="http://www.brpreiss.com/books/opus4/html/page76.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2823" HREF="page70.html" tppabs="http://www.brpreiss.com/books/opus4/html/page70.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2817" HREF="page74.html" tppabs="http://www.brpreiss.com/books/opus4/html/page74.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2827" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2828" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

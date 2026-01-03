@@ -1,0 +1,65 @@
+<HTML>
+<HEAD>
+<TITLE>Constructor and Destructor</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html7211" HREF="page429.html" tppabs="http://www.brpreiss.com/books/opus4/html/page429.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7209" HREF="page427.html" tppabs="http://www.brpreiss.com/books/opus4/html/page427.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7203" HREF="page427.html" tppabs="http://www.brpreiss.com/books/opus4/html/page427.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7213" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7214" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0014311000000000000000">Constructor and Destructor</A></H3>
+<P>
+The constructor and the destructor of the <tt>DoublyLinkedPool</tt> class
+are defined in Program&nbsp;<A HREF="page428.html#progpool4c" tppabs="http://www.brpreiss.com/books/opus4/html/page428.html#progpool4c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+The constructor takes as its lone argument an integer
+which specifies the size of the storage pool in bytes.
+The constructor is responsible for
+allocating the memory for the storage pool and for
+creating the initial free list.
+Since the storage pool starts out empty,
+the free list contains initially just a single entry
+that treats the entire pool as a one large free area.
+<P>
+<P><A NAME="31401">&#160;</A><A NAME="progpool4c">&#160;</A> <IMG WIDTH=575 HEIGHT=336 ALIGN=BOTTOM ALT="program31297" SRC="img1760.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1760.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>DoublyLinkedPool</tt> Class Constructor and Destructor Definitions<BR>
+<P>
+<P>
+The constructor must initialize the three member variables,
+<tt>numberOfBlocks</tt>, <tt>pool</tt> and <tt>sentinel</tt>,
+which are declared in Program&nbsp;<A HREF="page427.html#progpool3h" tppabs="http://www.brpreiss.com/books/opus4/html/page427.html#progpool3h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+The number of blocks is set to  <IMG WIDTH=138 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline68055" SRC="img1750.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1750.gif"  >,
+where <I>N</I> is the desired size of the storage pool (in bytes).
+An array of <tt>Block</tt>s of length  <IMG WIDTH=144 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline68059" SRC="img1751.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1751.gif"  >
+is dynamically allocated using <tt>operator new</tt>
+and the member variable <tt>pool</tt> is set to point at the array.
+<P>
+The last block in the array is used as the sentinel
+for the doubly-linked free list.
+The member variable <tt>sentinel</tt> is initialized 
+as a reference to the last block in the array.
+Since the sentinel block is never to be allocated,
+it is marked <tt>reserved</tt>.
+The <tt>next</tt> and <tt>prev</tt> pointers of the sentinel
+both are initialized to point at the sentinel itself.
+Thus, the free list is initially empty.
+<P>
+The entire pool is initially a single unallocated area.
+We represent the area by the first block in the pool, <tt>pool[0]</tt>.
+The block is marked <tt>free</tt> and
+the length field is set to <tt>numberOfBlocks</tt>.
+Then, the block is inserted into the doubly-linked free list
+by calling the private member function <tt>InsertAfter</tt>.
+The <tt>InsertAfter</tt> function can do the insertion in constant time.
+The implementation is left as an project for the reader
+(Project&nbsp;<A HREF="page439.html#projectheapii" tppabs="http://www.brpreiss.com/books/opus4/html/page439.html#projectheapii"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>).
+Except for the call to <tt>operator new</tt>
+to allocate space for the pool in the first place,
+the worst-case running time of the constructor is <I>O</I>(1).
+<P>
+<HR><A NAME="tex2html7211" HREF="page429.html" tppabs="http://www.brpreiss.com/books/opus4/html/page429.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7209" HREF="page427.html" tppabs="http://www.brpreiss.com/books/opus4/html/page427.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7203" HREF="page427.html" tppabs="http://www.brpreiss.com/books/opus4/html/page427.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7213" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7214" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

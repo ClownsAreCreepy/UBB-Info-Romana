@@ -1,0 +1,40 @@
+<HTML>
+<HEAD>
+<TITLE>Destructor</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html2941" HREF="page85.html" tppabs="http://www.brpreiss.com/books/opus4/html/page85.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2939" HREF="page80.html" tppabs="http://www.brpreiss.com/books/opus4/html/page80.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2933" HREF="page83.html" tppabs="http://www.brpreiss.com/books/opus4/html/page83.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2943" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2944" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION005140000000000000000">Destructor</A></H2>
+<P>
+Program&nbsp;<A HREF="page84.html#progarray4c" tppabs="http://www.brpreiss.com/books/opus4/html/page84.html#progarray4c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> shows
+the definition of the <tt>Array&lt;T&gt;</tt> destructor.
+The destructor simply invokes <tt>operator delete</tt>
+to deallocate the storage used by the array elements.
+In C++ two things happen when an array is deallocated.
+First, the destructor for each element of the array is called one-by-one.
+Second, the memory space used by the array is returned to the free store (heap).
+<P>
+<P><A NAME="2874">&#160;</A><A NAME="progarray4c">&#160;</A> <IMG WIDTH=575 HEIGHT=66 ALIGN=BOTTOM ALT="program2737" SRC="img602.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img602.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>Array&lt;T&gt;</tt> Class Destructor Definition<BR>
+<P>
+<P>
+If the running time of the destructor
+for an object of type <tt>T</tt> is  <IMG WIDTH=66 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline60977" SRC="img603.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img603.gif"  >,
+and assuming the time to return memory to the free store is a constant,
+the running time for the <tt>Array&lt;T&gt;</tt> destructor is
+ <IMG WIDTH=182 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline60979" SRC="img604.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img604.gif"  >.
+In C++ the destructor default behavior of the destructor for a built-in types
+is to do nothing.
+Therefore, in the case where <tt>T</tt> is a built-in type,
+<I>T</I>(<I>n</I>)=<I>O</I>(1).
+<P>
+<HR><A NAME="tex2html2941" HREF="page85.html" tppabs="http://www.brpreiss.com/books/opus4/html/page85.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2939" HREF="page80.html" tppabs="http://www.brpreiss.com/books/opus4/html/page80.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2933" HREF="page83.html" tppabs="http://www.brpreiss.com/books/opus4/html/page83.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2943" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2944" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

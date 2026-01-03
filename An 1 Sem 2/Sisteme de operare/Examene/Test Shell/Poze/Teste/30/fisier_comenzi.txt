@@ -1,0 +1,9 @@
+CREATE DIR dir1
+CREATE DIR dir2
+CREATE FILE ./dir2/file1
+CREATE FILE ./dir2/file2
+CREATE FILE ./dir2/file3
+MOVE DIR dir2 dir1/dir2
+SET PERM ./dir1/dir2/file1 400
+SET PERM ./dir1/dir2/file2 640
+SET PERM ./dir1/dir2/file3 644

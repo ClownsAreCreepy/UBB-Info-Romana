@@ -1,0 +1,1 @@
+Fisierele de test sunt in directorul /home/camel/fisiere_pentru_lab5_bota_ex5 sau ~/fisiere_pentru_lab5_bota_ex5

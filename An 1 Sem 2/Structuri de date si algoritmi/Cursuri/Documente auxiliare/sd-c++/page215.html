@@ -1,0 +1,86 @@
+<HTML>
+<HEAD>
+<TITLE>Hash Function Implementations</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html4569" HREF="page216.html" tppabs="http://www.brpreiss.com/books/opus4/html/page216.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4567" HREF="page203.html" tppabs="http://www.brpreiss.com/books/opus4/html/page203.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4561" HREF="page214.html" tppabs="http://www.brpreiss.com/books/opus4/html/page214.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4571" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4572" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION009300000000000000000">Hash Function Implementations</A></H1>
+<A NAME="sechashingimpl">&#160;</A>
+<P>
+The preceding section presents methods of hashing integer-valued keys.
+In reality, we cannot expect that the keys will always be integers.
+Depending on the application,
+the keys might be letters, character strings, pointers,
+or even more complex data structures such as 
+<tt>Association</tt>s or <tt>Container</tt>s.
+<P>
+In general given a set of keys, <I>K</I>,
+and a positive constant, <I>M</I>,
+a hash function is a function of the form
+<P> <IMG WIDTH=342 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath62528" SRC="img916.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img916.gif"  ><P>
+In practice is it convenient to implement the hash function <I>h</I>
+as the composition of two functions <I>f</I> and <I>g</I>.
+The function <I>f</I> maps keys into integers:
+<P> <IMG WIDTH=292 HEIGHT=17 ALIGN=BOTTOM ALT="displaymath62529" SRC="img917.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img917.gif"  ><P>
+where  <IMG WIDTH=21 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline62548" SRC="img918.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img918.gif"  > is the set of non-negative integers.
+The function <I>g</I> maps non-negative integers into  <IMG WIDTH=118 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline62552" SRC="img919.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img919.gif"  >:
+<P> <IMG WIDTH=346 HEIGHT=18 ALIGN=BOTTOM ALT="displaymath62530" SRC="img920.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img920.gif"  ><P>
+Given appropriate functions <I>f</I> and <I>g</I>,
+the hash function <I>h</I> is simply defined as the composition of those functions:
+<P> <IMG WIDTH=280 HEIGHT=14 ALIGN=BOTTOM ALT="displaymath62531" SRC="img921.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img921.gif"  ><P>
+I.e., the hash value of a key <I>x</I> is given by <I>g</I>(<I>f</I>(<I>x</I>)).
+<P>
+By decomposing the function <I>h</I> in this way,
+we can separate the problem into two parts:
+The first involves finding a suitable mapping from
+the set of keys <I>K</I> to the non-negative integers.
+The second involves mapping non-negative integers into the interval [0,<I>M</I>-1].
+Ideally, the two problems would be unrelated.
+I.e., the choice of the function <I>f</I> would
+not depend on the choice of <I>g</I> and <em>vice versa</em>.
+Unfortunately, this is not always the case.
+However, if we are careful,
+we can design the functions in such a way
+that  <IMG WIDTH=62 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline62574" SRC="img922.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img922.gif"  > is a good hash function.
+<P>
+The hashing methods discussed in the preceding section
+deal with integer-valued keys.
+But this is precisely the domain of the function <I>g</I>.
+Consequently, we have already examined several different alternatives
+for the function <I>g</I>.
+On the other hand,
+the choice of a suitable function for <I>f</I>
+depends on the characteristics of its domain.
+<P>
+In the following sections,
+we consider various different domains (sets of keys)
+and develop suitable hash functions for each of them.
+Each domain considered corresponds to some type or class <tt>T</tt>.
+For each type <tt>T</tt>,
+we present the definition of the function <tt>Hash</tt>
+declared according to the following prototype:
+<PRE>typedef unsigned int HashValue;
+
+HashValue Hash (T);</PRE>
+Notice, we have chosen to represent the range of hash values
+using the type <tt>unsigned int</tt>.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html4573" HREF="page216.html#SECTION009310000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page216.html#SECTION009310000000000000000">Integral Keys</A>
+<LI> <A NAME="tex2html4574" HREF="page217.html#SECTION009320000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page217.html#SECTION009320000000000000000">Floating-Point Keys</A>
+<LI> <A NAME="tex2html4575" HREF="page218.html#SECTION009330000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page218.html#SECTION009330000000000000000">Character String Keys</A>
+<LI> <A NAME="tex2html4576" HREF="page219.html#SECTION009340000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page219.html#SECTION009340000000000000000">Hashing <tt>Object</tt>s</A>
+<LI> <A NAME="tex2html4577" HREF="page220.html#SECTION009350000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page220.html#SECTION009350000000000000000">Hashing <tt>Container</tt>s</A>
+<LI> <A NAME="tex2html4578" HREF="page221.html#SECTION009360000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page221.html#SECTION009360000000000000000">Using <tt>Association</tt>s</A>
+</UL>
+<HR><A NAME="tex2html4569" HREF="page216.html" tppabs="http://www.brpreiss.com/books/opus4/html/page216.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4567" HREF="page203.html" tppabs="http://www.brpreiss.com/books/opus4/html/page203.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4561" HREF="page214.html" tppabs="http://www.brpreiss.com/books/opus4/html/page214.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4571" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4572" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

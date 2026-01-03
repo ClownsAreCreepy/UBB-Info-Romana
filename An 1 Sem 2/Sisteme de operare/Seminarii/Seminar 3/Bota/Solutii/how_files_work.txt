@@ -1,0 +1,5 @@
+Probleme 1 - 5: Preiau numerele din linia de comanda (argc, argv[])
+
+Probleme 6 - 10: Preiau numerele cu citire de la tastatura (fgets) (putem si cu scanf daca avem fara  spatii)
+
+Probleme 11- 15: Programul se cheama din pe el in mod copil (exec)

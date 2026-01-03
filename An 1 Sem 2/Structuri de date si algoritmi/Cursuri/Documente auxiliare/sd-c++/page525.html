@@ -1,0 +1,52 @@
+<HTML>
+<HEAD>
+<TITLE>Directed Graphs</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html8407" HREF="page526.html" tppabs="http://www.brpreiss.com/books/opus4/html/page526.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8405" HREF="page524.html" tppabs="http://www.brpreiss.com/books/opus4/html/page524.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8399" HREF="page524.html" tppabs="http://www.brpreiss.com/books/opus4/html/page524.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8409" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8410" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0017101000000000000000">Directed Graphs</A></H3>
+<P>
+We begin with the definition of a directed graph:
+<P>
+<BLOCKQUOTE> <b>Definition (Directed Graph)</b><A NAME="defndigraph">&#160;</A>
+A <em>directed graph</em><A NAME=48362>&#160;</A><A NAME=48363>&#160;</A>,
+or <em>digraph</em><A NAME=48486>&#160;</A>,
+is an ordered pair  <IMG WIDTH=72 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71355" SRC="img2282.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2282.gif"  > with the following properties:
+<OL><LI>
+	The first component,  <IMG WIDTH=10 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline71357" SRC="img2283.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2283.gif"  >, is a finite, non-empty set.
+	The elements of  <IMG WIDTH=10 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline71357" SRC="img2283.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2283.gif"  > are called the <em>vertices</em> of <I>G</I>.<LI>
+	The second component,  <IMG WIDTH=9 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline71363" SRC="img2284.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2284.gif"  >,
+	is a finite set of ordered pairs of vertices.
+	I.e.,  <IMG WIDTH=72 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline71365" SRC="img2285.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2285.gif"  >.
+	The elements of  <IMG WIDTH=9 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline71363" SRC="img2284.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2284.gif"  > are called the <em>edges</em> of <I>G</I>.
+</OL></BLOCKQUOTE>
+<P>
+For example, consider the directed graph  <IMG WIDTH=91 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71371" SRC="img2286.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2286.gif"  >
+comprised of four vertices and six edges:
+<P> <IMG WIDTH=500 HEIGHT=39 ALIGN=BOTTOM ALT="eqnarray48371" SRC="img2287.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2287.gif"  ><P>
+The graph <I>G</I> can be represented
+<em>graphically</em> as shown in Figure&nbsp;<A HREF="page525.html#figgraph1" tppabs="http://www.brpreiss.com/books/opus4/html/page525.html#figgraph1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+The vertices are represented by appropriately labeled circles,
+and the edges are represented by arrows
+that connect associated vertices.
+<P>
+<P><A NAME="48781">&#160;</A><A NAME="figgraph1">&#160;</A> <IMG WIDTH=575 HEIGHT=136 ALIGN=BOTTOM ALT="figure48375" SRC="img2288.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2288.gif"  ><BR>
+<STRONG>Figure:</STRONG> A Directed Graph<BR>
+<P>
+<P>
+Notice that because the pairs that represent edges are <em>ordered</em>,
+the two edges (<I>a</I>,<I>c</I>) and (<I>c</I>,<I>a</I>) are distinct.
+Furthermore, since  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline71381" SRC="img2289.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2289.gif"  > is a mathematical set,
+it cannot contain more than one instance of a given edge.
+And finally, an edge such as (<I>d</I>,<I>d</I>) may connect a node to itself.
+<P>
+<HR><A NAME="tex2html8407" HREF="page526.html" tppabs="http://www.brpreiss.com/books/opus4/html/page526.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8405" HREF="page524.html" tppabs="http://www.brpreiss.com/books/opus4/html/page524.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8399" HREF="page524.html" tppabs="http://www.brpreiss.com/books/opus4/html/page524.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8409" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8410" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

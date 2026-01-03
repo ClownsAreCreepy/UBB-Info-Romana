@@ -1,0 +1,46 @@
+<HTML>
+<HEAD>
+<TITLE>Example-Counting Change</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html7383" HREF="page443.html" tppabs="http://www.brpreiss.com/books/opus4/html/page443.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7381" HREF="page441.html" tppabs="http://www.brpreiss.com/books/opus4/html/page441.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7375" HREF="page441.html" tppabs="http://www.brpreiss.com/books/opus4/html/page441.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7385" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7386" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0015110000000000000000">Example-Counting Change</A></H2>
+<A NAME="secalgschange">&#160;</A>
+<P>
+Consider the problem a cashier solves
+every time she counts out some amount of currency.
+The cashier has at her disposal a collection of
+notes and coins of various denominations
+and is required to count out a specified sum
+using the smallest possible number of pieces.
+<P>
+The problem can be expressed mathematically as follows:
+Let there be <I>n</I> pieces of money (notes or coins),  <IMG WIDTH=139 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline68403" SRC="img1804.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1804.gif"  >,
+and let  <IMG WIDTH=11 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline64564" SRC="img1246.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1246.gif"  > be the denomination of  <IMG WIDTH=13 HEIGHT=14 ALIGN=MIDDLE ALT="tex2html_wrap_inline58415" SRC="img85.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img85.gif"  >.
+E.g., if  <IMG WIDTH=13 HEIGHT=14 ALIGN=MIDDLE ALT="tex2html_wrap_inline58415" SRC="img85.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img85.gif"  > is a dime, then  <IMG WIDTH=50 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline68411" SRC="img1805.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1805.gif"  >.
+To count out a given sum of money <I>A</I>
+we find the smallest subset of <I>P</I>, say  <IMG WIDTH=43 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline68417" SRC="img1806.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1806.gif"  >,
+such that  <IMG WIDTH=94 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline68419" SRC="img1807.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1807.gif"  >.
+<P>
+One way to represent the subset <I>S</I> is to use <I>n</I> variables
+ <IMG WIDTH=145 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline68425" SRC="img1808.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1808.gif"  >, such that
+<P> <IMG WIDTH=308 HEIGHT=48 ALIGN=BOTTOM ALT="displaymath68395" SRC="img1809.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1809.gif"  ><P>
+Given  <IMG WIDTH=105 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline68427" SRC="img1810.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1810.gif"  > our <em>objective</em>
+is to minimize
+<P> <IMG WIDTH=268 HEIGHT=43 ALIGN=BOTTOM ALT="displaymath68396" SRC="img1811.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1811.gif"  ><P>
+subject to the constraint
+<P> <IMG WIDTH=294 HEIGHT=43 ALIGN=BOTTOM ALT="displaymath68397" SRC="img1812.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1812.gif"  ><P><BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html7387" HREF="page443.html#SECTION0015111000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page443.html#SECTION0015111000000000000000">Brute-Force Algorithm</A>
+<LI> <A NAME="tex2html7388" HREF="page444.html#SECTION0015112000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page444.html#SECTION0015112000000000000000">Greedy Algorithm</A>
+</UL>
+<HR><A NAME="tex2html7383" HREF="page443.html" tppabs="http://www.brpreiss.com/books/opus4/html/page443.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7381" HREF="page441.html" tppabs="http://www.brpreiss.com/books/opus4/html/page441.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7375" HREF="page441.html" tppabs="http://www.brpreiss.com/books/opus4/html/page441.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7385" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7386" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

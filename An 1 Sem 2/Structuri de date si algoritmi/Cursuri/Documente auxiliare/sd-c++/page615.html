@@ -1,0 +1,85 @@
+<HTML>
+<HEAD>
+<TITLE>Templates</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html9501" HREF="page616.html" tppabs="http://www.brpreiss.com/books/opus4/html/page616.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html9499" HREF="page586.html" tppabs="http://www.brpreiss.com/books/opus4/html/page586.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html9493" HREF="page614.html" tppabs="http://www.brpreiss.com/books/opus4/html/page614.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html9503" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html9504" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION0018500000000000000000">Templates</A></H1>
+<P>
+In C++, <em>templates</em><A NAME=57968>&#160;</A> are used
+to define generic functions and classes.
+A <em>generic</em><A NAME=57970>&#160;</A> function or class is one
+which takes a <em>type</em> as an actual parameter.
+As a result,
+a single function or class definition gives rise to a family
+of functions or classes that are compiled from the same source code,
+but operate on different types.
+<P>
+E.g., consider the following function definition:
+<PRE>int Max (int x, int y)
+    { return x &gt; y ? x : y; }</PRE>
+The <tt>Max</tt> function takes to arguments of type <tt>int</tt>
+and returns the larger of the two.
+To compute the maximum value of a pair <tt>double</tt>s,
+we require a different <tt>Max</tt> function.
+<P>
+By using a template, we can define a generic <tt>Max</tt> function like this:
+<PRE>template &lt;class T&gt;
+T Max (T x, T y)
+    { return x &gt; y ? x : y; }</PRE>
+The template definition gives rise
+to a family of <tt>Max</tt> functions,
+one for every different type <tt>T</tt>.
+The C++ compiler automatically creates
+the appropriate <tt>Max</tt> functions as needed.
+E.g., the code sequence
+<PRE>int i = Max (1, 2);
+double d = Max (1.0, 2.0);</PRE>
+causes the creation of two <tt>Max</tt> functions,
+one for arguments of type <tt>int</tt>
+and the other for arguments of type <tt>double</tt>.
+<P>
+Templates can also be used to define generic classes.
+E.g., consider the following class definition:
+<PRE>class Stack
+{
+    // ...
+public:
+    void Push (int);
+    int Pop ();
+};</PRE>
+This <tt>Stack</tt> class represents a stack of integers.
+The member functions <tt>Push</tt> and <tt>Pop</tt> are used
+to insert and to withdraw an <tt>int</tt> from the stack (respectively).
+If instead of <tt>int</tt>s a stack of <tt>double</tt>s is required,
+we must write a different <tt>Stack</tt> class.
+By using a template as shown in Program&nbsp;<A HREF="page615.html#progcpp4c" tppabs="http://www.brpreiss.com/books/opus4/html/page615.html#progcpp4c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+we can define a generic <tt>Stack</tt> class.
+<P>
+<P><A NAME="58042">&#160;</A><A NAME="progcpp4c">&#160;</A> <IMG WIDTH=575 HEIGHT=390 ALIGN=BOTTOM ALT="program57992" SRC="img2610.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2610.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>Stack</tt> Template Definition<BR>
+<P>
+<P>
+The required classes are created automatically
+by the C++ compiler as needed.
+E.g., the code sequence
+<PRE>Stack&lt;int&gt; s1;
+s1.Push (1);
+Stack&lt;double&gt; s2;
+s2.Push (1.0);</PRE>
+causes the creation of two stack classes,
+<tt>Stack&lt;int&gt;</tt> and <tt>Stack&lt;double&gt;</tt>.
+This example also illustrates that
+the name of the class includes the
+actual type parameter used to create it.
+<P>
+<HR><A NAME="tex2html9501" HREF="page616.html" tppabs="http://www.brpreiss.com/books/opus4/html/page616.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html9499" HREF="page586.html" tppabs="http://www.brpreiss.com/books/opus4/html/page586.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html9493" HREF="page614.html" tppabs="http://www.brpreiss.com/books/opus4/html/page614.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html9503" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html9504" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

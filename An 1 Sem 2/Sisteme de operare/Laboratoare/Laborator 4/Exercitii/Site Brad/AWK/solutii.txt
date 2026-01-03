@@ -1,0 +1,240 @@
+1. awk '
+BEGIN {
+    nr_impare = 0
+    suma_impare = 0
+    linie = 0
+    suma_pare = 0
+}
+{
+    linie++
+    for (i = 1; i <= NF; i++) {
+        if (linie % 2 == 0)
+            suma_pare += $i
+        if ($i % 2 != 0) {
+            suma_impare += $i
+            nr_impare++
+        }
+    }
+}
+END {
+    print "Suma numerelor de pe liniile pare:", suma_pare
+    if (nr_impare == 0)
+        print "Nu exista numere impare!"
+    else
+        print "Media numerelor impare:", suma_impare / nr_impare
+}
+' ex_1.txt
+
+===================================================================================================================
+
+2. awk '
+BEGIN {
+	line = 0
+	even = 0
+	odd = 0
+}
+
+{
+	line++
+	for (i = 1; i <= NF; ++i)
+		if (line % 2 == 0)
+			even ++
+		else
+			odd ++
+}
+
+END {
+	if (line) {
+		if (line % 2 == 0)
+			medie = 2 * odd / line
+		else
+			medie = 2 * odd / (line + 1)
+	
+		print "Nr total de cuvinte de pe linile pare:", even
+		print "Numarul mediu de cuvinte de pe linile impare:", medie
+	} else
+		print "Fisierul e gol!"
+}' ex_2.txt
+
+===================================================================================================================
+
+3. awk '
+BEGIN {
+	line = 0
+	sum_odd = 0
+	nr_odd_num_lines = 0
+}
+
+{
+	line ++
+	if (NF % 2 == 0)
+		print "Suma primului si ultimului numar de pe linia", line, ":", $1 + $NF
+	else {
+		middle = int(NF / 2 + 1)
+		sum_odd += $middle
+		nr_odd_num_lines ++
+	}
+}
+
+END {
+	if (line) {
+		print "Media numerelor mijlocii din liniile cu numar impar de numere:", sum_odd / nr_odd_num_lines
+	}
+	else
+		print "Fisierul e gol!"
+
+}' ex_3.txt
+
+===================================================================================================================
+
+4. awk '
+BEGIN {
+	line = 0
+	max_words = 0
+	min_words = -1
+	words = 0
+}
+
+{
+	line ++
+	words += NF
+	if (min_words == -1)
+		min_words = NF
+	
+	if (NF > max_words) {
+		max_words = NF
+		max_line = $0
+	}
+	
+	if (NF < min_words) {
+		min_words = NF
+		min_line = $0
+	}
+}
+
+END {
+	if (line) {
+		print "Linia cu cele mai multe cuvinte:\n" max_line, "\n"
+		print "Linia cu cele mai putine cuvinte:\n" min_line, "\n"
+		print "Nr mediu de cuvinte per linie:", words / line
+	}
+	else
+		print "Fisierul e gol!"
+} ' ex_4.txt
+
+===================================================================================================================
+
+5. awk '
+BEGIN {
+	line = 0
+	words = 0
+}
+
+{
+	line ++
+	words += NF
+	for (i = 1; i <= NF; ++i)
+		freq[$i]++
+}
+
+END {
+	if (line == 0) {
+		print "Fisierul e gol!"
+		exit
+	}
+
+	average = words / line
+	print "Numarul mediu de cuvinte per linie:", average
+	print "\nCuvintele care au frecventa mai mica decat numarul mediu de cuvinte per linie:"
+	for (word in freq)
+		if (freq[word] < average)
+			print word ": " freq[word]
+} ' ex_5.txt
+
+===================================================================================================================
+
+6. awk '
+BEGIN {
+	print "Cuvinte care sunt in mijolcul liniilor cu numar impar de cuvinte:"	
+	idx=0
+}
+
+{
+	if (NF > 2)
+		index_linii[idx++] = NR
+
+	if (NF % 2 != 0)
+		print $((NF + 1) / 2)
+}
+
+END {
+	print "" 
+	print "Indexul liniilor care contin mai mult de 2 cuvinte:"
+	for (i = 0; i < idx; ++i)
+		printf index_linii[i] " "
+	print ""
+
+} ' ex_6.txt
+
+
+===================================================================================================================
+
+7. awk '
+{
+	for (i = 1; i <= NF; ++i)
+		frecventa[$i]++
+}
+
+END {
+	for (word in frecventa)
+		print word ":", frecventa[word]
+} ' ex_7.txt
+
+===================================================================================================================
+
+8. awk '
+BEGIN {
+	id=""
+}
+
+{
+	medie = ($3 + $4 + $5) / 3
+	print $1, $2, medie
+	if (medie > 8)
+		id += "$1 $2\n"	
+}
+
+END {
+	print id
+
+} ' ex_8.txt
+
+===================================================================================================================
+
+9. awk '
+{
+	if (NF % 2 != 0)
+		print NF
+	else
+		print $1, $NF
+
+} ' ex_9.txt
+
+===================================================================================================================
+
+10. awk '
+BEGIN {
+	true_sum = 0
+}
+
+{
+	print "Sum:", $1 + $(NF-1) + $NF
+	true_sum += $1
+}
+
+END {
+	if (NR == 0)
+		print "Fisierul e gol!"
+	else
+		print "Media:", true_sum / NR
+} ' ex_10.txt

@@ -1,0 +1,72 @@
+<HTML>
+<HEAD>
+<TITLE>Member Variables</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html3754" HREF="page150.html" tppabs="http://www.brpreiss.com/books/opus4/html/page150.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3752" HREF="page148.html" tppabs="http://www.brpreiss.com/books/opus4/html/page148.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3746" HREF="page148.html" tppabs="http://www.brpreiss.com/books/opus4/html/page148.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3756" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3757" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION007211000000000000000">Member Variables</A></H3>
+<P>
+<tt>QueueAsArray</tt> objects comprise three member variables--<tt>array</tt>, <tt>head</tt> and <tt>tail</tt>.
+In keeping with the decision to use indirect storage in the
+implementation of containers,
+the variable <tt>array</tt> is declared
+as an array of pointers to <tt>Object</tt>s.
+<P>
+The pointers to the objects contained in the queue
+will be held in a contiguous range of array elements
+as shown in Figure&nbsp;<A HREF="page149.html#figqueue2" tppabs="http://www.brpreiss.com/books/opus4/html/page149.html#figqueue2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>&nbsp;(a).
+The variables <tt>head</tt> and <tt>tail</tt>
+denote the left and right ends, respectively, of this range.
+In general, the region of contiguous elements will not necessarily
+occupy the leftmost array positions.
+As elements are deleted at the head,
+the position of the left end will change.
+Similarly, as elements are added at the tail,
+the position of the right end will change.
+In some circumstances, the contiguous region of elements
+will wrap around the ends of the array as shown in Figure&nbsp;<A HREF="page149.html#figqueue2" tppabs="http://www.brpreiss.com/books/opus4/html/page149.html#figqueue2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>&nbsp;(b).
+<P>
+<P><A NAME="7212">&#160;</A><A NAME="figqueue2">&#160;</A> <IMG WIDTH=575 HEIGHT=349 ALIGN=BOTTOM ALT="figure6932" SRC="img738.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img738.gif"  ><BR>
+<STRONG>Figure:</STRONG> Array Implementation of a Queue<BR>
+<P>
+<P>
+As shown in Figure&nbsp;<A HREF="page149.html#figqueue2" tppabs="http://www.brpreiss.com/books/opus4/html/page149.html#figqueue2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+the leftmost element is <tt>array[head]</tt>,
+and the rightmost element is <tt>array[tail]</tt>.
+When the queue contains only one element,
+ <IMG WIDTH=89 HEIGHT=10 ALIGN=BOTTOM ALT="tex2html_wrap_inline61436" SRC="img739.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img739.gif"  > as shown in Figure&nbsp;<A HREF="page149.html#figqueue2" tppabs="http://www.brpreiss.com/books/opus4/html/page149.html#figqueue2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>&nbsp;(c).
+<P>
+Finally, Figure&nbsp;<A HREF="page149.html#figqueue2" tppabs="http://www.brpreiss.com/books/opus4/html/page149.html#figqueue2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>&nbsp;(b) shows that if the queue is empty,
+the <tt>head</tt> position will actually be to the right
+of the <tt>tail</tt> position.
+However, this is also the situation which arises when the queue
+is completely full!
+The problem is essentially this:
+Given an array of length <I>n</I>,
+then  <IMG WIDTH=92 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline61440" SRC="img740.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img740.gif"  > and  <IMG WIDTH=92 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline61442" SRC="img741.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img741.gif"  >.
+Therefore, the difference between the <tt>head</tt> and <tt>tail</tt>
+satisfies  <IMG WIDTH=206 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline61444" SRC="img742.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img742.gif"  >.
+Since there are only <I>n</I> distinct differences,
+there can be only <I>n</I> distinct queue lengths, 0, 1, ..., <I>n</I>-1.
+It is not possible to distinguish the queue which is empty
+from the queue which has <I>n</I> elements
+solely on the basis of the <tt>head</tt> and <tt>tail</tt> member variables.
+<P>
+There are two options for dealing with this problem:
+The first is to limit the number of elements in the queue to be at most <I>n</I>-1.
+The other is to use another member variable, <tt>count</tt>,
+to keep track explicitly of the actual number of elements in the queue
+rather than to infer the number
+from the <tt>head</tt> and <tt>tail</tt> variables.
+The latter approach has been adopted in the implementation given below.
+<P>
+<HR><A NAME="tex2html3754" HREF="page150.html" tppabs="http://www.brpreiss.com/books/opus4/html/page150.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3752" HREF="page148.html" tppabs="http://www.brpreiss.com/books/opus4/html/page148.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3746" HREF="page148.html" tppabs="http://www.brpreiss.com/books/opus4/html/page148.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3756" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3757" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

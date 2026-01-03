@@ -1,0 +1,13 @@
+#include <iostream>
+#include "Teste/TestScurt.h"
+#include "Teste/TestExtins.h"
+
+using namespace std;
+
+
+int main() {
+    testAll();
+    testAllExtins();
+
+    cout<<"That's all!"<<endl;
+}

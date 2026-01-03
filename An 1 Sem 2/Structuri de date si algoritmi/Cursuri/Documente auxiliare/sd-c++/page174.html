@@ -1,0 +1,68 @@
+<HTML>
+<HEAD>
+<TITLE>Finding the Position of an Item and Accessing by Position</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html4063" HREF="page175.html" tppabs="http://www.brpreiss.com/books/opus4/html/page175.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4061" HREF="page168.html" tppabs="http://www.brpreiss.com/books/opus4/html/page168.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4055" HREF="page173.html" tppabs="http://www.brpreiss.com/books/opus4/html/page173.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4065" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4066" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION008116000000000000000">Finding the Position of an Item and Accessing by Position</A></H3>
+<P>
+Program&nbsp;<A HREF="page174.html#proglist4c" tppabs="http://www.brpreiss.com/books/opus4/html/page174.html#proglist4c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> defines two more member functions
+of the <tt>ListAsArray</tt> class,
+<tt>FindPosition</tt> and <tt>operator[]</tt>.
+The <tt>FindPosition</tt> member function takes as its lone argument
+a <tt>const</tt> reference to an <tt>Object</tt>.
+The purpose of this function is to search the ordered list
+for an item which matches the object,
+and to return its position.
+The result is a reference to a <tt>Position</tt>.
+Since the <tt>Position</tt> class is an abstract base class,
+there can be no object instances of that class.
+However, there can be object instances of a concrete class
+derived from the <tt>Position</tt> class,
+such as the <tt>ListAsArray::Pos</tt> class.
+Therefore, the <tt>FindPosition</tt> function allocates
+an new instance of the <tt>ListAsArray::Pos</tt> class an
+returns a reference to that instance.
+<P>
+<P><A NAME="9613">&#160;</A><A NAME="proglist4c">&#160;</A> <IMG WIDTH=575 HEIGHT=315 ALIGN=BOTTOM ALT="program9549" SRC="img795.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img795.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>ListAsArray</tt> Class <tt>FindPosition</tt> Member Function 	and Subscripting Operator Definitions<BR>
+<P>
+<P>
+The search algorithm used in <tt>FindPosition</tt> is identical to that
+used in the <tt>Find</tt> routine (Program&nbsp;<A HREF="page171.html#proglist2c" tppabs="http://www.brpreiss.com/books/opus4/html/page171.html#proglist2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>).
+The <tt>FindPosition</tt> makes use of <tt>operator==</tt> to locate
+a contained object which is equal to the search target.
+Notice that if no match is found,
+the <tt>offset</tt> is set to the value <tt>count</tt>,
+which is one position to the right of the last item in the ordered list.
+The running time of <tt>FindPosition</tt> is identical to that of
+<tt>Find</tt>:  <IMG WIDTH=172 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline61650" SRC="img790.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img790.gif"  >, where  <IMG WIDTH=72 HEIGHT=9 ALIGN=BOTTOM ALT="tex2html_wrap_inline61308" SRC="img709.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img709.gif"  >.
+<P>
+The subscripting operator, <tt>operator[]</tt>,
+defined in Program&nbsp;<A HREF="page174.html#proglist4c" tppabs="http://www.brpreiss.com/books/opus4/html/page174.html#proglist4c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+takes a <tt>const</tt> reference to a <tt>Position</tt>
+and returns a reference to the item
+in the ordered list at the given position.
+The <tt>Position</tt> argument is dynamically cast
+to an <tt>ListAsArray::Pos</tt>.
+Remember that in C++,
+run-time checks are made to ensure that the cast is safe.
+After a simple validity check,
+the <tt>offset</tt> recorded in the position is used
+to index into the <tt>array</tt> variable,
+to obtain the desired result.
+If the <tt>offset</tt> is equal to <tt>count</tt>,
+the position is invalid.
+In this case, a reference to the <tt>NullObject</tt> instance is returned.
+The running time of this operator is clearly <I>O</I>(1).
+<P>
+<HR><A NAME="tex2html4063" HREF="page175.html" tppabs="http://www.brpreiss.com/books/opus4/html/page175.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4061" HREF="page168.html" tppabs="http://www.brpreiss.com/books/opus4/html/page168.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4055" HREF="page173.html" tppabs="http://www.brpreiss.com/books/opus4/html/page173.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4065" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4066" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

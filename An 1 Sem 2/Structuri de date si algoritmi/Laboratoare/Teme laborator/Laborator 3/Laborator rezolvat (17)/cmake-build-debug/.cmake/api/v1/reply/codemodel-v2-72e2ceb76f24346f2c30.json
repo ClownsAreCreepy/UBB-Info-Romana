@@ -1,0 +1,60 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.28"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Laborator_rezolvat__17_",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Laborator_rezolvat__17_::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Laborator_rezolvat__17_-Debug-3f91294f02725027ab0c.json",
+					"name" : "Laborator_rezolvat__17_",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/mnt/d/Facultate/Eu/An 1 Sem 2/Structuri de date si algoritmi/Laboratoare/Teme laborator/Laborator 3/Laborator rezolvat (17)/cmake-build-debug",
+		"source" : "/mnt/d/Facultate/Eu/An 1 Sem 2/Structuri de date si algoritmi/Laboratoare/Teme laborator/Laborator 3/Laborator rezolvat (17)"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

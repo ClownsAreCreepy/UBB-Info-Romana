@@ -1,0 +1,55 @@
+<HTML>
+<HEAD>
+<TITLE>Inserting Items into an M-Way Search Tree</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html6103" HREF="page339.html" tppabs="http://www.brpreiss.com/books/opus4/html/page339.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6101" HREF="page330.html" tppabs="http://www.brpreiss.com/books/opus4/html/page330.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6095" HREF="page337.html" tppabs="http://www.brpreiss.com/books/opus4/html/page337.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6105" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6106" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0011630000000000000000">Inserting Items into an <I>M</I>-Way Search Tree</A></H2>
+<P>
+The routine for inserting items in an <I>M</I>-way search tree
+follows directly from the algorithm for insertion in a binary search tree given
+in Section&nbsp;<A HREF="page316.html#secsrchtreebstin" tppabs="http://www.brpreiss.com/books/opus4/html/page316.html#secsrchtreebstin"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+The added wrinkle in an <I>M</I>-way tree is that an internal node
+may contain between 1 and <I>M</I>-1 keys
+whereas an internal node in a binary tree must contain exactly one key.
+<P>
+Program&nbsp;<A HREF="page338.html#progmwaytree4c" tppabs="http://www.brpreiss.com/books/opus4/html/page338.html#progmwaytree4c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives the implementation
+of the <tt>Insert</tt> member function of the <tt>MWayTree</tt> class.
+This function takes as its lone argument a reference to the <tt>Object</tt>
+instance to be inserted into the search tree.
+<P>
+<P><A NAME="21727">&#160;</A><A NAME="progmwaytree4c">&#160;</A> <IMG WIDTH=575 HEIGHT=563 ALIGN=BOTTOM ALT="program21640" SRC="img1378.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1378.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>MWayTree</tt> Class <tt>Insert</tt> Member Function Definition<BR>
+<P>
+<P>
+The general procedure for insertion is to search for the item
+to be inserted and then to insert it at the point where the search terminates.
+If the search terminates at an external node,
+that node is transformed to an internal node of the form
+ <IMG WIDTH=52 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline65560" SRC="img1379.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1379.gif"  >,
+where <I>x</I> is the key just inserted (lines&nbsp;5-8).
+<P>
+If the search terminates at an internal node,
+we insert the new item into the sorted list of keys at the appropriate offset.
+Inserting the key <I>x</I> in the array of keys moves all the keys larger than <I>x</I>
+and the associated subtrees to the right one position (lines&nbsp;17-22).
+The hole in the list of subtrees is filled with an empty tree (line&nbsp;23).
+<P>
+The preceding section gives the running time for a search
+in an <I>M</I>-way search tree as
+<P> <IMG WIDTH=456 HEIGHT=17 ALIGN=BOTTOM ALT="displaymath65495" SRC="img1376.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1376.gif"  ><P>
+where <I>h</I> is the height of the tree.
+The additional time required to insert the item into the node
+once the correct node has been located is <I>O</I>(<I>M</I>).
+Therefore, the total running time for the
+<tt>Insert</tt> algorithm given in Program&nbsp;<A HREF="page338.html#progmwaytree4c" tppabs="http://www.brpreiss.com/books/opus4/html/page338.html#progmwaytree4c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> is
+<P> <IMG WIDTH=487 HEIGHT=17 ALIGN=BOTTOM ALT="displaymath65547" SRC="img1380.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1380.gif"  ><P><HR><A NAME="tex2html6103" HREF="page339.html" tppabs="http://www.brpreiss.com/books/opus4/html/page339.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6101" HREF="page330.html" tppabs="http://www.brpreiss.com/books/opus4/html/page330.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6095" HREF="page337.html" tppabs="http://www.brpreiss.com/books/opus4/html/page337.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6105" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6106" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

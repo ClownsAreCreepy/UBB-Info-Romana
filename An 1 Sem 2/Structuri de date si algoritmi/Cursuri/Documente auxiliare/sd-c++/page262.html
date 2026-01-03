@@ -1,0 +1,76 @@
+<HTML>
+<HEAD>
+<TITLE>Expression Trees</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html5156" HREF="page263.html" tppabs="http://www.brpreiss.com/books/opus4/html/page263.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5154" HREF="page250.html" tppabs="http://www.brpreiss.com/books/opus4/html/page250.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5148" HREF="page261.html" tppabs="http://www.brpreiss.com/books/opus4/html/page261.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5158" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5159" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION0010500000000000000000">Expression Trees</A></H1>
+<A NAME="sectreesexprtrees">&#160;</A>
+<P>
+Algebraic expressions such as
+<P><A NAME="eqntreesexpr">&#160;</A> <IMG WIDTH=500 HEIGHT=16 ALIGN=BOTTOM ALT="equation15898" SRC="img1149.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1149.gif"  ><P>
+have an inherent tree-like structure.
+For example,
+Figure&nbsp;<A HREF="page262.html#figtree6" tppabs="http://www.brpreiss.com/books/opus4/html/page262.html#figtree6"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> is a representation
+of the expression in Equation&nbsp;<A HREF="page262.html#eqntreesexpr" tppabs="http://www.brpreiss.com/books/opus4/html/page262.html#eqntreesexpr"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+This kind of tree is called
+an <em>expression tree</em><A NAME=15904>&#160;</A><A NAME=15905>&#160;</A>.
+<P>
+The terminal nodes (leaves) of an expression tree are the variables
+or constants in the expression (<I>a</I>, <I>b</I>, <I>c</I>, <I>d</I>, and <I>e</I>).
+The non-terminal nodes of an expression tree are the operators
+(+, -,  <IMG WIDTH=8 HEIGHT=14 ALIGN=MIDDLE ALT="tex2html_wrap_inline61394" SRC="img724.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img724.gif"  >, and  <IMG WIDTH=10 HEIGHT=18 ALIGN=MIDDLE ALT="tex2html_wrap_inline61564" SRC="img774.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img774.gif"  >).
+Notice that the parentheses which appear in Equation&nbsp;<A HREF="page262.html#eqntreesexpr" tppabs="http://www.brpreiss.com/books/opus4/html/page262.html#eqntreesexpr"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+do not appear in the tree.
+Nevertheless, the tree representation has captured the intent of the
+parentheses since the subtraction is lower in the tree than the multiplication.
+<P>
+<P><A NAME="16060">&#160;</A><A NAME="figtree6">&#160;</A> <IMG WIDTH=575 HEIGHT=181 ALIGN=BOTTOM ALT="figure15907" SRC="img1150.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1150.gif"  ><BR>
+<STRONG>Figure:</STRONG> Tree representing the expression <I>a</I>/<I>b</I>+(<I>c</I>-<I>d</I>)<I>e</I><BR>
+<P>
+<P>
+The common algebraic operators are either unary or binary.
+E.g., addition, subtraction, multiplication and division are all binary
+operations and negation is a unary operation.
+Therefore, the non-terminal nodes of the corresponding expression trees
+have either one or two non-empty subtrees.
+I.e., expression trees are usually binary trees.
+<P>
+What can we do with an expression tree?
+Perhaps the simplest thing to do is
+to print the expression represented by the tree.
+Notice that an inorder traversal of the tree in Figure&nbsp;<A HREF="page262.html#figtree6" tppabs="http://www.brpreiss.com/books/opus4/html/page262.html#figtree6"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+visits the nodes in the order
+<P> <IMG WIDTH=314 HEIGHT=14 ALIGN=BOTTOM ALT="displaymath63854" SRC="img1151.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1151.gif"  ><P>
+Except for the missing parentheses,
+this is precisely the order in which the symbols appear
+in Equation&nbsp;<A HREF="page262.html#eqntreesexpr" tppabs="http://www.brpreiss.com/books/opus4/html/page262.html#eqntreesexpr"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>!
+<P>
+This suggests that an <em>inorder</em> traversal
+should be used to print the expression.
+Consider an inorder traversal which,
+when it encounters a terminal node simply prints it out;
+and when it encounters a non-terminal node, does the following:
+<OL><LI> Print a left parenthesis; and then<LI> traverse the left subtree; and then<LI> print the root; and then<LI> traverse the right subtree; and then<LI> print a right parenthesis.
+</OL>
+Applying this procedure to the tree given in Figure&nbsp;<A HREF="page262.html#figtree6" tppabs="http://www.brpreiss.com/books/opus4/html/page262.html#figtree6"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> we get
+<P><A NAME="eqntreesinfix">&#160;</A> <IMG WIDTH=500 HEIGHT=16 ALIGN=BOTTOM ALT="equation16069" SRC="img1152.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1152.gif"  ><P>
+which, despite the redundant parentheses,
+represents exactly the same expression as Equation&nbsp;<A HREF="page262.html#eqntreesexpr" tppabs="http://www.brpreiss.com/books/opus4/html/page262.html#eqntreesexpr"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html5160" HREF="page263.html#SECTION0010501000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page263.html#SECTION0010501000000000000000">Infix Notation</A>
+<LI> <A NAME="tex2html5161" HREF="page264.html#SECTION0010502000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page264.html#SECTION0010502000000000000000">Prefix Notation</A>
+<LI> <A NAME="tex2html5162" HREF="page265.html#SECTION0010503000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page265.html#SECTION0010503000000000000000">Postfix Notation</A>
+</UL>
+<HR><A NAME="tex2html5156" HREF="page263.html" tppabs="http://www.brpreiss.com/books/opus4/html/page263.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5154" HREF="page250.html" tppabs="http://www.brpreiss.com/books/opus4/html/page250.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5148" HREF="page261.html" tppabs="http://www.brpreiss.com/books/opus4/html/page261.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5158" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5159" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

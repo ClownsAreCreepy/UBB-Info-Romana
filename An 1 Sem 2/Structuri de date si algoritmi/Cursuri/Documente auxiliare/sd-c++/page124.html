@@ -1,0 +1,129 @@
+<HTML>
+<HEAD>
+<TITLE>Ownership of Contained Objects</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html3441" HREF="page125.html" tppabs="http://www.brpreiss.com/books/opus4/html/page125.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3439" HREF="page109.html" tppabs="http://www.brpreiss.com/books/opus4/html/page109.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3433" HREF="page123.html" tppabs="http://www.brpreiss.com/books/opus4/html/page123.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3443" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3444" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0062100000000000000000">Ownership of Contained Objects</A></H2>
+<A NAME="secadtsowner">&#160;</A>
+<P>
+A matter that is closely related to the containment of objects
+is the <em>ownership</em><A NAME=5167>&#160;</A> of objects.
+Ownership is important because it is the owner of an object
+that ensures that the object's destructor is called
+and that any storage dynamically allocated for the object
+is freed when the object is no longer needed.
+<P>
+The ownership of contained objects is clear
+when direct containment is used.
+Since the container makes a copy of any object put into the container,
+it is the container that is responsible for deleting the copy
+when it is longer needed.
+In particular, the destructor for the container would normally
+delete all contained objects.
+<P>
+Unfortunately, the issue of ownership is not as clear
+when indirect containment is used.
+Indirect containment means that when an object is put into a container,
+it is a pointer to that object which is recorded in the container.
+This implies that the object was initially created outside of the container.
+The question then becomes,
+should the container delete the object when the time comes to clean up
+or should the deletion be done by outside of the container?
+<P>
+If we assume that it is the responsibility of the container
+to delete the contained objects,
+then we must make sure that the only objects put into a container
+are objects whose storage was dynamically allocated.
+This is because as the owner of the object,
+the container must delete the object when the time comes to clean up.
+But, given a pointer to an object,
+it is not possible for the container to know
+whether the object it points to has been dynamically allocated
+or whether it is actually a statically allocated global variable
+or a stack allocated local variable.
+<P>
+Another consequence of assigning the ownership of objects to a container
+is that things become complicated when an object is put into
+two or more different containers
+as well as when a given object is put into the same container
+more than once.
+The problem is that an object inserted in more than one container
+has more than one owner.
+In order to ensure that the object is only deleted once,
+we would have to extract the pointer from all but one
+of the containers before deleting them.
+<P>
+On the other hand,
+if we assume that it is not the responsibility of the of the container
+to delete contained objects,
+then the responsibility to clean up falls on the user of the container.
+In order to ensure that all contained objects are properly deleted,
+it is necessary to extract all of the contained objects
+from a container before deleting the container itself.
+<P>
+The solution to this dilemma is to support both paradigms.
+I.e., make it possible for the user of a container
+to specify whether that container is to be the owner of its objects.
+The <tt>Ownership</tt> class given
+in Program&nbsp;<A HREF="page124.html#progownerh" tppabs="http://www.brpreiss.com/books/opus4/html/page124.html#progownerh"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> does precisely that.
+<P>
+<P><A NAME="5540">&#160;</A><A NAME="progownerh">&#160;</A> <IMG WIDTH=575 HEIGHT=314 ALIGN=BOTTOM ALT="program5170" SRC="img698.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img698.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>Ownership</tt> Class Definition<BR>
+<P>
+<P>
+The <tt>Ownership</tt> class encapsulates a single Boolean variable,
+<tt>isOwner</tt>,
+which records whether the container is the owner of the contained objects.
+By default, the <tt>isOwner</tt> field is set to <tt>true</tt>
+in the constructor.
+Two member functions, <tt>AssertOwnership</tt> and <tt>RescindOwnership</tt>,
+provide a means for the user of a container to change the state
+of the <tt>isOwner</tt> datum.
+The <tt>IsOwner</tt> accessor reveals the current ownership status.
+<P>
+The behavior of the copy constructor is subtle:
+It transfers ownership status from the original container to the copy.
+This behavior is useful because it simplifies
+the task of returning a container as the result of a function.
+<P>
+In its declaration in Program&nbsp;<A HREF="page117.html#progcontainer1h" tppabs="http://www.brpreiss.com/books/opus4/html/page117.html#progcontainer1h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+we saw that the <tt>Container</tt> class was derived both
+from the <tt>Object</tt> base class <em>and</em>
+from the <tt>Ownership</tt> class.
+Therefore, all containers have ownership associated with them.
+<P>
+The following code fragment gives the design framework
+for the implementation of the <tt>Purge</tt> member function
+in some concrete class, say <tt>SomeContainer</tt>,
+which is derived from the abstract base class <tt>Container</tt>:
+<PRE>void SomeContainer::Purge ()
+<P>
+    if (IsOwner ())
+<P>
+        <em>for each</em> Object i <em>in this container</em>
+<P>
+            delete &i;
+<P>
+    <em>Now clean up the container itself.</em>
+<P>
+</PRE>
+The container calls its own <tt>IsOwner</tt> member function
+to determine whether it is the owner of its contained objects.
+Then, and only if it is the owner,
+the contained objects are deleted.
+Given the <tt>Purge</tt> function,
+the implementation of the destructor is trivial:
+<PRE>SomeContainer::~SomeContainer ()
+    { Purge (); }</PRE>
+<P>
+<HR><A NAME="tex2html3441" HREF="page125.html" tppabs="http://www.brpreiss.com/books/opus4/html/page125.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3439" HREF="page109.html" tppabs="http://www.brpreiss.com/books/opus4/html/page109.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3433" HREF="page123.html" tppabs="http://www.brpreiss.com/books/opus4/html/page123.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3443" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3444" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,140 @@
+<HTML>
+<HEAD>
+<TITLE>Radix Sort</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html8310" HREF="page519.html" tppabs="http://www.brpreiss.com/books/opus4/html/page519.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8308" HREF="page515.html" tppabs="http://www.brpreiss.com/books/opus4/html/page515.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8304" HREF="page517.html" tppabs="http://www.brpreiss.com/books/opus4/html/page517.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8312" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8313" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0016820000000000000000">Radix Sort</A></H2>
+<A NAME="secsortingradix">&#160;</A>
+<P>
+This section presents a sorting algorithm known as
+<em>least-significant-digit-first radix sorting</em><A NAME=45624>&#160;</A><A NAME=45625>&#160;</A>.
+Radix sorting is based on the bucket sorting algorithm discussed
+in the preceding section.
+However, radix sorting is practical for much larger universal sets
+than it is practical to handle with a bucket sort.
+<P>
+Radix sorting can be used when each element of the universal set
+can be viewed as a sequences of digits (or letters or any other symbols).
+For example, we can represent each integer between 0 and 99
+as a sequence of two, decimal digits.
+(E.g., the number five is represented as ``05'').
+<P>
+To sort an array of two-digit numbers,
+the algorithm makes two sorting passes through the array.
+In the first pass,
+the elements of the array are sorted by the
+<em>least significant</em> decimal digit.
+In the second pass,
+the elements of the array are sorted by the
+<em>most significant</em> decimal digit.
+The key characteristic of the radix sort is that the second pass
+is done in such a way that it does not destroy the effect
+of the first pass.
+Consequently, after two passes through the array,
+the data is contained therein is sorted.
+<P>
+Each pass of the radix sort is implemented as a bucket sort.
+In the example we base the sort on <em>decimal</em> digits.
+Therefore, this is called a <em>radix-10</em> sort
+and ten buckets are required to do each sorting pass.
+<P>
+Figure&nbsp;<A HREF="page518.html#figsort9" tppabs="http://www.brpreiss.com/books/opus4/html/page518.html#figsort9"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> illustrates the operation of the radix-10 sort.
+The first radix sorting pass considers the least significant digits.
+As in the bucket sort, a single pass is made through the unsorted data,
+counting the number of times each decimal digit appears
+as the least-significant digit.
+E.g., there are no elements that have a 0 as the least-significant digit;
+there are two elements that have a 1 as the least-significant digit; and so on.
+<P>
+<P><A NAME="46454">&#160;</A><A NAME="figsort9">&#160;</A> <IMG WIDTH=575 HEIGHT=443 ALIGN=BOTTOM ALT="figure45631" SRC="img2225.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2225.gif"  ><BR>
+<STRONG>Figure:</STRONG> Radix Sorting<BR>
+<P>
+<P>
+After the counts have been determined,
+it is necessary to permute the input sequence so that it is sorted
+by the least-significant digits.
+To do this permutation efficiently,
+we compute the sequence of <em>offsets</em> given by
+<P><A NAME="eqnsortingx">&#160;</A> <IMG WIDTH=500 HEIGHT=48 ALIGN=BOTTOM ALT="equation46458" SRC="img2226.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2226.gif"  ><P>
+where <I>R</I> is the sorting radix.
+Note that  <IMG WIDTH=63 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline70617" SRC="img2227.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2227.gif"  > is the position in the permuted sequence
+of the first occurrence of an element whose least significant digit is <I>i</I>.
+By making use of the offsets,
+it is possible to permute the input sequence by making a single pass
+through the sequence.
+<P>
+The second radix sorting pass considers the most significant digits.
+As above a single pass is made through the permuted data sequence
+counting the number of times each decimal digit appears
+as the most-significant digit.
+Then the sequence of <em>offsets</em> is computed as above.
+The sequence is permuted again using the offsets
+producing the final, sorted sequence.
+<P>
+In general, radix sorting can be used when the elements of the
+universe can be viewed as <I>p</I>-digit numbers with respect to some radix, <I>R</I>.
+I.e., each element of the universe has the form
+<P> <IMG WIDTH=280 HEIGHT=46 ALIGN=BOTTOM ALT="displaymath70605" SRC="img2228.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2228.gif"  ><P>
+where  <IMG WIDTH=148 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline70625" SRC="img2229.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2229.gif"  > for  <IMG WIDTH=63 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline70627" SRC="img2230.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2230.gif"  >.
+In this case, the radix sort algorithm must make <I>p</I> sorting passes
+from the least significant digit,  <IMG WIDTH=15 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline70631" SRC="img2231.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2231.gif"  >,
+to the most significant digit,  <IMG WIDTH=31 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline70633" SRC="img2232.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2232.gif"  >,
+and each sorting pass uses exactly <I>R</I> counters.
+<P>
+Radix sorting can also be used when the universe can be viewed
+as the cross-product of a finite number of finite sets.
+I.e., when the universe has the form
+<P> <IMG WIDTH=352 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath70606" SRC="img2233.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2233.gif"  ><P>
+where <I>p</I><I>&gt;</I>0 is a fixed integer constant 
+and  <IMG WIDTH=13 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline69439" SRC="img2036.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2036.gif"  > is a finite set for  <IMG WIDTH=63 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline70641" SRC="img2234.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2234.gif"  >.
+For example, each card in a 52-card deck of playing cards
+can be represented as an element of  <IMG WIDTH=88 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline70643" SRC="img2235.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2235.gif"  >, where
+ <IMG WIDTH=124 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline70645" SRC="img2236.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2236.gif"  >
+and  <IMG WIDTH=266 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline70647" SRC="img2237.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2237.gif"  >.
+<P>
+Before we can sort over the universe <I>U</I>,
+we need to define what it means for one element to precede another in <I>U</I>.
+The usual way to do this is called
+<em>lexicographic ordering</em><A NAME=46473>&#160;</A>.
+For example in the case of the playing cards we may say that
+one card precedes another if its suit precedes the other suit
+or if the suits are equal but the face value precedes that of the other.
+<P>
+In general, given the universe
+ <IMG WIDTH=200 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline70653" SRC="img2238.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2238.gif"  >,
+and two elements of <I>U</I>, say <I>x</I> and <I>y</I>,
+represented by the <I>p</I>-tuples
+ <IMG WIDTH=135 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline70663" SRC="img2239.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2239.gif"  > and  <IMG WIDTH=131 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline70665" SRC="img2240.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2240.gif"  >, respectively,
+we say that <I>x</I> <em>lexicographically precedes</em><A NAME=46475>&#160;</A><A NAME=46476>&#160;</A> <I>y</I>
+if there exists  <IMG WIDTH=67 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline70671" SRC="img2241.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2241.gif"  > such that  <IMG WIDTH=51 HEIGHT=18 ALIGN=MIDDLE ALT="tex2html_wrap_inline70673" SRC="img2242.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2242.gif"  > and
+ <IMG WIDTH=46 HEIGHT=14 ALIGN=MIDDLE ALT="tex2html_wrap_inline70675" SRC="img2243.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2243.gif"  > for all  <IMG WIDTH=63 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline70677" SRC="img2244.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2244.gif"  >.
+<P>
+With this definition of precedence,
+we can radix sort a sequence of elements drawn from <I>U</I>
+by sorting with respect to the components of the <I>p</I>-tuples.
+Specifically, we sort first with respect to  <IMG WIDTH=16 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline70683" SRC="img2245.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2245.gif"  >, then  <IMG WIDTH=32 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline70685" SRC="img2246.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2246.gif"  >,
+and so on down to  <IMG WIDTH=16 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline70687" SRC="img2247.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2247.gif"  >.
+Notice that the algorithm does <I>p</I> sorting passes
+and in the  <IMG WIDTH=17 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58387" SRC="img77.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img77.gif"  > pass it requires  <IMG WIDTH=22 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline70693" SRC="img2248.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2248.gif"  > counters.
+For example to sort a deck of cards,
+two passes are required.
+In first pass the cards are sorted into 13 piles
+according to their face values.
+In the second pass the cards are sorted into four piles
+according to their suits.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html8314" HREF="page519.html#SECTION0016821000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page519.html#SECTION0016821000000000000000">Implementation</A>
+</UL>
+<HR><A NAME="tex2html8310" HREF="page519.html" tppabs="http://www.brpreiss.com/books/opus4/html/page519.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8308" HREF="page515.html" tppabs="http://www.brpreiss.com/books/opus4/html/page515.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8304" HREF="page517.html" tppabs="http://www.brpreiss.com/books/opus4/html/page517.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8312" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8313" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

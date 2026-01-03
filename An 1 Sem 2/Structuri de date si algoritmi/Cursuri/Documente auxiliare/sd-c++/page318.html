@@ -1,0 +1,73 @@
+<HTML>
+<HEAD>
+<TITLE>Removing Items from a Binary Search Tree</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html5856" HREF="page319.html" tppabs="http://www.brpreiss.com/books/opus4/html/page319.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5854" HREF="page311.html" tppabs="http://www.brpreiss.com/books/opus4/html/page311.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5850" HREF="page317.html" tppabs="http://www.brpreiss.com/books/opus4/html/page317.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5858" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5859" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0011430000000000000000">Removing Items from a Binary Search Tree</A></H2>
+<P>
+<A NAME="secsrchtreebstout">&#160;</A>
+<P>
+When removing an item from a search tree,
+it is imperative that the tree which remains satisfies
+the data ordering criterion.
+If the item to be removed is in a leaf node,
+then it is fairly easy to remove that item from the tree
+since doing so does not disturb the relative order
+of any of the other items in the tree.
+<P>
+For example,
+consider the binary search tree shown in Figure&nbsp;<A HREF="page318.html#figtree14" tppabs="http://www.brpreiss.com/books/opus4/html/page318.html#figtree14"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>&nbsp;(a).
+Suppose we wish to remove the node labeled&nbsp;4.
+Since node&nbsp;4 is a leaf, its subtrees are empty.
+When we remove it from the tree,
+the tree remains a valid search tree
+as shown in Figure&nbsp;<A HREF="page318.html#figtree14" tppabs="http://www.brpreiss.com/books/opus4/html/page318.html#figtree14"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>&nbsp;(b).
+<P>
+<P><A NAME="19695">&#160;</A><A NAME="figtree14">&#160;</A> <IMG WIDTH=575 HEIGHT=190 ALIGN=BOTTOM ALT="figure19467" SRC="img1303.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1303.gif"  ><BR>
+<STRONG>Figure:</STRONG> Removing a Leaf Node from a Binary Search Tree<BR>
+<P>
+<P>
+To remove a non-leaf node,
+we move it down in the tree until it becomes a leaf node
+since a leaf node is easily deleted.
+To move a node down we swap it with another
+node which is further down in the tree.
+For example, consider the search tree shown in Figure&nbsp;<A HREF="page318.html#figtree15" tppabs="http://www.brpreiss.com/books/opus4/html/page318.html#figtree15"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>&nbsp;(a).
+Node&nbsp;1 is not a leaf since it has an empty left subtree
+but a non-empty right subtree.
+To remove node&nbsp;1, we swap it with the smallest key in its right subtree,
+which in this case is node&nbsp;2, Figure&nbsp;<A HREF="page318.html#figtree15" tppabs="http://www.brpreiss.com/books/opus4/html/page318.html#figtree15"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>&nbsp;(b).
+Since node&nbsp;1 is now a leaf, it is easily deleted.
+Notice that the resulting tree remains a valid search tree,
+as shown in Figure&nbsp;<A HREF="page318.html#figtree15" tppabs="http://www.brpreiss.com/books/opus4/html/page318.html#figtree15"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>&nbsp;(c).
+<P>
+<P><A NAME="19934">&#160;</A><A NAME="figtree15">&#160;</A> <IMG WIDTH=575 HEIGHT=210 ALIGN=BOTTOM ALT="figure19701" SRC="img1304.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1304.gif"  ><BR>
+<STRONG>Figure:</STRONG> Removing a Non-Leaf Node from a Binary Search Tree<BR>
+<P>
+<P>
+To move a non-leaf node down in the tree,
+we either swap it with the smallest key in the right subtree
+or with the largest one in the left subtree.
+At least one such swap is always possible,
+since the node is a non-leaf and therefore
+at least one of its subtrees is non-empty.
+If after the swap, the node to be deleted is not a leaf,
+the we push it further down the tree with yet another swap.
+Eventually, the node must reach the bottom of the tree
+where it can be deleted.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html5860" HREF="page319.html#SECTION0011431000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page319.html#SECTION0011431000000000000000"><tt>Withdraw</tt> and <tt>DetachKey</tt> Member Functions</A>
+</UL>
+<HR><A NAME="tex2html5856" HREF="page319.html" tppabs="http://www.brpreiss.com/books/opus4/html/page319.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5854" HREF="page311.html" tppabs="http://www.brpreiss.com/books/opus4/html/page311.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5850" HREF="page317.html" tppabs="http://www.brpreiss.com/books/opus4/html/page317.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5858" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5859" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

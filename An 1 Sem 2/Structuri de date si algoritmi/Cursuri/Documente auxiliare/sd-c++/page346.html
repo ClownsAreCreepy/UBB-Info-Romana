@@ -1,0 +1,110 @@
+<HTML>
+<HEAD>
+<TITLE>Implementation</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html6203" HREF="page347.html" tppabs="http://www.brpreiss.com/books/opus4/html/page347.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6201" HREF="page345.html" tppabs="http://www.brpreiss.com/books/opus4/html/page345.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6195" HREF="page345.html" tppabs="http://www.brpreiss.com/books/opus4/html/page345.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6205" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6206" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0011721000000000000000">Implementation</A></H3>
+<P>
+Insertion in a B-tree is a two-pass process.
+The first pass moves down the tree from the root
+in order to locate the leaf in which the insertion is to begin.
+This part of the algorithm is quite similar to
+the <tt>Find</tt> routine given in Program&nbsp;<A HREF="page337.html#progmwaytree3c" tppabs="http://www.brpreiss.com/books/opus4/html/page337.html#progmwaytree3c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+The second pass moves from the bottom of the tree back up to the root,
+splitting nodes and inserting them further up the tree as needed.
+Program&nbsp;<A HREF="page346.html#progbtree1c" tppabs="http://www.brpreiss.com/books/opus4/html/page346.html#progbtree1c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives the code for the first (downward) pass
+(member function <tt>Insert</tt>)
+and the Program&nbsp;<A HREF="page346.html#progbtree2c" tppabs="http://www.brpreiss.com/books/opus4/html/page346.html#progbtree2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives the code for the second (upward) pass
+(member function <tt>InsertPair</tt>).
+<P>
+<P><A NAME="22789">&#160;</A><A NAME="progbtree1c">&#160;</A> <IMG WIDTH=575 HEIGHT=429 ALIGN=BOTTOM ALT="program22668" SRC="img1407.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1407.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>BTree</tt> Class <tt>Insert</tt> 	Member Function Definition<BR>
+<P>
+<P>
+In the implementation shown,
+the downward pass starts at the root node and descends the tree
+until it arrives at an external node.
+If the external node has no parent,
+it must be the root and, therefore, the tree is empty.
+In this case,
+the root becomes an internal node containing a single key
+and two empty subtrees (lines&nbsp;7-10).
+Otherwise, we have arrived at an external node in a non-empty tree
+and the second pass begins by calling <tt>InsertPair</tt>
+to insert the pair  <IMG WIDTH=35 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline65706" SRC="img1394.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1394.gif"  > in the parent.
+<P>
+The upward pass of the insertion algorithm is done by the
+recursive <tt>InsertPair</tt> routine shown in Program&nbsp;<A HREF="page346.html#progbtree2c" tppabs="http://www.brpreiss.com/books/opus4/html/page346.html#progbtree2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+The <tt>InsertPair</tt> routine takes two arguments.
+The first, <tt>object</tt>, is a pointer to an <tt>Object</tt> instance
+and the second, <tt>child</tt>,  is a pointer to a <tt>BTree</tt> instance.
+It is assumed that all the keys in <tt>child</tt> are strictly greater than
+<tt>object</tt>.
+<P>
+<P><A NAME="22791">&#160;</A><A NAME="progbtree2c">&#160;</A> <IMG WIDTH=575 HEIGHT=544 ALIGN=BOTTOM ALT="program22687" SRC="img1408.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1408.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>BTree</tt> Class <tt>InsertPair</tt> 	Member Function Definition<BR>
+<P>
+<P>
+The <tt>InsertPair</tt> routine calls <tt>FindIndex</tt> to determine
+the position in the array of keys
+at which <tt>object</tt> should be inserted (line&nbsp;3).
+It then calls <tt>InsertKey</tt> to insert
+the given key at the specified position in the array of keys (line&nbsp;4).
+In the event that the array of keys is already full,
+i.e., when it contains <I>M</I>-1 items,
+the <tt>InsertKey</tt> function returns the key which falls off the right
+end of the array.
+This is assigned to <tt>extraKey</tt>.
+<P>
+The <tt>InsertSubtree</tt> function does a similar insertion (line&nbsp;5).
+I.e., it inserts the <tt>child</tt> B-tree at the specified position.
+If the array of subtrees is full,
+which occurs if it already contains <I>M</I> subtrees,
+the <tt>InsertSubtree</tt> function returns the tree which falls of the right
+end of the array.
+This is assigned to <tt>extraTree</tt>.
+<P>
+If the <tt>numberOfKeys</tt> is equal to <I>M</I>,
+the node has overflowed and it is necessary to balance the B-tree.
+On the other hand, if the <tt>numberOfKeys</tt> is less than <I>M</I>,
+there is nothing more to do (line&nbsp;7).
+<P>
+If the node overflows and it is the root,
+then two new B-trees, <tt>left</tt> and <tt>right</tt> are created (lines&nbsp;11-12).
+The first  <IMG WIDTH=71 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline65656" SRC="img1386.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1386.gif"  > keys and  <IMG WIDTH=43 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline65628" SRC="img1383.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1383.gif"  > subtrees of the
+given node are moved to the <tt>left</tt> tree by the <tt>AttachLeftHalfOf</tt>
+function (line&nbsp;13);
+and the last  <IMG WIDTH=112 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline65744" SRC="img1402.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1402.gif"  > keys
+and  <IMG WIDTH=84 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline65742" SRC="img1401.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1401.gif"  > subtrees of
+the given node are moved to the <tt>right</tt> tree
+by the <tt>AttachRightHalfOf</tt> function (line&nbsp;14).
+The left-over key is the one in the middle of the array,
+i.e.,  <IMG WIDTH=42 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline65746" SRC="img1403.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1403.gif"  >.
+Finally, the root node is modified
+so that it contains the two new subtrees
+and the single left-over key (lines&nbsp;15-18).
+<P>
+If the node overflows and it is not the root,
+then one new B-tree is created, <tt>right</tt> (line&nbsp;23).
+The last  <IMG WIDTH=112 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline65744" SRC="img1402.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1402.gif"  > keys
+and  <IMG WIDTH=84 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline65742" SRC="img1401.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1401.gif"  > subtrees of the
+given node are moved to the <tt>left</tt> tree by the <tt>AttachRightHalfOf</tt>
+function (line&nbsp;24);
+and the first  <IMG WIDTH=71 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline65656" SRC="img1386.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1386.gif"  > keys and  <IMG WIDTH=43 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline65628" SRC="img1383.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1383.gif"  > subtrees of
+the given node remain attached to the given node.
+Finally, the <tt>InsertPair</tt> routine calls itself recursively
+to insert the left-over key,  <IMG WIDTH=42 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline65746" SRC="img1403.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1403.gif"  >,
+and the new B-tree, <tt>right</tt>, into the parent of the given node (line&nbsp;25).
+It should now be clear why the <tt>parent</tt> member variable is needed.
+<P>
+<HR><A NAME="tex2html6203" HREF="page347.html" tppabs="http://www.brpreiss.com/books/opus4/html/page347.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6201" HREF="page345.html" tppabs="http://www.brpreiss.com/books/opus4/html/page345.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6195" HREF="page345.html" tppabs="http://www.brpreiss.com/books/opus4/html/page345.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6205" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6206" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

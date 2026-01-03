@@ -1,0 +1,117 @@
+<HTML>
+<HEAD>
+<TITLE>More Big Oh Fallacies and Pitfalls</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html2689" HREF="page65.html" tppabs="http://www.brpreiss.com/books/opus4/html/page65.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2687" HREF="page57.html" tppabs="http://www.brpreiss.com/books/opus4/html/page57.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2681" HREF="page63.html" tppabs="http://www.brpreiss.com/books/opus4/html/page63.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2691" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2692" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION004170000000000000000">More Big Oh Fallacies and Pitfalls</A></H2>
+<P>
+The purpose of this section is
+to dispel some common misconceptions about big oh.
+The next fallacy is related to the selection
+of the constants <I>c</I> and  <IMG WIDTH=16 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline59043" SRC="img238.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img238.gif"  > used to show a big oh relation.
+<P>
+<BLOCKQUOTE> <b>Fallacy</b><A NAME="fallacyiii">&#160;</A>
+    Consider non-negative functions <I>f</I>(<I>n</I>),  <IMG WIDTH=36 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59693" SRC="img373.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img373.gif"  >, and  <IMG WIDTH=36 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59241" SRC="img269.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img269.gif"  >,
+    such that  <IMG WIDTH=143 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59697" SRC="img374.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img374.gif"  >.
+    Since  <IMG WIDTH=95 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59699" SRC="img375.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img375.gif"  > for all integers  <IMG WIDTH=38 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59063" SRC="img241.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img241.gif"  > if  <IMG WIDTH=64 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59703" SRC="img376.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img376.gif"  >,
+    then by Definition&nbsp;<A HREF="page57.html#defnbigoh" tppabs="http://www.brpreiss.com/books/opus4/html/page57.html#defnbigoh"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>  <IMG WIDTH=113 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59705" SRC="img377.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img377.gif"  >.
+</BLOCKQUOTE>
+<P>
+This fallacy often results from the following line of reasoning:
+Consider the function  <IMG WIDTH=96 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59707" SRC="img378.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img378.gif"  >.
+Let  <IMG WIDTH=61 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59709" SRC="img379.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img379.gif"  > and  <IMG WIDTH=45 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline59539" SRC="img348.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img348.gif"  >.
+Then <I>f</I>(<I>n</I>) must be <I>O</I>(<I>n</I>),
+since  <IMG WIDTH=138 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59717" SRC="img380.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img380.gif"  >.
+However, this line of reasoning is false because
+according to Definition&nbsp;<A HREF="page57.html#defnbigoh" tppabs="http://www.brpreiss.com/books/opus4/html/page57.html#defnbigoh"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+<I>c</I> must be a <em>positive constant</em>, not a function of <I>n</I>.
+<P>
+The next fallacy involves a misunderstanding of the
+notion of the <em>asymptotic upper bound</em>.
+<P>
+<BLOCKQUOTE> <b>Fallacy</b><A NAME="fallacyiv">&#160;</A>
+    Given non-negative functions  <IMG WIDTH=35 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59231" SRC="img267.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img267.gif"  >,  <IMG WIDTH=35 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59233" SRC="img268.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img268.gif"  >,  <IMG WIDTH=36 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59693" SRC="img373.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img373.gif"  >, and  <IMG WIDTH=36 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59241" SRC="img269.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img269.gif"  >,
+    such that  <IMG WIDTH=118 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59227" SRC="img265.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img265.gif"  >,  <IMG WIDTH=117 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59229" SRC="img266.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img266.gif"  >,
+    and for all integers  <IMG WIDTH=38 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59063" SRC="img241.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img241.gif"  >,  <IMG WIDTH=94 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59737" SRC="img381.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img381.gif"  >,
+    then  <IMG WIDTH=93 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59739" SRC="img382.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img382.gif"  >.
+</BLOCKQUOTE>
+<P>
+This fallacy arises from the following line of reasoning.
+Consider the function  <IMG WIDTH=98 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59741" SRC="img383.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img383.gif"  > and  <IMG WIDTH=98 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59743" SRC="img384.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img384.gif"  >.
+Since  <IMG WIDTH=54 HEIGHT=28 ALIGN=MIDDLE ALT="tex2html_wrap_inline59745" SRC="img385.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img385.gif"  > for all values of  <IMG WIDTH=38 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59533" SRC="img344.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img344.gif"  >,
+we might be tempted to conclude that  <IMG WIDTH=93 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59749" SRC="img386.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img386.gif"  >.
+In fact, such a conclusion is erroneous.
+E.g., consider  <IMG WIDTH=66 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59175" SRC="img259.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img259.gif"  > and  <IMG WIDTH=101 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59753" SRC="img387.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img387.gif"  >.
+Clearly, the former is  <IMG WIDTH=40 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59179" SRC="img261.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img261.gif"  > and the latter is  <IMG WIDTH=39 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59491" SRC="img332.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img332.gif"  >.
+Clearly too,  <IMG WIDTH=93 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59759" SRC="img388.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img388.gif"  > for all values of  <IMG WIDTH=38 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59063" SRC="img241.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img241.gif"  >!
+<P>
+The previous fallacy essentially demonstrates that
+while we may know how the asymptotic upper bounds on two functions
+are related, we don't necessarily know, in general,
+the relative behavior of the two bounded functions.
+<P>
+This fallacy often arises in the comparison of the performance of algorithms.
+Suppose we are comparing two algorithms, <I>A</I> and <I>B</I>,
+to solve a given problem and we have determined that the running times
+of these algorithms are  <IMG WIDTH=124 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59767" SRC="img389.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img389.gif"  > and  <IMG WIDTH=124 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59769" SRC="img390.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img390.gif"  >,
+respectively.
+Fallacy&nbsp;<A HREF="page64.html#fallacyiv" tppabs="http://www.brpreiss.com/books/opus4/html/page64.html#fallacyiv"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> demonstrates that it is an error to conclude
+from the fact that  <IMG WIDTH=155 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59771" SRC="img391.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img391.gif"  > that algorithm <I>A</I> will
+solve the problem faster than algorithm <I>B</I> for all problem sizes.
+<P>
+But what about any one specific problem size?
+Can we conclude that for a given problem size, say  <IMG WIDTH=16 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline59043" SRC="img238.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img238.gif"  >,
+that algorithm <I>A</I> is faster than algorithm <I>B</I>?
+The next fallacy addresses this issue.
+<P>
+<BLOCKQUOTE> <b>Fallacy</b><A NAME="fallacyv">&#160;</A>
+    Given non-negative functions  <IMG WIDTH=35 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59231" SRC="img267.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img267.gif"  >,  <IMG WIDTH=35 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59233" SRC="img268.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img268.gif"  >,  <IMG WIDTH=36 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59693" SRC="img373.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img373.gif"  >, and  <IMG WIDTH=36 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59241" SRC="img269.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img269.gif"  >,
+    such that  <IMG WIDTH=118 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59227" SRC="img265.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img265.gif"  >,  <IMG WIDTH=117 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59229" SRC="img266.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img266.gif"  >,
+    and for all integers  <IMG WIDTH=38 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59063" SRC="img241.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img241.gif"  >,  <IMG WIDTH=94 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59737" SRC="img381.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img381.gif"  >,
+    there exists an integer  <IMG WIDTH=16 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline59043" SRC="img238.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img238.gif"  > for which then  <IMG WIDTH=107 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59801" SRC="img392.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img392.gif"  >.
+</BLOCKQUOTE>
+<P>
+This fallacy arises from a similar line of reasoning as the preceding one.
+Consider the function  <IMG WIDTH=98 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59741" SRC="img383.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img383.gif"  > and  <IMG WIDTH=98 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59743" SRC="img384.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img384.gif"  >.
+Since  <IMG WIDTH=54 HEIGHT=28 ALIGN=MIDDLE ALT="tex2html_wrap_inline59745" SRC="img385.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img385.gif"  > for all values of  <IMG WIDTH=38 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59533" SRC="img344.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img344.gif"  >,
+we might be tempted to conclude that there exists
+a value  <IMG WIDTH=16 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline59043" SRC="img238.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img238.gif"  > for which  <IMG WIDTH=108 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59813" SRC="img393.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img393.gif"  >.
+Such a conclusion is erroneous.
+E.g., consider  <IMG WIDTH=100 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59815" SRC="img394.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img394.gif"  > and  <IMG WIDTH=66 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59817" SRC="img395.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img395.gif"  >.
+Clearly, the former is  <IMG WIDTH=40 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59179" SRC="img261.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img261.gif"  > and the latter is  <IMG WIDTH=39 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59491" SRC="img332.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img332.gif"  >.
+Clearly too, since  <IMG WIDTH=93 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59759" SRC="img388.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img388.gif"  > for all values of  <IMG WIDTH=38 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59063" SRC="img241.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img241.gif"  >,
+there does not exist any value  <IMG WIDTH=45 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59827" SRC="img396.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img396.gif"  >
+for which  <IMG WIDTH=108 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59813" SRC="img393.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img393.gif"  >.
+<P>
+The final fallacy shows that not all functions are
+<em>commensurate</em><A NAME=1612>&#160;</A>:
+<P>
+<BLOCKQUOTE> <b>Fallacy</b><A NAME="fallacyvi">&#160;</A>
+    Given two non-negative functions <I>f</I>(<I>n</I>) and <I>g</I>(<I>n</I>)
+    then either <I>f</I>(<I>n</I>)=<I>O</I>(<I>g</I>(<I>n</I>)) or <I>g</I>(<I>n</I>)=<I>O</I>(<I>f</I>(<I>n</I>)).
+</BLOCKQUOTE>
+<P>
+This fallacy arises from thinking that the relation  <IMG WIDTH=28 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline58163" SRC="img1.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1.gif"  >
+is like  <IMG WIDTH=10 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59841" SRC="img397.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img397.gif"  > and can be used to compare any two functions.
+However, not all functions are commensurate.<A NAME="tex2html63" HREF="footnode.html#1689" tppabs="http://www.brpreiss.com/books/opus4/html/footnode.html#1689"><IMG  ALIGN=BOTTOM ALT="gif" SRC="foot_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/foot_motif.gif"></A>
+Consider the following functions:
+<P> <IMG WIDTH=500 HEIGHT=102 ALIGN=BOTTOM ALT="eqnarray1618" SRC="img398.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img398.gif"  ><P>
+Clearly, there does not exist a constant <I>c</I>
+for which  <IMG WIDTH=88 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59077" SRC="img243.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img243.gif"  > for any even integer <I>n</I>,
+since the <I>g</I>(<I>n</I>) is zero and <I>f</I>(<I>n</I>) is not.
+Conversely, there does not exist a constant <I>c</I>
+for which  <IMG WIDTH=89 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59863" SRC="img399.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img399.gif"  > for any odd integer <I>n</I>,
+since the <I>f</I>(<I>n</I>) is zero and <I>g</I>(<I>n</I>) is not.
+Hence, neither <I>f</I>(<I>n</I>)=<I>O</I>(<I>g</I>(<I>n</I>)) nor <I>g</I>(<I>n</I>)=<I>O</I>(<I>f</I>(<I>n</I>)) is true.
+<P>
+<HR><A NAME="tex2html2689" HREF="page65.html" tppabs="http://www.brpreiss.com/books/opus4/html/page65.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2687" HREF="page57.html" tppabs="http://www.brpreiss.com/books/opus4/html/page57.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2681" HREF="page63.html" tppabs="http://www.brpreiss.com/books/opus4/html/page63.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2691" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2692" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,45 @@
+<HTML>
+<HEAD>
+<TITLE>Inserting an Item at an Arbitrary Position</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html4189" HREF="page185.html" tppabs="http://www.brpreiss.com/books/opus4/html/page185.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4187" HREF="page177.html" tppabs="http://www.brpreiss.com/books/opus4/html/page177.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4181" HREF="page183.html" tppabs="http://www.brpreiss.com/books/opus4/html/page183.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4191" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4192" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION008127000000000000000">Inserting an Item at an Arbitrary Position</A></H3>
+<P>
+Once having determined the position of an item in an ordered list,
+we can make use of that position to insert items into the middle of the list.
+Two functions are specifically provided for this purpose--<tt>InsertAfter</tt> and <tt>InsertBefore</tt>.
+Both of these take the same set of arguments:
+A <tt>const</tt> reference to a <tt>Position</tt> which specifies
+the point at which the insertion is to be made,
+and a reference to the object to be inserted.
+<P>
+<P><A NAME="10562">&#160;</A><A NAME="proglist11c">&#160;</A> <IMG WIDTH=575 HEIGHT=200 ALIGN=BOTTOM ALT="program10269" SRC="img810.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img810.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>ListAsLinkedList</tt> Class 	<tt>InsertAfter</tt> Member Function Definition<BR>
+<P>
+<P>
+Program&nbsp;<A HREF="page184.html#proglist11c" tppabs="http://www.brpreiss.com/books/opus4/html/page184.html#proglist11c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives the implementation for the
+<tt>InsertAfter</tt> member function of the <tt>ListAsLinkedList</tt> class.
+After casting the arguments to the appropriate types
+and performing some validity checks,
+this function simply calls the <tt>InsertAfter</tt> function
+provided by the <tt>LinkedList&lt;T&gt;</tt> class.
+Assuming no exceptions are thrown,
+the running time for this function is <I>O</I>(1).
+<P>
+The implementation of <tt>InsertBefore</tt> is not shown--its similarity with <tt>InsertAfter</tt> should be obvious.
+Since it must call the <tt>InsertBefore</tt> routine
+provided by the <tt>LinkedList&lt;T&gt;</tt> class,
+we expect the worst case running time to be <I>O</I>(<I>n</I>),
+where  <IMG WIDTH=72 HEIGHT=9 ALIGN=BOTTOM ALT="tex2html_wrap_inline61308" SRC="img709.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img709.gif"  >.
+<P>
+<HR><A NAME="tex2html4189" HREF="page185.html" tppabs="http://www.brpreiss.com/books/opus4/html/page185.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4187" HREF="page177.html" tppabs="http://www.brpreiss.com/books/opus4/html/page177.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4181" HREF="page183.html" tppabs="http://www.brpreiss.com/books/opus4/html/page183.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4191" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4192" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

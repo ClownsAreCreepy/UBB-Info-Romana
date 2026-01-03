@@ -1,0 +1,49 @@
+<HTML>
+<HEAD>
+<TITLE>Implementation</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html9052" HREF="page579.html" tppabs="http://www.brpreiss.com/books/opus4/html/page579.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html9050" HREF="page577.html" tppabs="http://www.brpreiss.com/books/opus4/html/page577.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html9046" HREF="page577.html" tppabs="http://www.brpreiss.com/books/opus4/html/page577.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html9054" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html9055" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0017511000000000000000">Implementation</A></H3>
+<P>
+An implementation of Prim's algorithm is shown in Program&nbsp;<A HREF="page578.html#proggraphalgs4c" tppabs="http://www.brpreiss.com/books/opus4/html/page578.html#proggraphalgs4c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+This implementation is almost identical
+to the version of <tt>Dijkstra's</tt> algorithm given in Program&nbsp;<A HREF="page568.html#proggraphalgs2c" tppabs="http://www.brpreiss.com/books/opus4/html/page568.html#proggraphalgs2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+In fact, there are only four differences between the two algorithms.
+These are found on lines 1, 23, 38, and 40-41.
+<P>
+<P><A NAME="53690">&#160;</A><A NAME="proggraphalgs4c">&#160;</A> <IMG WIDTH=575 HEIGHT=907 ALIGN=BOTTOM ALT="program53687" SRC="img2549.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2549.gif"  ><BR>
+<STRONG>Program:</STRONG> Prim's Algorithm<BR>
+<P>
+<P>
+The <tt>PrimsAlgorithm</tt> function takes two arguments.
+The first is a <tt>const</tt> reference to a undirected graph instance.
+We assume that the graph is edge-weighted
+and that the weights are instances of the
+<tt>Int</tt> class defined in Program&nbsp;<A HREF="page116.html#progwrapper2h" tppabs="http://www.brpreiss.com/books/opus4/html/page116.html#progwrapper2h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+The second argument is a <tt>const</tt> reference to the start node.
+<P>
+The <tt>PrimsAlgorithm</tt> routine returns a minimum-cost spanning tree
+represented as an undirected graph.
+Therefore, the return value is a reference to a <tt>Graph</tt> instance.
+The function allocates the storage, constructs the spanning tree
+and returns a reference to that graph.
+<P>
+The running time of Prim's algorithm is asymptotically
+the same as Dijkstra's algorithm.
+I.e., the worst-case running time is
+<P> <IMG WIDTH=315 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath72639" SRC="img2483.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2483.gif"  ><P>
+when adjacency lists are used, and
+<P> <IMG WIDTH=318 HEIGHT=18 ALIGN=BOTTOM ALT="displaymath72640" SRC="img2484.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2484.gif"  ><P>
+when adjacency matrices are used to represent the input graph.
+<P>
+<HR><A NAME="tex2html9052" HREF="page579.html" tppabs="http://www.brpreiss.com/books/opus4/html/page579.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html9050" HREF="page577.html" tppabs="http://www.brpreiss.com/books/opus4/html/page577.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html9046" HREF="page577.html" tppabs="http://www.brpreiss.com/books/opus4/html/page577.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html9054" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html9055" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,88 @@
+<HTML>
+<HEAD>
+<TITLE>Heap-Ordered Binomial Trees</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html6555" HREF="page375.html" tppabs="http://www.brpreiss.com/books/opus4/html/page375.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6553" HREF="page373.html" tppabs="http://www.brpreiss.com/books/opus4/html/page373.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6547" HREF="page373.html" tppabs="http://www.brpreiss.com/books/opus4/html/page373.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6557" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6558" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0012431000000000000000">Heap-Ordered Binomial Trees</A></H3>
+<P>
+Since binomial trees are simply general trees with a special shape,
+we can make use of the <tt>GeneralTree</tt> class
+presented in Section&nbsp;<A HREF="page276.html#sectreesgeneral" tppabs="http://www.brpreiss.com/books/opus4/html/page276.html#sectreesgeneral"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+to implement the <tt>BinomialTree</tt> class.
+As shown in Program&nbsp;<A HREF="page374.html#progbinom1h" tppabs="http://www.brpreiss.com/books/opus4/html/page374.html#progbinom1h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+the <tt>BinomialTree</tt> class is derived from the <tt>GeneralTree</tt> class
+from which it inherits almost all its functionality.
+In addition to the constructor,
+only two more member functions are declared--<tt>SwapContents</tt> and <tt>Add</tt>.
+<P>
+No new member variables a declared in the <tt>BinomialTree</tt> class.
+Remember that the implementation of the <tt>GeneralTree</tt> class
+uses a linked list to contain the pointers to the subtrees,
+since the degree of a node in a general tree may be arbitrarily large. 
+Also, the <tt>GeneralTree</tt> class already keeps track of the
+degree of a node in its member variable <tt>degree</tt>.
+Since the degree of the root node of a binomial tree of order <I>k</I> is <I>k</I>,
+it is not necessary to keep track of the order explicitly.
+The <tt>degree</tt> variable serves this purpose nicely.
+<P>
+<P><A NAME="27286">&#160;</A><A NAME="progbinom1h">&#160;</A> <IMG WIDTH=575 HEIGHT=180 ALIGN=BOTTOM ALT="program27221" SRC="img1555.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1555.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>BinomialTree</tt> Class Definition<BR>
+<P>
+<P>
+The purpose of the <tt>SwapContents</tt> member function
+is evident from its name--it simply exchanges the contents of two nodes of a binomial tree.
+It is relatively easy to implement an algorithm to swap
+the contents of a node of a binomial tree.
+It is not difficult to ensure that the running time
+of <tt>SwapContents</tt> is <I>O</I>(1),
+regardless of the degrees of the nodes whose contents are swapped.
+<P>
+The <tt>Add</tt> member function is used to combine
+two binomial trees of the same order, say <I>k</I>,
+into a single binomial tree of order <I>k</I>+1.
+Each of the two trees to be combined is heap-ordered.
+Since the smallest key is at the root of a heap-ordered tree,
+we know that the root of the result must be the smaller
+root of the two trees which are to be combined.
+Therefore, to combine the two trees,
+we simply attach the tree with the larger root
+under the root of the tree with the smaller root.
+For example,
+Figure&nbsp;<A HREF="page374.html#figbinom3" tppabs="http://www.brpreiss.com/books/opus4/html/page374.html#figbinom3"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> illustrates how two heap-ordered binomial trees of order two
+are combined into a single heap-ordered tree of order three.
+<P>
+<P><A NAME="27458">&#160;</A><A NAME="figbinom3">&#160;</A> <IMG WIDTH=575 HEIGHT=316 ALIGN=BOTTOM ALT="figure27238" SRC="img1556.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1556.gif"  ><BR>
+<STRONG>Figure:</STRONG> Adding Binomial Trees<BR>
+<P>
+<P>
+The implementation of the <tt>Add</tt> function is
+given in Program&nbsp;<A HREF="page374.html#progbinom1c" tppabs="http://www.brpreiss.com/books/opus4/html/page374.html#progbinom1c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+The <tt>Add</tt> function takes a reference to a <tt>BinomialTree</tt>
+and attaches the specified tree to <tt>this</tt> node.
+This is only permissible when both trees have the same order.
+<P>
+<P><A NAME="27702">&#160;</A><A NAME="progbinom1c">&#160;</A> <IMG WIDTH=575 HEIGHT=162 ALIGN=BOTTOM ALT="program27466" SRC="img1557.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1557.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>BinomialTree</tt> Class <tt>Add</tt> Member Function Definition<BR>
+<P>
+<P>
+In order to ensure that the resulting binomial tree is heap ordered,
+the roots of the trees are compared.
+If necessary, the contents of the nodes are exchanged
+using <tt>SwapContents</tt> (lines&nbsp;5-6)
+before the subtree is attached (line&nbsp;7).
+Clearly the running time of the <tt>Add</tt> member function is
+<P> <IMG WIDTH=341 HEIGHT=17 ALIGN=BOTTOM ALT="displaymath66932" SRC="img1558.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1558.gif"  ><P>
+I.e., exactly one comparison and a constant amount of additional
+work is needed to combine two binomial trees.
+<P>
+<HR><A NAME="tex2html6555" HREF="page375.html" tppabs="http://www.brpreiss.com/books/opus4/html/page375.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6553" HREF="page373.html" tppabs="http://www.brpreiss.com/books/opus4/html/page373.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6547" HREF="page373.html" tppabs="http://www.brpreiss.com/books/opus4/html/page373.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6557" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6558" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

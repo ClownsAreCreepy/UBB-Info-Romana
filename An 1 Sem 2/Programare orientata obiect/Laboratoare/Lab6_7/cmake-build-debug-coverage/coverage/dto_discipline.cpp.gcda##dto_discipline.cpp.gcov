@@ -1,0 +1,11 @@
+        -:    0:Source:D:/C,C++/CLion 2024.3.4/Projects/Lab6_7/DTO/dto_discipline.cpp
+        -:    0:Graph:D:\C,C++\CLion 2024.3.4\Projects\Lab6_7\cmake-build-debug-coverage\CMakeFiles\Lab6_7.dir\DTO\dto_discipline.cpp.gcno
+        -:    0:Data:D:\C,C++\CLion 2024.3.4\Projects\Lab6_7\cmake-build-debug-coverage\CMakeFiles\Lab6_7.dir\DTO\dto_discipline.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include "dto_discipline.h"
+        -:    2:
+function _ZNK9ReportDTO8getCountEv called 13 returned 100% blocks executed 100%
+       13:    3:int ReportDTO::getCount() const noexcept {
+       13:    4:    return count;
+       13:    4-block  0
+        -:    5:}

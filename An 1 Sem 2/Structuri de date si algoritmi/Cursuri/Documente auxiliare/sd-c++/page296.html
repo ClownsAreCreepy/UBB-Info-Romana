@@ -1,0 +1,97 @@
+<HTML>
+<HEAD>
+<TITLE>Implementation</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html5581" HREF="page297.html" tppabs="http://www.brpreiss.com/books/opus4/html/page297.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5579" HREF="page295.html" tppabs="http://www.brpreiss.com/books/opus4/html/page295.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5575" HREF="page295.html" tppabs="http://www.brpreiss.com/books/opus4/html/page295.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5583" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5584" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0010681000000000000000">Implementation</A></H3>
+<P>
+Program&nbsp;<A HREF="page296.html#progapp06ac" tppabs="http://www.brpreiss.com/books/opus4/html/page296.html#progapp06ac"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives the implementation of a routine,
+<tt>PostfixToInfix</tt>,
+which translates a postfix expression to an infix expression
+using the method described above.
+This routine reads an expression from the standard input file
+one character at at time.
+The expression is assumed to be a syntactically valid
+postfix expression comprised of
+single-digit numbers, single-letter variables,
+and the binary operators <tt>+</tt>, <tt>-</tt>, <tt>*</tt>, and <tt>/</tt>.
+<P>
+<P><A NAME="17885">&#160;</A><A NAME="progapp06ac">&#160;</A> <IMG WIDTH=575 HEIGHT=638 ALIGN=BOTTOM ALT="program17882" SRC="img1208.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1208.gif"  ><BR>
+<STRONG>Program:</STRONG> Binary Tree Application--Postfix to Infix Conversion<BR>
+<P>
+<P>
+Since only binary operators are allowed,
+the resulting expression tree is a binary tree.
+Consequently, the class <tt>ExpressionTree</tt> is derived from
+the class <tt>BinaryTree</tt>.
+<P>
+The main program loop, lines&nbsp;13-26,
+reads characters from the input one at a time.
+If a letter or a digit is found,
+a new tree with the character as its root is created
+and pushed onto the stack (line&nbsp;16).
+If an operator is found,
+a new tree is created with the operator as its root (line&nbsp;19).
+Next, two trees are popped from the stack
+and attached to the new tree which is then pushed onto the stack
+(lines&nbsp;20-24).
+<P>
+When the <tt>PostfixToInfix</tt> routine encounters the end-of-file,
+its main loop terminates.
+The resulting expression tree is popped from the stack,
+printed, and then deleted.
+To print the expression, the <tt>PostfixToInfix</tt> routine
+uses the <tt>InfixVisitor</tt> which is defined in Program&nbsp;<A HREF="page296.html#progapp06bc" tppabs="http://www.brpreiss.com/books/opus4/html/page296.html#progapp06bc"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+<P>
+<P><A NAME="17897">&#160;</A><A NAME="progapp06bc">&#160;</A> <IMG WIDTH=575 HEIGHT=200 ALIGN=BOTTOM ALT="program17894" SRC="img1209.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1209.gif"  ><BR>
+<STRONG>Program:</STRONG> Binary Tree Application--Printing Infix Expressions<BR>
+<P>
+<P>
+The <tt>InfixVisitor</tt> is intended to be used in a depth-first traversal.
+At each non-terminal node of the expression tree,
+the depth-first traversal first calls <tt>PreVisit</tt>,
+which prints a left parenthesis.
+In between the traversals of the left and right subtrees,
+the <tt>Visit</tt> function is called,
+which prints the object contained within the node.
+Finally, after traversing the right subtree,
+<tt>PostVisit</tt> prints a right parenthesis.
+Given the input <tt>ab/cd-e*+</tt>,
+the program constructs the expression tree as shown in Figure&nbsp;<A HREF="page295.html#figtree10" tppabs="http://www.brpreiss.com/books/opus4/html/page295.html#figtree10"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+and then prints the infix expression
+<P> <IMG WIDTH=363 HEIGHT=13 ALIGN=BOTTOM ALT="displaymath64294" SRC="img1210.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1210.gif"  ><P>
+<P>
+The running time of the <tt>PostfixToInfix</tt> routine depends upon
+the number of symbols in the input.
+The running time for one iteration the main loop is <I>O</I>(1).
+Therefore, the time required to construct the expression tree
+given <I>n</I> input symbols is <I>O</I>(<I>n</I>).
+The <tt>DepthFirstTraversal</tt> routine
+visits each node of the expression tree exactly once
+and a constant amount of work is required to print a node.
+As a result, printing the infix expression is also <I>O</I>(<I>n</I>)
+where <I>n</I> is the number of input symbols.
+<P>
+The output expression contains all of the input symbols
+plus the parentheses added by the <tt>PutInfix</tt> routine.
+It can be shown that a valid postfix expression that contains <I>n</I> symbols,
+always has (<I>n</I>-1)/2 binary operators and (<I>n</I>+1)/2 operands
+(Exercise&nbsp;<A HREF="page297.html#exercisetreespostfix" tppabs="http://www.brpreiss.com/books/opus4/html/page297.html#exercisetreespostfix"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>).
+Hence, the expression tree contains (<I>n</I>-1)/2 non-terminal nodes
+and since a pair of parentheses is added for each non-terminal node
+in the expression tree,
+the output string contains 2<I>n</I>-1=<I>O</I>(<I>n</I>) symbols altogether.
+Therefore, the overall running time needed to translate
+a postfix expression comprised of <I>n</I> symbols to an infix expression is <I>O</I>(<I>n</I>).
+<P>
+<HR><A NAME="tex2html5581" HREF="page297.html" tppabs="http://www.brpreiss.com/books/opus4/html/page297.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5579" HREF="page295.html" tppabs="http://www.brpreiss.com/books/opus4/html/page295.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5575" HREF="page295.html" tppabs="http://www.brpreiss.com/books/opus4/html/page295.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5583" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5584" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

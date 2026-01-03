@@ -1,0 +1,96 @@
+<HTML>
+<HEAD>
+<TITLE>Projects</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html7866" HREF="page483.html" tppabs="http://www.brpreiss.com/books/opus4/html/page483.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7864" HREF="page440.html" tppabs="http://www.brpreiss.com/books/opus4/html/page440.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7860" HREF="page481.html" tppabs="http://www.brpreiss.com/books/opus4/html/page481.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7868" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7869" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION0015700000000000000000">Projects</A></H1>
+<P>
+<OL><LI> <A NAME="projectalgsproji">&#160;</A>
+	Design and implement a class derived from the abstract <tt>Solution</tt>
+	class defined in Program&nbsp;<A HREF="page448.html#progsolution1h" tppabs="http://www.brpreiss.com/books/opus4/html/page448.html#progsolution1h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+	which represents the nodes of the solution space of a 
+	<em>0/1-knapsack problem</em> described in Section&nbsp;<A HREF="page445.html#secalgsknapsack" tppabs="http://www.brpreiss.com/books/opus4/html/page445.html#secalgsknapsack"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+<P>
+	Devise a suitable representation for the state of a node
+	and then implement the following member functions
+	<tt>IsFeasible</tt>, <tt>IsComplete</tt>, <tt>Objective</tt>,
+	<tt>Bound</tt>, <tt>Clone</tt> and <tt>Successors</tt>.
+	Note, the <tt>Successors</tt> function requires
+	an iterator which enumerates all the successors of a given node.
+	<OL><LI>
+		Use your class with the <tt>DepthFirstSolver</tt>
+		defined in Program&nbsp;<A HREF="page450.html#progsolution2c" tppabs="http://www.brpreiss.com/books/opus4/html/page450.html#progsolution2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+		to solve the problem given in Table&nbsp;<A HREF="page445.html#tblalgsknapsack" tppabs="http://www.brpreiss.com/books/opus4/html/page445.html#tblalgsknapsack"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.<LI>
+		Use your class with the <tt>BreadthFirstSolver</tt>
+		defined in Program&nbsp;<A HREF="page451.html#progsolution3c" tppabs="http://www.brpreiss.com/books/opus4/html/page451.html#progsolution3c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+		to solve the problem given in Table&nbsp;<A HREF="page445.html#tblalgsknapsack" tppabs="http://www.brpreiss.com/books/opus4/html/page445.html#tblalgsknapsack"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.<LI>
+		Use your class with the
+		<tt>DepthFirstBranchAndBoundSolver</tt>
+		defined in Program&nbsp;<A HREF="page453.html#progsolution4c" tppabs="http://www.brpreiss.com/books/opus4/html/page453.html#progsolution4c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+		to solve the problem given in Table&nbsp;<A HREF="page445.html#tblalgsknapsack" tppabs="http://www.brpreiss.com/books/opus4/html/page445.html#tblalgsknapsack"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+	</OL><LI>
+	Do Project&nbsp;<A HREF="page482.html#projectalgsproji" tppabs="http://www.brpreiss.com/books/opus4/html/page482.html#projectalgsproji"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> for the
+	<em>change counting problem</em> described in Section&nbsp;<A HREF="page442.html#secalgschange" tppabs="http://www.brpreiss.com/books/opus4/html/page442.html#secalgschange"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.<LI>
+	Do Project&nbsp;<A HREF="page482.html#projectalgsproji" tppabs="http://www.brpreiss.com/books/opus4/html/page482.html#projectalgsproji"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> for the
+	<em>scales balancing problem</em> described in Section&nbsp;<A HREF="page447.html#secalgsscales" tppabs="http://www.brpreiss.com/books/opus4/html/page447.html#secalgsscales"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.<LI>
+	Do Project&nbsp;<A HREF="page482.html#projectalgsproji" tppabs="http://www.brpreiss.com/books/opus4/html/page482.html#projectalgsproji"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> for the
+	<em><I>N</I>-queens problem</em> described in Exercise&nbsp;<A HREF="page481.html#exercisealgsqueens" tppabs="http://www.brpreiss.com/books/opus4/html/page481.html#exercisealgsqueens"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.<LI>
+	Design and implement a <tt>GreedySolver</tt> class,
+	along the lines of the <tt>DepthFirstSolver</tt>
+	and <tt>BreadthFirstSolver</tt> classes,
+	that conducts a greedy search of the solution space.
+	To do this you will have to add a member function to the abstract
+	<tt>Solution</tt> class:
+<PRE>class GreedySolution : public Solution
+{
+    virtual Solution&amp; GreedySuccessor () const = 0;
+};</PRE><LI>
+	Design and implement a <tt>SimulatedAnnealingSolver</tt> class,
+	along the lines of the <tt>DepthFirstSolver</tt>
+	and <tt>BreadthFirstSolver</tt> classes,
+	that implements the simulated annealing strategy described
+	in Section&nbsp;<A HREF="page479.html#secalgsanneal" tppabs="http://www.brpreiss.com/books/opus4/html/page479.html#secalgsanneal"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+	To do this you will have to add a member function to the abstract
+	<tt>Solution</tt> class:
+<PRE>class SimulatedAnnealingSolution : public Solution
+{
+    virtual Solution&amp; RandomSuccessor () const = 0;
+};</PRE><LI>
+	Design and implement a dynamic programming algorithm
+	to solve the change counting problem.
+	Your algorithm should always find the optimal solution--even when the greedy algorithm fails.<LI>
+	Consider the divide-and-conquer strategy for matrix multiplication
+	described in Section&nbsp;<A HREF="page464.html#secalgsmatrix" tppabs="http://www.brpreiss.com/books/opus4/html/page464.html#secalgsmatrix"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+	<OL><LI>
+		Rewrite the implementation of the multiplication operator,
+		<tt>operator*</tt>,
+		of the <tt>Matrix&lt;T&gt;</tt> class declared in Program&nbsp;<A HREF="page104.html#progmatrixh" tppabs="http://www.brpreiss.com/books/opus4/html/page104.html#progmatrixh"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.<LI>
+		Compare the running time of your implementation
+		with the  <IMG WIDTH=39 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59491" SRC="img332.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img332.gif"  > algorithm given in Program&nbsp;<A HREF="page104.html#progmatrix1c" tppabs="http://www.brpreiss.com/books/opus4/html/page104.html#progmatrix1c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+	</OL><LI>
+	Consider random number generator that generates
+	random numbers uniformly distributed between zero and one.
+	Such a generator produces
+	a sequence of random numbers  <IMG WIDTH=87 HEIGHT=14 ALIGN=MIDDLE ALT="tex2html_wrap_inline69683" SRC="img2086.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2086.gif"  >.
+	A common test of randomness evaluates the correlation between
+	consecutive pairs of numbers in the sequence.
+	One way to do this is to plot on a graph the points
+	<P> <IMG WIDTH=351 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath69677" SRC="img2087.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2087.gif"  ><P>
+	<OL><LI>
+		Write a program to compute the first 1000 pairs
+		of numbers generated using the <tt>UniformRV</tt>
+		declared in Programs&nbsp;<A HREF="page474.html#prograndom1c" tppabs="http://www.brpreiss.com/books/opus4/html/page474.html#prograndom1c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> and&nbsp;<A HREF="page476.html#prograndom2c" tppabs="http://www.brpreiss.com/books/opus4/html/page476.html#prograndom2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.<LI>
+		What conclusions can you draw from your results?
+	</OL></OL>
+<P>
+<HR><A NAME="tex2html7866" HREF="page483.html" tppabs="http://www.brpreiss.com/books/opus4/html/page483.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7864" HREF="page440.html" tppabs="http://www.brpreiss.com/books/opus4/html/page440.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7860" HREF="page481.html" tppabs="http://www.brpreiss.com/books/opus4/html/page481.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7868" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7869" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,38 @@
+<HTML>
+<HEAD>
+<TITLE>AttachSubtree and DetachSubtree Member Functions</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html5399" HREF="page282.html" tppabs="http://www.brpreiss.com/books/opus4/html/page282.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5397" HREF="page276.html" tppabs="http://www.brpreiss.com/books/opus4/html/page276.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5393" HREF="page280.html" tppabs="http://www.brpreiss.com/books/opus4/html/page280.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5401" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5402" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0010635000000000000000"><tt>AttachSubtree</tt> and <tt>DetachSubtree</tt> Member Functions</A></H3>
+<P>
+Program&nbsp;<A HREF="page280.html#proggentree2c" tppabs="http://www.brpreiss.com/books/opus4/html/page280.html#proggentree2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> also defines two functions for
+manipulating the subtrees of a general tree.
+The purpose of the <tt>AttachSubtree</tt> member function is to
+add the specified subtree to the root of a given tree.
+This function takes as its lone argument
+a reference to a <tt>GeneralTree</tt> instance which is to be attached.
+The <tt>AttachSubtree</tt> routine
+simply appends to the linked list a pointer to the tree to be attached
+and then adds one the <tt>degree</tt> variable.
+The running time for <tt>AttachSubtree</tt> is <I>O</I>(1).
+<P>
+Similarly, the <tt>DetachSubtree</tt> member function
+removes the specified subtree from the given tree.
+This function takes as its lone argument
+a reference to a <tt>GeneralTree</tt> instance which is to be removed.
+It removes the appropriate pointer from the linked list
+and then subtracts one from the <tt>degree</tt> variable.
+The running time for <tt>DetachSubtree</tt> is <I>O</I>(<I>d</I>) in the worst case,
+where  <IMG WIDTH=80 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63952" SRC="img1176.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1176.gif"  >.
+<P>
+<HR><A NAME="tex2html5399" HREF="page282.html" tppabs="http://www.brpreiss.com/books/opus4/html/page282.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5397" HREF="page276.html" tppabs="http://www.brpreiss.com/books/opus4/html/page276.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5393" HREF="page280.html" tppabs="http://www.brpreiss.com/books/opus4/html/page280.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5401" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5402" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

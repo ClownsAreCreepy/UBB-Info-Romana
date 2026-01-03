@@ -1,0 +1,99 @@
+<HTML>
+<HEAD>
+<TITLE>Exercises</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html7328" HREF="page439.html" tppabs="http://www.brpreiss.com/books/opus4/html/page439.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7326" HREF="page416.html" tppabs="http://www.brpreiss.com/books/opus4/html/page416.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7320" HREF="page437.html" tppabs="http://www.brpreiss.com/books/opus4/html/page437.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7330" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7331" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION0014600000000000000000">Exercises</A></H1>
+<P>
+<OL><LI>
+	Consider the memory map shown in Figure&nbsp;<A HREF="page417.html#figpool1" tppabs="http://www.brpreiss.com/books/opus4/html/page417.html#figpool1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+	The figure suggests that smaller areas (both free and reserved)
+	are more likely to be found at lower address than
+	at higher addresses.
+	<OL><LI>
+		Explain why this phenomenon occurs
+		and why it is undesirable.<LI>
+		Propose a modification to the acquire algorithm
+		that alleviates this effect.
+	</OL><LI> <A NAME="exerciseheapi">&#160;</A>
+	Consider a singly-linked storage pool.
+	Several strategies are possible when searching a free list
+	for an area of a given size:
+	<DL ><DT><STRONG>first fit</STRONG>
+<DD><A NAME=32135>&#160;</A>
+		Select the first area encountered that is large enough
+		to satisfy the request.
+	    <DT><STRONG>next fit</STRONG>
+<DD><A NAME=32136>&#160;</A>
+		This is similar to first fit,
+		except that the free list is treated as a circular list.
+		Each subsequent search begins from
+		the position where the previous search ended.
+	    <DT><STRONG>best fit</STRONG>
+<DD><A NAME=32137>&#160;</A>
+		Select the smallest area that is large enough
+		to satisfy the request.
+	    <DT><STRONG>worst fit</STRONG>
+<DD><A NAME=32138>&#160;</A>
+		Select the largest area as long as it is large enough
+		to satisfy the request.
+<P>
+ </DL>
+	<OL><LI>
+		Devise a scenario which illustrates that <em>next fit</em>
+		can be better than <em>first fit</em>.<LI>
+		Devise a scenario which illustrates that <em>best fit</em>
+		can be better than <em>first fit</em>.<LI>
+		Devise a scenario which illustrates that <em>first fit</em>
+		can be better than <em>best fit</em>.<LI>
+		Under what conditions (if any) does the <em>worst fit</em>
+		scenario make sense.
+	</OL><LI>
+	Show how Program&nbsp;<A HREF="page424.html#progpool2c" tppabs="http://www.brpreiss.com/books/opus4/html/page424.html#progpool2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> can be modified
+	to implement the <em>next fit</em> storage allocation
+	strategy described in Exercise&nbsp;<A HREF="page438.html#exerciseheapi" tppabs="http://www.brpreiss.com/books/opus4/html/page438.html#exerciseheapi"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+	What is the running time of your algorithm?<LI>
+	Show how Program&nbsp;<A HREF="page424.html#progpool2c" tppabs="http://www.brpreiss.com/books/opus4/html/page424.html#progpool2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> can be modified
+	to implement the <em>best fit</em> storage allocation.
+	What is the running time of your algorithm?<LI>
+	Devise optimal algorithms for <tt>acquire</tt> and <tt>release</tt>
+	given we know <em>a priori</em> that all the areas
+	acquired from a storage pool will have the same size.
+	What are the running times of your algorithms?<LI>
+	Consider the memory maps shown in Figure&nbsp;<A HREF="page417.html#figpool1" tppabs="http://www.brpreiss.com/books/opus4/html/page417.html#figpool1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> and Figure&nbsp;<A HREF="page426.html#figpool2" tppabs="http://www.brpreiss.com/books/opus4/html/page426.html#figpool2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+	When using the <tt>SinglyLinkedPool</tt> a large block
+	of unused memory is located at one end the pool
+	whereas when using the <tt>DoublyLinkedPool</tt>
+	the large free area is located at the other end.
+	Explain why this is so.<LI>
+	Show how Program&nbsp;<A HREF="page430.html#progpool5c" tppabs="http://www.brpreiss.com/books/opus4/html/page430.html#progpool5c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> can be modified
+	to implement the <em>best fit</em> storage allocation.
+	<OL><LI>
+		What effect does using the best-fit strategy have
+		on the length of the free list in this case?<LI>
+		What is the running time of your algorithm?
+	</OL><LI>
+	Consider the implementations of the <tt>SinglyLinkedPool</tt>
+	and <tt>DoublyLinkedPool</tt> classes.
+	In both cases,
+	the sentinel is located immediately following the last
+	block of the storage pool.
+	Explain how the implementations depend on this.<LI>
+	Devise an algorithm that uses bit manipulation operations to compute
+	<P> <IMG WIDTH=277 HEIGHT=17 ALIGN=BOTTOM ALT="displaymath68387" SRC="img1803.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1803.gif"  ><P>
+	where <I>n</I> is an integer such that  <IMG WIDTH=38 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59533" SRC="img344.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img344.gif"  >.<LI>
+	It is possible to implement a buddy pool
+	in which the size of the pool is not a power of two.
+	What modifications to the algorithms
+	are necessary in order to do this?
+</OL><HR><A NAME="tex2html7328" HREF="page439.html" tppabs="http://www.brpreiss.com/books/opus4/html/page439.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7326" HREF="page416.html" tppabs="http://www.brpreiss.com/books/opus4/html/page416.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7320" HREF="page437.html" tppabs="http://www.brpreiss.com/books/opus4/html/page437.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7330" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7331" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

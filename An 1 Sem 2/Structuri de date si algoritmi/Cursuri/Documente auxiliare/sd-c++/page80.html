@@ -1,0 +1,111 @@
+<HTML>
+<HEAD>
+<TITLE>Dynamic Arrays</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html2886" HREF="page81.html" tppabs="http://www.brpreiss.com/books/opus4/html/page81.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2884" HREF="page79.html" tppabs="http://www.brpreiss.com/books/opus4/html/page79.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2878" HREF="page79.html" tppabs="http://www.brpreiss.com/books/opus4/html/page79.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2888" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2889" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION005100000000000000000">Dynamic Arrays</A></H1>
+<A NAME="secfdsarrays">&#160;</A>
+<P>
+Probably the most common way to aggregate data is to use an array.
+While the C++ programming language does indeed provide built-in
+support for arrays,
+that support is not without its shortcomings.
+Arrays in C++ are not first-class data types.
+There is no such thing as an array-valued expression.
+Consequently,
+you cannot use an array as an actual value parameter of a function;
+you cannot return an array value from a function;
+you cannot assign one array to another.
+(Of course, you <em>can</em> do all of these things
+with a <em>pointer</em> to an array).
+In addition,
+array subscripts range from zero to <I>N</I>-1,
+where <I>N</I> is the array size,
+and there is no bounds checking of array subscript expressions.
+And finally, the size of an array is static and fixed at compile time,
+unless dynamic memory allocation is explicitly used by the programmer.
+<P>
+Some of these characteristics of arrays
+are due in part to the fact that in C++,
+given a pointer, <tt>T* ptr</tt>, to some type, <tt>T</tt>,
+it is not possible to tell, just from the pointer itself,
+whether it points to a single instance of a variable of type <tt>T</tt>
+or to an array of variables of type <tt>T</tt>.
+Furthermore, even if we know that the pointer points to an array,
+we cannot determine the actual number of elements in that array.
+<P>
+It is primarily to address these deficiencies
+that we introduce the <tt>Array</tt> object
+which is implemented as a generic class.
+Figure&nbsp;<A HREF="page80.html#figarray" tppabs="http://www.brpreiss.com/books/opus4/html/page80.html#figarray"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> illustrates the <tt>Array</tt> object
+is represented in the memory of the computer.
+Two structures are used.
+The first is a structure which comprises three fields--<tt>data</tt>, <tt>base</tt> and <tt>length</tt>.
+The member variable <tt>data</tt> is a pointer to the array data.
+Variables <tt>base</tt> and <tt>length</tt>
+are used in the array subscript calculation.
+The second structure comprises contiguous memory locations
+which hold the array elements.
+In the implementation given below,
+this second structure is allocated dynamically.
+<P>
+<P><A NAME="2602">&#160;</A><A NAME="figarray">&#160;</A> <IMG WIDTH=575 HEIGHT=114 ALIGN=BOTTOM ALT="figure2462" SRC="img584.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img584.gif"  ><BR>
+<STRONG>Figure:</STRONG> Memory Representation of Array Objects<BR>
+<P>
+<P>
+The C++ declaration of the <tt>Array&lt;T&gt;</tt> class template
+is given in Program&nbsp;<A HREF="page80.html#progarrayh" tppabs="http://www.brpreiss.com/books/opus4/html/page80.html#progarrayh"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+The <tt>Array&lt;T&gt;</tt> class has three protected member variables,
+<tt>data</tt>, <tt>base</tt>  and <tt>length</tt>,
+constructors, destructor, and various member functions.
+The number of member functions has been kept to the bare minimum in
+this example--in the ``real world'' you can expect that such a class
+would contain many more useful member functions.
+<P>
+On the basis of Program&nbsp;<A HREF="page80.html#progarrayh" tppabs="http://www.brpreiss.com/books/opus4/html/page80.html#progarrayh"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+we can now calculate the total storage required
+to represent <tt>Array&lt;T&gt;</tt> objects.
+Let <I>S</I>(<I>n</I>) be the total storage (memory) needed to
+represent an <tt>Array&lt;T&gt;</tt> object
+which includes <I>n</I> array elements of type <tt>T</tt>.
+<I>S</I>(<I>n</I>) is given by
+<P> <IMG WIDTH=500 HEIGHT=39 ALIGN=BOTTOM ALT="eqnarray2615" SRC="img585.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img585.gif"  ><P>
+where the function  <IMG WIDTH=69 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60929" SRC="img586.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img586.gif"  > is the number of bytes
+used for the memory representation
+of an instance of an object of type <tt>X</tt>.
+<P>
+In C++, the sizes of the basic (built-in) data types are fixed constants.
+So too are the sizes of all pointers.
+Hence,  <IMG WIDTH=132 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60931" SRC="img587.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img587.gif"  > and  <IMG WIDTH=215 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60933" SRC="img588.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img588.gif"  >.
+Therefore,
+<P> <IMG WIDTH=345 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath60917" SRC="img589.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img589.gif"  ><P>
+Unfortunately, since <tt>Array&lt;T&gt;</tt> is a generic class,
+we have no <em>a priori</em> knowledge of the amount of storage
+used by an object of type <tt>T</tt>.
+However, if we assume that the amount of storage used by an object
+of type <tt>T</tt> is a fixed constant,
+then <I>S</I>(<I>n</I>)=<I>O</I>(<I>n</I>).
+<P>
+<P><A NAME="2857">&#160;</A><A NAME="progarrayh">&#160;</A> <IMG WIDTH=575 HEIGHT=486 ALIGN=BOTTOM ALT="program2631" SRC="img590.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img590.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>Array&lt;T&gt;</tt> Class Definition<BR>
+<P><BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html2890" HREF="page81.html#SECTION005110000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page81.html#SECTION005110000000000000000">Default Constructor</A>
+<LI> <A NAME="tex2html2891" HREF="page82.html#SECTION005120000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page82.html#SECTION005120000000000000000">Array Constructor</A>
+<LI> <A NAME="tex2html2892" HREF="page83.html#SECTION005130000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page83.html#SECTION005130000000000000000">Copy Constructor</A>
+<LI> <A NAME="tex2html2893" HREF="page84.html#SECTION005140000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page84.html#SECTION005140000000000000000">Destructor</A>
+<LI> <A NAME="tex2html2894" HREF="page85.html#SECTION005150000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page85.html#SECTION005150000000000000000">Array Member Functions</A>
+<LI> <A NAME="tex2html2895" HREF="page86.html#SECTION005160000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page86.html#SECTION005160000000000000000">Array Subscripting Operator</A>
+<LI> <A NAME="tex2html2896" HREF="page87.html#SECTION005170000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page87.html#SECTION005170000000000000000">Resizing an Array</A>
+</UL>
+<HR><A NAME="tex2html2886" HREF="page81.html" tppabs="http://www.brpreiss.com/books/opus4/html/page81.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2884" HREF="page79.html" tppabs="http://www.brpreiss.com/books/opus4/html/page79.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2878" HREF="page79.html" tppabs="http://www.brpreiss.com/books/opus4/html/page79.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2888" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2889" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

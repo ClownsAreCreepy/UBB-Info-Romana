@@ -1,0 +1,97 @@
+<HTML>
+<HEAD>
+<TITLE>Acquiring an Area</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html7163" HREF="page425.html" tppabs="http://www.brpreiss.com/books/opus4/html/page425.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7161" HREF="page422.html" tppabs="http://www.brpreiss.com/books/opus4/html/page422.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7155" HREF="page423.html" tppabs="http://www.brpreiss.com/books/opus4/html/page423.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7165" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7166" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0014212000000000000000">Acquiring an Area</A></H3>
+<P>
+The <tt>Acquire</tt> function is used to reserve an area in the pool.
+The code for the <tt>Acquire</tt> member function of the
+<tt>SinglyLinkedPool</tt> class is given in Program&nbsp;<A HREF="page424.html#progpool2c" tppabs="http://www.brpreiss.com/books/opus4/html/page424.html#progpool2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+The <tt>Acquire</tt> function takes a single argument that specifies
+the size of the memory area to be allocated (in bytes).
+The function returns a pointer to the allocated area of the pool.
+<P>
+<P><A NAME="30711">&#160;</A><A NAME="progpool2c">&#160;</A> <IMG WIDTH=575 HEIGHT=506 ALIGN=BOTTOM ALT="program30634" SRC="img1752.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1752.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>SinglyLinkedPool</tt> Class <tt>Acquire</tt> 	Member Function Definition<BR>
+<P>
+<P>
+The function begins by calculating the number of blocks required
+using the formula
+<P> <IMG WIDTH=445 HEIGHT=17 ALIGN=BOTTOM ALT="displaymath68063" SRC="img1753.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1753.gif"  ><P>
+I.e., enough storage is set aside to hold the requested number of bytes
+<em>plus</em> a <tt>Header</tt> (lines&nbsp;3-5).
+<P>
+The <tt>Acquire</tt> function then traverses the linked list
+of free areas to find a free area
+that is large enough to satisfy the request (lines&nbsp;7-13).
+This is the so-called
+<em>first-fit allocation strategy</em><A NAME=30651>&#160;</A>:
+It always allocates storage in the first free area that is large enough
+to satisfy the request.
+<P>
+An alternative to the first-fit strategy is the
+<em>best-fit allocation strategy</em><A NAME=30653>&#160;</A>.
+In the best fit strategy, the <tt>Acquire</tt> function allocates
+storage from the free area the size of which matches most closely the
+requested size.
+Under certain circumstances,
+the best-fit strategy may prevent excessive fragmentation of the storage pool.
+However, the best-fit strategy requires that the entire free list be traversed.
+Since we are interested in the fastest possible execution time,
+the first-fit strategy is used here.
+<P>
+If the search for a free area is unsuccessful,
+a <tt>badalloc</tt> exception is thrown (lines&nbsp;14-15).
+Otherwise, the variable <tt>ptr</tt> points the free area in which
+the allocation takes place and the variable <tt>prevPtr</tt> points
+to its predecessor in the singly-linked list.
+If the free area is exactly the correct size,
+it is simply unlinked from the free list (line&nbsp;24)
+and a pointer to the <tt>userPart</tt> of the area is returned (line&nbsp;25).
+<P>
+On the other hand, if the free area is larger than needed,
+the area is split into two areas.
+The size of the first area is set to the number of blocks requested
+and the size of the second area is equal to the number of blocks that remain.
+The second area is then inserted into the free list (lines&nbsp;16-23).
+Notice that the area which is unlinked from the free list (line&nbsp;24)
+is always equal in size to the required number of blocks.
+<P>
+The running time of the <tt>Acquire</tt> function is determined
+by the number of iterations of the loop on lines&nbsp;9-13.
+All of the remaining statements in the function require
+a constant amount of time in the worst-case.
+The number of iterations of the loop is determined by three factors:
+the length of the free list,
+the size of the area requested,
+and the position in the free list
+of an area that is large to satisfy the request.
+<P>
+If we make no assumptions about the distribution of the sizes requested
+and of the pattern of <tt>Acquire</tt> and <tt>Release</tt> operations,
+we cannot say very much about the running time.
+In the worst case, if there are <I>n</I> blocks in the storage pool,
+the running time of the <tt>Acquire</tt> function is <I>O</I>(<I>n</I>).
+<P>
+On the other hand, if we know <em>a priori</em>
+that all the requests are for the same amount of memory,
+then we can expect the running time of the <tt>Acquire</tt> function to
+be <I>O</I>(1) in the worst case.
+This is because every single block in the free list
+is guaranteed to be large enough to satisfy any request.
+And since we are using the first-fit strategy,
+the request is satisfied by allocating storage in the first
+area in the free list.
+<P>
+<HR><A NAME="tex2html7163" HREF="page425.html" tppabs="http://www.brpreiss.com/books/opus4/html/page425.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7161" HREF="page422.html" tppabs="http://www.brpreiss.com/books/opus4/html/page422.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7155" HREF="page423.html" tppabs="http://www.brpreiss.com/books/opus4/html/page423.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7165" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7166" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

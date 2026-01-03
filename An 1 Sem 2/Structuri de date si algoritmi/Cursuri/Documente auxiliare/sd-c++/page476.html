@@ -1,0 +1,61 @@
+<HTML>
+<HEAD>
+<TITLE>Implementation</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html7800" HREF="page477.html" tppabs="http://www.brpreiss.com/books/opus4/html/page477.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7798" HREF="page475.html" tppabs="http://www.brpreiss.com/books/opus4/html/page475.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7794" HREF="page475.html" tppabs="http://www.brpreiss.com/books/opus4/html/page475.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7802" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7803" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0015521000000000000000">Implementation</A></H3>
+<P>
+Program&nbsp;<A HREF="page476.html#prograndom2c" tppabs="http://www.brpreiss.com/books/opus4/html/page476.html#prograndom2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives the implementations for the three concrete
+random variable classes declared in Program&nbsp;<A HREF="page475.html#prograndom2h" tppabs="http://www.brpreiss.com/books/opus4/html/page475.html#prograndom2h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+<P>
+<P><A NAME="34171">&#160;</A><A NAME="prograndom2c">&#160;</A> <IMG WIDTH=575 HEIGHT=164 ALIGN=BOTTOM ALT="program34075" SRC="img2035.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2035.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>SimpleRV</tt>, <tt>UniformRV</tt> and <tt>ExponentialRV</tt>     Member Function Definitions<BR>
+<P>
+<P>
+The implementation of the <tt>SimpleRV</tt> class is trivial
+because the <tt>RandomNumberGenerator</tt> class generates
+the desired distribution of random numbers.
+Consequently, the <tt>SimpleRV::Sample</tt> function simply calls
+<tt>RandomNumberGenerator::Next</tt>.
+<P>
+The <tt>UniformRV</tt> class is also quite simple.
+Given that the <tt>RandomNumberGenerator</tt> class
+generates a sequence random numbers  <IMG WIDTH=13 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline69439" SRC="img2036.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2036.gif"  > uniformly distributed
+on the interval (0,1),
+the linear transformation
+<P> <IMG WIDTH=313 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath69435" SRC="img2037.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2037.gif"  ><P>
+suffices to produce a sequence of random numbers  <IMG WIDTH=11 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline69443" SRC="img2038.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2038.gif"  >
+uniformly distributed on the interval (<I>u</I>,<I>v</I>).
+<P>
+The <tt>ExponentialRV</tt> class generates a sequence of random numbers,  <IMG WIDTH=17 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline69447" SRC="img2039.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2039.gif"  >,
+<em>exponentially distributed</em><A NAME=34101>&#160;</A>
+on the interval  <IMG WIDTH=42 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69449" SRC="img2040.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2040.gif"  > and having a mean value  <IMG WIDTH=9 HEIGHT=16 ALIGN=MIDDLE ALT="tex2html_wrap_inline69431" SRC="img2034.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2034.gif"  >.
+The numbers are said to be <em>exponentially distributed</em> because
+the probability that  <IMG WIDTH=17 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline69447" SRC="img2039.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2039.gif"  > falls between 0 and <I>z</I> is given by
+<P> <IMG WIDTH=347 HEIGHT=37 ALIGN=BOTTOM ALT="displaymath69436" SRC="img2041.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2041.gif"  ><P>
+where  <IMG WIDTH=100 HEIGHT=29 ALIGN=MIDDLE ALT="tex2html_wrap_inline69459" SRC="img2042.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2042.gif"  >.
+The function <I>p</I>(<I>x</I>) is called the
+<em>probability density function</em><A NAME=34109>&#160;</A>.
+Thus,
+<P> <IMG WIDTH=500 HEIGHT=58 ALIGN=BOTTOM ALT="eqnarray34110" SRC="img2043.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2043.gif"  ><P>
+Notice that  <IMG WIDTH=96 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69463" SRC="img2044.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2044.gif"  > is a value between zero and one.
+Therefore, given a random variable,  <IMG WIDTH=13 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline69439" SRC="img2036.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2036.gif"  >,
+uniformly distributed between zero and one,
+we can obtain an exponentially distributed variable  <IMG WIDTH=17 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline69447" SRC="img2039.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2039.gif"  > as follows:
+<P><A NAME="eqnalgsedrv">&#160;</A> <IMG WIDTH=500 HEIGHT=42 ALIGN=BOTTOM ALT="eqnarray34118" SRC="img2045.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2045.gif"  ><P>
+Note, if  <IMG WIDTH=13 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline69439" SRC="img2036.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2036.gif"  > is uniformly distributed on (<I>O</I>,1),
+then so too is  <IMG WIDTH=15 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69473" SRC="img2046.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2046.gif"  >.
+The implementation of the <tt>ExponentialRV::Sample</tt> function
+follows directly from Equation&nbsp;<A HREF="page476.html#eqnalgsedrv" tppabs="http://www.brpreiss.com/books/opus4/html/page476.html#eqnalgsedrv"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+<P>
+<HR><A NAME="tex2html7800" HREF="page477.html" tppabs="http://www.brpreiss.com/books/opus4/html/page477.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7798" HREF="page475.html" tppabs="http://www.brpreiss.com/books/opus4/html/page475.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7794" HREF="page475.html" tppabs="http://www.brpreiss.com/books/opus4/html/page475.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7802" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7803" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

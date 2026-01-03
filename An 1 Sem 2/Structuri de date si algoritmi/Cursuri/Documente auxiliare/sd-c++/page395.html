@@ -1,0 +1,63 @@
+<HTML>
+<HEAD>
+<TITLE>Basic Operations</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html6809" HREF="page396.html" tppabs="http://www.brpreiss.com/books/opus4/html/page396.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6807" HREF="page394.html" tppabs="http://www.brpreiss.com/books/opus4/html/page394.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6801" HREF="page394.html" tppabs="http://www.brpreiss.com/books/opus4/html/page394.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6811" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6812" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0013211000000000000000">Basic Operations</A></H3>
+<P>
+Program&nbsp;<A HREF="page395.html#progbitset4c" tppabs="http://www.brpreiss.com/books/opus4/html/page395.html#progbitset4c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> defines the constructor for the <tt>SetAsBitVector</tt>
+class as well as the three basic operations--<tt>Insert</tt>, <tt>IsMember</tt>, and <tt>Withdraw</tt>.
+The constructor takes a single argument
+ <IMG WIDTH=144 HEIGHT=11 ALIGN=BOTTOM ALT="tex2html_wrap_inline67308" SRC="img1608.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1608.gif"  >,
+which specifies the universe and, consequently,
+the number of bits needed in the bit array.
+The constructor creates a vector of <tt>Word</tt>s of length  <IMG WIDTH=43 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline67408" SRC="img1624.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1624.gif"  >,
+where  <IMG WIDTH=99 HEIGHT=10 ALIGN=BOTTOM ALT="tex2html_wrap_inline67410" SRC="img1625.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1625.gif"  > is the number of bits in a word,
+and sets the elements of the vector to zero.
+The running time of the constructor is  <IMG WIDTH=130 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline67412" SRC="img1626.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1626.gif"  >.
+<P>
+<P><A NAME="28751">&#160;</A><A NAME="progbitset4c">&#160;</A> <IMG WIDTH=575 HEIGHT=506 ALIGN=BOTTOM ALT="program28400" SRC="img1627.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1627.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>SetAsBitVector</tt> Class Constructor, <tt>Insert</tt>, 	<tt>Withdraw</tt> and <tt>IsMember</tt> Member Function Definitions<BR>
+<P>
+<P>
+To insert an item into the set,
+we need to change the appropriate bit in the array of bits to one.
+The  <IMG WIDTH=17 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58387" SRC="img77.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img77.gif"  > bit of the bit array
+is bit  <IMG WIDTH=56 HEIGHT=11 ALIGN=BOTTOM ALT="tex2html_wrap_inline67416" SRC="img1628.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1628.gif"  > of word  <IMG WIDTH=36 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline67418" SRC="img1629.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1629.gif"  >.
+Thus, the <tt>Insert</tt> function is implemented using
+a <em>bitwise or</em> operation to change the  <IMG WIDTH=17 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58387" SRC="img77.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img77.gif"  > bit to one
+as shown in Program&nbsp;<A HREF="page395.html#progbitset4c" tppabs="http://www.brpreiss.com/books/opus4/html/page395.html#progbitset4c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+Even though it is slightly more complicated than the corresponding operation
+for the <tt>SetAsArray</tt> class,
+the running time for this operation is still <I>O</I>(1).
+Since  <IMG WIDTH=99 HEIGHT=10 ALIGN=BOTTOM ALT="tex2html_wrap_inline67410" SRC="img1625.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1625.gif"  > is a power of two,
+it is possible to replace the division and modulo operations,
+<tt>/</tt> and <tt>%</tt>,
+with shifts and masks like this:
+<PRE>vector [item &gt;&gt; shift] |= 1 &lt;&lt; (item &amp; mask);</PRE>
+for a suitable definition of the constants <tt>shift</tt> and <tt>mask</tt>.
+Depending on the compiler and machine architecture,
+doing so may improve the performance of the <tt>Insert</tt> operation by
+a constant factor.
+Of course, its asymptotic performance is still <I>O</I>(1).
+<P>
+To withdraw an item from the set,
+we need to clear the appropriate bit in the array of bits
+and to test if an item is a member of the set,
+we test the corresponding bit.
+The <tt>IsMember</tt> and <tt>Withdraw</tt> routines in Program&nbsp;<A HREF="page395.html#progbitset4c" tppabs="http://www.brpreiss.com/books/opus4/html/page395.html#progbitset4c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+show how this can be done.
+Like <tt>Insert</tt>,
+both these routines have constant worst-case running times.
+<P>
+<HR><A NAME="tex2html6809" HREF="page396.html" tppabs="http://www.brpreiss.com/books/opus4/html/page396.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6807" HREF="page394.html" tppabs="http://www.brpreiss.com/books/opus4/html/page394.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6801" HREF="page394.html" tppabs="http://www.brpreiss.com/books/opus4/html/page394.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6811" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6812" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

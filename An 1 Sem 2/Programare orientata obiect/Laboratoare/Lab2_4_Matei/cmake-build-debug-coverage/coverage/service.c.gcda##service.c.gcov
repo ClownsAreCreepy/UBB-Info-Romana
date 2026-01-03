@@ -1,0 +1,375 @@
+        -:    0:Source:/mnt/d/C,C++/CLion 2024.3.4/Projects/Lab2_4_Matei/service.c
+        -:    0:Graph:/mnt/d/C,C++/CLion 2024.3.4/Projects/Lab2_4_Matei/cmake-build-debug-coverage/CMakeFiles/Lab03.dir/service.c.gcno
+        -:    0:Data:/mnt/d/C,C++/CLion 2024.3.4/Projects/Lab2_4_Matei/cmake-build-debug-coverage/CMakeFiles/Lab03.dir/service.c.gcda
+        -:    0:Runs:1
+        -:    1:#include <stdlib.h>
+        -:    2:#include <string.h>
+        -:    3:#include "service.h"
+        -:    4:
+function creeaza_service called 10 returned 100% blocks executed 100%
+       10:    5:Service* creeaza_service() {
+       10:    6:  Service* service = malloc(sizeof(Service));
+       10:    7:  service->repo = creeaza_repo();
+       10:    7-block  0
+call    0 returned 10
+       10:    8:  service->undo_list = creeaza_lista();
+call    0 returned 10
+        -:    9:
+       10:   10:  adauga_medicament(service, 1, "Paracetamol", 500.0, 20);
+call    0 returned 10
+       10:   11:  adauga_medicament(service, 2, "Algocalmin", 250.0, 15);
+call    0 returned 10
+       10:   12:  adauga_medicament(service, 3, "Ibuprofen", 200.0, 15);
+call    0 returned 10
+       10:   13:  adauga_medicament(service, 4, "Nurofen", 400.0, 10);
+call    0 returned 10
+       10:   14:  adauga_medicament(service, 5, "Aspirina", 100.0, 50);
+call    0 returned 10
+       10:   15:  adauga_medicament(service, 6, "Panadol", 650.0, 12);
+call    0 returned 10
+       10:   16:  adauga_medicament(service, 7, "Strepsils", 50.0, 25);
+call    0 returned 10
+       10:   17:  adauga_medicament(service, 8, "D32000", 1000.0, 8);
+call    0 returned 10
+       10:   18:  adauga_medicament(service, 9, "Lecitinpro", 750.0, 5);
+call    0 returned 10
+       10:   19:  adauga_medicament(service, 10, "Supramax", 600.0, 18);
+call    0 returned 10
+        -:   20:
+       10:   21:  return service;
+        -:   22:}
+        -:   23:
+function distruge_service called 9 returned 100% blocks executed 100%
+        9:   24:void distruge_service(Service* service) {
+        9:   25:  distruge_lista_de_liste(service->undo_list);
+        9:   25-block  0
+call    0 returned 9
+        9:   26:  distruge_repo(service->repo);
+call    0 returned 9
+        9:   27:  free(service);
+        9:   28:}
+        -:   29:
+function adauga_medicament called 103 returned 100% blocks executed 100%
+      103:   30:int adauga_medicament(Service* service,const int cod,const char* nume,const float conc,const int cant) {
+      103:   31:  salveaza_undo(service);
+      103:   31-block  0
+call    0 returned 103
+      103:   32:  Medicament* m = creeaza_medicament(cod, nume, conc, cant);
+call    0 returned 103
+      103:   33:  int rez = repo_adauga(service->repo, m);
+call    0 returned 103
+      103:   34:  distruge_medicament(m); //??
+call    0 returned 103
+      103:   35:  return rez;
+        -:   36:}
+        -:   37:
+function actualizeaza_medicament called 3 returned 100% blocks executed 100%
+        3:   38:int actualizeaza_medicament(Service* service,const int cod,const char* nume_nou,const float concentratie_noua) {
+        3:   39:  salveaza_undo(service);
+        3:   39-block  0
+call    0 returned 3
+        3:   40:  return repo_actualizeaza(service->repo, cod, nume_nou, concentratie_noua);
+call    0 returned 3
+        -:   41:}
+        -:   42:
+function sterge_medicament called 4 returned 100% blocks executed 100%
+        4:   43:int sterge_medicament(Service* service,const int cod) {
+        4:   44:  salveaza_undo(service);
+        4:   44-block  0
+call    0 returned 4
+        4:   45:  return repo_sterge(service->repo, cod);
+call    0 returned 4
+        -:   46:}
+        -:   47:
+        -:   48:/*
+        -:   49:  Interschimba medicamentele a si b.
+        -:   50:*/
+function interschimba called 82 returned 100% blocks executed 100%
+       82:   51:void interschimba(Medicament** a, Medicament** b) {
+       82:   52:  Medicament* aux = *a;
+       82:   53:  *a = *b;
+       82:   54:  *b = aux;
+       82:   55:}
+        -:   56:
+        -:   57:/*
+        -:   58:  Compara a si b dupa nume
+        -:   59:  return -1 daca a < b
+        -:   60:  return 0 daca a = b
+        -:   61:  return 1 daca a > b
+        -:   62:*/
+function compara_nume called 116 returned 100% blocks executed 100%
+      116:   63:int compara_nume(Medicament* a, Medicament* b) {
+      116:   64:  return strcmp(get_nume(a), get_nume(b));
+      116:   64-block  0
+call    0 returned 116
+call    1 returned 116
+        -:   65:}
+        -:   66:
+        -:   67:/*
+        -:   68:  Compara a si b dupa cantitate
+        -:   69:  return -1 daca a < b
+        -:   70:  return 0 daca a = b
+        -:   71:  return 1 daca a > b
+        -:   72:*/
+function compara_cantitate called 116 returned 100% blocks executed 100%
+      116:   73:int compara_cantitate(Medicament* a, Medicament* b) {
+      116:   74:  if (get_cantitate(a) < get_cantitate(b))
+      116:   74-block  0
+call    0 returned 116
+call    1 returned 116
+branch  2 taken 40 (fallthrough)
+branch  3 taken 76
+       40:   75:    return -1;
+       40:   75-block  0
+       76:   76:  if (get_cantitate(a) > get_cantitate(b))
+       76:   76-block  0
+call    0 returned 76
+call    1 returned 76
+branch  2 taken 63 (fallthrough)
+branch  3 taken 13
+       63:   77:    return 1;
+       63:   77-block  0
+       13:   78:  return 0;
+       13:   78-block  0
+        -:   79:}
+        -:   80:
+function cmp_nume_crescator called 56 returned 100% blocks executed 100%
+       56:   81:int cmp_nume_crescator(Medicament* a, Medicament* b) {
+       56:   82:  return compara_nume(a, b) <= 0; // a <= b -> 1
+       56:   82-block  0
+call    0 returned 56
+        -:   83:}
+        -:   84:
+function cmp_nume_descrescator called 57 returned 100% blocks executed 100%
+       57:   85:int cmp_nume_descrescator(Medicament* a, Medicament* b) {
+       57:   86:  return compara_nume(a, b) >= 0; // a >= b -> 1
+       57:   86-block  0
+call    0 returned 57
+        -:   87:}
+        -:   88:
+function cmp_cantitate_crescator called 56 returned 100% blocks executed 100%
+       56:   89:int cmp_cantitate_crescator(Medicament* a, Medicament* b) {
+       56:   90:  return compara_cantitate(a, b) <= 0; // a <= b -> 1
+       56:   90-block  0
+call    0 returned 56
+        -:   91:}
+        -:   92:
+function cmp_cantitate_descrescator called 57 returned 100% blocks executed 100%
+       57:   93:int cmp_cantitate_descrescator(Medicament* a, Medicament* b) {
+       57:   94:  return compara_cantitate(a, b) >= 0; // a >= b -> 1
+       57:   94-block  0
+call    0 returned 57
+        -:   95:}
+        -:   96:
+        -:   97:/*
+        -:   98:  Compara a si b dupa nume
+        -:   99:  return -1 daca a < b
+        -:  100:  return 0 daca a = b
+        -:  101:  return 1 daca a > b
+        -:  102:*/
+function sorteaza_medicamente called 4 returned 100% blocks executed 100%
+        4:  103:ListaDinamica* sorteaza_medicamente(const Service* service, int (*cmp)(Medicament*, Medicament*)) {
+        4:  104:  ListaDinamica* rez = creeaza_lista();
+        4:  104-block  0
+call    0 returned 4
+        4:  105:  int n = repo_dimensiune(service->repo);
+call    0 returned 4
+        -:  106:
+       44:  107:  for (int i = 0; i < n; i++) {
+       44:  107-block  0
+branch  0 taken 40
+branch  1 taken 4 (fallthrough)
+       40:  108:    const Medicament* m = repo_get_medicament(service->repo, i);
+       40:  108-block  0
+call    0 returned 40
+       40:  109:    adauga_in_lista(rez, copiaza_medicament(m));
+call    0 returned 40
+call    1 returned 40
+        -:  110:  }
+        -:  111:
+        -:  112:  // direct selection sort
+       40:  113:  for (int i = 0; i < n - 1; i++) {
+        4:  113-block  0
+       36:  113-block  1
+       40:  113-block  2
+branch  0 taken 36
+branch  1 taken 4 (fallthrough)
+      216:  114:    for (int j = i + 1; j < n; j++) {
+       36:  114-block  0
+      180:  114-block  1
+      216:  114-block  2
+branch  0 taken 180
+branch  1 taken 36 (fallthrough)
+      180:  115:      Medicament* a = rez->elems[i];
+      180:  116:      Medicament* b = rez->elems[j];
+      180:  117:      if (!cmp(a, b))
+      180:  117-block  0
+call    0 returned 180
+branch  1 taken 82 (fallthrough)
+branch  2 taken 98
+       82:  118:        interschimba((Medicament**)&rez->elems[i], (Medicament**)&rez->elems[j]);   //inainte erau fara &
+       82:  118-block  0
+call    0 returned 82
+        -:  119:    }
+        -:  120:  }
+        4:  121:  return rez;
+        4:  121-block  0
+        -:  122:}
+        -:  123:
+function sorteaza_medicamente_criteriu called 4 returned 100% blocks executed 100%
+        4:  124:ListaDinamica* sorteaza_medicamente_criteriu(const Service* service,const int criteriu,const int ordine) {
+        -:  125:  ListaDinamica* rez;
+        4:  126:  if (criteriu == 1) {
+        4:  126-block  0
+branch  0 taken 2 (fallthrough)
+branch  1 taken 2
+        2:  127:    if (ordine == 1)
+        2:  127-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 1
+        1:  128:      rez = sorteaza_medicamente(service, cmp_nume_crescator);
+        1:  128-block  0
+call    0 returned 1
+        -:  129:    else
+        1:  130:      rez = sorteaza_medicamente(service, cmp_nume_descrescator);
+        1:  130-block  0
+call    0 returned 1
+        -:  131:  }
+        -:  132:  else {
+        2:  133:    if (ordine == 1)
+        2:  133-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 1
+        1:  134:      rez = sorteaza_medicamente(service, cmp_cantitate_crescator);
+        1:  134-block  0
+call    0 returned 1
+        -:  135:    else
+        1:  136:      rez = sorteaza_medicamente(service, cmp_cantitate_descrescator);
+        1:  136-block  0
+call    0 returned 1
+        -:  137:  }
+        4:  138:  return rez;
+        4:  138-block  0
+        -:  139:}
+        -:  140:
+function filtreaza_dupa_stoc called 1 returned 100% blocks executed 100%
+        1:  141:ListaDinamica* filtreaza_dupa_stoc(const Service* service, int val) {
+        1:  142:  ListaDinamica* rez = creeaza_lista();
+        1:  142-block  0
+call    0 returned 1
+        1:  143:  int n = repo_dimensiune(service->repo);
+call    0 returned 1
+       11:  144:  for (int i = 0; i < n; i++) {
+       10:  144-block  0
+       11:  144-block  1
+branch  0 taken 10
+branch  1 taken 1 (fallthrough)
+       10:  145:    Medicament* m = repo_get_medicament(service->repo, i);
+       10:  145-block  0
+call    0 returned 10
+       10:  146:    if (get_cantitate(m) < val) {
+call    0 returned 10
+branch  1 taken 2 (fallthrough)
+branch  2 taken 8
+        2:  147:      adauga_in_lista(rez, copiaza_medicament(m));
+        2:  147-block  0
+call    0 returned 2
+call    1 returned 2
+        -:  148:    }
+        -:  149:  }
+        1:  150:  return rez;
+        1:  150-block  0
+        -:  151:}
+        -:  152:
+function filtreaza_dupa_litera called 1 returned 100% blocks executed 100%
+        1:  153:ListaDinamica* filtreaza_dupa_litera(const Service* service, char litera) {
+        1:  154:  ListaDinamica* rez = creeaza_lista();
+        1:  154-block  0
+call    0 returned 1
+        1:  155:  int n = repo_dimensiune(service->repo);
+call    0 returned 1
+       11:  156:  for (int i = 0; i < n; i++) {
+       10:  156-block  0
+       11:  156-block  1
+branch  0 taken 10
+branch  1 taken 1 (fallthrough)
+       10:  157:    Medicament* m = repo_get_medicament(service->repo, i);
+       10:  157-block  0
+call    0 returned 10
+       10:  158:    if (get_nume(m)[0] == litera) {
+call    0 returned 10
+branch  1 taken 2 (fallthrough)
+branch  2 taken 8
+        2:  159:      adauga_in_lista(rez, copiaza_medicament(m));
+        2:  159-block  0
+call    0 returned 2
+call    1 returned 2
+        -:  160:    }
+        -:  161:  }
+        1:  162:  return rez;
+        1:  162-block  0
+        -:  163:}
+        -:  164:
+function filtreaza_dupa_concentratie called 1 returned 100% blocks executed 100%
+        1:  165:ListaDinamica* filtreaza_dupa_concentratie(const Service* service,const float val) {
+        1:  166:  ListaDinamica* rez = creeaza_lista();
+        1:  166-block  0
+call    0 returned 1
+        1:  167:  int n = repo_dimensiune(service->repo);
+call    0 returned 1
+       11:  168:  for (int i = 0; i < n; ++i) {
+       10:  168-block  0
+       11:  168-block  1
+branch  0 taken 10
+branch  1 taken 1 (fallthrough)
+       10:  169:    Medicament* m = repo_get_medicament(service->repo, i);
+       10:  169-block  0
+call    0 returned 10
+       10:  170:    if (get_concentratie(m) - val > 0) {
+call    0 returned 10
+branch  1 taken 4 (fallthrough)
+branch  2 taken 6
+        4:  171:      adauga_in_lista(rez, copiaza_medicament(m));
+        4:  171-block  0
+call    0 returned 4
+call    1 returned 4
+        -:  172:    }
+        -:  173:  }
+        1:  174:  return rez;
+        1:  174-block  0
+        -:  175:}
+        -:  176:
+        -:  177:
+function salveaza_undo called 110 returned 100% blocks executed 100%
+      110:  178:void salveaza_undo(const Service* service) {
+      110:  179:  ListaDinamica* copie = copiaza_lista(service->repo->lista,(CopyFunction) copiaza_medicament);
+      110:  179-block  0
+call    0 returned 110
+      110:  180:  adauga_in_lista(service->undo_list, copie);
+call    0 returned 110
+      110:  181:}
+        -:  182:
+function undo called 15 returned 100% blocks executed 100%
+       15:  183:int undo(Service* service) {
+       15:  184:  if (dimensiune_lista(service->undo_list) <= 0)
+       15:  184-block  0
+call    0 returned 15
+branch  1 taken 2 (fallthrough)
+branch  2 taken 13
+        2:  185:    return 0;
+        2:  185-block  0
+        -:  186:
+       13:  187:  ListaDinamica* lista_trecuta = get_element_lista(service->undo_list, dimensiune_lista(service->undo_list) -1);
+       13:  187-block  0
+call    0 returned 13
+call    1 returned 13
+       13:  188:  service->undo_list->lungime--;
+        -:  189:
+       13:  190:  distruge_lista(service->repo->lista, distruge_medicament);
+call    0 returned 13
+       13:  191:  service->repo->lista = lista_trecuta;
+        -:  192:
+       13:  193:  repo_clear_lista_de_sters(service->repo);
+call    0 returned 13
+       13:  194:  return 1;
+        -:  195:}

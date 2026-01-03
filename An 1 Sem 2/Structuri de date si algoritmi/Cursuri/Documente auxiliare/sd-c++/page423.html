@@ -1,0 +1,75 @@
+<HTML>
+<HEAD>
+<TITLE>Constructor and Destructor</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html7151" HREF="page424.html" tppabs="http://www.brpreiss.com/books/opus4/html/page424.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7149" HREF="page422.html" tppabs="http://www.brpreiss.com/books/opus4/html/page422.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7143" HREF="page422.html" tppabs="http://www.brpreiss.com/books/opus4/html/page422.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7153" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7154" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0014211000000000000000">Constructor and Destructor</A></H3>
+<P>
+Program&nbsp;<A HREF="page423.html#progpool1c" tppabs="http://www.brpreiss.com/books/opus4/html/page423.html#progpool1c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> defines both the constructor and the destructor
+for the <tt>SinglyLinkedPool</tt> class.
+The constructor takes a single argument of type <tt>sizet</tt>
+which specifies the desired size of the storage pool in bytes.
+Initially, the entire storage pool is empty.
+Therefore, the entire pool constitutes a single area
+and the free list contains a single entry.
+<P>
+<P><A NAME="30708">&#160;</A><A NAME="progpool1c">&#160;</A> <IMG WIDTH=575 HEIGHT=298 ALIGN=BOTTOM ALT="program30601" SRC="img1749.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1749.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>SinglyLinkedPool</tt> Class Constructor and Destructor Definitions<BR>
+<P>
+<P>
+The three member variables of the <tt>SinglyLinkedPool</tt> class are
+defined in Program&nbsp;<A HREF="page422.html#progpool2h" tppabs="http://www.brpreiss.com/books/opus4/html/page422.html#progpool2h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+The <tt>numberOfBlocks</tt> variable records the total number of
+blocks in the storage pool that are available to be allocated.
+The <tt>pool</tt> variable points to the array of blocks that make
+up the storage pool.
+Finally, the <tt>sentinel</tt> variable refers to an extra block
+that is used as the <em>sentinel</em> for the free list.
+<P>
+The constructor initializes the member variables as follows:
+The <tt>numberOfBlocks</tt> is set to  <IMG WIDTH=138 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline68055" SRC="img1750.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1750.gif"  >,
+where <I>N</I> is the desired size of the storage pool in bytes.
+The <tt>pool</tt> member variable is set to point at
+an array of <tt>Block</tt>s of length  <IMG WIDTH=144 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline68059" SRC="img1751.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1751.gif"  >.
+The array is itself dynamically allocated using <tt>operator new</tt>!
+<P>
+The extra block allocated at the end of the array
+is used as the sentinel for the free list.
+Therefore, the <tt>sentinel</tt> member variable is initialized
+in the constructor as a reference to the last array element.
+A sentinel is used because it simplifies the linked-list manipulations
+by eliminating some of the conditional tests that would otherwise be needed.
+<P>
+Initially, the entire pool constitutes a single unallocated area.
+The entire area is represented by the first block in the pool, <tt>pool[0]</tt>.
+Therefore, the length field of the first block is set to <tt>numberOfBlocks</tt>
+and the block is linked into the free list
+by attaching it to the sentinel.
+Except for the call to <tt>operator new</tt>
+to acquire the pool in the first place,
+the worst-case running time of the constructor is <I>O</I>(1).
+<P>
+The destructor is quite simple.
+It simply releases the storage pool that was dynamically allocated
+in the constructor.
+Notice that it is not necessary that all storage acquired from the pool
+be released before the destructor is invoked.
+For example,
+the programmer may have deliberately chosen not to release the storage
+or she may have unintentionally forgotten to release the storage
+(called a <em>memory leak</em>).
+In any event, after the pool has been finalized,
+it is a serious error to attempt to dereference
+a pointer to an area in that pool.
+<P>
+<HR><A NAME="tex2html7151" HREF="page424.html" tppabs="http://www.brpreiss.com/books/opus4/html/page424.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7149" HREF="page422.html" tppabs="http://www.brpreiss.com/books/opus4/html/page422.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7143" HREF="page422.html" tppabs="http://www.brpreiss.com/books/opus4/html/page422.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7153" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7154" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

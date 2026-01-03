@@ -1,0 +1,66 @@
+<HTML>
+<HEAD>
+<TITLE>Quadratic Probing</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html4871" HREF="page240.html" tppabs="http://www.brpreiss.com/books/opus4/html/page240.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4869" HREF="page237.html" tppabs="http://www.brpreiss.com/books/opus4/html/page237.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4863" HREF="page238.html" tppabs="http://www.brpreiss.com/books/opus4/html/page238.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4873" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4874" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION009620000000000000000">Quadratic Probing</A></H2>
+<P>
+An alternative to linear probing that addresses the primary clustering
+problem is called <em>quadratic probing</em><A NAME=13872>&#160;</A>.
+In quadratic probing, the function <I>c</I>(<I>i</I>)
+is a quadratic function in <I>i</I>.<A NAME="tex2html447" HREF="footnode.html#13873" tppabs="http://www.brpreiss.com/books/opus4/html/footnode.html#13873"><IMG  ALIGN=BOTTOM ALT="gif" SRC="foot_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/foot_motif.gif"></A>
+The general quadratic has the form
+<P> <IMG WIDTH=317 HEIGHT=18 ALIGN=BOTTOM ALT="displaymath63062" SRC="img1037.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1037.gif"  ><P>
+However, quadratic probing is usually done using  <IMG WIDTH=57 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline63068" SRC="img1038.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1038.gif"  >.
+<P>
+Clearly,  <IMG WIDTH=57 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline63068" SRC="img1038.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1038.gif"  > satisfies property&nbsp;1.
+What is not so clear is whether it satisfies property&nbsp;2.
+In fact, in general it does not.
+The following theorem gives the conditions under which quadratic probing works:
+<P>
+<BLOCKQUOTE> <b>Theorem</b><A NAME="theoremhashingi">&#160;</A>
+When quadratic probing is used in a table of size <I>M</I>,
+where <I>M</I> is a prime number,
+the first  <IMG WIDTH=43 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline63076" SRC="img1039.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1039.gif"  > probes are distinct.
+</BLOCKQUOTE>
+<P>
+	extbfProof (By contradiction).
+Let us assume that the theorem is false.
+Then there exist two distinct values <I>i</I> and <I>j</I>
+such that  <IMG WIDTH=128 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline63082" SRC="img1040.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1040.gif"  >,
+that probe exactly the same position.
+Thus,
+<P> <IMG WIDTH=500 HEIGHT=111 ALIGN=BOTTOM ALT="eqnarray13879" SRC="img1041.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1041.gif"  ><P>
+<P>
+Since <I>M</I> is a prime number,
+the only way that the product (<I>i</I>-<I>j</I>)(<I>i</I>+<I>j</I>) can be zero modulo <I>M</I>
+is for either <I>i</I>-<I>j</I> to be zero or <I>i</I>+<I>j</I> to be zero modulo <I>M</I>.
+Since <I>i</I> and <I>j</I> are distinct,  <IMG WIDTH=61 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline63100" SRC="img1042.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1042.gif"  >.
+Furthermore, since both <I>i</I> and <I>j</I> are less than  <IMG WIDTH=43 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline63076" SRC="img1039.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1039.gif"  >,
+the sum <I>i</I>+<I>j</I> is less than <I>M</I>.
+Consequently, the sum cannot be zero.
+We have successfully argued an absurdity--if the theorem is false one of two quantities must be zero,
+neither of which can possibly be zero.
+Therefore, the original assumption is not correct
+and the theorem is true.
+<P>
+Applying Theorem&nbsp;<A HREF="page239.html#theoremhashingi" tppabs="http://www.brpreiss.com/books/opus4/html/page239.html#theoremhashingi"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+we get that quadratic probing works as long as the table size is prime
+and there are fewer than <I>n</I>=<I>M</I>/2 items in the table.
+In terms of the load factor  <IMG WIDTH=63 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline62864" SRC="img984.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img984.gif"  >,
+this occurs when  <IMG WIDTH=39 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline63116" SRC="img1043.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1043.gif"  >.
+<P>
+Quadratic probing eliminates the primary clustering phenomenon
+of linear probing because instead of doing a linear search,
+it does a quadratic search:
+<P> <IMG WIDTH=500 HEIGHT=117 ALIGN=BOTTOM ALT="eqnarray13884" SRC="img1044.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1044.gif"  ><P><HR><A NAME="tex2html4871" HREF="page240.html" tppabs="http://www.brpreiss.com/books/opus4/html/page240.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4869" HREF="page237.html" tppabs="http://www.brpreiss.com/books/opus4/html/page237.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4863" HREF="page238.html" tppabs="http://www.brpreiss.com/books/opus4/html/page238.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4873" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4874" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

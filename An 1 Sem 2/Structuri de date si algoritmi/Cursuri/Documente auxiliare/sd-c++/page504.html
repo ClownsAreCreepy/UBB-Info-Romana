@@ -1,0 +1,77 @@
+<HTML>
+<HEAD>
+<TITLE>Sorting with a Heap</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html8144" HREF="page505.html" tppabs="http://www.brpreiss.com/books/opus4/html/page505.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8142" HREF="page501.html" tppabs="http://www.brpreiss.com/books/opus4/html/page501.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8136" HREF="page503.html" tppabs="http://www.brpreiss.com/books/opus4/html/page503.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8146" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8147" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0016520000000000000000">Sorting with a Heap</A></H2>
+<A NAME="secsortingheap">&#160;</A>
+<P>
+Selection sorting involves the repeated selection of the next
+element in the sorted sequence from the set of remaining elements.
+For example, the straight insertion sorting algorithm given
+in the preceding section builds the sorted sequence by repeatedly
+selecting the largest remaining element and prepending it to the
+sorted sequence developing at the right end of the array.
+<P>
+At each step the largest remaining element is withdrawn
+from the set of remaining elements.
+A linear search is done because
+the order of the remaining elements is arbitrary.
+However, if we consider the value of each element as its priority,
+we can view the set of remaining elements as a priority queue.
+In effect, a selection sort repeatedly dequeues the highest priority
+element from a priority queue.
+<P>
+Chapter&nbsp;<A HREF="page352.html#chappqueues" tppabs="http://www.brpreiss.com/books/opus4/html/page352.html#chappqueues"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> presents a number of priority queue implementations,
+including binary heaps, leftist heaps and binomial queues.
+In this section we present a version of selection sorting
+that uses a <em>binary heap</em><A NAME=39261>&#160;</A>
+to hold the elements that remain to be sorted.
+Therefore, it is called a <em>heapsort</em><A NAME=39263>&#160;</A>.
+The principal advantage of using a binary heap is that
+it is easily implemented using an array
+and the entire sort can be be done in place.
+<P>
+As explained in Section&nbsp;<A HREF="page354.html#secpqueuesbinheaps" tppabs="http://www.brpreiss.com/books/opus4/html/page354.html#secpqueuesbinheaps"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+a binary heap is a <em>complete binary tree</em><A NAME=39266>&#160;</A>
+which is easily represented in an array.
+The <I>n</I> nodes of the heap occupy positions 1 through <I>n</I> of the array.
+The root is at position 1.
+In general,
+the children of the node at position <I>i</I> of the array
+are found at positions 2<I>i</I> and 2<I>i</I>+1,
+and the parent is found at position  <IMG WIDTH=32 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline66352" SRC="img1457.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1457.gif"  >.
+<P>
+The heapsort algorithm consists of two phases.
+In the first phase, the unsorted array is transformed into a heap.
+(This is called <em>heapifying</em><A NAME=39268>&#160;</A> the array).
+In this case, a <em>max-heap</em><A NAME=39270>&#160;</A>
+rather than a min-heap is used.
+The data in a max heap satisfies the following condition:
+For every node in the heap that has a parent,
+the item contained in the parent
+is greater than or equal to the item contained in the given node.
+<P>
+The second phase of heapsort builds the sorted list.
+The sorted list is built by repeatedly
+selecting the largest element,
+withdrawing it from the heap,
+and adding it to the sorted sequence.
+As each element is withdrawn from the heap,
+the remaining elements are heapified.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html8148" HREF="page505.html#SECTION0016521000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page505.html#SECTION0016521000000000000000">Implementation</A>
+</UL>
+<HR><A NAME="tex2html8144" HREF="page505.html" tppabs="http://www.brpreiss.com/books/opus4/html/page505.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8142" HREF="page501.html" tppabs="http://www.brpreiss.com/books/opus4/html/page501.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8136" HREF="page503.html" tppabs="http://www.brpreiss.com/books/opus4/html/page503.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8146" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8147" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

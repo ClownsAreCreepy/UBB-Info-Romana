@@ -1,0 +1,50 @@
+<HTML>
+<HEAD>
+<TITLE>Finding Items in a Sorted List</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html4289" HREF="page193.html" tppabs="http://www.brpreiss.com/books/opus4/html/page193.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4287" HREF="page189.html" tppabs="http://www.brpreiss.com/books/opus4/html/page189.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4281" HREF="page191.html" tppabs="http://www.brpreiss.com/books/opus4/html/page191.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4291" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4292" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION008213000000000000000">Finding Items in a Sorted List</A></H3>
+<P>
+Program&nbsp;<A HREF="page192.html#progsorted3c" tppabs="http://www.brpreiss.com/books/opus4/html/page192.html#progsorted3c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> defines the two public member functions
+of the <tt>SortedListAsArray</tt> class used to locate items in a sorted list.
+Both of these functions make use of the <tt>FindOffset</tt> member function
+described above.
+<P>
+<P><A NAME="11052">&#160;</A><A NAME="progsorted3c">&#160;</A> <IMG WIDTH=575 HEIGHT=334 ALIGN=BOTTOM ALT="program10774" SRC="img857.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img857.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>SortedListAsArray</tt> Class <tt>Find</tt> and 	<tt>FindPosition</tt> Member Function Definitions<BR>
+<P>
+<P>
+The <tt>Find</tt> member function takes a <tt>const</tt> reference
+to an <tt>Object</tt> and returns a reference to the object contained
+in the sorted list which matches (i.e., compares equal to) its argument.
+It calls <tt>FindOffset</tt> to determine by doing a binary search
+the array index at which the matching object is found.
+<tt>Find</tt> returns a reference to the matching object, if one is found;
+otherwise, it returns a reference to the <tt>NullObject</tt> instance.
+The total running time of <tt>Find</tt> is dominated by <tt>FindOffset</tt>.
+Therefore, the running time is  <IMG WIDTH=56 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59891" SRC="img403.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img403.gif"  >.
+<P>
+The <tt>FindPosition</tt> member function also takes a <tt>const</tt> reference
+an <tt>Object</tt>,
+but it returns a reference to a <tt>Position</tt> instead.
+<tt>FindPosition</tt> determines the position in the array
+of an object which matches its second argument.
+<P>
+The implementation of <tt>FindPosition</tt> is trivial:
+It calls <tt>FindOffset</tt> to determine
+the position at which the matching object is found and returns this position.
+The total running time of <tt>FindPosition</tt> is dominated by <tt>FindOffset</tt>.
+Therefore like <tt>Find</tt>,
+the running time of <tt>FindPosition</tt> is  <IMG WIDTH=56 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59891" SRC="img403.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img403.gif"  >.
+<P>
+<HR><A NAME="tex2html4289" HREF="page193.html" tppabs="http://www.brpreiss.com/books/opus4/html/page193.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4287" HREF="page189.html" tppabs="http://www.brpreiss.com/books/opus4/html/page189.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4281" HREF="page191.html" tppabs="http://www.brpreiss.com/books/opus4/html/page191.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4291" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4292" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

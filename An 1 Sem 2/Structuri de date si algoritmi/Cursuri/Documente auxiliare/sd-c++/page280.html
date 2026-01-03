@@ -1,0 +1,40 @@
+<HTML>
+<HEAD>
+<TITLE>Key and Subtree Member Functions</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html5389" HREF="page281.html" tppabs="http://www.brpreiss.com/books/opus4/html/page281.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5387" HREF="page276.html" tppabs="http://www.brpreiss.com/books/opus4/html/page276.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5381" HREF="page279.html" tppabs="http://www.brpreiss.com/books/opus4/html/page279.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5391" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5392" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0010634000000000000000"><tt>Key</tt> and <tt>Subtree</tt> Member Functions</A></H3>
+<P>
+Program&nbsp;<A HREF="page280.html#proggentree2c" tppabs="http://www.brpreiss.com/books/opus4/html/page280.html#proggentree2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> defines the various <tt>GeneralTree</tt> class
+member functions for manipulating general trees.
+The <tt>Key</tt> member function is a member variable accessor
+that simply returns a reference
+to the object contained by the root node of the tree.
+Clearly, its running time is <I>O</I>(1).
+<P>
+<P><A NAME="16769">&#160;</A><A NAME="proggentree2c">&#160;</A> <IMG WIDTH=575 HEIGHT=639 ALIGN=BOTTOM ALT="program16693" SRC="img1173.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1173.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>GeneralTree</tt> Class <tt>Key</tt>, 	<tt>Subtree</tt>, <tt>AttachSubtree</tt>and <tt>DetachSubtree</tt> Member Function Definitions<BR>
+<P>
+<P>
+The <tt>Subtree</tt> member function takes as its lone argument
+an <tt>unsigned int</tt>, <tt>i</tt>,
+which must be between 0 and  <IMG WIDTH=76 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63946" SRC="img1174.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1174.gif"  >,
+where <tt>degree</tt> is the degree of the root node of the tree.
+It returns a reference to the  <IMG WIDTH=20 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline63948" SRC="img1175.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1175.gif"  > subtree of the given tree.
+The <tt>Subtree</tt> routine simply takes <tt>i</tt> steps down the linked list
+and returns a reference to the appropriate subtree.
+Assuming that <tt>i</tt> is valid,
+the worst case running time for <tt>Subtree</tt> is <I>O</I>(<I>d</I>),
+where  <IMG WIDTH=80 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63952" SRC="img1176.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1176.gif"  > is the degree of the root node of the tree.
+<P>
+<HR><A NAME="tex2html5389" HREF="page281.html" tppabs="http://www.brpreiss.com/books/opus4/html/page281.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5387" HREF="page276.html" tppabs="http://www.brpreiss.com/books/opus4/html/page276.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5381" HREF="page279.html" tppabs="http://www.brpreiss.com/books/opus4/html/page279.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5391" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5392" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,49 @@
+<HTML>
+<HEAD>
+<TITLE>Implementation</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html6033" HREF="page333.html" tppabs="http://www.brpreiss.com/books/opus4/html/page333.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6031" HREF="page331.html" tppabs="http://www.brpreiss.com/books/opus4/html/page331.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6025" HREF="page331.html" tppabs="http://www.brpreiss.com/books/opus4/html/page331.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6035" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6036" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0011611000000000000000">Implementation</A></H3>
+<P>
+Program&nbsp;<A HREF="page332.html#progmwaytree1h" tppabs="http://www.brpreiss.com/books/opus4/html/page332.html#progmwaytree1h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> declares the class <tt>MWayTree</tt>.
+An <tt>MWayTree</tt> is derived from the class <tt>SearchTree</tt>
+which is in turn derived from <tt>Tree</tt> and <tt>SearchableContainer</tt>.
+The four member variables, <tt>m</tt>, <tt>numberOfKeys</tt>,
+<tt>key</tt>, and <tt>subtree</tt>,
+correspond to the components of a node shown in Figure&nbsp;<A HREF="page331.html#figmway" tppabs="http://www.brpreiss.com/books/opus4/html/page331.html#figmway"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+<P>
+<P><A NAME="21711">&#160;</A><A NAME="progmwaytree1h">&#160;</A> <IMG WIDTH=575 HEIGHT=333 ALIGN=BOTTOM ALT="program21512" SRC="img1356.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1356.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>MWayTree</tt> Class Definition<BR>
+<P>
+<P>
+The first member variable, <tt>m</tt>, is a constant.
+It is used to record the degree of the node which cannot change
+after the node is created.
+(I.e.,  <IMG WIDTH=46 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline65400" SRC="img1357.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1357.gif"  >).
+The second member variable, <tt>numberOfKeys</tt>,
+keeps track of the number of keys contained in the node.
+Recall, a node which has <I>n</I> subtrees contains <I>n</I>-1 keys.
+Therefore,  <IMG WIDTH=158 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline65406" SRC="img1358.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1358.gif"  >.
+We have chosen to keep track of the number of keys of a node
+rather than the number of subtrees because it simplifies
+the coding of the algorithms by eliminating some of the special cases
+which arise if we keep track of <I>n</I> explicitly.
+<P>
+The third member variable, <tt>key</tt>,
+is an array of pointers to <tt>Object</tt> class instances.
+It is used to contain pointers to the keys contained in the node.
+The fourth and final member variable, <tt>subtree</tt>,
+is an array of pointers to the <tt>MWayTree</tt> instances
+which are the subtrees of the given node.
+<P>
+<HR><A NAME="tex2html6033" HREF="page333.html" tppabs="http://www.brpreiss.com/books/opus4/html/page333.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6031" HREF="page331.html" tppabs="http://www.brpreiss.com/books/opus4/html/page331.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6025" HREF="page331.html" tppabs="http://www.brpreiss.com/books/opus4/html/page331.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6035" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6036" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

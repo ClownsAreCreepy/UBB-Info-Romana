@@ -1,0 +1,77 @@
+<HTML>
+<HEAD>
+<TITLE>Acquiring an Area</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html7283" HREF="page435.html" tppabs="http://www.brpreiss.com/books/opus4/html/page435.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7281" HREF="page432.html" tppabs="http://www.brpreiss.com/books/opus4/html/page432.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7275" HREF="page433.html" tppabs="http://www.brpreiss.com/books/opus4/html/page433.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7285" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7286" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0014412000000000000000">Acquiring an Area</A></H3>
+<P>
+The <tt>Acquire</tt> member function of the <tt>BuddyPool</tt> class
+is defined in Program&nbsp;<A HREF="page434.html#progpool8c" tppabs="http://www.brpreiss.com/books/opus4/html/page434.html#progpool8c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+This function takes an integer-valued argument which specifies
+the size of storage area required.
+The function returns a pointer to the region of memory that is allocated.
+<P>
+<P><A NAME="32229">&#160;</A><A NAME="progpool8c">&#160;</A> <IMG WIDTH=575 HEIGHT=448 ALIGN=BOTTOM ALT="program32005" SRC="img1785.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1785.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>BuddyPool</tt> Class <tt>Acquire</tt> 	Member Function Definition<BR>
+<P>
+<P>
+The size of the area actually allocated by <tt>Acquire</tt>
+is  <IMG WIDTH=17 HEIGHT=15 ALIGN=BOTTOM ALT="tex2html_wrap_inline68271" SRC="img1786.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1786.gif"  >&nbsp;bytes where <I>k</I>' is given by
+<P> <IMG WIDTH=382 HEIGHT=18 ALIGN=BOTTOM ALT="displaymath68269" SRC="img1787.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1787.gif"  ><P>
+where <tt>bytes</tt> is the number of bytes
+of storage requested by the user.
+I.e., the area must be sufficiently large to hold both the
+user's data plus the <tt>Header</tt> used by the storage pool.
+Of course if <I>k</I>'<I>&gt;</I><I>m</I>, the request can never be satisfied.
+<P>
+The next step is to find the smallest free area
+the size of which is at least  <IMG WIDTH=17 HEIGHT=15 ALIGN=BOTTOM ALT="tex2html_wrap_inline68271" SRC="img1786.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1786.gif"  > bytes.
+Specifically, we find the smallest value of <I>i</I>,  <IMG WIDTH=74 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline68281" SRC="img1788.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1788.gif"  >,
+such that the free list for areas of size  <IMG WIDTH=11 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline68283" SRC="img1789.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1789.gif"  > is not empty (lines&nbsp;5-7).
+If all free lists for areas of size  <IMG WIDTH=17 HEIGHT=15 ALIGN=BOTTOM ALT="tex2html_wrap_inline68271" SRC="img1786.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1786.gif"  > through  <IMG WIDTH=17 HEIGHT=11 ALIGN=BOTTOM ALT="tex2html_wrap_inline68241" SRC="img1780.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1780.gif"  > are empty,
+the request cannot be satisfied
+and a <tt>badalloc</tt> exception is thrown (lines&nbsp;8-9).
+<P>
+Having determined the value of <I>i</I>,
+we remove the first area
+from the free list of areas of size  <IMG WIDTH=11 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline68283" SRC="img1789.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1789.gif"  > (lines&nbsp;11-12).
+The private member function <tt>Unlink</tt> is called to remove
+the area from the doubly-linked free list.
+To remove a given element from a doubly-linked free list takes constant time.
+<P>
+If <I>i</I>=<I>k</I>', the area has the correct size and we are done.
+Otherwise, <I>i</I><I>&gt;</I><I>k</I>' and the area is too large.
+If the area is too large,
+we can split it into two areas (buddies) of size  <IMG WIDTH=28 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline68297" SRC="img1790.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1790.gif"  >.
+One of the buddies is retained while the other is inserted into
+the appropriate free list.
+After the split if <I>i</I>-1=<I>k</I>',
+the we are done.
+Otherwise, the area still to large and it can be split again (lines&nbsp;13-20).
+<P>
+Eventually, the size of the area is exactly  <IMG WIDTH=17 HEIGHT=15 ALIGN=BOTTOM ALT="tex2html_wrap_inline68271" SRC="img1786.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1786.gif"  > bytes.
+The area is marked <tt>reserved</tt>
+and a pointer to the <tt>userPart</tt> is returned (lines&nbsp;21-22).
+<P>
+The running time of the <tt>Acquire</tt> function is <I>O</I>(<I>i</I>-<I>k</I>'+1).
+E.g., when we request of block of size  <IMG WIDTH=17 HEIGHT=15 ALIGN=BOTTOM ALT="tex2html_wrap_inline68271" SRC="img1786.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1786.gif"  >
+and the free list for blocks of size  <IMG WIDTH=17 HEIGHT=15 ALIGN=BOTTOM ALT="tex2html_wrap_inline68271" SRC="img1786.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1786.gif"  > is not empty,
+then <I>i</I>=<I>k</I>' and the running time is <I>O</I>(1).
+On the other hand, suppose that we request an area of size  <IMG WIDTH=14 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline68313" SRC="img1791.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1791.gif"  >
+but all the free lists are empty except for one entry in the
+free list of areas of size  <IMG WIDTH=17 HEIGHT=11 ALIGN=BOTTOM ALT="tex2html_wrap_inline68241" SRC="img1780.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1780.gif"  >.
+In this case <I>i</I>=<I>m</I> and <I>k</I>'=0.
+Therefore, the worst-case running time is  <IMG WIDTH=121 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline68321" SRC="img1792.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1792.gif"  >,
+where <I>N</I> is the number of blocks in the storage pool.
+<P>
+<HR><A NAME="tex2html7283" HREF="page435.html" tppabs="http://www.brpreiss.com/books/opus4/html/page435.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7281" HREF="page432.html" tppabs="http://www.brpreiss.com/books/opus4/html/page432.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7275" HREF="page433.html" tppabs="http://www.brpreiss.com/books/opus4/html/page433.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7285" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7286" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

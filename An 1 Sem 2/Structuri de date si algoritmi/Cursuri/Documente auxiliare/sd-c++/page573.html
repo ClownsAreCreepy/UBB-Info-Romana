@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE>Running Time Analysis</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html8991" HREF="page574.html" tppabs="http://www.brpreiss.com/books/opus4/html/page574.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8989" HREF="page570.html" tppabs="http://www.brpreiss.com/books/opus4/html/page570.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8985" HREF="page572.html" tppabs="http://www.brpreiss.com/books/opus4/html/page572.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8993" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8994" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0017423000000000000000">Running Time Analysis</A></H3>
+<P>
+The worst-case running time for Floyd's algorithm is easily determined.
+Creating and initializing the <tt>distance</tt> matrix is  <IMG WIDTH=50 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline71729" SRC="img2358.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2358.gif"  >
+(lines&nbsp;6-9).
+Transferring the weights from the input graph to the <tt>distance</tt> matrix
+requires  <IMG WIDTH=82 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71915" SRC="img2391.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2391.gif"  > time if adjacency lists are used,
+and  <IMG WIDTH=50 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline71729" SRC="img2358.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2358.gif"  > time when an adjacency matrix is used to represent
+the input graph (lines&nbsp;10-19).
+<P>
+The running time for the three nested loops
+is  <IMG WIDTH=50 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline72167" SRC="img2434.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2434.gif"  > in the worst case.
+Finally, constructing the result graph
+and transferring the entries from the <tt>distance</tt> matrix
+to the result requires  <IMG WIDTH=50 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline71729" SRC="img2358.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2358.gif"  > time.
+As a result, the worst-case running time of Floyd's algorithm
+is  <IMG WIDTH=50 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline72167" SRC="img2434.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2434.gif"  >.
+<P>
+<HR><A NAME="tex2html8991" HREF="page574.html" tppabs="http://www.brpreiss.com/books/opus4/html/page574.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8989" HREF="page570.html" tppabs="http://www.brpreiss.com/books/opus4/html/page570.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8985" HREF="page572.html" tppabs="http://www.brpreiss.com/books/opus4/html/page572.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8993" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8994" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

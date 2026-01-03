@@ -1,0 +1,15 @@
+1. ps -e | wc -l
+
+2. ps -u username | tail -n +2 | wc -l
+
+3. ps -fu username
+
+4. find filename -type f | wc -l
+
+5. find filename -type d | wc -l
+
+6. find /mnt/d/Facultate/Eu -type f -executable | wc -l
+
+7. grep 'Mar 8' last.fake | awk '{print $1}' | sort -u | wc -l
+
+8. grep 'Mar 8' last.fake | grep 'info_romana' | awk '{print $1}' | sort -u

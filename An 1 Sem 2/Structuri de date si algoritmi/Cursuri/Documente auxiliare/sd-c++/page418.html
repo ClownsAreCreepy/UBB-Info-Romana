@@ -1,0 +1,85 @@
+<HTML>
+<HEAD>
+<TITLE>C++ Magic</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html7092" HREF="page419.html" tppabs="http://www.brpreiss.com/books/opus4/html/page419.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7090" HREF="page417.html" tppabs="http://www.brpreiss.com/books/opus4/html/page417.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7084" HREF="page417.html" tppabs="http://www.brpreiss.com/books/opus4/html/page417.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7094" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7095" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0014110000000000000000">C++ Magic</A></H2>
+<P>
+Program&nbsp;<A HREF="page417.html#progpool1h" tppabs="http://www.brpreiss.com/books/opus4/html/page417.html#progpool1h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> defines the abstract interface, <tt>StoragePool</tt>.
+I.e., given an instance <tt>p</tt>
+of a concrete class derived from <tt>StoragePool</tt>,
+say <tt>SomePool</tt>,
+we can call the member functions like this:
+<PRE>SomePool p;
+void* ptr = p.Acquire (100);
+// ...
+p.Release (ptr);</PRE>
+This code sequence first acquires and subsequently releases
+a 100-byte area of memory.
+<P>
+What is the relationship between the <tt>StoragePool</tt> class
+and the operators <tt>new</tt> and <tt>delete</tt>?
+In a C++ program, the <tt>new</tt> operator is typically used
+in a statement of the form
+<PRE>T* tptr = new T;</PRE>
+where <tt>T</tt> is the name of a type.
+The <tt>new</tt> operator creates a new instance of type <tt>T</tt>
+and returns a pointer to that instance.
+This operation involves three distinct steps:
+<OL><LI> Sufficient storage to hold an instance of type <tt>T</tt>
+	    (i.e.,  <IMG WIDTH=69 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline68040" SRC="img1741.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1741.gif"  >&nbsp;bytes) is acquired; and then,<LI> the constructor for <tt>T</tt> is called to initialize the 
+	    the object instance; and then,<LI> a pointer to the object is returned.
+</OL>
+The C++ compiler accomplishes the first step by calling
+the function <tt>operator new</tt>, the prototype of which is:
+<PRE>void* operator new (size_t);</PRE>
+I.e., the function <tt>operator new</tt> takes an argument that specifies
+the amount of storage to acquire (in bytes),
+and returns a pointer to that storage.
+<P>
+Similarly, the statement <tt>delete tptr</tt> releases the object
+to which <tt>tptr</tt> points and returns it to the pool of available storage.
+This operation involves two distinct steps:
+<OL><LI> The destructor for object in question is called to finalize
+	    the object instance; and then,<LI> the memory locations once occupied by the object are released.
+</OL>
+The C++ compiler accomplishes the second step by calling
+the function <tt>operator delete</tt>,
+the prototype of which is:
+<PRE>void operator delete (void*);</PRE>
+<P>
+The programmer can take over the management of dynamic storage by
+overloading (or redefining) the functions <tt>operator new</tt>
+and <tt>operator delete</tt>.
+For example,
+given an instance <tt>p</tt>
+of a concrete class derived from <tt>StoragePool</tt>,
+say <tt>SomePool</tt>,
+we can overload the functions like this:
+<PRE>SomePool p;
+
+void* operator new (size_t bytes)
+    { return p.Acquire (bytes); }
+
+void operator delete (void* vptr)
+    { p.Release (vptr); }</PRE>
+In this case, the storage pool is represented by
+a statically allocated global variable <tt>p</tt>.
+All dynamic storage is acquired from
+and released back to the storage pool <tt>p</tt>.<A NAME="tex2html800" HREF="footnode.html#30487" tppabs="http://www.brpreiss.com/books/opus4/html/footnode.html#30487"><IMG  ALIGN=BOTTOM ALT="gif" SRC="foot_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/foot_motif.gif"></A>
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html7096" HREF="page419.html#SECTION0014111000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page419.html#SECTION0014111000000000000000">Working with Multiple Storage Pools</A>
+</UL>
+<HR><A NAME="tex2html7092" HREF="page419.html" tppabs="http://www.brpreiss.com/books/opus4/html/page419.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7090" HREF="page417.html" tppabs="http://www.brpreiss.com/books/opus4/html/page417.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7084" HREF="page417.html" tppabs="http://www.brpreiss.com/books/opus4/html/page417.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7094" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7095" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

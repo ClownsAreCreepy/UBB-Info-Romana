@@ -1,0 +1,76 @@
+# ninja log v6
+25	668	7720622057434385	Produse_Observer__autogen/timestamp	aff96eadc69d9bf6
+3641	7367	7720621729113381	CMakeFiles/Produse_Observer_.dir/main.cpp.obj	86650b64dddf27fe
+25	668	7720622057434385	Produse_Observer__autogen/mocs_compilation.cpp	aff96eadc69d9bf6
+139	890	7720571270408639	CMakeFiles/Produse_Observer_.dir/Repo/Repository.cpp.obj	f4ce9498a4eaa7fe
+25	668	7720622057434385	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Produse(Observer)/cmake-build-debug/Produse_Observer__autogen/mocs_compilation.cpp	aff96eadc69d9bf6
+25	668	7720622057434385	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Produse(Observer)/cmake-build-debug/Produse_Observer__autogen/timestamp	aff96eadc69d9bf6
+3644	4181	7720621729143378	CMakeFiles/Produse_Observer_.dir/Observe/Observe.cpp.obj	7a00ead8a75d2c45
+669	3678	7720622057990911	CMakeFiles/Produse_Observer_.dir/Produse_Observer__autogen/mocs_compilation.cpp.obj	51c915267524430a
+3647	4644	7720621729181774	CMakeFiles/Produse_Observer_.dir/Service/Service.cpp.obj	5bbd2138abfbac86
+3650	4703	7720621729211844	CMakeFiles/Produse_Observer_.dir/Teste/Teste.cpp.obj	a90cc5a883ad195b
+7442	7881	7720621767134665	Produse_Observer_.exe	39819a4f52d1f44b
+3661	3726	7720621729322386	CMakeFiles/Produse_Observer_.dir/GUI/Windows.cpp.obj	f9f53a3be8f47ee4
+3654	7130	7720621729251830	CMakeFiles/Produse_Observer_.dir/GUI/Model.cpp.obj	6b37ee5e8d044e2d
+3657	7324	7720621729282261	CMakeFiles/Produse_Observer_.dir/GUI/Window.cpp.obj	a3e32bf3c1ee86e5
+15	144	7720622278360593	Produse_Observer__autogen/timestamp	aff96eadc69d9bf6
+15	144	7720622278360593	Produse_Observer__autogen/mocs_compilation.cpp	aff96eadc69d9bf6
+15	144	7720622278360593	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Produse(Observer)/cmake-build-debug/Produse_Observer__autogen/timestamp	aff96eadc69d9bf6
+15	144	7720622278360593	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Produse(Observer)/cmake-build-debug/Produse_Observer__autogen/mocs_compilation.cpp	aff96eadc69d9bf6
+145	2963	7720622279659517	CMakeFiles/Produse_Observer_.dir/GUI/Windows.cpp.obj	f9f53a3be8f47ee4
+2963	4200	7720622307845586	Produse_Observer_.exe	39819a4f52d1f44b
+29	1659	7720624099350313	Produse_Observer__autogen/timestamp	aff96eadc69d9bf6
+29	1659	7720624099350313	Produse_Observer__autogen/mocs_compilation.cpp	aff96eadc69d9bf6
+29	1659	7720624099350313	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Produse(Observer)/cmake-build-debug/Produse_Observer__autogen/timestamp	aff96eadc69d9bf6
+29	1659	7720624099350313	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Produse(Observer)/cmake-build-debug/Produse_Observer__autogen/mocs_compilation.cpp	aff96eadc69d9bf6
+1660	4966	7720624099919686	CMakeFiles/Produse_Observer_.dir/Produse_Observer__autogen/mocs_compilation.cpp.obj	51c915267524430a
+1666	4974	7720624099979749	CMakeFiles/Produse_Observer_.dir/GUI/Window.cpp.obj	a3e32bf3c1ee86e5
+1663	5058	7720624099949739	CMakeFiles/Produse_Observer_.dir/main.cpp.obj	86650b64dddf27fe
+5058	6329	7720624133902161	Produse_Observer_.exe	39819a4f52d1f44b
+26	163	7720625010566005	Produse_Observer__autogen/timestamp	aff96eadc69d9bf6
+26	163	7720625010566005	Produse_Observer__autogen/mocs_compilation.cpp	aff96eadc69d9bf6
+26	163	7720625010566005	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Produse(Observer)/cmake-build-debug/Produse_Observer__autogen/timestamp	aff96eadc69d9bf6
+26	163	7720625010566005	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Produse(Observer)/cmake-build-debug/Produse_Observer__autogen/mocs_compilation.cpp	aff96eadc69d9bf6
+164	3270	7720625011945651	CMakeFiles/Produse_Observer_.dir/GUI/Window.cpp.obj	a3e32bf3c1ee86e5
+3270	3728	7720625043012153	Produse_Observer_.exe	39819a4f52d1f44b
+25	148	7720625966789112	Produse_Observer__autogen/timestamp	aff96eadc69d9bf6
+25	148	7720625966789112	Produse_Observer__autogen/mocs_compilation.cpp	aff96eadc69d9bf6
+25	148	7720625966789112	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Produse(Observer)/cmake-build-debug/Produse_Observer__autogen/timestamp	aff96eadc69d9bf6
+25	148	7720625966789112	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Produse(Observer)/cmake-build-debug/Produse_Observer__autogen/mocs_compilation.cpp	aff96eadc69d9bf6
+152	3027	7720625968045475	CMakeFiles/Produse_Observer_.dir/GUI/Windows.cpp.obj	f9f53a3be8f47ee4
+149	3300	7720625968009732	CMakeFiles/Produse_Observer_.dir/GUI/Window.cpp.obj	a3e32bf3c1ee86e5
+3300	3757	7720625999525091	Produse_Observer_.exe	39819a4f52d1f44b
+27	1707	7720629645860989	Produse_Observer__autogen/timestamp	aff96eadc69d9bf6
+27	1707	7720629645860989	Produse_Observer__autogen/mocs_compilation.cpp	aff96eadc69d9bf6
+27	1707	7720629645860989	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Produse(Observer)/cmake-build-debug/Produse_Observer__autogen/timestamp	aff96eadc69d9bf6
+27	1707	7720629645860989	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Produse(Observer)/cmake-build-debug/Produse_Observer__autogen/mocs_compilation.cpp	aff96eadc69d9bf6
+1711	5196	7720629646480051	CMakeFiles/Produse_Observer_.dir/main.cpp.obj	86650b64dddf27fe
+1708	5250	7720629646444995	CMakeFiles/Produse_Observer_.dir/Produse_Observer__autogen/mocs_compilation.cpp.obj	51c915267524430a
+1714	5354	7720629646510137	CMakeFiles/Produse_Observer_.dir/GUI/Window.cpp.obj	a3e32bf3c1ee86e5
+5354	5858	7720629682908724	Produse_Observer_.exe	39819a4f52d1f44b
+25	146	7720630805456744	Produse_Observer__autogen/timestamp	aff96eadc69d9bf6
+25	146	7720630805456744	Produse_Observer__autogen/mocs_compilation.cpp	aff96eadc69d9bf6
+25	146	7720630805456744	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Produse(Observer)/cmake-build-debug/Produse_Observer__autogen/timestamp	aff96eadc69d9bf6
+25	146	7720630805456744	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Produse(Observer)/cmake-build-debug/Produse_Observer__autogen/mocs_compilation.cpp	aff96eadc69d9bf6
+150	3091	7720630806715627	CMakeFiles/Produse_Observer_.dir/GUI/Windows.cpp.obj	f9f53a3be8f47ee4
+147	3458	7720630806675577	CMakeFiles/Produse_Observer_.dir/GUI/Window.cpp.obj	a3e32bf3c1ee86e5
+3458	3991	7720630839793137	Produse_Observer_.exe	39819a4f52d1f44b
+25	155	7720631968945372	Produse_Observer__autogen/timestamp	aff96eadc69d9bf6
+25	155	7720631968945372	Produse_Observer__autogen/mocs_compilation.cpp	aff96eadc69d9bf6
+25	155	7720631968945372	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Produse(Observer)/cmake-build-debug/Produse_Observer__autogen/timestamp	aff96eadc69d9bf6
+25	155	7720631968945372	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Produse(Observer)/cmake-build-debug/Produse_Observer__autogen/mocs_compilation.cpp	aff96eadc69d9bf6
+156	2879	7720631970250537	CMakeFiles/Produse_Observer_.dir/GUI/Windows.cpp.obj	f9f53a3be8f47ee4
+2879	3370	7720631997478104	Produse_Observer_.exe	39819a4f52d1f44b
+22	142	7720632392670659	Produse_Observer__autogen/timestamp	aff96eadc69d9bf6
+22	142	7720632392670659	Produse_Observer__autogen/mocs_compilation.cpp	aff96eadc69d9bf6
+22	142	7720632392670659	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Produse(Observer)/cmake-build-debug/Produse_Observer__autogen/timestamp	aff96eadc69d9bf6
+22	142	7720632392670659	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Produse(Observer)/cmake-build-debug/Produse_Observer__autogen/mocs_compilation.cpp	aff96eadc69d9bf6
+142	2826	7720632393873356	CMakeFiles/Produse_Observer_.dir/GUI/Windows.cpp.obj	f9f53a3be8f47ee4
+2826	3318	7720632420713320	Produse_Observer_.exe	39819a4f52d1f44b
+121	353	7721103892245357	Produse_Observer__autogen/timestamp	aff96eadc69d9bf6
+121	353	7721103892245357	Produse_Observer__autogen/mocs_compilation.cpp	aff96eadc69d9bf6
+121	353	7721103892245357	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Produse(Observer)/cmake-build-debug/Produse_Observer__autogen/timestamp	aff96eadc69d9bf6
+121	353	7721103892245357	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Produse(Observer)/cmake-build-debug/Produse_Observer__autogen/mocs_compilation.cpp	aff96eadc69d9bf6
+354	972	7721103894575738	CMakeFiles/Produse_Observer_.dir/Observe/Observe.cpp.obj	7a00ead8a75d2c45
+359	5518	7721103894615794	CMakeFiles/Produse_Observer_.dir/GUI/Windows.cpp.obj	f9f53a3be8f47ee4
+5518	9611	7721103946210556	Produse_Observer_.exe	39819a4f52d1f44b

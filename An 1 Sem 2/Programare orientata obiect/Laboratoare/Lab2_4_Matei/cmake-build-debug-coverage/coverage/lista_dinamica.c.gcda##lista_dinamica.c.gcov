@@ -1,0 +1,131 @@
+        -:    0:Source:/mnt/d/C,C++/CLion 2024.3.4/Projects/Lab2_4_Matei/lista_dinamica.c
+        -:    0:Graph:/mnt/d/C,C++/CLion 2024.3.4/Projects/Lab2_4_Matei/cmake-build-debug-coverage/CMakeFiles/Lab03.dir/lista_dinamica.c.gcno
+        -:    0:Data:/mnt/d/C,C++/CLion 2024.3.4/Projects/Lab2_4_Matei/cmake-build-debug-coverage/CMakeFiles/Lab03.dir/lista_dinamica.c.gcda
+        -:    0:Runs:1
+        -:    1:#include <stdlib.h>
+        -:    2:#include "lista_dinamica.h"
+        -:    3:
+function creeaza_lista called 162 returned 100% blocks executed 100%
+      162:    4:ListaDinamica* creeaza_lista() {
+      162:    5:  ListaDinamica* lista = malloc(sizeof(ListaDinamica));
+      162:    6:  lista->lungime = 0;
+      162:    7:  lista->capacitate = 2;
+      162:    8:  lista->elems = malloc(lista->capacitate * sizeof(TElem));
+      162:    9:  return lista;
+      162:    9-block  0
+        -:   10:}
+        -:   11:
+function distruge_lista_de_liste called 9 returned 100% blocks executed 100%
+        9:   12:void distruge_lista_de_liste(ListaDinamica* lista) {
+       95:   13:  for (int i = 0; i < lista->lungime; ++i) {
+        9:   13-block  0
+       95:   13-block  1
+branch  0 taken 86
+branch  1 taken 9 (fallthrough)
+       86:   14:    ListaDinamica* l = (ListaDinamica*) lista->elems[i];
+       86:   15:    distruge_lista(l, distruge_medicament);
+       86:   15-block  0
+call    0 returned 86
+        -:   16:  }
+        9:   17:  free(lista->elems);
+        9:   18:  free(lista);
+        9:   19:}
+        -:   20:
+function distruge_lista called 139 returned 100% blocks executed 88%
+      139:   21:void distruge_lista(ListaDinamica* lista, DestroyFunction destrF) {
+     139*:   22:  if (!lista) return;
+      139:   22-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 139
+    %%%%%:   22-block  1
+      779:   23:  for (int i = 0; i < lista->lungime; i++) {
+      139:   23-block  0
+      779:   23-block  1
+branch  0 taken 640
+branch  1 taken 139 (fallthrough)
+      640:   24:    destrF(lista->elems[i]);
+      640:   24-block  0
+call    0 returned 640
+        -:   25:  }
+      139:   26:  free(lista->elems);
+      139:   27:  free(lista);
+      139:   27-block  0
+        -:   28:}
+        -:   29:
+function adauga_in_lista called 820 returned 100% blocks executed 83%
+      820:   30:void adauga_in_lista(ListaDinamica* lista, TElem elem) {
+      820:   31:  if (lista->lungime >= lista->capacitate) {
+      820:   31-block  0
+branch  0 taken 233 (fallthrough)
+branch  1 taken 587
+      233:   32:    int capacitate_noua = lista->capacitate * 2;
+      233:   33:    TElem* temp = realloc(lista->elems, capacitate_noua * sizeof(TElem));
+     233*:   34:    if (temp == NULL) return;
+      233:   34-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 233
+    %%%%%:   34-block  1
+      233:   35:    lista->elems = temp;
+      233:   36:    lista->capacitate = capacitate_noua;
+      233:   36-block  0
+        -:   37:  }
+      820:   38:  lista->elems[lista->lungime] = elem;
+      820:   39:  lista->lungime++;
+      820:   39-block  0
+        -:   40:}
+        -:   41:
+function sterge_din_lista called 6 returned 100% blocks executed 100%
+        6:   42:int sterge_din_lista(ListaDinamica* lista, int index, DestroyFunction destrF) {
+        6:   43:  if (index < 0 || index >= lista->lungime)
+        6:   43-block  0
+branch  0 taken 5 (fallthrough)
+branch  1 taken 1
+        5:   43-block  1
+branch  2 taken 0 (fallthrough)
+branch  3 taken 5
+        1:   44:    return 0;
+        1:   44-block  0
+        -:   45:
+        5:   46:  destrF(lista->elems[index]);
+        5:   46-block  0
+call    0 returned 5
+       30:   47:  for (int i = index; i < lista->lungime - 1; i++) {
+       30:   47-block  0
+branch  0 taken 25
+branch  1 taken 5 (fallthrough)
+       25:   48:    lista->elems[i] = lista->elems[i + 1];
+       25:   48-block  0
+        -:   49:  }
+        5:   50:  lista->lungime--;
+        5:   51:  return 1;
+        5:   51-block  0
+        -:   52:}
+        -:   53:
+function get_element_lista called 673 returned 100% blocks executed 100%
+      673:   54:TElem get_element_lista(const ListaDinamica* lista, int index) {
+      673:   55:  return lista->elems[index];
+      673:   55-block  0
+        -:   56:}
+        -:   57:
+function dimensiune_lista called 735 returned 100% blocks executed 100%
+      735:   58:int dimensiune_lista(const ListaDinamica* lista) {
+      735:   59:  return lista->lungime;
+      735:   59-block  0
+        -:   60:}
+        -:   61:
+function copiaza_lista called 110 returned 100% blocks executed 100%
+      110:   62:ListaDinamica* copiaza_lista(const ListaDinamica* original, CopyFunction copyF) {
+      110:   63:  ListaDinamica* copie = creeaza_lista();
+      110:   63-block  0
+call    0 returned 110
+      659:   64:  for (int i = 0; i < original->lungime; ++i)
+      659:   64-block  0
+branch  0 taken 549
+branch  1 taken 110 (fallthrough)
+      549:   65:    adauga_in_lista(copie, copyF(original->elems[i]));
+      549:   65-block  0
+call    0 returned 549
+call    1 returned 549
+      110:   66:  return copie;
+      110:   66-block  0
+        -:   67:}

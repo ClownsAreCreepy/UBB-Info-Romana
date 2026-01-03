@@ -1,0 +1,51 @@
+<HTML>
+<HEAD>
+<TITLE>Building the Heap</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html8165" HREF="page507.html" tppabs="http://www.brpreiss.com/books/opus4/html/page507.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8163" HREF="page501.html" tppabs="http://www.brpreiss.com/books/opus4/html/page501.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8159" HREF="page505.html" tppabs="http://www.brpreiss.com/books/opus4/html/page505.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8167" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8168" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0016530000000000000000">Building the Heap</A></H2>
+<P>
+The <tt>BuildHeap</tt> routine shown in Program&nbsp;<A HREF="page506.html#progsorter9c" tppabs="http://www.brpreiss.com/books/opus4/html/page506.html#progsorter9c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+transforms an unsorted array into a max heap.
+It does so by calling the <tt>PercolateDown</tt> routine
+for  <IMG WIDTH=260 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline70355" SRC="img2189.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2189.gif"  >.
+<P>
+<P><A NAME="40216">&#160;</A><A NAME="progsorter9c">&#160;</A> <IMG WIDTH=575 HEIGHT=123 ALIGN=BOTTOM ALT="program40134" SRC="img2190.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2190.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>HeapSorter&lt;T&gt;</tt> Class 	<tt>BuildHeap</tt> Member Function Definition<BR>
+<P>
+<P>
+Why does <tt>BuildHeap</tt> start percolating at  <IMG WIDTH=36 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline58823" SRC="img180.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img180.gif"  >?
+A complete binary tree with <I>n</I> nodes
+has exactly  <IMG WIDTH=36 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline68743" SRC="img1883.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1883.gif"  > leaves.
+Therefore, the last node in the array which has a child
+is in position  <IMG WIDTH=36 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline58823" SRC="img180.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img180.gif"  >.
+Consequently, the <tt>BuildHeap</tt> routine starts doing percolate down
+operations from that point.
+<P>
+The <tt>BuildHeap</tt> visits the array elements in reverse order.
+In effect the algorithm starts at the deepest node that has a child
+and works toward the root of the tree.
+Each array position visited is the root of a subtree.
+As each such subtree is visited,
+it is transformed into a max heap.
+Figure&nbsp;<A HREF="page506.html#figsort5" tppabs="http://www.brpreiss.com/books/opus4/html/page506.html#figsort5"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> illustrates how the <tt>BuildHeap</tt> routine
+heapifies an array that is initially unsorted.
+<P>
+<P><A NAME="41041">&#160;</A><A NAME="figsort5">&#160;</A> <IMG WIDTH=575 HEIGHT=631 ALIGN=BOTTOM ALT="figure40148" SRC="img2191.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2191.gif"  ><BR>
+<STRONG>Figure:</STRONG> Building A Heap<BR>
+<P><BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html8169" HREF="page507.html#SECTION0016531000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page507.html#SECTION0016531000000000000000">Running Time Analysis</A>
+<LI> <A NAME="tex2html8170" HREF="page508.html#SECTION0016532000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page508.html#SECTION0016532000000000000000">The Sorting Phase</A>
+</UL>
+<HR><A NAME="tex2html8165" HREF="page507.html" tppabs="http://www.brpreiss.com/books/opus4/html/page507.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8163" HREF="page501.html" tppabs="http://www.brpreiss.com/books/opus4/html/page501.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8159" HREF="page505.html" tppabs="http://www.brpreiss.com/books/opus4/html/page505.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8167" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8168" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

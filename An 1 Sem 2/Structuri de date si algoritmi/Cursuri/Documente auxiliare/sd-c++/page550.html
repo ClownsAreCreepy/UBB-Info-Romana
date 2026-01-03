@@ -1,0 +1,42 @@
+<HTML>
+<HEAD>
+<TITLE>Graph Traversals</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html8709" HREF="page551.html" tppabs="http://www.brpreiss.com/books/opus4/html/page551.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8707" HREF="page523.html" tppabs="http://www.brpreiss.com/books/opus4/html/page523.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8701" HREF="page549.html" tppabs="http://www.brpreiss.com/books/opus4/html/page549.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8711" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8712" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION0017300000000000000000">Graph Traversals</A></H1>
+<A NAME="secgraphtraversals">&#160;</A>
+<P>
+There are many different applications of graphs.
+As a result, there are many different algorithms for manipulating them.
+However, many of the different graph algorithms have in common
+the characteristic that they systematically visit all the vertices in the graph.
+I.e., the algorithm walks through the graph data structure
+and performs some computation at each vertex in the graph.
+This process of walking through the graph is called a
+<em>graph traversal</em><A NAME=50039>&#160;</A><A NAME=50040>&#160;</A>.
+<P>
+While there are many different possible ways in which to
+systematically visit all the vertices of a graph,
+certain traversal methods occur frequently enough that they
+are given names of their own.
+This section presents three of them--depth-first traversal, breadth-first traversal
+and topological sort.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html8713" HREF="page551.html#SECTION0017310000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page551.html#SECTION0017310000000000000000">Depth-First Traversal</A>
+<LI> <A NAME="tex2html8714" HREF="page554.html#SECTION0017320000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page554.html#SECTION0017320000000000000000">Breadth-First Traversal</A>
+<LI> <A NAME="tex2html8715" HREF="page557.html#SECTION0017330000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page557.html#SECTION0017330000000000000000">Topological Sort</A>
+<LI> <A NAME="tex2html8716" HREF="page560.html#SECTION0017340000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page560.html#SECTION0017340000000000000000">Graph Traversal Applications:<BR> Testing for Cycles and Connectedness</A>
+</UL>
+<HR><A NAME="tex2html8709" HREF="page551.html" tppabs="http://www.brpreiss.com/books/opus4/html/page551.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8707" HREF="page523.html" tppabs="http://www.brpreiss.com/books/opus4/html/page523.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8701" HREF="page549.html" tppabs="http://www.brpreiss.com/books/opus4/html/page549.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8711" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8712" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

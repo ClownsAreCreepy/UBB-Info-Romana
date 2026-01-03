@@ -1,0 +1,28 @@
+# ninja log v6
+8590	10760	7742262011512517	Tractoare_ClickDesen_.exe	449c08c83a916a97
+75	4861	7742261973594912	Tractoare_ClickDesen__autogen/timestamp	da058fd210af5392
+75	4861	7742261973594912	Tractoare_ClickDesen__autogen/mocs_compilation.cpp	da058fd210af5392
+75	4861	7742261973594912	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Tractoare(ClickDesen)/cmake-build-debug/Tractoare_ClickDesen__autogen/timestamp	da058fd210af5392
+75	4861	7742261973594912	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Tractoare(ClickDesen)/cmake-build-debug/Tractoare_ClickDesen__autogen/mocs_compilation.cpp	da058fd210af5392
+4868	8590	7742261974299988	CMakeFiles/Tractoare_ClickDesen_.dir/GUI/Window.cpp.obj	1e16ea04cfa52e76
+4862	8537	7742261974229982	CMakeFiles/Tractoare_ClickDesen_.dir/Tractoare_ClickDesen__autogen/mocs_compilation.cpp.obj	63f2628081eb5ddc
+230	1141	7721475028175246	CMakeFiles/Tractoare_ClickDesen_.dir/Repo/Repository.cpp.obj	a3aa640fa7f53d90
+4865	8442	7742261974259987	CMakeFiles/Tractoare_ClickDesen_.dir/main.cpp.obj	a59415098cc11f53
+2605	3470	7721498781881724	CMakeFiles/Tractoare_ClickDesen_.dir/Test/Teste.cpp.obj	ff6926a289a9dff4
+2603	3643	7721498781851261	CMakeFiles/Tractoare_ClickDesen_.dir/Service/Service.cpp.obj	e230e9be4dfdd413
+2609	6134	7721498781913775	CMakeFiles/Tractoare_ClickDesen_.dir/GUI/Model.cpp.obj	936fe34756bef595
+1844	5455	7721515466673427	CMakeFiles/Tractoare_ClickDesen_.dir/GUI/WheelCanvas.cpp.obj	b68097eab18a391e
+4872	8127	7742261974335029	CMakeFiles/Tractoare_ClickDesen_.dir/GUI/DesenareRoti.cpp.obj	2002da85cdc5296f
+13	10296	7827674689619315	Tractoare_ClickDesen__autogen/timestamp	da058fd210af5392
+13	10296	7827674689619315	Tractoare_ClickDesen__autogen/mocs_compilation.cpp	da058fd210af5392
+13	10296	7827674689619315	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Tractoare(ClickDesen)/cmake-build-debug/Tractoare_ClickDesen__autogen/timestamp	da058fd210af5392
+13	10296	7827674689619315	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Tractoare(ClickDesen)/cmake-build-debug/Tractoare_ClickDesen__autogen/mocs_compilation.cpp	da058fd210af5392
+10323	11653	7827674690717619	CMakeFiles/Tractoare_ClickDesen_.dir/Repo/Repository.cpp.obj	a3aa640fa7f53d90
+10340	11897	7827674690885696	CMakeFiles/Tractoare_ClickDesen_.dir/Test/Teste.cpp.obj	ff6926a289a9dff4
+10332	12092	7827674690799283	CMakeFiles/Tractoare_ClickDesen_.dir/Service/Service.cpp.obj	e230e9be4dfdd413
+10347	16053	7827674690961417	CMakeFiles/Tractoare_ClickDesen_.dir/GUI/Model.cpp.obj	936fe34756bef595
+10362	16058	7827674691105301	CMakeFiles/Tractoare_ClickDesen_.dir/GUI/DesenareRoti.cpp.obj	2002da85cdc5296f
+10314	16576	7827674690630263	CMakeFiles/Tractoare_ClickDesen_.dir/main.cpp.obj	a59415098cc11f53
+10300	16611	7827674690480061	CMakeFiles/Tractoare_ClickDesen_.dir/Tractoare_ClickDesen__autogen/mocs_compilation.cpp.obj	63f2628081eb5ddc
+10356	16658	7827674691039911	CMakeFiles/Tractoare_ClickDesen_.dir/GUI/Window.cpp.obj	1e16ea04cfa52e76
+16658	21550	7827674754059091	Tractoare_ClickDesen_.exe	449c08c83a916a97

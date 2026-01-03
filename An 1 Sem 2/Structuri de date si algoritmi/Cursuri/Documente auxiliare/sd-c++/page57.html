@@ -1,0 +1,43 @@
+<HTML>
+<HEAD>
+<TITLE>An Asymptotic Upper Bound-Big Oh</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html2597" HREF="page58.html" tppabs="http://www.brpreiss.com/books/opus4/html/page58.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2595" HREF="page56.html" tppabs="http://www.brpreiss.com/books/opus4/html/page56.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2589" HREF="page56.html" tppabs="http://www.brpreiss.com/books/opus4/html/page56.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2599" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2600" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION004100000000000000000">An Asymptotic Upper Bound-Big Oh</A></H1>
+<P>
+In 1892, P. Bachmann<A NAME=1319>&#160;</A>
+invented a notation for characterizing
+the asymptotic behavior of functions.
+His invention has come to be known as <em>big oh notation</em>:
+<P>
+<BLOCKQUOTE> <b>Definition (Big Oh)</b><A NAME="defnbigoh">&#160;</A><A NAME=1324>&#160;</A>
+<A NAME=1339>&#160;</A>
+Consider a function <I>f</I>(<I>n</I>) which is non-negative
+for all integers  <IMG WIDTH=38 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59063" SRC="img241.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img241.gif"  >.
+We say that ``<I>f</I>(<I>n</I>) is big oh <I>g</I>(<I>n</I>),''
+which we write <I>f</I>(<I>n</I>)=<I>O</I>(<I>g</I>(<I>n</I>)),
+if there exists an integer  <IMG WIDTH=16 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline59043" SRC="img238.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img238.gif"  > and a constant <I>c</I><I>&gt;</I>0
+such that for all integers  <IMG WIDTH=46 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline59075" SRC="img242.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img242.gif"  >,
+ <IMG WIDTH=88 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59077" SRC="img243.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img243.gif"  >.
+</BLOCKQUOTE><BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html2601" HREF="page58.html#SECTION004110000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page58.html#SECTION004110000000000000000">A Simple Example</A>
+<LI> <A NAME="tex2html2602" HREF="page59.html#SECTION004120000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page59.html#SECTION004120000000000000000">Big Oh Fallacies and Pitfalls</A>
+<LI> <A NAME="tex2html2603" HREF="page60.html#SECTION004130000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page60.html#SECTION004130000000000000000">Properties of Big Oh</A>
+<LI> <A NAME="tex2html2604" HREF="page61.html#SECTION004140000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page61.html#SECTION004140000000000000000">About Polynomials</A>
+<LI> <A NAME="tex2html2605" HREF="page62.html#SECTION004150000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page62.html#SECTION004150000000000000000">About Logarithms</A>
+<LI> <A NAME="tex2html2606" HREF="page63.html#SECTION004160000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page63.html#SECTION004160000000000000000">Tight Big Oh Bounds</A>
+<LI> <A NAME="tex2html2607" HREF="page64.html#SECTION004170000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page64.html#SECTION004170000000000000000">More Big Oh Fallacies and Pitfalls</A>
+<LI> <A NAME="tex2html2608" HREF="page65.html#SECTION004180000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page65.html#SECTION004180000000000000000">Conventions for Writing Big Oh Expressions</A>
+</UL>
+<HR><A NAME="tex2html2597" HREF="page58.html" tppabs="http://www.brpreiss.com/books/opus4/html/page58.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2595" HREF="page56.html" tppabs="http://www.brpreiss.com/books/opus4/html/page56.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2589" HREF="page56.html" tppabs="http://www.brpreiss.com/books/opus4/html/page56.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2599" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2600" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

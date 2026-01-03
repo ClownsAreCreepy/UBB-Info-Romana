@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE>Running Time Analysis</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html8251" HREF="page514.html" tppabs="http://www.brpreiss.com/books/opus4/html/page514.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8249" HREF="page509.html" tppabs="http://www.brpreiss.com/books/opus4/html/page509.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8245" HREF="page512.html" tppabs="http://www.brpreiss.com/books/opus4/html/page512.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8253" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8254" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0016604000000000000000">Running Time Analysis</A></H3>
+<P>
+The running time of merge sort is determined by the running
+time of the recursive <tt>DoSort</tt> routine.
+(The main <tt>DoSort</tt> only adds a constant amount of overhead).
+The running time of the recursive <tt>DoSort</tt> routine is given
+by the following recurrence:
+<P><A NAME="eqnsortingix">&#160;</A> <IMG WIDTH=500 HEIGHT=48 ALIGN=BOTTOM ALT="equation44634" SRC="img2210.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2210.gif"  ><P>
+where  <IMG WIDTH=152 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline70465" SRC="img2208.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2208.gif"  >.
+<P>
+In order to simplify the solution of Equation&nbsp;<A HREF="page513.html#eqnsortingix" tppabs="http://www.brpreiss.com/books/opus4/html/page513.html#eqnsortingix"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+we shall assume that  <IMG WIDTH=45 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58795" SRC="img171.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img171.gif"  > for some integer  <IMG WIDTH=36 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline61524" SRC="img761.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img761.gif"  >.
+Dropping the  <IMG WIDTH=28 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline58163" SRC="img1.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1.gif"  >s from the equation we get
+<P> <IMG WIDTH=355 HEIGHT=48 ALIGN=BOTTOM ALT="displaymath70467" SRC="img2211.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2211.gif"  ><P>
+which is easily solved by repeated substitution:
+<P> <IMG WIDTH=500 HEIGHT=203 ALIGN=BOTTOM ALT="eqnarray44644" SRC="img2212.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2212.gif"  ><P>
+Therefore, the running time of merge sort is  <IMG WIDTH=68 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59897" SRC="img405.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img405.gif"  >.
+<P>
+<HR><A NAME="tex2html8251" HREF="page514.html" tppabs="http://www.brpreiss.com/books/opus4/html/page514.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8249" HREF="page509.html" tppabs="http://www.brpreiss.com/books/opus4/html/page509.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8245" HREF="page512.html" tppabs="http://www.brpreiss.com/books/opus4/html/page512.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8253" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8254" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

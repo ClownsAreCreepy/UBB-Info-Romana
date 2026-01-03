@@ -1,0 +1,91 @@
+<HTML>
+<HEAD>
+<TITLE>Find and Join Member Functions</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html6979" HREF="page410.html" tppabs="http://www.brpreiss.com/books/opus4/html/page410.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6977" HREF="page406.html" tppabs="http://www.brpreiss.com/books/opus4/html/page406.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6973" HREF="page408.html" tppabs="http://www.brpreiss.com/books/opus4/html/page408.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6981" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6982" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0013413000000000000000"><tt>Find</tt> and <tt>Join</tt> Member Functions</A></H3>
+<P>
+Two elements of the universe are in the same part of the partition
+if and only if they share the same root node.
+Since every tree has a unique root,
+it makes sense to use the root node as the ``handle'' for that tree.
+Therefore, the <em>find</em> operation takes an element of the universal set
+and returns the root node of the tree that contains that element.
+And because of way in which the trees are represented,
+we can follow the chain of parent pointers to find the root node.
+<P>
+Program&nbsp;<A HREF="page409.html#progpartition2c" tppabs="http://www.brpreiss.com/books/opus4/html/page409.html#progpartition2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives the code for the <tt>Find</tt>
+member function of the <tt>PartitionAsForest</tt> class.
+The <tt>Find</tt> function takes as its lone argument
+a reference to an <tt>Object</tt> instance
+and returns a reference to a <tt>Set</tt>.
+The argument is expected to be actually a <tt>Set::Element</tt>
+that specifies the item of the universe that is the object of the search.
+<P>
+<P><A NAME="29336">&#160;</A><A NAME="progpartition2c">&#160;</A> <IMG WIDTH=575 HEIGHT=181 ALIGN=BOTTOM ALT="program29269" SRC="img1676.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1676.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>PartitionAsForest</tt> Class 	<tt>Find</tt> Member Function Definition<BR>
+<P>
+<P>
+The <tt>Find</tt> operation begins at the node <tt>array[item]</tt>
+and follows the chain of parent pointers to find the root node of the tree
+that contains the specified item.
+The result of the function is a reference to the root node.
+<P>
+The running time of the <tt>Find</tt> operation
+is <I>O</I>(<I>d</I>) where <I>d</I> is the depth
+in the tree of the node from which the search begins.
+If we don't do anything special to prevent it,
+the worst case running time is <I>O</I>(<I>N</I>),
+where <I>N</I> is the size of the universe.
+The best performance is achieved when every non-root node
+points to the root node.
+In this case, the running time is <I>O</I>(1).
+<P>
+Another advantage of having a pointer to the parent in each node
+is that the <em>join</em> operation can be implemented easily and efficiently.
+For example, suppose we wish to <em>join</em>
+the two sets  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline60305" SRC="img449.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img449.gif"  > and  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline60309" SRC="img451.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img451.gif"  > shown in Figure&nbsp;<A HREF="page406.html#figsets1" tppabs="http://www.brpreiss.com/books/opus4/html/page406.html#figsets1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+While there are many possible representations for  <IMG WIDTH=50 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline67716" SRC="img1677.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1677.gif"  >,
+it turns out that there are two simple alternatives which can be
+obtained in constant time.
+These are shown in Figure&nbsp;<A HREF="page406.html#figsets2" tppabs="http://www.brpreiss.com/books/opus4/html/page406.html#figsets2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+In the first alternative,
+the root of  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline60309" SRC="img451.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img451.gif"  > is made a child of the root of  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline60305" SRC="img449.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img449.gif"  >.
+This can be done in constant time simply by making the parent pointer
+of the root of  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline60309" SRC="img451.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img451.gif"  > point to the root of  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline60305" SRC="img449.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img449.gif"  >.
+The second alternative is essentially the same as the first
+except that the r&#244;les of  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline60305" SRC="img449.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img449.gif"  > and  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline60309" SRC="img451.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img451.gif"  > are exchanged.
+<P>
+<P><A NAME="29601">&#160;</A><A NAME="figsets3">&#160;</A> <IMG WIDTH=575 HEIGHT=415 ALIGN=BOTTOM ALT="figure29285" SRC="img1678.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1678.gif"  ><BR>
+<STRONG>Figure:</STRONG> Alternatives for Joining Elements of a Partition<BR>
+<P>
+<P>
+Program&nbsp;<A HREF="page409.html#progpartition3c" tppabs="http://www.brpreiss.com/books/opus4/html/page409.html#progpartition3c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives the simplest possible implementation
+for the <tt>Join</tt> operation.
+The <tt>Join</tt> member function of the <tt>PartitionAsForest</tt> class
+takes two arguments--both of the references to <tt>Set</tt>s.
+Both arguments are required to be references to distinct
+<tt>PartitionTree</tt> instances which are contained in the given partition.
+Furthermore, both of them are required to be root nodes.
+Therefore, the sets that the arguments represent are <em>disjoint</em>.
+The member function <tt>CheckArguments</tt> makes sure that the arguments
+satisfy these conditions.
+<P>
+The <tt>Join</tt> operation is trivial and executes in constant time:
+It simply makes one node the parent of the other.
+In this case, we have arbitrarily chosen that
+the node specified by the first argument shall always become the parent.
+<P>
+<P><A NAME="29672">&#160;</A><A NAME="progpartition3c">&#160;</A> <IMG WIDTH=575 HEIGHT=315 ALIGN=BOTTOM ALT="program29613" SRC="img1679.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1679.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>PartitionAsForest</tt> Class 	Simple <tt>Join</tt> Member Function Definition<BR>
+<P><HR><A NAME="tex2html6979" HREF="page410.html" tppabs="http://www.brpreiss.com/books/opus4/html/page410.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6977" HREF="page406.html" tppabs="http://www.brpreiss.com/books/opus4/html/page406.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6973" HREF="page408.html" tppabs="http://www.brpreiss.com/books/opus4/html/page408.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6981" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6982" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

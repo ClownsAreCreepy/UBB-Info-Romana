@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>d:\istvan\___oop\curs\curs7\petstorecosundo\consoleapplication4\</FILEPATH>
+      <FILENAME>pet.h</FILENAME>
+      <LINE>35</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26432</DEFECTCODE>
+    <DESCRIPTION>If you define or delete any default operation in the type 'class Pet', define or delete them all (c.21: http://go.microsoft.com/fwlink/?linkid=853922).</DESCRIPTION>
+    <FUNCTION>Pet::{ctor}</FUNCTION>
+    <DECORATED>??0Pet@@QAE@ABV0@@Z</DECORATED>
+    <FUNCLINE>35</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>d:\istvan\___oop\curs\curs7\petstorecosundo\consoleapplication4\</FILEPATH>
+      <FILENAME>pet.h</FILENAME>
+      <LINE>53</LINE>
+      <COLUMN>5</COLUMN>
+    </SFA>
+    <DEFECTCODE>26440</DEFECTCODE>
+    <DESCRIPTION>Function 'Pet::getPrice' can be declared 'noexcept' (f.6: http://go.microsoft.com/fwlink/?linkid=853927).</DESCRIPTION>
+    <FUNCTION>Pet::getPrice</FUNCTION>
+    <DECORATED>?getPrice@Pet@@QBEHXZ</DECORATED>
+    <FUNCLINE>53</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>d:\istvan\___oop\curs\curs7\petstorecosundo\consoleapplication4\</FILEPATH>
+      <FILENAME>pet.h</FILENAME>
+      <LINE>57</LINE>
+      <COLUMN>6</COLUMN>
+    </SFA>
+    <DEFECTCODE>26440</DEFECTCODE>
+    <DESCRIPTION>Function 'Pet::setPrice' can be declared 'noexcept' (f.6: http://go.microsoft.com/fwlink/?linkid=853927).</DESCRIPTION>
+    <FUNCTION>Pet::setPrice</FUNCTION>
+    <DECORATED>?setPrice@Pet@@QAEXH@Z</DECORATED>
+    <FUNCLINE>57</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>d:\istvan\___oop\curs\curs7\petstorecosundo\consoleapplication4\</FILEPATH>
+      <FILENAME>petrepo.h</FILENAME>
+      <LINE>48</LINE>
+      <COLUMN>25</COLUMN>
+    </SFA>
+    <DEFECTCODE>26440</DEFECTCODE>
+    <DESCRIPTION>Function 'PetRepo::getAll' can be declared 'noexcept' (f.6: http://go.microsoft.com/fwlink/?linkid=853927).</DESCRIPTION>
+    <FUNCTION>PetRepo::getAll</FUNCTION>
+    <DECORATED>?getAll@PetRepo@@QBEABV?$vector@VPet@@V?$allocator@VPet@@@std@@@std@@XZ</DECORATED>
+    <FUNCLINE>48</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>d:\istvan\___oop\curs\curs7\petstorecosundo\consoleapplication4\</FILEPATH>
+      <FILENAME>petrepo.h</FILENAME>
+      <LINE>13</LINE>
+      <COLUMN>10</COLUMN>
+    </SFA>
+    <DEFECTCODE>26432</DEFECTCODE>
+    <DESCRIPTION>If you define or delete any default operation in the type 'class PetRepo', define or delete them all (c.21: http://go.microsoft.com/fwlink/?linkid=853922).</DESCRIPTION>
+    <FUNCTION>PetRepo::{dtor}</FUNCTION>
+    <DECORATED>??1PetRepo@@UAE@XZ</DECORATED>
+    <FUNCLINE>13</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>d:\istvan\___oop\curs\curs7\petstorecosundo\consoleapplication4\</FILEPATH>
+      <FILENAME>undo.h</FILENAME>
+      <LINE>8</LINE>
+      <COLUMN>10</COLUMN>
+    </SFA>
+    <DEFECTCODE>26432</DEFECTCODE>
+    <DESCRIPTION>If you define or delete any default operation in the type 'class ActiuneUndo', define or delete them all (c.21: http://go.microsoft.com/fwlink/?linkid=853922).</DESCRIPTION>
+    <FUNCTION>ActiuneUndo::{dtor}</FUNCTION>
+    <DECORATED>??1ActiuneUndo@@UAE@XZ</DECORATED>
+    <FUNCLINE>8</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>d:\istvan\___oop\curs\curs7\petstorecosundo\consoleapplication4\</FILEPATH>
+      <FILENAME>cospet.h</FILENAME>
+      <LINE>20</LINE>
+      <COLUMN>6</COLUMN>
+    </SFA>
+    <DEFECTCODE>26440</DEFECTCODE>
+    <DESCRIPTION>Function 'CosPet::goleste' can be declared 'noexcept' (f.6: http://go.microsoft.com/fwlink/?linkid=853927).</DESCRIPTION>
+    <FUNCTION>CosPet::goleste</FUNCTION>
+    <DECORATED>?goleste@CosPet@@QAEXXZ</DECORATED>
+    <FUNCLINE>20</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>d:\istvan\___oop\curs\curs7\petstorecosundo\consoleapplication4\</FILEPATH>
+      <FILENAME>cospet.h</FILENAME>
+      <LINE>34</LINE>
+      <COLUMN>20</COLUMN>
+    </SFA>
+    <DEFECTCODE>26440</DEFECTCODE>
+    <DESCRIPTION>Function 'CosPet::lista' can be declared 'noexcept' (f.6: http://go.microsoft.com/fwlink/?linkid=853927).</DESCRIPTION>
+    <FUNCTION>CosPet::lista</FUNCTION>
+    <DECORATED>?lista@CosPet@@QBEABV?$vector@VPet@@V?$allocator@VPet@@@std@@@std@@XZ</DECORATED>
+    <FUNCLINE>34</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>d:\istvan\___oop\curs\curs7\petstorecosundo\consoleapplication4\</FILEPATH>
+      <FILENAME>petservice.h</FILENAME>
+      <LINE>20</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26440</DEFECTCODE>
+    <DESCRIPTION>Function 'PetController::PetController' can be declared 'noexcept' (f.6: http://go.microsoft.com/fwlink/?linkid=853927).</DESCRIPTION>
+    <FUNCTION>PetController::{ctor}</FUNCTION>
+    <DECORATED>??0PetController@@QAE@AAVPetRepo@@@Z</DECORATED>
+    <FUNCLINE>20</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

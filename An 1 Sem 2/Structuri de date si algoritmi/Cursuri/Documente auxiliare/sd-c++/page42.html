@@ -1,0 +1,94 @@
+<HTML>
+<HEAD>
+<TITLE>Yet Another Example-Finding the Largest Element of an Array</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html2411" HREF="page43.html" tppabs="http://www.brpreiss.com/books/opus4/html/page43.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2409" HREF="page35.html" tppabs="http://www.brpreiss.com/books/opus4/html/page35.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2403" HREF="page41.html" tppabs="http://www.brpreiss.com/books/opus4/html/page41.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2413" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2414" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION003160000000000000000">Yet Another Example-Finding the Largest Element of an Array</A></H2>
+<P>
+In this section we consider the problem of finding the largest
+element of an array.
+I.e., given an array of <I>n</I> non-negative integers,
+ <IMG WIDTH=109 HEIGHT=13 ALIGN=MIDDLE ALT="tex2html_wrap_inline58363" SRC="img69.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img69.gif"  >,
+we wish to find
+<P> <IMG WIDTH=279 HEIGHT=20 ALIGN=BOTTOM ALT="displaymath58355" SRC="img70.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img70.gif"  ><P>
+<P>
+The straightforward way of solving this problem is to perform a
+<em>linear search</em><A NAME=490>&#160;</A> of the array.
+The linear search algorithm is given in Program&nbsp;<A HREF="page42.html#progfindmaxc" tppabs="http://www.brpreiss.com/books/opus4/html/page42.html#progfindmaxc"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+and the running times for the various statements are given
+in Table&nbsp;<A HREF="page42.html#tblfindmaxc" tppabs="http://www.brpreiss.com/books/opus4/html/page42.html#tblfindmaxc"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+<P>
+<P><A NAME="624">&#160;</A><A NAME="progfindmaxc">&#160;</A> <IMG WIDTH=575 HEIGHT=162 ALIGN=BOTTOM ALT="program493" SRC="img72.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img72.gif"  ><BR>
+<STRONG>Program:</STRONG> Linear search to find  <IMG WIDTH=84 HEIGHT=16 ALIGN=MIDDLE ALT="tex2html_wrap_inline58365" SRC="img71.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img71.gif"  ><BR>
+<P>
+<P>
+<P><A NAME="626">&#160;</A>
+<P>
+    <A NAME="tblfindmaxc">&#160;</A>
+    <DIV ALIGN=CENTER><P ALIGN=CENTER><TABLE COLS=2 BORDER FRAME=HSIDES RULES=GROUPS>
+<COL ALIGN=CENTER><COL ALIGN=CENTER>
+<TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+	    statement </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> time </TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>3 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=134 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline58239" SRC="img32.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img32.gif"  > </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	    4a </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=88 HEIGHT=20 ALIGN=MIDDLE ALT="tex2html_wrap_inline58181" SRC="img9.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img9.gif"  > </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	    4b </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=120 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline58371" SRC="img73.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img73.gif"  > </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	    4c </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=213 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline58373" SRC="img74.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img74.gif"  > </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	    5 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=199 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline58375" SRC="img75.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img75.gif"  > </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	    6 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=167 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline58377" SRC="img76.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img76.gif"  > </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	    7 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=88 HEIGHT=20 ALIGN=MIDDLE ALT="tex2html_wrap_inline58181" SRC="img9.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img9.gif"  > </TD></TR>
+</TBODY>
+<CAPTION ALIGN=BOTTOM><STRONG>Table:</STRONG> Computing the running time of Program&nbsp;<A HREF="page42.html#progfindmaxc" tppabs="http://www.brpreiss.com/books/opus4/html/page42.html#progfindmaxc"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A></CAPTION></TABLE>
+</P></DIV><P>
+<P>
+With the exception of line&nbsp;6,
+the running times follow simply from Axioms&nbsp;<A HREF="page36.html#axiomi" tppabs="http://www.brpreiss.com/books/opus4/html/page36.html#axiomi"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>, <A HREF="page36.html#axiomii" tppabs="http://www.brpreiss.com/books/opus4/html/page36.html#axiomii"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> and&nbsp;<A HREF="page38.html#axiomv" tppabs="http://www.brpreiss.com/books/opus4/html/page38.html#axiomv"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+In particular, note that the body of the loop
+is executed <I>n</I>-1 times.
+This means that the conditional test on line&nbsp;5 is executed <I>n</I>-1 times.
+However, the number of times line&nbsp;6 is executed depends on
+the data in the array and not just <I>n</I>.
+<P>
+If we consider that in each iteration of the loop body,
+the variable <tt>result</tt> contains the largest array element seen so far,
+then line&nbsp;6 will be executed in the  <IMG WIDTH=17 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58387" SRC="img77.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img77.gif"  > iteration of the loop
+only if  <IMG WIDTH=11 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline58389" SRC="img78.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img78.gif"  > satisfies the following
+<P> <IMG WIDTH=309 HEIGHT=38 ALIGN=BOTTOM ALT="displaymath58356" SRC="img79.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img79.gif"  ><P>
+<P>
+Thus, the running time of Program&nbsp;<A HREF="page42.html#progfindmaxc" tppabs="http://www.brpreiss.com/books/opus4/html/page42.html#progfindmaxc"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,  <IMG WIDTH=28 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline58299" SRC="img51.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img51.gif"  >,
+is a function not only of the number of elements in the array, <I>n</I>,
+but also of the actual array values,  <IMG WIDTH=109 HEIGHT=13 ALIGN=MIDDLE ALT="tex2html_wrap_inline58363" SRC="img69.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img69.gif"  >.
+Summing the entries in Table&nbsp;<A HREF="page42.html#tblfindmaxc" tppabs="http://www.brpreiss.com/books/opus4/html/page42.html#tblfindmaxc"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> we get
+<P> <IMG WIDTH=431 HEIGHT=61 ALIGN=BOTTOM ALT="displaymath58357" SRC="img80.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img80.gif"  ><P>
+where
+<P> <IMG WIDTH=500 HEIGHT=64 ALIGN=BOTTOM ALT="eqnarray521" SRC="img81.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img81.gif"  ><P>
+<P>
+While this result may be correct,
+it is not terribly useful.
+In order to determine the running time of the program
+we need to know the number of elements in the array, <I>n</I>,
+and we need to know the values of the elements in the array,
+ <IMG WIDTH=109 HEIGHT=13 ALIGN=MIDDLE ALT="tex2html_wrap_inline58363" SRC="img69.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img69.gif"  >.
+Even if we know these data,
+it turns out that in order to compute the running time of the algorithm,
+ <IMG WIDTH=149 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline58401" SRC="img82.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img82.gif"  >,
+we actually have to solve the original problem!
+<P>
+<HR><A NAME="tex2html2411" HREF="page43.html" tppabs="http://www.brpreiss.com/books/opus4/html/page43.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2409" HREF="page35.html" tppabs="http://www.brpreiss.com/books/opus4/html/page35.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2403" HREF="page41.html" tppabs="http://www.brpreiss.com/books/opus4/html/page41.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2413" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2414" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

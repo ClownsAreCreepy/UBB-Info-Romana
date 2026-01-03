@@ -1,0 +1,46 @@
+<HTML>
+<HEAD>
+<TITLE>Depth-First Traversal</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html5241" HREF="page269.html" tppabs="http://www.brpreiss.com/books/opus4/html/page269.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5239" HREF="page267.html" tppabs="http://www.brpreiss.com/books/opus4/html/page267.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5233" HREF="page267.html" tppabs="http://www.brpreiss.com/books/opus4/html/page267.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5243" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5244" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0010611000000000000000">Depth-First Traversal</A></H3>
+<P>
+Program&nbsp;<A HREF="page268.html#progtree1c" tppabs="http://www.brpreiss.com/books/opus4/html/page268.html#progtree1c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives the definition of
+the <tt>DepthFirstTraversal</tt> member function
+of the <tt>Tree</tt> class.
+The traversal routine takes one argument--a reference to an instance of the <tt>PrePostVisitor</tt> class
+defined in Program&nbsp;<A HREF="page269.html#progvisitor2h" tppabs="http://www.brpreiss.com/books/opus4/html/page269.html#progvisitor2h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+A <tt>PrePostVisitor</tt> is a visitor with two additional member functions,
+<tt>PreVisit</tt> and <tt>PostVisit</tt>.
+During a depth-first traversal each function is
+called once for every node in the tree.
+<P>
+<P><A NAME="16478">&#160;</A><A NAME="progtree1c">&#160;</A> <IMG WIDTH=575 HEIGHT=258 ALIGN=BOTTOM ALT="program16196" SRC="img1157.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1157.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>Tree</tt> Class Traversal Member Function Definitions<BR>
+<P>
+<P>
+The depth-first traversal routine first calls
+the <tt>PreVisit</tt> function with the object in the root node.
+Then, it calls recursively the <tt>DepthFirstTraversal</tt> function
+for each subtree of the given node.
+After all the subtrees have been visited,
+the <tt>PostVisit</tt> function is called.
+Assuming that the <tt>IsEmpty</tt>, <tt>Key</tt> and <tt>Subtree</tt>
+member functions all run in constant time,
+the total running time of the <tt>DepthFirstTraversal</tt> routine is
+<P> <IMG WIDTH=386 HEIGHT=17 ALIGN=BOTTOM ALT="displaymath63902" SRC="img1158.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1158.gif"  ><P>
+where <I>n</I> is the number of nodes in the tree,
+ <IMG WIDTH=84 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline63906" SRC="img1159.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1159.gif"  > is the running time of <tt>PreVisit</tt>,
+and  <IMG WIDTH=89 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline63908" SRC="img1160.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1160.gif"  > is the running time of  <IMG WIDTH=75 HEIGHT=10 ALIGN=BOTTOM ALT="tex2html_wrap_inline63910" SRC="img1161.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1161.gif"  >.
+<P>
+<HR><A NAME="tex2html5241" HREF="page269.html" tppabs="http://www.brpreiss.com/books/opus4/html/page269.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5239" HREF="page267.html" tppabs="http://www.brpreiss.com/books/opus4/html/page267.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5233" HREF="page267.html" tppabs="http://www.brpreiss.com/books/opus4/html/page267.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5243" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5244" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

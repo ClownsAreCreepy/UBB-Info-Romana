@@ -1,0 +1,85 @@
+<HTML>
+<HEAD>
+<TITLE>Abstract Graphs and Digraphs</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html8578" HREF="page540.html" tppabs="http://www.brpreiss.com/books/opus4/html/page540.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8576" HREF="page536.html" tppabs="http://www.brpreiss.com/books/opus4/html/page536.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8570" HREF="page538.html" tppabs="http://www.brpreiss.com/books/opus4/html/page538.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8580" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8581" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0017230000000000000000">Abstract Graphs and Digraphs</A></H2>
+<P>
+Directed graphs and undirected graphs have many common characteristics.
+Therefore, it seems reasonable to make use of inheritance
+in the implementation of graph classes.
+However, there are several possible ways in which to organize the
+class hierarchy:
+<DL ><DT><STRONG>Option&nbsp;A</STRONG>
+<DD>
+	We could use a common abstract base class <tt>Graph</tt> to encapsulate
+	the common attributes of all graphs
+	and then derive two different classes <tt>UndirectedGraph</tt>
+	and <tt>DirectedGraph</tt> from the common base class.
+    <DT><STRONG>Option&nbsp;B</STRONG>
+<DD>
+	Use <tt>DirectedGraph</tt> as the base class
+	and derive the class <tt>UndirectedGraph</tt> from it.
+	In this scenario we view an undirected graph as a directed graph
+	that has its arrows removed.
+    <DT><STRONG>Option&nbsp;C</STRONG>
+<DD>
+	Use <tt>UndirectedGraph</tt> as the base class
+	and derive the class <tt>DirectedGraph</tt> from it.
+	In this scenario we view a directed graph as an undirected graph
+	with arrows added.
+<P>
+ </DL>
+<P>
+As shown in Figure&nbsp;<A HREF="page536.html#figclasses9" tppabs="http://www.brpreiss.com/books/opus4/html/page536.html#figclasses9"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+we have chosen to use option&nbsp;C.
+We have chosen this approach because many algorithms
+for undirected graphs can also be used with directed graphs.
+On the other hand, it is often the case that algorithms
+for directed graphs cannot be used with undirected graphs.
+<P>
+Program&nbsp;<A HREF="page539.html#proggraph3h" tppabs="http://www.brpreiss.com/books/opus4/html/page539.html#proggraph3h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> declares two abstract classes,
+<tt>Graph</tt> and <tt>Digraph</tt>.
+The <tt>Graph</tt> class is the base class
+from which concrete classes that represent <em>undirected</em> graphs are derived.
+The <tt>Digraph</tt> abstract class extends the <tt>Graph</tt> class.
+The <tt>Digraph</tt> class is the base class
+from which concrete classes that represent <em>directed</em> graphs are derived.
+<P>
+<P><A NAME="50083">&#160;</A><A NAME="proggraph3h">&#160;</A> <IMG WIDTH=575 HEIGHT=849 ALIGN=BOTTOM ALT="program49769" SRC="img2378.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2378.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>Graph</tt> and <tt>Digraph</tt> 	Class Definitions<BR>
+<P>
+<P>
+The <tt>Graph</tt> class is an abstract base class
+since it contains pure virtual member functions.
+The graph class adds two member variables to those inherited
+from the base classes--<tt>numberOfEdges</tt> and <tt>numberOfVertices</tt>.
+A default constructor for the <tt>Graph</tt> class is also declared.
+The effect of this constructor is to initialize both
+member variables with the value zero.
+Therefore, a graph is initially empty--it contains neither vertices nor edges.
+<P>
+A number of <tt>Graph</tt> class member
+functions are declared in Program&nbsp;<A HREF="page539.html#proggraph3h" tppabs="http://www.brpreiss.com/books/opus4/html/page539.html#proggraph3h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+There are essentially three groups of member functions:
+accessors and mutators, iterators, and traversals.
+The operations performed by the member functions
+are explained in the following sections.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html8582" HREF="page540.html#SECTION0017231000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page540.html#SECTION0017231000000000000000">Accessors and Mutators</A>
+<LI> <A NAME="tex2html8583" HREF="page541.html#SECTION0017232000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page541.html#SECTION0017232000000000000000">Iterators</A>
+<LI> <A NAME="tex2html8584" HREF="page542.html#SECTION0017233000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page542.html#SECTION0017233000000000000000">Graph Traversals</A>
+</UL>
+<HR><A NAME="tex2html8578" HREF="page540.html" tppabs="http://www.brpreiss.com/books/opus4/html/page540.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8576" HREF="page536.html" tppabs="http://www.brpreiss.com/books/opus4/html/page536.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8570" HREF="page538.html" tppabs="http://www.brpreiss.com/books/opus4/html/page538.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8580" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8581" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

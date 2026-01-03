@@ -1,0 +1,41 @@
+<HTML>
+<HEAD>
+<TITLE>Array Implementation</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html3983" HREF="page169.html" tppabs="http://www.brpreiss.com/books/opus4/html/page169.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3981" HREF="page167.html" tppabs="http://www.brpreiss.com/books/opus4/html/page167.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3975" HREF="page167.html" tppabs="http://www.brpreiss.com/books/opus4/html/page167.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3985" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3986" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION008110000000000000000">Array Implementation</A></H2>
+<A NAME="seclistslista">&#160;</A>
+<P>
+This section presents an array-based implementation of ordered lists.
+Program&nbsp;<A HREF="page168.html#proglist2h" tppabs="http://www.brpreiss.com/books/opus4/html/page168.html#proglist2h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> declares the <tt>ListAsArray</tt> class.
+The <tt>ListAsArray</tt> class is a concrete object class and
+as such must provide implementations for all of the interface member
+functions which have been declared as pure virtual functions
+in the base classes from which the <tt>ListAsArray</tt> class is derived.
+The prototypes have been omitted from Program&nbsp;<A HREF="page168.html#proglist2h" tppabs="http://www.brpreiss.com/books/opus4/html/page168.html#proglist2h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+since they have all been given earlier.
+<P>
+<P><A NAME="9599">&#160;</A><A NAME="proglist2h">&#160;</A> <IMG WIDTH=575 HEIGHT=219 ALIGN=BOTTOM ALT="program9390" SRC="img786.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img786.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>ListAsArray</tt> Class Definition<BR>
+<P><BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html3987" HREF="page169.html#SECTION008111000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page169.html#SECTION008111000000000000000">Member Variables</A>
+<LI> <A NAME="tex2html3988" HREF="page170.html#SECTION008112000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page170.html#SECTION008112000000000000000">Inserting and Accessing Items in a List</A>
+<LI> <A NAME="tex2html3989" HREF="page171.html#SECTION008113000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page171.html#SECTION008113000000000000000">Finding Items in a List</A>
+<LI> <A NAME="tex2html3990" HREF="page172.html#SECTION008114000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page172.html#SECTION008114000000000000000">Removing Items from a List</A>
+<LI> <A NAME="tex2html3991" HREF="page173.html#SECTION008115000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page173.html#SECTION008115000000000000000">Positions of Items in a List</A>
+<LI> <A NAME="tex2html3992" HREF="page174.html#SECTION008116000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page174.html#SECTION008116000000000000000">Finding the Position of an Item and Accessing by Position</A>
+<LI> <A NAME="tex2html3993" HREF="page175.html#SECTION008117000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page175.html#SECTION008117000000000000000">Inserting an Item at an Arbitrary Position</A>
+<LI> <A NAME="tex2html3994" HREF="page176.html#SECTION008118000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page176.html#SECTION008118000000000000000">Removing Arbitrary Items by Position</A>
+</UL>
+<HR><A NAME="tex2html3983" HREF="page169.html" tppabs="http://www.brpreiss.com/books/opus4/html/page169.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3981" HREF="page167.html" tppabs="http://www.brpreiss.com/books/opus4/html/page167.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3975" HREF="page167.html" tppabs="http://www.brpreiss.com/books/opus4/html/page167.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3985" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3986" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

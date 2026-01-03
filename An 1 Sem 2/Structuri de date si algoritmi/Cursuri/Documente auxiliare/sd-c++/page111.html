@@ -1,0 +1,131 @@
+<HTML>
+<HEAD>
+<TITLE>Objects</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html3288" HREF="page112.html" tppabs="http://www.brpreiss.com/books/opus4/html/page112.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3286" HREF="page109.html" tppabs="http://www.brpreiss.com/books/opus4/html/page109.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3280" HREF="page110.html" tppabs="http://www.brpreiss.com/books/opus4/html/page110.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3290" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3291" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION006220000000000000000">Objects</A></H2>
+<A NAME="secadtsobjects">&#160;</A>
+<P>
+The abstract class at the top of the class hierarchy
+is called <tt>Object</tt>.
+With the exception of the <tt>Ownership</tt> class,
+all the other classes in the hierarchy are derived from this class.
+Program&nbsp;<A HREF="page111.html#progobject1h" tppabs="http://www.brpreiss.com/books/opus4/html/page111.html#progobject1h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives the declaration
+of the <tt>Object</tt> class.
+Altogether only six member functions are declared:
+the destructor, <tt>IsNull</tt>, <tt>Hash</tt>, <tt>Put</tt>,
+<tt>Compare</tt> and <tt>CompareTo</tt>.
+<P>
+<P><A NAME="5435">&#160;</A><A NAME="progobject1h">&#160;</A> <IMG WIDTH=575 HEIGHT=219 ALIGN=BOTTOM ALT="program4502" SRC="img679.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img679.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>Object</tt> Class Definition<BR>
+<P>
+<P>
+The <tt>Object</tt> class destructor is declared <tt>virtual</tt>.
+It is essential to declare it so,
+because the <tt>Object</tt> is an abstract class,
+and instances of derived class objects are very likely to be
+accessed through the base class interface.
+In particular, it is necessary for the destructor of the derived class
+to be called through the base class interface--this is precisely what the <tt>virtual</tt> keyword achieves.
+<P>
+The <tt>IsNull</tt> function is a pure virtual member function
+which returns a Boolean value.
+This function is used in conjunction with the <tt>NullObject</tt>
+concrete classes described below in Section&nbsp;<A HREF="page113.html#secadtsnullobject" tppabs="http://www.brpreiss.com/books/opus4/html/page113.html#secadtsnullobject"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+The <tt>IsNull</tt> function shall return <tt>false</tt> for
+all object instances derived from <tt>Object</tt>
+except if the object instance is the <tt>NullObject</tt>.
+We will see later that certain functions return object references.
+For example, a function which searches through a data structure
+for a particular object returns a reference to that object if it is found.
+If the object is not found,
+the search returns a reference to the <tt>NullObject</tt> instance.
+By using the <tt>IsNull</tt> function,
+the programmer can test whether the search was successful.
+This is analogous to the <tt>NULL</tt> pointer in the C
+programming language and to the pointer value <tt>0</tt> in C++.
+<P>
+The <tt>Hash</tt> function is a pure virtual member function
+which returns a <tt>HashValue</tt>.
+The <tt>Hash</tt> function is used in the implementation of hash tables
+which are discussed in Chapter&nbsp;<A HREF="page203.html#chaphashing" tppabs="http://www.brpreiss.com/books/opus4/html/page203.html#chaphashing"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+We have put the <tt>Hash</tt> function in the <tt>Object</tt> class interface,
+so that it is possible to store any object derived from <tt>Object</tt>
+in a hash table.
+What the <tt>Hash</tt> function computes is unspecified.
+The only requirement is that it is <em>idempotent</em><A NAME=4545>&#160;</A>.
+I.e., given an object instance <tt>obj</tt>,
+<tt>obj.Hash()</tt> does not modify the object in any way,
+and as long as <tt>obj</tt> is not modified in the interim,
+repeated calls always give exactly the same result.
+<P>
+Two functions for comparing objects are declared--<tt>Compare</tt>
+and <tt>CompareTo</tt>.
+<tt>Compare</tt> is a public member function.
+that takes a <tt>const</tt> reference to <tt>Object</tt> and returns an <tt>int</tt>.
+Given two objects <tt>obj1</tt> and <tt>obj2</tt>,
+calling <tt>obj1.Compare (obj2)</tt> <em>compares</em>
+the value of <tt>obj1</tt> with the value of <tt>obj2</tt>.
+The result is equal to zero if  <IMG WIDTH=87 HEIGHT=21 ALIGN=MIDDLE ALT="tex2html_wrap_inline61275" SRC="img680.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img680.gif"  >;
+less than zero if  <IMG WIDTH=88 HEIGHT=21 ALIGN=MIDDLE ALT="tex2html_wrap_inline61277" SRC="img681.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img681.gif"  >; and,
+greater than zero if  <IMG WIDTH=87 HEIGHT=21 ALIGN=MIDDLE ALT="tex2html_wrap_inline61279" SRC="img682.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img682.gif"  >.
+<P>
+It is not necessary that the two objects compared using <tt>Compare</tt>
+have the same type.
+As long as they are instances of classes derived from <tt>Object</tt>,
+they can be compared.
+The <tt>Compare</tt> function is used
+in the overloading of the comparison operators
+<tt>operator==</tt>, <tt>operator!=</tt>,
+<tt>operator&lt;</tt>, <tt>operator&lt;=</tt>,
+<tt>operator&gt;</tt>, and <tt>operator&gt;=</tt>,
+as shown in Program&nbsp;<A HREF="page111.html#progobject2h" tppabs="http://www.brpreiss.com/books/opus4/html/page111.html#progobject2h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+<P>
+The second comparison function, <tt>CompareTo</tt>,
+is a pure virtual function.
+An implementation for this function must be given in every
+concrete class derived from <tt>Object</tt>.
+The purpose of this function is to compare two objects
+that are both instances of the same derived class.
+<P>
+The purpose of the <tt>Put</tt> member function of the <tt>Object</tt>
+class is to output a human-readable representation of the object
+on the specified output stream.
+The <tt>Put</tt> function is a pure virtual function.
+However, since it has the side-effect of output,
+it is not strictly idempotent.
+Nevertheless, it is a <tt>const</tt> member function
+which means that calling the <tt>Put</tt> member function does
+not modify the object in any way.
+The use of the <tt>Put</tt> in the overloading of the <tt>ostream</tt>
+insertion operator, <tt>operator&lt;&lt;</tt>,
+is shown in Program&nbsp;<A HREF="page111.html#progobject2h" tppabs="http://www.brpreiss.com/books/opus4/html/page111.html#progobject2h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+<P>
+<P><A NAME="5443">&#160;</A><A NAME="progobject2h">&#160;</A> <IMG WIDTH=575 HEIGHT=393 ALIGN=BOTTOM ALT="program4588" SRC="img683.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img683.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>Object</tt> Operator Definitions<BR>
+<P>
+<P>
+The use of polymorphism in the way
+shown gives the programmer enormous leverage.
+The fact almost all objects will be derived from
+the <tt>Object</tt> base class,
+together with the fact that the <tt>Put</tt> and <tt>CompareTo</tt>
+member functions are virtual functions,
+ensures that the overloaded operators work as we expect
+for all derived class instances.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html3292" HREF="page112.html#SECTION006221000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page112.html#SECTION006221000000000000000">Implementation</A>
+</UL>
+<HR><A NAME="tex2html3288" HREF="page112.html" tppabs="http://www.brpreiss.com/books/opus4/html/page112.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3286" HREF="page109.html" tppabs="http://www.brpreiss.com/books/opus4/html/page109.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3280" HREF="page110.html" tppabs="http://www.brpreiss.com/books/opus4/html/page110.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3290" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3291" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

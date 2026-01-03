@@ -1,0 +1,84 @@
+# ninja log v6
+8	97	7696223691280120	Jucator_SpinBox_autogen/timestamp	1ead81a7c3a33647
+184	250	7696213847610223	CMakeFiles/Jucator_SpinBox.dir/GUI/WIndow.cpp.obj	853d6702168f00d0
+98	1030	7696223692185384	CMakeFiles/Jucator_SpinBox.dir/Service/Service.cpp.obj	bd4560c5fad7f146
+8	97	7696223691280120	Jucator_SpinBox_autogen/mocs_compilation.cpp	1ead81a7c3a33647
+8	97	7696223691280120	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/Jucator_SpinBox/cmake-build-debug/Jucator_SpinBox_autogen/mocs_compilation.cpp	1ead81a7c3a33647
+8	97	7696223691280120	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/Jucator_SpinBox/cmake-build-debug/Jucator_SpinBox_autogen/timestamp	1ead81a7c3a33647
+169	250	7696213847457993	CMakeFiles/Jucator_SpinBox.dir/Jucator_SpinBox_autogen/mocs_compilation.cpp.obj	851dd0e874176db3
+101	893	7696223692215393	CMakeFiles/Jucator_SpinBox.dir/Teste/Teste.cpp.obj	37096765043aa48a
+176	893	7696213847528040	CMakeFiles/Jucator_SpinBox.dir/Repo/Repository.cpp.obj	d819d8427d4b720a
+136	2756	7696217199740363	CMakeFiles/Jucator_SpinBox.dir/main.cpp.obj	eea92cbfe7b8d5a3
+1030	1808	7696223701509052	Jucator_SpinBox.exe	8e11f90f8f307cbb
+17	1649	7696229954255838	Jucator_SpinBox_autogen/timestamp	1ead81a7c3a33647
+17	1649	7696229954255838	Jucator_SpinBox_autogen/mocs_compilation.cpp	1ead81a7c3a33647
+17	1649	7696229954255838	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/Jucator_SpinBox/cmake-build-debug/Jucator_SpinBox_autogen/timestamp	1ead81a7c3a33647
+17	1649	7696229954255838	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/Jucator_SpinBox/cmake-build-debug/Jucator_SpinBox_autogen/mocs_compilation.cpp	1ead81a7c3a33647
+1656	4819	7696229954865970	CMakeFiles/Jucator_SpinBox.dir/GUI/Window.cpp.obj	9ad1cce85869a9d3
+1653	4840	7696229954845980	CMakeFiles/Jucator_SpinBox.dir/main.cpp.obj	eea92cbfe7b8d5a3
+1650	4899	7696229954815981	CMakeFiles/Jucator_SpinBox.dir/Jucator_SpinBox_autogen/mocs_compilation.cpp.obj	851dd0e874176db3
+23	142	7696230190545835	Jucator_SpinBox_autogen/timestamp	1ead81a7c3a33647
+23	142	7696230190545835	Jucator_SpinBox_autogen/mocs_compilation.cpp	1ead81a7c3a33647
+23	142	7696230190545835	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/Jucator_SpinBox/cmake-build-debug/Jucator_SpinBox_autogen/timestamp	1ead81a7c3a33647
+23	142	7696230190545835	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/Jucator_SpinBox/cmake-build-debug/Jucator_SpinBox_autogen/mocs_compilation.cpp	1ead81a7c3a33647
+143	2999	7696230191735929	CMakeFiles/Jucator_SpinBox.dir/GUI/Window.cpp.obj	9ad1cce85869a9d3
+2999	3836	7696230220296511	Jucator_SpinBox.exe	2f569e6c53fd6ced
+24	137	7696231410453974	Jucator_SpinBox_autogen/timestamp	1ead81a7c3a33647
+24	137	7696231410453974	Jucator_SpinBox_autogen/mocs_compilation.cpp	1ead81a7c3a33647
+24	137	7696231410453974	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/Jucator_SpinBox/cmake-build-debug/Jucator_SpinBox_autogen/timestamp	1ead81a7c3a33647
+24	137	7696231410453974	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/Jucator_SpinBox/cmake-build-debug/Jucator_SpinBox_autogen/mocs_compilation.cpp	1ead81a7c3a33647
+137	2918	7696231411575923	CMakeFiles/Jucator_SpinBox.dir/GUI/Window.cpp.obj	9ad1cce85869a9d3
+2918	3238	7696231439390657	Jucator_SpinBox.exe	2f569e6c53fd6ced
+22	136	7696232768675867	Jucator_SpinBox_autogen/timestamp	1ead81a7c3a33647
+22	136	7696232768675867	Jucator_SpinBox_autogen/mocs_compilation.cpp	1ead81a7c3a33647
+22	136	7696232768675867	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/Jucator_SpinBox/cmake-build-debug/Jucator_SpinBox_autogen/timestamp	1ead81a7c3a33647
+22	136	7696232768675867	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/Jucator_SpinBox/cmake-build-debug/Jucator_SpinBox_autogen/mocs_compilation.cpp	1ead81a7c3a33647
+137	3059	7696232769820919	CMakeFiles/Jucator_SpinBox.dir/GUI/Window.cpp.obj	9ad1cce85869a9d3
+3059	3377	7696232799037066	Jucator_SpinBox.exe	2f569e6c53fd6ced
+21	135	7696234024657510	Jucator_SpinBox_autogen/timestamp	1ead81a7c3a33647
+21	135	7696234024657510	Jucator_SpinBox_autogen/mocs_compilation.cpp	1ead81a7c3a33647
+21	135	7696234024657510	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/Jucator_SpinBox/cmake-build-debug/Jucator_SpinBox_autogen/timestamp	1ead81a7c3a33647
+21	135	7696234024657510	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/Jucator_SpinBox/cmake-build-debug/Jucator_SpinBox_autogen/mocs_compilation.cpp	1ead81a7c3a33647
+136	3049	7696234025797701	CMakeFiles/Jucator_SpinBox.dir/GUI/Window.cpp.obj	9ad1cce85869a9d3
+3049	3375	7696234054921858	Jucator_SpinBox.exe	2f569e6c53fd6ced
+21	130	7696235064658463	Jucator_SpinBox_autogen/timestamp	1ead81a7c3a33647
+21	130	7696235064658463	Jucator_SpinBox_autogen/mocs_compilation.cpp	1ead81a7c3a33647
+21	130	7696235064658463	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/Jucator_SpinBox/cmake-build-debug/Jucator_SpinBox_autogen/timestamp	1ead81a7c3a33647
+21	130	7696235064658463	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/Jucator_SpinBox/cmake-build-debug/Jucator_SpinBox_autogen/mocs_compilation.cpp	1ead81a7c3a33647
+130	3050	7696235065745093	CMakeFiles/Jucator_SpinBox.dir/GUI/Window.cpp.obj	9ad1cce85869a9d3
+3051	3414	7696235094957442	Jucator_SpinBox.exe	2f569e6c53fd6ced
+27	146	7696235264690198	Jucator_SpinBox_autogen/timestamp	1ead81a7c3a33647
+27	146	7696235264690198	Jucator_SpinBox_autogen/mocs_compilation.cpp	1ead81a7c3a33647
+27	146	7696235264690198	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/Jucator_SpinBox/cmake-build-debug/Jucator_SpinBox_autogen/timestamp	1ead81a7c3a33647
+27	146	7696235264690198	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/Jucator_SpinBox/cmake-build-debug/Jucator_SpinBox_autogen/mocs_compilation.cpp	1ead81a7c3a33647
+146	2999	7696235265877367	CMakeFiles/Jucator_SpinBox.dir/GUI/Window.cpp.obj	9ad1cce85869a9d3
+2999	3329	7696235294407797	Jucator_SpinBox.exe	2f569e6c53fd6ced
+7	118	7696238134739140	Jucator_SpinBox_autogen/timestamp	1ead81a7c3a33647
+7	118	7696238134739140	Jucator_SpinBox_autogen/mocs_compilation.cpp	1ead81a7c3a33647
+7	118	7696238134739140	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/Jucator_SpinBox/cmake-build-debug/Jucator_SpinBox_autogen/timestamp	1ead81a7c3a33647
+7	118	7696238134739140	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/Jucator_SpinBox/cmake-build-debug/Jucator_SpinBox_autogen/mocs_compilation.cpp	1ead81a7c3a33647
+119	3170	7696238135854157	CMakeFiles/Jucator_SpinBox.dir/GUI/Window.cpp.obj	9ad1cce85869a9d3
+3170	3507	7696238166364251	Jucator_SpinBox.exe	2f569e6c53fd6ced
+23	139	7696239127247553	Jucator_SpinBox_autogen/timestamp	1ead81a7c3a33647
+23	139	7696239127247553	Jucator_SpinBox_autogen/mocs_compilation.cpp	1ead81a7c3a33647
+23	139	7696239127247553	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/Jucator_SpinBox/cmake-build-debug/Jucator_SpinBox_autogen/timestamp	1ead81a7c3a33647
+23	139	7696239127247553	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/Jucator_SpinBox/cmake-build-debug/Jucator_SpinBox_autogen/mocs_compilation.cpp	1ead81a7c3a33647
+140	3054	7696239128416758	CMakeFiles/Jucator_SpinBox.dir/GUI/Window.cpp.obj	9ad1cce85869a9d3
+3054	3378	7696239157557146	Jucator_SpinBox.exe	2f569e6c53fd6ced
+6	1611	7696243239676710	Jucator_SpinBox_autogen/timestamp	1ead81a7c3a33647
+6	1611	7696243239676710	Jucator_SpinBox_autogen/mocs_compilation.cpp	1ead81a7c3a33647
+6	1611	7696243239676710	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/Jucator_SpinBox/cmake-build-debug/Jucator_SpinBox_autogen/timestamp	1ead81a7c3a33647
+6	1611	7696243239676710	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/Jucator_SpinBox/cmake-build-debug/Jucator_SpinBox_autogen/mocs_compilation.cpp	1ead81a7c3a33647
+1619	2353	7696243240300636	CMakeFiles/Jucator_SpinBox.dir/Repo/Repository.cpp.obj	d819d8427d4b720a
+1628	2643	7696243240395956	CMakeFiles/Jucator_SpinBox.dir/Teste/Teste.cpp.obj	37096765043aa48a
+1622	2776	7696243240335071	CMakeFiles/Jucator_SpinBox.dir/Service/Service.cpp.obj	bd4560c5fad7f146
+1615	5040	7696243240268268	CMakeFiles/Jucator_SpinBox.dir/main.cpp.obj	eea92cbfe7b8d5a3
+1611	5106	7696243240228318	CMakeFiles/Jucator_SpinBox.dir/Jucator_SpinBox_autogen/mocs_compilation.cpp.obj	851dd0e874176db3
+1624	5201	7696243240365953	CMakeFiles/Jucator_SpinBox.dir/GUI/Window.cpp.obj	9ad1cce85869a9d3
+5201	5543	7696243276124627	Jucator_SpinBox.exe	2f569e6c53fd6ced
+6	117	7696251107843174	Jucator_SpinBox_autogen/timestamp	1ead81a7c3a33647
+6	117	7696251107843174	Jucator_SpinBox_autogen/mocs_compilation.cpp	1ead81a7c3a33647
+6	117	7696251107843174	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/Jucator_SpinBox/cmake-build-debug/Jucator_SpinBox_autogen/timestamp	1ead81a7c3a33647
+6	117	7696251107843174	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/Jucator_SpinBox/cmake-build-debug/Jucator_SpinBox_autogen/mocs_compilation.cpp	1ead81a7c3a33647
+117	3221	7696251108948335	CMakeFiles/Jucator_SpinBox.dir/GUI/Window.cpp.obj	9ad1cce85869a9d3
+3221	3584	7696251139987363	Jucator_SpinBox.exe	2f569e6c53fd6ced

@@ -1,0 +1,106 @@
+<HTML>
+<HEAD>
+<TITLE>Derivation and Inheritance</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html9407" HREF="page608.html" tppabs="http://www.brpreiss.com/books/opus4/html/page608.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html9405" HREF="page606.html" tppabs="http://www.brpreiss.com/books/opus4/html/page606.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html9399" HREF="page606.html" tppabs="http://www.brpreiss.com/books/opus4/html/page606.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html9409" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html9410" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0018410000000000000000">Derivation and Inheritance</A></H2>
+<P>
+This section reviews the concept of a derived class.
+Derived classes are an extremely useful feature of C++ because
+they allow the programmer to define new classes by extending existing classes.
+By using derived classes,
+the programmer can exploit the commonalities
+that exist among the classes in a program.
+Different classes can share values, operations, and interfaces.
+<P>
+<em>Derivation</em><A NAME=57412>&#160;</A> is the definition of a new class
+by extending one or more existing classes.
+The new class is called the <em>derived class</em><A NAME=57414>&#160;</A>
+and the existing classes from which it is derived
+are called the <em>base classes</em><A NAME=57416>&#160;</A>.
+Usually there is only one base class.
+However, C++ allows there to be more than one base class
+(<em>multiple inheritance</em><A NAME=57418>&#160;</A>).
+<P>
+Consider the classes <tt>Person</tt>
+and <tt>Parent</tt> defined in Program&nbsp;<A HREF="page607.html#progcpp3c" tppabs="http://www.brpreiss.com/books/opus4/html/page607.html#progcpp3c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+Because parents are people too,
+the <tt>Parent</tt> class is derived from the <tt>Person</tt> class.
+<P>
+<P><A NAME="57427">&#160;</A><A NAME="progcpp3c">&#160;</A> <IMG WIDTH=575 HEIGHT=639 ALIGN=BOTTOM ALT="program57424" SRC="img2605.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2605.gif"  ><BR>
+<STRONG>Program:</STRONG> Derivation and Inheritance in C++<BR>
+<P>
+<P>
+A derived class <em>inherits</em><A NAME=57437>&#160;</A> all the members
+of all its base classes.
+I.e., the derived class contains all the member variables contained
+in the base classes
+and the derived class supports all the same operations
+provided by the base classes.
+E.g., consider the following variable declarations:
+<PRE>Person p;
+Parent q;</PRE>
+Since <tt>p</tt> is a <tt>Person</tt>,
+it has the member variables <tt>name</tt> and <tt>sex</tt>
+and member function <tt>Name</tt>.
+Furthermore, since <tt>Parent</tt> is derived from <tt>Person</tt>,
+then the object <tt>q</tt> also has
+the member variables <tt>name</tt> and <tt>sex</tt>
+and member function <tt>Name</tt>.
+<P>
+A derived class can <em>extends</em> the base class(es) in several ways:
+New member variables can be defined,
+new member functions can be defined,
+and existing member functions can be <em>overridden</em><A NAME=57451>&#160;</A>.
+E.g., the <tt>Parent</tt> class adds the member variables
+<tt>numberOfChildren</tt> and <tt>child</tt>
+and the member function <tt>Child</tt>.
+<P>
+If a function is defined in a derived class
+that has exactly the same <em>signature</em>
+(name and types of arguments)
+as a function in a base class,
+the function in the derived class <em>overrides</em><A NAME=57458>&#160;</A>
+the one in the base class.
+E.g., the <tt>Put</tt> function in the <tt>Parent</tt> class
+overrides the <tt>Put</tt> function in the <tt>Person</tt> class.
+Therefore, <tt>p.Put(...)</tt> invokes <tt>Person::Put</tt>,
+whereas <tt>q.Put(...)</tt> invokes <tt>Parent::Put</tt>.
+<P>
+An instance of a derived class can be used anywhere in a program
+where an instance of the base class may be used.
+For example, this means that a <tt>Parent</tt>
+may be passed as an actual parameter to a function
+(either by value or by reference)
+in which the formal parameter is a <tt>Person</tt>.
+<P>
+It is also possible to assign the address of a derived class object
+to a pointer to a base class object like this:
+<PRE>Person* ptr = new Parent;</PRE>
+However, having done so,
+it is not possible to call <tt>ptr-&gt;Child(...)</tt>,
+because <tt>ptr</tt> is a pointer to a <tt>Person</tt> instance
+and a <tt>Person</tt> is not necessarily a <tt>Parent</tt>.
+<P>
+Similarly,
+we can use a reference to a <tt>Person</tt> to refer to a parent:
+<PRE>Person&amp; p = *new Parent;</PRE>
+For the same reasons as above,
+it is not possible to use the reference <tt>p</tt>
+to invoke <tt>p.Child(...)</tt>.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html9411" HREF="page608.html#SECTION0018411000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page608.html#SECTION0018411000000000000000">Derivation and Access Control</A>
+</UL>
+<HR><A NAME="tex2html9407" HREF="page608.html" tppabs="http://www.brpreiss.com/books/opus4/html/page608.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html9405" HREF="page606.html" tppabs="http://www.brpreiss.com/books/opus4/html/page606.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html9399" HREF="page606.html" tppabs="http://www.brpreiss.com/books/opus4/html/page606.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html9409" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html9410" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

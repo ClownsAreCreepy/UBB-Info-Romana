@@ -1,0 +1,53 @@
+<HTML>
+<HEAD>
+<TITLE>Derivation and Access Control</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html9418" HREF="page609.html" tppabs="http://www.brpreiss.com/books/opus4/html/page609.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html9416" HREF="page607.html" tppabs="http://www.brpreiss.com/books/opus4/html/page607.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html9412" HREF="page607.html" tppabs="http://www.brpreiss.com/books/opus4/html/page607.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html9420" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html9421" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0018411000000000000000">Derivation and Access Control</A></H3>
+<A NAME="seccppprotected">&#160;</A>
+<P>
+Members of a class can be <tt>private</tt>, <tt>public</tt> or <tt>protected</tt>.
+As explained in Section&nbsp;<A HREF="page605.html#seccppaccess" tppabs="http://www.brpreiss.com/books/opus4/html/page605.html#seccppaccess"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+private members are accessible only by member functions
+and friends of the class in which the member is declared.
+In particular,
+this means that the member functions of a derived class cannot
+access the private members of the base classes even though the derived
+class has inherited those members!
+On the other hand,
+if we make the members of the base classes public,
+then all classes can access those members directly,
+not just derived classes.
+<P>
+C++ provides a third category of access control--<tt>protected</tt>.
+<tt>Protected</tt> members can be used by member functions
+and friends of the class in which the member is declared
+as well as by member functions and friends of all the classes derived
+from the class in which the member is declared.
+<P>
+A derived class <em>inherits</em> all the members of its base class(es).
+The accessibility of the members inherited by a derived class
+depends on whether the derivation is <tt>private</tt> or <tt>public</tt>:
+<PRE>class B { ... };
+class D1 : public B { ... };
+class D2 : private B { ... };</PRE>
+Here <tt>B</tt> is a public base class of <tt>D1</tt>.
+This means that the public members of <tt>B</tt>
+are also public in <tt>D1</tt>
+and that the protected members of <tt>B</tt>
+are also protected in <tt>D1</tt>.
+On the other hand, <tt>B</tt> is a private base class of <tt>D2</tt>.
+This means that the public and protected members of <tt>B</tt>
+are private in <tt>D2</tt>.
+<P>
+<HR><A NAME="tex2html9418" HREF="page609.html" tppabs="http://www.brpreiss.com/books/opus4/html/page609.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html9416" HREF="page607.html" tppabs="http://www.brpreiss.com/books/opus4/html/page607.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html9412" HREF="page607.html" tppabs="http://www.brpreiss.com/books/opus4/html/page607.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html9420" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html9421" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

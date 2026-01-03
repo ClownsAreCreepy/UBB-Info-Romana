@@ -1,0 +1,147 @@
+        -:    0:Source:D:/C,C++/CLion 2024.3.4/Projects/Lab6_7/UI/consola_discipline.h
+        -:    0:Graph:D:\C,C++\CLion 2024.3.4\Projects\Lab6_7\cmake-build-debug-coverage\CMakeFiles\Lab6_7.dir\main.cpp.gcno
+        -:    0:Data:D:\C,C++\CLion 2024.3.4\Projects\Lab6_7\cmake-build-debug-coverage\CMakeFiles\Lab6_7.dir\main.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#pragma once
+        -:    2:#include "../Service/service_discipline.h"
+        -:    3:
+        -:    4:using std::cin;
+        -:    5:using std::cout;
+        -:    6:using std::ws;
+        -:    7:
+        -:    8:/**
+        -:    9: * Clasa Consola
+        -:   10: * Contine metodele de interactionare cu utilizatorul
+        -:   11: * Contine service-ul care opereaza pe lista de discipline
+        -:   12: */
+        -:   13:class Consola final {
+        -:   14:private:
+        -:   15:    ServiceDisciplina &service;
+        -:   16:
+        -:   17:public:
+        -:   18:    /**
+        -:   19:     * Constructorul pentru declarare intializata cu un service
+        -:   20:     * @param serv service-ul care opereaza pe lista de discipline
+        -:   21:     */
+function _ZN7ConsolaC1ER17ServiceDisciplina called 1 returned 100% blocks executed 100%
+        1:   22:    explicit Consola(ServiceDisciplina &serv): service{serv} {}
+        -:   23:
+        -:   24:
+        -:   25:    /**
+        -:   26:     * Functia tipareste meniul aplicatiei
+        -:   27:     */
+        -:   28:    static void ui_meniu();
+        -:   29:
+        -:   30:    /**
+        -:   31:     * Functia afiseaza lista de discipline cu format foarte frumos
+        -:   32:     * @param lista_de_afisat lista care trebuie afisata
+        -:   33:     * @param titlu mesajul care se va afisa inainte de a se tipari lista
+        -:   34:     */
+        -:   35:    static void ui_afisare(const vector<Disciplina> &lista_de_afisat, const string &titlu);
+        -:   36:
+        -:   37:    /**
+        -:   38:     * Functia tipareste un mesaj, apoi citeste de la tastatura un numar intreg
+        -:   39:     * Daca se scrie altceva, functia se reia si cere din nou un numar intreg
+        -:   40:     * Se repeta pana se citeste un numar intreg
+        -:   41:     * @param mesaj mesajul care se tipareste inainte de citire
+        -:   42:     * @return numarul citit
+        -:   43:     */
+        -:   44:    static int citeste_int(const string &mesaj);
+        -:   45:
+        -:   46:    /**
+        -:   47:     * Functia tipareste un mesaj, apoi citeste de la tastatura un sir de caractere, pana la end_line
+        -:   48:     * @param mesaj mesajul care se tipareste inainte de citire
+        -:   49:     * @return sirul citit
+        -:   50:     */
+        -:   51:    static string citeste_string(const string &mesaj);
+        -:   52:
+        -:   53:
+        -:   54:    /**
+        -:   55:     * Functia preia de la tastatura datele necesare, apoi adauga in repository o noua disciplina
+        -:   56:     */
+        -:   57:    void ui_adaugare() const;
+        -:   58:
+        -:   59:    /**
+        -:   60:     * Functia preia de la tastatura datele necesare, apoi modifica o disciplina in repository
+        -:   61:     */
+        -:   62:    void ui_modificare() const;
+        -:   63:
+        -:   64:    /**
+        -:   65:     * Functia preia de la tastatura datele necesare, apoi sterge o disciplina din repository
+        -:   66:     */
+        -:   67:    void ui_stergere() const;
+        -:   68:
+        -:   69:    /**
+        -:   70:     * Functia preia de la tastatura datele necesare, apoi tipareste disciplina cautata din repository
+        -:   71:     */
+        -:   72:    void ui_cautare() const;
+        -:   73:
+        -:   74:
+        -:   75:    /**
+        -:   76:     * Functia preia de la tastatura datele necesare, apoi tipareste o lista filtrata dupa o conditie
+        -:   77:     */
+        -:   78:    void ui_filtrare() const;
+        -:   79:
+        -:   80:    /**
+        -:   81:     * Functia preia de la tastatura datele necesare, apoi tipareste o lista sortata dupa o conditie
+        -:   82:     */
+        -:   83:    void ui_sortare() const;
+        -:   84:
+        -:   85:    /**
+        -:   86:     * Functia afiseaza un raport a fiecarui tip existent si a frecventei sale
+        -:   87:     */
+        -:   88:    void ui_raport_tip() const;
+        -:   89:
+        -:   90:
+        -:   91:    /**
+        -:   92:     * Functia restituie starea precedenta a listei de discipline
+        -:   93:     */
+        -:   94:    void ui_undo() const;
+        -:   95:
+        -:   96:
+        -:   97:    /**
+        -:   98:     * Functia tipareste meniul aplicatiei, si ruleaza funtionalitatile dorite
+        -:   99:     */
+        -:  100:    void ui_contract() const;
+        -:  101:
+        -:  102:
+        -:  103:    /**
+        -:  104:     * Functia preia de la tastatura datele necesare, apoi adauga in contract o noua disciplina
+        -:  105:     */
+        -:  106:    void ui_contract_adauga() const;
+        -:  107:
+        -:  108:    /**
+        -:  109:     * Functia goleste contractul daca nu este deja gol
+        -:  110:     */
+        -:  111:    void ui_contract_goleste() const;
+        -:  112:
+        -:  113:    /**
+        -:  114:     * Functia preia de la tastatura datele necesare, apoi genereaza un nou contract cu disciplinele din repository
+        -:  115:     */
+        -:  116:    void ui_contract_random() const;
+        -:  117:
+        -:  118:
+        -:  119:    /**
+        -:  120:     * Functia exporteaza contractul curent la un fisier dat de la tastatura
+        -:  121:     */
+        -:  122:    void ui_contract_export() const;
+        -:  123:
+        -:  124:
+        -:  125:    /**
+        -:  126:     * Functia populeaza service-ul cu un numar mare de discipline
+        -:  127:     * @param service service-ul pe care il modificam
+        -:  128:     */
+        -:  129:    static void preload_data(ServiceDisciplina &service);
+        -:  130:
+        -:  131:    /**
+        -:  132:     * Functia executa comanda dorita de utilizator
+        -:  133:     * @param comanda numarul comanda care va fi executata
+        -:  134:     * @param rulare variabila care decide daca aplicatia mai ruleaza sau nu
+        -:  135:     */
+        -:  136:    void executa_comanda(int comanda, bool &rulare) const;
+        -:  137:
+        -:  138:    /**
+        -:  139:     * Functia ruleaza aplicatia
+        -:  140:     */
+        -:  141:    void run() const;
+        -:  142:};

@@ -1,0 +1,35 @@
+<HTML>
+<HEAD>
+<TITLE>Removing Items from a List</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html4153" HREF="page182.html" tppabs="http://www.brpreiss.com/books/opus4/html/page182.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4151" HREF="page177.html" tppabs="http://www.brpreiss.com/books/opus4/html/page177.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4145" HREF="page180.html" tppabs="http://www.brpreiss.com/books/opus4/html/page180.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4155" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4156" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION008124000000000000000">Removing Items from a List</A></H3>
+<P>
+The <tt>Withdraw</tt> member function is used to remove a specific
+object instance from an ordered list.
+The implementation of the <tt>Withdraw</tt> member function for
+the <tt>ListAsLinkedList</tt> class is given in Program&nbsp;<A HREF="page181.html#proglist9c" tppabs="http://www.brpreiss.com/books/opus4/html/page181.html#proglist9c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+<P>
+<P><A NAME="10555">&#160;</A><A NAME="proglist9c">&#160;</A> <IMG WIDTH=575 HEIGHT=143 ALIGN=BOTTOM ALT="program10197" SRC="img806.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img806.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>ListAsLinkedList</tt> Class 	<tt>Withdraw</tt> Member Function Definition<BR>
+<P>
+<P>
+The implementation of <tt>Withdraw</tt> is straight-forward:
+It simply calls the <tt>Extract</tt> function provided by
+the <tt>LinkedList&lt;T&gt;</tt> class
+to remove the specified object from the <tt>linkedList</tt> member variable.
+The running time of the <tt>Withdraw</tt> function is dominated
+by that of <tt>Extract</tt> which was shown in Chapter&nbsp;<A HREF="page79.html#chapfds" tppabs="http://www.brpreiss.com/books/opus4/html/page79.html#chapfds"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+to be <I>O</I>(<I>n</I>), where <I>n</I> is the number of items in the linked list.
+<P>
+<HR><A NAME="tex2html4153" HREF="page182.html" tppabs="http://www.brpreiss.com/books/opus4/html/page182.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4151" HREF="page177.html" tppabs="http://www.brpreiss.com/books/opus4/html/page177.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4145" HREF="page180.html" tppabs="http://www.brpreiss.com/books/opus4/html/page180.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4155" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4156" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

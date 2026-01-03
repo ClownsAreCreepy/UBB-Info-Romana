@@ -1,0 +1,79 @@
+<HTML>
+<HEAD>
+<TITLE>Fibonacci Hashing</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html4557" HREF="page215.html" tppabs="http://www.brpreiss.com/books/opus4/html/page215.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4555" HREF="page210.html" tppabs="http://www.brpreiss.com/books/opus4/html/page210.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4551" HREF="page213.html" tppabs="http://www.brpreiss.com/books/opus4/html/page213.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4559" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4560" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION009240000000000000000">Fibonacci Hashing</A></H2>
+<P>
+The final variation of hashing to be considered here
+is called the <em>Fibonacci hashing method</em><A NAME=11249>&#160;</A><A NAME=11250>&#160;</A>.
+In fact, Fibonacci hashing is exactly the multiplication hashing method
+discussed in the preceding section using a very special value for <I>a</I>.
+The value we choose is closely related to the number 
+called the golden ratio.
+<P>
+The <em>golden ratio</em><A NAME=11252>&#160;</A> is defined as follows:
+Given two positive numbers <I>x</I> and <I>y</I>,
+the ratio  <IMG WIDTH=55 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline62424" SRC="img904.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img904.gif"  > is the golden ratio if
+the ratio of <I>x</I> to <I>y</I> is the same as that of <I>x</I>+<I>y</I> to <I>x</I>.
+The value of the golden ratio can be determined as follows:
+<P> <IMG WIDTH=500 HEIGHT=100 ALIGN=BOTTOM ALT="eqnarray11253" SRC="img905.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img905.gif"  ><P>
+There is an intimate relationship between the golden ratio and the
+Fibonacci numbers<A NAME=11261>&#160;</A>.
+In Section&nbsp;<A HREF="page73.html#secfibonacci" tppabs="http://www.brpreiss.com/books/opus4/html/page73.html#secfibonacci"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> it was shown that the  <IMG WIDTH=21 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58453" SRC="img94.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img94.gif"  > Fibonacci
+number is given by
+<P> <IMG WIDTH=318 HEIGHT=38 ALIGN=BOTTOM ALT="displaymath62416" SRC="img906.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img906.gif"  ><P>
+where  <IMG WIDTH=106 HEIGHT=29 ALIGN=MIDDLE ALT="tex2html_wrap_inline60483" SRC="img491.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img491.gif"  > and  <IMG WIDTH=106 HEIGHT=31 ALIGN=MIDDLE ALT="tex2html_wrap_inline60485" SRC="img492.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img492.gif"  >!
+<P>
+In the context of Fibonacci hashing,
+we are interested not in  <IMG WIDTH=8 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline62440" SRC="img907.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img907.gif"  >,
+but in the reciprocal,  <IMG WIDTH=25 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline62442" SRC="img908.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img908.gif"  >,
+which can be calculated as follows:
+<P> <IMG WIDTH=500 HEIGHT=151 ALIGN=BOTTOM ALT="eqnarray11271" SRC="img909.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img909.gif"  ><P>
+The Fibonacci hashing method
+is essentially the multiplication hashing method
+in which the constant <I>a</I>
+is chosen as the integer that is relatively prime to <I>W</I>
+which is closest to  <IMG WIDTH=42 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline62448" SRC="img910.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img910.gif"  >.
+The following table gives suitable values of <I>a</I>
+for various word sizes.
+<DIV ALIGN=CENTER><P ALIGN=CENTER><TABLE COLS=2 BORDER FRAME=HSIDES RULES=GROUPS>
+<COL ALIGN=CENTER><COL ALIGN=RIGHT>
+<TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+    <I>W</I> </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP COLSPAN=1> <I>a</I></TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <IMG WIDTH=20 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline62456" SRC="img911.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img911.gif"  > </TD><TD VALIGN=BASELINE ALIGN=RIGHT NOWRAP> 40503</TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+     <IMG WIDTH=20 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline62458" SRC="img912.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img912.gif"  > </TD><TD VALIGN=BASELINE ALIGN=RIGHT NOWRAP> 2654435769 </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+     <IMG WIDTH=20 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline62460" SRC="img913.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img913.gif"  > </TD><TD VALIGN=BASELINE ALIGN=RIGHT NOWRAP> 11400714819323198485 </TD></TR>
+</TBODY>
+</TABLE>
+</P></DIV>
+<P>
+Why is  <IMG WIDTH=73 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline62462" SRC="img914.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img914.gif"  > special?
+It has to do with what happens to consecutive keys
+when they are hashed using the multiplicative method.
+As shown in Figure&nbsp;<A HREF="page214.html#figgolden" tppabs="http://www.brpreiss.com/books/opus4/html/page214.html#figgolden"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+consecutive keys are spread out quite nicely.
+In fact, when we use  <IMG WIDTH=73 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline62462" SRC="img914.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img914.gif"  > to hash consecutive keys,
+the hash value for each subsequent key falls
+in between the two widest spaced hash values already computed.
+Furthermore, it is a property of the golden ratio,  <IMG WIDTH=8 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline62440" SRC="img907.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img907.gif"  >,
+that each subsequent hash value divides the interval into which it falls
+according to the golden ratio!
+<P>
+<P><A NAME="11347">&#160;</A><A NAME="figgolden">&#160;</A> <IMG WIDTH=575 HEIGHT=322 ALIGN=BOTTOM ALT="figure11294" SRC="img915.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img915.gif"  ><BR>
+<STRONG>Figure:</STRONG> Fibonacci Hashing<BR>
+<P><HR><A NAME="tex2html4557" HREF="page215.html" tppabs="http://www.brpreiss.com/books/opus4/html/page215.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4555" HREF="page210.html" tppabs="http://www.brpreiss.com/books/opus4/html/page210.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4551" HREF="page213.html" tppabs="http://www.brpreiss.com/books/opus4/html/page213.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4559" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4560" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

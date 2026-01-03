@@ -1,0 +1,5 @@
+Nume: Geografie | Ore: 1 | Tip: Uman | Profesor: Amzu
+Nume: TIC | Ore: 2 | Tip: Real | Profesor: ChatGPT
+Nume: Logica | Ore: 1 | Tip: Uman | Profesor: Jayce
+Nume: Dirigentie | Ore: 1 | Tip: Uman | Profesor: Monea
+Nume: Limba Engleza | Ore: 4 | Tip: Uman | Profesor: Balabuci

@@ -1,0 +1,74 @@
+<HTML>
+<HEAD>
+<TITLE>More Notation-Theta and Little Oh</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html2747" HREF="page70.html" tppabs="http://www.brpreiss.com/books/opus4/html/page70.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2745" HREF="page56.html" tppabs="http://www.brpreiss.com/books/opus4/html/page56.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2739" HREF="page68.html" tppabs="http://www.brpreiss.com/books/opus4/html/page68.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2749" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2750" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION004300000000000000000">More Notation-Theta and Little Oh</A></H1>
+<P>
+This section presents two less commonly used forms of asymptotic notation.
+They are:
+<UL><LI>
+	A notation,  <IMG WIDTH=27 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline58167" SRC="img3.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img3.gif"  >, to describe a function which is 
+	both <I>O</I>(<I>g</I>(<I>n</I>)) and  <IMG WIDTH=52 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60093" SRC="img432.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img432.gif"  >, for the same <I>g</I>(<I>n</I>).
+	(Definition&nbsp;<A HREF="page69.html#defntheta" tppabs="http://www.brpreiss.com/books/opus4/html/page69.html#defntheta"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>).<LI>
+	A notation,  <IMG WIDTH=23 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline58169" SRC="img4.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img4.gif"  >, to describe a function which is 
+	<I>O</I>(<I>g</I>(<I>n</I>)) but not  <IMG WIDTH=53 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60101" SRC="img433.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img433.gif"  >, for the same <I>g</I>(<I>n</I>).
+	(Definition&nbsp;<A HREF="page69.html#defnlittleoh" tppabs="http://www.brpreiss.com/books/opus4/html/page69.html#defnlittleoh"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>).
+</UL>
+<P>
+<BLOCKQUOTE> <b>Definition (Theta)</b><A NAME=1816>&#160;</A><A NAME=2158>&#160;</A>
+<A NAME="defntheta">&#160;</A>
+Consider a function <I>f</I>(<I>n</I>) which is non-negative
+for all integers  <IMG WIDTH=38 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59063" SRC="img241.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img241.gif"  >.
+We say that ``<I>f</I>(<I>n</I>) is theta <I>g</I>(<I>n</I>),''
+which we write  <IMG WIDTH=105 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60115" SRC="img435.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img435.gif"  >,
+if and only if
+<I>f</I>(<I>n</I>) is <I>O</I>(<I>g</I>(<I>n</I>)) <em>and</em> <I>f</I>(<I>n</I>) is  <IMG WIDTH=52 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60093" SRC="img432.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img432.gif"  >.
+</BLOCKQUOTE>
+<P>
+Recall that we showed in Section&nbsp;<A HREF="page61.html#secasymptoticpolyi" tppabs="http://www.brpreiss.com/books/opus4/html/page61.html#secasymptoticpolyi"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> that
+a polynomial in <I>n</I>,
+say  <IMG WIDTH=357 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59551" SRC="img351.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img351.gif"  >,
+is  <IMG WIDTH=45 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59373" SRC="img311.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img311.gif"  >.
+We also showed in Section&nbsp;<A HREF="page68.html#secasymptoticpolyii" tppabs="http://www.brpreiss.com/books/opus4/html/page68.html#secasymptoticpolyii"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> that
+a such a polynomial is  <IMG WIDTH=43 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60131" SRC="img436.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img436.gif"  >.
+Therefore, according to Definition&nbsp;<A HREF="page69.html#defntheta" tppabs="http://www.brpreiss.com/books/opus4/html/page69.html#defntheta"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+we will write  <IMG WIDTH=97 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60133" SRC="img437.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img437.gif"  >.
+<P>
+<BLOCKQUOTE> <b>Definition (Little Oh)</b><A NAME=1828>&#160;</A><A NAME=2159>&#160;</A>
+<A NAME="defnlittleoh">&#160;</A>
+Consider a function <I>f</I>(<I>n</I>) which is non-negative
+for all integers  <IMG WIDTH=38 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59063" SRC="img241.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img241.gif"  >.
+We say that ``<I>f</I>(<I>n</I>) is little oh <I>g</I>(<I>n</I>),''
+which we write <I>f</I>(<I>n</I>)=<I>o</I>(<I>g</I>(<I>n</I>)),
+if and only if
+<I>f</I>(<I>n</I>) is <I>O</I>(<I>g</I>(<I>n</I>)) but <I>f</I>(<I>n</I>) is <em>not</em>  <IMG WIDTH=53 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60101" SRC="img433.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img433.gif"  >.
+</BLOCKQUOTE>
+<P>
+Little oh notation represents a kind of
+<em>loose asymptotic bound</em><A NAME=1834>&#160;</A>
+in the sense that if we are given that <I>f</I>(<I>n</I>)=<I>o</I>(<I>g</I>(<I>n</I>)),
+then we know that <I>g</I>(<I>n</I>) is an asymptotic upper bound
+since <I>f</I>(<I>n</I>)=<I>O</I>(<I>g</I>(<I>n</I>)),
+but <I>g</I>(<I>n</I>) is <em>not</em> an asymptotic lower bound
+since <I>f</I>(<I>n</I>)=<I>O</I>(<I>g</I>(<I>n</I>)) and  <IMG WIDTH=105 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60165" SRC="img438.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img438.gif"  >
+implies that  <IMG WIDTH=105 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60167" SRC="img439.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img439.gif"  >.<A NAME="tex2html79" HREF="footnode.html#2160" tppabs="http://www.brpreiss.com/books/opus4/html/footnode.html#2160"><IMG  ALIGN=BOTTOM ALT="gif" SRC="foot_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/foot_motif.gif"></A>
+<P>
+For example, consider the function <I>f</I>(<I>n</I>)=<I>n</I>+1.
+Clearly,  <IMG WIDTH=92 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59085" SRC="img244.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img244.gif"  >.
+Clearly too,  <IMG WIDTH=91 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline60173" SRC="img440.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img440.gif"  >,
+since not matter what <I>c</I> we choose,
+for large enough <I>n</I>,  <IMG WIDTH=81 HEIGHT=28 ALIGN=MIDDLE ALT="tex2html_wrap_inline60179" SRC="img441.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img441.gif"  >.
+Thus, we may write  <IMG WIDTH=145 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline60181" SRC="img442.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img442.gif"  >.
+<P>
+<HR><A NAME="tex2html2747" HREF="page70.html" tppabs="http://www.brpreiss.com/books/opus4/html/page70.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2745" HREF="page56.html" tppabs="http://www.brpreiss.com/books/opus4/html/page56.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2739" HREF="page68.html" tppabs="http://www.brpreiss.com/books/opus4/html/page68.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2749" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2750" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,60 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.27"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "ex1_Marinescu",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ex1_Marinescu::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ex1_Marinescu-Debug-0b7763bc359d1bce22fd.json",
+					"name" : "ex1_Marinescu",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "G:/My Drive/Facult\u0103/Anul II/Semestrul 2/AG - Algoritmica Grafurilor/Examen practic/Partial 1/ex1-Marinescu/cmake-build-debug",
+		"source" : "G:/My Drive/Facult\u0103/Anul II/Semestrul 2/AG - Algoritmica Grafurilor/Examen practic/Partial 1/ex1-Marinescu"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

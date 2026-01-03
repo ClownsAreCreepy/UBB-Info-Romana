@@ -1,0 +1,39 @@
+<HTML>
+<HEAD>
+<TITLE>Example-Balancing Scales</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html7844" HREF="page481.html" tppabs="http://www.brpreiss.com/books/opus4/html/page481.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7842" HREF="page479.html" tppabs="http://www.brpreiss.com/books/opus4/html/page479.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7838" HREF="page479.html" tppabs="http://www.brpreiss.com/books/opus4/html/page479.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7846" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7847" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0015541000000000000000">Example-Balancing Scales</A></H3>
+<P>
+Consider again the <em>scales balancing problem</em>
+described in Section&nbsp;<A HREF="page447.html#secalgsscales" tppabs="http://www.brpreiss.com/books/opus4/html/page447.html#secalgsscales"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+I.e., we are given a set of <I>n</I> weights,  <IMG WIDTH=114 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline68483" SRC="img1820.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1820.gif"  >,
+which are to be placed on a pair of scales in the way that
+minimizes the difference between the total weight in each pan.
+Feasible solution to the problem all have the form
+ <IMG WIDTH=145 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline68425" SRC="img1808.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1808.gif"  >,
+where
+<P> <IMG WIDTH=386 HEIGHT=48 ALIGN=BOTTOM ALT="displaymath68503" SRC="img1826.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1826.gif"  ><P>
+<P>
+To solve this problem using simulated annealing,
+we need a strategy for generating random moves.
+The move generator should make small, random changes to the current solution
+and it must ensure that all possible solutions can be reached.
+A simple approach is to use the formula
+<P> <IMG WIDTH=303 HEIGHT=15 ALIGN=BOTTOM ALT="displaymath69568" SRC="img2062.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2062.gif"  ><P>
+where  <IMG WIDTH=17 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline69447" SRC="img2039.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2039.gif"  > is the initial solution,  <IMG WIDTH=34 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69583" SRC="img2063.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2063.gif"  > is a new solution,
+ <IMG WIDTH=142 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69585" SRC="img2064.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2064.gif"  > is a sequence of zeroes and ones
+generated randomly,
+and  <IMG WIDTH=10 HEIGHT=20 ALIGN=MIDDLE ALT="tex2html_wrap_inline62752" SRC="img956.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img956.gif"  > denotes elementwise addition modulo two.
+<P>
+<HR><A NAME="tex2html7844" HREF="page481.html" tppabs="http://www.brpreiss.com/books/opus4/html/page481.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7842" HREF="page479.html" tppabs="http://www.brpreiss.com/books/opus4/html/page479.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7838" HREF="page479.html" tppabs="http://www.brpreiss.com/books/opus4/html/page479.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7846" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7847" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

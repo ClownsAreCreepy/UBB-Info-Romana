@@ -1,0 +1,152 @@
+<HTML>
+<HEAD>
+<TITLE>AVL Search Trees</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html5879" HREF="page321.html" tppabs="http://www.brpreiss.com/books/opus4/html/page321.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5877" HREF="page299.html" tppabs="http://www.brpreiss.com/books/opus4/html/page299.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5871" HREF="page319.html" tppabs="http://www.brpreiss.com/books/opus4/html/page319.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5881" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5882" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION0011500000000000000000">AVL Search Trees</A></H1>
+<A NAME="sectreesavl">&#160;</A>
+<P>
+The problem with binary search trees is that while
+the average running times for search, insertion, and withdrawal
+operations are all  <IMG WIDTH=56 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59891" SRC="img403.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img403.gif"  >,
+any one operation is still <I>O</I>(<I>n</I>) in the worst case.
+This is so because we cannot say anything in general
+about the shape of the tree.
+<P>
+For example,
+consider the two binary search trees shown Figure&nbsp;<A HREF="page305.html#figtree13" tppabs="http://www.brpreiss.com/books/opus4/html/page305.html#figtree13"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+Both trees contain the same set of keys.
+The tree  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63424" SRC="img1094.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1094.gif"  > is obtained by starting with an empty tree
+and inserting the keys in the following order
+<P> <IMG WIDTH=300 HEIGHT=14 ALIGN=BOTTOM ALT="displaymath64856" SRC="img1306.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1306.gif"  ><P>
+The tree  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63426" SRC="img1095.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1095.gif"  > is obtained by starting with an empty tree
+and inserting the keys in this order
+<P> <IMG WIDTH=301 HEIGHT=14 ALIGN=BOTTOM ALT="displaymath64857" SRC="img1307.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1307.gif"  ><P>
+Clearly,  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63426" SRC="img1095.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1095.gif"  > is a better tree search tree than  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63424" SRC="img1094.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1094.gif"  >.
+In fact, since  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63426" SRC="img1095.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1095.gif"  > is a <em>perfect binary tree</em><A NAME=19961>&#160;</A>,
+its height is  <IMG WIDTH=104 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline64882" SRC="img1308.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1308.gif"  >.
+Therefore, all three operations, search, insertion, and withdrawal,
+have the same worst case asymptotic running time,  <IMG WIDTH=56 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59891" SRC="img403.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img403.gif"  >.
+<P>
+The reason that  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63426" SRC="img1095.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1095.gif"  > is better than  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63424" SRC="img1094.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1094.gif"  > is that
+it is the more <em>balanced</em> tree.
+If we could ensure that the search trees we construct are balanced
+then the worst-case running time of search, insertion, and withdrawal,
+could be made logarithmic rather than linear.
+But under what conditions is a tree <em>balanced</em>?
+<P>
+If we say that a binary tree is balanced if the left and right
+subtrees of every node have the same height,
+then the only trees which are balanced are the perfect binary trees.
+A perfect binary tree of height <I>h</I> has exactly  <IMG WIDTH=58 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline63812" SRC="img1137.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1137.gif"  > internal nodes.
+Therefore, it is only possible to create perfect trees with <I>n</I> nodes
+for  <IMG WIDTH=164 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline64896" SRC="img1309.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1309.gif"  >.
+Clearly, this is an unsuitable balance condition because
+it is not possible to create a balanced tree for every <I>n</I>.
+<P>
+What are the characteristics of a good
+<em>balance condition</em><A NAME=19966>&#160;</A>?
+<OL><LI>
+	A good balance condition ensures that the height of a tree with <I>n</I>
+	nodes is  <IMG WIDTH=56 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59891" SRC="img403.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img403.gif"  >.<LI>
+	A good balance condition can be maintained efficiently.
+	I.e., the additional work necessary to balance
+	the tree when an item is inserted or deleted is <I>O</I>(1).
+</OL>
+Adelson-Velskii and Landis<A NAME="tex2html595" HREF="footnode.html#20181" tppabs="http://www.brpreiss.com/books/opus4/html/footnode.html#20181"><IMG  ALIGN=BOTTOM ALT="gif" SRC="foot_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/foot_motif.gif"></A>
+were the first to propose the following
+balance condition and show that it has the desired characteristics.
+<P>
+<BLOCKQUOTE> <b>Definition (AVL Balance Condition)</b><A NAME="defnsrchtreeavl">&#160;</A>
+An empty binary tree is
+<em>AVL balanced</em><A NAME=19974>&#160;</A><A NAME=19975>&#160;</A>.
+A non-empty binary tree,  <IMG WIDTH=107 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline63788" SRC="img1135.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1135.gif"  >, is AVL balanced if
+both  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63784" SRC="img1133.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1133.gif"  > and  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63786" SRC="img1134.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1134.gif"  > are AVL balanced and
+<P> <IMG WIDTH=298 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath64858" SRC="img1310.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1310.gif"  ><P>
+where  <IMG WIDTH=17 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline64912" SRC="img1311.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1311.gif"  > is the height of  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63784" SRC="img1133.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1133.gif"  > and  <IMG WIDTH=17 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline64916" SRC="img1312.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1312.gif"  > is the height of  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63786" SRC="img1134.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1134.gif"  >.
+</BLOCKQUOTE>
+<P>
+Clearly, all perfect binary trees are AVL balanced.
+What is not so clear is that heights of all trees that satisfy the AVL balance
+condition are logarithmic in the number of internal nodes.
+<P>
+<BLOCKQUOTE> <b>Theorem</b><A NAME="theoremsrchtreeii">&#160;</A>
+The height, <I>h</I>, of an AVL balanced tree with <I>n</I> internal nodes satisfies
+<P> <IMG WIDTH=398 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath64859" SRC="img1313.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1313.gif"  ><P></BLOCKQUOTE>
+<P>
+	extbfProof
+The lower bound follows directly from Theorem&nbsp;<A HREF="page255.html#theoremtreesii" tppabs="http://www.brpreiss.com/books/opus4/html/page255.html#theoremtreesii"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+It is in fact true for all binary trees
+regardless of whether they are AVL balanced.
+<P>
+To determine the upper bound,
+we turn the problem around and ask the question,
+what is the minimum number of internal nodes
+in an AVL balanced tree of height <I>h</I>?
+<P>
+Let  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline64926" SRC="img1314.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1314.gif"  > represent an AVL balanced tree of height <I>h</I>
+which has the smallest possible number of internal nodes, say  <IMG WIDTH=19 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline64930" SRC="img1315.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1315.gif"  >.
+Clearly,  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline64926" SRC="img1314.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1314.gif"  > must have at least one subtree of height <I>h</I>-1 and that
+subtree must be  <IMG WIDTH=32 HEIGHT=21 ALIGN=MIDDLE ALT="tex2html_wrap_inline64936" SRC="img1316.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1316.gif"  >.
+To remain AVL balanced, the other subtree can have height <I>h</I>-1 or <I>h</I>-2.
+Since we want the smallest number of internal nodes, it must be  <IMG WIDTH=33 HEIGHT=21 ALIGN=MIDDLE ALT="tex2html_wrap_inline64942" SRC="img1317.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1317.gif"  >.
+Therefore, the number of internal nodes in  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline64926" SRC="img1314.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1314.gif"  > is
+ <IMG WIDTH=163 HEIGHT=21 ALIGN=MIDDLE ALT="tex2html_wrap_inline64946" SRC="img1318.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1318.gif"  >, where  <IMG WIDTH=37 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline64948" SRC="img1319.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1319.gif"  >.
+<P>
+Clearly,  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63638" SRC="img1114.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1114.gif"  > contains a single internal node, so  <IMG WIDTH=48 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline64952" SRC="img1320.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1320.gif"  >.
+Similarly,  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63404" SRC="img1086.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1086.gif"  > contains exactly two nodes, so  <IMG WIDTH=49 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline64956" SRC="img1321.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1321.gif"  >.
+Thus,  <IMG WIDTH=19 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline64930" SRC="img1315.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1315.gif"  > is given by the recurrence
+<P><A NAME="eqnsrchtreeavl">&#160;</A> <IMG WIDTH=500 HEIGHT=66 ALIGN=BOTTOM ALT="equation19987" SRC="img1322.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1322.gif"  ><P>
+<P>
+The remarkable thing about Equation&nbsp;<A HREF="page320.html#eqnsrchtreeavl" tppabs="http://www.brpreiss.com/books/opus4/html/page320.html#eqnsrchtreeavl"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+is its similarity with the definition
+of <em>Fibonacci numbers</em><A NAME=19996>&#160;</A>
+(Equation&nbsp;<A HREF="page73.html#eqnasymptoticfibonacci" tppabs="http://www.brpreiss.com/books/opus4/html/page73.html#eqnasymptoticfibonacci"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>).
+In fact, it can easily be shown by induction that
+<P> <IMG WIDTH=301 HEIGHT=15 ALIGN=BOTTOM ALT="displaymath64860" SRC="img1323.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1323.gif"  ><P>
+for all  <IMG WIDTH=36 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline63700" SRC="img1122.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1122.gif"  >, where  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline64962" SRC="img1324.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1324.gif"  > is the  <IMG WIDTH=20 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline61700" SRC="img803.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img803.gif"  > Fibonacci number.
+<P>
+<b>Base Cases</b>
+<P> <IMG WIDTH=500 HEIGHT=38 ALIGN=BOTTOM ALT="eqnarray20001" SRC="img1325.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1325.gif"  ><P>
+<P>
+<b>Inductive Hypothesis</b>
+Assume that  <IMG WIDTH=103 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline64966" SRC="img1326.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1326.gif"  > for  <IMG WIDTH=114 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline63710" SRC="img1125.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1125.gif"  >.
+Then
+<P> <IMG WIDTH=500 HEIGHT=88 ALIGN=BOTTOM ALT="eqnarray20005" SRC="img1327.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1327.gif"  ><P>
+Therefore, by induction on <I>k</I>,  <IMG WIDTH=103 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline64966" SRC="img1326.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1326.gif"  >, for all  <IMG WIDTH=36 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline63700" SRC="img1122.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1122.gif"  >.
+<P>
+According to Theorem&nbsp;<A HREF="page73.html#theoremasymptoticfibonacci" tppabs="http://www.brpreiss.com/books/opus4/html/page73.html#theoremasymptoticfibonacci"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+the Fibonacci numbers are given by
+<P> <IMG WIDTH=318 HEIGHT=38 ALIGN=BOTTOM ALT="displaymath62416" SRC="img906.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img906.gif"  ><P>
+where  <IMG WIDTH=106 HEIGHT=29 ALIGN=MIDDLE ALT="tex2html_wrap_inline60483" SRC="img491.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img491.gif"  >
+and  <IMG WIDTH=106 HEIGHT=31 ALIGN=MIDDLE ALT="tex2html_wrap_inline60485" SRC="img492.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img492.gif"  >.
+Furthermore, since  <IMG WIDTH=78 HEIGHT=30 ALIGN=MIDDLE ALT="tex2html_wrap_inline64980" SRC="img1328.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1328.gif"  >,  <IMG WIDTH=83 HEIGHT=31 ALIGN=MIDDLE ALT="tex2html_wrap_inline64982" SRC="img1329.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1329.gif"  >.
+<P>
+Therefore,
+<P> <IMG WIDTH=500 HEIGHT=124 ALIGN=BOTTOM ALT="eqnarray20025" SRC="img1330.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1330.gif"  ><P>
+This completes the proof of the upper bound.
+<P>
+So, we have shown that the AVL balance condition satisfies the
+first criterion of a good balance condition--the height of an AVL balanced tree with <I>n</I> internal nodes is  <IMG WIDTH=56 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline64986" SRC="img1331.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1331.gif"  >.
+What remains to be shown is that the balance condition can be
+efficiently maintained.
+To see that it can,
+we need to look at an implementation.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html5883" HREF="page321.html#SECTION0011510000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page321.html#SECTION0011510000000000000000">Implementing AVL Trees</A>
+<LI> <A NAME="tex2html5884" HREF="page324.html#SECTION0011520000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page324.html#SECTION0011520000000000000000">Inserting Items into an AVL Tree</A>
+<LI> <A NAME="tex2html5885" HREF="page329.html#SECTION0011530000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page329.html#SECTION0011530000000000000000">Removing Items from an AVL Tree</A>
+</UL>
+<HR><A NAME="tex2html5879" HREF="page321.html" tppabs="http://www.brpreiss.com/books/opus4/html/page321.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5877" HREF="page299.html" tppabs="http://www.brpreiss.com/books/opus4/html/page299.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5871" HREF="page319.html" tppabs="http://www.brpreiss.com/books/opus4/html/page319.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5881" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5882" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

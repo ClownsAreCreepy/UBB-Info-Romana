@@ -1,0 +1,65 @@
+<HTML>
+<HEAD>
+<TITLE>N-ary Trees</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html5411" HREF="page283.html" tppabs="http://www.brpreiss.com/books/opus4/html/page283.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5409" HREF="page266.html" tppabs="http://www.brpreiss.com/books/opus4/html/page266.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5403" HREF="page281.html" tppabs="http://www.brpreiss.com/books/opus4/html/page281.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5413" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5414" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0010640000000000000000"><I>N</I>-ary Trees</A></H2>
+<P>
+We now turn to the implementation of <I>N</I>-ary trees
+as given by Definition&nbsp;<A HREF="page255.html#defnnarytree" tppabs="http://www.brpreiss.com/books/opus4/html/page255.html#defnnarytree"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+According to this definition,
+an <I>N</I>-ary tree is either an empty tree
+or it is a tree comprised of a root and exactly <I>N</I> subtrees.
+The implementation follows the design pattern
+established in the preceding section.
+Specifically, we view an <I>N</I>-ary tree as a container.
+<P>
+Figure&nbsp;<A HREF="page282.html#figtree8" tppabs="http://www.brpreiss.com/books/opus4/html/page282.html#figtree8"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> illustrates the way in which
+<I>N</I>-ary trees can be represented.
+The figure gives the representation of the tertiary (<I>N</I>=3) tree
+<P> <IMG WIDTH=320 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath63960" SRC="img1177.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1177.gif"  ><P>
+The basic idea is that each node has associated with it
+an array of length <I>N</I> of pointers to the subtrees of that node.
+An array is used because we assume that the <em>arity</em><A NAME=16740>&#160;</A>
+of the tree, <I>N</I>, is known <em>a priori</em>.
+<P>
+<P><A NAME="16864">&#160;</A><A NAME="figtree8">&#160;</A> <IMG WIDTH=575 HEIGHT=240 ALIGN=BOTTOM ALT="figure16742" SRC="img1178.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1178.gif"  ><BR>
+<STRONG>Figure:</STRONG> Representing <I>N</I>-ary Trees using Pointer Arrays<BR>
+<P>
+<P>
+Notice that we explicitly represent the empty trees.
+I.e., a separate data structure is allocated for the representation
+each empty tree.
+Of course, an empty tree contains neither root nor subtrees.
+<P>
+Program&nbsp;<A HREF="page282.html#prognarytree1h" tppabs="http://www.brpreiss.com/books/opus4/html/page282.html#prognarytree1h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> declares the <tt>NaryTree</tt> class
+which represents <I>N</I>-ary trees 
+as specified by Definition&nbsp;<A HREF="page255.html#defnnarytree" tppabs="http://www.brpreiss.com/books/opus4/html/page255.html#defnnarytree"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+The class <tt>NaryTree</tt> is derived from the base class <tt>Tree</tt> which,
+as discussed in the preceding section,
+combines the tree and container interfaces.
+<P>
+<P><A NAME="17014">&#160;</A><A NAME="prognarytree1h">&#160;</A> <IMG WIDTH=575 HEIGHT=371 ALIGN=BOTTOM ALT="program16872" SRC="img1179.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1179.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>NaryTree</tt> Class Definition<BR>
+<P><BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html5415" HREF="page283.html#SECTION0010641000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page283.html#SECTION0010641000000000000000">Member Variables</A>
+<LI> <A NAME="tex2html5416" HREF="page284.html#SECTION0010642000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page284.html#SECTION0010642000000000000000">Member Functions</A>
+<LI> <A NAME="tex2html5417" HREF="page285.html#SECTION0010643000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page285.html#SECTION0010643000000000000000">Constructors</A>
+<LI> <A NAME="tex2html5418" HREF="page286.html#SECTION0010644000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page286.html#SECTION0010644000000000000000"><tt>IsEmpty</tt> Member Function</A>
+<LI> <A NAME="tex2html5419" HREF="page287.html#SECTION0010645000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page287.html#SECTION0010645000000000000000"><tt>Key</tt>, <tt>AttachKey</tt> and <tt>DetachKey</tt>
+Member Functions</A>
+<LI> <A NAME="tex2html5420" HREF="page288.html#SECTION0010646000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page288.html#SECTION0010646000000000000000"><tt>Subtree</tt>, <tt>AttachSubtree</tt> and <tt>DetachSubtree</tt>
+Member Functions</A>
+</UL>
+<HR><A NAME="tex2html5411" HREF="page283.html" tppabs="http://www.brpreiss.com/books/opus4/html/page283.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5409" HREF="page266.html" tppabs="http://www.brpreiss.com/books/opus4/html/page266.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5403" HREF="page281.html" tppabs="http://www.brpreiss.com/books/opus4/html/page281.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5413" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5414" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

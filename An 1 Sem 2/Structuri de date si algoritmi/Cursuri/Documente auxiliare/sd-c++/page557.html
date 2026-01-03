@@ -1,0 +1,72 @@
+<HTML>
+<HEAD>
+<TITLE>Topological Sort</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html8797" HREF="page558.html" tppabs="http://www.brpreiss.com/books/opus4/html/page558.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8795" HREF="page550.html" tppabs="http://www.brpreiss.com/books/opus4/html/page550.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8789" HREF="page556.html" tppabs="http://www.brpreiss.com/books/opus4/html/page556.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8799" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8800" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0017330000000000000000">Topological Sort</A></H2>
+<A NAME="secgraphstoposort">&#160;</A>
+<P>
+A topological sort is an ordering of the vertices of a
+<em>directed acyclic graph</em>
+given by the following definition:
+<P>
+<BLOCKQUOTE> <b>Definition (Topological Sort)</b>
+Consider a directed acyclic graph  <IMG WIDTH=72 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71355" SRC="img2282.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2282.gif"  >.
+A <em>topological sort</em><A NAME=50560>&#160;</A><A NAME=50561>&#160;</A>
+of the vertices of <I>G</I>
+is a sequence  <IMG WIDTH=145 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline72047" SRC="img2407.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2407.gif"  >
+in which each element of  <IMG WIDTH=10 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline71357" SRC="img2283.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2283.gif"  > appears exactly once.
+For every pair of distinct vertices  <IMG WIDTH=11 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline71521" SRC="img2317.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2317.gif"  > and  <IMG WIDTH=13 HEIGHT=16 ALIGN=MIDDLE ALT="tex2html_wrap_inline72053" SRC="img2408.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2408.gif"  > in the sequence <I>S</I>,
+if  <IMG WIDTH=51 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline71669" SRC="img2348.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2348.gif"  > is an edge in <I>G</I>,
+i.e.,  <IMG WIDTH=75 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline72061" SRC="img2409.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2409.gif"  >,
+then <I>i</I><I>&lt;</I><I>j</I>.
+</BLOCKQUOTE>
+<P>
+Informally, a topological sort is a list of the vertices of a DAG
+in which all the successors of any given vertex
+appear in the sequence after that vertex.
+Consider the directed acyclic graph  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline72065" SRC="img2410.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2410.gif"  > shown in Figure&nbsp;<A HREF="page557.html#figgraph8" tppabs="http://www.brpreiss.com/books/opus4/html/page557.html#figgraph8"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+The sequence  <IMG WIDTH=172 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72067" SRC="img2411.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2411.gif"  > is a topological sort
+of the vertices of  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline72065" SRC="img2410.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2410.gif"  >.
+To see that this is so,
+consider the set of vertices:
+<P> <IMG WIDTH=415 HEIGHT=36 ALIGN=BOTTOM ALT="displaymath72041" SRC="img2412.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2412.gif"  ><P>
+The vertices in each edge are in alphabetical order,
+and so is the sequence <I>S</I>.
+<P>
+<P><A NAME="50792">&#160;</A><A NAME="figgraph8">&#160;</A> <IMG WIDTH=575 HEIGHT=238 ALIGN=BOTTOM ALT="figure50567" SRC="img2413.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2413.gif"  ><BR>
+<STRONG>Figure:</STRONG> A Directed Acyclic Graph<BR>
+<P>
+<P>
+It should also be evident from Figure&nbsp;<A HREF="page557.html#figgraph8" tppabs="http://www.brpreiss.com/books/opus4/html/page557.html#figgraph8"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> that
+a topological sort is not unique.
+For example, the following are also valid topological sorts
+of the graph  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline72065" SRC="img2410.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2410.gif"  >:
+<P> <IMG WIDTH=500 HEIGHT=95 ALIGN=BOTTOM ALT="eqnarray50796" SRC="img2414.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2414.gif"  ><P>
+<P>
+One way to find a topological sort
+is to consider the <em>in-degrees</em><A NAME=50799>&#160;</A> of the vertices.
+(The number above a vertex in Figure&nbsp;<A HREF="page557.html#figgraph8" tppabs="http://www.brpreiss.com/books/opus4/html/page557.html#figgraph8"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> is the in-degree of that vertex).
+Clearly the first vertex in a topological sort must have in-degree zero and
+every DAG must contain at least one vertex with in-degree zero.
+A simple algorithm to create the sort goes like this:
+<P>
+Repeat the following steps until the graph is empty:
+<OL><LI> Select a vertex that has in-degree zero.<LI> Add the vertex to the sort.<LI> Delete the vertex and all the edges emanating from it
+	from the graph.
+</OL><BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html8801" HREF="page558.html#SECTION0017331000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page558.html#SECTION0017331000000000000000">Implementation</A>
+<LI> <A NAME="tex2html8802" HREF="page559.html#SECTION0017332000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page559.html#SECTION0017332000000000000000">Running Time Analysis</A>
+</UL>
+<HR><A NAME="tex2html8797" HREF="page558.html" tppabs="http://www.brpreiss.com/books/opus4/html/page558.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8795" HREF="page550.html" tppabs="http://www.brpreiss.com/books/opus4/html/page550.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8789" HREF="page556.html" tppabs="http://www.brpreiss.com/books/opus4/html/page556.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8799" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8800" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

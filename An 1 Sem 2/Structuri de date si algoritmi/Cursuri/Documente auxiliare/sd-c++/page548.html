@@ -1,0 +1,55 @@
+<HTML>
+<HEAD>
+<TITLE>Space Comparison</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html8687" HREF="page549.html" tppabs="http://www.brpreiss.com/books/opus4/html/page549.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8685" HREF="page547.html" tppabs="http://www.brpreiss.com/books/opus4/html/page547.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8679" HREF="page547.html" tppabs="http://www.brpreiss.com/books/opus4/html/page547.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8689" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8690" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0017261000000000000000">Space Comparison</A></H3>
+<P>
+Consider the representation of a directed graph  <IMG WIDTH=72 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71355" SRC="img2282.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2282.gif"  >.
+In addition to the  <IMG WIDTH=17 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71781" SRC="img2365.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2365.gif"  > <tt>Vertex</tt> class instances
+and the  <IMG WIDTH=16 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71793" SRC="img2367.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2367.gif"  > <tt>Edge</tt> class instances contained by the graph,
+there is the storage required by the adjacency matrix.
+In this case, the matrix is a  <IMG WIDTH=56 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71885" SRC="img2383.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2383.gif"  > matrix
+of pointers to <tt>Edge</tt> instances.
+Therefore, the amount of storage required by an adjacency matrix
+implementation is
+<P><A NAME="eqnspaceam">&#160;</A> <IMG WIDTH=500 HEIGHT=41 ALIGN=BOTTOM ALT="equation49979" SRC="img2384.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2384.gif"  ><P>
+<P>
+On the other hand,
+consider the amount of storage required
+when we represent the same graph using adjacency lists.
+In addition to the vertices and the edges themselves,
+there are  <IMG WIDTH=17 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71781" SRC="img2365.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2365.gif"  > linked lists.
+If we use the <tt>LinkedList</tt> class defined in Section&nbsp;<A HREF="page88.html#secfdslinklist" tppabs="http://www.brpreiss.com/books/opus4/html/page88.html#secfdslinklist"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+each such list has a <tt>head</tt> and <tt>tail</tt> pointer.
+Altogether there are  <IMG WIDTH=16 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71793" SRC="img2367.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2367.gif"  > linked lists elements,
+each of which consists of a pointer to the next element of the lists
+and a pointer to an edge.
+Therefore, the total space required is
+<P><A NAME="eqnspaceal">&#160;</A> <IMG WIDTH=533 HEIGHT=63 ALIGN=BOTTOM ALT="equation49991" SRC="img2385.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2385.gif"  ><P>
+<P>
+Notice that the space for the vertices and edges themselves
+cancels out when we compare Equation&nbsp;<A HREF="page548.html#eqnspaceam" tppabs="http://www.brpreiss.com/books/opus4/html/page548.html#eqnspaceam"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> with Equation&nbsp;<A HREF="page548.html#eqnspaceal" tppabs="http://www.brpreiss.com/books/opus4/html/page548.html#eqnspaceal"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+If we assume that all pointers require the same amount of space,
+we can conclude that adjacency lists use less space than
+adjacency matrices when
+<P> <IMG WIDTH=305 HEIGHT=35 ALIGN=BOTTOM ALT="displaymath71877" SRC="img2386.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2386.gif"  ><P>
+For example, given a 10 node graph,
+the adjacency lists version uses less space
+when there are fewer than 45 edges.
+As a rough rule of thumb,
+we can say that adjacency lists use less space
+when the average degree of a node,  <IMG WIDTH=76 HEIGHT=28 ALIGN=MIDDLE ALT="tex2html_wrap_inline71891" SRC="img2387.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2387.gif"  >,
+satisfies  <IMG WIDTH=64 HEIGHT=31 ALIGN=MIDDLE ALT="tex2html_wrap_inline71893" SRC="img2388.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2388.gif"  >.
+<P>
+<HR><A NAME="tex2html8687" HREF="page549.html" tppabs="http://www.brpreiss.com/books/opus4/html/page549.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8685" HREF="page547.html" tppabs="http://www.brpreiss.com/books/opus4/html/page547.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8679" HREF="page547.html" tppabs="http://www.brpreiss.com/books/opus4/html/page547.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8689" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8690" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

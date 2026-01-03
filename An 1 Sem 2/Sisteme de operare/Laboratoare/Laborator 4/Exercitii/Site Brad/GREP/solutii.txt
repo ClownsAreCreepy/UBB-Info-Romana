@@ -1,0 +1,31 @@
+1. grep -Ex '(.{3}*)' ex_1.txt
+grep -x va tipari linia daca si numai daca INTREAGA linie indeplineste regex-ul
+In cazul asta, intreaga linie trebuie sa fie formata din grupuri de 3 caractere ( % 3 ), ca sa se puna
+
+2. grep -E '[AEIOU].*[AEIOU].*[AEIOU]' ex_2.txt | grep -Ev '[13579]'
+Primul grep - cel putin 3 vocale mari
+Al doilea grep - sa nu avem numere impare
+
+3. grep -E '^([13579]{2})+.*[02468]([02468]{2})*$' ex_3.txt
+Le grupam: La inceput avem cel putin un grup de 2 cifre impare (% 2)
+La final avem un numar par si 0 sau mai multe grupuri de 2 cifre pare (! % 2)
+
+4. grep -E '^[^AEIOU13579]*[AEIOU]?[^AEIOU13579]*[AEIOU]?[^AEIOU13579]*[AEIOU]?[^AEIOU13579]*$' ex_4.txt
+Avem voie 0 sau mai multe caractere care nu sunt vocale mari sau cifre impare.
+Si avem voie CEL MULT 1 VOCALA MARE (?) intre aceste caractere
+
+5. grep -Eo '[\|].*[\^]' ex_5.txt
+\| si \^ deoarece ne trebuie caracterele, nu ce reprezinta ^ si |
+grep -o pentru a arata doar ce e intre ele
+
+6. grep -E "^[A-Z]+$" ex_6.txt
+Luam doar liniile care contin cel putin o litera mare de la coada la cap
+
+7. grep -En "^[0-9]{2}.*[0-9]{2}$" ex_7.txt
+grep -n arata numarul liniei, luam minim 2 numere la inceput si minim 2 la final
+
+8. grep -o "\$[^$]*$" ex_8.txt
+grep ia un caracter efectiv $, apoi toate caracterele de dupa care nu sunt $ pana la final
+
+9. grep -Ev "\w+" ex_9.txt
+grep cauta toate liniile care are cel putin un caracter alfanumeric ( \w ), si le ia pe alealalte

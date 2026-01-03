@@ -1,0 +1,223 @@
+<HTML>
+<HEAD>
+<TITLE>Example-Fibonacci Numbers</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html2801" HREF="page74.html" tppabs="http://www.brpreiss.com/books/opus4/html/page74.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2799" HREF="page70.html" tppabs="http://www.brpreiss.com/books/opus4/html/page70.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2793" HREF="page72.html" tppabs="http://www.brpreiss.com/books/opus4/html/page72.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2803" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2804" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION004430000000000000000">Example-Fibonacci Numbers</A></H2>
+<A NAME="secfibonacci">&#160;</A>
+<P>
+In this section we will compare the asymptotic running times
+of two different programs that both compute Fibonacci numbers.<A NAME="tex2html91" HREF="footnode.html#2168" tppabs="http://www.brpreiss.com/books/opus4/html/footnode.html#2168"><IMG  ALIGN=BOTTOM ALT="gif" SRC="foot_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/foot_motif.gif"></A>
+The <em>Fibonacci numbers</em><A NAME=1962>&#160;</A>
+are the series of numbers  <IMG WIDTH=16 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline60409" SRC="img471.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img471.gif"  >,  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline60411" SRC="img472.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img472.gif"  >, ..., given by
+<P><A NAME="eqnasymptoticfibonacci">&#160;</A> <IMG WIDTH=500 HEIGHT=66 ALIGN=BOTTOM ALT="equation1963" SRC="img473.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img473.gif"  ><P>
+Fibonacci numbers are interesting because they seem to crop up
+in the most unexpected situations.
+However, in this section, we are merely concerned with writing
+an algorithm to compute  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline60413" SRC="img474.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img474.gif"  > given <I>n</I>.
+<P>
+Fibonacci numbers are easy enough to compute.
+Consider the sequence of Fibonacci numbers
+<P> <IMG WIDTH=345 HEIGHT=14 ALIGN=BOTTOM ALT="displaymath60403" SRC="img475.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img475.gif"  ><P>
+The next number in the sequence is computed simply by adding together
+the last two numbers--in this case it would be 55=21+34.
+Program&nbsp;<A HREF="page73.html#progfibonacci1c" tppabs="http://www.brpreiss.com/books/opus4/html/page73.html#progfibonacci1c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> is a direct implementation of this idea.
+The running time of this algorithm is clearly <I>O</I>(<I>n</I>)
+as shown by the analysis in Table&nbsp;<A HREF="page73.html#tblfibonacci1c" tppabs="http://www.brpreiss.com/books/opus4/html/page73.html#tblfibonacci1c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+<P>
+<P><A NAME="1975">&#160;</A><A NAME="progfibonacci1c">&#160;</A> <IMG WIDTH=575 HEIGHT=238 ALIGN=BOTTOM ALT="program1972" SRC="img476.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img476.gif"  ><BR>
+<STRONG>Program:</STRONG> Non-recursive program to compute Fibonacci numbers<BR>
+<P>
+<P>
+<P><A NAME="2170">&#160;</A>
+<P>
+    <A NAME="tblfibonacci1c">&#160;</A>
+    <DIV ALIGN=CENTER><P ALIGN=CENTER><TABLE COLS=2 BORDER FRAME=HSIDES RULES=GROUPS>
+<COL ALIGN=CENTER><COL ALIGN=LEFT>
+<TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+	    statement </TD><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> time </TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>3 </TD><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> <I>O</I>(1) </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	    4 </TD><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> <I>O</I>(1) </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	    5a </TD><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> <I>O</I>(1) </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	    5b </TD><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP>  <IMG WIDTH=172 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60427" SRC="img477.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img477.gif"  > </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	    5c </TD><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP>  <IMG WIDTH=171 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60429" SRC="img478.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img478.gif"  > </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	    7 </TD><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP>  <IMG WIDTH=171 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60429" SRC="img478.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img478.gif"  > </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	    8 </TD><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP>  <IMG WIDTH=171 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60429" SRC="img478.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img478.gif"  > </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	    9 </TD><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP>  <IMG WIDTH=171 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60429" SRC="img478.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img478.gif"  > </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	    11 </TD><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> <I>O</I>(1) </TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>TOTAL </TD><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> <I>O</I>(<I>n</I>) </TD></TR>
+</TBODY>
+<CAPTION ALIGN=BOTTOM><STRONG>Table:</STRONG> Computing the running time
+	of Program&nbsp;<A HREF="page73.html#progfibonacci1c" tppabs="http://www.brpreiss.com/books/opus4/html/page73.html#progfibonacci1c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A></CAPTION></TABLE>
+</P></DIV><P>
+<P>
+Recall that the Fibonacci numbers are defined recursively:
+ <IMG WIDTH=129 HEIGHT=21 ALIGN=MIDDLE ALT="tex2html_wrap_inline60441" SRC="img479.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img479.gif"  >.
+However, the algorithm used in Program&nbsp;<A HREF="page73.html#progfibonacci1c" tppabs="http://www.brpreiss.com/books/opus4/html/page73.html#progfibonacci1c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> 
+is non-recursive<A NAME=1996>&#160;</A>--it is <em>iterative</em><A NAME=1998>&#160;</A>.
+What happens if instead of using the iterative algorithm,
+we use the definition of Fibonacci numbers to implement directly
+a recursive algorithm<A NAME=1999>&#160;</A>?
+Such an algorithm is given in Program&nbsp;<A HREF="page73.html#progfibonacci2c" tppabs="http://www.brpreiss.com/books/opus4/html/page73.html#progfibonacci2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+and its running time is summarized in Table&nbsp;<A HREF="page73.html#tblfibonacci2c" tppabs="http://www.brpreiss.com/books/opus4/html/page73.html#tblfibonacci2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+<P>
+<P><A NAME="2005">&#160;</A><A NAME="progfibonacci2c">&#160;</A> <IMG WIDTH=575 HEIGHT=143 ALIGN=BOTTOM ALT="program2002" SRC="img480.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img480.gif"  ><BR>
+<STRONG>Program:</STRONG> Recursive program to compute Fibonacci numbers<BR>
+<P>
+<P>
+<P><A NAME="2172">&#160;</A>
+<P>
+    <A NAME="tblfibonacci2c">&#160;</A>
+    <DIV ALIGN=CENTER><P ALIGN=CENTER><TABLE COLS=3 BORDER FRAME=HSIDES RULES=GROUPS>
+<COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER>
+<TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+	    </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP COLSPAN=2> time</TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+<P>
+	    statement </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>n</I><I>&lt;</I>2 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=38 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline60445" SRC="img481.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img481.gif"  > </TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>3 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>O</I>(1) </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>O</I>(1) </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	    4 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>O</I>(1) </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> -- </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	    6 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> -- </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>T</I>(<I>n</I>-1)+<I>T</I>(<I>n</I>-2)+<I>O</I>(1) </TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>TOTAL </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>O</I>(1) </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>T</I>(<I>n</I>-1)+<I>T</I>(<I>n</I>-2)+<I>O</I>(1) </TD></TR>
+</TBODY>
+<CAPTION ALIGN=BOTTOM><STRONG>Table:</STRONG> Computing the running time of
+	Program&nbsp;<A HREF="page73.html#progfibonacci2c" tppabs="http://www.brpreiss.com/books/opus4/html/page73.html#progfibonacci2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A></CAPTION></TABLE>
+</P></DIV><P>
+<P>
+From Table&nbsp;<A HREF="page73.html#tblfibonacci2c" tppabs="http://www.brpreiss.com/books/opus4/html/page73.html#tblfibonacci2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> we find that the running
+time of the recursive Fibonacci algorithm is given by the recurrence
+<P> <IMG WIDTH=409 HEIGHT=48 ALIGN=BOTTOM ALT="displaymath60404" SRC="img482.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img482.gif"  ><P>
+But how do you solve a recurrence containing big oh expressions?
+<P>
+It turns out that there is a simple trick we can use to solve
+a recurrence containing big oh expressions
+<em>as long as we are only interested in an asymptotic bound on the result</em>.
+Simply drop the  <IMG WIDTH=28 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline58163" SRC="img1.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1.gif"  >s from the recurrence,
+solve the recurrence,
+and put the  <IMG WIDTH=28 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline58163" SRC="img1.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1.gif"  > back!
+In this case, we need to solve the recurrence
+<P> <IMG WIDTH=396 HEIGHT=48 ALIGN=BOTTOM ALT="displaymath60405" SRC="img483.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img483.gif"  ><P>
+<P>
+In the previous chapter, we used successfully repeated substitution
+to solve recurrences.
+However, in the previous chapter, all of the recurrences only had
+one instance of  <IMG WIDTH=28 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline58299" SRC="img51.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img51.gif"  > on the right-hand-side--in this case there are two.
+There is something interesting about this recurrence:
+It looks very much like the definition of the Fibonacci numbers.
+In fact, we can show by induction on <I>n</I>
+that  <IMG WIDTH=149 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline60467" SRC="img484.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img484.gif"  >.
+<P>
+	extbfProof (By induction).
+<P>
+<b>Base Case</b>
+There are two base cases:
+<P> <IMG WIDTH=500 HEIGHT=39 ALIGN=BOTTOM ALT="eqnarray2031" SRC="img485.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img485.gif"  ><P>
+<P>
+<b>Inductive Hypothesis</b>
+Suppose that  <IMG WIDTH=89 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline60469" SRC="img486.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img486.gif"  > for  <IMG WIDTH=115 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline60471" SRC="img487.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img487.gif"  > for some  <IMG WIDTH=36 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline59577" SRC="img356.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img356.gif"  >.
+Then
+<P> <IMG WIDTH=500 HEIGHT=87 ALIGN=BOTTOM ALT="eqnarray2036" SRC="img488.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img488.gif"  ><P>
+Hence, by induction on <I>k</I>,  <IMG WIDTH=89 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline60469" SRC="img486.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img486.gif"  > for all  <IMG WIDTH=38 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59063" SRC="img241.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img241.gif"  >.
+<P>
+So, we can now say with certainty that
+the running time of the recursive Fibonacci algorithm,
+Program&nbsp;<A HREF="page73.html#progfibonacci2c" tppabs="http://www.brpreiss.com/books/opus4/html/page73.html#progfibonacci2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+is  <IMG WIDTH=113 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline60481" SRC="img489.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img489.gif"  >.
+But is this good or bad?
+The following theorem shows us how bad this really is!
+<P>
+<BLOCKQUOTE> <b>Theorem (Fibonacci numbers)</b><A NAME="theoremasymptoticfibonacci">&#160;</A>
+<A NAME=2048>&#160;</A><A NAME="theoremix">&#160;</A>
+The Fibonacci numbers are given by the closed form expression
+<P><A NAME="eqnfibonacci">&#160;</A> <IMG WIDTH=500 HEIGHT=38 ALIGN=BOTTOM ALT="equation2050" SRC="img490.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img490.gif"  ><P>
+where  <IMG WIDTH=106 HEIGHT=29 ALIGN=MIDDLE ALT="tex2html_wrap_inline60483" SRC="img491.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img491.gif"  >
+and  <IMG WIDTH=106 HEIGHT=31 ALIGN=MIDDLE ALT="tex2html_wrap_inline60485" SRC="img492.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img492.gif"  >.
+</BLOCKQUOTE>
+<P>
+	extbfProof (By induction).
+<P>
+<b>Base Case</b>
+There are two base cases:
+<P> <IMG WIDTH=500 HEIGHT=154 ALIGN=BOTTOM ALT="eqnarray2062" SRC="img493.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img493.gif"  ><P>
+<P>
+<b>Inductive Hypothesis</b>
+Suppose that Equation&nbsp;<A HREF="page73.html#eqnfibonacci" tppabs="http://www.brpreiss.com/books/opus4/html/page73.html#eqnfibonacci"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> holds
+for  <IMG WIDTH=115 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline60471" SRC="img487.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img487.gif"  > for some  <IMG WIDTH=36 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline59577" SRC="img356.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img356.gif"  >.
+First, we make the following observation:
+<P> <IMG WIDTH=500 HEIGHT=68 ALIGN=BOTTOM ALT="eqnarray2076" SRC="img494.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img494.gif"  ><P>
+Similarly,
+<P> <IMG WIDTH=500 HEIGHT=70 ALIGN=BOTTOM ALT="eqnarray2080" SRC="img495.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img495.gif"  ><P>
+<P>
+Now, we can show the main result:
+<P> <IMG WIDTH=500 HEIGHT=184 ALIGN=BOTTOM ALT="eqnarray2086" SRC="img496.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img496.gif"  ><P>
+<P>
+Hence, by induction, Equation&nbsp;<A HREF="page73.html#eqnfibonacci" tppabs="http://www.brpreiss.com/books/opus4/html/page73.html#eqnfibonacci"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+correctly gives  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline60413" SRC="img474.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img474.gif"  > for all  <IMG WIDTH=38 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59063" SRC="img241.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img241.gif"  >.
+<P>
+Theorem&nbsp;<A HREF="page73.html#theoremix" tppabs="http://www.brpreiss.com/books/opus4/html/page73.html#theoremix"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives us that
+ <IMG WIDTH=127 HEIGHT=31 ALIGN=MIDDLE ALT="tex2html_wrap_inline60495" SRC="img497.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img497.gif"  >
+where  <IMG WIDTH=106 HEIGHT=29 ALIGN=MIDDLE ALT="tex2html_wrap_inline60483" SRC="img491.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img491.gif"  >
+and  <IMG WIDTH=106 HEIGHT=31 ALIGN=MIDDLE ALT="tex2html_wrap_inline60485" SRC="img492.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img492.gif"  >.
+Consider  <IMG WIDTH=8 HEIGHT=30 ALIGN=MIDDLE ALT="tex2html_wrap_inline60501" SRC="img498.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img498.gif"  >.
+A couple of seconds with a calculator should suffice to convince you
+that  <IMG WIDTH=45 HEIGHT=31 ALIGN=MIDDLE ALT="tex2html_wrap_inline60503" SRC="img499.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img499.gif"  >.
+Consequently, as <I>n</I> gets large,  <IMG WIDTH=24 HEIGHT=31 ALIGN=MIDDLE ALT="tex2html_wrap_inline60507" SRC="img500.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img500.gif"  > is vanishingly small.
+Therefore,  <IMG WIDTH=84 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60509" SRC="img501.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img501.gif"  >.
+In asymptotic terms, we write  <IMG WIDTH=80 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60511" SRC="img502.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img502.gif"  >.
+Now, since  <IMG WIDTH=115 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60513" SRC="img503.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img503.gif"  >,
+we can write that  <IMG WIDTH=107 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60515" SRC="img504.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img504.gif"  >.
+<P>
+Returning to Program&nbsp;<A HREF="page73.html#progfibonacci2c" tppabs="http://www.brpreiss.com/books/opus4/html/page73.html#progfibonacci2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+recall that we have already shown that its running time is
+ <IMG WIDTH=113 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline60481" SRC="img489.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img489.gif"  >.
+And since  <IMG WIDTH=107 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60515" SRC="img504.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img504.gif"  >,
+we can write that  <IMG WIDTH=229 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline60521" SRC="img505.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img505.gif"  >.
+I.e., the running time of the recursive Fibonacci program
+grows <em>exponentially</em> with increasing <I>n</I>.
+And that is really bad in comparison with the linear
+running time of Program&nbsp;<A HREF="page73.html#progfibonacci1c" tppabs="http://www.brpreiss.com/books/opus4/html/page73.html#progfibonacci1c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>!
+<P>
+Figure&nbsp;<A HREF="page73.html#figfibonacci" tppabs="http://www.brpreiss.com/books/opus4/html/page73.html#figfibonacci"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> shows the actual running times
+of both the non-recursive and recursive algorithms
+for computing Fibonacci numbers.<A NAME="tex2html97" HREF="footnode.html#2133" tppabs="http://www.brpreiss.com/books/opus4/html/footnode.html#2133"><IMG  ALIGN=BOTTOM ALT="gif" SRC="foot_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/foot_motif.gif"></A>
+Because 32-bit unsigned integers are used,
+it is only possible to compute Fibonacci numbers up
+to  <IMG WIDTH=131 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline60525" SRC="img506.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img506.gif"  > before overflowing.
+<P>
+The graph shows that up to about <I>n</I>=35,
+the running times of the two algorithms are comparable.
+However, as <I>n</I> increases past 40,
+the exponential growth rate of Program&nbsp;<A HREF="page73.html#progfibonacci2c" tppabs="http://www.brpreiss.com/books/opus4/html/page73.html#progfibonacci2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+is clearly evident.
+In fact, the actual time taken by Program&nbsp;<A HREF="page73.html#progfibonacci2c" tppabs="http://www.brpreiss.com/books/opus4/html/page73.html#progfibonacci2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+to compute  <IMG WIDTH=22 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline60531" SRC="img507.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img507.gif"  > was in excess of one hour!
+<P>
+<P><A NAME="2421">&#160;</A><A NAME="figfibonacci">&#160;</A> <IMG WIDTH=575 HEIGHT=322 ALIGN=BOTTOM ALT="figure2138" SRC="img508.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img508.gif"  ><BR>
+<STRONG>Figure:</STRONG> Actual Running Times of     Programs&nbsp;<A HREF="page73.html#progfibonacci1c" tppabs="http://www.brpreiss.com/books/opus4/html/page73.html#progfibonacci1c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> and&nbsp;<A HREF="page73.html#progfibonacci2c" tppabs="http://www.brpreiss.com/books/opus4/html/page73.html#progfibonacci2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A><BR>
+<P><HR><A NAME="tex2html2801" HREF="page74.html" tppabs="http://www.brpreiss.com/books/opus4/html/page74.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2799" HREF="page70.html" tppabs="http://www.brpreiss.com/books/opus4/html/page70.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2793" HREF="page72.html" tppabs="http://www.brpreiss.com/books/opus4/html/page72.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2803" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2804" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

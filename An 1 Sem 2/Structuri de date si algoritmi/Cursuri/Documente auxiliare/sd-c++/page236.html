@@ -1,0 +1,53 @@
+<HTML>
+<HEAD>
+<TITLE>Average Case Analysis</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html4830" HREF="page237.html" tppabs="http://www.brpreiss.com/books/opus4/html/page237.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4828" HREF="page229.html" tppabs="http://www.brpreiss.com/books/opus4/html/page229.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4824" HREF="page235.html" tppabs="http://www.brpreiss.com/books/opus4/html/page235.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4832" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4833" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION009520000000000000000">Average Case Analysis</A></H2>
+<P>
+The previous section has shown that
+the worst-case running time to insert
+or to find an object into a chained scatter table is <I>O</I>(<I>M</I>).
+The average case analysis of chained scatter tables is complicated
+by the fact that lists coalesce.
+However, if we assume that chains never coalesce,
+then the chains which appear in a chained scatter table 
+for a given set of items
+are identical to those which appear in a separately chained hash table
+for the same set of items.
+<P>
+Unfortunately we cannot assume that lists do not coalesce--they do!
+We therefore expect that the average list will be longer than  <IMG WIDTH=8 HEIGHT=11 ALIGN=BOTTOM ALT="tex2html_wrap_inline62866" SRC="img985.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img985.gif"  >
+and that the running times are correspondingly slower.
+Knuth has shown that the average number of probes
+in an unsuccessful search is
+<P> <IMG WIDTH=347 HEIGHT=33 ALIGN=BOTTOM ALT="displaymath62958" SRC="img1012.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1012.gif"  ><P>
+and the average number of probes in a successful search is approximately
+<P> <IMG WIDTH=367 HEIGHT=34 ALIGN=BOTTOM ALT="displaymath62959" SRC="img1013.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1013.gif"  ><P>
+where  <IMG WIDTH=8 HEIGHT=11 ALIGN=BOTTOM ALT="tex2html_wrap_inline62866" SRC="img985.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img985.gif"  > is the load factor[<A HREF="page619.html#knuth3" tppabs="http://www.brpreiss.com/books/opus4/html/page619.html#knuth3">23</A>].
+The precise functional form of  <IMG WIDTH=32 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline62974" SRC="img1014.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1014.gif"  > and  <IMG WIDTH=30 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline62976" SRC="img1015.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1015.gif"  >
+is not so important here.
+What is important is that when  <IMG WIDTH=37 HEIGHT=11 ALIGN=BOTTOM ALT="tex2html_wrap_inline62978" SRC="img1016.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1016.gif"  >,
+i.e., when the table is full,
+ <IMG WIDTH=73 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline62980" SRC="img1017.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1017.gif"  > and  <IMG WIDTH=71 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline62982" SRC="img1018.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1018.gif"  >.
+Regardless of the size of the table,
+an unsuccessful search requires just over two probes on average,
+and a successful search requires just under two probes on average!
+<P>
+Consequently, the average running time for insertion is
+<P> <IMG WIDTH=406 HEIGHT=17 ALIGN=BOTTOM ALT="displaymath62960" SRC="img1019.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1019.gif"  ><P>
+since the insertion is always done in first empty position found.
+Similarly, the running time for an unsuccessful search is
+<P> <IMG WIDTH=401 HEIGHT=17 ALIGN=BOTTOM ALT="displaymath62961" SRC="img1020.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1020.gif"  ><P>
+and for a successful search its
+<P> <IMG WIDTH=400 HEIGHT=17 ALIGN=BOTTOM ALT="displaymath62962" SRC="img1021.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1021.gif"  ><P><HR><A NAME="tex2html4830" HREF="page237.html" tppabs="http://www.brpreiss.com/books/opus4/html/page237.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4828" HREF="page229.html" tppabs="http://www.brpreiss.com/books/opus4/html/page229.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4824" HREF="page235.html" tppabs="http://www.brpreiss.com/books/opus4/html/page235.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4832" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4833" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

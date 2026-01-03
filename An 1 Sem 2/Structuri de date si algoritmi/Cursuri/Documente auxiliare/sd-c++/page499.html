@@ -1,0 +1,81 @@
+<HTML>
+<HEAD>
+<TITLE>Average Running Time</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html8084" HREF="page500.html" tppabs="http://www.brpreiss.com/books/opus4/html/page500.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8082" HREF="page492.html" tppabs="http://www.brpreiss.com/books/opus4/html/page492.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8076" HREF="page498.html" tppabs="http://www.brpreiss.com/books/opus4/html/page498.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8086" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8087" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0016440000000000000000">Average Running Time</A></H2>
+<P>
+To determine the average running time for the quicksort algorithm,
+we shall assume that each element of the sequence has an equal chance
+of being selected for the pivot.
+Therefore, if <I>i</I> is the number of elements in a sequence of length <I>n</I>
+less than the pivot,
+then <I>i</I> is uniformly distributed in the interval [0,<I>n</I>-1].
+Consequently, the average value of  <IMG WIDTH=139 HEIGHT=32 ALIGN=MIDDLE ALT="tex2html_wrap_inline70219" SRC="img2168.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2168.gif"  >.
+Similarly, the average the value of
+ <IMG WIDTH=253 HEIGHT=32 ALIGN=MIDDLE ALT="tex2html_wrap_inline70221" SRC="img2169.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2169.gif"  >.
+To determine the average running time,
+we rewrite Equation&nbsp;<A HREF="page496.html#eqnsortingii" tppabs="http://www.brpreiss.com/books/opus4/html/page496.html#eqnsortingii"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> thus:
+<P><A NAME="eqnsortingiii">&#160;</A> <IMG WIDTH=506 HEIGHT=102 ALIGN=BOTTOM ALT="eqnarray37899" SRC="img2170.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2170.gif"  ><P>
+<P>
+To solve this recurrence we consider the case <I>n</I><I>&gt;</I>2
+and then multiply Equation&nbsp;<A HREF="page499.html#eqnsortingiii" tppabs="http://www.brpreiss.com/books/opus4/html/page499.html#eqnsortingiii"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> by <I>n</I> to get
+<P> <IMG WIDTH=500 HEIGHT=49 ALIGN=BOTTOM ALT="equation37919" SRC="img2171.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2171.gif"  ><P>
+Since this equation is valid for any <I>n</I><I>&gt;</I>2,
+by substituting <I>n</I>-1 for <I>n</I> we can also write
+<P><A NAME="eqnsortingiv">&#160;</A> <IMG WIDTH=500 HEIGHT=49 ALIGN=BOTTOM ALT="equation37923" SRC="img2172.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2172.gif"  ><P>
+which is valid for <I>n</I><I>&gt;</I>3.
+Subtracting Equation&nbsp;<A HREF="page499.html#eqnsortingiv" tppabs="http://www.brpreiss.com/books/opus4/html/page499.html#eqnsortingiv"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> from Equation&nbsp;<A HREF="page499.html#eqnsortingiii" tppabs="http://www.brpreiss.com/books/opus4/html/page499.html#eqnsortingiii"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives
+<P> <IMG WIDTH=413 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath70207" SRC="img2173.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2173.gif"  ><P>
+which can be rewritten as
+<P><A NAME="eqnsortingv">&#160;</A> <IMG WIDTH=500 HEIGHT=38 ALIGN=BOTTOM ALT="equation37930" SRC="img2174.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2174.gif"  ><P>
+<P>
+Equation&nbsp;<A HREF="page499.html#eqnsortingv" tppabs="http://www.brpreiss.com/books/opus4/html/page499.html#eqnsortingv"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> can be solved by telescoping like this:
+<P><A NAME="eqnsortingvii">&#160;</A><A NAME="eqnsortingvi">&#160;</A> <IMG WIDTH=508 HEIGHT=274 ALIGN=BOTTOM ALT="eqnarray37942" SRC="img2175.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2175.gif"  ><P>
+Adding together Equation&nbsp;<A HREF="page499.html#eqnsortingvi" tppabs="http://www.brpreiss.com/books/opus4/html/page499.html#eqnsortingvi"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> through Equation&nbsp;<A HREF="page499.html#eqnsortingvii" tppabs="http://www.brpreiss.com/books/opus4/html/page499.html#eqnsortingvii"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives
+<P> <IMG WIDTH=500 HEIGHT=143 ALIGN=BOTTOM ALT="eqnarray37988" SRC="img2176.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2176.gif"  ><P>
+where  <IMG WIDTH=38 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline70235" SRC="img2177.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2177.gif"  > is the  <IMG WIDTH=60 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline70237" SRC="img2178.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2178.gif"  >
+<em>harmonic number</em><A NAME=38016>&#160;</A>.
+Finally, multiplying through by <I>n</I>+1 gives
+<P> <IMG WIDTH=358 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath70208" SRC="img2179.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2179.gif"  ><P>
+<P>
+In Section&nbsp;<A HREF="page44.html#secmodelharmonic" tppabs="http://www.brpreiss.com/books/opus4/html/page44.html#secmodelharmonic"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> it is shown that
+ <IMG WIDTH=96 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline64680" SRC="img1268.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1268.gif"  >,
+where  <IMG WIDTH=93 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline64682" SRC="img1269.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1269.gif"  >
+is called <em>Euler's constant</em><A NAME=38020>&#160;</A>.
+Thus, we get that the average running time of quicksort is
+<P> <IMG WIDTH=500 HEIGHT=41 ALIGN=BOTTOM ALT="eqnarray38021" SRC="img2180.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2180.gif"  ><P>
+Table&nbsp;<A HREF="page499.html#tblsortingexchange" tppabs="http://www.brpreiss.com/books/opus4/html/page499.html#tblsortingexchange"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> summarizes the asymptotic running times
+for the quicksort routine and compares it to those of bubble sort.
+Notice that the best-case and average case running times
+for the quicksort algorithm have the same asymptotic bound!
+<P>
+<P><A NAME="38025">&#160;</A>
+<P>
+    <A NAME="tblsortingexchange">&#160;</A>
+    <DIV ALIGN=CENTER><P ALIGN=CENTER><TABLE COLS=4 BORDER FRAME=HSIDES RULES=GROUPS>
+<COL ALIGN=LEFT><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER>
+<TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP>
+	</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP COLSPAN=3> running time</TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP>
+<P>
+	algorithm </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> best case </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> average case </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> worst case </TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP>bubble sort </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=40 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59179" SRC="img261.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img261.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=40 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59179" SRC="img261.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img261.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=40 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59179" SRC="img261.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img261.gif"  > </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> 
+	quicksort (random pivot selection)
+	    </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=68 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59897" SRC="img405.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img405.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=68 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59897" SRC="img405.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img405.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=40 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59179" SRC="img261.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img261.gif"  > </TD></TR>
+</TBODY>
+<CAPTION ALIGN=BOTTOM><STRONG>Table:</STRONG> Running Times for Exchange Sorting</CAPTION></TABLE>
+</P></DIV><P><HR><A NAME="tex2html8084" HREF="page500.html" tppabs="http://www.brpreiss.com/books/opus4/html/page500.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8082" HREF="page492.html" tppabs="http://www.brpreiss.com/books/opus4/html/page492.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8076" HREF="page498.html" tppabs="http://www.brpreiss.com/books/opus4/html/page498.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8086" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8087" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

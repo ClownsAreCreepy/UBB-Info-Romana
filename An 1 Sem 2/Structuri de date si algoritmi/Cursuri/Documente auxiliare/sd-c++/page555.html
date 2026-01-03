@@ -1,0 +1,70 @@
+<HTML>
+<HEAD>
+<TITLE>Implementation</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html8775" HREF="page556.html" tppabs="http://www.brpreiss.com/books/opus4/html/page556.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8773" HREF="page554.html" tppabs="http://www.brpreiss.com/books/opus4/html/page554.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8767" HREF="page554.html" tppabs="http://www.brpreiss.com/books/opus4/html/page554.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8777" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8778" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0017321000000000000000">Implementation</A></H3>
+<P>
+Program&nbsp;<A HREF="page555.html#proggraph2c" tppabs="http://www.brpreiss.com/books/opus4/html/page555.html#proggraph2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives the code for the <tt>BreadthFirstTraversal</tt>
+routine of the <tt>Graph</tt> class.
+This routine takes a reference to a <tt>Visitor</tt> instance
+and a reference to a <tt>Vertex</tt> instance.
+The <tt>Visit</tt> function of the visitor
+is called once for each vertex in the graph
+and the vertices are visited in breadth-first traversal order
+starting from the specified vertex.
+<P>
+<P><A NAME="50592">&#160;</A><A NAME="proggraph2c">&#160;</A> <IMG WIDTH=575 HEIGHT=620 ALIGN=BOTTOM ALT="program50531" SRC="img2404.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2404.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>Graph</tt> Class <tt>BreadthFirstTraversal</tt> Member Function Definition<BR>
+<P>
+<P>
+An Boolean-valued array, <tt>enqueued</tt>,
+is used to keep track of the vertices that have been put into the queue.
+The elements of the array are all initialized to <tt>false</tt> (lines&nbsp;4-6).
+<P>
+Next, a new queue instance is allocated dynamically (line&nbsp;8).
+The queue is used to contain only vertices.
+Since the vertices are owned by the graph,
+they cannot also be owned by the queue.
+Therefore, the <tt>RescindOwnership</tt> function
+of the queue is called (line&nbsp;9).
+This way, when the queue destructor is called,
+it will not attempt to delete any of the its contained objects.
+<P>
+The second argument of the <tt>BreadthOrderTraversal</tt> function
+is a reference to a <tt>const</tt> vertex.
+Therefore, the routine must not modify the start vertex.
+However, we need to push the vertex onto the queue
+and since the <tt>Enqueue</tt> function
+takes a non-<tt>const</tt> <tt>Object</tt> reference,
+it is necessary to cast away the <tt>const</tt>ness using
+a <tt>constcast</tt> (line&nbsp;12).
+This is not an unsafe cast in this context,
+because the queue is a local variable
+of the <tt>BreadthOrderTraversal</tt> routine
+and because the routine does not modify anything
+which it later dequeues from the queue.
+<P>
+The main loop of the <tt>BreadthFirstTraversal</tt>
+routine comprises lines&nbsp;13-30.
+This loop continues as long as there is a vertex in the queue
+and the visitor is willing to do more work (line&nbsp;13).
+In each iteration exactly one vertex is dequeued and visited (lines&nbsp;15-17).
+After a vertex is visited,
+all the successors of that node are examined (lines&nbsp;18-21).
+Every successor of the node that has not yet been enqueued
+is put into the queue
+and the fact that it has been enqueued is recored in the array
+<tt>enqueued</tt> (lines&nbsp;22-26).
+<P>
+<HR><A NAME="tex2html8775" HREF="page556.html" tppabs="http://www.brpreiss.com/books/opus4/html/page556.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8773" HREF="page554.html" tppabs="http://www.brpreiss.com/books/opus4/html/page554.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8767" HREF="page554.html" tppabs="http://www.brpreiss.com/books/opus4/html/page554.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8777" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8778" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

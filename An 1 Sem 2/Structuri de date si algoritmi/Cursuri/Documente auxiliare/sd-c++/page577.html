@@ -1,0 +1,62 @@
+<HTML>
+<HEAD>
+<TITLE>Prim's Algorithm</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html9041" HREF="page578.html" tppabs="http://www.brpreiss.com/books/opus4/html/page578.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html9039" HREF="page574.html" tppabs="http://www.brpreiss.com/books/opus4/html/page574.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html9033" HREF="page576.html" tppabs="http://www.brpreiss.com/books/opus4/html/page576.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html9043" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html9044" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0017510000000000000000">Prim's Algorithm</A></H2>
+<P>
+<em>Prim's algorithm</em><A NAME=52977>&#160;</A>
+finds a minimum-cost spanning tree
+of an edge-weighted, connected, undirected graph  <IMG WIDTH=72 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71355" SRC="img2282.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2282.gif"  >.
+The algorithm constructs the minimum-cost spanning tree of a graph
+by selecting edges from the graph one-by-one
+and adding those edges to the spanning tree.
+<P>
+Prim's algorithm is essentially
+a minor variation of <em>Dijkstra's algorithm</em>
+(see Section&nbsp;<A HREF="page566.html#secgraphsdijkstra" tppabs="http://www.brpreiss.com/books/opus4/html/page566.html#secgraphsdijkstra"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>).
+To construct the spanning tree,
+the algorithm constructs a sequence of spanning trees
+ <IMG WIDTH=120 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline72957" SRC="img2535.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2535.gif"  >,
+each of which is a subgraph of <I>G</I>.
+The algorithm begins with a tree that contains
+one selected vertex, say  <IMG WIDTH=45 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline72207" SRC="img2439.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2439.gif"  >.
+I.e.,  <IMG WIDTH=101 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline72963" SRC="img2536.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2536.gif"  >.
+<P>
+Given  <IMG WIDTH=86 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72965" SRC="img2537.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2537.gif"  >,
+we obtain the next tree in the sequence as follows.
+Consider the set of edges given by
+<P> <IMG WIDTH=345 HEIGHT=36 ALIGN=BOTTOM ALT="displaymath72951" SRC="img2538.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2538.gif"  ><P>
+The set  <IMG WIDTH=17 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline72967" SRC="img2539.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2539.gif"  > contains all the edges  <IMG WIDTH=39 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72969" SRC="img2540.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2540.gif"  >
+such that exactly one of <I>v</I> or <I>w</I> is in  <IMG WIDTH=13 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline72729" SRC="img2502.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2502.gif"  > (but not both).
+Select the edge  <IMG WIDTH=77 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72977" SRC="img2541.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2541.gif"  > with the smallest edge weight,
+<P> <IMG WIDTH=352 HEIGHT=26 ALIGN=BOTTOM ALT="displaymath72952" SRC="img2542.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2542.gif"  ><P>
+Then  <IMG WIDTH=135 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline72979" SRC="img2543.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2543.gif"  >,
+where  <IMG WIDTH=107 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline72981" SRC="img2544.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2544.gif"  >
+and  <IMG WIDTH=140 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline72983" SRC="img2545.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2545.gif"  >.
+After  <IMG WIDTH=44 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72855" SRC="img2524.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2524.gif"  > such steps we get  <IMG WIDTH=42 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline72987" SRC="img2546.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2546.gif"  >
+which is the minimum-cost spanning tree of <I>G</I>.
+<P>
+Figure&nbsp;<A HREF="page577.html#figgraph17" tppabs="http://www.brpreiss.com/books/opus4/html/page577.html#figgraph17"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> illustrates how Prim's algorithm determines
+the minimum-cost spanning tree of the graph  <IMG WIDTH=24 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline72943" SRC="img2532.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2532.gif"  > shown in Figure&nbsp;<A HREF="page576.html#figgraph16" tppabs="http://www.brpreiss.com/books/opus4/html/page576.html#figgraph16"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+The circled vertices are the elements of  <IMG WIDTH=13 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline72729" SRC="img2502.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2502.gif"  >,
+the solid edges represent the elements of  <IMG WIDTH=12 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline72995" SRC="img2547.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2547.gif"  >
+and the dashed edges represent the elements of  <IMG WIDTH=17 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline72967" SRC="img2539.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2539.gif"  >.
+<P>
+<P><A NAME="53680">&#160;</A><A NAME="figgraph17">&#160;</A> <IMG WIDTH=575 HEIGHT=384 ALIGN=BOTTOM ALT="figure52993" SRC="img2548.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2548.gif"  ><BR>
+<STRONG>Figure:</STRONG> Operation of Prim's Algorithm<BR>
+<P><BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html9045" HREF="page578.html#SECTION0017511000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page578.html#SECTION0017511000000000000000">Implementation</A>
+</UL>
+<HR><A NAME="tex2html9041" HREF="page578.html" tppabs="http://www.brpreiss.com/books/opus4/html/page578.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html9039" HREF="page574.html" tppabs="http://www.brpreiss.com/books/opus4/html/page574.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html9033" HREF="page576.html" tppabs="http://www.brpreiss.com/books/opus4/html/page576.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html9043" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html9044" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,52 @@
+<HTML>
+<HEAD>
+<TITLE>Inserting and Removing Items</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html4711" HREF="page227.html" tppabs="http://www.brpreiss.com/books/opus4/html/page227.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4709" HREF="page223.html" tppabs="http://www.brpreiss.com/books/opus4/html/page223.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4703" HREF="page225.html" tppabs="http://www.brpreiss.com/books/opus4/html/page225.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4713" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4714" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION009413000000000000000">Inserting and Removing Items</A></H3>
+<P>
+Program&nbsp;<A HREF="page226.html#proghashtbl3c" tppabs="http://www.brpreiss.com/books/opus4/html/page226.html#proghashtbl3c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives the code for
+inserting and removing items from a <tt>ChainedHashTable</tt>.
+<P>
+<P><A NAME="12077">&#160;</A><A NAME="proghashtbl3c">&#160;</A> <IMG WIDTH=575 HEIGHT=219 ALIGN=BOTTOM ALT="program11952" SRC="img978.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img978.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>ChainedHashTable</tt> Class 	<tt>Insert</tt> and <tt>Withdraw</tt> Member Function Definitions<BR>
+<P>
+<P>
+The implementations of the <tt>Insert</tt>
+and <tt>Withdraw</tt> functions are remarkably simple.
+For example,
+the <tt>Insert</tt> function first calls the hash function <tt>H</tt>
+to compute an array index which is used to select one of the linked lists.
+The <tt>Append</tt> member function provided by the <tt>LinkedList&lt;T&gt;</tt> class
+is used to add a pointer to the object to the selected linked list.
+The total running time for the <tt>Insert</tt> operation is  <IMG WIDTH=130 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline62834" SRC="img979.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img979.gif"  >,
+where  <IMG WIDTH=77 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline62836" SRC="img980.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img980.gif"  > is the running time of the <tt>Object::Hash</tt> function.
+Notice that if the hash function runs in constant time,
+then so too does hash table insertion operation!
+<P>
+The <tt>Withdraw</tt> function is almost identical to the <tt>Insert</tt> function.
+Instead of calling the <tt>Append</tt>,
+it calls the linked list <tt>Extract</tt> function to remove the
+specified object from the appropriate linked list.
+The running time of <tt>Withdraw</tt> is determined by the time
+of the <tt>Extract</tt> operation.
+In Chapter&nbsp;<A HREF="page79.html#chapfds" tppabs="http://www.brpreiss.com/books/opus4/html/page79.html#chapfds"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> this was shown to be <I>O</I>(<I>n</I>)
+where <I>n</I> is the number of items in the linked list.
+In the worst case, all of the items in the <tt>ChainedHashTable</tt>
+have collided with each other and ended up in the same list.
+I.e., in the worst case if there are <I>n</I> items in the container,
+all <I>n</I> of them are in a single linked list.
+In this case, the running time of the <tt>Withdraw</tt> operation
+is  <IMG WIDTH=132 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline62846" SRC="img981.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img981.gif"  >.
+<P>
+<HR><A NAME="tex2html4711" HREF="page227.html" tppabs="http://www.brpreiss.com/books/opus4/html/page227.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4709" HREF="page223.html" tppabs="http://www.brpreiss.com/books/opus4/html/page223.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4703" HREF="page225.html" tppabs="http://www.brpreiss.com/books/opus4/html/page225.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4713" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4714" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

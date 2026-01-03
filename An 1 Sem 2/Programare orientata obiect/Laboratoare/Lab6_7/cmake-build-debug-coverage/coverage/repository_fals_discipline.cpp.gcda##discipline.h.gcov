@@ -1,0 +1,165 @@
+        -:    0:Source:D:/C,C++/CLion 2024.3.4/Projects/Lab6_7/Domain/discipline.h
+        -:    0:Graph:D:\C,C++\CLion 2024.3.4\Projects\Lab6_7\cmake-build-debug-coverage\CMakeFiles\Lab6_7.dir\Repo\repository_fals_discipline.cpp.gcno
+        -:    0:Data:D:\C,C++\CLion 2024.3.4\Projects\Lab6_7\cmake-build-debug-coverage\CMakeFiles\Lab6_7.dir\Repo\repository_fals_discipline.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#pragma once
+        -:    2:#include <string>
+        -:    3:#include <utility>
+        -:    4:#include <iostream>
+        -:    5:
+        -:    6:using std::ostream;
+        -:    7:using std::string;
+        -:    8:using std::move;
+        -:    9:
+        -:   10:
+        -:   11:/**
+        -:   12: * Clasa de discipline
+        -:   13: * Reprezinta o disciplina cu un nume, nr de ore pe saptamana, tip si profesor principal
+        -:   14: */
+        -:   15:class Disciplina final {
+        -:   16:private:
+        -:   17:    string nume;
+        -:   18:    int ore = 0;
+        -:   19:    string tip;
+        -:   20:    string profesor;
+        -:   21:
+        -:   22:public:
+        -:   23:    /**
+        -:   24:     * Constructor implicit.
+        -:   25:     * Initializeaza valori goale/de baza
+        -:   26:     */
+function _ZN10DisciplinaC1Ev called 45 returned 100% blocks executed 100%
+       45:   27:    Disciplina() = default;
+       45:   27-block  0
+call    0 returned 45
+call    1 returned 45
+call    2 returned 45
+        -:   28:
+        -:   29:    /**
+        -:   30:     * Constructor default
+        -:   31:     * Initializeaza toate atributele explicit
+        -:   32:     * @param nume numele disciplinei
+        -:   33:     * @param ore numarul de ore pe saptamana
+        -:   34:     * @param tip tipul disciplinei
+        -:   35:     * @param prof numele profesorului principal al disciplinei
+        -:   36:     */
+        -:   37:    Disciplina(string nume, int ore, string tip, string prof) : nume{move(nume)}, ore{ore}, tip{move(tip)}, profesor{move(prof)} {
+        -:   38:    }
+        -:   39:
+        -:   40:    /**
+        -:   41:     * Constructor de copiere
+        -:   42:     * Creeaza o copie a disciplinei ot
+        -:   43:     * @param ot alta disciplina
+        -:   44:     */
+function _ZN10DisciplinaC1ERKS_ called 0 returned 0% blocks executed 0%
+    #####:   45:    Disciplina(const Disciplina &ot) = default;
+    %%%%%:   45-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed (fallthrough)
+branch  3 never executed (throw)
+    %%%%%:   45-block  1
+call    4 never executed
+branch  5 never executed (fallthrough)
+branch  6 never executed (throw)
+    %%%%%:   45-block  2
+    $$$$$:   45-block  3
+call    7 never executed
+    $$$$$:   45-block  4
+call    8 never executed
+        -:   46:
+        -:   47:    /**
+        -:   48:     * Operatie de copiere
+        -:   49:     * Facuta pentru copiere protejata
+        -:   50:     * @param ot alta disciplina
+        -:   51:     */
+function _ZN10DisciplinaaSERKS_ called 0 returned 0% blocks executed 0%
+    #####:   52:    Disciplina &operator=(const Disciplina &ot) = default;
+    %%%%%:   52-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+        -:   53:
+        -:   54:    /**
+        -:   55:     * Constructor de alocare
+        -:   56:     * Permite transfer de resurse eficient
+        -:   57:     * @param ot alta disciplina
+        -:   58:     */
+function _ZN10DisciplinaC1EOS_ called 0 returned 0% blocks executed 0%
+    #####:   59:    Disciplina(Disciplina &&ot) noexcept = default;
+    %%%%%:   59-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+        -:   60:
+        -:   61:    /**
+        -:   62:     * I like to move it move it
+        -:   63:     */
+        -:   64:    Disciplina &operator=(Disciplina &&) noexcept = default;
+        -:   65:
+        -:   66:    /**
+        -:   67:     * Operatorul verifica daca doua discipline sunt identice
+        -:   68:     * @param ot alta disciplina
+        -:   69:     * @return true daca disciplina actuala si disciplina ot au acelasi nume, ore pe saptamana, tip si profesor
+        -:   70:     *         false, in caz contrar
+        -:   71:     */
+function _ZNK10DisciplinaeqERKS_ called 0 returned 0% blocks executed 0%
+    #####:   72:    bool operator==(const Disciplina &ot) const {
+    #####:   73:        return nume == ot.getNume() && ore == ot.getOre() && tip == ot.getTip() && profesor == ot.getProfesor();
+    %%%%%:   73-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed (fallthrough)
+branch  3 never executed
+    %%%%%:   73-block  1
+call    4 never executed
+branch  5 never executed (fallthrough)
+branch  6 never executed
+    %%%%%:   73-block  2
+call    7 never executed
+call    8 never executed
+branch  9 never executed (fallthrough)
+branch 10 never executed
+    %%%%%:   73-block  3
+call   11 never executed
+call   12 never executed
+branch 13 never executed (fallthrough)
+branch 14 never executed
+    %%%%%:   73-block  4
+    %%%%%:   73-block  5
+    %%%%%:   73-block  6
+        -:   74:    }
+        -:   75:
+        -:   76:
+        -:   77:    /**
+        -:   78:     * Operatia tipareste o instanta a disciplinei d
+        -:   79:     * @param os instructiune de output
+        -:   80:     * @param d o disciplina
+        -:   81:     */
+        -:   82:    friend ostream &operator<<(ostream &os, const Disciplina &d);
+        -:   83:
+        -:   84:
+        -:   85:    /**
+        -:   86:     * Functia returneaza numele disciplinei
+        -:   87:     * @return numele disciplinei
+        -:   88:     */
+        -:   89:    [[nodiscard]] const string &getNume() const noexcept;
+        -:   90:
+        -:   91:    /**
+        -:   92:    * Functia returneaza numarul de ore a disciplinei
+        -:   93:    * @return numarul de ore pe saptamana
+        -:   94:    */
+        -:   95:    [[nodiscard]] int getOre() const noexcept;
+        -:   96:
+        -:   97:    /**
+        -:   98:     * Functia returneaza tipul disciplinei
+        -:   99:     * @return tipul disciplinei
+        -:  100:     */
+        -:  101:    [[nodiscard]] const string &getTip() const noexcept;
+        -:  102:
+        -:  103:    /**
+        -:  104:     * Functia returneaza profesorul principal al disciplinei
+        -:  105:     * @return profesorul principal al disciplinei
+        -:  106:     */
+        -:  107:    [[nodiscard]] const string &getProfesor() const noexcept;
+        -:  108:};

@@ -1,0 +1,106 @@
+<HTML>
+<HEAD>
+<TITLE>Example-Prefix Sums</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html2789" HREF="page73.html" tppabs="http://www.brpreiss.com/books/opus4/html/page73.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2787" HREF="page70.html" tppabs="http://www.brpreiss.com/books/opus4/html/page70.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2781" HREF="page71.html" tppabs="http://www.brpreiss.com/books/opus4/html/page71.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2791" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2792" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION004420000000000000000">Example-Prefix Sums</A></H2>
+<P>
+In this section, we will determine a tight big-oh bound
+on the running time of a program to compute the series of sums
+ <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline60349" SRC="img461.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img461.gif"  >,  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline60305" SRC="img449.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img449.gif"  >, ...,  <IMG WIDTH=33 HEIGHT=21 ALIGN=MIDDLE ALT="tex2html_wrap_inline58691" SRC="img151.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img151.gif"  >, where
+<P> <IMG WIDTH=289 HEIGHT=47 ALIGN=BOTTOM ALT="displaymath60347" SRC="img462.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img462.gif"  ><P>
+An algorithm to compute this series of summations
+is given in Program&nbsp;<A HREF="page72.html#progprefixsumsc" tppabs="http://www.brpreiss.com/books/opus4/html/page72.html#progprefixsumsc"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+Table&nbsp;<A HREF="page72.html#tblprefixsumsc" tppabs="http://www.brpreiss.com/books/opus4/html/page72.html#tblprefixsumsc"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> summarizes the running time calculation.
+<P>
+<P><A NAME="2165">&#160;</A><A NAME="progprefixsumsc">&#160;</A> <IMG WIDTH=575 HEIGHT=200 ALIGN=BOTTOM ALT="program1924" SRC="img465.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img465.gif"  ><BR>
+<STRONG>Program:</STRONG> Program to compute  <IMG WIDTH=52 HEIGHT=33 ALIGN=MIDDLE ALT="tex2html_wrap_inline60355" SRC="img463.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img463.gif"  > for  <IMG WIDTH=66 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60357" SRC="img464.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img464.gif"  ><BR>
+<P>
+<P>
+<P><A NAME="2167">&#160;</A>
+<P>
+    <A NAME="tblprefixsumsc">&#160;</A>
+    <DIV ALIGN=CENTER><P ALIGN=CENTER><TABLE COLS=2 BORDER FRAME=HSIDES RULES=GROUPS>
+<COL ALIGN=CENTER><COL ALIGN=LEFT>
+<TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+	    statement </TD><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> time </TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>3a </TD><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> <I>O</I>(1) </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	    3b </TD><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP>  <IMG WIDTH=156 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60361" SRC="img466.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img466.gif"  > </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	    3c </TD><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP>  <IMG WIDTH=156 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60361" SRC="img466.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img466.gif"  > </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	    5 </TD><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP>   <IMG WIDTH=156 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60361" SRC="img466.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img466.gif"  > </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	    6a </TD><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP>  <IMG WIDTH=156 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60361" SRC="img466.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img466.gif"  > </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	    6b </TD><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP>  <IMG WIDTH=164 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline60369" SRC="img467.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img467.gif"  > </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	    6c </TD><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP>  <IMG WIDTH=164 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline60369" SRC="img467.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img467.gif"  > </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	    7 </TD><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP>   <IMG WIDTH=164 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline60369" SRC="img467.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img467.gif"  > </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	    8 </TD><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP>   <IMG WIDTH=156 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60361" SRC="img466.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img466.gif"  > </TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>TOTAL </TD><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP>  <IMG WIDTH=40 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59179" SRC="img261.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img261.gif"  > </TD></TR>
+</TBODY>
+<CAPTION ALIGN=BOTTOM><STRONG>Table:</STRONG> Computing the running time
+	of Program&nbsp;<A HREF="page72.html#progprefixsumsc" tppabs="http://www.brpreiss.com/books/opus4/html/page72.html#progprefixsumsc"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A></CAPTION></TABLE>
+</P></DIV><P>
+<P>
+Usually the easiest way to analyze program which contains nested loops
+is to start with the body of the inner-most loop.
+In Program&nbsp;<A HREF="page72.html#progprefixsumsc" tppabs="http://www.brpreiss.com/books/opus4/html/page72.html#progprefixsumsc"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+the inner-most loop comprises lines&nbsp;6 and&nbsp;7.
+In all, a constant amount of work is done--this includes the loop body (line&nbsp;7),
+the conditional test (line&nbsp;6b) and
+the incrementing of the loop index (line&nbsp;6c).
+<P>
+For a given value of <I>j</I>,
+the inner-most loop is done a total <I>j</I>+1 times.
+And since the outer loop is done for  <IMG WIDTH=155 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline60383" SRC="img468.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img468.gif"  >,
+in the worst case, the inner-most loop is done <I>n</I> times.
+Therefore, the contribution of the inner loop to the running
+time of one iteration of the outer loop is <I>O</I>(<I>n</I>).
+<P>
+The rest of the outer loop (lines&nbsp;3, 5 and&nbsp;8)
+does a constant amount of work in each iteration.
+This constant work is dominated by the <I>O</I>(<I>n</I>) of the inner loop.
+The outer loop is does exactly <I>n</I> iterations.
+Therefore, the total running time of the program is  <IMG WIDTH=40 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59179" SRC="img261.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img261.gif"  >.
+<P>
+But is this a tight big oh bound?
+We might suspect that it is not,
+because of the worst-case assumption we made
+in the analysis concerning the number of times the inner loop is executed.
+The inner-most loop is done exactly <I>j</I>+1 times
+for  <IMG WIDTH=155 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline60383" SRC="img468.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img468.gif"  >.
+However, we did the calculation assuming the inner loop is done <I>O</I>(<I>n</I>) times,
+in each iteration of the outer loop.
+Unfortunately, in order to determine whether our answer is a tight bound,
+we must determine more precisely the actual running time of the program.
+<P>
+However, there is one approximate calculation that we can easily make.
+If we observe that the running time will be dominated by the
+work done in the inner-most loop,
+and that the work done in one iteration of the inner-most loop is constant,
+then all we need to do is to determine exactly the number of times
+the inner loop is actually executed.
+This is given by:
+<P> <IMG WIDTH=500 HEIGHT=113 ALIGN=BOTTOM ALT="eqnarray1950" SRC="img469.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img469.gif"  ><P>
+Therefore, the result  <IMG WIDTH=95 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline60401" SRC="img470.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img470.gif"  > is a tight, big-oh bound
+on the running time of Program&nbsp;<A HREF="page72.html#progprefixsumsc" tppabs="http://www.brpreiss.com/books/opus4/html/page72.html#progprefixsumsc"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+<P>
+<HR><A NAME="tex2html2789" HREF="page73.html" tppabs="http://www.brpreiss.com/books/opus4/html/page73.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2787" HREF="page70.html" tppabs="http://www.brpreiss.com/books/opus4/html/page70.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2781" HREF="page71.html" tppabs="http://www.brpreiss.com/books/opus4/html/page71.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2791" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2792" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

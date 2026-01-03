@@ -1,0 +1,43 @@
+<HTML>
+<HEAD>
+<TITLE>The Heap</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html7113" HREF="page421.html" tppabs="http://www.brpreiss.com/books/opus4/html/page421.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7111" HREF="page417.html" tppabs="http://www.brpreiss.com/books/opus4/html/page417.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7107" HREF="page419.html" tppabs="http://www.brpreiss.com/books/opus4/html/page419.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7115" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7116" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0014120000000000000000">The Heap</A></H2>
+<P>
+A storage pool in which regions of memory are dynamically allocated is
+often called <em>a heap</em><A NAME=30451>&#160;</A>.
+For example, in C++ the space for a variable
+is allocated essentially in one of three possible places:
+Global variables are allocated in the space of
+<em>initialized static variables</em><A NAME=30453>&#160;</A>;
+the local variables of a procedure are allocated
+in the procedure's <em>activation record</em><A NAME=30455>&#160;</A>,
+which is typically found in the <em>processor stack</em><A NAME=30457>&#160;</A>;
+and dynamically allocated variables are allocated in
+<em>the heap</em>.
+In this context the term <em>heap</em> is taken to mean the
+storage pool for dynamically allocated variables.
+<P>
+In Chapter&nbsp;<A HREF="page352.html#chappqueues" tppabs="http://www.brpreiss.com/books/opus4/html/page352.html#chappqueues"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> we consider <em>heaps</em> and <em>heap-ordered trees</em>
+in the context of priority queue implementations.
+Unfortunately, the only thing that the heaps of Chapter&nbsp;<A HREF="page352.html#chappqueues" tppabs="http://www.brpreiss.com/books/opus4/html/page352.html#chappqueues"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+and the heap considered here have in common is the name.
+While it may be possible to use a heap
+(in the sense of Definition&nbsp;<A HREF="page353.html#defnheap" tppabs="http://www.brpreiss.com/books/opus4/html/page353.html#defnheap"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>)
+to manage a dynamic storage pool,
+typical implementations do not.
+In this context the technical meaning of the term <em>heap</em>
+is closer to its dictionary definition--``a pile of many things.''[<A HREF="page619.html#gage" tppabs="http://www.brpreiss.com/books/opus4/html/page619.html#gage">9</A>]
+<P>
+<HR><A NAME="tex2html7113" HREF="page421.html" tppabs="http://www.brpreiss.com/books/opus4/html/page421.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7111" HREF="page417.html" tppabs="http://www.brpreiss.com/books/opus4/html/page417.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7107" HREF="page419.html" tppabs="http://www.brpreiss.com/books/opus4/html/page419.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7115" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7116" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

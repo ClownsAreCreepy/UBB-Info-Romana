@@ -1,0 +1,66 @@
+<HTML>
+<HEAD>
+<TITLE>Branch-and-Bound Solvers</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html7506" HREF="page453.html" tppabs="http://www.brpreiss.com/books/opus4/html/page453.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7504" HREF="page446.html" tppabs="http://www.brpreiss.com/books/opus4/html/page446.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7498" HREF="page451.html" tppabs="http://www.brpreiss.com/books/opus4/html/page451.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7508" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7509" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0015240000000000000000">Branch-and-Bound Solvers</A></H2>
+<A NAME="secalgsbandb">&#160;</A>
+<P>
+The depth-first and breadth-first backtracking algorithms
+described in the preceding sections both
+na&#305;vely traverse the entire solution space.
+However, sometimes we can determine that a given node
+in the solution space does not lead to the optimal solution--either because the given solution and all its successors are infeasible
+or because we have already found a solution that is guaranteed to be
+better than any successor of the given solution.
+In such cases,
+the given node and its successors need not be considered.
+In effect,
+we can <em>prune</em><A NAME=32779>&#160;</A> the solution tree,
+thereby reducing the number of solutions to be considered.
+<P>
+For example, consider the scales balancing problem
+described in Section&nbsp;<A HREF="page447.html#secalgsscales" tppabs="http://www.brpreiss.com/books/opus4/html/page447.html#secalgsscales"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+Consider a partial solution  <IMG WIDTH=16 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline68607" SRC="img1843.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1843.gif"  > in which
+we have placed <I>k</I> weights onto the pans ( <IMG WIDTH=67 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline68611" SRC="img1844.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1844.gif"  >) and,
+therefore, <I>n</I>-<I>k</I> weights remain to be placed.
+The difference between the weights of the left and right pans is given by
+<P> <IMG WIDTH=352 HEIGHT=47 ALIGN=BOTTOM ALT="displaymath68603" SRC="img1845.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1845.gif"  ><P>
+and the sum of the weights still to be placed is
+<P> <IMG WIDTH=294 HEIGHT=45 ALIGN=BOTTOM ALT="displaymath68604" SRC="img1846.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1846.gif"  ><P>
+<P>
+Suppose that  <IMG WIDTH=43 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline68615" SRC="img1847.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1847.gif"  >.
+I.e., the total weight remaining is less than the difference between
+the weights in the two pans.
+Then, the best possible solution that we can obtain
+without changing the positions of the weights that have already been placed is
+ <IMG WIDTH=75 HEIGHT=32 ALIGN=MIDDLE ALT="tex2html_wrap_inline68617" SRC="img1848.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1848.gif"  >
+The quantity  <IMG WIDTH=10 HEIGHT=16 ALIGN=BOTTOM ALT="tex2html_wrap_inline68619" SRC="img1849.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1849.gif"  > is a <em>lower bound</em>
+on the value of the objective function for all the solutions
+in the solution tree below the given partial solution  <IMG WIDTH=16 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline68607" SRC="img1843.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1843.gif"  >.
+<P>
+In general, during the traversal of the solution space we may
+have already found a complete, feasible solution for which
+the objective function is <em>less</em> than  <IMG WIDTH=10 HEIGHT=16 ALIGN=BOTTOM ALT="tex2html_wrap_inline68619" SRC="img1849.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1849.gif"  >.
+In that case,
+there is no point in considering any of the solutions below  <IMG WIDTH=16 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline68607" SRC="img1843.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1843.gif"  >.
+I.e., we can <em>prune</em> the subtree rooted at node  <IMG WIDTH=16 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline68607" SRC="img1843.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1843.gif"  >
+from the solution tree.
+A backtracking algorithm that prunes the search space in this manner
+is called a <em>branch-and-bound</em><A NAME=32794>&#160;</A> algorithm.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html7510" HREF="page453.html#SECTION0015241000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page453.html#SECTION0015241000000000000000">Depth-First, Branch-and-Bound Solver</A>
+</UL>
+<HR><A NAME="tex2html7506" HREF="page453.html" tppabs="http://www.brpreiss.com/books/opus4/html/page453.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7504" HREF="page446.html" tppabs="http://www.brpreiss.com/books/opus4/html/page446.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7498" HREF="page451.html" tppabs="http://www.brpreiss.com/books/opus4/html/page451.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7508" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7509" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

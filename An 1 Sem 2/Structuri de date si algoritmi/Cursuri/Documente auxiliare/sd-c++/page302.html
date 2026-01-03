@@ -1,0 +1,51 @@
+<HTML>
+<HEAD>
+<TITLE>Binary Search Trees</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html5661" HREF="page303.html" tppabs="http://www.brpreiss.com/books/opus4/html/page303.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5659" HREF="page300.html" tppabs="http://www.brpreiss.com/books/opus4/html/page300.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5655" HREF="page301.html" tppabs="http://www.brpreiss.com/books/opus4/html/page301.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5663" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5664" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0011120000000000000000">Binary Search Trees</A></H2>
+<P>
+Just as the binary tree is an important category of <I>N</I>-ary trees,
+the <em>binary search tree</em><A NAME=18752>&#160;</A>
+is an important category of <I>M</I>-way search trees.
+<P>
+<BLOCKQUOTE> <b>Definition (Binary Search Tree)</b><A NAME="defnbst">&#160;</A>
+A <em>binary search tree</em><A NAME=18757>&#160;</A>
+<A NAME=18758>&#160;</A> <I>T</I> is a finite set of keys.
+Either the set is empty,  <IMG WIDTH=40 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline63628" SRC="img1112.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1112.gif"  >;
+or the set consists of a root <I>r</I>
+and exactly two binary search trees  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63784" SRC="img1133.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1133.gif"  > and  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63786" SRC="img1134.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1134.gif"  >,  <IMG WIDTH=107 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline63788" SRC="img1135.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1135.gif"  >,
+such that the following properties are satisfied:
+<OL><LI>
+	All the keys contained in left subtree,  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63784" SRC="img1133.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1133.gif"  >, are less than <I>r</I>,
+	i.e.,  <IMG WIDTH=107 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline64454" SRC="img1233.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1233.gif"  >.<LI>
+	All the keys contained in the right subtree,  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63786" SRC="img1134.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1134.gif"  >,
+	are greater than <I>r</I>,
+	i.e.,  <IMG WIDTH=107 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline64460" SRC="img1234.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1234.gif"  >.
+</OL></BLOCKQUOTE>
+<P>
+Figure&nbsp;<A HREF="page302.html#figtree12" tppabs="http://www.brpreiss.com/books/opus4/html/page302.html#figtree12"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> shows an example of a binary search tree.
+In this case, since the nodes of the tree carry alphabetic
+rather than numeric keys,
+the ordering of the keys is alphabetic.
+I.e., all the keys in the left subtree of a given node
+precede alphabetically the root of the that node,
+and all the keys in the right subtree of a given node
+follow alphabetically the root of that node.
+The empty trees are shown explicitly as boxes in Figure&nbsp;<A HREF="page302.html#figtree12" tppabs="http://www.brpreiss.com/books/opus4/html/page302.html#figtree12"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+However, in order to simplify the graphical representation,
+the empty trees are often omitted from the diagrams.
+<P>
+<P><A NAME="18867">&#160;</A><A NAME="figtree12">&#160;</A> <IMG WIDTH=575 HEIGHT=222 ALIGN=BOTTOM ALT="figure18764" SRC="img1235.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1235.gif"  ><BR>
+<STRONG>Figure:</STRONG> A Binary Search Tree<BR>
+<P><HR><A NAME="tex2html5661" HREF="page303.html" tppabs="http://www.brpreiss.com/books/opus4/html/page303.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5659" HREF="page300.html" tppabs="http://www.brpreiss.com/books/opus4/html/page300.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5655" HREF="page301.html" tppabs="http://www.brpreiss.com/books/opus4/html/page301.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5663" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5664" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

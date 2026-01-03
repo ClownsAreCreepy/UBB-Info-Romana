@@ -1,0 +1,67 @@
+<HTML>
+<HEAD>
+<TITLE>Tight Big Oh Bounds</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html2677" HREF="page64.html" tppabs="http://www.brpreiss.com/books/opus4/html/page64.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2675" HREF="page57.html" tppabs="http://www.brpreiss.com/books/opus4/html/page57.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2669" HREF="page62.html" tppabs="http://www.brpreiss.com/books/opus4/html/page62.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2679" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2680" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION004160000000000000000">Tight Big Oh Bounds</A></H2>
+<P>
+Big oh notation characterizes the asymptotic behavior of a function
+by providing an upper bound on the rate at which the function grows
+as <I>n</I> gets large.
+Unfortunately, the notation does not tell us how close
+the actual behavior of the function is to the bound.
+I.e., the bound might be very close (tight)
+or it might be overly conservative (loose).
+<P>
+The following definition tells us what makes a bound tight,
+and how we can test to see whether a given asymptotic bound
+is the best one available.
+<P>
+<BLOCKQUOTE> <b>Definition (Tightness)</b><A NAME=1584>&#160;</A><A NAME="defntightness">&#160;</A>
+    Consider a function <I>f</I>(<I>n</I>)=<I>O</I>(<I>g</I>(<I>n</I>)).
+    If for every function <I>h</I>(<I>n</I>) such that <I>f</I>(<I>n</I>)=<I>O</I>(<I>h</I>(<I>n</I>))
+    it is also true that <I>g</I>(<I>n</I>)=<I>O</I>(<I>h</I>(<I>n</I>)),
+    then we say that <I>g</I>(<I>n</I>) is a
+    <em>tight asymptotic bound</em><A NAME=1587>&#160;</A>
+    on <I>f</I>(<I>n</I>).
+</BLOCKQUOTE>
+<P>
+For example, consider the function <I>f</I>(<I>n</I>)=8<I>n</I>+128.
+In Section&nbsp;<A HREF="page58.html#secasymptoticexample" tppabs="http://www.brpreiss.com/books/opus4/html/page58.html#secasymptoticexample"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+it was shown that  <IMG WIDTH=92 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59085" SRC="img244.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img244.gif"  >.
+However, since <I>f</I>(<I>n</I>) is a polynomial in <I>n</I>,
+Theorem&nbsp;<A HREF="page61.html#theoremvi" tppabs="http://www.brpreiss.com/books/opus4/html/page61.html#theoremvi"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> tells us that <I>f</I>(<I>n</I>)=<I>O</I>(<I>n</I>).
+Clearly <I>O</I>(<I>n</I>) is a tighter bound on the asymptotic behavior of <I>f</I>(<I>n</I>)
+than is  <IMG WIDTH=40 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59179" SRC="img261.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img261.gif"  >.
+<P>
+By Definition&nbsp;<A HREF="page63.html#defntightness" tppabs="http://www.brpreiss.com/books/opus4/html/page63.html#defntightness"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+in order to show that <I>g</I>(<I>n</I>)=<I>n</I> is a tight bound on <I>f</I>(<I>n</I>),
+we need to show that for every function <I>h</I>(<I>n</I>)
+such that <I>f</I>(<I>n</I>)=<I>O</I>(<I>h</I>(<I>n</I>)), it is also true that <I>g</I>(<I>n</I>)=<I>O</I>(<I>h</I>(<I>n</I>)).
+<P>
+We will show this result using proof by contradiction:
+Assume that <I>g</I>(<I>n</I>) is <em>not</em> a tight bound for <I>f</I>(<I>n</I>)=8<I>n</I>+128.
+Then there exists a function <I>h</I>(<I>n</I>)
+such that <I>f</I>(<I>n</I>)=8<I>n</I>+128=<I>O</I>(<I>h</I>(<I>n</I>)),
+but for which  <IMG WIDTH=107 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59667" SRC="img369.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img369.gif"  >.
+Since 8<I>n</I>+128=<I>O</I>(<I>h</I>(<I>n</I>)), by the definition of big oh there exist
+positive constants <I>c</I> and  <IMG WIDTH=16 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline59043" SRC="img238.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img238.gif"  > such that
+ <IMG WIDTH=188 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59675" SRC="img370.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img370.gif"  >.
+<P>
+Clearly, for all  <IMG WIDTH=38 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59063" SRC="img241.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img241.gif"  >,  <IMG WIDTH=91 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59679" SRC="img371.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img371.gif"  >.
+Therefore,  <IMG WIDTH=88 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59681" SRC="img372.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img372.gif"  >.
+But then, by the definition of big oh,
+we have the <I>g</I>(<I>n</I>)=<I>O</I>(<I>h</I>(<I>n</I>))--a contradiction!
+Therefore, the bound <I>f</I>(<I>n</I>)=<I>O</I>(<I>n</I>) is a tight bound.
+<P>
+<HR><A NAME="tex2html2677" HREF="page64.html" tppabs="http://www.brpreiss.com/books/opus4/html/page64.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2675" HREF="page57.html" tppabs="http://www.brpreiss.com/books/opus4/html/page57.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2669" HREF="page62.html" tppabs="http://www.brpreiss.com/books/opus4/html/page62.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2679" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2680" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

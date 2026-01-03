@@ -1,0 +1,24 @@
+# ninja log v6
+1718	5063	7694697091954412	CMakeFiles/Rochii.dir/Rochii_autogen/mocs_compilation.cpp.obj	8bc21d5a579d7a27
+28	161	7694707371960850	Rochii_autogen/timestamp	7505900ed31a9fc2
+28	161	7694707371960850	Rochii_autogen/mocs_compilation.cpp	7505900ed31a9fc2
+28	161	7694707371960850	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/Rochii/cmake-build-debug/Rochii_autogen/mocs_compilation.cpp	7505900ed31a9fc2
+28	161	7694707371960850	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/Rochii/cmake-build-debug/Rochii_autogen/timestamp	7505900ed31a9fc2
+1720	5044	7694697091983569	CMakeFiles/Rochii.dir/main.cpp.obj	a58aa3a4449a4b4e
+3040	3403	7694707402072469	Rochii.exe	d43cf3cd16781230
+1757	2750	7694692310127254	CMakeFiles/Rochii.dir/Service/Service.cpp.obj	a483931a1e602ebc
+142	765	7694699765168164	CMakeFiles/Rochii.dir/Repo/Repository.cpp.obj	57688396277a3b28
+139	713	7694701287767713	CMakeFiles/Rochii.dir/Tests/Teste.cpp.obj	90ec467ffe992c4e
+161	3039	7694707373298946	CMakeFiles/Rochii.dir/GUI/Window.cpp.obj	e7760e16d0eaeaa4
+26	143	7694707748246717	Rochii_autogen/timestamp	7505900ed31a9fc2
+26	143	7694707748246717	Rochii_autogen/mocs_compilation.cpp	7505900ed31a9fc2
+26	143	7694707748246717	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/Rochii/cmake-build-debug/Rochii_autogen/timestamp	7505900ed31a9fc2
+26	143	7694707748246717	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/Rochii/cmake-build-debug/Rochii_autogen/mocs_compilation.cpp	7505900ed31a9fc2
+143	2912	7694707749412166	CMakeFiles/Rochii.dir/GUI/Window.cpp.obj	e7760e16d0eaeaa4
+2912	3261	7694707777099079	Rochii.exe	d43cf3cd16781230
+8	148	7694723557951784	Rochii_autogen/timestamp	7505900ed31a9fc2
+8	148	7694723557951784	Rochii_autogen/mocs_compilation.cpp	7505900ed31a9fc2
+8	148	7694723557951784	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/Rochii/cmake-build-debug/Rochii_autogen/timestamp	7505900ed31a9fc2
+8	148	7694723557951784	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/Rochii/cmake-build-debug/Rochii_autogen/mocs_compilation.cpp	7505900ed31a9fc2
+148	750	7694723559353191	CMakeFiles/Rochii.dir/Tests/Teste.cpp.obj	90ec467ffe992c4e
+750	1120	7694723565374490	Rochii.exe	d43cf3cd16781230

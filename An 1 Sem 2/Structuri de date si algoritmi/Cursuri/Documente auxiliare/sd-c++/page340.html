@@ -1,0 +1,100 @@
+<HTML>
+<HEAD>
+<TITLE>B-Trees</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html6125" HREF="page341.html" tppabs="http://www.brpreiss.com/books/opus4/html/page341.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6123" HREF="page299.html" tppabs="http://www.brpreiss.com/books/opus4/html/page299.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6117" HREF="page339.html" tppabs="http://www.brpreiss.com/books/opus4/html/page339.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6127" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6128" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION0011700000000000000000">B-Trees</A></H1>
+<P>
+Just as AVL trees are balanced binary search trees,
+<em>B-trees</em><A NAME=21676>&#160;</A>
+are balanced <I>M</I>-way search trees.<A NAME="tex2html632" HREF="footnode.html#21731" tppabs="http://www.brpreiss.com/books/opus4/html/footnode.html#21731"><IMG  ALIGN=BOTTOM ALT="gif" SRC="foot_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/foot_motif.gif"></A>
+By imposing a <em>balance condition</em><A NAME=21682>&#160;</A>,
+the shape of an AVL tree is constrained in a way which guarantees that 
+the search, insertion, and withdrawal operations are all  <IMG WIDTH=56 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59891" SRC="img403.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img403.gif"  >,
+where <I>n</I> is the number of items in the tree.
+The shapes of B-Trees are constrained for the same reasons
+and with the same effect.
+<P>
+<BLOCKQUOTE> <b>Definition (B-Tree)</b><A NAME="defnbtree">&#160;</A>
+A <em>B-Tree of order <I>M</I></em><A NAME=21687>&#160;</A>
+is either the empty tree
+or it is an <I>M</I>-way search tree <I>T</I> with the following properties:
+<OL><LI> The root of <I>T</I> has at least two subtrees and at most <I>M</I> subtrees.<LI> All internal nodes of <I>T</I> (other than its root)
+	have between  <IMG WIDTH=43 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline65628" SRC="img1383.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1383.gif"  > and <I>M</I> subtrees.<LI> All external nodes of <I>T</I> are at the same level.
+</OL></BLOCKQUOTE>
+<P>
+A B-tree of order one is clearly impossible.
+Hence, B-trees of order <I>M</I> are really only defined for  <IMG WIDTH=44 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline65322" SRC="img1350.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1350.gif"  >.
+However, in practice we expect that <I>M</I> is large
+for the same reasons that motivate <I>M</I>-way search trees--large databases in secondary storage.
+<P>
+Figure&nbsp;<A HREF="page340.html#figbtree1" tppabs="http://www.brpreiss.com/books/opus4/html/page340.html#figbtree1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives an example of a B-tree of order <I>M</I>=3.
+By Definition&nbsp;<A HREF="page340.html#defnbtree" tppabs="http://www.brpreiss.com/books/opus4/html/page340.html#defnbtree"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+the root of a B-tree of order three has either two or three subtrees
+and the internal nodes also have either two or three subtrees.
+Furthermore, all the external nodes,
+which are shown as small boxes in Figure&nbsp;<A HREF="page340.html#figbtree1" tppabs="http://www.brpreiss.com/books/opus4/html/page340.html#figbtree1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+are at the same level.
+<P>
+<P><A NAME="21876">&#160;</A><A NAME="figbtree1">&#160;</A> <IMG WIDTH=575 HEIGHT=213 ALIGN=BOTTOM ALT="figure21694" SRC="img1384.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1384.gif"  ><BR>
+<STRONG>Figure:</STRONG> A B-Tree of Order 3<BR>
+<P>
+<P>
+It turns out that the balance conditions imposed by Definition&nbsp;<A HREF="page340.html#defnbtree" tppabs="http://www.brpreiss.com/books/opus4/html/page340.html#defnbtree"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+are good in the same sense as the AVL balance conditions.
+I.e., the balance condition guarantees that the height of B-trees
+is logarithmic in the number of keys in the tree
+and the time required for insertion and deletion operations 
+remains proportional to the height of the tree
+even when balancing is required.
+<P>
+<BLOCKQUOTE> <b>Theorem</b><A NAME="theoremsrchtreeiii">&#160;</A>
+The minimum number of keys
+in a B-tree of order  <IMG WIDTH=44 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline65322" SRC="img1350.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1350.gif"  > and height  <IMG WIDTH=36 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline63700" SRC="img1122.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1122.gif"  > is
+ <IMG WIDTH=129 HEIGHT=28 ALIGN=MIDDLE ALT="tex2html_wrap_inline65648" SRC="img1385.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1385.gif"  >.
+</BLOCKQUOTE>
+<P>
+	extbfProof
+Clearly, a B-tree of height zero contains at least one node.
+Consider a B-tree order <I>M</I> and height <I>h</I><I>&gt;</I>0.
+By Definition&nbsp;<A HREF="page340.html#defnbtree" tppabs="http://www.brpreiss.com/books/opus4/html/page340.html#defnbtree"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+each internal node (except the root) has at least  <IMG WIDTH=43 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline65628" SRC="img1383.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1383.gif"  > subtrees.
+This implies the minimum number of keys contained in an internal node
+is  <IMG WIDTH=71 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline65656" SRC="img1386.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1386.gif"  >.
+The minimum number of keys a level zero is 1;
+at level one,  <IMG WIDTH=93 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline65660" SRC="img1387.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1387.gif"  >;
+at level two,  <IMG WIDTH=138 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline65662" SRC="img1388.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1388.gif"  >;
+at level three,  <IMG WIDTH=146 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline65664" SRC="img1389.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1389.gif"  >; and so on.
+<P>
+Therefore the minimum number of keys in a B-tree of height <I>h</I><I>&gt;</I>0 is given
+by the summation
+<P> <IMG WIDTH=500 HEIGHT=120 ALIGN=BOTTOM ALT="eqnarray21886" SRC="img1390.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1390.gif"  ><P>
+<P>
+A corollary of Theorem&nbsp;<A HREF="page340.html#theoremsrchtreeiii" tppabs="http://www.brpreiss.com/books/opus4/html/page340.html#theoremsrchtreeiii"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> is that the height, <I>h</I>,
+of a B-tree containing <I>n</I> keys is given by
+<P> <IMG WIDTH=334 HEIGHT=18 ALIGN=BOTTOM ALT="displaymath65606" SRC="img1391.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1391.gif"  ><P>
+<P>
+Thus, we have shown that a B-tree satisfies
+the first criterion of a good balance condition--the height of B-tree with <I>n</I> internal nodes is  <IMG WIDTH=56 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59891" SRC="img403.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img403.gif"  >.
+What remains to be shown is that the balance condition can be
+efficiently maintained during insertion and withdrawal operations.
+To see that it can,
+we need to look at an implementation.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html6129" HREF="page341.html#SECTION0011710000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page341.html#SECTION0011710000000000000000">Implementing B-Trees</A>
+<LI> <A NAME="tex2html6130" HREF="page345.html#SECTION0011720000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page345.html#SECTION0011720000000000000000">Inserting Items into a B-Tree</A>
+<LI> <A NAME="tex2html6131" HREF="page348.html#SECTION0011730000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page348.html#SECTION0011730000000000000000">Removing Items from a B-Tree</A>
+</UL>
+<HR><A NAME="tex2html6125" HREF="page341.html" tppabs="http://www.brpreiss.com/books/opus4/html/page341.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6123" HREF="page299.html" tppabs="http://www.brpreiss.com/books/opus4/html/page299.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6117" HREF="page339.html" tppabs="http://www.brpreiss.com/books/opus4/html/page339.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6127" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6128" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

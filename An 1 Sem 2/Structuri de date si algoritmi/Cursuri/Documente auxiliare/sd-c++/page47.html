@@ -1,0 +1,65 @@
+<HTML>
+<HEAD>
+<TITLE>A Simplified Model of the Computer</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html2469" HREF="page48.html" tppabs="http://www.brpreiss.com/books/opus4/html/page48.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2467" HREF="page34.html" tppabs="http://www.brpreiss.com/books/opus4/html/page34.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2461" HREF="page46.html" tppabs="http://www.brpreiss.com/books/opus4/html/page46.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2471" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2472" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION003200000000000000000">A Simplified Model of the Computer</A></H1>
+<A NAME="secmodelsimplified">&#160;</A>
+<P>
+The detailed model of the computer given in the previous section
+is based on a number of different timing parameters-- <IMG WIDTH=33 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline58177" SRC="img7.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img7.gif"  >,  <IMG WIDTH=33 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline58179" SRC="img8.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img8.gif"  >,  <IMG WIDTH=16 HEIGHT=16 ALIGN=MIDDLE ALT="tex2html_wrap_inline58189" SRC="img10.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img10.gif"  >,  <IMG WIDTH=15 HEIGHT=11 ALIGN=MIDDLE ALT="tex2html_wrap_inline58191" SRC="img11.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img11.gif"  >,  <IMG WIDTH=15 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline58193" SRC="img12.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img12.gif"  >,  <IMG WIDTH=15 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline58195" SRC="img13.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img13.gif"  >,
+ <IMG WIDTH=15 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline58197" SRC="img14.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img14.gif"  >,  <IMG WIDTH=26 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline58201" SRC="img16.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img16.gif"  >,  <IMG WIDTH=42 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline58203" SRC="img17.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img17.gif"  >,  <IMG WIDTH=23 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline58579" SRC="img128.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img128.gif"  >,  <IMG WIDTH=41 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline58581" SRC="img129.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img129.gif"  >, and  <IMG WIDTH=19 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline58237" SRC="img31.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img31.gif"  >.
+While it is true that a model with a large number of parameters
+is quite flexible and therefore likely to be a good predictor of performance,
+keeping track of the all of the parameters during the analysis
+is rather burdensome.
+<P>
+In this section, we present a simplified model which makes the
+performance analysis easier to do.
+The cost of using the simplified model is that it is likely to
+be a less accurate predictor of performance than the detailed model.
+<P>
+Consider the various timing parameters in the detailed model.
+In a real machine, each of these parameters will be a multiple
+of the basic clock period<A NAME=803>&#160;</A>
+of the machine.
+The clock frequency<A NAME=804>&#160;</A>
+of a modern computers is typically between 100 and 500&nbsp;MHz.
+Therefore, the clock period is typically between 2 and 10&nbsp;ns.
+Let the clock period of the machine be <I>T</I>.
+Then each of the timing parameters can be expressed as an integer
+multiple of the clock period.
+E.g.,  <IMG WIDTH=103 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline58613" SRC="img132.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img132.gif"  >, where  <IMG WIDTH=66 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline58615" SRC="img133.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img133.gif"  >,  <IMG WIDTH=63 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline58617" SRC="img134.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img134.gif"  >.
+<P>
+The simplified model eliminates all of the arbitrary timing parameters
+in the detailed model.
+This is done by making the following two simplifying assumptions:
+<UL><LI> All timing parameters are expressed in units of clock cycles.
+	In effect, <I>T</I>=1.<LI> The proportionality constant, <I>k</I>, for all timing parameters
+	is assumed to be the same: <I>k</I>=1.
+</UL>
+The effect of these two assumptions is that we no longer need to keep
+track of the various operations separately.
+To determine the running time of a program,
+we simply count the total number of cycles taken.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html2473" HREF="page48.html#SECTION003210000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page48.html#SECTION003210000000000000000">An Example-Geometric Series Summation</A>
+<LI> <A NAME="tex2html2474" HREF="page49.html#SECTION003220000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page49.html#SECTION003220000000000000000">About Arithmetic Series Summation</A>
+<LI> <A NAME="tex2html2475" HREF="page50.html#SECTION003230000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page50.html#SECTION003230000000000000000">Example-Geometric Series Summation Again</A>
+<LI> <A NAME="tex2html2476" HREF="page51.html#SECTION003240000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page51.html#SECTION003240000000000000000">About Geometric Series Summation</A>
+<LI> <A NAME="tex2html2477" HREF="page52.html#SECTION003250000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page52.html#SECTION003250000000000000000">Example-Computing Powers</A>
+<LI> <A NAME="tex2html2478" HREF="page53.html#SECTION003260000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page53.html#SECTION003260000000000000000">Example-Geometric Series Summation Yet Again</A>
+</UL>
+<HR><A NAME="tex2html2469" HREF="page48.html" tppabs="http://www.brpreiss.com/books/opus4/html/page48.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2467" HREF="page34.html" tppabs="http://www.brpreiss.com/books/opus4/html/page34.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2461" HREF="page46.html" tppabs="http://www.brpreiss.com/books/opus4/html/page46.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2471" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2472" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

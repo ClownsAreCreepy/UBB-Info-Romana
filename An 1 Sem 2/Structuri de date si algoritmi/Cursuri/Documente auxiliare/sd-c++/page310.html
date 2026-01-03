@@ -1,0 +1,63 @@
+<HTML>
+<HEAD>
+<TITLE>Traversing a Search Tree</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html5759" HREF="page311.html" tppabs="http://www.brpreiss.com/books/opus4/html/page311.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5757" HREF="page306.html" tppabs="http://www.brpreiss.com/books/opus4/html/page306.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5753" HREF="page309.html" tppabs="http://www.brpreiss.com/books/opus4/html/page309.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5761" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5762" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0011340000000000000000">Traversing a Search Tree</A></H2>
+<A NAME="secsrchtreetraversal">&#160;</A>
+<P>
+In Section&nbsp;<A HREF="page257.html#sectreestraversals" tppabs="http://www.brpreiss.com/books/opus4/html/page257.html#sectreestraversals"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+the inorder traversal of a binary tree is defined as follows:
+<OL><LI> Traverse the left subtree; and then<LI> visit the root; and then<LI> traverse the right subtree.
+</OL>
+It should not come as a surprise that when
+an <em>inorder traversal</em><A NAME=19274>&#160;</A><A NAME=19275>&#160;</A>
+of a binary search tree is done,
+the nodes of the tree are visited <em>in order</em>!
+<P>
+In an inorder traversal the root of the tree is visited after
+the entire left subtree has been traversed
+and in a binary search tree everything in the left subtree
+is less than the root.
+Therefore, the root is visited only after all the keys
+less than the root have been visited.
+<P>
+Similarly, in an inorder traversal the root is visited before the right
+subtree is traversed and everything in the right subtree
+is greater than the root.
+Hence, the root is visited before all the keys greater than the root
+are visited.
+Therefore, by induction, the keys in the search tree are visited in order.
+<P>
+Inorder traversal is not defined for arbitrary <I>N</I>-ary trees--it is only defined for the case of <I>N</I>=2.
+Essentially this is because the nodes of <I>N</I>-ary trees
+contain only a single key.
+On the other hand, if a node of an <I>M</I>-way search tree has <I>n</I> subtrees,
+then it must contain <I>n</I>-1 keys, such that  <IMG WIDTH=75 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline64782" SRC="img1285.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1285.gif"  >.
+Therefore, we can define
+<em>inorder traversal of an <I>M</I>-way tree</em><A NAME=19278>&#160;</A> as follows:
+<P>
+To traverse a node of an <I>M</I>-way tree having <I>n</I> subtrees,
+<DL COMPACT><DT><DD> Traverse  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63638" SRC="img1114.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1114.gif"  >; and then
+    <DT><DD> visit  <IMG WIDTH=13 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline64392" SRC="img1220.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1220.gif"  >; and then
+    <DT><DD> traverse  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63404" SRC="img1086.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1086.gif"  >; and then
+    <DT><DD> visit  <IMG WIDTH=14 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline64394" SRC="img1221.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1221.gif"  >; and then
+    <DT><DD> traverse  <IMG WIDTH=16 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63406" SRC="img1087.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1087.gif"  >; and then
+    <DT><STRONG> <IMG WIDTH=2 HEIGHT=14 ALIGN=BOTTOM ALT="tex2html_wrap_inline64802" SRC="img1286.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1286.gif"  ></STRONG>
+<DD>
+    <DT><STRONG>2<I>n</I>-2. </STRONG>
+<DD> visit  <IMG WIDTH=31 HEIGHT=21 ALIGN=MIDDLE ALT="tex2html_wrap_inline64396" SRC="img1222.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1222.gif"  >; and then
+    <DT><STRONG>2<I>n</I>-1. </STRONG>
+<DD> traverse  <IMG WIDTH=34 HEIGHT=21 ALIGN=MIDDLE ALT="tex2html_wrap_inline64388" SRC="img1219.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1219.gif"  >.
+<P>
+ </DL><HR><A NAME="tex2html5759" HREF="page311.html" tppabs="http://www.brpreiss.com/books/opus4/html/page311.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5757" HREF="page306.html" tppabs="http://www.brpreiss.com/books/opus4/html/page306.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5753" HREF="page309.html" tppabs="http://www.brpreiss.com/books/opus4/html/page309.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5761" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5762" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,180 @@
+<HTML>
+<HEAD>
+<TITLE>Dijkstra's Algorithm</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html8910" HREF="page567.html" tppabs="http://www.brpreiss.com/books/opus4/html/page567.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8908" HREF="page565.html" tppabs="http://www.brpreiss.com/books/opus4/html/page565.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8902" HREF="page565.html" tppabs="http://www.brpreiss.com/books/opus4/html/page565.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8912" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8913" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0017411000000000000000">Dijkstra's Algorithm</A></H3>
+<A NAME="secgraphsdijkstra">&#160;</A>
+<P>
+<em>Dijkstra's algorithm</em><A NAME=51709>&#160;</A>
+is a greedy algorithm for solving
+the single-source, shortest-path problem on an edge-weighted graph
+in which all the weights are non-negative.
+It finds the shortest paths from some initial vertex, say  <IMG WIDTH=13 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline72211" SRC="img2441.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2441.gif"  >,
+to all the other vertices one-by-one.
+The essential feature of Dijkstra's algorithm
+is the order in which the paths are determined:
+The paths are discovered in the order of their weighted lengths,
+starting with the shortest, proceeding to the longest.
+<P>
+For each vertex <I>v</I>,
+Dijkstra's algorithm keeps track of three pieces of information,
+ <IMG WIDTH=12 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72349" SRC="img2456.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2456.gif"  >,  <IMG WIDTH=14 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72351" SRC="img2457.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2457.gif"  >, and  <IMG WIDTH=14 HEIGHT=14 ALIGN=MIDDLE ALT="tex2html_wrap_inline72353" SRC="img2458.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2458.gif"  >:
+<DL ><DT><STRONG> <IMG WIDTH=12 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72349" SRC="img2456.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2456.gif"  ></STRONG>
+<DD>
+	The Boolean-valued flag  <IMG WIDTH=12 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72349" SRC="img2456.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2456.gif"  > indicates that the shortest path
+	to vertex <I>v</I> is <em>known</em>.
+	Initially,  <IMG WIDTH=78 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72361" SRC="img2459.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2459.gif"  > for all  <IMG WIDTH=38 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline72363" SRC="img2460.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2460.gif"  >.
+    <DT><STRONG> <IMG WIDTH=14 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72351" SRC="img2457.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2457.gif"  ></STRONG>
+<DD>
+	The quantity  <IMG WIDTH=14 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72351" SRC="img2457.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2457.gif"  > is 
+	the length of the shortest known path from  <IMG WIDTH=13 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline72211" SRC="img2441.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2441.gif"  > to <I>v</I>.
+	When the algorithm begins, no shortest paths are known.
+	The distance  <IMG WIDTH=14 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72351" SRC="img2457.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2457.gif"  > is a <em>tentative</em> distance.
+	During the course of the algorithm candidate paths are examined
+	and the <em>tentative</em> distances are modified.
+<P>
+	Initially,  <IMG WIDTH=53 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72375" SRC="img2461.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2461.gif"  > for all  <IMG WIDTH=38 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline72363" SRC="img2460.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2460.gif"  > such that  <IMG WIDTH=42 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline72379" SRC="img2462.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2462.gif"  >,
+	while  <IMG WIDTH=50 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline72381" SRC="img2463.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2463.gif"  >.
+    <DT><STRONG> <IMG WIDTH=14 HEIGHT=14 ALIGN=MIDDLE ALT="tex2html_wrap_inline72353" SRC="img2458.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2458.gif"  ></STRONG>
+<DD>
+	The predecessor of vertex <I>v</I>
+	on the shortest path from  <IMG WIDTH=13 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline72211" SRC="img2441.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2441.gif"  > to <I>v</I>.
+	I.e., the shortest path from  <IMG WIDTH=13 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline72211" SRC="img2441.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2441.gif"  > to <I>v</I> has the form
+	 <IMG WIDTH=95 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72395" SRC="img2464.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2464.gif"  >.
+<P>
+	Initially,  <IMG WIDTH=14 HEIGHT=14 ALIGN=MIDDLE ALT="tex2html_wrap_inline72353" SRC="img2458.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2458.gif"  > is unknown for all  <IMG WIDTH=38 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline72363" SRC="img2460.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2460.gif"  >.
+<P>
+ </DL>
+<P>
+Dijkstra's algorithm proceeds in phases.
+The following steps are performed in each pass:
+<OL><LI> From the set of vertices for with  <IMG WIDTH=78 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72361" SRC="img2459.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2459.gif"  >,
+	select the vertex <I>v</I> having the smallest tentative distance  <IMG WIDTH=14 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72351" SRC="img2457.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2457.gif"  >.<LI> Set  <IMG WIDTH=73 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72407" SRC="img2465.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2465.gif"  >.<LI> For each vertex <I>w</I> adjacent to <I>v</I> for which  <IMG WIDTH=72 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline72413" SRC="img2466.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2466.gif"  >,
+	test whether the tentative distance  <IMG WIDTH=17 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72415" SRC="img2467.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2467.gif"  > is greater than  <IMG WIDTH=86 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72417" SRC="img2468.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2468.gif"  >.
+	If it is, set  <IMG WIDTH=130 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72419" SRC="img2469.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2469.gif"  > and
+	set  <IMG WIDTH=51 HEIGHT=16 ALIGN=MIDDLE ALT="tex2html_wrap_inline72421" SRC="img2470.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2470.gif"  >.
+</OL>
+In each pass exactly one vertex has its  <IMG WIDTH=12 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72349" SRC="img2456.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2456.gif"  > set to <tt>true</tt>.
+The algorithm terminates after  <IMG WIDTH=17 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71781" SRC="img2365.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2365.gif"  > passes are completed
+at which time all the shortest paths are known.
+<P>
+Table&nbsp;<A HREF="page566.html#tblgraphsdijkstra" tppabs="http://www.brpreiss.com/books/opus4/html/page566.html#tblgraphsdijkstra"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> illustrates the operation of Dijkstra's
+algorithm as it finds the shortest paths starting from vertex <I>b</I>
+in graph  <IMG WIDTH=24 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline72297" SRC="img2446.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2446.gif"  > shown in Figure&nbsp;<A HREF="page565.html#figgraph12" tppabs="http://www.brpreiss.com/books/opus4/html/page565.html#figgraph12"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+<P>
+<P><A NAME="51727">&#160;</A>
+    <A NAME="tblgraphsdijkstra">&#160;</A>
+    <DIV ALIGN=CENTER><P ALIGN=CENTER><TABLE COLS=36 BORDER FRAME=HSIDES RULES=GROUPS>
+<COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER>
+<TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+	    </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP COLSPAN=35> passes</TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+<P>
+	vertex
+	    </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP COLSPAN=5> initially</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP COLSPAN=5> 1</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP COLSPAN=5> 2</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP COLSPAN=5> 3</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP COLSPAN=5> 4</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP COLSPAN=5> 5</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP COLSPAN=5> 6</TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP><I>a</I> </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=14 HEIGHT=7 ALIGN=BOTTOM ALT="tex2html_wrap_inline69187" SRC="img1984.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1984.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+	    </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 3 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP><I>b</I>
+	    </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=13 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline72437" SRC="img2471.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2471.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 3 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>b</I>
+	    </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=13 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline72437" SRC="img2471.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2471.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 3 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>b</I>
+	    </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=13 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline72437" SRC="img2471.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2471.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 3 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>b</I>
+	    </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=13 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline72437" SRC="img2471.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2471.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 3 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>b</I>
+	    </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=13 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline72437" SRC="img2471.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2471.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 3 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>b</I> </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	<I>b</I> </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 0 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> --
+	    </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=13 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline72437" SRC="img2471.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2471.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 0 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>--
+	    </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=13 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline72437" SRC="img2471.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2471.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 0 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>--
+	    </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=13 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline72437" SRC="img2471.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2471.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 0 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>--
+	    </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=13 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline72437" SRC="img2471.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2471.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 0 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>--
+	    </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=13 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline72437" SRC="img2471.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2471.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 0 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>--
+	    </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=13 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline72437" SRC="img2471.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2471.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 0 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>-- </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	<I>c</I> </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=14 HEIGHT=7 ALIGN=BOTTOM ALT="tex2html_wrap_inline69187" SRC="img1984.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1984.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+	    </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 5 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>b</I>
+	    </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 4 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>a</I>
+	    </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=13 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline72437" SRC="img2471.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2471.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 4 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>a</I>
+	    </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=13 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline72437" SRC="img2471.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2471.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 4 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>a</I>
+	    </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=13 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline72437" SRC="img2471.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2471.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 4 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>a</I>
+	    </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=13 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline72437" SRC="img2471.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2471.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 4 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>a</I> </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	<I>d</I> </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=14 HEIGHT=7 ALIGN=BOTTOM ALT="tex2html_wrap_inline69187" SRC="img1984.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1984.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+	    </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=14 HEIGHT=7 ALIGN=BOTTOM ALT="tex2html_wrap_inline69187" SRC="img1984.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1984.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+	    </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=14 HEIGHT=7 ALIGN=BOTTOM ALT="tex2html_wrap_inline69187" SRC="img1984.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1984.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+	    </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 6 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>c</I>
+	    </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=13 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline72437" SRC="img2471.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2471.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 6 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP><I>c</I>
+	    </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=13 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline72437" SRC="img2471.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2471.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 6 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP><I>c</I>
+	    </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=13 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline72437" SRC="img2471.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2471.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 6 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP><I>c</I> </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	<I>e</I> </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <IMG WIDTH=14 HEIGHT=7 ALIGN=BOTTOM ALT="tex2html_wrap_inline69187" SRC="img1984.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1984.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+	    </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <IMG WIDTH=14 HEIGHT=7 ALIGN=BOTTOM ALT="tex2html_wrap_inline69187" SRC="img1984.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1984.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+	    </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <IMG WIDTH=14 HEIGHT=7 ALIGN=BOTTOM ALT="tex2html_wrap_inline69187" SRC="img1984.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1984.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+	    </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 8 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP><I>c</I>
+	    </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 8 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP><I>c</I>
+	    </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=13 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline72437" SRC="img2471.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2471.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 8 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP><I>c</I>
+	    </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=13 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline72437" SRC="img2471.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2471.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 8 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP><I>c</I> </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	<I>f</I> </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=14 HEIGHT=7 ALIGN=BOTTOM ALT="tex2html_wrap_inline69187" SRC="img1984.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1984.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+	    </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=14 HEIGHT=7 ALIGN=BOTTOM ALT="tex2html_wrap_inline69187" SRC="img1984.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1984.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+	    </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=14 HEIGHT=7 ALIGN=BOTTOM ALT="tex2html_wrap_inline69187" SRC="img1984.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1984.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+	    </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=14 HEIGHT=7 ALIGN=BOTTOM ALT="tex2html_wrap_inline69187" SRC="img1984.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1984.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+	    </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 11 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>d</I>
+	    </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 9 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>e</I>
+	    </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=13 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline72437" SRC="img2471.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2471.gif"  ></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>9</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP><I>e</I>  </TD></TR>
+</TBODY>
+<CAPTION ALIGN=BOTTOM><STRONG>Table:</STRONG> Operation of Dijkstra's Algorithm</CAPTION></TABLE>
+</P></DIV><P>
+<P>
+Initially all the tentative distances are  <IMG WIDTH=14 HEIGHT=7 ALIGN=BOTTOM ALT="tex2html_wrap_inline69187" SRC="img1984.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1984.gif"  >,
+except for vertex <I>b</I> which has tentative distance zero.
+Therefore, vertex <I>b</I> is selected in the first pass.
+The mark  <IMG WIDTH=13 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline72437" SRC="img2471.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2471.gif"  > beside an entry in Table&nbsp;<A HREF="page566.html#tblgraphsdijkstra" tppabs="http://www.brpreiss.com/books/opus4/html/page566.html#tblgraphsdijkstra"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+indicates that the shortest path is <em>known</em> ( <IMG WIDTH=70 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72565" SRC="img2473.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2473.gif"  >).
+<P>
+Next we follow the edges emanating from vertex <I>b</I>,
+ <IMG WIDTH=38 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline72569" SRC="img2474.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2474.gif"  > and  <IMG WIDTH=38 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline72571" SRC="img2475.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2475.gif"  >,
+and update the distances accordingly.
+The new tentative distances for <I>a</I> becomes 3
+and the new tentative distance for <I>c</I> is 5.
+In both cases, the next-to-last vertex on the shortest path is vertex <I>b</I>.
+<P>
+In the second pass, vertex <I>a</I> is selected and
+its entry is marked with  <IMG WIDTH=13 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline72437" SRC="img2471.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2471.gif"  > indicating the shortest path is known.
+There is one edge emanating from <I>a</I>,  <IMG WIDTH=40 HEIGHT=9 ALIGN=BOTTOM ALT="tex2html_wrap_inline72589" SRC="img2476.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2476.gif"  >.
+The distance to <I>c</I> via <I>a</I> is 4.
+Since this is less than the tentative distance to <I>c</I>,
+vertex <I>c</I> is given the new tentative distance 4
+and its predecessor on the shortest-path is set to <I>a</I>.
+The algorithm continues in this fashion
+for a total of  <IMG WIDTH=10 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline71357" SRC="img2283.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2283.gif"  > passes
+until all the shortest paths have been found.
+<P>
+The shortest-path information contained in the right-most column
+of Table&nbsp;<A HREF="page566.html#tblgraphsdijkstra" tppabs="http://www.brpreiss.com/books/opus4/html/page566.html#tblgraphsdijkstra"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+can be represented in the form of a vertex-weighted graph
+as shown in Figure&nbsp;<A HREF="page566.html#figgraph13" tppabs="http://www.brpreiss.com/books/opus4/html/page566.html#figgraph13"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+<P>
+<P><A NAME="52153">&#160;</A><A NAME="figgraph13">&#160;</A> <IMG WIDTH=575 HEIGHT=184 ALIGN=BOTTOM ALT="figure51779" SRC="img2477.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2477.gif"  ><BR>
+<STRONG>Figure:</STRONG> The Shortest-Path Graph for  <IMG WIDTH=24 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline72297" SRC="img2446.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2446.gif"  ><BR>
+<P>
+<P>
+This graph contains the same set of vertices as the problem graph  <IMG WIDTH=24 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline72297" SRC="img2446.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2446.gif"  >.
+Each vertex <I>v</I> is labeled with the length  <IMG WIDTH=14 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72351" SRC="img2457.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2457.gif"  >
+of the shortest path from <I>b</I> to <I>v</I>.
+Each vertex (except <I>b</I>) has a single emanating edge
+that connects the vertex to the next-to-last vertex on the shortest-path.
+By following the edges in this graph from any vertex <I>v</I> to vertex <I>b</I>,
+we can construct the shortest path from <I>b</I> to <I>v</I> in reverse.
+<P>
+<HR><A NAME="tex2html8910" HREF="page567.html" tppabs="http://www.brpreiss.com/books/opus4/html/page567.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8908" HREF="page565.html" tppabs="http://www.brpreiss.com/books/opus4/html/page565.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8902" HREF="page565.html" tppabs="http://www.brpreiss.com/books/opus4/html/page565.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8912" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8913" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

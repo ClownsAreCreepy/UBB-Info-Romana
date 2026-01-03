@@ -1,0 +1,22 @@
+# ninja log v6
+169	2989	7684180401987472	CMakeFiles/Lab6_7.dir/UI/consola_discipline.cpp.obj	9e3b36104b9ee0fc
+146	1048	7684180401749584	CMakeFiles/Lab6_7.dir/Domain/discipline.cpp.obj	e02a2d51f5c667a4
+173	1767	7684180402027975	CMakeFiles/Lab6_7.dir/Valid/validare_discipline.cpp.obj	b2193e13de8d7765
+3158	9285	7684253098646949	CMakeFiles/Lab6_7.dir/main.cpp.obj	13a1ffe0d072c818
+157	2918	7684180401859808	CMakeFiles/Lab6_7.dir/Repo/repository_fals_discipline.cpp.obj	38f8934c62494ace
+9670	10607	7684253163763006	Lab6_7.exe	e95dd9cc0fa71672
+149	1837	7684180401779570	CMakeFiles/Lab6_7.dir/Repo/repository_discipline.cpp.obj	456b06a822620574
+9	3150	7684253097560557	D:/C,C++/CLion 2024.3.4/Projects/Lab6_7/cmake-build-debug-coverage/Lab6_7_autogen/mocs_compilation.cpp	511a9b39326da0e0
+161	3361	7684180401899970	CMakeFiles/Lab6_7.dir/Test/teste_discipline.cpp.obj	4bf3a88428a4e6fb
+165	4034	7684180401937381	CMakeFiles/Lab6_7.dir/Service/service_discipline.cpp.obj	daf538ba4a4eb6ca
+1048	3236	7684180410780841	CMakeFiles/Lab6_7.dir/Contract/contract_discipline.cpp.obj	d8fbac8c2d75a164
+43	686	7870042107305399	build.ninja	810d70e0ec52415c
+1692	2408	7684180417211153	CMakeFiles/Lab6_7.dir/DTO/dto_discipline.cpp.obj	51485c1ec9e57da6
+153	1692	7684180401819671	CMakeFiles/Lab6_7.dir/Repo/repository_file_discipline.cpp.obj	b97abb827e46a7d4
+1767	3517	7684180417959403	CMakeFiles/Lab6_7.dir/Undo/undo_discipline.cpp.obj	7d621c670c390322
+9	3150	7684253097560557	Lab6_7_autogen/timestamp	511a9b39326da0e0
+9	3150	7684253097560557	Lab6_7_autogen/mocs_compilation.cpp	511a9b39326da0e0
+9	3150	7684253097560557	D:/C,C++/CLion 2024.3.4/Projects/Lab6_7/cmake-build-debug-coverage/Lab6_7_autogen/timestamp	511a9b39326da0e0
+3151	9369	7684253098586307	CMakeFiles/Lab6_7.dir/Lab6_7_autogen/mocs_compilation.cpp.obj	e62a835ef3cd2f37
+3162	9670	7684253098691470	CMakeFiles/Lab6_7.dir/GUI/main_window.cpp.obj	edd21e6283c2ad96
+3166	9300	7684253098726875	CMakeFiles/Lab6_7.dir/GUI/contract_window.cpp.obj	7d29dccbf2dd4636

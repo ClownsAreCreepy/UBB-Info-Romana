@@ -1,0 +1,52 @@
+<HTML>
+<HEAD>
+<TITLE>More Terminology</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html8431" HREF="page528.html" tppabs="http://www.brpreiss.com/books/opus4/html/page528.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8429" HREF="page524.html" tppabs="http://www.brpreiss.com/books/opus4/html/page524.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8423" HREF="page526.html" tppabs="http://www.brpreiss.com/books/opus4/html/page526.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8433" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8434" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0017103000000000000000">More Terminology</A></H3>
+<P>
+Consider the path  <IMG WIDTH=137 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71515" SRC="img2315.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2315.gif"  >
+in a directed graph  <IMG WIDTH=72 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71355" SRC="img2282.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2282.gif"  >.
+<P>
+<UL><LI>
+	Vertex  <IMG WIDTH=28 HEIGHT=16 ALIGN=MIDDLE ALT="tex2html_wrap_inline71519" SRC="img2316.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2316.gif"  > is the <em>successor</em><A NAME=48843>&#160;</A>
+	of vertex  <IMG WIDTH=11 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline71521" SRC="img2317.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2317.gif"  > for  <IMG WIDTH=63 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline70677" SRC="img2244.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2244.gif"  >.
+	Each element  <IMG WIDTH=11 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline71521" SRC="img2317.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2317.gif"  > of path <I>P</I> (except the last)
+	has a <em>successor</em>.<LI>
+	Vertex  <IMG WIDTH=28 HEIGHT=13 ALIGN=MIDDLE ALT="tex2html_wrap_inline71529" SRC="img2318.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2318.gif"  > is the <em>predecessor</em><A NAME=48847>&#160;</A>
+	of vertex  <IMG WIDTH=11 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline71521" SRC="img2317.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2317.gif"  > for  <IMG WIDTH=63 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline71533" SRC="img2319.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2319.gif"  >.
+	Each element  <IMG WIDTH=11 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline71521" SRC="img2317.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2317.gif"  > of path <I>P</I> (except the first)
+	has a <em>predecessor</em>.<LI>
+	A path <I>P</I> is called a <em>simple</em> path if and only if
+	 <IMG WIDTH=47 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline71541" SRC="img2320.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2320.gif"  > for all <I>i</I> and <I>j</I> such that  <IMG WIDTH=92 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71547" SRC="img2321.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2321.gif"  >.
+	However, it <em>is</em> permissible for  <IMG WIDTH=14 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline71549" SRC="img2322.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2322.gif"  > to be the same as  <IMG WIDTH=14 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline71551" SRC="img2323.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2323.gif"  >
+	in a simple path.<LI>
+	A <em>cycle</em><A NAME=48852>&#160;</A> is a path <I>P</I>
+	of non-zero length in which  <IMG WIDTH=50 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline71555" SRC="img2324.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2324.gif"  >.
+	The <em>length of a cycle</em> is just the length of the path <I>P</I>.<LI>
+	A <em>loop</em><A NAME=48855>&#160;</A> is a cycle of length one.
+	I.e., it is a path of the form  <IMG WIDTH=36 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71559" SRC="img2325.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2325.gif"  >.<LI>
+	A <em>simple cycle</em><A NAME=48857>&#160;</A><A NAME=48858>&#160;</A>
+	is a path that is both a <em>cycle</em> and <em>simple</em>.
+</UL>
+<P>
+Referring again to graph  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline71449" SRC="img2298.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2298.gif"  > in Figure&nbsp;<A HREF="page525.html#figgraph1" tppabs="http://www.brpreiss.com/books/opus4/html/page525.html#figgraph1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> we find that the path
+ <IMG WIDTH=65 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline67120" SRC="img1588.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1588.gif"  > is a simple path of length three.
+Conversely, the path  <IMG WIDTH=65 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71565" SRC="img2326.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2326.gif"  > also has length three
+but is not simple because vertex&nbsp;<I>c</I> occurs twice in the sequence
+(but not at the ends).
+The graph contains the path  <IMG WIDTH=65 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71569" SRC="img2327.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2327.gif"  > which is a cycle of length three,
+as well as  <IMG WIDTH=80 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71571" SRC="img2328.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2328.gif"  >, a cycle of length four.
+The former is a simple cycle but the latter is not.
+<P>
+<HR><A NAME="tex2html8431" HREF="page528.html" tppabs="http://www.brpreiss.com/books/opus4/html/page528.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8429" HREF="page524.html" tppabs="http://www.brpreiss.com/books/opus4/html/page524.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8423" HREF="page526.html" tppabs="http://www.brpreiss.com/books/opus4/html/page526.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8433" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8434" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

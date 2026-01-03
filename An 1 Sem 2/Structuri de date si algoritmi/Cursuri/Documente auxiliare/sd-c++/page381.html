@@ -1,0 +1,64 @@
+<HTML>
+<HEAD>
+<TITLE>Removing an Item from a Binomial Queue</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html6635" HREF="page382.html" tppabs="http://www.brpreiss.com/books/opus4/html/page382.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6633" HREF="page370.html" tppabs="http://www.brpreiss.com/books/opus4/html/page370.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6629" HREF="page380.html" tppabs="http://www.brpreiss.com/books/opus4/html/page380.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6637" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6638" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0012460000000000000000">Removing an Item from a Binomial Queue</A></H2>
+<P>
+A binomial queue is a forest of heap-ordered binomial trees.
+Therefore, to dequeue the smallest item from the queue,
+we must withdraw the root of one of the binomial trees.
+But what do we do with the rest of the tree
+once its root has been removed?
+<P>
+The solution lies in realizing that the collection of
+subtrees of the root of a binomial tree is a forest!
+For example, consider the binomial tree of order <I>k</I>,
+<P> <IMG WIDTH=362 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath67054" SRC="img1570.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1570.gif"  ><P>
+Taken all together, its subtrees form the binomial queue  <IMG WIDTH=39 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline67064" SRC="img1571.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1571.gif"  >:
+<P> <IMG WIDTH=363 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath67055" SRC="img1572.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1572.gif"  ><P>
+<P>
+Therefore, to delete the smallest item from a binomial queue,
+we first identify the binomial tree with the smallest root
+and remove that tree from the queue.
+Then, we consider all the subtrees of the root of that tree
+as a binomial queue and merge that queue back into the original one.
+Program&nbsp;<A HREF="page381.html#progbinom7c" tppabs="http://www.brpreiss.com/books/opus4/html/page381.html#progbinom7c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> shows how this can be coded.
+<P>
+<P><A NAME="27730">&#160;</A><A NAME="progbinom7c">&#160;</A> <IMG WIDTH=575 HEIGHT=468 ALIGN=BOTTOM ALT="program27641" SRC="img1573.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1573.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>BinomialQueue</tt> Class 	<tt>DequeueMin</tt> Member Function Definition<BR>
+<P>
+<P>
+The <tt>DequeueMin</tt> function begins
+by calling <tt>FindMinTree</tt> to find the tree with the smallest root
+and then removing that tree using <tt>RemoveTree</tt> (lines&nbsp;6-7).
+The time required to find the appropriate tree and to remove it is
+<P> <IMG WIDTH=418 HEIGHT=17 ALIGN=BOTTOM ALT="displaymath67056" SRC="img1574.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1574.gif"  ><P>
+where <I>n</I> is the number of items in the queue.
+<P>
+A new binomial queue is created on line&nbsp;9.
+All the children of the root of the minimum tree are 
+detached from the tree and added to the new binomial queue (lines&nbsp;10-15).
+In the worst case, the minimum tree is the one with the highest order.
+i.e.,  <IMG WIDTH=54 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline67068" SRC="img1575.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1575.gif"  >,
+and the root of that tree has  <IMG WIDTH=51 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline66396" SRC="img1467.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1467.gif"  > children.
+Therefore, the running time of the loop on lines&nbsp;10-15 is  <IMG WIDTH=56 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59891" SRC="img403.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img403.gif"  >.
+<P>
+The new queue is then merged with the original one (line&nbsp;16).
+Since the resulting queue contains <I>n</I>-1 keys,
+the running time for the <tt>Merge</tt> operation in this case is
+<P> <IMG WIDTH=379 HEIGHT=17 ALIGN=BOTTOM ALT="displaymath67057" SRC="img1576.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1576.gif"  ><P>
+The remaining operations (lines&nbsp;19-21) are just housekeeping
+which can be done in constant time.
+<P>
+<HR><A NAME="tex2html6635" HREF="page382.html" tppabs="http://www.brpreiss.com/books/opus4/html/page382.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6633" HREF="page370.html" tppabs="http://www.brpreiss.com/books/opus4/html/page370.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6629" HREF="page380.html" tppabs="http://www.brpreiss.com/books/opus4/html/page380.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6637" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6638" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

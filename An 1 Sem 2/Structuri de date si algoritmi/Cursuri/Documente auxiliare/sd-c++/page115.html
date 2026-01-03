@@ -1,0 +1,48 @@
+<HTML>
+<HEAD>
+<TITLE>Object Wrappers for the Built-In Types</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html3334" HREF="page116.html" tppabs="http://www.brpreiss.com/books/opus4/html/page116.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3332" HREF="page109.html" tppabs="http://www.brpreiss.com/books/opus4/html/page109.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3326" HREF="page114.html" tppabs="http://www.brpreiss.com/books/opus4/html/page114.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3336" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3337" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION006240000000000000000">Object Wrappers for the Built-In Types</A></H2>
+<A NAME="secadtswrappers">&#160;</A>
+<P>
+One of the design goals of the C++ language is to
+treat user-defined data types
+and the built-in data types as equally as possible.
+However, the built-in data types of C++ do
+have one shortcoming with respect to user-defined ones--a built-in data type cannot be used as the base class
+from which other classes are derived.
+E.g., it is not possible to write:
+<PRE>class D : public int // Wrong!</PRE>
+Consequently, it is not possible to extend the functionality
+of a built-in type using inheritance.
+<P>
+The usual design pattern for dealing with this deficiency
+is to put instances of the built-in types
+inside a <em>wrapper</em><A NAME=4700>&#160;</A> class
+and to use the wrapped objects in place of the built-in types.
+Program&nbsp;<A HREF="page115.html#progwrapper1h" tppabs="http://www.brpreiss.com/books/opus4/html/page115.html#progwrapper1h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> illustrates this idea.
+The class <tt>Wrapper&lt;T&gt;</tt> is a concrete class which is
+derived from the abstract base class <tt>Object</tt>.
+It is also a generic class,
+the purpose of which is to encapsulate an object of type <tt>T</tt>.
+Each instance of the <tt>Wrapper&lt;T&gt;</tt> class contains a single member variable
+of type <tt>T</tt> called <tt>datum</tt>.
+<P>
+<P><A NAME="5471">&#160;</A><A NAME="progwrapper1h">&#160;</A> <IMG WIDTH=575 HEIGHT=295 ALIGN=BOTTOM ALT="program4708" SRC="img687.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img687.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>Wrapper&lt;T&gt;</tt> Class Definition<BR>
+<P><BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html3338" HREF="page116.html#SECTION006241000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page116.html#SECTION006241000000000000000">Implementation</A>
+</UL>
+<HR><A NAME="tex2html3334" HREF="page116.html" tppabs="http://www.brpreiss.com/books/opus4/html/page116.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3332" HREF="page109.html" tppabs="http://www.brpreiss.com/books/opus4/html/page109.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3326" HREF="page114.html" tppabs="http://www.brpreiss.com/books/opus4/html/page114.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3336" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3337" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,89 @@
+<HTML>
+<HEAD>
+<TITLE>Kruskal's Algorithm</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html9062" HREF="page580.html" tppabs="http://www.brpreiss.com/books/opus4/html/page580.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html9060" HREF="page574.html" tppabs="http://www.brpreiss.com/books/opus4/html/page574.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html9056" HREF="page578.html" tppabs="http://www.brpreiss.com/books/opus4/html/page578.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html9064" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html9065" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0017520000000000000000">Kruskal's Algorithm</A></H2>
+<P>
+Like Prim's algorithm,
+<em>Kruskal's algorithm</em><A NAME=53703>&#160;</A>
+also constructs the minimum spanning tree
+of a graph by adding edges to the spanning tree one-by-one.
+At all points during its execution the set of edges
+selected by Prim's algorithm forms exactly one tree.
+On the other hand,
+the set of edges selected by Kruskal's algorithm forms a forest of trees.
+<P>
+Kruskal's algorithm is conceptually quite simple.
+The edges are selected and added to the spanning tree
+in increasing order of their weights.
+An edge is added to the tree only if it does not create a cycle.
+<P>
+The beauty of Kruskal's algorithm
+is the way that potential cycles are detected.
+Consider an undirected graph  <IMG WIDTH=72 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71355" SRC="img2282.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2282.gif"  >.
+We can view the set of vertices,  <IMG WIDTH=10 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline71357" SRC="img2283.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2283.gif"  >,
+as a <em>universal set</em><A NAME=53705>&#160;</A>
+and the set of edges,  <IMG WIDTH=9 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline71363" SRC="img2284.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2284.gif"  >,
+as the definition of an <em>equivalence relation</em><A NAME=53707>&#160;</A>
+over the universe  <IMG WIDTH=10 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline71357" SRC="img2283.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2283.gif"  >.
+(See Definition&nbsp;<A HREF="page413.html#defnsetsequivalence" tppabs="http://www.brpreiss.com/books/opus4/html/page413.html#defnsetsequivalence"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>).
+In general, an equivalence relation partitions
+a universal set into a set of equivalence classes.
+If the graph is connected,
+there is only one equivalence class--all the elements of the universal set are <em>equivalent</em>.
+Therefore, a <em>spanning tree</em> is a minimal set of equivalences
+that result in a single equivalence class.
+<P>
+Kruskal's algorithm computes,
+ <IMG WIDTH=121 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline73027" SRC="img2550.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2550.gif"  >,
+a sequence of <em>partitions</em><A NAME=53713>&#160;</A>
+of the set of vertices  <IMG WIDTH=10 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline71357" SRC="img2283.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2283.gif"  >.
+(Partitions are discussed in Section&nbsp;<A HREF="page404.html#secsetspartitions" tppabs="http://www.brpreiss.com/books/opus4/html/page404.html#secsetspartitions"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>).
+The initial partition consists of  <IMG WIDTH=17 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71781" SRC="img2365.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2365.gif"  > sets of size one:
+<P> <IMG WIDTH=356 HEIGHT=19 ALIGN=BOTTOM ALT="displaymath73015" SRC="img2551.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2551.gif"  ><P>
+Each subsequent element of the sequence is obtained
+from its predecessor by <em>joining</em> two of the elements of the partition.
+Therefore,  <IMG WIDTH=12 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline73033" SRC="img2552.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2552.gif"  > has the form
+<P> <IMG WIDTH=347 HEIGHT=22 ALIGN=BOTTOM ALT="displaymath73016" SRC="img2553.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2553.gif"  ><P>
+for  <IMG WIDTH=101 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline73035" SRC="img2554.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2554.gif"  >.
+<P>
+To construct the sequence
+the edges in  <IMG WIDTH=9 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline71363" SRC="img2284.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2284.gif"  > are considered one-by-one
+in increasing order of their weights.
+Suppose we have computed the sequence up to  <IMG WIDTH=12 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline73033" SRC="img2552.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2552.gif"  >
+and the next edge to be considered is  <IMG WIDTH=39 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72969" SRC="img2540.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2540.gif"  >.
+If <I>v</I> and <I>w</I> are both members of the same element of partition  <IMG WIDTH=12 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline73033" SRC="img2552.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2552.gif"  >,
+then the edge forms a cycle,
+and is not part of the minimum-cost spanning tree.
+<P>
+On the other hand, suppose <I>v</I> and <I>w</I> are members of two different
+elements of partition  <IMG WIDTH=12 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline73033" SRC="img2552.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2552.gif"  >, say  <IMG WIDTH=15 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline73055" SRC="img2555.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2555.gif"  > and  <IMG WIDTH=12 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline73057" SRC="img2556.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2556.gif"  > (respectively).
+Then  <IMG WIDTH=39 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72969" SRC="img2540.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2540.gif"  > must be an edge in the minimum-cost spanning tree.
+In this case, we compute  <IMG WIDTH=30 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline73061" SRC="img2557.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2557.gif"  > by <em>joining</em>  <IMG WIDTH=15 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline73055" SRC="img2555.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2555.gif"  > and  <IMG WIDTH=12 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline73057" SRC="img2556.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2556.gif"  >.
+I.e., we replace  <IMG WIDTH=15 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline73055" SRC="img2555.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2555.gif"  > and  <IMG WIDTH=12 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline73057" SRC="img2556.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2556.gif"  > in  <IMG WIDTH=12 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline73033" SRC="img2552.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2552.gif"  >
+by the <em>union</em>  <IMG WIDTH=48 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline73073" SRC="img2558.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2558.gif"  >.
+<P>
+Figure&nbsp;<A HREF="page579.html#figgraph18" tppabs="http://www.brpreiss.com/books/opus4/html/page579.html#figgraph18"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> illustrates how Kruskal's algorithm determines
+the minimum-cost spanning tree of the graph  <IMG WIDTH=24 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline72943" SRC="img2532.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2532.gif"  > shown in Figure&nbsp;<A HREF="page576.html#figgraph16" tppabs="http://www.brpreiss.com/books/opus4/html/page576.html#figgraph16"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+The algorithm computes the following sequence of partitions:
+<P> <IMG WIDTH=500 HEIGHT=146 ALIGN=BOTTOM ALT="eqnarray53724" SRC="img2559.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2559.gif"  ><P>
+<P>
+<P><A NAME="54734">&#160;</A><A NAME="figgraph18">&#160;</A> <IMG WIDTH=575 HEIGHT=386 ALIGN=BOTTOM ALT="figure53726" SRC="img2560.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2560.gif"  ><BR>
+<STRONG>Figure:</STRONG> Operation of Kruskal's Algorithm<BR>
+<P><BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html9066" HREF="page580.html#SECTION0017521000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page580.html#SECTION0017521000000000000000">Implementation</A>
+<LI> <A NAME="tex2html9067" HREF="page581.html#SECTION0017522000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page581.html#SECTION0017522000000000000000">Running Time Analysis</A>
+</UL>
+<HR><A NAME="tex2html9062" HREF="page580.html" tppabs="http://www.brpreiss.com/books/opus4/html/page580.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html9060" HREF="page574.html" tppabs="http://www.brpreiss.com/books/opus4/html/page574.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html9056" HREF="page578.html" tppabs="http://www.brpreiss.com/books/opus4/html/page578.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html9064" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html9065" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

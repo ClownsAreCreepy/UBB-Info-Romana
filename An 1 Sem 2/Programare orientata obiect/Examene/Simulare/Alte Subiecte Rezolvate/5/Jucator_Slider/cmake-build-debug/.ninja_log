@@ -1,0 +1,12 @@
+# ninja log v6
+46	1787	7696170839203814	Jucator_Slider_autogen/timestamp	b37715075603328d
+1794	2773	7696170839841553	CMakeFiles/Jucator_Slider.dir/Service/Service.cpp.obj	e0e25e62a810a92b
+1797	2716	7696170839861545	CMakeFiles/Jucator_Slider.dir/Test/Test.cpp.obj	a4a2b654023ef9b1
+1788	5131	7696170839776439	CMakeFiles/Jucator_Slider.dir/Jucator_Slider_autogen/mocs_compilation.cpp.obj	92ad24f14a969f80
+46	1787	7696170839203814	Jucator_Slider_autogen/mocs_compilation.cpp	b37715075603328d
+46	1787	7696170839203814	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/Jucator_Slider/cmake-build-debug/Jucator_Slider_autogen/timestamp	b37715075603328d
+46	1787	7696170839203814	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/Jucator_Slider/cmake-build-debug/Jucator_Slider_autogen/mocs_compilation.cpp	b37715075603328d
+130	750	7695607769910103	CMakeFiles/Jucator_Slider.dir/Repo/Repository.cpp.obj	cdabe7e45432b90b
+1791	5075	7696170839806445	CMakeFiles/Jucator_Slider.dir/main.cpp.obj	44298aaf999d440e
+5223	7048	7696170874130804	Jucator_Slider.exe	1ad243b1ac040e24
+1800	5223	7696170839895464	CMakeFiles/Jucator_Slider.dir/GUI/Window.cpp.obj	9be97010e91fccd6

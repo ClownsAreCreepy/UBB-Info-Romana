@@ -1,0 +1,120 @@
+        -:    0:Source:D:/C,C++/CLion 2024.3.4/Projects/Lab6_7/Repo/repository_discipline.cpp
+        -:    0:Graph:D:\C,C++\CLion 2024.3.4\Projects\Lab6_7\cmake-build-debug-coverage\CMakeFiles\Lab6_7.dir\Repo\repository_discipline.cpp.gcno
+        -:    0:Data:D:\C,C++\CLion 2024.3.4\Projects\Lab6_7\cmake-build-debug-coverage\CMakeFiles\Lab6_7.dir\Repo\repository_discipline.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include "repository_discipline.h"
+        -:    2:
+        -:    3:
+function _ZN17RepoDisciplinaMem6adaugaERK10Disciplina called 107 returned 98% blocks executed 68%
+      107:    4:void RepoDisciplinaMem::adauga(const Disciplina &dis) {
+      107:    5:    if (find(discipline, dis) != discipline.end())
+      107:    5-block  0
+call    0 returned 107
+call    1 returned 107
+branch  2 taken 107 (fallthrough)
+branch  3 taken 0 (throw)
+      107:    5-block  1
+call    4 returned 107
+branch  5 taken 2 (fallthrough)
+branch  6 taken 105
+    $$$$$:    5-block  2
+    $$$$$:    5-block  3
+call    7 never executed
+        6:    6:        throw RepoException("Disciplina exista deja!");
+        2:    6-block  0
+call    0 returned 2
+        2:    6-block  1
+call    1 returned 2
+branch  2 taken 2 (fallthrough)
+branch  3 taken 0 (throw)
+        2:    6-block  2
+call    4 returned 2
+call    5 returned 2
+        2:    6-block  3
+call    6 returned 0
+    $$$$$:    6-block  4
+    $$$$$:    6-block  5
+    $$$$$:    6-block  6
+call    7 never executed
+        -:    7:
+      105:    8:    discipline.emplace_back(dis);
+      105:    8-block  0
+call    0 returned 105
+      105:    9:}
+        -:   10:
+function _ZN17RepoDisciplinaMem8modificaEyRK10Disciplina called 8 returned 75% blocks executed 74%
+        8:   11:void RepoDisciplinaMem::modifica(size_t index, const Disciplina &ot) {
+function _ZZN17RepoDisciplinaMem8modificaEyRK10DisciplinaENKUlRKT_E_clIS0_EEDaS5_ called 44 returned 100% blocks executed 100%
+        8:   12:    if (any_of(discipline, [&](const auto &d){
+        8:   12-block  0
+call    0 returned 8
+branch  1 taken 2 (fallthrough)
+branch  2 taken 6
+       44:   13:        return d == ot;}))
+       44:   13-block  0
+call    0 returned 44
+        6:   14:        throw RepoException("Disciplina exista deja!");
+        2:   14-block  0
+call    0 returned 2
+        2:   14-block  1
+call    1 returned 2
+branch  2 taken 2 (fallthrough)
+branch  3 taken 0 (throw)
+        2:   14-block  2
+call    4 returned 2
+call    5 returned 2
+        2:   14-block  3
+call    6 returned 0
+    $$$$$:   14-block  4
+    $$$$$:   14-block  5
+    $$$$$:   14-block  6
+call    7 never executed
+        -:   15:
+        6:   16:    discipline[index] = ot;
+        6:   16-block  0
+call    0 returned 6
+call    1 returned 6
+        6:   17:}
+        -:   18:
+function _ZN17RepoDisciplinaMem6stergeEi called 10 returned 100% blocks executed 75%
+       10:   19:void RepoDisciplinaMem::sterge(int index) {
+       10:   20:    discipline.erase(discipline.begin() + index);
+       10:   20-block  0
+call    0 returned 10
+call    1 returned 10
+call    2 returned 10
+call    3 returned 10
+branch  4 taken 10 (fallthrough)
+branch  5 taken 0 (throw)
+    $$$$$:   20-block  1
+    $$$$$:   20-block  2
+       10:   21:}
+       10:   21-block  0
+        -:   22:
+function _ZNK17RepoDisciplinaMem5cautaEy called 15 returned 100% blocks executed 100%
+       15:   23:const Disciplina &RepoDisciplinaMem::cauta(size_t index) const {
+       15:   24:    return discipline[index];
+       15:   24-block  0
+call    0 returned 15
+        -:   25:}
+        -:   26:
+function _ZNK17RepoDisciplinaMem6getAllEv called 80 returned 100% blocks executed 100%
+       80:   27:const vector<Disciplina> &RepoDisciplinaMem::getAll() const noexcept {
+       80:   28:    return discipline;
+       80:   28-block  0
+        -:   29:}
+        -:   30:
+function _ZN17RepoDisciplinaMem17inserare_la_indexEyRK10Disciplina called 4 returned 100% blocks executed 75%
+        4:   31:void RepoDisciplinaMem::inserare_la_index(size_t index, const Disciplina &d) {
+        4:   32:    discipline.insert(discipline.begin() + static_cast<int>(index), d);
+        4:   32-block  0
+call    0 returned 4
+call    1 returned 4
+call    2 returned 4
+call    3 returned 4
+branch  4 taken 4 (fallthrough)
+branch  5 taken 0 (throw)
+    $$$$$:   32-block  1
+    $$$$$:   32-block  2
+        4:   33:}
+        4:   33-block  0

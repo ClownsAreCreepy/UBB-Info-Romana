@@ -1,0 +1,46 @@
+<HTML>
+<HEAD>
+<TITLE>Running Time Analysis</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html8944" HREF="page570.html" tppabs="http://www.brpreiss.com/books/opus4/html/page570.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8942" HREF="page565.html" tppabs="http://www.brpreiss.com/books/opus4/html/page565.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8938" HREF="page568.html" tppabs="http://www.brpreiss.com/books/opus4/html/page568.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8946" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8947" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0017414000000000000000">Running Time Analysis</A></H3>
+<P>
+The running time of the <tt>DijkstrasAlgorithm</tt> routine
+is dominated by the running time of the main loop (lines&nbsp;8-35).
+(It is easy to see that lines&nbsp;3-7 run in constant time,
+and lines&nbsp;38-45 run in  <IMG WIDTH=43 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71805" SRC="img2371.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2371.gif"  > time).
+<P>
+To determine the running time of the main loop,
+we proceed as follows:
+First, we ignore temporarily the time required for the <tt>Enqueue</tt>
+and <tt>Dequeue</tt> operations in the priority queue.
+Clearly, each vertex in the graph is processed exactly once.
+When a vertex is processed all the edges emanating from it are considered.
+Therefore, the time (ignoring the priority queue operations) taken
+is <I>O</I>(|<I>V</I>|+|<I>E</I>|) when adjacency lists are used and
+ <IMG WIDTH=52 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline72647" SRC="img2481.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2481.gif"  > when adjacency matrices are used.
+<P>
+Now, we add back the worst-case time required
+for the priority queue operations.
+In the worst case, a vertex is enqueued and subsequently dequeued
+once for every edge in the graph.
+Therefore, the length of the priority queue is at most  <IMG WIDTH=16 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71793" SRC="img2367.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2367.gif"  >.
+As a result, the worst-case time for each operation is  <IMG WIDTH=65 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72651" SRC="img2482.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2482.gif"  >.
+<P>
+Thus, the worst-case running time for Dijkstra's algorithm is
+<P> <IMG WIDTH=315 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath72639" SRC="img2483.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2483.gif"  ><P>
+when adjacency lists are used, and
+<P> <IMG WIDTH=318 HEIGHT=18 ALIGN=BOTTOM ALT="displaymath72640" SRC="img2484.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2484.gif"  ><P>
+when adjacency matrices are used to represent the input graph.
+<P>
+<HR><A NAME="tex2html8944" HREF="page570.html" tppabs="http://www.brpreiss.com/books/opus4/html/page570.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8942" HREF="page565.html" tppabs="http://www.brpreiss.com/books/opus4/html/page565.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8938" HREF="page568.html" tppabs="http://www.brpreiss.com/books/opus4/html/page568.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8946" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8947" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

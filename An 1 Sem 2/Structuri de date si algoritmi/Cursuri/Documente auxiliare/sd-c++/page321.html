@@ -1,0 +1,60 @@
+<HTML>
+<HEAD>
+<TITLE>Implementing AVL Trees</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html5894" HREF="page322.html" tppabs="http://www.brpreiss.com/books/opus4/html/page322.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5892" HREF="page320.html" tppabs="http://www.brpreiss.com/books/opus4/html/page320.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5886" HREF="page320.html" tppabs="http://www.brpreiss.com/books/opus4/html/page320.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5896" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5897" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0011510000000000000000">Implementing AVL Trees</A></H2>
+<P>
+Having already implemented a binary search tree class, <tt>BST</tt>,
+we can make use of much of the existing code to implement an AVL tree class.
+Program&nbsp;<A HREF="page321.html#progavl1h" tppabs="http://www.brpreiss.com/books/opus4/html/page321.html#progavl1h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives the declaration of the <tt>AVLTree</tt> class
+which is derived from the class <tt>BST</tt>.
+The <tt>AVLTree</tt> class inherits most of its
+functionality from the binary tree class.
+In particular,
+it uses the inherited <tt>Insert</tt> and <tt>Withdraw</tt> functions!
+In addition, the inherited <tt>Balance</tt>,
+<tt>AttachKey</tt> and <tt>DetachKey</tt> member functions are overridden
+and a number of new member functions are declared.
+<P>
+<P><A NAME="20184">&#160;</A><A NAME="progavl1h">&#160;</A> <IMG WIDTH=575 HEIGHT=410 ALIGN=BOTTOM ALT="program20048" SRC="img1332.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1332.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>AVLTree</tt> Class Definition<BR>
+<P>
+<P>
+Program&nbsp;<A HREF="page321.html#progavl1h" tppabs="http://www.brpreiss.com/books/opus4/html/page321.html#progavl1h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> indicates that
+the <tt>Height</tt> member function is redefined for the <tt>AVLTree</tt> class.
+This turns out to be necessary because we need to be able to
+determine quickly, i.e., in <I>O</I>(1) time,
+that the AVL balance condition is satisfied at a given node in the tree.
+In general, the running time required to compute the height of a
+tree containing <I>n</I> nodes is <I>O</I>(<I>n</I>).
+Therefore, to determine whether the AVL balance
+condition is satisfied at a given node, 
+it is necessary to traverse completely the subtrees of the given node.
+But this cannot be done in constant time.
+<P>
+To make it possible to verify the AVL balance condition in constant time,
+the member variable <tt>height</tt> has been added.
+Thus, every node in an <tt>AVLTree</tt> keeps track of its own height.
+In this way it is possible for the <tt>Height</tt> member function
+to run in constant time--all it needs to do is to return the value of the <tt>height</tt> member variable.
+And this makes it possible to test whether the AVL balanced condition
+satisfied at a given node in constant time.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html5898" HREF="page322.html#SECTION0011511000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page322.html#SECTION0011511000000000000000">Constructor</A>
+<LI> <A NAME="tex2html5899" HREF="page323.html#SECTION0011512000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page323.html#SECTION0011512000000000000000"><tt>Height</tt>,
+<tt>AdjustHeight</tt> and <tt>BalanceFactor</tt> Member Functions</A>
+</UL>
+<HR><A NAME="tex2html5894" HREF="page322.html" tppabs="http://www.brpreiss.com/books/opus4/html/page322.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5892" HREF="page320.html" tppabs="http://www.brpreiss.com/books/opus4/html/page320.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5886" HREF="page320.html" tppabs="http://www.brpreiss.com/books/opus4/html/page320.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5896" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5897" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

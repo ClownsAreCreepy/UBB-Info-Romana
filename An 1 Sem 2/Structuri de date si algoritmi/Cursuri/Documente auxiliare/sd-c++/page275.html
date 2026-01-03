@@ -1,0 +1,61 @@
+<HTML>
+<HEAD>
+<TITLE>Operator Member Functions</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html5324" HREF="page276.html" tppabs="http://www.brpreiss.com/books/opus4/html/page276.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5322" HREF="page272.html" tppabs="http://www.brpreiss.com/books/opus4/html/page272.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5318" HREF="page274.html" tppabs="http://www.brpreiss.com/books/opus4/html/page274.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5326" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5327" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0010623000000000000000">Operator Member Functions</A></H3>
+<P>
+Program&nbsp;<A HREF="page275.html#progtree5c" tppabs="http://www.brpreiss.com/books/opus4/html/page275.html#progtree5c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> defines the three standard member functions
+for manipulating iterators,
+<tt>IsDone</tt>, <tt>operator*</tt>, and <tt>operator++</tt>.
+The purpose of <tt>IsDone</tt> is to return <tt>false</tt>
+as long as there are still more objects in the container
+which have not yet been visited.
+This is the case as long as there is something in the stack.
+Therefore, the implementation simply calls <tt>IsEmpty</tt> to test
+whether the stack is empty.
+Clearly, the running time for <tt>IsDone</tt> is <I>O</I>(1).
+<P>
+<P><A NAME="16508">&#160;</A><A NAME="progtree5c">&#160;</A> <IMG WIDTH=575 HEIGHT=582 ALIGN=BOTTOM ALT="program16412" SRC="img1167.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1167.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>Tree::Iter</tt> Class Constructor 	Operator Member Function Definitions<BR>
+<P>
+<P>
+The dereferencing operator, <tt>operator*</tt>,
+is used to access the object which to which the iterator currently refers.
+In this case,
+the iterator refers to the object at the root of the tree which is at
+the top of the stack.
+Note, the stack will never contain an empty tree.
+Therefore, if the stack is not empty, then there is a referent.
+The dereferencing operator obtains a reference to the tree at the top
+of the stack by calling <tt>Top</tt>,
+and then calls the <tt>Key</tt> member function to access the root of the tree.
+The running time for <tt>operator*</tt> is <I>O</I>(1).
+When the stack is empty,
+this function returns a reference to the <tt>NullObject</tt> instance.
+<P>
+Finally, the pre-increment operator, <tt>operator++</tt>,
+is used to advance the iterator to the next node
+in a preorder traversal.
+It does so by popping the top tree from the stack
+and then pushing its subtrees onto the stack
+provided that they are not empty.
+Notice the order is important here.
+In a preorder traversal, the first subtree of a node is traversed
+before the second subtree.
+Therefore, the second subtree should appear in the stack <em>below</em>
+the first subtree.
+That is why subtrees are pushed in reverse order.
+The running time for <tt>operator++</tt> is <I>O</I>(1).
+<P>
+<HR><A NAME="tex2html5324" HREF="page276.html" tppabs="http://www.brpreiss.com/books/opus4/html/page276.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5322" HREF="page272.html" tppabs="http://www.brpreiss.com/books/opus4/html/page272.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5318" HREF="page274.html" tppabs="http://www.brpreiss.com/books/opus4/html/page274.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5326" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5327" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

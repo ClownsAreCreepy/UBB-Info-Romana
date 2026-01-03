@@ -1,0 +1,41 @@
+<HTML>
+<HEAD>
+<TITLE>Implementation</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html6339" HREF="page358.html" tppabs="http://www.brpreiss.com/books/opus4/html/page358.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6337" HREF="page354.html" tppabs="http://www.brpreiss.com/books/opus4/html/page354.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6331" HREF="page356.html" tppabs="http://www.brpreiss.com/books/opus4/html/page356.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6341" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6342" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0012220000000000000000">Implementation</A></H2>
+<P>
+A binary heap is a heap-ordered complete binary tree
+which is implemented using an array.
+In a heap the smallest key is found at the root
+and since the root is always found in the first position of the array,
+finding the smallest key is a trivial operation in a binary heap.
+<P>
+Program&nbsp;<A HREF="page357.html#progbinheap1h" tppabs="http://www.brpreiss.com/books/opus4/html/page357.html#progbinheap1h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> declares the class <tt>BinaryHeap</tt>.
+The <tt>BinaryHeap</tt> class is derived from
+the <tt>PriorityQueue</tt> abstract base class.
+Since <tt>BinaryHeap</tt> is a concrete class
+it provides implementations for all of the member functions
+declared as pure virtual functions in the base class.
+In the interest of brevity,
+the declarations of these functions have been elided
+from Program&nbsp;<A HREF="page357.html#progbinheap1h" tppabs="http://www.brpreiss.com/books/opus4/html/page357.html#progbinheap1h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+<P>
+<P><A NAME="24921">&#160;</A><A NAME="progbinheap1h">&#160;</A> <IMG WIDTH=575 HEIGHT=161 ALIGN=BOTTOM ALT="program24847" SRC="img1461.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1461.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>BinaryHeap</tt> Class Definition<BR>
+<P><BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html6343" HREF="page358.html#SECTION0012221000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page358.html#SECTION0012221000000000000000">Member Variables</A>
+<LI> <A NAME="tex2html6344" HREF="page359.html#SECTION0012222000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page359.html#SECTION0012222000000000000000">Constructor, Destructor and <tt>Purge</tt> Member Functions</A>
+</UL>
+<HR><A NAME="tex2html6339" HREF="page358.html" tppabs="http://www.brpreiss.com/books/opus4/html/page358.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6337" HREF="page354.html" tppabs="http://www.brpreiss.com/books/opus4/html/page354.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6331" HREF="page356.html" tppabs="http://www.brpreiss.com/books/opus4/html/page356.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6341" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6342" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

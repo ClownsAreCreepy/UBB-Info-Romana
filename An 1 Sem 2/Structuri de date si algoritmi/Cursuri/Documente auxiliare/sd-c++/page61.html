@@ -1,0 +1,61 @@
+<HTML>
+<HEAD>
+<TITLE>About Polynomials</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html2653" HREF="page62.html" tppabs="http://www.brpreiss.com/books/opus4/html/page62.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2651" HREF="page57.html" tppabs="http://www.brpreiss.com/books/opus4/html/page57.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2645" HREF="page60.html" tppabs="http://www.brpreiss.com/books/opus4/html/page60.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2655" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2656" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION004140000000000000000">About Polynomials</A></H2>
+<A NAME="secasymptoticpolyi">&#160;</A>
+<P>
+In this section we examine the asymptotic behavior of polynomials in <I>n</I>.
+In particular, we will see that as <I>n</I> gets large,
+the term involving the highest power of <I>n</I> will dominate all the others.
+Therefore, the asymptotic behavior is determined by that term.
+<P>
+<BLOCKQUOTE> <b>Theorem</b><A NAME="theoremvi">&#160;</A>
+Consider a polynomial<A NAME=1489>&#160;</A>
+in <I>n</I> of the form
+<P> <IMG WIDTH=500 HEIGHT=67 ALIGN=BOTTOM ALT="eqnarray1490" SRC="img337.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img337.gif"  ><P>
+where  <IMG WIDTH=49 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline59517" SRC="img338.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img338.gif"  >.
+Then  <IMG WIDTH=98 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59519" SRC="img339.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img339.gif"  >.
+</BLOCKQUOTE>
+<P>
+	extbfProof
+Each of the terms in the summation is of the form  <IMG WIDTH=26 HEIGHT=28 ALIGN=MIDDLE ALT="tex2html_wrap_inline59521" SRC="img340.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img340.gif"  >.
+Since <I>n</I> is non-negative,
+a particular term will be negative only if  <IMG WIDTH=42 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline59525" SRC="img341.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img341.gif"  >.
+Hence, for each term in the summation,  <IMG WIDTH=85 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline59527" SRC="img342.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img342.gif"  >.
+Recall too that we have stipulated that the coefficient of the
+largest power of <I>n</I> is positive, i.e.,  <IMG WIDTH=49 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline59517" SRC="img338.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img338.gif"  >.
+<P>
+<P> <IMG WIDTH=500 HEIGHT=149 ALIGN=BOTTOM ALT="eqnarray1498" SRC="img343.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img343.gif"  ><P>
+<P>
+Note that for integers  <IMG WIDTH=38 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59533" SRC="img344.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img344.gif"  >,
+ <IMG WIDTH=92 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline59535" SRC="img345.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img345.gif"  > for  <IMG WIDTH=69 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59537" SRC="img346.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img346.gif"  >. Thus
+<P><A NAME="eqnbigohpoly">&#160;</A> <IMG WIDTH=500 HEIGHT=70 ALIGN=BOTTOM ALT="equation1510" SRC="img347.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img347.gif"  ><P>
+<P>
+From Equation&nbsp;<A HREF="page61.html#eqnbigohpoly" tppabs="http://www.brpreiss.com/books/opus4/html/page61.html#eqnbigohpoly"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> we see that
+we have found the constants  <IMG WIDTH=45 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline59539" SRC="img348.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img348.gif"  > and  <IMG WIDTH=91 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline59541" SRC="img349.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img349.gif"  >,
+such that for all  <IMG WIDTH=46 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline59075" SRC="img242.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img242.gif"  >,  <IMG WIDTH=175 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline59545" SRC="img350.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img350.gif"  >.
+Thus,  <IMG WIDTH=98 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59519" SRC="img339.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img339.gif"  >.
+<P>
+This property of the asymptotic behavior of polynomials
+is used extensively.
+In fact, whenever we have a function,
+which is a polynomial in <I>n</I>,
+ <IMG WIDTH=357 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59551" SRC="img351.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img351.gif"  >
+we will immediately ``drop'' the less significant terms
+(i.e., terms involving powers of <I>n</I> which are less than <I>m</I>),
+as well as the leading coefficient,  <IMG WIDTH=18 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline59557" SRC="img352.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img352.gif"  >,
+to write  <IMG WIDTH=98 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59519" SRC="img339.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img339.gif"  >.
+<P>
+<HR><A NAME="tex2html2653" HREF="page62.html" tppabs="http://www.brpreiss.com/books/opus4/html/page62.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2651" HREF="page57.html" tppabs="http://www.brpreiss.com/books/opus4/html/page57.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2645" HREF="page60.html" tppabs="http://www.brpreiss.com/books/opus4/html/page60.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2655" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2656" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

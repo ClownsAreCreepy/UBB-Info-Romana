@@ -1,0 +1,1 @@
+Astea sunt batrane si nu se dau (as of 2025), dar exercitiile sunt asemanatoare si daca vreti practica in plus mai puteti face de aici

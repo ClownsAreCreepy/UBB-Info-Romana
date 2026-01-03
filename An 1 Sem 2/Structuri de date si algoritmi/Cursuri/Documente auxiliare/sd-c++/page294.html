@@ -1,0 +1,101 @@
+<HTML>
+<HEAD>
+<TITLE>Comparing Trees</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html5560" HREF="page295.html" tppabs="http://www.brpreiss.com/books/opus4/html/page295.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5558" HREF="page266.html" tppabs="http://www.brpreiss.com/books/opus4/html/page266.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5552" HREF="page293.html" tppabs="http://www.brpreiss.com/books/opus4/html/page293.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5562" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5563" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0010670000000000000000">Comparing Trees</A></H2>
+<P>
+A problem which is relatively easy to solve is determining 
+if two trees are equivalent.
+Two trees are
+<em>equivalent</em><A NAME=17281>&#160;</A><A NAME=17282>&#160;</A>
+if they both have the same topology
+and if the objects contained in corresponding nodes are equal.
+Clearly, two empty trees are equivalent.
+Consider two non-empty binary trees
+ <IMG WIDTH=149 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline64124" SRC="img1189.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1189.gif"  > and  <IMG WIDTH=152 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline64126" SRC="img1190.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1190.gif"  >.
+Equivalence of trees is given by
+<P> <IMG WIDTH=431 HEIGHT=13 ALIGN=BOTTOM ALT="displaymath64122" SRC="img1191.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1191.gif"  ><P>
+A simple, recursive algorithm suffices to test the equivalence of trees.
+<P>
+Since the <tt>BinaryTree</tt> class is ultimately
+derived from the <tt>Object</tt> base class,
+we must provide a <tt>CompareTo</tt> member function to compare binary trees.
+Recall that the compare function is used to compare two objects,
+say <tt>obj1</tt> and <tt>obj2</tt> like this:
+<PRE>int result = obj1.CompareTo (obj2);</PRE>
+The <tt>CompareTo</tt> function returns
+a negative number if  <IMG WIDTH=88 HEIGHT=21 ALIGN=MIDDLE ALT="tex2html_wrap_inline61277" SRC="img681.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img681.gif"  >;
+a positive number if  <IMG WIDTH=87 HEIGHT=21 ALIGN=MIDDLE ALT="tex2html_wrap_inline61279" SRC="img682.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img682.gif"  >; and
+zero if  <IMG WIDTH=87 HEIGHT=21 ALIGN=MIDDLE ALT="tex2html_wrap_inline64132" SRC="img1192.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1192.gif"  >.
+<P>
+So what we need is to define a
+<em>total order</em><A NAME=17304>&#160;</A>
+relation on binary trees.
+Fortunately, it is possible to define such a relation for binary trees
+provided that the objects contained in the nodes of the trees
+are drawn from a totally ordered set.
+<P>
+<BLOCKQUOTE> <b>Theorem</b><A NAME="theoremtreesiv">&#160;</A>
+Consider two binary trees  <IMG WIDTH=19 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline64134" SRC="img1193.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1193.gif"  > and  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline64136" SRC="img1194.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1194.gif"  > and
+the relation <I>&lt;</I> given by
+<P> <IMG WIDTH=525 HEIGHT=88 ALIGN=BOTTOM ALT="equation17308" SRC="img1195.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1195.gif"  ><P>
+where  <IMG WIDTH=19 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline64134" SRC="img1193.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1193.gif"  > is either  <IMG WIDTH=6 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline63650" SRC="img1117.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1117.gif"  > or  <IMG WIDTH=139 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline64144" SRC="img1196.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1196.gif"  >
+and  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline64136" SRC="img1194.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1194.gif"  > is  <IMG WIDTH=141 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline64148" SRC="img1197.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1197.gif"  >.
+The relation <I>&lt;</I> is a total order.
+</BLOCKQUOTE>
+<P>
+The proof of Theorem&nbsp;<A HREF="page294.html#theoremtreesiv" tppabs="http://www.brpreiss.com/books/opus4/html/page294.html#theoremtreesiv"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> is straightforward albeit tedious.
+Essentially we need to show the following:
+<UL><LI> For any two distinct trees  <IMG WIDTH=19 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline64134" SRC="img1193.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1193.gif"  > and  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline64136" SRC="img1194.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1194.gif"  >, such that  <IMG WIDTH=59 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline64156" SRC="img1198.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1198.gif"  >,
+	either  <IMG WIDTH=60 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline64158" SRC="img1199.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1199.gif"  > or  <IMG WIDTH=60 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline64160" SRC="img1200.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1200.gif"  >.<LI> For any three distinct trees  <IMG WIDTH=19 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline64134" SRC="img1193.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1193.gif"  >,  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline64136" SRC="img1194.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1194.gif"  >, and  <IMG WIDTH=19 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline64166" SRC="img1201.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1201.gif"  >,
+	if  <IMG WIDTH=60 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline64158" SRC="img1199.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1199.gif"  > and  <IMG WIDTH=60 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline64170" SRC="img1202.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1202.gif"  > then  <IMG WIDTH=60 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline64172" SRC="img1203.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1203.gif"  >.
+</UL>
+The details of the proof are left as
+an exercise for the reader (Exercise&nbsp;<A HREF="page297.html#exercisetreestotal" tppabs="http://www.brpreiss.com/books/opus4/html/page297.html#exercisetreestotal"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>).
+<P>
+Program&nbsp;<A HREF="page294.html#progbintree4c" tppabs="http://www.brpreiss.com/books/opus4/html/page294.html#progbintree4c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives an implementation of the <tt>CompareTo</tt>
+member function for the <tt>BinaryTree</tt> class.
+This implementation is based on the total order relation <I>&lt;</I> defined
+in Theorem&nbsp;<A HREF="page294.html#theoremtreesiv" tppabs="http://www.brpreiss.com/books/opus4/html/page294.html#theoremtreesiv"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+The <tt>CompareTo</tt> function takes as its lone argument a <tt>const</tt>
+reference to an <tt>Object</tt>.
+However, normally that object will be another <tt>BinaryTree</tt> instance.
+Therefore, the <tt>dynamiccast</tt> on line&nbsp;4 is normally successful.
+<P>
+<P><A NAME="17421">&#160;</A><A NAME="progbintree4c">&#160;</A> <IMG WIDTH=575 HEIGHT=353 ALIGN=BOTTOM ALT="program17339" SRC="img1204.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1204.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>BinaryTree</tt> Class <tt>CompareTo</tt> 	Member Function Definition<BR>
+<P>
+<P>
+The <tt>CompareTo</tt> function compares the two binary trees
+<tt>*this</tt> and <tt>arg</tt>.
+If they are both empty trees, <tt>CompareTo</tt> returns zero.
+If <tt>*this</tt> is empty and <tt>arg</tt> is not,
+<tt>CompareTo</tt> returns -1; and
+if <tt>arg</tt> is empty and <tt>*this</tt> is not,
+it returns 1.
+<P>
+Otherwise, both trees are non-empty.
+In this case, <tt>CompareTo</tt> first compares their respective roots.
+If the roots are equal, then the left subtrees are compared.
+Then, if the roots and the left subtrees are equal,
+the right subtrees are compared.
+<P>
+Clearly the worst-case running occurs when comparing identical trees.
+Suppose there are exactly <I>n</I> nodes in each tree.
+Then, the running time of the <tt>CompareTo</tt> function is
+ <IMG WIDTH=153 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline64182" SRC="img1205.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1205.gif"  >,
+where  <IMG WIDTH=89 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline61648" SRC="img789.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img789.gif"  > is the time needed to compare the objects contained
+in the nodes of the trees.
+<P>
+<HR><A NAME="tex2html5560" HREF="page295.html" tppabs="http://www.brpreiss.com/books/opus4/html/page295.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5558" HREF="page266.html" tppabs="http://www.brpreiss.com/books/opus4/html/page266.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5552" HREF="page293.html" tppabs="http://www.brpreiss.com/books/opus4/html/page293.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5562" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5563" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

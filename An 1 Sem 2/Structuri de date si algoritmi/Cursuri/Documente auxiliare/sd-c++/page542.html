@@ -1,0 +1,42 @@
+<HTML>
+<HEAD>
+<TITLE>Graph Traversals</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html8615" HREF="page543.html" tppabs="http://www.brpreiss.com/books/opus4/html/page543.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8613" HREF="page539.html" tppabs="http://www.brpreiss.com/books/opus4/html/page539.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8609" HREF="page541.html" tppabs="http://www.brpreiss.com/books/opus4/html/page541.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8617" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8618" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0017233000000000000000">Graph Traversals</A></H3>
+<P>
+These graph traversal functions are analogous to the <tt>Accept</tt>
+member function of the container class (see Section&nbsp;<A HREF="page117.html#secadtscontainers" tppabs="http://www.brpreiss.com/books/opus4/html/page117.html#secadtscontainers"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>).
+Each of these functions takes a reference to a <tt>Visitor</tt>
+and performs a traversal.
+I.e., all the <em>vertices</em> of the graph are visited systematically.
+When a vertex is visited, the <tt>Visit</tt> function of the visitor
+is applied to that vertex.
+<P>
+<DL ><DT><STRONG><tt>DepthFirstTraversal</tt> and <tt>BreadthFirstTraversal</tt></STRONG>
+<DD>
+	Both of these functions accept two arguments--a reference to a <tt>Visitor</tt> and a reference to a vertex.
+	The vertex specifies the starting node for
+	either a depth-first traversal or
+	a breadth-first traversal of the graph.
+    <DT><STRONG><tt>TopologicalOrderTraversal</tt></STRONG>
+<DD>
+	A topological sort is an ordering of the nodes of a directed graph.
+	This traversal visits the nodes of a directed graph in the order
+	specified by a topological sort.
+	Therefore, it is a member function of the <tt>Digraph</tt> class.
+<P>
+ </DL>
+The graph traversal algorithms are discussed in Section&nbsp;<A HREF="page550.html#secgraphtraversals" tppabs="http://www.brpreiss.com/books/opus4/html/page550.html#secgraphtraversals"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+<P>
+<HR><A NAME="tex2html8615" HREF="page543.html" tppabs="http://www.brpreiss.com/books/opus4/html/page543.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8613" HREF="page539.html" tppabs="http://www.brpreiss.com/books/opus4/html/page539.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8609" HREF="page541.html" tppabs="http://www.brpreiss.com/books/opus4/html/page541.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8617" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8618" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

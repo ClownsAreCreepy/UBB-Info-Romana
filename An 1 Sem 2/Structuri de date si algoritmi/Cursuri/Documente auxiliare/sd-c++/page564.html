@@ -1,0 +1,69 @@
+<HTML>
+<HEAD>
+<TITLE>Shortest-Path Algorithms</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html8880" HREF="page565.html" tppabs="http://www.brpreiss.com/books/opus4/html/page565.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8878" HREF="page523.html" tppabs="http://www.brpreiss.com/books/opus4/html/page523.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8872" HREF="page563.html" tppabs="http://www.brpreiss.com/books/opus4/html/page563.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8882" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8883" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION0017400000000000000000">Shortest-Path Algorithms</A></H1>
+<P>
+In this section we consider edge-weighted graphs,
+both directed and undirected,
+in which the weight measures the <em>cost</em> of traversing that edge.
+The units of cost depend on the application.
+<P>
+For example, we can use a directed graph to represent a network of airports.
+In such a graph the vertices represent the airports
+and the edges correspond to the available flights between airports.
+In this scenario there are several possible cost metrics:
+If we are interested in computing travel time,
+then we use an edge-weighted graph in which the weights represent
+the flying time between airports.
+If we are concerned with the financial cost of a trip,
+then the weights on the edges represent the monetary cost of a ticket.
+Finally, if we are interested the actual distance traveled,
+then the weights represent the physical distances between airports.
+<P>
+If we are interested in traveling from point <I>A</I> to <I>B</I>,
+we can use a suitably labeled graph to answer the following questions:
+What is the fastest way to get from <I>A</I> to <I>B</I>?
+Which route from <I>A</I> to <I>B</I> has the least expensive airfare?
+What is the shortest possible distance traveled to get from <I>A</I> to <I>B</I>?
+<P>
+Each of these questions is an instance of the same problem:
+Given an edge-weighted graph,  <IMG WIDTH=72 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71355" SRC="img2282.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2282.gif"  >,
+and two vertices,  <IMG WIDTH=45 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline72207" SRC="img2439.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2439.gif"  > and  <IMG WIDTH=44 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline72209" SRC="img2440.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2440.gif"  >,
+find the path that starts at  <IMG WIDTH=13 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline72211" SRC="img2441.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2441.gif"  > and ends at  <IMG WIDTH=14 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline72213" SRC="img2442.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2442.gif"  >
+that has the smallest weighted path length.
+The weighted length of a path is defined as follows:
+<P>
+<BLOCKQUOTE> <b>Definition (Weighted Path Length)</b><A NAME="defngraphswpl">&#160;</A>
+Consider an edge-weighted graph  <IMG WIDTH=72 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71355" SRC="img2282.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2282.gif"  >.
+Let  <IMG WIDTH=58 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline72217" SRC="img2443.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2443.gif"  > be the weight on the edge connecting  <IMG WIDTH=11 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline71521" SRC="img2317.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2317.gif"  > to  <IMG WIDTH=13 HEIGHT=16 ALIGN=MIDDLE ALT="tex2html_wrap_inline72053" SRC="img2408.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2408.gif"  >.
+A path in <I>G</I> is a non-empty sequence of vertices  <IMG WIDTH=137 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71515" SRC="img2315.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2315.gif"  >.
+The <em>weighted path length</em><A NAME=51434>&#160;</A><A NAME=51435>&#160;</A>
+of path <I>P</I> is given by
+<P> <IMG WIDTH=301 HEIGHT=47 ALIGN=BOTTOM ALT="displaymath72187" SRC="img2444.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2444.gif"  ><P></BLOCKQUOTE>
+<P>
+The <em>weighted</em> length of a path is the sum of the weights
+on the edges in that path.
+Conversely, the <em>unweighted</em> length of a path
+is simply the number of edges in that path.
+Therefore,
+the <em>unweighted</em> length of a path is equivalent to
+the weighted path length obtained when all edge weights are one.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html8884" HREF="page565.html#SECTION0017410000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page565.html#SECTION0017410000000000000000">Single-Source Shortest Path</A>
+<LI> <A NAME="tex2html8885" HREF="page570.html#SECTION0017420000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page570.html#SECTION0017420000000000000000">All-Pairs Source Shortest Path</A>
+</UL>
+<HR><A NAME="tex2html8880" HREF="page565.html" tppabs="http://www.brpreiss.com/books/opus4/html/page565.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8878" HREF="page523.html" tppabs="http://www.brpreiss.com/books/opus4/html/page523.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8872" HREF="page563.html" tppabs="http://www.brpreiss.com/books/opus4/html/page563.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8882" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8883" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

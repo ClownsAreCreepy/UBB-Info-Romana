@@ -1,0 +1,44 @@
+<HTML>
+<HEAD>
+<TITLE>The Copy Constructor, Parameter Passing
+and Function Return Values</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html9335" HREF="page602.html" tppabs="http://www.brpreiss.com/books/opus4/html/page602.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html9333" HREF="page598.html" tppabs="http://www.brpreiss.com/books/opus4/html/page598.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html9327" HREF="page600.html" tppabs="http://www.brpreiss.com/books/opus4/html/page600.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html9337" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html9338" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0018323000000000000000">The Copy Constructor, Parameter Passing
+and Function Return Values</A></H3>
+<P>
+The copy constructor plays a special r&#244;le
+in pass-by-value parameter passing.
+As discussed in Section&nbsp;<A HREF="page592.html#seccpppassbyvalue" tppabs="http://www.brpreiss.com/books/opus4/html/page592.html#seccpppassbyvalue"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+the semantics of pass-by-value stipulate that the
+the values of the actual parameters are used
+to <em>initialize</em> the formal parameters when a function is called.
+The compiler achieves this by using the copy constructor
+to copy the value of the actual parameter to the formal parameter.
+<P>
+The copy constructor plays a similar r&#244;le
+when a value is returned from a function using the <tt>return</tt> statement.
+The copy constructor is used to copy the value
+from the called function back to the point
+where the calling function makes use of the result.
+<P>
+Program&nbsp;<A HREF="page599.html#progcomplex1c" tppabs="http://www.brpreiss.com/books/opus4/html/page599.html#progcomplex1c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives an implementation for the copy
+constructor of the <tt>Complex</tt> class.
+The copy constructor initializes the
+the member variables <tt>real</tt> and <tt>imag</tt>
+by calling explicitly their respective copy constructors (line&nbsp;14).
+After the member variables have been initialized,
+the body of the constructor runs.
+In this case, the body of the copy constructor is empty (line&nbsp;15).
+<P>
+<HR><A NAME="tex2html9335" HREF="page602.html" tppabs="http://www.brpreiss.com/books/opus4/html/page602.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html9333" HREF="page598.html" tppabs="http://www.brpreiss.com/books/opus4/html/page598.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html9327" HREF="page600.html" tppabs="http://www.brpreiss.com/books/opus4/html/page600.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html9337" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html9338" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,101 @@
+<HTML>
+<HEAD>
+<TITLE>Implementing Trees</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html5205" HREF="page267.html" tppabs="http://www.brpreiss.com/books/opus4/html/page267.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5203" HREF="page250.html" tppabs="http://www.brpreiss.com/books/opus4/html/page250.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5197" HREF="page265.html" tppabs="http://www.brpreiss.com/books/opus4/html/page265.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5207" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5208" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION0010600000000000000000">Implementing Trees</A></H1>
+<A NAME="sectreesimpltree">&#160;</A>
+<P>
+In this section we consider the implementation of trees
+including general trees, <I>N</I>-ary trees, and binary trees.
+The implementations presented have been developed in the context
+of the abstract data type framework presented in Chapter&nbsp;<A HREF="page107.html#chapadts" tppabs="http://www.brpreiss.com/books/opus4/html/page107.html#chapadts"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+I.e., the various types of trees are viewed
+as classes of <em>containers</em>
+as shown in Figure&nbsp;<A HREF="page266.html#figclasses5" tppabs="http://www.brpreiss.com/books/opus4/html/page266.html#figclasses5"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+<P>
+<P><A NAME="16122">&#160;</A><A NAME="figclasses5">&#160;</A> <IMG WIDTH=575 HEIGHT=120 ALIGN=BOTTOM ALT="figure16118" SRC="img1155.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1155.gif"  ><BR>
+<STRONG>Figure:</STRONG> Object Class Hierarchy<BR>
+<P>
+<P>
+Program&nbsp;<A HREF="page266.html#progtree1h" tppabs="http://www.brpreiss.com/books/opus4/html/page266.html#progtree1h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> declares the <tt>Tree</tt> abstract class.
+The <tt>Tree</tt> class encapsulates those interface elements
+which are common to all of the tree implementations presented in this chapter.
+The <tt>Tree</tt> class combines the tree interface
+with the container interface given in Section&nbsp;<A HREF="page117.html#secadtscontainers" tppabs="http://www.brpreiss.com/books/opus4/html/page117.html#secadtscontainers"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+<P>
+<P><A NAME="16466">&#160;</A><A NAME="progtree1h">&#160;</A> <IMG WIDTH=575 HEIGHT=276 ALIGN=BOTTOM ALT="program16130" SRC="img1156.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1156.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>Tree</tt> Class Definition<BR>
+<P>
+<P>
+The <tt>Tree</tt> class adds the following functions
+to the public interface inherited from the <tt>Container</tt> base class:
+<DL ><DT><STRONG><tt>Key</tt></STRONG>
+<DD>
+	This accessor returns a reference to the object
+	contained in the root node of a tree.
+    <DT><STRONG><tt>Subtree</tt></STRONG>
+<DD>
+	This accessor returns a reference to the  <IMG WIDTH=17 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58387" SRC="img77.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img77.gif"  > subtree
+	of the given tree.
+    <DT><STRONG><tt>IsEmpty</tt></STRONG>
+<DD>
+	This function is a Boolean-valued accessor which
+	returns <tt>true</tt> if the root of the tree is an empty tree,
+	i.e., an external node.
+    <DT><STRONG><tt>IsLeaf</tt></STRONG>
+<DD>
+	This function is a Boolean-valued accessor which
+	returns <tt>true</tt> if the root of the tree
+	is a leaf node.
+    <DT><STRONG><tt>Degree</tt></STRONG>
+<DD>
+	This accessor returns the degree of the root node of the tree.
+	The result is an <tt>unsigned int</tt>.
+	By definition, the degree of an external node is zero.
+    <DT><STRONG><tt>Height</tt></STRONG>
+<DD>
+	This accessor returns the height of the tree.
+	The result is a (signed) <tt>int</tt>.
+	By definition, the height of an empty tree is -1.
+    <DT><STRONG><tt>DepthFirstTraversal</tt> and <tt>BreadthFirstTraversal</tt></STRONG>
+<DD>
+	These functions are analogous to the <tt>Accept</tt> member
+	function of the container class (see Section&nbsp;<A HREF="page117.html#secadtscontainers" tppabs="http://www.brpreiss.com/books/opus4/html/page117.html#secadtscontainers"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>).
+	Both of these functions perform a traversal.
+	I.e., all the nodes of the tree are visited systematically.
+	The former takes a reference to a <tt>PrePostVisitor</tt>
+	and the latter takes a reference to a <tt>Visitor</tt>.
+	When a node is visited,
+	the appropriate functions of the visitor are applied to that node.
+<P>
+ </DL>
+<P>
+The preceding member functions of the <tt>Tree</tt> class
+are all pure virtual functions.
+Therefore,
+the <tt>Tree</tt> class is an abstract base class from which
+specific concrete tree classes are derived.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html5209" HREF="page267.html#SECTION0010610000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page267.html#SECTION0010610000000000000000">Tree Traversals</A>
+<LI> <A NAME="tex2html5210" HREF="page272.html#SECTION0010620000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page272.html#SECTION0010620000000000000000">Tree Iterators</A>
+<LI> <A NAME="tex2html5211" HREF="page276.html#SECTION0010630000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page276.html#SECTION0010630000000000000000">General Trees</A>
+<LI> <A NAME="tex2html5212" HREF="page282.html#SECTION0010640000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page282.html#SECTION0010640000000000000000"><I>N</I>-ary Trees</A>
+<LI> <A NAME="tex2html5213" HREF="page289.html#SECTION0010650000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page289.html#SECTION0010650000000000000000">Binary Trees</A>
+<LI> <A NAME="tex2html5214" HREF="page293.html#SECTION0010660000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page293.html#SECTION0010660000000000000000">Binary Tree Traversals</A>
+<LI> <A NAME="tex2html5215" HREF="page294.html#SECTION0010670000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page294.html#SECTION0010670000000000000000">Comparing Trees</A>
+<LI> <A NAME="tex2html5216" HREF="page295.html#SECTION0010680000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page295.html#SECTION0010680000000000000000">Applications</A>
+</UL>
+<HR><A NAME="tex2html5205" HREF="page267.html" tppabs="http://www.brpreiss.com/books/opus4/html/page267.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5203" HREF="page250.html" tppabs="http://www.brpreiss.com/books/opus4/html/page250.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5197" HREF="page265.html" tppabs="http://www.brpreiss.com/books/opus4/html/page265.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5207" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5208" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

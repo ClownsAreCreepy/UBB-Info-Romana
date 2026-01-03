@@ -1,0 +1,70 @@
+<HTML>
+<HEAD>
+<TITLE>Binary Trees</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html5499" HREF="page290.html" tppabs="http://www.brpreiss.com/books/opus4/html/page290.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5497" HREF="page266.html" tppabs="http://www.brpreiss.com/books/opus4/html/page266.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5491" HREF="page288.html" tppabs="http://www.brpreiss.com/books/opus4/html/page288.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5501" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5502" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0010650000000000000000">Binary Trees</A></H2>
+<A NAME="sectreesbintreeimp">&#160;</A>
+<P>
+This section presents an implementation of binary trees
+in the sense of Definition&nbsp;<A HREF="page256.html#defnbinarytree" tppabs="http://www.brpreiss.com/books/opus4/html/page256.html#defnbinarytree"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+A binary tree is essentially a <I>N</I>-ary tree where <I>N</I>=2.
+Therefore, it is possible to implemented binary trees
+using the <tt>NaryTree</tt> class presented in the preceding section.
+However, because the <tt>NaryTree</tt> class implementation
+is a general implementation which can accommodate any value of <I>N</I>,
+it is somewhat less efficient in both time and space
+than an implementation which is designed specifically for the case <I>N</I>=2.
+Since binary trees occur quite frequently in practice,
+it is important to have a good implementation.
+<P>
+Another consequence of restricting <I>N</I> to two
+is that we can talk of the left and right subtrees of a tree.
+Consequently the interface provided by a binary tree class is quite
+different from the general interface provided by an <I>N</I>-ary tree class.
+<P>
+Figure&nbsp;<A HREF="page289.html#figtree9" tppabs="http://www.brpreiss.com/books/opus4/html/page289.html#figtree9"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> shows how the
+binary tree given in Figure&nbsp;<A HREF="page257.html#figtree5" tppabs="http://www.brpreiss.com/books/opus4/html/page257.html#figtree5"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> is be represented.
+The basic idea is that each node of the tree
+contains two pointers to the subtrees of that node.
+Just as we did for <I>N</I>-ary trees,
+we represent explicitly the empty trees.
+Since an empty tree node contains neither root nor subtrees
+it is represented by a structure in which all the pointers
+have the value zero.
+<P>
+<P><A NAME="17177">&#160;</A><A NAME="figtree9">&#160;</A> <IMG WIDTH=575 HEIGHT=337 ALIGN=BOTTOM ALT="figure17004" SRC="img1183.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1183.gif"  ><BR>
+<STRONG>Figure:</STRONG> Representing Binary Trees<BR>
+<P>
+<P>
+The <tt>BinaryTree</tt> class is declared in Program&nbsp;<A HREF="page289.html#progbintree1h" tppabs="http://www.brpreiss.com/books/opus4/html/page289.html#progbintree1h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+It is derived from the same base class, <tt>Tree</tt>,
+as the classes <tt>GeneralTree</tt> and <tt>NaryTree</tt>.
+Therefore, it shares with those classes the common aspects
+of the tree and container interfaces.
+While the declarations of the three classes differ in the details,
+they all three follow a similar design pattern.
+Comparing Programs&nbsp;<A HREF="page276.html#proggentree1h" tppabs="http://www.brpreiss.com/books/opus4/html/page276.html#proggentree1h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>, <A HREF="page282.html#prognarytree1h" tppabs="http://www.brpreiss.com/books/opus4/html/page282.html#prognarytree1h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> and&nbsp;<A HREF="page289.html#progbintree1h" tppabs="http://www.brpreiss.com/books/opus4/html/page289.html#progbintree1h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+we see that in addition to the constructors and destructor,
+they all possess similar routines for accessing and manipulating
+the root and the subtrees of a tree.
+<P>
+<P><A NAME="17400">&#160;</A><A NAME="progbintree1h">&#160;</A> <IMG WIDTH=575 HEIGHT=429 ALIGN=BOTTOM ALT="program17188" SRC="img1184.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1184.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>BinaryTree</tt> Class Definition<BR>
+<P><BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html5503" HREF="page290.html#SECTION0010651000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page290.html#SECTION0010651000000000000000">Member Variables</A>
+<LI> <A NAME="tex2html5504" HREF="page291.html#SECTION0010652000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page291.html#SECTION0010652000000000000000">Constructors</A>
+<LI> <A NAME="tex2html5505" HREF="page292.html#SECTION0010653000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page292.html#SECTION0010653000000000000000">Destructor and <tt>Purge</tt> Member Functions</A>
+</UL>
+<HR><A NAME="tex2html5499" HREF="page290.html" tppabs="http://www.brpreiss.com/books/opus4/html/page290.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5497" HREF="page266.html" tppabs="http://www.brpreiss.com/books/opus4/html/page266.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5491" HREF="page288.html" tppabs="http://www.brpreiss.com/books/opus4/html/page288.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5501" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5502" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

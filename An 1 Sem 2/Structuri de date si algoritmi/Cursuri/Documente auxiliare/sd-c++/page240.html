@@ -1,0 +1,74 @@
+<HTML>
+<HEAD>
+<TITLE>Double Hashing</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html4883" HREF="page241.html" tppabs="http://www.brpreiss.com/books/opus4/html/page241.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4881" HREF="page237.html" tppabs="http://www.brpreiss.com/books/opus4/html/page237.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4875" HREF="page239.html" tppabs="http://www.brpreiss.com/books/opus4/html/page239.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4885" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4886" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION009630000000000000000">Double Hashing</A></H2>
+<P>
+While quadratic probing does indeed eliminate the primary clustering problem,
+it places a restriction on the number of items that can be put in the table--the table must be less than half full.
+<em>Double Hashing</em><A NAME=13888>&#160;</A>
+is yet another method of generating a probing sequence.
+It requires two distinct hash functions,
+<P> <IMG WIDTH=190 HEIGHT=39 ALIGN=BOTTOM ALT="gather13889" SRC="img1045.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1045.gif"  ><P>
+The probing sequence is then computed as follows
+<P> <IMG WIDTH=359 HEIGHT=17 ALIGN=BOTTOM ALT="displaymath63118" SRC="img1046.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1046.gif"  ><P>
+Since the collision resolution function is <I>c</I>(<I>i</I>)=<I>ih</I>'(<I>x</I>),
+the probe sequence depends on the key as follows:
+If <I>h</I>'(<I>x</I>)=1, then the probing sequence for the key <I>x</I>
+is the same as linear probing.
+If <I>h</I>'(<I>x</I>)=2, the probing sequence examines every other array position.
+This works as long as <I>M</I> is not even.
+<P>
+Clearly since <I>c</I>(0)=0,
+the double hashing method satisfies property&nbsp;1.
+Furthermore, property&nbsp;2 is satisfied
+as long as <I>h</I>'(<I>x</I>) and <I>M</I> are relatively prime.
+Since <I>h</I>'(<I>x</I>) can take on any value between 1 and <I>M</I>-1,
+<I>M</I> must be a prime number.
+<P>
+But what is a suitable choice for the function <I>h</I>'?
+Recall that <I>h</I> is defined as the composition of two functions,
+ <IMG WIDTH=62 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline62574" SRC="img922.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img922.gif"  > where  <IMG WIDTH=115 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline62672" SRC="img942.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img942.gif"  >.
+We can define <I>h</I>' as the composition  <IMG WIDTH=37 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63154" SRC="img1047.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1047.gif"  >,
+where
+<P><A NAME="eqnhashingdouble">&#160;</A> <IMG WIDTH=500 HEIGHT=17 ALIGN=BOTTOM ALT="equation13891" SRC="img1048.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1048.gif"  ><P>
+<P>
+Double hashing reduces the occurrence of primary clustering
+since it only does a linear search if <I>h</I>'(<I>x</I>) hashes to the value 1.
+For a good hash function,
+this should only happen with probability 1/(<I>M</I>-1).
+However, for double hashing to work at all,
+the size of the scatter table, <I>M</I>, must be a prime number.
+Table&nbsp;<A HREF="page240.html#tblhashingprobing" tppabs="http://www.brpreiss.com/books/opus4/html/page240.html#tblhashingprobing"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> summarizes
+the characteristics of the various open addressing probing sequences.
+<P>
+<P><A NAME="13896">&#160;</A>
+<P>
+    <A NAME="tblhashingprobing">&#160;</A>
+    <DIV ALIGN=CENTER><P ALIGN=CENTER><TABLE COLS=4 BORDER FRAME=HSIDES RULES=GROUPS>
+<COL ALIGN=LEFT><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER>
+<TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP>
+	    probing sequence </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> primary clustering </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> capacity limit
+		</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> size restriction </TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP>linear probing </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> yes </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> none </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> none  </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> 
+	    quadratic probing </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> no </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=39 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline63116" SRC="img1043.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1043.gif"  >
+		</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>M</I> must be prime </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> 
+	    double hashing </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> no </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> none </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>M</I> must be prime </TD></TR>
+</TBODY>
+<CAPTION ALIGN=BOTTOM><STRONG>Table:</STRONG> Characteristics of the Open Addressing Probing Sequences</CAPTION></TABLE>
+</P></DIV><P><HR><A NAME="tex2html4883" HREF="page241.html" tppabs="http://www.brpreiss.com/books/opus4/html/page241.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4881" HREF="page237.html" tppabs="http://www.brpreiss.com/books/opus4/html/page237.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4875" HREF="page239.html" tppabs="http://www.brpreiss.com/books/opus4/html/page239.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4885" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4886" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,87 @@
+<HTML>
+<HEAD>
+<TITLE>Binomial Queues</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html6526" HREF="page373.html" tppabs="http://www.brpreiss.com/books/opus4/html/page373.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6524" HREF="page370.html" tppabs="http://www.brpreiss.com/books/opus4/html/page370.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6518" HREF="page371.html" tppabs="http://www.brpreiss.com/books/opus4/html/page371.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6528" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6529" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0012420000000000000000">Binomial Queues</A></H2>
+<P>
+If binomial trees only come in sizes that are powers of two,
+how do we implement a container which holds an arbitrary number number
+of items <I>n</I> using binomial trees?
+The answer is related to the binary representation of the number <I>n</I>.
+Every non-negative integer <I>n</I> can be expressed in binary form as
+<P><A NAME="eqnpqueuesn">&#160;</A> <IMG WIDTH=500 HEIGHT=49 ALIGN=BOTTOM ALT="equation27169" SRC="img1536.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1536.gif"  ><P>
+where  <IMG WIDTH=68 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline66822" SRC="img1537.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1537.gif"  > is the  <IMG WIDTH=17 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58387" SRC="img77.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img77.gif"  >
+<em>binary digit</em><A NAME=27176>&#160;</A><A NAME=27177>&#160;</A>
+or <em>bit</em><A NAME=27179>&#160;</A> in the representation of <I>n</I>.
+For example, <I>n</I>=27 is expressed as the binary number
+ <IMG WIDTH=45 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline66830" SRC="img1538.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1538.gif"  > because 27=16+8+2+1.
+<P>
+To make a container which holds exactly <I>n</I> items
+we use a collection of binomial trees.
+A collection of trees is called a <em>forest</em><A NAME=27181>&#160;</A>.
+The forest contains binomial tree  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline66836" SRC="img1539.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1539.gif"  > if the  <IMG WIDTH=17 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58387" SRC="img77.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img77.gif"  > bit
+in the binary representation of <I>n</I> is a one.
+I.e., the forest  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline60413" SRC="img474.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img474.gif"  > which contains exactly <I>n</I> items is given by
+<P> <IMG WIDTH=315 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath66814" SRC="img1540.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1540.gif"  ><P>
+where  <IMG WIDTH=9 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline66846" SRC="img1541.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1541.gif"  > is determined from Equation&nbsp;<A HREF="page372.html#eqnpqueuesn" tppabs="http://www.brpreiss.com/books/opus4/html/page372.html#eqnpqueuesn"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+For example, the forest which contains 27 items is
+ <IMG WIDTH=161 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline66848" SRC="img1542.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1542.gif"  >
+<P>
+The analogy between  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline60413" SRC="img474.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img474.gif"  > and the binary representation of <I>n</I>
+carries over to the merge operation.
+Suppose we have two forests,
+say  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline60413" SRC="img474.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img474.gif"  > and  <IMG WIDTH=20 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline66856" SRC="img1543.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1543.gif"  >.
+Since  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline60413" SRC="img474.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img474.gif"  > contains <I>n</I> items and  <IMG WIDTH=20 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline66856" SRC="img1543.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1543.gif"  > contains <I>m</I> items,
+the combination of the two contains <I>n</I>+<I>m</I> items.
+Therefore, the resulting forest is  <IMG WIDTH=37 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline66868" SRC="img1544.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1544.gif"  >.
+<P>
+For example, consider <I>n</I>=27 and <I>m</I>=10.
+In this case, we need to merge  <IMG WIDTH=157 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline66874" SRC="img1545.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1545.gif"  > with
+ <IMG WIDTH=104 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline66876" SRC="img1546.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1546.gif"  >.
+Recall that two binomial trees of order <I>k</I> can be combined
+to obtain a binomial tree of order <I>k</I>+1.
+E.g.,  <IMG WIDTH=97 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline66882" SRC="img1547.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1547.gif"  >.
+But this is just like adding binary digits!
+In binary notation, the sum 27+10 is calculated like this:
+<DIV ALIGN=CENTER><P ALIGN=CENTER><TABLE COLS=7 BORDER RULES=GROUPS>
+<COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER>
+<TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+	   </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>1</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>1</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>0</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>1</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>1</TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	+</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>1</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>0</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>1</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>0</TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+<P>
+	   </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>1</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>0</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>0</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>1</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>0</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>1</TD></TR>
+</TBODY>
+</TABLE>
+<BR> 
+</P></DIV>
+The merging of  <IMG WIDTH=22 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline66888" SRC="img1548.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1548.gif"  > and  <IMG WIDTH=22 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline66890" SRC="img1549.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1549.gif"  > is done in the same way:
+<DIV ALIGN=CENTER><P ALIGN=CENTER><TABLE COLS=8 BORDER RULES=GROUPS>
+<COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER>
+<TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+	   </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>     </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline66602" SRC="img1504.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1504.gif"  ></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline66738" SRC="img1520.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1520.gif"  ></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <IMG WIDTH=6 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline63650" SRC="img1117.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1117.gif"  ></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline66596" SRC="img1502.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1502.gif"  ></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline66594" SRC="img1501.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1501.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <IMG WIDTH=22 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline66888" SRC="img1548.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1548.gif"  > </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	+</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>     </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>     </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline66738" SRC="img1520.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1520.gif"  ></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <IMG WIDTH=6 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline63650" SRC="img1117.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1117.gif"  ></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline66596" SRC="img1502.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1502.gif"  ></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <IMG WIDTH=6 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline63650" SRC="img1117.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1117.gif"  ></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <IMG WIDTH=22 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline66914" SRC="img1550.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1550.gif"  > </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+<P>
+	   </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline66916" SRC="img1551.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1551.gif"  ></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <IMG WIDTH=6 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline63650" SRC="img1117.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1117.gif"  ></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <IMG WIDTH=6 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline63650" SRC="img1117.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1117.gif"  ></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline66922" SRC="img1552.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1552.gif"  ></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <IMG WIDTH=6 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline63650" SRC="img1117.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1117.gif"  ></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline66594" SRC="img1501.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1501.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <IMG WIDTH=22 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline66928" SRC="img1553.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1553.gif"  > </TD></TR>
+</TBODY>
+</TABLE>
+</P></DIV>
+Therefore, the result is  <IMG WIDTH=130 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline66930" SRC="img1554.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1554.gif"  >.
+<P>
+<HR><A NAME="tex2html6526" HREF="page373.html" tppabs="http://www.brpreiss.com/books/opus4/html/page373.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6524" HREF="page370.html" tppabs="http://www.brpreiss.com/books/opus4/html/page370.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6518" HREF="page371.html" tppabs="http://www.brpreiss.com/books/opus4/html/page371.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6528" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6529" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

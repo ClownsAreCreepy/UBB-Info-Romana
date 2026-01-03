@@ -1,0 +1,88 @@
+<HTML>
+<HEAD>
+<TITLE>Basics</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html7078" HREF="page418.html" tppabs="http://www.brpreiss.com/books/opus4/html/page418.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7076" HREF="page416.html" tppabs="http://www.brpreiss.com/books/opus4/html/page416.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7070" HREF="page416.html" tppabs="http://www.brpreiss.com/books/opus4/html/page416.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7080" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7081" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION0014100000000000000000">Basics</A></H1>
+<P>
+A memory pool is a region of contiguous memory locations
+that is subdivided into non-overlapping areas which
+are then allocated to the user.
+For example, Figure&nbsp;<A HREF="page417.html#figpool1" tppabs="http://www.brpreiss.com/books/opus4/html/page417.html#figpool1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> shows the <em>memory map</em><A NAME=30315>&#160;</A>
+of a 128KB pool of memory.
+The gray bars denote the blocks of memory that are currently in use;
+the blank areas are unreserved and available for use.
+<P>
+<P><A NAME="30320">&#160;</A><A NAME="figpool1">&#160;</A> <IMG WIDTH=575 HEIGHT=557 ALIGN=BOTTOM ALT="figure30316" SRC="img1739.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1739.gif"  ><BR>
+<STRONG>Figure:</STRONG> Memory Map of a Storage Pool<BR>
+<P>
+<P>
+A memory pool supports the following two operations:
+<DL ><DT><STRONG>Acquire</STRONG>
+<DD>
+	The <em>acquire</em> operation locates in the pool
+	a region of contiguous, unused memory locations of a specified size
+	and returns a pointer to that region.
+	The region is marked <em>reserved</em>,
+	which indicates that the memory locations contained therein are in use.
+<P>
+	Should there be insufficient memory to satisfy the request,
+	the acquire operation fails--the typical implementation throws an exception.
+    <DT><STRONG>Release</STRONG>
+<DD>
+	The <em>release</em> operation returns a region of reserved 
+	memory locations to the pool.
+	After a region is returned to the pool,
+	it is no longer reserved and can be allocated
+	in a subsequent <em>acquire</em> operation.
+<P>
+	It is an error to attempt to release a region which is not reserved.
+	The behavior of the pool under these circumstances
+	is typically undefined.
+<P>
+ </DL>
+<P>
+Program&nbsp;<A HREF="page417.html#progpool1h" tppabs="http://www.brpreiss.com/books/opus4/html/page417.html#progpool1h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives the definition
+of the <tt>StoragePool</tt> abstract class.
+This class serves as the base class from which concrete memory pool
+implementations are derived.
+In addition to the virtual destructor,
+two pure virtual member functions,
+<tt>Acquire</tt> and <tt>Release</tt>, are defined.
+<P>
+<P><A NAME="30482">&#160;</A><A NAME="progpool1h">&#160;</A> <IMG WIDTH=575 HEIGHT=143 ALIGN=BOTTOM ALT="program30333" SRC="img1740.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1740.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>StoragePool</tt> Class Definition<BR>
+<P>
+<P>
+The <tt>Acquire</tt> function takes
+a single argument of type <tt>sizet</tt>
+and its return value is a pointer to <tt>void</tt>.
+The purpose of this function is to acquire a region of memory locations,
+the size of which is specified by the argument (in bytes).
+A pointer to the region is returned.
+We shall assume that if for any reason the request cannot be satisfied,
+an exception of type <tt>badalloc</tt> is thrown.
+<P>
+The <tt>Release</tt> function takes as its lone argument
+a pointer to <tt>void</tt>.
+This pointer is assumed to be a pointer previously returned by
+the <tt>Acquire</tt> function.
+I.e., it is a pointer to a region of reserved memory locations.
+The purpose of this function is to return the storage to the memory pool.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html7082" HREF="page418.html#SECTION0014110000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page418.html#SECTION0014110000000000000000">C++ Magic</A>
+<LI> <A NAME="tex2html7083" HREF="page420.html#SECTION0014120000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page420.html#SECTION0014120000000000000000">The Heap</A>
+</UL>
+<HR><A NAME="tex2html7078" HREF="page418.html" tppabs="http://www.brpreiss.com/books/opus4/html/page418.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7076" HREF="page416.html" tppabs="http://www.brpreiss.com/books/opus4/html/page416.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7070" HREF="page416.html" tppabs="http://www.brpreiss.com/books/opus4/html/page416.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7080" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7081" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

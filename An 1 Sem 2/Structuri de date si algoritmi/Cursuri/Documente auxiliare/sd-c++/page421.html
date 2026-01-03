@@ -1,0 +1,86 @@
+<HTML>
+<HEAD>
+<TITLE>Singly Linked Free Storage</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html7125" HREF="page422.html" tppabs="http://www.brpreiss.com/books/opus4/html/page422.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7123" HREF="page416.html" tppabs="http://www.brpreiss.com/books/opus4/html/page416.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7117" HREF="page420.html" tppabs="http://www.brpreiss.com/books/opus4/html/page420.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7127" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7128" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION0014200000000000000000">Singly Linked Free Storage</A></H1>
+<A NAME="secheapsingly">&#160;</A>
+<P>
+The objective in the implementation of a storage pool
+is to make the running times
+for <tt>Acquire</tt> and <tt>Release</tt> operations as small as possible.
+Ideally, both operations run in constant time.
+In this section, we present a storage pool implementation
+that uses a singly-linked list to keep track of the unused areas of memory.
+The consequence of using a this approach
+is that the running times are not ideal.
+<P>
+There are several requirements
+that the implementation of a storage pool must satisfy:
+It must keep track somehow of the blocks of memory that have been allocated
+as well as the areas of memory that remain unallocated.
+<P>
+For example, in order to implement the <tt>Acquire</tt> operation,
+we must have the means to locate an unused area of memory
+of sufficient size in order to satisfy the request.
+The approach taken in this section is to use a singly-linked list
+to keep track of the free areas in the pool.
+<P>
+In addition to keeping track of the free areas,
+it is necessary to keep track of the size of
+each block that is allocated.
+This is necessary because the <tt>Release</tt> operation
+takes only a pointer to the block of memory to be released.
+I.e., the size of the block is <em>not</em>
+provided as an argument to the <tt>Release</tt> function.
+<P>
+Where should we keep track of this extra information?
+It turns out that the usual approach is to keep the necessary information
+<em>in the storage pool itself</em>.
+An area that has not been allocated to a user
+is available for use by the pool itself.
+Specifically, the nodes of the linked list of free areas
+themselves occupy the free areas.
+<P>
+We implement the storage pool as an array of <tt>Block</tt>s.
+The structure of a <tt>Block</tt> is shown in Figure&nbsp;<A HREF="page421.html#figblock1" tppabs="http://www.brpreiss.com/books/opus4/html/page421.html#figblock1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+A sequence of consecutive,
+contiguous blocks in the array constitutes an <em>area</em>.
+Only the first block in each area is used to keep track of the entire area.
+<P>
+<P><A NAME="30699">&#160;</A><A NAME="figblock1">&#160;</A> <IMG WIDTH=575 HEIGHT=171 ALIGN=BOTTOM ALT="figure30480" SRC="img1746.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1746.gif"  ><BR>
+<STRONG>Figure:</STRONG> <tt>SinglyLinkedPool::Block</tt> Structure Layout<BR>
+<P>
+<P>
+An area which has been allocated
+is said to be <em>reserved</em><A NAME=30550>&#160;</A>.
+The first word of the first block in the area is used to keep track
+of the length of the area (in blocks).
+The remaining memory locations in the area are given up to the user.
+<P>
+An area which has not been allocated
+is said to be <em>free</em><A NAME=30552>&#160;</A>.
+The first word of the first block in the area is used to keep track
+of the length of the area (in blocks).
+All of the free areas are linked together in a singly-linked list,
+known as the <em>free list</em><A NAME=30554>&#160;</A>.
+The second word of the first block in the area
+contains a pointer to the next free area in the free list.
+For reasons explained below,
+we keep the free list sorted by the address of areas contained therein.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html7129" HREF="page422.html#SECTION0014210000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page422.html#SECTION0014210000000000000000">Implementation</A>
+</UL>
+<HR><A NAME="tex2html7125" HREF="page422.html" tppabs="http://www.brpreiss.com/books/opus4/html/page422.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7123" HREF="page416.html" tppabs="http://www.brpreiss.com/books/opus4/html/page416.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7117" HREF="page420.html" tppabs="http://www.brpreiss.com/books/opus4/html/page420.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7127" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7128" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

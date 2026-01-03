@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE>FindMin Member Function</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html5823" HREF="page316.html" tppabs="http://www.brpreiss.com/books/opus4/html/page316.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5821" HREF="page312.html" tppabs="http://www.brpreiss.com/books/opus4/html/page312.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5817" HREF="page314.html" tppabs="http://www.brpreiss.com/books/opus4/html/page314.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5825" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5826" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0011413000000000000000"><tt>FindMin</tt> Member Function</A></H3>
+<P>
+Program&nbsp;<A HREF="page314.html#progbst2c" tppabs="http://www.brpreiss.com/books/opus4/html/page314.html#progbst2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> also shows a recursive implementation of
+the <tt>FindMin</tt> member function of the <tt>BST</tt> class.
+It follows directly from the data ordering property of search trees
+that to find the node containing the smallest key in the tree,
+we start at the root and follow the chain of left subtrees until we
+get to the node that has an empty left subtree.
+The key in that node is the smallest in the tree.
+Notice that no object comparisons are necessary to identify the smallest
+key in the tree.
+<P>
+The running time analysis of the <tt>FindMin</tt> routine
+follows directly from that of the <tt>Find</tt> function.
+The worst case running time of <tt>FindMin</tt> is <I>O</I>(<I>n</I>)
+and the average running time is  <IMG WIDTH=56 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59891" SRC="img403.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img403.gif"  >,
+where <I>n</I> is the number of internal nodes in the tree.
+<P>
+<HR><A NAME="tex2html5823" HREF="page316.html" tppabs="http://www.brpreiss.com/books/opus4/html/page316.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5821" HREF="page312.html" tppabs="http://www.brpreiss.com/books/opus4/html/page312.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5817" HREF="page314.html" tppabs="http://www.brpreiss.com/books/opus4/html/page314.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5825" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5826" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

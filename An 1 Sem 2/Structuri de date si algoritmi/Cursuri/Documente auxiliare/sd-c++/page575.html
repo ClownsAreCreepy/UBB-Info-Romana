@@ -1,0 +1,41 @@
+<HTML>
+<HEAD>
+<TITLE>Constructing Spanning Trees</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html9019" HREF="page576.html" tppabs="http://www.brpreiss.com/books/opus4/html/page576.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html9017" HREF="page574.html" tppabs="http://www.brpreiss.com/books/opus4/html/page574.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html9011" HREF="page574.html" tppabs="http://www.brpreiss.com/books/opus4/html/page574.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html9021" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html9022" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0017501000000000000000">Constructing Spanning Trees</A></H3>
+<P>
+Any traversal of a connected, undirected tree
+visits all the vertices in that tree,
+regardless of the node from which the traversal is started.
+During the traversal certain edges are traversed
+while the remaining edges are not.
+Specifically, an edge is traversed if it leads from a vertex
+that has been visited to a vertex that has not been visited.
+The set of edges which are traversed during a traversal
+forms a spanning tree.
+<P>
+The spanning tree obtained from a breadth-first traversal
+starting at vertex <I>v</I> of graph <I>G</I>
+is called the <em>breadth-first spanning tree</em><A NAME=52598>&#160;</A><A NAME=52599>&#160;</A>
+of <I>G</I> rooted at <I>v</I>.
+For example, the spanning tree shown in Figure&nbsp;<A HREF="page574.html#figgraph15" tppabs="http://www.brpreiss.com/books/opus4/html/page574.html#figgraph15"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>&nbsp;(c)
+is the breadth-first spanning tree of  <IMG WIDTH=24 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline72821" SRC="img2516.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2516.gif"  > rooted at vertex <I>b</I>.
+<P>
+Similarly, the spanning tree obtained from a depth-first
+traversal is the <em>depth-first spanning tree</em><A NAME=52603>&#160;</A><A NAME=52604>&#160;</A>
+of <I>G</I> rooted at <I>v</I>.
+The spanning tree shown in Figure&nbsp;<A HREF="page574.html#figgraph15" tppabs="http://www.brpreiss.com/books/opus4/html/page574.html#figgraph15"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>&nbsp;(d)
+is the depth-first spanning tree of  <IMG WIDTH=24 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline72821" SRC="img2516.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2516.gif"  > rooted at vertex <I>c</I>.
+<P>
+<HR><A NAME="tex2html9019" HREF="page576.html" tppabs="http://www.brpreiss.com/books/opus4/html/page576.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html9017" HREF="page574.html" tppabs="http://www.brpreiss.com/books/opus4/html/page574.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html9011" HREF="page574.html" tppabs="http://www.brpreiss.com/books/opus4/html/page574.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html9021" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html9022" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

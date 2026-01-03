@@ -1,0 +1,157 @@
+<HTML>
+<HEAD>
+<TITLE>Exercises</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html7856" HREF="page482.html" tppabs="http://www.brpreiss.com/books/opus4/html/page482.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7854" HREF="page440.html" tppabs="http://www.brpreiss.com/books/opus4/html/page440.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7848" HREF="page480.html" tppabs="http://www.brpreiss.com/books/opus4/html/page480.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7858" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7859" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION0015600000000000000000">Exercises</A></H1>
+<P>
+<OL><LI>
+	Consider the greedy strategy for counting out change
+	given in Section&nbsp;<A HREF="page442.html#secalgschange" tppabs="http://www.brpreiss.com/books/opus4/html/page442.html#secalgschange"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+	Let  <IMG WIDTH=105 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline68427" SRC="img1810.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1810.gif"  > be the set of available denominations.
+	E.g., the set  <IMG WIDTH=144 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69599" SRC="img2065.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2065.gif"  > represents the denominations
+	of the commonly circulated Canadian coins.
+	What condition(s) must the set of denominations satisfy
+	to ensure the greedy algorithm always finds an optimal solution?<LI>
+	Devise a greedy algorithm to solve optimally
+	the scales balancing problem described in Section&nbsp;<A HREF="page447.html#secalgsscales" tppabs="http://www.brpreiss.com/books/opus4/html/page447.html#secalgsscales"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+	<OL><LI>
+		Does your algorithm always find the optimal solution?<LI>
+		What is the running time of your algorithm?
+	</OL><LI>
+	Consider the following 0/1-knapsack problem:
+	<DIV ALIGN=CENTER><P ALIGN=CENTER><TABLE COLS=3 BORDER FRAME=HSIDES RULES=GROUPS>
+<COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER>
+<TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+		<I>i</I> </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=14 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline68467" SRC="img1818.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1818.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=13 HEIGHT=14 ALIGN=MIDDLE ALT="tex2html_wrap_inline58415" SRC="img85.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img85.gif"  > </TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>1 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 10 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 10 </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+		2 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 6  </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 6 </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+		3 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 3  </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 4 </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+		4 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 8  </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 9 </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+		5 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 1  </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 3 </TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP COLSPAN=3><I>C</I>=18</TD></TR>
+</TBODY>
+</TABLE>
+</P></DIV>
+	<OL><LI>
+		Solve the problem using the greedy by profit,
+		greedy by weight and greedy by profit density strategies.<LI>
+		What is the optimal solution?
+	</OL><LI> <A NAME="exercisealgsbfsi">&#160;</A>
+	Consider the breadth-first solver shown in Program&nbsp;<A HREF="page451.html#progsolution3c" tppabs="http://www.brpreiss.com/books/opus4/html/page451.html#progsolution3c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+	Suppose we replace the queue (line&nbsp;3)
+	with a <em>priority queue</em>.
+	<OL><LI>
+		How should the solutions in the priority queue be prioritized?<LI>
+		What possible benefit might there be from using
+		a priority queue rather than a FIFO queue?
+	</OL><LI> <A NAME="exercisealgsbfsii">&#160;</A>
+	Repeat Exercise&nbsp;<A HREF="page481.html#exercisealgsbfsi" tppabs="http://www.brpreiss.com/books/opus4/html/page481.html#exercisealgsbfsi"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+	but this time consider what happens if
+	we replace the queue with a <em>LIFO stack</em>.<LI>
+	Repeat Exercises&nbsp;<A HREF="page481.html#exercisealgsbfsi" tppabs="http://www.brpreiss.com/books/opus4/html/page481.html#exercisealgsbfsi"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> and&nbsp;<A HREF="page481.html#exercisealgsbfsii" tppabs="http://www.brpreiss.com/books/opus4/html/page481.html#exercisealgsbfsii"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+	but this time consider a
+	<em>branch-and-bound</em> breadth-first solver.<LI> <A NAME="exercisealgsgraph">&#160;</A>
+	(This question should be attempted
+	<em>after</em> reading Chapter&nbsp;<A HREF="page523.html#chapgraphs" tppabs="http://www.brpreiss.com/books/opus4/html/page523.html#chapgraphs"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>).
+	For some problems the solution space
+	is more naturally a graph rather than a tree.
+	<OL><LI>
+		What problem arises if we use the <tt>DepthFirstSolver</tt>
+		given in Program&nbsp;<A HREF="page450.html#progsolution2c" tppabs="http://www.brpreiss.com/books/opus4/html/page450.html#progsolution2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> to explore
+		a search space that is not a tree.<LI>
+		Modify the <tt>DepthFirstSolver</tt> so that it
+		explores a solution space that is not a tree.
+		<b>Hint</b>: See Program&nbsp;<A HREF="page552.html#proggraph1c" tppabs="http://www.brpreiss.com/books/opus4/html/page552.html#proggraph1c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.<LI>
+		What problem arises if we use the <tt>BreadthFirstSolver</tt>
+		given in Program&nbsp;<A HREF="page451.html#progsolution3c" tppabs="http://www.brpreiss.com/books/opus4/html/page451.html#progsolution3c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> to explore
+		a search space that is not a tree.<LI>
+		Modify the <tt>BreadthFirstSolver</tt> so that it
+		explores a solution space that is not a tree.
+		<b>Hint</b>: See Program&nbsp;<A HREF="page555.html#proggraph2c" tppabs="http://www.brpreiss.com/books/opus4/html/page555.html#proggraph2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+	</OL><LI> <A NAME="exercisealgsqueens">&#160;</A>
+	Devise a backtracking algorithm to solve
+	the <em><I>N</I>-queens problem</em><A NAME=34382>&#160;</A>:
+	Given an  <IMG WIDTH=48 HEIGHT=20 ALIGN=MIDDLE ALT="tex2html_wrap_inline69613" SRC="img2066.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2066.gif"  > chess board,
+	find a way to place <I>N</I> queens on the board
+	in such a way that no queen can take another.<LI>
+	Consider a binary search tree that contains <I>n</I> keys,
+	 <IMG WIDTH=13 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline64392" SRC="img1220.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1220.gif"  >,  <IMG WIDTH=14 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline64394" SRC="img1221.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1221.gif"  >, ...,  <IMG WIDTH=14 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69623" SRC="img2067.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2067.gif"  >,
+	at depths  <IMG WIDTH=14 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline66516" SRC="img1486.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1486.gif"  >,  <IMG WIDTH=15 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline66518" SRC="img1487.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1487.gif"  >, ...,  <IMG WIDTH=14 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69629" SRC="img2068.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2068.gif"  >, respectively.
+	Suppose the tree will be subjected to a large number
+	of <tt>Find</tt> operations.
+	Let  <IMG WIDTH=13 HEIGHT=14 ALIGN=MIDDLE ALT="tex2html_wrap_inline58415" SRC="img85.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img85.gif"  > be the probability that we access key  <IMG WIDTH=10 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline64406" SRC="img1228.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1228.gif"  >.
+	Suppose we know <em>a priori</em> all the access probabilities.
+	Then we can say that the <em>optimal binary search tree</em><A NAME=34386>&#160;</A>
+	is the tree which minimizes the quantity
+	<P> <IMG WIDTH=297 HEIGHT=43 ALIGN=BOTTOM ALT="displaymath69589" SRC="img2069.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2069.gif"  ><P>
+	<OL><LI>
+		Devise a dynamic programming algorithm that,
+		given the access probabilities,
+		determines the optimal binary search tree.<LI>
+		What is the running time of your algorithm?
+	</OL>
+<P>
+	<b>Hint</b>:
+	Let  <IMG WIDTH=24 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline68911" SRC="img1926.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1926.gif"  > be the <em>cost</em> of the optimal binary search
+	tree that contains the set of keys
+	 <IMG WIDTH=152 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline69637" SRC="img2070.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2070.gif"  >
+	where  <IMG WIDTH=33 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69639" SRC="img2071.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2071.gif"  >.
+	Show that
+	<P> <IMG WIDTH=435 HEIGHT=48 ALIGN=BOTTOM ALT="displaymath69590" SRC="img2072.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2072.gif"  ><P><LI>
+	Consider the typesetting problem discussed in Section&nbsp;<A HREF="page468.html#secalgstypeset" tppabs="http://www.brpreiss.com/books/opus4/html/page468.html#secalgstypeset"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+	The objective is to determine how to break a given sequence of words
+	into lines of text of the appropriate size.
+	This was done either by stretching
+	or compressing the space between the words.
+	Explain why the greedy strategy always finds the optimal solution
+	if we stretch but do not compress the space between words.<LI>
+	Consider two complex numbers, <I>a</I>+<I>bi</I> and <I>c</I>+<I>di</I>.
+	Show that we can compute the product (<I>ac</I>-<I>bd</I>)+(<I>ad</I>+<I>bc</I>)<I>i</I>
+	with only three multiplications.<LI>
+	Devise a divide-and-conquer strategy to find the root of a polynomial.
+	E.g., given a polynomial such as  <IMG WIDTH=140 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline69647" SRC="img2073.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2073.gif"  >,
+	and an interval [<I>u</I>,<I>v</I>],
+	such that  <IMG WIDTH=95 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline69651" SRC="img2074.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2074.gif"  > such that
+	 <IMG WIDTH=99 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline69653" SRC="img2075.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2075.gif"  >,  <IMG WIDTH=59 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69655" SRC="img2076.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2076.gif"  >
+	and  <IMG WIDTH=98 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline69657" SRC="img2077.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2077.gif"  >,  <IMG WIDTH=59 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69659" SRC="img2078.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2078.gif"  >, find <I>r</I>.<LI>
+	Devise an algorithm to compute
+	a <em>normally distributed random variable.</em>
+	A normal distribution is complete defined
+	by its mean and standard deviation.
+	The probability density function for a normal distribution is
+	<P> <IMG WIDTH=374 HEIGHT=38 ALIGN=BOTTOM ALT="displaymath69591" SRC="img2079.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2079.gif"  ><P>
+	where  <IMG WIDTH=9 HEIGHT=16 ALIGN=MIDDLE ALT="tex2html_wrap_inline69431" SRC="img2034.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2034.gif"  > is the mean and  <IMG WIDTH=9 HEIGHT=7 ALIGN=BOTTOM ALT="tex2html_wrap_inline69665" SRC="img2080.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2080.gif"  > is the standard deviation
+	of the distribution.
+	<b>Hint</b>:
+	Consider the <em>central limit theorem</em><A NAME=34414>&#160;</A>.<LI>
+	Devise an algorithm to compute
+	a <em>geometrically distributed random variable.</em>
+	A geometrically distributed random variable
+	is an integer in the interval  <IMG WIDTH=41 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69667" SRC="img2081.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2081.gif"  >
+	given by the probability density function
+	<P> <IMG WIDTH=331 HEIGHT=19 ALIGN=BOTTOM ALT="displaymath69592" SRC="img2082.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2082.gif"  ><P>
+	where  <IMG WIDTH=24 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline69669" SRC="img2083.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2083.gif"  > is the mean of the distribution.
+<P>
+	<b>Hint</b>: Use the fact  <IMG WIDTH=195 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69671" SRC="img2084.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2084.gif"  >,
+	where <I>Z</I> is an exponentially distributed random variable
+	with mean  <IMG WIDTH=122 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69675" SRC="img2085.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2085.gif"  >.<LI>
+	Do Exercise&nbsp;<A HREF="page248.html#exercisehashingrandom" tppabs="http://www.brpreiss.com/books/opus4/html/page248.html#exercisehashingrandom"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+</OL><HR><A NAME="tex2html7856" HREF="page482.html" tppabs="http://www.brpreiss.com/books/opus4/html/page482.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7854" HREF="page440.html" tppabs="http://www.brpreiss.com/books/opus4/html/page440.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7848" HREF="page480.html" tppabs="http://www.brpreiss.com/books/opus4/html/page480.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7858" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7859" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

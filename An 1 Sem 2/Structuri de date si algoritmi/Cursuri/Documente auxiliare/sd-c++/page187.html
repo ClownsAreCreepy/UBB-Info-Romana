@@ -1,0 +1,152 @@
+<HTML>
+<HEAD>
+<TITLE>Applications</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html4221" HREF="page188.html" tppabs="http://www.brpreiss.com/books/opus4/html/page188.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4219" HREF="page167.html" tppabs="http://www.brpreiss.com/books/opus4/html/page167.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4215" HREF="page186.html" tppabs="http://www.brpreiss.com/books/opus4/html/page186.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4223" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4224" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION008140000000000000000">Applications</A></H2>
+<A NAME="seclistsapp1">&#160;</A>
+<P>
+The applications of lists and ordered lists are myriad.
+In this section we will consider only one--the use of an ordered list to represent a polynomial.
+In general, an  <IMG WIDTH=21 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58453" SRC="img94.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img94.gif"  >-order polynomial in <I>x</I>,
+for non-negative integer <I>n</I>, has the form
+<P> <IMG WIDTH=387 HEIGHT=43 ALIGN=BOTTOM ALT="displaymath61822" SRC="img815.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img815.gif"  ><P>
+where  <IMG WIDTH=45 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline61842" SRC="img816.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img816.gif"  >.
+The term  <IMG WIDTH=11 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline58389" SRC="img78.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img78.gif"  > is the <em>coefficient</em> of the  <IMG WIDTH=17 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58387" SRC="img77.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img77.gif"  > power of <I>x</I>.
+We shall assume that the coefficients are real numbers.
+I.e.,  <IMG WIDTH=93 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline61850" SRC="img817.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img817.gif"  >,  <IMG WIDTH=44 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline61852" SRC="img818.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img818.gif"  >.
+<P>
+An alternative representation for such a polynomial consists
+of a sequence of ordered pairs:
+<P> <IMG WIDTH=375 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath61823" SRC="img819.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img819.gif"  ><P>
+Each ordered pair,  <IMG WIDTH=37 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline61854" SRC="img820.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img820.gif"  >,
+corresponds to the term  <IMG WIDTH=26 HEIGHT=28 ALIGN=MIDDLE ALT="tex2html_wrap_inline61856" SRC="img821.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img821.gif"  > of the polynomial.
+I.e., the ordered pair is comprised of the coefficient of the  <IMG WIDTH=17 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58387" SRC="img77.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img77.gif"  > term
+together with the subscript of that term, <I>i</I>.
+For example, the polynomial  <IMG WIDTH=110 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline61862" SRC="img822.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img822.gif"  >
+can be represented by the sequence  <IMG WIDTH=158 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline61864" SRC="img823.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img823.gif"  >.
+<P>
+Consider now the  <IMG WIDTH=35 HEIGHT=14 ALIGN=BOTTOM ALT="tex2html_wrap_inline61866" SRC="img824.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img824.gif"  >-order polynomial  <IMG WIDTH=55 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline61868" SRC="img825.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img825.gif"  >.
+Clearly, there are only two nonzero coefficients:
+ <IMG WIDTH=56 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline61870" SRC="img826.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img826.gif"  > and  <IMG WIDTH=44 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline61872" SRC="img827.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img827.gif"  >.
+The advantage of using the sequence of ordered pairs to represent
+such a polynomial is that we can omit from the sequence
+those pairs that have a zero coefficient.
+We represent the polynomial  <IMG WIDTH=55 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline61868" SRC="img825.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img825.gif"  > by the sequence  <IMG WIDTH=107 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline61876" SRC="img828.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img828.gif"  >
+<P>
+Now that we have a way to represent polynomials,
+we can consider various operations on them.
+For example, consider the polynomial
+<P> <IMG WIDTH=304 HEIGHT=43 ALIGN=BOTTOM ALT="displaymath61824" SRC="img829.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img829.gif"  ><P>
+We can compute its <em>derivative</em><A NAME=10390>&#160;</A> with respect to <I>x</I>
+by <em>differentiating</em><A NAME=10392>&#160;</A>
+each of the terms to get
+<P> <IMG WIDTH=307 HEIGHT=46 ALIGN=BOTTOM ALT="displaymath61825" SRC="img830.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img830.gif"  ><P>
+where  <IMG WIDTH=109 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline61880" SRC="img831.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img831.gif"  >.
+In terms of the corresponding sequences,
+if <I>p</I>(<I>x</I>) is represented by the sequence
+<P> <IMG WIDTH=410 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath61826" SRC="img832.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img832.gif"  ><P>
+then its derivative is the sequence
+<P> <IMG WIDTH=450 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath61827" SRC="img833.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img833.gif"  ><P>
+<P>
+This result suggests a very simple algorithm to differentiate
+a polynomial which is represented by a sequence of ordered pairs:
+<OL><LI> Drop the ordered pair that has a zero exponent.<LI> For every other ordered pair,
+	multiply the coefficient by the exponent,
+	and then subtract one from the exponent.
+</OL>
+Since the representation of an  <IMG WIDTH=21 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58453" SRC="img94.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img94.gif"  >-order polynomial
+has at most <I>n</I>+1 ordered pairs,
+and since a constant amount of work is necessary for each ordered pair,
+this is inherently an  <IMG WIDTH=32 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60685" SRC="img529.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img529.gif"  > algorithm.
+<P>
+Of course, the worst-case running time of the polynomial differentiation
+will depend on the way that the sequence of ordered pairs is implemented.
+We will now consider an implementation that makes use of the <tt>ListAsLinkedList</tt>
+pointer-based implementation of ordered lists.
+To begin with, we need a class to represent the terms of the polynomial.
+Program&nbsp;<A HREF="page187.html#progapp03ac" tppabs="http://www.brpreiss.com/books/opus4/html/page187.html#progapp03ac"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives the definition of
+the <tt>Term</tt> class and several of its member functions.
+<P>
+<P><A NAME="10572">&#160;</A><A NAME="progapp03ac">&#160;</A> <IMG WIDTH=575 HEIGHT=676 ALIGN=BOTTOM ALT="program10402" SRC="img834.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img834.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>Term</tt> Class Definition<BR>
+<P>
+<P>
+Each <tt>Term</tt> instance has two member variables,
+<tt>coefficient</tt> and <tt>exponent</tt>,
+which correspond to the elements of the ordered pair as discussed above.
+The former is a <tt>double</tt> and the latter, an <tt>unsigned int</tt>.
+<P>
+The <tt>Term</tt> class is derived from the <tt>Object</tt> class
+instances of the <tt>Term</tt> class will be put into a container.
+Program&nbsp;<A HREF="page187.html#progapp03ac" tppabs="http://www.brpreiss.com/books/opus4/html/page187.html#progapp03ac"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives the definitions of three
+member functions:
+a constructor, <tt>CompareTo</tt>, and <tt>Differentiate</tt>.
+The constructor simply takes a pair of arguments and
+initializes the corresponding member variables accordingly.
+<P>
+The <tt>CompareTo</tt> function is used to compare two <tt>Term</tt> instances.
+Consider two terms ,  <IMG WIDTH=21 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline61890" SRC="img835.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img835.gif"  > and  <IMG WIDTH=20 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline61892" SRC="img836.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img836.gif"  >.
+We define the relation  <IMG WIDTH=10 HEIGHT=19 ALIGN=MIDDLE ALT="tex2html_wrap_inline61894" SRC="img837.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img837.gif"  > on terms of a polynomial as follows:
+<P> <IMG WIDTH=384 HEIGHT=19 ALIGN=BOTTOM ALT="displaymath61828" SRC="img838.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img838.gif"  ><P>
+Note that the relation  <IMG WIDTH=10 HEIGHT=19 ALIGN=MIDDLE ALT="tex2html_wrap_inline61894" SRC="img837.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img837.gif"  > does not depend on the value of the variable <I>x</I>.
+<P>
+Finally, the <tt>Differentiate</tt> function does what its name says:
+It differentiates a term with respect to <I>x</I>.
+Given a term such as  <IMG WIDTH=42 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline61902" SRC="img839.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img839.gif"  >, it computes the result (0,0);
+and given a term such as  <IMG WIDTH=37 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline61854" SRC="img820.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img820.gif"  > where <I>i</I><I>&gt;</I>0,
+it computes the result  <IMG WIDTH=70 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline61910" SRC="img840.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img840.gif"  >.
+<P>
+We now consider the representation of a polynomial using an ordered list.
+Program&nbsp;<A HREF="page187.html#progapp03bc" tppabs="http://www.brpreiss.com/books/opus4/html/page187.html#progapp03bc"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives the definition of the class <tt>Polynomial</tt>
+which is derived in this case from the <tt>ListAsLinkedList</tt> class.
+In this example, the pointer-based implementation of lists is used.
+<P>
+<P><A NAME="10580">&#160;</A><A NAME="progapp03bc">&#160;</A> <IMG WIDTH=575 HEIGHT=524 ALIGN=BOTTOM ALT="program10438" SRC="img841.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img841.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>Polynomial</tt> Class Definition<BR>
+<P>
+<P>
+Program&nbsp;<A HREF="page187.html#progapp03bc" tppabs="http://www.brpreiss.com/books/opus4/html/page187.html#progapp03bc"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> defines the member function <tt>Differentiate</tt>
+which has the effect of changing the polynomial to its
+derivative with respect to <I>x</I>.
+To compute this derivative,
+it is necessary to call the <tt>Differentiate</tt> member function
+of the <tt>Term</tt> class for each term in the polynomial.
+Since the polynomial is implemented as a container,
+there is an <tt>Accept</tt> member function which can be used
+to perform a given operation on all of the objects in that container.
+In this case, we define a visitor, <tt>DifferentiatingVisitor</tt>,
+which assumes its argument is an instance of the <tt>Term</tt> class
+and differentiates it.
+<P>
+After the terms in the polynomial have been differentiated,
+it is necessary to check for the term (0,0)
+which arises from differentiating  <IMG WIDTH=42 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline61902" SRC="img839.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img839.gif"  >.
+The <tt>Find</tt> member function is used to locate the term,
+and if one is found the <tt>Withdraw</tt> function is used to remove it.
+<P>
+The analysis of the running time
+of the <tt>Polynomial::Differentiate</tt> function is straightforward.
+The running time of <tt>Term::Differentiate</tt> is clearly <I>O</I>(1).
+So too is the running time of the function the <tt>Visit</tt>
+member function of the <tt>DifferentiatingVisitor</tt>.
+The latter function is called once for each contained object.
+In the worst case, given an  <IMG WIDTH=21 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58453" SRC="img94.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img94.gif"  >-order polynomial,
+there are <I>n</I>+1 terms.
+Therefore, the time required to differentiate the terms is <I>O</I>(<I>n</I>).
+Locating the zero term is <I>O</I>(<I>n</I>) in the worst case,
+and so too is deleting it.
+Therefore, the total running time required to differentiate
+a  <IMG WIDTH=21 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58453" SRC="img94.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img94.gif"  >-order polynomial is <I>O</I>(<I>n</I>).
+<P>
+<HR><A NAME="tex2html4221" HREF="page188.html" tppabs="http://www.brpreiss.com/books/opus4/html/page188.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4219" HREF="page167.html" tppabs="http://www.brpreiss.com/books/opus4/html/page167.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4215" HREF="page186.html" tppabs="http://www.brpreiss.com/books/opus4/html/page186.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4223" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4224" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,49 @@
+<HTML>
+<HEAD>
+<TITLE>Depth-First Solver</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html7484" HREF="page451.html" tppabs="http://www.brpreiss.com/books/opus4/html/page451.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7482" HREF="page449.html" tppabs="http://www.brpreiss.com/books/opus4/html/page449.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7476" HREF="page449.html" tppabs="http://www.brpreiss.com/books/opus4/html/page449.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7486" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7487" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0015231000000000000000">Depth-First Solver</A></H3>
+<P>
+This section presents a backtracking solver
+that finds the best solution to a given problem by
+performing depth-first traversal of the solution space.
+Program&nbsp;<A HREF="page450.html#progsolution3h" tppabs="http://www.brpreiss.com/books/opus4/html/page450.html#progsolution3h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> declares the concrete <tt>DepthFirstSolver</tt> class.
+This <tt>DepthFirstSolver</tt> class simply provides an implementation
+for the <tt>DoSolve</tt> routine.
+<P>
+<P><A NAME="33611">&#160;</A><A NAME="progsolution3h">&#160;</A> <IMG WIDTH=575 HEIGHT=85 ALIGN=BOTTOM ALT="program32715" SRC="img1839.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1839.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>DepthFirstSolver</tt> Class Definition<BR>
+<P>
+<P>
+The <tt>DoSolve</tt> routine for the <tt>DepthFirstSolver</tt> class
+is given in Program&nbsp;<A HREF="page450.html#progsolution2c" tppabs="http://www.brpreiss.com/books/opus4/html/page450.html#progsolution2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+Clearly, this routine simply does a complete,
+depth-first traversal of the solution space.<A NAME="tex2html861" HREF="footnode.html#33614" tppabs="http://www.brpreiss.com/books/opus4/html/footnode.html#33614"><IMG  ALIGN=BOTTOM ALT="gif" SRC="foot_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/foot_motif.gif"></A>
+Note that the implementation does not depend upon
+the characteristics of the problem being solved.
+In this sense the solver is a generic, <em>abstract solver</em>
+and can be used to solve any problem that has a tree-structured solution space!
+<P>
+<P><A NAME="33615">&#160;</A><A NAME="progsolution2c">&#160;</A> <IMG WIDTH=575 HEIGHT=315 ALIGN=BOTTOM ALT="program32731" SRC="img1840.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1840.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>DepthFirstSolver</tt> Class     <tt>DoSolve</tt> Member Function Definition<BR>
+<P>
+<P>
+Since the <tt>DoSolve</tt> routine in Program&nbsp;<A HREF="page450.html#progsolution2c" tppabs="http://www.brpreiss.com/books/opus4/html/page450.html#progsolution2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+visits all the nodes in the solution space,
+it is essentially a <em>brute-force</em> algorithm.
+And because the recursive routine backs up
+and then tries different alternatives,
+it is called a <em>backtracking</em> algorithm.
+<P>
+<HR><A NAME="tex2html7484" HREF="page451.html" tppabs="http://www.brpreiss.com/books/opus4/html/page451.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7482" HREF="page449.html" tppabs="http://www.brpreiss.com/books/opus4/html/page449.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7476" HREF="page449.html" tppabs="http://www.brpreiss.com/books/opus4/html/page449.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7486" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7487" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

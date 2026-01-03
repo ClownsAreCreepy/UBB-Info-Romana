@@ -1,0 +1,8 @@
+# ninja log v5
+367	459	7351883743359475	transformari.exe	d65acfffc2fdac90
+3	367	7351883742482697	CMakeFiles/transformari.dir/main.cpp.obj	649a92a150a4b80a
+0	102	7351883980800279	build.ninja	f16cb531280f79b0
+3	380	7351884085253464	CMakeFiles/transformari.dir/main.cpp.obj	649a92a150a4b80a
+380	463	7351884086043519	transformari.exe	d65acfffc2fdac90
+2	366	7351884595611043	CMakeFiles/transformari.dir/main.cpp.obj	649a92a150a4b80a
+366	450	7351884596394984	transformari.exe	d65acfffc2fdac90

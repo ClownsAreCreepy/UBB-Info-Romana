@@ -1,0 +1,74 @@
+<HTML>
+<HEAD>
+<TITLE>Projects</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html4989" HREF="page250.html" tppabs="http://www.brpreiss.com/books/opus4/html/page250.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4987" HREF="page203.html" tppabs="http://www.brpreiss.com/books/opus4/html/page203.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4983" HREF="page248.html" tppabs="http://www.brpreiss.com/books/opus4/html/page248.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4991" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4992" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION009900000000000000000">Projects</A></H1>
+<P>
+<OL><LI>
+	Complete the implementation of the <tt>ChainedHashTable</tt> class
+	declared in Program&nbsp;<A HREF="page224.html#proghashtbl2h" tppabs="http://www.brpreiss.com/books/opus4/html/page224.html#proghashtbl2h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+	by providing suitable definitions for the following member functions:
+	<tt>IsMember</tt>, <tt>CompareTo</tt>, <tt>Accept</tt> and <tt>NewIterator</tt>.
+	Write a test program and test your implementation.<LI>
+	Complete the implementation of the <tt>ChainedScatterTable</tt> class
+	declared in Program&nbsp;<A HREF="page231.html#proghashtbl3h" tppabs="http://www.brpreiss.com/books/opus4/html/page231.html#proghashtbl3h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+	by providing suitable definitions for the following member functions:
+	<tt>IsFull</tt>, <tt>IsMember</tt>, <tt>CompareTo</tt>,
+	<tt>Accept</tt> and <tt>NewIterator</tt>.
+	Write a test program and test your implementation.<LI>
+	Complete the implementation of the <tt>ChainedScatterTable</tt> class
+	declared in Program&nbsp;<A HREF="page241.html#proghashtbl4h" tppabs="http://www.brpreiss.com/books/opus4/html/page241.html#proghashtbl4h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+	by providing suitable definitions for the following member functions:
+	<tt>IsFull</tt>, <tt>IsMember</tt>, <tt>FindInstance</tt>, <tt>CompareTo</tt>,
+	<tt>Accept</tt> and <tt>NewIterator</tt>.
+	Write a test program and test your implementation.<LI>
+	The <tt>Withdraw</tt> routine defined in Program&nbsp;<A HREF="page225.html#proghashtbl2c" tppabs="http://www.brpreiss.com/books/opus4/html/page225.html#proghashtbl2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+	has been written under the assumption that linear probing is used.
+	Therefore, it does not call explicitly
+	the collision resolution function <tt>C</tt>.
+	Rewrite the <tt>Withdraw</tt> routine so that it works correctly
+	regardless of the collision resolution strategy used.<LI>
+	Consider an application that has the following profile:
+	First, <I>n</I> symbols (character strings) are read in.
+	As each symbol is read,
+	it is assigned an ordinal number from 1 to <I>n</I>.
+	Then, a large number of operations are performed.
+	In each operation we are given either a symbol or a number
+	and we need to determine its mate.
+	Design, implement and test a data structure
+	that provides both mappings in <I>O</I>(1) time.<LI>
+	Spelling checkers are often implemented using hashing.
+	However, the space required to store all the words
+	in a complete dictionary is usually prohibitive.
+	An alternative solution is to use a very large array of bits.
+	The array is initialized as follows:
+	First, all the bits are set to zero.
+	Then for each word <I>w</I> in the dictionary,
+	we set bit <I>h</I>(<I>w</I>) to one,
+	where  <IMG WIDTH=24 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59195" SRC="img264.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img264.gif"  > is a suitable hash function.
+<P>
+	To check the spelling in a given document,
+	we hash the words in the document one-by-one
+	and examine the corresponding bit of the array.
+	If the bit is a zero, the word does not appear in the dictionary
+	and we conclude that it is misspelled.
+	Note if the bit is a one,
+	the word may still be misspelled, but we cannot tell.
+<P>
+	Design and implement a spelling checker.
+	<b>Hint</b>:
+	Use the <tt>SetAsBitVector</tt> class given in Chapter&nbsp;<A HREF="page387.html#chapsets" tppabs="http://www.brpreiss.com/books/opus4/html/page387.html#chapsets"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+</OL>
+<P>
+<HR><A NAME="tex2html4989" HREF="page250.html" tppabs="http://www.brpreiss.com/books/opus4/html/page250.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4987" HREF="page203.html" tppabs="http://www.brpreiss.com/books/opus4/html/page203.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4983" HREF="page248.html" tppabs="http://www.brpreiss.com/books/opus4/html/page248.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4991" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4992" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

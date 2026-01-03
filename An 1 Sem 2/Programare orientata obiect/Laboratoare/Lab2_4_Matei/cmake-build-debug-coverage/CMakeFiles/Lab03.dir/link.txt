@@ -1,0 +1,1 @@
+/usr/bin/cc --coverage -g CMakeFiles/Lab03.dir/main.c.o CMakeFiles/Lab03.dir/teste.c.o CMakeFiles/Lab03.dir/consola.c.o CMakeFiles/Lab03.dir/service.c.o CMakeFiles/Lab03.dir/repo.c.o CMakeFiles/Lab03.dir/lista_dinamica.c.o CMakeFiles/Lab03.dir/medicament.c.o -o Lab03 

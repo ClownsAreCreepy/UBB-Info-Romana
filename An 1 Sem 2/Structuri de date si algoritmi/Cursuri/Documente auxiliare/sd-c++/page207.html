@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<TITLE>Avoiding Collisions</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html4473" HREF="page208.html" tppabs="http://www.brpreiss.com/books/opus4/html/page208.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4471" HREF="page206.html" tppabs="http://www.brpreiss.com/books/opus4/html/page206.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4465" HREF="page206.html" tppabs="http://www.brpreiss.com/books/opus4/html/page206.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4475" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4476" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION009111000000000000000">Avoiding Collisions</A></H3>
+<P>
+Ideally, given a set of  <IMG WIDTH=47 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline62202" SRC="img874.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img874.gif"  > distinct keys,
+ <IMG WIDTH=105 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline62204" SRC="img875.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img875.gif"  >,
+the set of hash values  <IMG WIDTH=170 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline62206" SRC="img876.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img876.gif"  >
+contains no duplicates.
+In practice, unless we know something about the keys chosen,
+we cannot guarantee that there will not be collisions.
+However, in certain applications we have some specific knowledge
+about the keys that we can exploit to reduce the likelihood of a collision.
+For example,
+if the keys in our application are telephone numbers,
+and we know that the telephone numbers are all likely to be from
+the same geographic area,
+then it makes little sense to consider the area codes in the hash function,
+the area codes are all likely to be the same.
+<P>
+<HR><A NAME="tex2html4473" HREF="page208.html" tppabs="http://www.brpreiss.com/books/opus4/html/page208.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4471" HREF="page206.html" tppabs="http://www.brpreiss.com/books/opus4/html/page206.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4465" HREF="page206.html" tppabs="http://www.brpreiss.com/books/opus4/html/page206.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4475" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4476" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

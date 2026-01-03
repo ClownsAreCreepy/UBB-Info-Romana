@@ -1,0 +1,38 @@
+<HTML>
+<HEAD>
+<TITLE>Running Time Analysis</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html8785" HREF="page557.html" tppabs="http://www.brpreiss.com/books/opus4/html/page557.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8783" HREF="page554.html" tppabs="http://www.brpreiss.com/books/opus4/html/page554.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8779" HREF="page555.html" tppabs="http://www.brpreiss.com/books/opus4/html/page555.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8787" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8788" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0017322000000000000000">Running Time Analysis</A></H3>
+<P>
+The breadth-first traversal enqueues each node in the graph at most once.
+When a node is dequeued,
+all the edges emanating from that node are considered.
+Therefore, a complete traversal enumerates every edge in the graph.
+<P>
+The actual running time of the breadth-first traversal routine
+depends on the graph representation scheme used.
+The worst-case running time for the traversal
+of a graph represented using an adjacency matrix is
+<P> <IMG WIDTH=339 HEIGHT=19 ALIGN=BOTTOM ALT="displaymath72031" SRC="img2405.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2405.gif"  ><P>
+When adjacency lists are used,
+the worst case running time for the breadth-first traversal routine is
+<P> <IMG WIDTH=355 HEIGHT=17 ALIGN=BOTTOM ALT="displaymath72032" SRC="img2406.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2406.gif"  ><P>
+<P>
+If the graph is sparse, then  <IMG WIDTH=82 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71739" SRC="img2360.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2360.gif"  >.
+Therefore, if a sparse graph is represented using adjacency lists
+and if  <IMG WIDTH=120 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline61332" SRC="img715.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img715.gif"  >,
+the worst-case running time of the breadth-first traversal
+is just  <IMG WIDTH=43 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71805" SRC="img2371.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2371.gif"  >.
+<P>
+<HR><A NAME="tex2html8785" HREF="page557.html" tppabs="http://www.brpreiss.com/books/opus4/html/page557.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8783" HREF="page554.html" tppabs="http://www.brpreiss.com/books/opus4/html/page554.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8779" HREF="page555.html" tppabs="http://www.brpreiss.com/books/opus4/html/page555.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8787" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8788" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

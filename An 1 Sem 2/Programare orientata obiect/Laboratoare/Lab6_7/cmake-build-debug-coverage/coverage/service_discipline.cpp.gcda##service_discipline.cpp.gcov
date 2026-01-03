@@ -1,0 +1,671 @@
+        -:    0:Source:D:/C,C++/CLion 2024.3.4/Projects/Lab6_7/Service/service_discipline.cpp
+        -:    0:Graph:D:\C,C++\CLion 2024.3.4\Projects\Lab6_7\cmake-build-debug-coverage\CMakeFiles\Lab6_7.dir\Service\service_discipline.cpp.gcno
+        -:    0:Data:D:\C,C++\CLion 2024.3.4\Projects\Lab6_7\cmake-build-debug-coverage\CMakeFiles\Lab6_7.dir\Service\service_discipline.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include "service_discipline.h"
+        -:    2:
+        -:    3:
+function _ZN17ServiceDisciplina14adauga_serviceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS7_S7_ called 127 returned 95% blocks executed 59%
+      127:    4:void ServiceDisciplina::adauga_service(const string &nume, int ore, const string &tip, const string &profesor) {
+      127:    5:    const Disciplina d{nume, ore, tip, profesor};
+      127:    5-block  0
+call    0 returned 127
+branch  1 taken 127 (fallthrough)
+branch  2 taken 0 (throw)
+      127:    5-block  1
+call    3 returned 127
+branch  4 taken 127 (fallthrough)
+branch  5 taken 0 (throw)
+      127:    5-block  2
+call    6 returned 127
+branch  7 taken 127 (fallthrough)
+branch  8 taken 0 (throw)
+      127:    5-block  3
+call    9 returned 127
+call   10 returned 127
+call   11 returned 127
+call   12 returned 127
+    $$$$$:    5-block  4
+    $$$$$:    5-block  5
+call   13 never executed
+    $$$$$:    5-block  6
+    $$$$$:    5-block  7
+call   14 never executed
+    $$$$$:    5-block  8
+      127:    6:    Validator::valideaza_disciplina(d);
+call    0 returned 127
+branch  1 taken 125 (fallthrough)
+branch  2 taken 2 (throw)
+        -:    7:
+      125:    8:    repo.adauga(d);
+      125:    8-block  0
+call    0 returned 125
+branch  1 taken 121 (fallthrough)
+branch  2 taken 4 (throw)
+        -:    9:
+      121:   10:    undoList.push_back(make_unique<UndoAdauga>(repo));
+      121:   10-block  0
+call    0 returned 121
+branch  1 taken 121 (fallthrough)
+branch  2 taken 0 (throw)
+      121:   10-block  1
+call    3 returned 121
+call    4 returned 121
+branch  5 taken 121 (fallthrough)
+branch  6 taken 0 (throw)
+      121:   10-block  2
+call    7 returned 121
+call    8 returned 121
+    $$$$$:   10-block  3
+call    9 never executed
+    $$$$$:   10-block  4
+call   10 never executed
+    $$$$$:   10-block  5
+    $$$$$:   10-block  6
+      127:   11:}
+call    0 returned 121
+        6:   11-block  0
+call    1 returned 6
+        -:   12:
+function _ZN17ServiceDisciplina16modifica_serviceEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS7_S7_ called 13 returned 46% blocks executed 68%
+       13:   13:void ServiceDisciplina::modifica_service(int index, const string &nume_nou, int ora_noua, const string &tip_nou, const string &profesor_nou) {
+       13:   14:    const Disciplina d{nume_nou, ora_noua, tip_nou, profesor_nou};
+       13:   14-block  0
+call    0 returned 13
+branch  1 taken 13 (fallthrough)
+branch  2 taken 0 (throw)
+       13:   14-block  1
+call    3 returned 13
+branch  4 taken 13 (fallthrough)
+branch  5 taken 0 (throw)
+       13:   14-block  2
+call    6 returned 13
+branch  7 taken 13 (fallthrough)
+branch  8 taken 0 (throw)
+       13:   14-block  3
+call    9 returned 13
+call   10 returned 13
+call   11 returned 13
+call   12 returned 13
+    $$$$$:   14-block  4
+    $$$$$:   14-block  5
+call   13 never executed
+    $$$$$:   14-block  6
+    $$$$$:   14-block  7
+call   14 never executed
+    $$$$$:   14-block  8
+       13:   15:    Validator::valideaza_index(index, repo.getAll().size());
+call    0 returned 13
+call    1 returned 13
+call    2 returned 13
+branch  3 taken 10 (fallthrough)
+branch  4 taken 3 (throw)
+       10:   16:    Validator::valideaza_disciplina(d);
+       10:   16-block  0
+call    0 returned 10
+branch  1 taken 9 (fallthrough)
+branch  2 taken 1 (throw)
+        -:   17:
+        9:   18:    const Disciplina d_veche = repo.cauta(static_cast<size_t>(index));
+        9:   18-block  0
+call    0 returned 9
+branch  1 taken 9 (fallthrough)
+branch  2 taken 0 (throw)
+        9:   18-block  1
+call    3 returned 9
+branch  4 taken 9 (fallthrough)
+branch  5 taken 0 (throw)
+        -:   19:
+        9:   20:    repo.modifica(static_cast<size_t>(index), d);
+        9:   20-block  0
+call    0 returned 9
+branch  1 taken 6 (fallthrough)
+branch  2 taken 3 (throw)
+        6:   21:    undoList.push_back(make_unique<UndoModifica>(repo, index, d_veche));
+        6:   21-block  0
+call    0 returned 6
+branch  1 taken 6 (fallthrough)
+branch  2 taken 0 (throw)
+        6:   21-block  1
+call    3 returned 6
+call    4 returned 6
+branch  5 taken 6 (fallthrough)
+branch  6 taken 0 (throw)
+        6:   21-block  2
+call    7 returned 6
+call    8 returned 6
+    $$$$$:   21-block  3
+call    9 never executed
+    $$$$$:   21-block  4
+call   10 never executed
+    $$$$$:   21-block  5
+    $$$$$:   21-block  6
+       16:   22:}
+call    0 returned 6
+call    1 returned 6
+        3:   22-block  0
+call    2 returned 3
+        7:   22-block  1
+call    3 returned 7
+        -:   23:
+function _ZN17ServiceDisciplina14sterge_serviceEi called 21 returned 57% blocks executed 64%
+       21:   24:void ServiceDisciplina::sterge_service(int index) {
+       21:   25:    Validator::valideaza_index(index, repo.getAll().size());
+       21:   25-block  0
+call    0 returned 21
+call    1 returned 21
+call    2 returned 21
+branch  3 taken 12 (fallthrough)
+branch  4 taken 9 (throw)
+        -:   26:
+       12:   27:    const Disciplina d = repo.cauta(static_cast<size_t>(index));
+       12:   27-block  0
+call    0 returned 12
+branch  1 taken 12 (fallthrough)
+branch  2 taken 0 (throw)
+       12:   27-block  1
+call    3 returned 12
+branch  4 taken 12 (fallthrough)
+branch  5 taken 0 (throw)
+        -:   28:
+       12:   29:    repo.sterge(index);
+       12:   29-block  0
+call    0 returned 12
+branch  1 taken 12 (fallthrough)
+branch  2 taken 0 (throw)
+       12:   30:    undoList.push_back(make_unique<UndoSterge>(repo, index, d));
+       12:   30-block  0
+call    0 returned 12
+branch  1 taken 12 (fallthrough)
+branch  2 taken 0 (throw)
+       12:   30-block  1
+call    3 returned 12
+call    4 returned 12
+branch  5 taken 12 (fallthrough)
+branch  6 taken 0 (throw)
+       12:   30-block  2
+call    7 returned 12
+call    8 returned 12
+    $$$$$:   30-block  3
+call    9 never executed
+    $$$$$:   30-block  4
+call   10 never executed
+    $$$$$:   30-block  5
+    $$$$$:   30-block  6
+       12:   31:}
+call    0 returned 12
+    $$$$$:   31-block  0
+call    1 never executed
+        -:   32:
+function _ZNK17ServiceDisciplina13cauta_serviceEi called 3 returned 33% blocks executed 100%
+        3:   33:const Disciplina &ServiceDisciplina::cauta_service(int index) const {
+        3:   34:    Validator::valideaza_index(index, repo.getAll().size());
+        3:   34-block  0
+call    0 returned 3
+call    1 returned 3
+call    2 returned 1
+        -:   35:
+        1:   36:    return repo.cauta(static_cast<size_t>(index));
+call    0 returned 1
+        -:   37:}
+        -:   38:
+function _ZNK17ServiceDisciplina6getAllEv called 39 returned 100% blocks executed 100%
+       39:   39:const vector<Disciplina> &ServiceDisciplina::getAll() const noexcept {
+       39:   40:    return repo.getAll();
+       39:   40-block  0
+call    0 returned 39
+        -:   41:
+        -:   42:}
+        -:   43:
+        -:   44:
+function _ZNK17ServiceDisciplina12filtrare_oreEiRSt6vectorI10DisciplinaSaIS1_EE called 2 returned 100% blocks executed 100%
+        2:   45:void ServiceDisciplina::filtrare_ore(int ore, vector<Disciplina> &out) const {
+        2:   46:    out.clear();
+        2:   46-block  0
+call    0 returned 2
+        2:   47:    const auto &all = repo.getAll();
+call    0 returned 2
+function _ZZNK17ServiceDisciplina12filtrare_oreEiRSt6vectorI10DisciplinaSaIS1_EEENKUlRKS1_E_clES6_ called 20 returned 100% blocks executed 100%
+        2:   48:    copy_if(all, back_inserter(out), [=](const Disciplina &d) {
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        2:   48-block  0
+call    3 returned 2
+branch  4 taken 2 (fallthrough)
+branch  5 taken 0 (throw)
+       20:   49:        return d.getOre() == ore;
+       20:   49-block  0
+call    0 returned 20
+        -:   50:    });
+        2:   51:}
+        2:   51-block  0
+        -:   52:
+function _ZNK17ServiceDisciplina17filtrare_profesorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorI10DisciplinaSaIS9_EE called 2 returned 100% blocks executed 73%
+        2:   53:void ServiceDisciplina::filtrare_profesor(const string &profesor, vector<Disciplina> &out) const {
+        2:   54:    out.clear();
+        2:   54-block  0
+call    0 returned 2
+        2:   55:    const auto &all = repo.getAll();
+call    0 returned 2
+function _ZZNK17ServiceDisciplina17filtrare_profesorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorI10DisciplinaSaIS9_EEENKUlRKS9_E_clESE_ called 20 returned 100% blocks executed 100%
+        2:   56:    copy_if(all, back_inserter(out), [=](const Disciplina &d) {
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        2:   56-block  0
+call    3 returned 2
+branch  4 taken 2 (fallthrough)
+branch  5 taken 0 (throw)
+        2:   56-block  1
+call    6 returned 2
+branch  7 taken 2 (fallthrough)
+branch  8 taken 0 (throw)
+        2:   56-block  2
+call    9 returned 2
+    $$$$$:   56-block  3
+call   10 never executed
+    $$$$$:   56-block  4
+       20:   57:        return d.getProfesor() == profesor;
+       20:   57-block  0
+call    0 returned 20
+call    1 returned 20
+        -:   58:    });
+        2:   59:}
+        -:   60:
+function _ZNK17ServiceDisciplina12sortare_numeERSt6vectorI10DisciplinaSaIS1_EE called 1 returned 100% blocks executed 100%
+        1:   61:void ServiceDisciplina::sortare_nume(vector<Disciplina> &out) const {
+        1:   62:    out = repo.getAll();
+        1:   62-block  0
+call    0 returned 1
+call    1 returned 1
+function _ZZNK17ServiceDisciplina12sortare_numeERSt6vectorI10DisciplinaSaIS1_EEENKUlRKS1_S6_E_clES6_S6_ called 30 returned 100% blocks executed 100%
+        1:   63:    sort(out, [](const Disciplina &a, const Disciplina &b) {
+call    0 returned 1
+       30:   64:        return a.getNume() < b.getNume();
+       30:   64-block  0
+call    0 returned 30
+call    1 returned 30
+call    2 returned 30
+call    3 returned 30
+call    4 returned 30
+        -:   65:    });
+        1:   66:}
+        -:   67:
+function _ZNK17ServiceDisciplina11sortare_oreERSt6vectorI10DisciplinaSaIS1_EE called 1 returned 100% blocks executed 100%
+        1:   68:void ServiceDisciplina::sortare_ore(vector<Disciplina> &out) const {
+        1:   69:    out = repo.getAll();
+        1:   69-block  0
+call    0 returned 1
+call    1 returned 1
+function _ZZNK17ServiceDisciplina11sortare_oreERSt6vectorI10DisciplinaSaIS1_EEENKUlRKS1_S6_E_clES6_S6_ called 32 returned 100% blocks executed 100%
+        1:   70:    sort(out, [](const Disciplina &a, const Disciplina &b) {
+call    0 returned 1
+       32:   71:        return a.getOre() < b.getOre();
+       32:   71-block  0
+call    0 returned 32
+call    1 returned 32
+        -:   72:    });
+        1:   73:}
+        -:   74:
+function _ZNK17ServiceDisciplina20sortare_profesor_tipERSt6vectorI10DisciplinaSaIS1_EE called 1 returned 100% blocks executed 100%
+        1:   75:void ServiceDisciplina::sortare_profesor_tip(vector<Disciplina> &out) const {
+        1:   76:    out = repo.getAll();
+        1:   76-block  0
+call    0 returned 1
+call    1 returned 1
+function _ZZNK17ServiceDisciplina20sortare_profesor_tipERSt6vectorI10DisciplinaSaIS1_EEENKUlRKS1_S6_E_clES6_S6_ called 34 returned 100% blocks executed 100%
+        1:   77:    sort(out.begin(), out.end(), [](const Disciplina &a, const Disciplina &b) {
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+       34:   78:        if (a.getProfesor() != b.getProfesor())
+       34:   78-block  0
+call    0 returned 34
+call    1 returned 34
+call    2 returned 34
+branch  3 taken 33 (fallthrough)
+branch  4 taken 1
+       33:   79:            return a.getProfesor() < b.getProfesor();
+       33:   79-block  0
+call    0 returned 33
+call    1 returned 33
+call    2 returned 33
+call    3 returned 33
+call    4 returned 33
+        1:   80:        return a.getTip() < b.getTip();
+        1:   80-block  0
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+call    3 returned 1
+call    4 returned 1
+        -:   81:    });
+        1:   82:}
+        -:   83:
+        -:   84:
+function _ZN17ServiceDisciplina4undoEv called 15 returned 80% blocks executed 76%
+       15:   85:void ServiceDisciplina::undo() {
+       15:   86:    if (undoList.empty())
+       15:   86-block  0
+call    0 returned 15
+branch  1 taken 3 (fallthrough)
+branch  2 taken 12
+        9:   87:        throw RepoException("Nu mai exista operatii de refacut!");
+        3:   87-block  0
+call    0 returned 3
+        3:   87-block  1
+call    1 returned 3
+branch  2 taken 3 (fallthrough)
+branch  3 taken 0 (throw)
+        3:   87-block  2
+call    4 returned 3
+call    5 returned 3
+        3:   87-block  3
+call    6 returned 0
+    $$$$$:   87-block  4
+    $$$$$:   87-block  5
+    $$$$$:   87-block  6
+call    7 never executed
+        -:   88:
+       12:   89:    undoList.back()->doUndo();
+       12:   89-block  0
+call    0 returned 12
+call    1 returned 12
+call    2 returned 12
+       12:   90:    undoList.pop_back();
+call    0 returned 12
+       12:   91:}
+        -:   92:
+        -:   93:
+        -:   94:
+function _ZN17ServiceDisciplina11no_keywordsB5cxx11Ev called 4 returned 100% blocks executed 62%
+        4:   95:unordered_set<string> ServiceDisciplina::no_keywords() {
+        6:   96:    static const unordered_set<string> k = {"nu", "Nu", "NU", "Nah", "nope", "Nuh uh"};
+        4:   96-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 3
+        1:   96-block  1
+call    2 returned 1
+branch  3 taken 1 (fallthrough)
+branch  4 taken 0
+        1:   96-block  2
+        1:   96-block  3
+call    5 returned 1
+branch  6 taken 1 (fallthrough)
+branch  7 taken 0 (throw)
+        1:   96-block  4
+call    8 returned 1
+call    9 returned 1
+        1:   96-block  5
+    $$$$$:   96-block  6
+    $$$$$:   96-block  7
+    $$$$$:   96-block  8
+    $$$$$:   96-block  9
+    $$$$$:   96-block 10
+branch 10 never executed (fallthrough)
+branch 11 never executed
+    $$$$$:   96-block 11
+call   12 never executed
+        4:   97:    return k;
+        4:   97-block  0
+call    0 returned 4
+        -:   98:}
+        -:   99:
+function _ZN17ServiceDisciplina15contract_adaugaERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_ called 11 returned 64% blocks executed 76%
+       11:  100:void ServiceDisciplina::contract_adauga(const string &nume, const string &profesor, const string &dorinta) {
+       11:  101:    vector<Disciplina> gasit;
+        -:  102:
+       40:  103:    for (const auto &d: repo.getAll())
+       11:  103-block  0
+call    0 returned 11
+call    1 returned 11
+call    2 returned 11
+       29:  103-block  1
+call    3 returned 29
+       29:  103-block  2
+call    4 returned 29
+       40:  103-block  3
+call    5 returned 40
+branch  6 taken 29
+branch  7 taken 11 (fallthrough)
+       29:  104:        if (d.getNume() == nume)
+call    0 returned 29
+call    1 returned 29
+branch  2 taken 14 (fallthrough)
+branch  3 taken 15
+       14:  105:            gasit.emplace_back(d);
+       14:  105-block  0
+call    0 returned 14
+branch  1 taken 14 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  106:
+       11:  107:    if (gasit.empty())
+       11:  107-block  0
+call    0 returned 11
+branch  1 taken 1 (fallthrough)
+branch  2 taken 10
+        3:  108:        throw ContractException("Disciplina nu exista in catalog!");
+        1:  108-block  0
+call    0 returned 1
+        1:  108-block  1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  108-block  2
+call    4 returned 1
+call    5 returned 1
+        1:  108-block  3
+call    6 returned 1
+    $$$$$:  108-block  4
+    $$$$$:  108-block  5
+    $$$$$:  108-block  6
+call    7 never executed
+        -:  109:
+       10:  110:    if (gasit.size() == 1 || no_keywords().contains(dorinta)) {
+       10:  110-block  0
+call    0 returned 10
+branch  1 taken 4 (fallthrough)
+branch  2 taken 6
+        4:  110-block  1
+call    3 returned 4
+branch  4 taken 4 (fallthrough)
+branch  5 taken 0 (throw)
+        4:  110-block  2
+call    6 returned 4
+branch  7 taken 4 (fallthrough)
+branch  8 taken 0 (throw)
+        4:  110-block  3
+branch  9 taken 1 (fallthrough)
+branch 10 taken 3
+        7:  110-block  4
+        3:  110-block  5
+       10:  110-block  6
+branch 11 taken 4 (fallthrough)
+branch 12 taken 6
+        4:  110-block  7
+call   13 returned 4
+       10:  110-block  8
+branch 14 taken 7 (fallthrough)
+branch 15 taken 3
+    $$$$$:  110-block  9
+branch 16 never executed (fallthrough)
+branch 17 never executed
+    $$$$$:  110-block 10
+call   18 never executed
+    $$$$$:  110-block 11
+        7:  111:        contract.adauga(gasit[0]);
+        7:  111-block  0
+call    0 returned 7
+call    1 returned 7
+branch  2 taken 6 (fallthrough)
+branch  3 taken 1 (throw)
+        6:  112:        return;
+        6:  112-block  0
+        -:  113:    }
+        -:  114:
+        3:  115:    if (gasit.size() > 1 && profesor.empty())
+        3:  115-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0
+        3:  115-block  1
+call    3 returned 3
+branch  4 taken 1 (fallthrough)
+branch  5 taken 2
+        1:  115-block  2
+        2:  115-block  3
+        3:  115-block  4
+branch  6 taken 1 (fallthrough)
+branch  7 taken 2
+        3:  116:        throw ContractException("Exista mai multe discipline cu acest nume. Doriti un profesor anume?: ");
+        1:  116-block  0
+call    0 returned 1
+        1:  116-block  1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  116-block  2
+call    4 returned 1
+call    5 returned 1
+        1:  116-block  3
+call    6 returned 1
+    $$$$$:  116-block  4
+    $$$$$:  116-block  5
+    $$$$$:  116-block  6
+call    7 never executed
+        -:  117:
+        5:  118:    for (const auto &d: gasit)
+        2:  118-block  0
+call    0 returned 2
+call    1 returned 2
+        4:  118-block  1
+call    2 returned 4
+        3:  118-block  2
+call    3 returned 3
+        5:  118-block  3
+call    4 returned 5
+branch  5 taken 4
+branch  6 taken 1 (fallthrough)
+        4:  119:        if (d.getProfesor() == profesor) {
+call    0 returned 4
+call    1 returned 4
+branch  2 taken 1 (fallthrough)
+branch  3 taken 3
+        1:  120:            contract.adauga(d);
+        1:  120-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  121:            return;
+        1:  121-block  0
+        -:  122:        }
+        -:  123:
+        3:  124:    throw ContractException("Nu exista disciplina cu acel profesor!");
+        1:  124-block  0
+call    0 returned 1
+        1:  124-block  1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  124-block  2
+call    4 returned 1
+call    5 returned 1
+        1:  124-block  3
+call    6 returned 1
+    $$$$$:  124-block  4
+    $$$$$:  124-block  5
+    $$$$$:  124-block  6
+call    7 never executed
+       11:  125:}
+        7:  125-block  0
+call    0 returned 7
+        4:  125-block  1
+call    1 returned 4
+        -:  126:
+function _ZN17ServiceDisciplina16contract_golesteEv called 2 returned 50% blocks executed 100%
+        2:  127:void ServiceDisciplina::contract_goleste() {
+        2:  128:    contract.goleste();
+        2:  128-block  0
+call    0 returned 1
+        1:  129:}
+        -:  130:
+function _ZN17ServiceDisciplina17contract_generareEi called 4 returned 50% blocks executed 100%
+        4:  131:void ServiceDisciplina::contract_generare(int nr) {
+        4:  132:    Validator::valideaza_index_contract(nr, repo.getAll().size());
+        4:  132-block  0
+call    0 returned 4
+call    1 returned 4
+call    2 returned 2
+        -:  133:
+        2:  134:    contract.generare(repo.getAll(), nr);
+call    0 returned 2
+call    1 returned 2
+        2:  135:}
+        -:  136:
+function _ZNK17ServiceDisciplina15contract_getAllEv called 12 returned 100% blocks executed 100%
+       12:  137:const vector<Disciplina> &ServiceDisciplina::contract_getAll() const noexcept {
+       12:  138:    return contract.getAll();
+       12:  138-block  0
+call    0 returned 12
+        -:  139:}
+        -:  140:
+        -:  141:
+function _ZNK17ServiceDisciplina10raport_tipB5cxx11Ev called 1 returned 100% blocks executed 88%
+        1:  142:unordered_map<string, ReportDTO> ServiceDisciplina::raport_tip() const {
+        1:  143:    unordered_map<string, ReportDTO> raport;
+        1:  143-block  0
+call    0 returned 1
+        -:  144:
+       11:  145:    for (const auto &d: repo.getAll()) {
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+       10:  145-block  0
+call    3 returned 10
+       11:  145-block  1
+call    4 returned 11
+branch  5 taken 10
+branch  6 taken 1 (fallthrough)
+       10:  146:        const string &tip = d.getTip();
+call    0 returned 10
+       10:  147:        auto &dto = raport[tip];
+call    0 returned 10
+branch  1 taken 10 (fallthrough)
+branch  2 taken 0 (throw)
+       10:  148:        dto = ReportDTO(dto.getCount() + 1);
+       10:  148-block  0
+call    0 returned 10
+call    1 returned 10
+call    2 returned 10
+        -:  149:    }
+        -:  150:
+        1:  151:    return raport;}
+        1:  151-block  0
+        1:  151-block  1
+    $$$$$:  151-block  2
+call    0 never executed
+        -:  152:
+function _ZNK17ServiceDisciplina16contract_exportaERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 2 returned 50% blocks executed 75%
+        2:  153:void ServiceDisciplina::contract_exporta(const string &file_path) const {
+        2:  154:    Validator::valideaza_ofstream(file_path);
+        2:  154-block  0
+call    0 returned 2
+branch  1 taken 1 (fallthrough)
+branch  2 taken 1 (throw)
+        1:  155:    ofstream out(file_path);
+        1:  155-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  156:
+        1:  157:    contract.exporta_contract(out);
+        1:  157-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  158:}
+        1:  158-block  0
+call    0 returned 1
+    $$$$$:  158-block  1
+call    1 never executed

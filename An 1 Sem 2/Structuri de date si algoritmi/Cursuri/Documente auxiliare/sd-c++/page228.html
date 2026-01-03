@@ -1,0 +1,82 @@
+<HTML>
+<HEAD>
+<TITLE>Average Case Analysis</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html4731" HREF="page229.html" tppabs="http://www.brpreiss.com/books/opus4/html/page229.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4729" HREF="page222.html" tppabs="http://www.brpreiss.com/books/opus4/html/page222.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4725" HREF="page227.html" tppabs="http://www.brpreiss.com/books/opus4/html/page227.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4733" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4734" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION009420000000000000000">Average Case Analysis</A></H2>
+<P>
+The previous section has shown that in the worst case,
+the running time to insert an object into a separately chained hash table
+is <I>O</I>(1),
+and the time to find or delete an object is <I>O</I>(<I>n</I>).
+But these bounds are no better than the same operations on plain lists!
+Why have we gone to all the trouble inventing hash tables?
+<P>
+The answer lies not in the worst-case performance,
+but in the average expected performance.
+Suppose we have a hash table of size <I>M</I>.
+Let there be exactly <I>n</I> items in the hash table.
+We call the quantity  <IMG WIDTH=63 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline62864" SRC="img984.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img984.gif"  >
+the <em>load factor</em><A NAME=12002>&#160;</A><A NAME=12082>&#160;</A><A NAME=12083>&#160;</A>.
+The load factor is simply the ratio
+of the number of items in the hash table to the array length.
+<P>
+Let  <IMG WIDTH=13 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline62818" SRC="img972.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img972.gif"  > be the number of items in the  <IMG WIDTH=17 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58387" SRC="img77.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img77.gif"  > linked list,
+for  <IMG WIDTH=132 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline62822" SRC="img973.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img973.gif"  >.
+The average length of a linked list is
+<P> <IMG WIDTH=500 HEIGHT=66 ALIGN=BOTTOM ALT="eqnarray12006" SRC="img986.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img986.gif"  ><P>
+The average length of a linked list is exactly the load factor!
+<P>
+If we are given the load factor  <IMG WIDTH=8 HEIGHT=11 ALIGN=BOTTOM ALT="tex2html_wrap_inline62866" SRC="img985.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img985.gif"  >,
+we can determine the <em>average</em> running times for the various operations.
+The average running time of <tt>Insert</tt>
+is the same as its worst case time, <I>O</I>(1)--this result does not depend on  <IMG WIDTH=8 HEIGHT=11 ALIGN=BOTTOM ALT="tex2html_wrap_inline62866" SRC="img985.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img985.gif"  >.
+On the other hand,
+the average running time for <tt>Withdraw</tt> does depend on  <IMG WIDTH=8 HEIGHT=11 ALIGN=BOTTOM ALT="tex2html_wrap_inline62866" SRC="img985.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img985.gif"  >.
+It is  <IMG WIDTH=184 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline62882" SRC="img987.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img987.gif"  > since the time required to delete an item
+from a linked list of length  <IMG WIDTH=8 HEIGHT=11 ALIGN=BOTTOM ALT="tex2html_wrap_inline62866" SRC="img985.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img985.gif"  > is  <IMG WIDTH=32 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline62886" SRC="img988.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img988.gif"  >.
+<P>
+To determine the average running time for the <tt>Find</tt> operation,
+we need to make an assumption about whether the item that is being sought
+is in the table.
+If the item is not found in the table,
+the search is said to be <em>unsuccessful</em>.
+The average running time for an unsuccessful search is
+<P> <IMG WIDTH=403 HEIGHT=17 ALIGN=BOTTOM ALT="displaymath62850" SRC="img989.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img989.gif"  ><P>
+On the other hand, if the search target is in the table,
+the search is said to be <em>successful</em>.
+The average number of comparisons needed to find an arbitrary item
+in a linked list of length  <IMG WIDTH=8 HEIGHT=11 ALIGN=BOTTOM ALT="tex2html_wrap_inline62866" SRC="img985.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img985.gif"  > is
+<P> <IMG WIDTH=305 HEIGHT=47 ALIGN=BOTTOM ALT="displaymath62851" SRC="img990.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img990.gif"  ><P>
+Thus, the average running time for a successful search is
+<P> <IMG WIDTH=437 HEIGHT=17 ALIGN=BOTTOM ALT="displaymath62852" SRC="img991.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img991.gif"  ><P>
+<P>
+So, while any one search operation can be as bad as <I>O</I>(<I>n</I>),
+if we do a large number of random searches,
+we expect that the average running time will be  <IMG WIDTH=32 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline62886" SRC="img988.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img988.gif"  >.
+In fact, if we have a sufficiently good hash function
+and a reasonable set of objects in the container,
+we can expect that those objects are distributed throughout the table.
+Therefore, any one search operation
+will not be very much worse than the worst case.
+<P>
+Finally, if we know how many objects will be inserted into the
+hash table <em>a priori</em>,
+then we can choose a table size <I>M</I> which is larger than
+the maximum number of items expected.
+By doing this, we can ensure that  <IMG WIDTH=91 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline62896" SRC="img992.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img992.gif"  >.
+I.e., a linked list contains no more than one item on average.
+In this case, the average time for <tt>Withdraw</tt> is  <IMG WIDTH=130 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline62834" SRC="img979.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img979.gif"  >
+and for <tt>Find</tt> it is  <IMG WIDTH=240 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline62900" SRC="img993.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img993.gif"  >.
+<P>
+<HR><A NAME="tex2html4731" HREF="page229.html" tppabs="http://www.brpreiss.com/books/opus4/html/page229.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4729" HREF="page222.html" tppabs="http://www.brpreiss.com/books/opus4/html/page222.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4725" HREF="page227.html" tppabs="http://www.brpreiss.com/books/opus4/html/page227.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4733" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4734" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

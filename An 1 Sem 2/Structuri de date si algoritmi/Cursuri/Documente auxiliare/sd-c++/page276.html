@@ -1,0 +1,69 @@
+<HTML>
+<HEAD>
+<TITLE>General Trees</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html5336" HREF="page277.html" tppabs="http://www.brpreiss.com/books/opus4/html/page277.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5334" HREF="page266.html" tppabs="http://www.brpreiss.com/books/opus4/html/page266.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5328" HREF="page275.html" tppabs="http://www.brpreiss.com/books/opus4/html/page275.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5338" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5339" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0010630000000000000000">General Trees</A></H2>
+<A NAME="sectreesgeneral">&#160;</A>
+<P>
+This section outlines an implementation of general trees
+in the sense of Definition&nbsp;<A HREF="page251.html#defntree" tppabs="http://www.brpreiss.com/books/opus4/html/page251.html#defntree"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+The salient features of the definition are first,
+that the nodes of a general tree have arbitrary degrees;
+and second, that there is no such thing as an empty tree.
+<P>
+The recursive nature of Definition&nbsp;<A HREF="page251.html#defntree" tppabs="http://www.brpreiss.com/books/opus4/html/page251.html#defntree"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> has important
+implications when considering the implementation of such trees as containers.
+In effect, since a tree contains zero or more subtrees,
+when implemented as a container,
+we get a container which contains other containers!
+Fortunately, we have chosen by design to implement containers
+using <em>indirect containment</em><A NAME=16440>&#160;</A>.
+Therefore, it is possible for a tree to contain other trees
+simply by keeping around pointers to those trees.
+<P>
+Figure&nbsp;<A HREF="page276.html#figtree7" tppabs="http://www.brpreiss.com/books/opus4/html/page276.html#figtree7"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> shows the approach we have chosen
+for implementing general trees.
+This figure shows how the general tree  <IMG WIDTH=14 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63428" SRC="img1096.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1096.gif"  > in Figure&nbsp;<A HREF="page251.html#figtree1" tppabs="http://www.brpreiss.com/books/opus4/html/page251.html#figtree1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+can be stored in memory.
+The basic idea is that each node has associated with it a linked list
+of pointers to the subtrees of that node.
+A linked list is used because there is no <em>a priori</em> restriction
+on its length.
+This allows each node to have an arbitrary degree.
+Furthermore, since there are no empty trees,
+we need not worry about representing them.
+An important consequence of this is that the implementation
+never makes use of a zero-valued tree node pointer!
+<P>
+<P><A NAME="16611">&#160;</A><A NAME="figtree7">&#160;</A> <IMG WIDTH=575 HEIGHT=267 ALIGN=BOTTOM ALT="figure16444" SRC="img1168.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1168.gif"  ><BR>
+<STRONG>Figure:</STRONG> Representing General Trees using Linked Lists<BR>
+<P>
+<P>
+Program&nbsp;<A HREF="page276.html#proggentree1h" tppabs="http://www.brpreiss.com/books/opus4/html/page276.html#proggentree1h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> declares the <tt>GeneralTree</tt> class
+which is used to represent general trees
+as specified by Definition&nbsp;<A HREF="page251.html#defntree" tppabs="http://www.brpreiss.com/books/opus4/html/page251.html#defntree"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+The class <tt>GeneralTree</tt> is derived from
+the base class <tt>Tree</tt> which is discussed in the preceding section.
+<P>
+<P><A NAME="16755">&#160;</A><A NAME="proggentree1h">&#160;</A> <IMG WIDTH=575 HEIGHT=314 ALIGN=BOTTOM ALT="program16619" SRC="img1169.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1169.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>GeneralTree</tt> Class Definition<BR>
+<P><BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html5340" HREF="page277.html#SECTION0010631000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page277.html#SECTION0010631000000000000000">Member Variables</A>
+<LI> <A NAME="tex2html5341" HREF="page278.html#SECTION0010632000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page278.html#SECTION0010632000000000000000">Member Functions</A>
+<LI> <A NAME="tex2html5342" HREF="page279.html#SECTION0010633000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page279.html#SECTION0010633000000000000000">Constructor, Destructor, and <tt>Purge</tt> Member Function</A>
+<LI> <A NAME="tex2html5343" HREF="page280.html#SECTION0010634000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page280.html#SECTION0010634000000000000000"><tt>Key</tt> and <tt>Subtree</tt> Member Functions</A>
+<LI> <A NAME="tex2html5344" HREF="page281.html#SECTION0010635000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page281.html#SECTION0010635000000000000000"><tt>AttachSubtree</tt> and <tt>DetachSubtree</tt> Member Functions</A>
+</UL>
+<HR><A NAME="tex2html5336" HREF="page277.html" tppabs="http://www.brpreiss.com/books/opus4/html/page277.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5334" HREF="page266.html" tppabs="http://www.brpreiss.com/books/opus4/html/page266.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5328" HREF="page275.html" tppabs="http://www.brpreiss.com/books/opus4/html/page275.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5338" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5339" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

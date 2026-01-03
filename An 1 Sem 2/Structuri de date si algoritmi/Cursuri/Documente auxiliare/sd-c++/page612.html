@@ -1,0 +1,44 @@
+<HTML>
+<HEAD>
+<TITLE>Algorithmic Abstraction</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html9467" HREF="page613.html" tppabs="http://www.brpreiss.com/books/opus4/html/page613.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html9465" HREF="page609.html" tppabs="http://www.brpreiss.com/books/opus4/html/page609.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html9461" HREF="page611.html" tppabs="http://www.brpreiss.com/books/opus4/html/page611.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html9469" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html9470" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0018423000000000000000">Algorithmic Abstraction</A></H3>
+<P>
+Abstract classes can be used in many interesting ways.
+One of the most useful paradigms is the use of an abstract class
+for <em>algorithmic abstraction</em><A NAME=57676>&#160;</A>.
+The <tt>Erase</tt> and <tt>MoveTo</tt> functions defined in Program&nbsp;<A HREF="page609.html#proggraphic1c" tppabs="http://www.brpreiss.com/books/opus4/html/page609.html#proggraphic1c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+are examples of this.
+<P>
+The <tt>Erase</tt> and <tt>MoveTo</tt> functions are implemented in
+the abstract class <tt>GraphicalObject</tt>.
+The algorithms implemented are designed to work in any
+concrete class derived from <tt>GraphicalObject</tt>,
+be it <tt>Circle</tt>, <tt>Rectangle</tt> or <tt>Square</tt>.
+In effect, we have written algorithms that work
+regardless of the actual class of the object.
+Therefore, such algorithms are called <em>abstract algorithms</em>.
+<P>
+Abstract algorithms typically invoke virtual member functions.
+E.g., the <tt>MoveTo</tt> function invokes <tt>Erase</tt> and <tt>Draw</tt>
+to do most of the actual work.
+In this case,
+the derived classes are expected to inherit the abstract algorithm <tt>MoveTo</tt>
+and to override the pure virtual function <tt>Draw</tt>.
+Thus, the derived class customizes the behavior of the abstract algorithm
+by overriding the appropriate member functions.
+The virtual function resolution mechanism ensures that
+the ``correct'' member function is always called.
+<P>
+<HR><A NAME="tex2html9467" HREF="page613.html" tppabs="http://www.brpreiss.com/books/opus4/html/page613.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html9465" HREF="page609.html" tppabs="http://www.brpreiss.com/books/opus4/html/page609.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html9461" HREF="page611.html" tppabs="http://www.brpreiss.com/books/opus4/html/page611.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html9469" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html9470" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

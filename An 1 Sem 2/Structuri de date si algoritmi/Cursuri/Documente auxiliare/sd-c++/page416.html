@@ -1,0 +1,48 @@
+<HTML>
+<HEAD>
+<TITLE>Dynamic Storage Allocation: The Other Kind of Heap</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html7059" HREF="page417.html" tppabs="http://www.brpreiss.com/books/opus4/html/page417.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7057" HREF="book.html" tppabs="http://www.brpreiss.com/books/opus4/html/book.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7051" HREF="page415.html" tppabs="http://www.brpreiss.com/books/opus4/html/page415.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7061" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7062" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION0014000000000000000000">Dynamic Storage Allocation: The Other Kind of Heap</A></H1>
+<P>
+<A NAME="chapheap">&#160;</A>
+<P>
+In the preceding chapters when analyzing an algorithm involving
+dynamically allocated storage,
+we assume that the time taken
+to acquire or to release storage is bounded by a constant.
+Specifically, Axiom&nbsp;<A HREF="page46.html#axiomvi" tppabs="http://www.brpreiss.com/books/opus4/html/page46.html#axiomvi"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> in Chapter&nbsp;<A HREF="page34.html#chapmodel" tppabs="http://www.brpreiss.com/books/opus4/html/page34.html#chapmodel"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> states that
+the running time of operator <tt>new</tt> is a constant,  <IMG WIDTH=23 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline58579" SRC="img128.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img128.gif"  >,
+and that the running time of operator <tt>delete</tt> is also a constant,
+ <IMG WIDTH=41 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline58581" SRC="img129.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img129.gif"  >.
+<P>
+But is this really so?
+To answer this question,
+we consider in this chapter the dynamic management of a pool of memory.
+In particular,
+we consider several different implementations for the operators
+<tt>new</tt> and <tt>delete</tt>
+and we show that the assumptions of constant running times
+are not always valid.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html7063" HREF="page417.html#SECTION0014100000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page417.html#SECTION0014100000000000000000">Basics</A>
+<LI> <A NAME="tex2html7064" HREF="page421.html#SECTION0014200000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page421.html#SECTION0014200000000000000000">Singly Linked Free Storage</A>
+<LI> <A NAME="tex2html7065" HREF="page426.html#SECTION0014300000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page426.html#SECTION0014300000000000000000">Doubly Linked Free Storage</A>
+<LI> <A NAME="tex2html7066" HREF="page431.html#SECTION0014400000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page431.html#SECTION0014400000000000000000">Buddy System for Storage Management</A>
+<LI> <A NAME="tex2html7067" HREF="page436.html#SECTION0014500000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page436.html#SECTION0014500000000000000000">Applications</A>
+<LI> <A NAME="tex2html7068" HREF="page438.html#SECTION0014600000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page438.html#SECTION0014600000000000000000">Exercises</A>
+<LI> <A NAME="tex2html7069" HREF="page439.html#SECTION0014700000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page439.html#SECTION0014700000000000000000">Projects</A>
+</UL>
+<HR><A NAME="tex2html7059" HREF="page417.html" tppabs="http://www.brpreiss.com/books/opus4/html/page417.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7057" HREF="book.html" tppabs="http://www.brpreiss.com/books/opus4/html/book.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7051" HREF="page415.html" tppabs="http://www.brpreiss.com/books/opus4/html/page415.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7061" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7062" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

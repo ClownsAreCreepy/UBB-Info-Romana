@@ -1,0 +1,86 @@
+<HTML>
+<HEAD>
+<TITLE>Projects</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html7338" HREF="page440.html" tppabs="http://www.brpreiss.com/books/opus4/html/page440.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7336" HREF="page416.html" tppabs="http://www.brpreiss.com/books/opus4/html/page416.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7332" HREF="page438.html" tppabs="http://www.brpreiss.com/books/opus4/html/page438.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7340" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7341" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION0014700000000000000000">Projects</A></H1>
+<P>
+<OL><LI>
+	Compare experimentally the first-fit, best-fit, next-fit,
+	and worst-fit storage allocation schemes described in Exercise&nbsp;<A HREF="page438.html#exerciseheapi" tppabs="http://www.brpreiss.com/books/opus4/html/page438.html#exerciseheapi"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+	by making suitable variations of the <tt>SinglyLinkedPool</tt>
+	class declared in Program&nbsp;<A HREF="page422.html#progpool2h" tppabs="http://www.brpreiss.com/books/opus4/html/page422.html#progpool2h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+	<b>Hint</b>:
+	Use a simulation program
+	such as the one given in Program&nbsp;<A HREF="page437.html#progapp10bc" tppabs="http://www.brpreiss.com/books/opus4/html/page437.html#progapp10bc"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.<LI> <A NAME="projectheapii">&#160;</A>
+	Complete the <tt>DoublyLinkedPool</tt> class
+	declared in Program&nbsp;<A HREF="page427.html#progpool3h" tppabs="http://www.brpreiss.com/books/opus4/html/page427.html#progpool3h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+	by providing suitable definitions for the following member functions:
+	<tt>Unlink</tt> and <tt>InsertAfter</tt>.
+	Write a test program and test your implementation.<LI>
+	Complete the <tt>BuddyPool</tt> class
+	declared in Program&nbsp;<A HREF="page432.html#progpool4h" tppabs="http://www.brpreiss.com/books/opus4/html/page432.html#progpool4h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+	by providing suitable definitions for the following member functions:
+	<tt>Unlink</tt> and <tt>InsertAfter</tt>.
+	Write a test program and test your implementation.<LI>
+	All three storage pool implementations given in this chapter
+	allocate the memory used for the pool dynamically
+	by using <tt>operator new</tt> in the pool constructor.
+	Show by implementing suitable constructors for each of the classes
+	that it is possible to allocate the memory used by one storage pool
+	<em>inside</em> another storage pool.
+	E.g., the code sequence
+<PRE>Pool&amp; p = *new SinglyLinkedPool (8192);
+Pool&amp; q = *new (p) SinglyLinkedPool (1024, p);</PRE>
+	creates two pools, <tt>p</tt> and <tt>q</tt>.
+	Pool <tt>q</tt> is allocated in storage acquired from <tt>p</tt>.<LI>
+	Design and implement a storage pool class
+	that manages a region of memory that is contained
+	entirely within the pool object itself.
+	Because the size of a class must be determined at compile time,
+	this means that the size of the pool is a fixed constant.
+	Write a test program and test your implementation.<LI>
+	Modify the <tt>SinglyLinkedPool</tt>
+	class declared in Program&nbsp;<A HREF="page424.html#progpool2c" tppabs="http://www.brpreiss.com/books/opus4/html/page424.html#progpool2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+	so that instead of allocating memory in the constructor,
+	we pass to the constructor
+	the address and size of a region to be managed.
+	Write a test program and test your implementation.<LI>
+	Find a C++ program that you have written which uses
+	dynamically allocated storage.
+	Replace the storage manager provided by your compiler
+	and operating system by overloading operators <tt>new</tt>
+	and <tt>delete</tt> to use one of the storage pool implementations
+	presented in this chapter.
+	Compare the performance of your program when using
+	the different implementations.<LI>
+	Most C++ programs allocate dynamically
+	only a small number of different object types.
+	Consequently, only a small number of distinct sizes of areas
+	need to be acquired.
+<P>
+	Modify the simulation shown in Program&nbsp;<A HREF="page437.html#progapp10bc" tppabs="http://www.brpreiss.com/books/opus4/html/page437.html#progapp10bc"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> as follows:
+	In each cycle acquire either four bytes or 32 bytes.
+	Use a suitable random number generator (see Section&nbsp;<A HREF="page472.html#secalgsrng" tppabs="http://www.brpreiss.com/books/opus4/html/page472.html#secalgsrng"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>)
+	so that the smaller block is acquired 75% of the time.
+<P>
+	In addition, suppose that the number of cycles that a block is in use
+	is an exponentially distributed random variable.
+	Assume that the smaller blocks are held on average for 10 cycles
+	and that the larger blocks are held on average for 100 cycles.
+<P>
+	Use the modified simulation program to compare the various
+	storage pool implementations given in this chapter.
+</OL>
+<P>
+<HR><A NAME="tex2html7338" HREF="page440.html" tppabs="http://www.brpreiss.com/books/opus4/html/page440.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7336" HREF="page416.html" tppabs="http://www.brpreiss.com/books/opus4/html/page416.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7332" HREF="page438.html" tppabs="http://www.brpreiss.com/books/opus4/html/page438.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7340" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7341" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

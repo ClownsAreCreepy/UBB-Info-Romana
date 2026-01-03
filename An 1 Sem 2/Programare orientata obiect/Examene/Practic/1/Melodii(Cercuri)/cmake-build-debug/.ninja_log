@@ -1,0 +1,90 @@
+# ninja log v6
+32	197	7720501707896960	Melodii_Cercuri__autogen/timestamp	a4ea11da5e319c23
+203	1176	7720501709608934	CMakeFiles/Melodii_Cercuri_.dir/Teste/Test.cpp.obj	bb6982ddcaa74585
+317	1451	7720499216842087	CMakeFiles/Melodii_Cercuri_.dir/main.cpp.obj	57c9cfe90a200606
+198	1164	7720501709542693	CMakeFiles/Melodii_Cercuri_.dir/Service/Service.cpp.obj	1d0b262a1d420456
+32	197	7720501707896960	Melodii_Cercuri__autogen/mocs_compilation.cpp	a4ea11da5e319c23
+32	197	7720501707896960	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Melodii(Cercuri)/cmake-build-debug/Melodii_Cercuri__autogen/timestamp	a4ea11da5e319c23
+32	197	7720501707896960	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Melodii(Cercuri)/cmake-build-debug/Melodii_Cercuri__autogen/mocs_compilation.cpp	a4ea11da5e319c23
+313	426	7720489230526673	CMakeFiles/Melodii_Cercuri_.dir/Melodii_Cercuri__autogen/mocs_compilation.cpp.obj	c1acd23cce4e3840
+325	1500	7720489230652773	CMakeFiles/Melodii_Cercuri_.dir/Repo/Repository.cpp.obj	1b4cc35060ea582b
+1176	4892	7720501719333907	Melodii_Cercuri_.exe	7fb8d9f1df370a9f
+32	3508	7720514874024297	Melodii_Cercuri__autogen/timestamp	a4ea11da5e319c23
+32	3508	7720514874024297	Melodii_Cercuri__autogen/mocs_compilation.cpp	a4ea11da5e319c23
+32	3508	7720514874024297	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Melodii(Cercuri)/cmake-build-debug/Melodii_Cercuri__autogen/timestamp	a4ea11da5e319c23
+32	3508	7720514874024297	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Melodii(Cercuri)/cmake-build-debug/Melodii_Cercuri__autogen/mocs_compilation.cpp	a4ea11da5e319c23
+3516	8844	7720514875113111	CMakeFiles/Melodii_Cercuri_.dir/GUI/Model.cpp.obj	a20ad19d7ab32f7c
+3523	9151	7720514875178468	CMakeFiles/Melodii_Cercuri_.dir/GUI/Window.cpp.obj	a28da7538c3d9f13
+3511	9401	7720514875063051	CMakeFiles/Melodii_Cercuri_.dir/Melodii_Cercuri__autogen/mocs_compilation.cpp.obj	c1acd23cce4e3840
+37	250	7720516625090430	Melodii_Cercuri__autogen/timestamp	a4ea11da5e319c23
+37	250	7720516625090430	Melodii_Cercuri__autogen/mocs_compilation.cpp	a4ea11da5e319c23
+37	250	7720516625090430	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Melodii(Cercuri)/cmake-build-debug/Melodii_Cercuri__autogen/timestamp	a4ea11da5e319c23
+37	250	7720516625090430	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Melodii(Cercuri)/cmake-build-debug/Melodii_Cercuri__autogen/mocs_compilation.cpp	a4ea11da5e319c23
+250	5760	7720516627221062	CMakeFiles/Melodii_Cercuri_.dir/main.cpp.obj	57c9cfe90a200606
+30	2360	7720516916176100	Melodii_Cercuri__autogen/timestamp	a4ea11da5e319c23
+30	2360	7720516916176100	Melodii_Cercuri__autogen/mocs_compilation.cpp	a4ea11da5e319c23
+30	2360	7720516916176100	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Melodii(Cercuri)/cmake-build-debug/Melodii_Cercuri__autogen/timestamp	a4ea11da5e319c23
+30	2360	7720516916176100	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Melodii(Cercuri)/cmake-build-debug/Melodii_Cercuri__autogen/mocs_compilation.cpp	a4ea11da5e319c23
+2371	7230	7720516917401404	CMakeFiles/Melodii_Cercuri_.dir/GUI/Window.cpp.obj	a28da7538c3d9f13
+2367	7297	7720516917361163	CMakeFiles/Melodii_Cercuri_.dir/main.cpp.obj	57c9cfe90a200606
+2362	7407	7720516917305813	CMakeFiles/Melodii_Cercuri_.dir/Melodii_Cercuri__autogen/mocs_compilation.cpp.obj	c1acd23cce4e3840
+33	1341	7720517033109253	Melodii_Cercuri__autogen/timestamp	a4ea11da5e319c23
+33	1341	7720517033109253	Melodii_Cercuri__autogen/mocs_compilation.cpp	a4ea11da5e319c23
+33	1341	7720517033109253	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Melodii(Cercuri)/cmake-build-debug/Melodii_Cercuri__autogen/timestamp	a4ea11da5e319c23
+33	1341	7720517033109253	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Melodii(Cercuri)/cmake-build-debug/Melodii_Cercuri__autogen/mocs_compilation.cpp	a4ea11da5e319c23
+1352	5935	7720517034242935	CMakeFiles/Melodii_Cercuri_.dir/GUI/Window.cpp.obj	a28da7538c3d9f13
+1347	6016	7720517034198154	CMakeFiles/Melodii_Cercuri_.dir/main.cpp.obj	57c9cfe90a200606
+1342	6062	7720517034146755	CMakeFiles/Melodii_Cercuri_.dir/Melodii_Cercuri__autogen/mocs_compilation.cpp.obj	c1acd23cce4e3840
+6062	9825	7720517081343513	Melodii_Cercuri_.exe	f8259dfd0f683463
+37	262	7720517636264130	Melodii_Cercuri__autogen/timestamp	a4ea11da5e319c23
+37	262	7720517636264130	Melodii_Cercuri__autogen/mocs_compilation.cpp	a4ea11da5e319c23
+37	262	7720517636264130	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Melodii(Cercuri)/cmake-build-debug/Melodii_Cercuri__autogen/timestamp	a4ea11da5e319c23
+37	262	7720517636264130	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Melodii(Cercuri)/cmake-build-debug/Melodii_Cercuri__autogen/mocs_compilation.cpp	a4ea11da5e319c23
+263	5727	7720517638523018	CMakeFiles/Melodii_Cercuri_.dir/GUI/Window.cpp.obj	a28da7538c3d9f13
+5728	6431	7720517693172915	Melodii_Cercuri_.exe	f8259dfd0f683463
+31	2206	7720521494291725	Melodii_Cercuri__autogen/timestamp	a4ea11da5e319c23
+31	2206	7720521494291725	Melodii_Cercuri__autogen/mocs_compilation.cpp	a4ea11da5e319c23
+31	2206	7720521494291725	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Melodii(Cercuri)/cmake-build-debug/Melodii_Cercuri__autogen/timestamp	a4ea11da5e319c23
+31	2206	7720521494291725	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Melodii(Cercuri)/cmake-build-debug/Melodii_Cercuri__autogen/mocs_compilation.cpp	a4ea11da5e319c23
+2211	7284	7720521495372271	CMakeFiles/Melodii_Cercuri_.dir/main.cpp.obj	57c9cfe90a200606
+2216	7343	7720521495416611	CMakeFiles/Melodii_Cercuri_.dir/GUI/Window.cpp.obj	a28da7538c3d9f13
+2207	7363	7720521495321306	CMakeFiles/Melodii_Cercuri_.dir/Melodii_Cercuri__autogen/mocs_compilation.cpp.obj	c1acd23cce4e3840
+7363	8238	7720521546900868	Melodii_Cercuri_.exe	f8259dfd0f683463
+13	270	7720522321324248	Melodii_Cercuri__autogen/timestamp	a4ea11da5e319c23
+13	270	7720522321324248	Melodii_Cercuri__autogen/mocs_compilation.cpp	a4ea11da5e319c23
+13	270	7720522321324248	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Melodii(Cercuri)/cmake-build-debug/Melodii_Cercuri__autogen/timestamp	a4ea11da5e319c23
+13	270	7720522321324248	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Melodii(Cercuri)/cmake-build-debug/Melodii_Cercuri__autogen/mocs_compilation.cpp	a4ea11da5e319c23
+272	5612	7720522323920853	CMakeFiles/Melodii_Cercuri_.dir/GUI/Window.cpp.obj	a28da7538c3d9f13
+5612	6276	7720522377319548	Melodii_Cercuri_.exe	f8259dfd0f683463
+44	2384	7720529949204027	Melodii_Cercuri__autogen/timestamp	a4ea11da5e319c23
+44	2384	7720529949204027	Melodii_Cercuri__autogen/mocs_compilation.cpp	a4ea11da5e319c23
+44	2384	7720529949204027	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Melodii(Cercuri)/cmake-build-debug/Melodii_Cercuri__autogen/timestamp	a4ea11da5e319c23
+44	2384	7720529949204027	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Melodii(Cercuri)/cmake-build-debug/Melodii_Cercuri__autogen/mocs_compilation.cpp	a4ea11da5e319c23
+2386	6844	7720529950342049	CMakeFiles/Melodii_Cercuri_.dir/Melodii_Cercuri__autogen/mocs_compilation.cpp.obj	c1acd23cce4e3840
+2393	6948	7720529950412027	CMakeFiles/Melodii_Cercuri_.dir/main.cpp.obj	57c9cfe90a200606
+2399	7421	7720529950463752	CMakeFiles/Melodii_Cercuri_.dir/GUI/Window.cpp.obj	a28da7538c3d9f13
+7421	8126	7720530000697170	Melodii_Cercuri_.exe	f8259dfd0f683463
+30	283	7720530533698755	Melodii_Cercuri__autogen/timestamp	a4ea11da5e319c23
+30	283	7720530533698755	Melodii_Cercuri__autogen/mocs_compilation.cpp	a4ea11da5e319c23
+30	283	7720530533698755	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Melodii(Cercuri)/cmake-build-debug/Melodii_Cercuri__autogen/timestamp	a4ea11da5e319c23
+30	283	7720530533698755	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Melodii(Cercuri)/cmake-build-debug/Melodii_Cercuri__autogen/mocs_compilation.cpp	a4ea11da5e319c23
+285	5538	7720530536253705	CMakeFiles/Melodii_Cercuri_.dir/GUI/Window.cpp.obj	a28da7538c3d9f13
+5538	6300	7720530588781472	Melodii_Cercuri_.exe	f8259dfd0f683463
+33	278	7720530791925177	Melodii_Cercuri__autogen/timestamp	a4ea11da5e319c23
+33	278	7720530791925177	Melodii_Cercuri__autogen/mocs_compilation.cpp	a4ea11da5e319c23
+33	278	7720530791925177	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Melodii(Cercuri)/cmake-build-debug/Melodii_Cercuri__autogen/timestamp	a4ea11da5e319c23
+33	278	7720530791925177	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Melodii(Cercuri)/cmake-build-debug/Melodii_Cercuri__autogen/mocs_compilation.cpp	a4ea11da5e319c23
+278	5965	7720530794375856	CMakeFiles/Melodii_Cercuri_.dir/GUI/Window.cpp.obj	a28da7538c3d9f13
+5965	6737	7720530851238001	Melodii_Cercuri_.exe	f8259dfd0f683463
+9	218	7720531396423823	Melodii_Cercuri__autogen/timestamp	a4ea11da5e319c23
+9	218	7720531396423823	Melodii_Cercuri__autogen/mocs_compilation.cpp	a4ea11da5e319c23
+9	218	7720531396423823	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Melodii(Cercuri)/cmake-build-debug/Melodii_Cercuri__autogen/timestamp	a4ea11da5e319c23
+9	218	7720531396423823	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Melodii(Cercuri)/cmake-build-debug/Melodii_Cercuri__autogen/mocs_compilation.cpp	a4ea11da5e319c23
+219	6126	7720531398522789	CMakeFiles/Melodii_Cercuri_.dir/GUI/Window.cpp.obj	a28da7538c3d9f13
+6126	6777	7720531457591781	Melodii_Cercuri_.exe	f8259dfd0f683463
+10	328	7720531894346970	Melodii_Cercuri__autogen/timestamp	a4ea11da5e319c23
+10	328	7720531894346970	Melodii_Cercuri__autogen/mocs_compilation.cpp	a4ea11da5e319c23
+10	328	7720531894346970	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Melodii(Cercuri)/cmake-build-debug/Melodii_Cercuri__autogen/timestamp	a4ea11da5e319c23
+10	328	7720531894346970	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Melodii(Cercuri)/cmake-build-debug/Melodii_Cercuri__autogen/mocs_compilation.cpp	a4ea11da5e319c23
+329	6642	7720531897541431	CMakeFiles/Melodii_Cercuri_.dir/GUI/Window.cpp.obj	a28da7538c3d9f13
+6642	7437	7720531960672000	Melodii_Cercuri_.exe	f8259dfd0f683463

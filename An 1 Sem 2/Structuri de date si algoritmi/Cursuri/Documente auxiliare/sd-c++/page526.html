@@ -1,0 +1,105 @@
+<HTML>
+<HEAD>
+<TITLE>Terminology</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html8419" HREF="page527.html" tppabs="http://www.brpreiss.com/books/opus4/html/page527.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8417" HREF="page524.html" tppabs="http://www.brpreiss.com/books/opus4/html/page524.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8411" HREF="page525.html" tppabs="http://www.brpreiss.com/books/opus4/html/page525.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8421" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8422" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0017102000000000000000">Terminology</A></H3>
+<P>
+Consider a directed graph  <IMG WIDTH=72 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71355" SRC="img2282.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2282.gif"  > as given by Definition&nbsp;<A HREF="page525.html#defndigraph" tppabs="http://www.brpreiss.com/books/opus4/html/page525.html#defndigraph"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+<P>
+<UL><LI>
+	Each element of  <IMG WIDTH=10 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline71357" SRC="img2283.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2283.gif"  > is called a <em>vertex</em><A NAME=48789>&#160;</A>
+	or a <em>node</em><A NAME=48791>&#160;</A> of <I>G</I>.
+	Hence,  <IMG WIDTH=10 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline71357" SRC="img2283.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2283.gif"  > is the set of <em>vertices</em> (or <em>nodes</em>) of <I>G</I>.<LI>
+	Each element of  <IMG WIDTH=9 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline71363" SRC="img2284.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2284.gif"  > is called an <em>edge</em><A NAME=48795>&#160;</A>
+	or an <em>arc</em> of <I>G</I>.
+	Hence,  <IMG WIDTH=9 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline71363" SRC="img2284.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2284.gif"  > is the set of <em>edges</em> (or <em>arcs</em>) of <I>G</I>.<LI>
+	An edge  <IMG WIDTH=67 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71405" SRC="img2290.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2290.gif"  > can be represented as  <IMG WIDTH=44 HEIGHT=9 ALIGN=BOTTOM ALT="tex2html_wrap_inline71407" SRC="img2291.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2291.gif"  >.
+	An arrow that points from <I>v</I> to <I>w</I> is known
+	as a <em>directed arc</em><A NAME=48800>&#160;</A><A NAME=48801>&#160;</A>.
+	Vertex <I>w</I> is called the <em>head</em> of the arc
+	because it is found at the arrow head.
+	Conversely, <I>v</I> is called the <em>tail</em> of the arc.
+	Finally, vertex <I>w</I> is said to be <em>adjacent</em><A NAME=48805>&#160;</A>
+	to vertex <I>v</I>.<LI>
+	An edge <I>e</I>=(<I>v</I>,<I>w</I>) is said to
+	<em>emanate</em><A NAME=48807>&#160;</A><A NAME=48808>&#160;</A> from vertex <I>v</I>.
+	We use notation  <IMG WIDTH=32 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71425" SRC="img2292.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2292.gif"  > to denote the set of edges
+	emanating from vertex <I>v</I>.
+	I.e.,  <IMG WIDTH=210 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71429" SRC="img2293.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2293.gif"  ><LI>
+	The <em>out-degree</em><A NAME=48810>&#160;</A><A NAME=48811>&#160;</A>
+	of a node is the number of edges
+	emanating from that node.
+	Therefore, the out-degree of <I>v</I> is  <IMG WIDTH=43 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71433" SRC="img2294.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2294.gif"  ><LI>
+	An edge <I>e</I>=(<I>v</I>,<I>w</I>) is said to be
+	<em>incident</em><A NAME=48813>&#160;</A><A NAME=48814>&#160;</A> on vertex <I>w</I>.
+	We use notation  <IMG WIDTH=34 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71439" SRC="img2295.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2295.gif"  > to denote the set of edges
+	incident on vertex <I>w</I>.
+	I.e.,  <IMG WIDTH=215 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71443" SRC="img2296.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2296.gif"  ><LI>
+	The <em>in-degree</em><A NAME=48816>&#160;</A><A NAME=48817>&#160;</A>
+	of a node is the number of edges
+	incident on that node.
+	Therefore, the in-degree of <I>w</I> is  <IMG WIDTH=45 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71447" SRC="img2297.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2297.gif"  ></UL>
+<P>
+For example, Table&nbsp;<A HREF="page526.html#tblgraph1" tppabs="http://www.brpreiss.com/books/opus4/html/page526.html#tblgraph1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> enumerates the sets of
+emanating and incident edges
+and the in- and out-degrees
+for each of the vertices in graph  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline71449" SRC="img2298.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2298.gif"  > shown in Figure&nbsp;<A HREF="page525.html#figgraph1" tppabs="http://www.brpreiss.com/books/opus4/html/page525.html#figgraph1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+<P>
+<P><A NAME="48886">&#160;</A>
+<P>
+    <A NAME="tblgraph1">&#160;</A>
+    <DIV ALIGN=CENTER><P ALIGN=CENTER><TABLE COLS=5 BORDER FRAME=HSIDES RULES=GROUPS>
+<COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER>
+<TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+	    vertex <I>v</I> </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=32 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71425" SRC="img2292.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2292.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> out-degree </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=31 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71457" SRC="img2299.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2299.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> in-degree </TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP><I>a</I> </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=89 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71461" SRC="img2300.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2300.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 2 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=47 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71463" SRC="img2301.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2301.gif"  >       </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 1 </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	    <I>b</I> </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=45 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71467" SRC="img2302.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2302.gif"  >       </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 1 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=47 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71469" SRC="img2303.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2303.gif"  >       </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 1 </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	    <I>c</I> </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=89 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71473" SRC="img2304.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2304.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 2 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=88 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71475" SRC="img2305.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2305.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 2 </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	    <I>d</I> </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=48 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71479" SRC="img2306.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2306.gif"  >       </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 1 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=91 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71481" SRC="img2307.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2307.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 2 </TD></TR>
+</TBODY>
+<CAPTION ALIGN=BOTTOM><STRONG>Table:</STRONG> Emanating and Incident Edge Sets
+	for Graph  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline71449" SRC="img2298.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2298.gif"  > in Figure&nbsp;<A HREF="page525.html#figgraph1" tppabs="http://www.brpreiss.com/books/opus4/html/page525.html#figgraph1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A></CAPTION></TABLE>
+</P></DIV><P>
+<P>
+There is still more terminology to be introduced,
+but in order to do that,
+we need the following definition:
+<P>
+<BLOCKQUOTE> <b>Definition (Path and Path Length)</b><A NAME="defndigraphpath">&#160;</A>
+<P>
+A <em>path</em><A NAME=48834>&#160;</A> in a directed graph  <IMG WIDTH=72 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71355" SRC="img2282.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2282.gif"  >
+is a non-empty sequence of vertices
+<P> <IMG WIDTH=321 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath71385" SRC="img2308.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2308.gif"  ><P>
+where  <IMG WIDTH=43 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline71485" SRC="img2309.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2309.gif"  > for  <IMG WIDTH=63 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline63494" SRC="img1105.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1105.gif"  >
+such that  <IMG WIDTH=89 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline71489" SRC="img2310.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2310.gif"  > for  <IMG WIDTH=63 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline70677" SRC="img2244.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2244.gif"  >.
+The <em>length</em> of path <I>P</I> is <I>k</I>-1.
+</BLOCKQUOTE>
+<P>
+For example, consider again the graph  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline71449" SRC="img2298.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2298.gif"  > shown in Figure&nbsp;<A HREF="page525.html#figgraph1" tppabs="http://www.brpreiss.com/books/opus4/html/page525.html#figgraph1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+Among the paths contained in  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline71449" SRC="img2298.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2298.gif"  > there is
+the path of length zero,  <IMG WIDTH=21 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline67118" SRC="img1587.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1587.gif"  >;
+the path of length one,  <IMG WIDTH=34 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71503" SRC="img2311.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2311.gif"  >;
+the path of length two,  <IMG WIDTH=49 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline67128" SRC="img1591.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1591.gif"  >; and so on.
+In fact, this graph generates an infinite number of paths!
+(To see how this is possible,
+consider that  <IMG WIDTH=198 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71507" SRC="img2312.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2312.gif"  > is a path in  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline71449" SRC="img2298.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2298.gif"  >).
+Notice too the subtle distinction between a path of length zero, say  <IMG WIDTH=21 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71511" SRC="img2313.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2313.gif"  >,
+and the path of length one  <IMG WIDTH=36 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71513" SRC="img2314.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2314.gif"  >.
+<P>
+<HR><A NAME="tex2html8419" HREF="page527.html" tppabs="http://www.brpreiss.com/books/opus4/html/page527.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8417" HREF="page524.html" tppabs="http://www.brpreiss.com/books/opus4/html/page524.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8411" HREF="page525.html" tppabs="http://www.brpreiss.com/books/opus4/html/page525.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8421" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8422" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

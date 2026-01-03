@@ -1,0 +1,80 @@
+<HTML>
+<HEAD>
+<TITLE>Push, Pop, and Top Member Functions</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html3656" HREF="page142.html" tppabs="http://www.brpreiss.com/books/opus4/html/page142.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3654" HREF="page138.html" tppabs="http://www.brpreiss.com/books/opus4/html/page138.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3648" HREF="page140.html" tppabs="http://www.brpreiss.com/books/opus4/html/page140.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3658" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3659" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION007123000000000000000"><tt>Push</tt>, <tt>Pop</tt>, and <tt>Top</tt> Member Functions</A></H3>
+<P>
+The <tt>Push</tt>, <tt>Pop</tt>, and <tt>Top</tt>,
+member functions of the <tt>StackAsLinkedList</tt> class
+are defined in Program&nbsp;<A HREF="page141.html#progstack6c" tppabs="http://www.brpreiss.com/books/opus4/html/page141.html#progstack6c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+<P>
+<P><A NAME="6305">&#160;</A><A NAME="progstack6c">&#160;</A> <IMG WIDTH=575 HEIGHT=429 ALIGN=BOTTOM ALT="program6056" SRC="img719.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img719.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>StackAsLinkedList</tt> Class <tt>Push</tt>, <tt>Pop</tt>,     and <tt>Top</tt> Member Function Definitions<BR>
+<P>
+<P>
+The implementation of <tt>Push</tt> is trivial.
+It takes as its lone argument a reference to the <tt>Object</tt>
+to be pushed onto the stack
+and simply prepends a pointer to that object to
+the linked list <tt>list</tt>.
+Then, one is added to the <tt>count</tt> variable.
+The running time of the <tt>Push</tt> function is constant,
+since the <tt>Prepend</tt> function has a constant running time,
+and updating the <tt>count</tt> only takes <I>O</I>(1) time.
+<P>
+The <tt>Pop</tt> function is implemented using two
+of the <tt>LinkedList&lt;T&gt;</tt> member functions--<tt>First</tt> and <tt>Extract</tt>.
+The <tt>First</tt> function is used to obtain the first item
+in the linked list.
+The function <tt>First</tt> runs in constant time.
+The <tt>Extract</tt> function is then called to remove the first
+item from the linked list.
+In the worst case, <tt>Extract</tt> requires <I>O</I>(<I>n</I>) time to delete
+an item from a linked list of length <I>n</I>.
+But the worst-case time arises only when it is the <em>last</em>
+element of the list which is to be deleted.
+In the case of the <tt>Pop</tt> function,
+it is the <em>first</em> element which is deleted.
+This can be done in constant time.
+Assuming that the exception which is raised when <tt>Pop</tt>
+is called on an empty list does not occur,
+the running time for <tt>Pop</tt> is <I>O</I>(1).
+<P>
+There is a subtle point in this implementation:
+Since it is not possible for two different variables
+to occupy the same memory address,<A NAME="tex2html268" HREF="footnode.html#6309" tppabs="http://www.brpreiss.com/books/opus4/html/footnode.html#6309"><IMG  ALIGN=BOTTOM ALT="gif" SRC="foot_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/foot_motif.gif"></A>
+all of the pointers in the linked list will be unique
+provided no object is pushed onto the stack more than once.
+This ensures that the datum deleted from the linked
+list by the <tt>Extract</tt> function is precisely the one returned
+by the <tt>First</tt> function.
+<P>
+The only way that an object can be pushed safely onto the stack
+more than once is if the stack does not own its contained objects.
+If the stack owns its objects,
+then when the stack is deleted its destructor first deletes all
+the contained objects.
+As a result, if an object is pushed onto the stack twice,
+that object's destructor would be called twice.
+Such a program is not valid since
+deleting an object which has already been deleted is an error.
+<P>
+The definition of the <tt>Top</tt> function is quite simple.
+It simply returns a reference to the first object in the linked list.
+Provided the linked list is not empty,
+the running time of <tt>Top</tt> is <I>O</I>(1).
+If the linked list is empty,
+the <tt>Top</tt> function throws a <tt>domainerror</tt> exception.
+<P>
+<HR><A NAME="tex2html3656" HREF="page142.html" tppabs="http://www.brpreiss.com/books/opus4/html/page142.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3654" HREF="page138.html" tppabs="http://www.brpreiss.com/books/opus4/html/page138.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3648" HREF="page140.html" tppabs="http://www.brpreiss.com/books/opus4/html/page140.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3658" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3659" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,88 @@
+<HTML>
+<HEAD>
+<TITLE>Partitions</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html6915" HREF="page405.html" tppabs="http://www.brpreiss.com/books/opus4/html/page405.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6913" HREF="page387.html" tppabs="http://www.brpreiss.com/books/opus4/html/page387.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6907" HREF="page403.html" tppabs="http://www.brpreiss.com/books/opus4/html/page403.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6917" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6918" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION0013400000000000000000">Partitions</A></H1>
+<A NAME="secsetspartitions">&#160;</A>
+<P>
+Consider the finite universal set  <IMG WIDTH=150 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline67278" SRC="img1605.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1605.gif"  >.
+A <em>partition</em><A NAME=28626>&#160;</A> of <I>U</I>
+is a finite set of sets  <IMG WIDTH=143 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline67580" SRC="img1647.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1647.gif"  >
+with the following properties:
+<OL><LI>
+	The sets  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline60305" SRC="img449.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img449.gif"  >,  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline60309" SRC="img451.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img451.gif"  >, ...,  <IMG WIDTH=15 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline67586" SRC="img1648.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1648.gif"  > are pairwise <em>disjoint</em>.
+	I.e.,
+	<P> <IMG WIDTH=361 HEIGHT=17 ALIGN=BOTTOM ALT="displaymath67572" SRC="img1649.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1649.gif"  ><P><LI>
+	The sets  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline60305" SRC="img449.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img449.gif"  >,  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline60309" SRC="img451.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img451.gif"  >, ...,  <IMG WIDTH=15 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline67586" SRC="img1648.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1648.gif"  > <em>span</em> the universe <I>U</I>.
+	I.e.,
+	<P> <IMG WIDTH=500 HEIGHT=64 ALIGN=BOTTOM ALT="eqnarray28630" SRC="img1650.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1650.gif"  ><P></OL>
+<P>
+For example, consider the universe  <IMG WIDTH=86 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline67596" SRC="img1651.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1651.gif"  >.
+There are exactly five partitions of <I>U</I>:
+<P> <IMG WIDTH=500 HEIGHT=121 ALIGN=BOTTOM ALT="eqnarray28635" SRC="img1652.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1652.gif"  ><P>
+In general, given a universe <I>U</I> of size <I>n</I><I>&gt;</I>0,
+i.e., |<I>U</I>|=<I>n</I>,
+there are  <IMG WIDTH=76 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline67606" SRC="img1653.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1653.gif"  > partitions of <I>U</I>,
+where  <IMG WIDTH=28 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline67610" SRC="img1654.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1654.gif"  > is the so-called
+<em>Stirling number of the second kind</em><A NAME=28649>&#160;</A>
+which denotes the number of ways to partition a set of <I>n</I> elements
+into <I>m</I> nonempty disjoint subsets.<A NAME="tex2html765" HREF="footnode.html#28783" tppabs="http://www.brpreiss.com/books/opus4/html/footnode.html#28783"><IMG  ALIGN=BOTTOM ALT="gif" SRC="foot_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/foot_motif.gif"></A>
+<P>
+Applications which use partitions typically
+start with an initial partition
+and refine that partition either by joining or by splitting
+elements of the partition according to some application-specific criterion.
+The result of such a computation is the partition obtained
+when no more elements can be split or joined.
+<P>
+In this chapter we shall consider only applications that begin
+with the initial partition of <I>U</I>
+in which each item in <I>U</I> is in a separate element of the partition.
+Thus, the initial partition consists of |<I>U</I>| sets,
+each of size one (like  <IMG WIDTH=16 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline67626" SRC="img1657.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1657.gif"  > above).
+Furthermore, we restrict the applications in that we only allow
+elements of a partition to be joined--we do not allow elements to split.
+<P>
+The two operations to be performed on partitions are:
+<DL ><DT><STRONG>Find</STRONG>
+<DD>
+	Given an item in the universe, say  <IMG WIDTH=37 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline67628" SRC="img1658.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1658.gif"  >,
+	find the element of the partition that contains <I>i</I>.
+	I.e., find  <IMG WIDTH=48 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline67632" SRC="img1659.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1659.gif"  > such that  <IMG WIDTH=39 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline67634" SRC="img1660.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1660.gif"  >.
+    <DT><STRONG>Join</STRONG>
+<DD>
+	Given two distinct elements of a partition <I>P</I>,
+	say  <IMG WIDTH=46 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline67638" SRC="img1661.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1661.gif"  > and  <IMG WIDTH=48 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline67632" SRC="img1659.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1659.gif"  > such that  <IMG WIDTH=33 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline61938" SRC="img844.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img844.gif"  >,
+	create a new partition <I>P</I>'
+	by removing the two elements  <IMG WIDTH=12 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline67646" SRC="img1662.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1662.gif"  > and  <IMG WIDTH=14 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline67648" SRC="img1663.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1663.gif"  > from <I>P</I>
+	and replacing them with a single element  <IMG WIDTH=46 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline67652" SRC="img1664.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1664.gif"  >.
+<P>
+ </DL>
+<P>
+For example, consider the partition
+ <IMG WIDTH=254 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline67654" SRC="img1665.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1665.gif"  >.
+The result of the operation  <IMG WIDTH=46 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline67656" SRC="img1666.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1666.gif"  > is the set  <IMG WIDTH=75 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline67658" SRC="img1667.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1667.gif"  >
+because 3 is a member of  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline60309" SRC="img451.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img451.gif"  >.
+Furthermore, when we <em>join</em> sets  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline60305" SRC="img449.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img449.gif"  > and  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline60313" SRC="img453.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img453.gif"  >,
+we get the partition  <IMG WIDTH=140 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline67668" SRC="img1668.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1668.gif"  >.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html6919" HREF="page405.html#SECTION0013401000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page405.html#SECTION0013401000000000000000">Representing Partitions</A>
+<LI> <A NAME="tex2html6920" HREF="page406.html#SECTION0013410000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page406.html#SECTION0013410000000000000000">Implementing a Partition using a Forest</A>
+<LI> <A NAME="tex2html6921" HREF="page410.html#SECTION0013420000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page410.html#SECTION0013420000000000000000">Collapsing Find</A>
+<LI> <A NAME="tex2html6922" HREF="page411.html#SECTION0013430000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page411.html#SECTION0013430000000000000000">Union by Size</A>
+<LI> <A NAME="tex2html6923" HREF="page412.html#SECTION0013440000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page412.html#SECTION0013440000000000000000">Union by Height or Rank</A>
+</UL>
+<HR><A NAME="tex2html6915" HREF="page405.html" tppabs="http://www.brpreiss.com/books/opus4/html/page405.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6913" HREF="page387.html" tppabs="http://www.brpreiss.com/books/opus4/html/page387.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6907" HREF="page403.html" tppabs="http://www.brpreiss.com/books/opus4/html/page403.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6917" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6918" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

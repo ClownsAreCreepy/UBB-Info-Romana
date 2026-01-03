@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE>Leftist Heaps</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html6397" HREF="page363.html" tppabs="http://www.brpreiss.com/books/opus4/html/page363.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6395" HREF="page352.html" tppabs="http://www.brpreiss.com/books/opus4/html/page352.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6389" HREF="page361.html" tppabs="http://www.brpreiss.com/books/opus4/html/page361.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6399" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6400" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION0012300000000000000000">Leftist Heaps</A></H1>
+<A NAME="secpqueuesleftist">&#160;</A>
+<P>
+A leftist heap is a heap-ordered binary tree
+which has a very special shape called a <em>leftist tree</em>.
+One of the nice properties of leftist heaps is that is 
+possible to merge two leftist heaps efficiently.
+As a result, leftist heaps are suited for the implementation
+of mergeable priority queues.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html6401" HREF="page363.html#SECTION0012310000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page363.html#SECTION0012310000000000000000">Leftist Trees</A>
+<LI> <A NAME="tex2html6402" HREF="page364.html#SECTION0012320000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page364.html#SECTION0012320000000000000000">Implementation</A>
+<LI> <A NAME="tex2html6403" HREF="page367.html#SECTION0012330000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page367.html#SECTION0012330000000000000000">Merging Leftist Heaps</A>
+<LI> <A NAME="tex2html6404" HREF="page368.html#SECTION0012340000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page368.html#SECTION0012340000000000000000">Putting Items into a Leftist Heap</A>
+<LI> <A NAME="tex2html6405" HREF="page369.html#SECTION0012350000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page369.html#SECTION0012350000000000000000">Removing Items from a Leftist Heap</A>
+</UL>
+<HR><A NAME="tex2html6397" HREF="page363.html" tppabs="http://www.brpreiss.com/books/opus4/html/page363.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6395" HREF="page352.html" tppabs="http://www.brpreiss.com/books/opus4/html/page352.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6389" HREF="page361.html" tppabs="http://www.brpreiss.com/books/opus4/html/page361.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6399" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6400" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

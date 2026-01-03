@@ -1,0 +1,46 @@
+<HTML>
+<HEAD>
+<TITLE>Removing Arbitrary Items by Position</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html4199" HREF="page186.html" tppabs="http://www.brpreiss.com/books/opus4/html/page186.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4197" HREF="page177.html" tppabs="http://www.brpreiss.com/books/opus4/html/page177.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4193" HREF="page184.html" tppabs="http://www.brpreiss.com/books/opus4/html/page184.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4201" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4202" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION008128000000000000000">Removing Arbitrary Items by Position</A></H3>
+<P>
+The final <tt>ListAsLinkedList</tt> member function to be considered
+is the version of <tt>Withdraw</tt> that takes as its lone argument
+a reference to a <tt>Position</tt>.
+The function removes an arbitrary item from an ordered list,
+where the position of that item is specified by an instance of
+<tt>ListAsLinkedList::Pos</tt>.
+The code for the <tt>Withdraw</tt> function is given in Program&nbsp;<A HREF="page185.html#proglist12c" tppabs="http://www.brpreiss.com/books/opus4/html/page185.html#proglist12c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+<P>
+<P><A NAME="10564">&#160;</A><A NAME="proglist12c">&#160;</A> <IMG WIDTH=575 HEIGHT=238 ALIGN=BOTTOM ALT="program10295" SRC="img811.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img811.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>ListAsLinkedList</tt> Class 	<tt>Withdraw</tt> Member Function Definition<BR>
+<P>
+<P>
+The <tt>Withdraw</tt> function first converts its <tt>Position</tt> argument
+to the appropriate type--a <tt>ListAsLinkedList::Pos</tt>.
+It then performs validity checks on that position,
+checking that the position refers to this list,
+and that the position is valid.
+The item at the specified position in the list is removed from
+the linked list by calling the <tt>Extract</tt> function
+provided by <tt>LinkedList&lt;T&gt;</tt>.
+<P>
+The running time of the <tt>Withdraw</tt> member function
+of the <tt>ListAsLinkedList</tt> class depends on the running time
+of the <tt>Extract</tt> of the <tt>LinkedList&lt;T&gt;</tt> class.
+The latter was shown to be <I>O</I>(<I>n</I>) where <I>n</I> is the number
+of items in the linked list.
+Consequently, the total running time is <I>O</I>(<I>n</I>).
+<P>
+<HR><A NAME="tex2html4199" HREF="page186.html" tppabs="http://www.brpreiss.com/books/opus4/html/page186.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4197" HREF="page177.html" tppabs="http://www.brpreiss.com/books/opus4/html/page177.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4193" HREF="page184.html" tppabs="http://www.brpreiss.com/books/opus4/html/page184.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4201" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4202" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

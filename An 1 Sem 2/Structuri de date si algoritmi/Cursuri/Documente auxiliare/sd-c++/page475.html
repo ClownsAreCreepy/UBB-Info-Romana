@@ -1,0 +1,62 @@
+<HTML>
+<HEAD>
+<TITLE>Random Variables</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html7789" HREF="page476.html" tppabs="http://www.brpreiss.com/books/opus4/html/page476.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7787" HREF="page471.html" tppabs="http://www.brpreiss.com/books/opus4/html/page471.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7781" HREF="page474.html" tppabs="http://www.brpreiss.com/books/opus4/html/page474.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7791" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7792" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0015520000000000000000">Random Variables</A></H2>
+<P>
+In this section we introduce the notion
+of an abstract <em>random variable</em><A NAME=34034>&#160;</A>.
+In this context,
+a random variable is an object that behaves
+like a random number generator in that it produces
+a pseudorandom number sequence.
+The distribution of the values produced depends on the class
+of random variable used.
+<P>
+Program&nbsp;<A HREF="page475.html#prograndom2h" tppabs="http://www.brpreiss.com/books/opus4/html/page475.html#prograndom2h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> declares several random variable classes.
+The abstract <tt>RandomVariable</tt> class defines the shared interface.
+A single, pure virtual member function is declared--<tt>Sample</tt>.
+Given an instance, say <tt>rv</tt>,
+of a concrete class derived from <tt>RandomVariable</tt>,
+repeated calls of the form
+<PRE>rv.Sample ();</PRE>
+are expected to return successive elements of a pseudorandom sequence.
+<P>
+<P><A NAME="34160">&#160;</A><A NAME="prograndom2h">&#160;</A> <IMG WIDTH=575 HEIGHT=543 ALIGN=BOTTOM ALT="program34040" SRC="img2033.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2033.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>RandomVariable</tt>,     <tt>SimpleRV</tt>, <tt>UniformRV</tt> and <tt>ExponentialRV</tt>     Class Definitions<BR>
+<P>
+<P>
+Program&nbsp;<A HREF="page475.html#prograndom2h" tppabs="http://www.brpreiss.com/books/opus4/html/page475.html#prograndom2h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> also declares three concrete random variable classes:
+<DL ><DT><STRONG><tt>SimpleRV</tt></STRONG>
+<DD>
+	This class generates random numbers uniformly distributed
+	in the interval (0,1).
+	(It is merely a wrapper for the <tt>RandomNumberGenerator</tt>
+	defined in the preceding section).
+    <DT><STRONG><tt>UniformRV</tt></STRONG>
+<DD>
+	This class generates random numbers which are uniformly distributed
+	in an arbitrary interval (<I>u</I>,<I>v</I>), where <I>u</I><I>&lt;</I><I>v</I>.
+	The parameters <I>u</I> and <I>v</I> are specified in the constructor.
+    <DT><STRONG><tt>ExponentialRV</tt></STRONG>
+<DD>
+	This class generates exponentially distributed random numbers 
+	with a mean value of  <IMG WIDTH=9 HEIGHT=16 ALIGN=MIDDLE ALT="tex2html_wrap_inline69431" SRC="img2034.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2034.gif"  >.
+	The mean value  <IMG WIDTH=9 HEIGHT=16 ALIGN=MIDDLE ALT="tex2html_wrap_inline69431" SRC="img2034.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2034.gif"  > is specified in the constructor.
+<P>
+ </DL><BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html7793" HREF="page476.html#SECTION0015521000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page476.html#SECTION0015521000000000000000">Implementation</A>
+</UL>
+<HR><A NAME="tex2html7789" HREF="page476.html" tppabs="http://www.brpreiss.com/books/opus4/html/page476.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7787" HREF="page471.html" tppabs="http://www.brpreiss.com/books/opus4/html/page471.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7781" HREF="page474.html" tppabs="http://www.brpreiss.com/books/opus4/html/page474.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7791" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7792" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

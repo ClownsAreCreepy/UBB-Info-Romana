@@ -1,0 +1,55 @@
+<HTML>
+<HEAD>
+<TITLE>Multi-Dimensional Arrays</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html3140" HREF="page101.html" tppabs="http://www.brpreiss.com/books/opus4/html/page101.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3138" HREF="page79.html" tppabs="http://www.brpreiss.com/books/opus4/html/page79.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3132" HREF="page99.html" tppabs="http://www.brpreiss.com/books/opus4/html/page99.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3142" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3143" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION005300000000000000000">Multi-Dimensional Arrays</A></H1>
+<A NAME="secfdsmultid">&#160;</A>
+<P>
+A <em>multi-dimensional array</em><A NAME=3752>&#160;</A>
+of dimension <I>n</I>
+(i.e., an <I>n</I>-dimensional array or simply <I>n</I>-D array)
+is a collection of items which is accessed via <I>n</I> subscript expressions.
+E.g., the  <IMG WIDTH=43 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline61089" SRC="img639.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img639.gif"  > element of the two-dimensional array <tt>x</tt>
+is accessed by writing <tt>x[i][j]</tt>.
+<P>
+The C++ programming language provides built-in
+support for multi-dimensional arrays.
+However, the built-in multi-dimensional arrays suffer the same indignities
+that simple one-dimensional arrays do:
+Arrays in C++ are not first-class data types.
+There is no such thing as an array-valued expression.
+Consequently,
+you cannot use an array as an actual value parameter of a function;
+you cannot return an array value from a function; and,
+you cannot assign one array to another.
+The subscript ranges all start at zero
+and there is no bounds checking of array subscript expressions.
+Finally, the size of an array is static and fixed at compile time,
+unless dynamic memory allocation is explicitly used by the programmer.
+<P>
+In order to illustrate how these deficiencies of the C++ built-in
+multi-dimensional arrays can be overcome,
+we will examine the implementation of a two-dimensional array class,
+<tt>Array2D</tt>,
+that is based on the one-dimensional array class discussed
+in Section&nbsp;<A HREF="page80.html#secfdsarrays" tppabs="http://www.brpreiss.com/books/opus4/html/page80.html#secfdsarrays"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html3144" HREF="page101.html#SECTION005310000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page101.html#SECTION005310000000000000000">Array Subscript Calculations</A>
+<LI> <A NAME="tex2html3145" HREF="page102.html#SECTION005320000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page102.html#SECTION005320000000000000000">Two-Dimensional Array Implementation</A>
+<LI> <A NAME="tex2html3146" HREF="page103.html#SECTION005330000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page103.html#SECTION005330000000000000000">Multi-Dimensional Subscripting in C++</A>
+<LI> <A NAME="tex2html3147" HREF="page104.html#SECTION005340000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page104.html#SECTION005340000000000000000">Canonical Matrix Multiplication</A>
+</UL>
+<HR><A NAME="tex2html3140" HREF="page101.html" tppabs="http://www.brpreiss.com/books/opus4/html/page101.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3138" HREF="page79.html" tppabs="http://www.brpreiss.com/books/opus4/html/page79.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3132" HREF="page99.html" tppabs="http://www.brpreiss.com/books/opus4/html/page99.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3142" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3143" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

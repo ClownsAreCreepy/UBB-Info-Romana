@@ -1,0 +1,59 @@
+<HTML>
+<HEAD>
+<TITLE>Removing Items from a Leftist Heap</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html6484" HREF="page370.html" tppabs="http://www.brpreiss.com/books/opus4/html/page370.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6482" HREF="page362.html" tppabs="http://www.brpreiss.com/books/opus4/html/page362.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6478" HREF="page368.html" tppabs="http://www.brpreiss.com/books/opus4/html/page368.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6486" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6487" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0012350000000000000000">Removing Items from a Leftist Heap</A></H2>
+<P>
+The <tt>FindMin</tt> member function locates the item with the smallest key
+in a given priority queue
+and the <tt>DequeueMin</tt> member function removes it from the queue.
+Since the smallest item in a heap is found at the root,
+the <tt>FindMin</tt> operation is easy to implement.
+Program&nbsp;<A HREF="page369.html#progleftist3c" tppabs="http://www.brpreiss.com/books/opus4/html/page369.html#progleftist3c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> shows how it can be done.
+Clearly, the running time of the <tt>FindMin</tt> operation is <I>O</I>(1).
+<P>
+<P><A NAME="26665">&#160;</A><A NAME="progleftist3c">&#160;</A> <IMG WIDTH=575 HEIGHT=124 ALIGN=BOTTOM ALT="program26570" SRC="img1493.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1493.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>LeftistHeap</tt> Class     <tt>FindMin</tt> Member Function Definitions<BR>
+<P>
+<P>
+Since the smallest item in a heap is at the root,
+the <tt>DequeueMin</tt> operation must delete the root node.
+Since a leftist heap is a binary heap,
+the root has at most two children.
+In general when the root is deleted,
+we are left with two non-empty leftist heaps.
+Since we already have an efficient way to merge leftist heaps,
+the solution is to simply merge the two children of the root
+to obtain a single heap again!
+Program&nbsp;<A HREF="page369.html#progleftist4c" tppabs="http://www.brpreiss.com/books/opus4/html/page369.html#progleftist4c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> shows how the <tt>DequeueMin</tt> operation
+of the <tt>LeftistHeap</tt> class can be implemented.
+<P>
+<P><A NAME="26667">&#160;</A><A NAME="progleftist4c">&#160;</A> <IMG WIDTH=575 HEIGHT=315 ALIGN=BOTTOM ALT="program26583" SRC="img1494.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1494.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>LeftistHeap</tt> Class 	<tt>DequeueMin</tt> Member Function Definition<BR>
+<P>
+<P>
+The running time of Program&nbsp;<A HREF="page369.html#progleftist4c" tppabs="http://www.brpreiss.com/books/opus4/html/page369.html#progleftist4c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> is determined
+by the time required to merge the two children of the root (line&nbsp;13)
+since the rest of the work in <tt>DequeueMin</tt> can be done in constant time.
+Consider the running time to delete the root of a leftist heap <I>T</I>
+with <I>n</I> internal nodes.
+The running time to merge the left and right subtrees of <I>T</I>
+<P> <IMG WIDTH=425 HEIGHT=17 ALIGN=BOTTOM ALT="displaymath66540" SRC="img1495.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1495.gif"  ><P>
+where  <IMG WIDTH=16 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline66448" SRC="img1476.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1476.gif"  > and  <IMG WIDTH=18 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline66450" SRC="img1477.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1477.gif"  > are the null path lengths of the left and right
+subtrees <I>T</I>, respectively.
+In the worst case,  <IMG WIDTH=47 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline66556" SRC="img1496.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1496.gif"  > and  <IMG WIDTH=91 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline66558" SRC="img1497.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1497.gif"  >.
+If we assume that  <IMG WIDTH=179 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline64824" SRC="img1296.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1296.gif"  >,
+the running time for <tt>DequeueMin</tt> is  <IMG WIDTH=56 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59891" SRC="img403.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img403.gif"  >.
+<P>
+<HR><A NAME="tex2html6484" HREF="page370.html" tppabs="http://www.brpreiss.com/books/opus4/html/page370.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6482" HREF="page362.html" tppabs="http://www.brpreiss.com/books/opus4/html/page362.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6478" HREF="page368.html" tppabs="http://www.brpreiss.com/books/opus4/html/page368.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6486" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6487" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

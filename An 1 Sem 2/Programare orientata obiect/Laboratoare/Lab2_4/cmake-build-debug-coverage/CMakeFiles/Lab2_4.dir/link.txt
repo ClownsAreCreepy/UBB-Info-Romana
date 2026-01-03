@@ -1,0 +1,1 @@
+/usr/bin/cc --coverage -g CMakeFiles/Lab2_4.dir/main.c.o CMakeFiles/Lab2_4.dir/domain/materie_prima.c.o CMakeFiles/Lab2_4.dir/repository/lista_materii.c.o CMakeFiles/Lab2_4.dir/service/materie_service.c.o CMakeFiles/Lab2_4.dir/UI/meniu.c.o CMakeFiles/Lab2_4.dir/test/test_materii.c.o -o Lab2_4 

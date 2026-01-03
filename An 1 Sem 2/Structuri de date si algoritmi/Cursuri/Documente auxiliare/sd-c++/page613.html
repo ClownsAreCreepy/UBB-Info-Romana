@@ -1,0 +1,60 @@
+<HTML>
+<HEAD>
+<TITLE>Multiple Inheritance</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html9479" HREF="page614.html" tppabs="http://www.brpreiss.com/books/opus4/html/page614.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html9477" HREF="page606.html" tppabs="http://www.brpreiss.com/books/opus4/html/page606.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html9471" HREF="page612.html" tppabs="http://www.brpreiss.com/books/opus4/html/page612.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html9481" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html9482" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0018430000000000000000">Multiple Inheritance</A></H2>
+<P>
+In C++ a class can be derived from one or more base classes.
+However, all the base classes must be distinct.
+I.e., the following declaration is not allowed:
+<PRE>class D : public B, public B { ... }; // Wrong.</PRE>
+Nevertheless, it is possible for a class to be <em>indirectly derived</em>
+from the same base class more than once.
+E.g., consider the following class definitions:
+<PRE>class A { ... };
+class B1 : public A { ... };
+class B2 : public A { ... };
+class D : public B1, public B2 { ... };</PRE>
+The derived class <tt>D</tt> inherits
+two instances of the base class <tt>A</tt>--one indirectly via <tt>B1</tt>,
+the other indirectly via <tt>B2</tt>.
+In particular,
+this means that <tt>D</tt> contains two copies of each member variable
+of class <tt>A</tt>.
+It also means that when a member function of <tt>A</tt> is called,
+it is necessary to specify which of the two instances of <tt>A</tt>
+is to be used--the one from which <tt>B1</tt> is derived
+or the one from which to <tt>B2</tt> is derived.
+This scenario is shown in Figure&nbsp;<A HREF="page613.html#figcpp2" tppabs="http://www.brpreiss.com/books/opus4/html/page613.html#figcpp2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>&nbsp;(a).
+<P>
+<P><A NAME="57912">&#160;</A><A NAME="figcpp2">&#160;</A> <IMG WIDTH=575 HEIGHT=185 ALIGN=BOTTOM ALT="figure57706" SRC="img2609.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2609.gif"  ><BR>
+<STRONG>Figure:</STRONG> Multiple Derivation and Virtual Base Classes<BR>
+<P>
+<P>
+Sometimes it makes more sense for the derived class <tt>D</tt>
+to contain only one instance of the base class <tt>A</tt>.
+In C++ this is accomplished
+using <em>virtual base classes</em><A NAME=57918>&#160;</A>:
+<PRE>class A { ... };
+class B1 : virtual public A { ... };
+class B2 : virtual public A { ... };
+class D : public B1, public B2 { ... };</PRE>
+In this case, the derived class <tt>D</tt> contains only one instance
+of the base class <tt>A</tt>.
+Therefore, <tt>D</tt> contains only one copy of the member variables
+declared in <tt>A</tt>
+and there is not ambiguity when invoking the member functions of <tt>A</tt>.
+This corresponds to the situation shown in Figure&nbsp;<A HREF="page613.html#figcpp2" tppabs="http://www.brpreiss.com/books/opus4/html/page613.html#figcpp2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>&nbsp;(b).
+<P>
+<HR><A NAME="tex2html9479" HREF="page614.html" tppabs="http://www.brpreiss.com/books/opus4/html/page614.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html9477" HREF="page606.html" tppabs="http://www.brpreiss.com/books/opus4/html/page606.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html9471" HREF="page612.html" tppabs="http://www.brpreiss.com/books/opus4/html/page612.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html9481" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html9482" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

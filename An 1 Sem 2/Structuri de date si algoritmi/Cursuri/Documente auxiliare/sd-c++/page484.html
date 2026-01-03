@@ -1,0 +1,68 @@
+<HTML>
+<HEAD>
+<TITLE>Basics</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html7901" HREF="page485.html" tppabs="http://www.brpreiss.com/books/opus4/html/page485.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7899" HREF="page483.html" tppabs="http://www.brpreiss.com/books/opus4/html/page483.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7893" HREF="page483.html" tppabs="http://www.brpreiss.com/books/opus4/html/page483.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7903" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7904" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION0016100000000000000000">Basics</A></H1>
+<P>
+Consider an arbitrary sequence  <IMG WIDTH=157 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69689" SRC="img2088.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2088.gif"  >
+comprised of of  <IMG WIDTH=38 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59063" SRC="img241.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img241.gif"  > elements drawn from a some universal set <I>U</I>.
+The goal of <em>sorting</em> is to rearrange the elements of <I>S</I>
+to produce a new sequence, say <I>S</I>',
+in which the elements of <I>S</I> appear <em>in order</em>.
+<P>
+But what does it mean for the elements of <I>S</I>' to be <em>in order</em>?
+We shall assume that there is a relation, <I>&lt;</I>,
+defined over the universe <I>U</I>.
+The relation <I>&lt;</I> must be a <em>total order</em>,
+which is defined as follows:
+<P>
+<BLOCKQUOTE> <b>Definition</b><A NAME="defntotalorder">&#160;</A>
+A <em>total order</em><A NAME=34520>&#160;</A> is a relation, say <I>&lt;</I>,
+defined on the elements of some universal set <I>U</I>
+with the following properties:
+<OL><LI>
+	For all pairs of elements  <IMG WIDTH=95 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69713" SRC="img2089.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2089.gif"  >,
+	<em>exactly one</em> of the following is true: <I>i</I><I>&lt;</I><I>j</I>, <I>i</I>=<I>j</I>, or <I>j</I><I>&lt;</I><I>i</I>.
+<P>
+	(All elements are commensurate<A NAME=34523>&#160;</A>).<LI>
+	For all triples  <IMG WIDTH=142 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69721" SRC="img2090.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2090.gif"  >,
+	 <IMG WIDTH=162 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline61946" SRC="img846.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img846.gif"  >.
+<P>
+	(The relation <I>&lt;</I> is transitive<A NAME=34524>&#160;</A>).
+</OL></BLOCKQUOTE>
+<P>
+In order to <em>sort</em> the elements of the sequence <I>S</I>,
+we determine the <em>permutation</em>  <IMG WIDTH=162 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69729" SRC="img2091.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2091.gif"  >
+of the elements of <I>S</I> such that
+<P> <IMG WIDTH=345 HEIGHT=15 ALIGN=BOTTOM ALT="displaymath69687" SRC="img2092.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2092.gif"  ><P>
+In practice, we are not interested in the permutation <I>P</I>, <em>per se</em>.
+Instead, our objective is to compute the sorted sequence
+ <IMG WIDTH=162 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline69735" SRC="img2093.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2093.gif"  >
+in which  <IMG WIDTH=51 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline69737" SRC="img2094.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2094.gif"  > for  <IMG WIDTH=64 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline69739" SRC="img2095.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2095.gif"  >.
+<P>
+Sometimes the sequence to be sorted, <I>S</I>, contains duplicates.
+I.e.,  <IMG WIDTH=134 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69743" SRC="img2096.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2096.gif"  > such that  <IMG WIDTH=46 HEIGHT=16 ALIGN=MIDDLE ALT="tex2html_wrap_inline69745" SRC="img2097.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2097.gif"  >.
+In general when a sequence that contains duplicates is sorted,
+there is no guarantee that the duplicated elements
+retain their relative positions.
+I.e.,  <IMG WIDTH=9 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline69747" SRC="img2098.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2098.gif"  > could appear either before or after  <IMG WIDTH=12 HEIGHT=16 ALIGN=MIDDLE ALT="tex2html_wrap_inline69749" SRC="img2099.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2099.gif"  >
+in the sorted sequence <I>S</I>'.
+If duplicates retain their relative positions in the sorted sequence
+the sort is said to be <em>stable</em><A NAME=34536>&#160;</A>.
+In order for  <IMG WIDTH=9 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline69747" SRC="img2098.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2098.gif"  > and  <IMG WIDTH=12 HEIGHT=16 ALIGN=MIDDLE ALT="tex2html_wrap_inline69749" SRC="img2099.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2099.gif"  > to retain their relative order in the
+sorted sequence,
+we require that  <IMG WIDTH=17 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline69757" SRC="img2100.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2100.gif"  > precedes  <IMG WIDTH=18 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69759" SRC="img2101.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2101.gif"  > in <I>S</I>'.
+Therefore, the sort is stable if  <IMG WIDTH=49 HEIGHT=20 ALIGN=MIDDLE ALT="tex2html_wrap_inline69763" SRC="img2102.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2102.gif"  >.
+<P>
+<HR><A NAME="tex2html7901" HREF="page485.html" tppabs="http://www.brpreiss.com/books/opus4/html/page485.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7899" HREF="page483.html" tppabs="http://www.brpreiss.com/books/opus4/html/page483.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7893" HREF="page483.html" tppabs="http://www.brpreiss.com/books/opus4/html/page483.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7903" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7904" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

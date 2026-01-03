@@ -1,0 +1,69 @@
+<HTML>
+<HEAD>
+<TITLE>Stacks, Queues and Deques</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html3508" HREF="page131.html" tppabs="http://www.brpreiss.com/books/opus4/html/page131.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3506" HREF="book.html" tppabs="http://www.brpreiss.com/books/opus4/html/book.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3500" HREF="page129.html" tppabs="http://www.brpreiss.com/books/opus4/html/page129.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3510" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3511" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION007000000000000000000">Stacks, Queues and Deques</A></H1>
+<P>
+<A NAME="chapstacks">&#160;</A>
+<P>
+In this chapter we consider several related abstract data types--stacks, queues and deques.
+Each of these can be viewed as a pile of items.
+What distinguishes each of them is the way in which items
+are add to or removed from the pile.
+<P>
+In the case of a <em>stack</em>,
+items are added to and removed from the top of the pile.
+Consider the pile of papers on your desk.
+Suppose you add papers only to the top of the pile
+or remove them only from the top of the pile.
+At any point in time,
+the only paper that is visible is the one on top.
+What you have is a <em>stack</em>.
+<P>
+Now suppose your boss comes along
+and asks you to immediately complete a form.
+You stop doing whatever it is you are doing,
+and place the form on top of your pile of papers.
+When you have filled-out the form,
+you remove it from the top of the stack
+and return to the task you were working
+on before your boss interrupted you.
+This example illustrates that
+a <em>stack</em> can be used to keep track of partially completed tasks.
+<P>
+A <em>queue</em><A NAME=5577>&#160;</A> is a pile in which items are added an one end
+and removed from the other.
+In this respect,
+a queue is like the line of customers waiting to be served by a bank teller.
+As customers arrive,
+they join the end of the queue
+while the teller serves the customer at the head of the queue.
+As a result,
+a <em>queue</em> is used when a sequence of activities must be done
+on a <em>first-come, first-served</em> basis.
+<P>
+Finally, a <em>deque</em><A NAME=5581>&#160;</A> extends the notion of a queue.
+In a deque, items can be added to or removed from either end of the queue.
+In a sense, a deque is the more general abstraction
+of which the stack and the queue are just special cases.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html3512" HREF="page131.html#SECTION007100000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page131.html#SECTION007100000000000000000">Stacks</A>
+<LI> <A NAME="tex2html3513" HREF="page147.html#SECTION007200000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page147.html#SECTION007200000000000000000">Queues</A>
+<LI> <A NAME="tex2html3514" HREF="page158.html#SECTION007300000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page158.html#SECTION007300000000000000000">Deques</A>
+<LI> <A NAME="tex2html3515" HREF="page164.html#SECTION007400000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page164.html#SECTION007400000000000000000">Exercises</A>
+<LI> <A NAME="tex2html3516" HREF="page165.html#SECTION007500000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page165.html#SECTION007500000000000000000">Projects</A>
+</UL>
+<HR><A NAME="tex2html3508" HREF="page131.html" tppabs="http://www.brpreiss.com/books/opus4/html/page131.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3506" HREF="book.html" tppabs="http://www.brpreiss.com/books/opus4/html/book.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3500" HREF="page129.html" tppabs="http://www.brpreiss.com/books/opus4/html/page129.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3510" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3511" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

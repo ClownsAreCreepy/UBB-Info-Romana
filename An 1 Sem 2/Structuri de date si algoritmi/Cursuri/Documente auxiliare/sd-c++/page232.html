@@ -1,0 +1,55 @@
+<HTML>
+<HEAD>
+<TITLE>Constructors and Destructor</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html4786" HREF="page233.html" tppabs="http://www.brpreiss.com/books/opus4/html/page233.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4784" HREF="page230.html" tppabs="http://www.brpreiss.com/books/opus4/html/page230.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4778" HREF="page231.html" tppabs="http://www.brpreiss.com/books/opus4/html/page231.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4788" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4789" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION009512000000000000000">Constructors and Destructor</A></H3>
+<P>
+Program&nbsp;<A HREF="page232.html#proghashtbl5c" tppabs="http://www.brpreiss.com/books/opus4/html/page232.html#proghashtbl5c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives the definition of the
+default constructor for the <tt>ChainedScatterTable::Entry</tt> class.
+It shall always be the case that an unused entry will have
+its <tt>object</tt> pointer set to zero
+and its <tt>next</tt> field set to <tt>null</tt>.
+By default, all entries are initially unused.
+Therefore, the default constructor simply initializes the two
+member variables accordingly.
+<P>
+<P><A NAME="12584">&#160;</A><A NAME="proghashtbl5c">&#160;</A> <IMG WIDTH=575 HEIGHT=508 ALIGN=BOTTOM ALT="program12467" SRC="img1002.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1002.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>ChainedScatterTable::Entry</tt> Class Constructor and 	<tt>ChainedScatterTable</tt> Class Constructor, Destructor 	and <tt>Purge</tt> Member Function Definitions<BR>
+<P>
+<P>
+The <tt>ChainedScatterTable</tt> constructor takes
+a single <tt>unsigned int</tt> argument
+which specifies the size of scatter table desired.
+The constructor simply initializes the <tt>HashTable</tt> base class
+and the <tt>array</tt> member variable as appropriate.
+Initializing the <tt>array</tt> variable involves
+setting all of the entries to the unused state.
+Consequently, the running time for the <tt>ChainedScatterTable</tt>
+constructor is <I>O</I>(<I>M</I>) where <I>M</I> is the size of the scatter table.
+<P>
+The <tt>ChainedScatterTable</tt> destructor calls the <tt>Purge</tt>
+member function.
+The <tt>Purge</tt> function must delete any contained objects
+if the scatter table is the owner of those objects.
+The <tt>Purge</tt> function traverses the array looking for occupied
+entries and deletes objects as the are found.
+Suppose that there are <I>n</I> contained objects
+and the length of the array is <I>M</I>.
+Clearly, <I>n</I> cannot be greater than <I>M</I> since all objects
+are stored in the array.
+The running time of the <tt>Purge</tt> function is  <IMG WIDTH=137 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline62930" SRC="img1003.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1003.gif"  >
+and if we assume that  <IMG WIDTH=120 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline62830" SRC="img977.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img977.gif"  >,
+the running time simplifies to <I>O</I>(<I>M</I>).
+<P>
+<HR><A NAME="tex2html4786" HREF="page233.html" tppabs="http://www.brpreiss.com/books/opus4/html/page233.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4784" HREF="page230.html" tppabs="http://www.brpreiss.com/books/opus4/html/page230.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4778" HREF="page231.html" tppabs="http://www.brpreiss.com/books/opus4/html/page231.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4788" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4789" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

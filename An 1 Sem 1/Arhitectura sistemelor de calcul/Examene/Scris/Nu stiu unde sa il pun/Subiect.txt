@@ -1,0 +1,30 @@
+poate vreti careva sa puneti intr o arhiva:
+
+1. complementu de 2 plus un subpunct b) in care trebuia sa zici modurile de adresare (directa, registru, memorie)
+
+2. asemanator cu ce e in poza
+
+3.  7 subpuncte fiecare destul de random, unele erau cu 
+- instructiune cu 2 operanzi impliciti din memorie
+- instructiune cu ambii operanzi impliciti de dimensiune diferite
+- cati biti iti trebuie minim sa reprezinti nuj ce numere
+- instructiune echivalenta mov dword [esp+4], [esp] + justificare
+- instructiune care seteaza CF, OF si SF toate 0
+- diferenta dintre  jmp [fs:ebx + edx * 4 -56] si jmp FAR [fs:ebx + edx * 4 - 56] (ceva de genu nu mai stiu valorile exact)
+
+4. erau trei subpuncte aici
+i) trebuia sa faci un subprogram (functie) care primeste 4 parametrii:
+-adresa unui sir
+-nr de coloane
+-coloana curenta 
+-linia curenta
+si sa returneze elementul de pe coloana si linia curenta
+
+ii) aveai un sir de forma matrix dd 1, 2, 3, 4, 5, 6, 7, 8, 9 si N db 3 si M db 3 in memorie (valorile astea puteau fi orice nu neaparat atat)
+si trebuia sa afisezi matricea in forma gen de matrice adic
+1 2 3 
+4 5 6
+7 8 9
+
+iii) aveai o variabila X in data segment si trebuia sa zici de cate ori apare in matrice si pe ce pozitii, daca nu exista afisai un mesaj
+daca exista afisai elementu si de cate ori apare + afisai si fiecare pozitie

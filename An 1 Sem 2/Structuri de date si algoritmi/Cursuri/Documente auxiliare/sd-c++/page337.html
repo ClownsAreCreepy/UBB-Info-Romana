@@ -1,0 +1,69 @@
+<HTML>
+<HEAD>
+<TITLE>Binary Search</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html6091" HREF="page338.html" tppabs="http://www.brpreiss.com/books/opus4/html/page338.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6089" HREF="page335.html" tppabs="http://www.brpreiss.com/books/opus4/html/page335.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6085" HREF="page336.html" tppabs="http://www.brpreiss.com/books/opus4/html/page336.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6093" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6094" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0011622000000000000000">Binary Search</A></H3>
+<P>
+We can improve the performance of the <I>M</I>-way search tree
+search algorithm by recognizing that
+since the keys are kept in a sorted array,
+we can do a binary search rather than a linear search.
+Program&nbsp;<A HREF="page337.html#progmwaytree3c" tppabs="http://www.brpreiss.com/books/opus4/html/page337.html#progmwaytree3c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives an alternate implementation
+for the <tt>Find</tt> member function of the <tt>MWayTree</tt> class.
+This routine makes use of the private member function <tt>FindIndex</tt>
+which does the actual binary search.
+<P>
+<P><A NAME="21722">&#160;</A><A NAME="progmwaytree3c">&#160;</A> <IMG WIDTH=575 HEIGHT=563 ALIGN=BOTTOM ALT="program21608" SRC="img1370.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1370.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>MWayTree</tt> Class <tt>FindIndex</tt> and <tt>Find</tt> 	Member Function Definitions (Binary Search)<BR>
+<P>
+<P>
+The <tt>FindIndex</tt> member function takes as its lone argument
+a <tt>const</tt> reference to an <tt>Object</tt> instance, say <I>x</I>,
+and returns an <tt>unsigned int</tt> in the range between 0 and <I>n</I>-1,
+where <I>n</I> is the number of subtrees of the given node.
+The result is the largest integer <I>i</I>, if it exists,
+such that  <IMG WIDTH=41 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline65510" SRC="img1371.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1371.gif"  > where  <IMG WIDTH=10 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline64406" SRC="img1228.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1228.gif"  > is the  <IMG WIDTH=17 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58387" SRC="img77.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img77.gif"  > key.
+Otherwise, it returns the value 0.
+<P>
+<tt>FindIndex</tt> determines its result by doing a binary search.
+In the worst case,
+ <IMG WIDTH=123 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline65518" SRC="img1372.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1372.gif"  >
+iterations of the main loop (lines&nbsp;9-16)
+are required to determine the correct index.
+One object comparison is done before the loop (line&nbsp;5)
+and one comparison is done in each loop iteration (line&nbsp;12).
+Therefore, the running time of the <tt>FindIndex</tt> function is
+<P> <IMG WIDTH=429 HEIGHT=17 ALIGN=BOTTOM ALT="displaymath65494" SRC="img1373.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1373.gif"  ><P>
+If  <IMG WIDTH=179 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline64824" SRC="img1296.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1296.gif"  >, this simplifies to  <IMG WIDTH=63 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline65522" SRC="img1374.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1374.gif"  >.
+<P>
+The <tt>Find</tt> member function of the <tt>MWayTree</tt> class
+does the actual search.
+It calls <tt>FindIndex</tt> to 
+determine largest integer <I>i</I>, if it exists,
+such that  <IMG WIDTH=41 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline65510" SRC="img1371.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1371.gif"  > where  <IMG WIDTH=10 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline64406" SRC="img1228.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1228.gif"  > is the  <IMG WIDTH=17 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58387" SRC="img77.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img77.gif"  > key (line&nbsp;24).
+If it turns out that  <IMG WIDTH=41 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline65532" SRC="img1375.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1375.gif"  >, then the search is done (lines&nbsp;25-26).
+Otherwise, <tt>Find</tt> calls itself recursively
+to search subtree  <IMG WIDTH=13 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63460" SRC="img1099.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1099.gif"  > (line&nbsp;28).
+<P>
+Consider a search in an <I>M</I>-way search tree.
+The running time of the second version of <tt>Find</tt> is
+<P> <IMG WIDTH=456 HEIGHT=17 ALIGN=BOTTOM ALT="displaymath65495" SRC="img1376.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1376.gif"  ><P>
+where <I>h</I> is the height of the tree and
+regardless of whether the search is successful.
+If the tree is balanced and  <IMG WIDTH=179 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline64824" SRC="img1296.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1296.gif"  >,
+then the running time of Program&nbsp;<A HREF="page337.html#progmwaytree3c" tppabs="http://www.brpreiss.com/books/opus4/html/page337.html#progmwaytree3c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+is simply  <IMG WIDTH=147 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline65542" SRC="img1377.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1377.gif"  >,
+where <I>K</I> is the number of keys in the tree.
+<P>
+<HR><A NAME="tex2html6091" HREF="page338.html" tppabs="http://www.brpreiss.com/books/opus4/html/page338.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6089" HREF="page335.html" tppabs="http://www.brpreiss.com/books/opus4/html/page335.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6085" HREF="page336.html" tppabs="http://www.brpreiss.com/books/opus4/html/page336.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6093" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6094" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

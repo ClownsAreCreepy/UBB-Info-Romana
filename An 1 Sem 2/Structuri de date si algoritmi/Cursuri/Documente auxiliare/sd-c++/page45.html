@@ -1,0 +1,47 @@
+<HTML>
+<HEAD>
+<TITLE>Best-Case and Worst-Case Running Times</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html2447" HREF="page46.html" tppabs="http://www.brpreiss.com/books/opus4/html/page46.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2445" HREF="page35.html" tppabs="http://www.brpreiss.com/books/opus4/html/page35.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2439" HREF="page44.html" tppabs="http://www.brpreiss.com/books/opus4/html/page44.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2449" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2450" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION003190000000000000000">Best-Case and Worst-Case Running Times</A></H2>
+<P>
+In Section&nbsp;<A HREF="page43.html#secmodelavg" tppabs="http://www.brpreiss.com/books/opus4/html/page43.html#secmodelavg"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> we derived the average running
+time of Program&nbsp;<A HREF="page42.html#progfindmaxc" tppabs="http://www.brpreiss.com/books/opus4/html/page42.html#progfindmaxc"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> which finds the largest element of an array.
+In order to do this we had to determine the probability that a certain
+program statement is executed.
+To do this, we made an assumption about
+the <em>average</em> input to the program.
+<P>
+The analysis can be significantly simplified if we simply wish
+to determine the <em>worst case</em> running time.
+For Program&nbsp;<A HREF="page42.html#progfindmaxc" tppabs="http://www.brpreiss.com/books/opus4/html/page42.html#progfindmaxc"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+the worst-case scenario occurs when line&nbsp;6 is executed in every iteration
+of the loop.
+We saw that this corresponds to the case in which the input array is
+ordered from smallest to largest.
+In terms of Equation&nbsp;<A HREF="page43.html#eqnmodelavg" tppabs="http://www.brpreiss.com/books/opus4/html/page43.html#eqnmodelavg"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+this occurs when  <IMG WIDTH=42 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline58429" SRC="img88.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img88.gif"  >.
+Thus, the worst-case running time is given by
+<P> <IMG WIDTH=500 HEIGHT=154 ALIGN=BOTTOM ALT="eqnarray768" SRC="img125.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img125.gif"  ><P>
+<P>
+Similarly, the <em>best-case</em> running time occurs when line&nbsp;6
+is never executed.
+This corresponds to the case in which the input array is ordered from
+largest to smallest.
+This occurs when  <IMG WIDTH=43 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline58431" SRC="img89.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img89.gif"  > and
+best-case running time is
+<P> <IMG WIDTH=500 HEIGHT=71 ALIGN=BOTTOM ALT="eqnarray777" SRC="img126.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img126.gif"  ><P>
+<P>
+In summary we have the following results for the running time of
+Program&nbsp;<A HREF="page42.html#progfindmaxc" tppabs="http://www.brpreiss.com/books/opus4/html/page42.html#progfindmaxc"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>:
+<P> <IMG WIDTH=363 HEIGHT=134 ALIGN=BOTTOM ALT="gather784" SRC="img127.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img127.gif"  ><P><HR><A NAME="tex2html2447" HREF="page46.html" tppabs="http://www.brpreiss.com/books/opus4/html/page46.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2445" HREF="page35.html" tppabs="http://www.brpreiss.com/books/opus4/html/page35.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2439" HREF="page44.html" tppabs="http://www.brpreiss.com/books/opus4/html/page44.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2449" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2450" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

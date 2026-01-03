@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE>Putting Items into a Binomial Queue</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html6625" HREF="page381.html" tppabs="http://www.brpreiss.com/books/opus4/html/page381.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6623" HREF="page370.html" tppabs="http://www.brpreiss.com/books/opus4/html/page370.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6617" HREF="page379.html" tppabs="http://www.brpreiss.com/books/opus4/html/page379.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6627" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6628" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0012450000000000000000">Putting Items into a Binomial Queue</A></H2>
+<P>
+With the <tt>Merge</tt> routine at our disposal,
+the <tt>Enqueue</tt> operation is easy to implement.
+To enqueue an item in a given binomial queue,
+we create another binomial queue that contains just the one item to be enqueued
+and merge that queue with the original one.
+<P>
+Program&nbsp;<A HREF="page380.html#progbinom6c" tppabs="http://www.brpreiss.com/books/opus4/html/page380.html#progbinom6c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> shows how easily this can be done.
+Creating the empty queue (line&nbsp;3) takes a constant amount of time.
+Creating the binomial tree  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline66594" SRC="img1501.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1501.gif"  > with the one object at its root (line&nbsp;4)
+can also be done in constant time.
+Finally, the time required to merge the two queues is
+<P> <IMG WIDTH=397 HEIGHT=17 ALIGN=BOTTOM ALT="displaymath67048" SRC="img1568.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1568.gif"  ><P>
+where <I>n</I> is the number of items originally in the queue.
+<P>
+<P><A NAME="27728">&#160;</A><A NAME="progbinom6c">&#160;</A> <IMG WIDTH=575 HEIGHT=124 ALIGN=BOTTOM ALT="program27626" SRC="img1569.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1569.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>BinomialQueue</tt> Class 	<tt>Enqueue</tt> Member Function Definition<BR>
+<P><HR><A NAME="tex2html6625" HREF="page381.html" tppabs="http://www.brpreiss.com/books/opus4/html/page381.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6623" HREF="page370.html" tppabs="http://www.brpreiss.com/books/opus4/html/page370.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6617" HREF="page379.html" tppabs="http://www.brpreiss.com/books/opus4/html/page379.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6627" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6628" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,4 @@
+"D:\C,C++\CLion 2024.3.4\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=D:/C,C++/CLion 2024.3.4/bin/ninja/win/x64/ninja.exe" -G Ninja -S "D:\Facultate\Eu\An 1 Sem 2\Algoritmica Grafelor\Laboratoare\Lab3\Rezolvare" -B "D:\Facultate\Eu\An 1 Sem 2\Algoritmica Grafelor\Laboratoare\Lab3\Rezolvare\cmake-build-debug"
+-- Configuring done (0.3s)
+-- Generating done (0.0s)
+-- Build files have been written to: D:/Facultate/Eu/An 1 Sem 2/Algoritmica Grafelor/Laboratoare/Lab3/Rezolvare/cmake-build-debug

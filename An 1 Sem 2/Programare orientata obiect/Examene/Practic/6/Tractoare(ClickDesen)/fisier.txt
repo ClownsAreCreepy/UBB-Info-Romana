@@ -1,0 +1,6 @@
+1,Eu,Mare,4
+2,Mama,Frumos,8
+3,Oana,Foarte Frumos,4
+4,Alex,Zaza,2
+5,Angel,Mare,4
+6,Marco,Zaza,2

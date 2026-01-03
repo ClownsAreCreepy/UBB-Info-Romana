@@ -1,0 +1,44 @@
+<HTML>
+<HEAD>
+<TITLE>The Accept Member Function</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html3593" HREF="page137.html" tppabs="http://www.brpreiss.com/books/opus4/html/page137.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3591" HREF="page132.html" tppabs="http://www.brpreiss.com/books/opus4/html/page132.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3585" HREF="page135.html" tppabs="http://www.brpreiss.com/books/opus4/html/page135.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3595" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3596" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION007114000000000000000">The <tt>Accept</tt> Member Function</A></H3>
+<P>
+Program&nbsp;<A HREF="page136.html#progstack3c" tppabs="http://www.brpreiss.com/books/opus4/html/page136.html#progstack3c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> defines the <tt>Accept</tt>
+member function for the <tt>StackAsArray</tt> class.
+As discussed in Chapter&nbsp;<A HREF="page107.html#chapadts" tppabs="http://www.brpreiss.com/books/opus4/html/page107.html#chapadts"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+the purpose of the <tt>Accept</tt> member function of a container,
+is to accept a visitor,
+and cause it to visit one-by-one all of the contained objects.
+<P>
+<P><A NAME="6287">&#160;</A><A NAME="progstack3c">&#160;</A> <IMG WIDTH=575 HEIGHT=162 ALIGN=BOTTOM ALT="program5914" SRC="img712.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img712.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>StackAsArray</tt> Class <tt>Accept</tt> 	Member Function Definition<BR>
+<P>
+<P>
+In the array implementation of the stack,
+the elements contained in the container occupy positions
+0, 1, ...,  <IMG WIDTH=68 HEIGHT=20 ALIGN=MIDDLE ALT="tex2html_wrap_inline61316" SRC="img711.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img711.gif"  > of the array.
+The body of the <tt>Accept</tt> function is simply a loop
+which calls the <tt>Visit</tt> function for each object in the stack.
+The running time of the <tt>Accept</tt> function depends on
+the running time of the function <tt>Visit</tt>.
+Let  <IMG WIDTH=66 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline61326" SRC="img713.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img713.gif"  > be the running time of the function <tt>Visit</tt>.
+In addition to the time for the function call,
+each iteration of the loop incurs a constant overhead.
+Consequently,
+the total running time for <tt>Accept</tt> is  <IMG WIDTH=129 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline61328" SRC="img714.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img714.gif"  >,
+where <I>n</I> is the number of objects in the container.
+And if  <IMG WIDTH=120 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline61332" SRC="img715.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img715.gif"  >, the total running time is to <I>O</I>(<I>n</I>).
+<P>
+<HR><A NAME="tex2html3593" HREF="page137.html" tppabs="http://www.brpreiss.com/books/opus4/html/page137.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3591" HREF="page132.html" tppabs="http://www.brpreiss.com/books/opus4/html/page132.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3585" HREF="page135.html" tppabs="http://www.brpreiss.com/books/opus4/html/page135.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3595" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3596" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

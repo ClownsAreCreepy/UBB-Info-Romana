@@ -1,0 +1,53 @@
+<HTML>
+<HEAD>
+<TITLE>Alternate Representations for Trees</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html5058" HREF="page255.html" tppabs="http://www.brpreiss.com/books/opus4/html/page255.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5056" HREF="page251.html" tppabs="http://www.brpreiss.com/books/opus4/html/page251.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5052" HREF="page253.html" tppabs="http://www.brpreiss.com/books/opus4/html/page253.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5060" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5061" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0010103000000000000000">Alternate Representations for Trees</A></H3>
+<P>
+Figure&nbsp;<A HREF="page254.html#figtree2" tppabs="http://www.brpreiss.com/books/opus4/html/page254.html#figtree2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> shows an alternate representation of
+the tree  <IMG WIDTH=14 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63428" SRC="img1096.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1096.gif"  > defined in Equation&nbsp;<A HREF="page251.html#eqntreestc" tppabs="http://www.brpreiss.com/books/opus4/html/page251.html#eqntreestc"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+In this case,
+the tree is represented as a set of nested regions in the plane.
+In fact, what we have is a <em>Venn diagram</em><A NAME=15125>&#160;</A>
+which corresponds to the view that a tree is a set of sets.
+<P>
+<P><A NAME="15287">&#160;</A><A NAME="figtree2">&#160;</A> <IMG WIDTH=575 HEIGHT=209 ALIGN=BOTTOM ALT="figure15126" SRC="img1111.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1111.gif"  ><BR>
+<STRONG>Figure:</STRONG> An Alternate Graphical Representation for Trees<BR>
+<P>
+<P>
+This hierarchical, set-within-a-set view of trees
+is also evoked by considering the nested structure of computer programs.
+E.g., consider the following fragment of C++ code:
+<PRE>D: {
+    E: {
+        F: statement();
+    }
+    G: {
+        H: {
+            I: statement();
+	}
+        J: {
+            K: statement();
+            L: statement();
+	}
+        M: statement();
+    }
+}</PRE>
+The nesting structure of this program
+and the tree given in Equation&nbsp;<A HREF="page251.html#eqntreestc" tppabs="http://www.brpreiss.com/books/opus4/html/page251.html#eqntreestc"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+are <em>isomorphic</em><A NAME=15292>&#160;</A>.<A NAME="tex2html483" HREF="footnode.html#15293" tppabs="http://www.brpreiss.com/books/opus4/html/footnode.html#15293"><IMG  ALIGN=BOTTOM ALT="gif" SRC="foot_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/foot_motif.gif"></A>
+Therefore, it is not surprising that trees have an important
+r&#244;le in the analysis and translation of computer programs.
+<P>
+<HR><A NAME="tex2html5058" HREF="page255.html" tppabs="http://www.brpreiss.com/books/opus4/html/page255.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5056" HREF="page251.html" tppabs="http://www.brpreiss.com/books/opus4/html/page251.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5052" HREF="page253.html" tppabs="http://www.brpreiss.com/books/opus4/html/page253.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5060" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5061" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

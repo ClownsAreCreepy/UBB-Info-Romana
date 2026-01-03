@@ -1,0 +1,5 @@
+D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Tasks(ObsBtn)/cmake-build-debug/CMakeFiles/Tasks_ObsBtn_.dir
+D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Tasks(ObsBtn)/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Tasks(ObsBtn)/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Tasks(ObsBtn)/cmake-build-debug/CMakeFiles/Tasks_ObsBtn__autogen_timestamp_deps.dir
+D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Tasks(ObsBtn)/cmake-build-debug/CMakeFiles/Tasks_ObsBtn__autogen.dir

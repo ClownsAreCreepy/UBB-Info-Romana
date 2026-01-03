@@ -1,0 +1,45 @@
+<HTML>
+<HEAD>
+<TITLE>Linked List Implementation</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html4311" HREF="page195.html" tppabs="http://www.brpreiss.com/books/opus4/html/page195.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4309" HREF="page188.html" tppabs="http://www.brpreiss.com/books/opus4/html/page188.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4303" HREF="page193.html" tppabs="http://www.brpreiss.com/books/opus4/html/page193.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4313" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4314" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION008220000000000000000">Linked List Implementation</A></H2>
+<P>
+This section presents a pointer-based implementation of sorted lists
+that is derived from the <tt>ListAsLinkedList</tt>
+class given in Section&nbsp;<A HREF="page177.html#seclistslistp" tppabs="http://www.brpreiss.com/books/opus4/html/page177.html#seclistslistp"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+The <tt>SortedListAsLinkedList</tt> class
+is declared in Program&nbsp;<A HREF="page194.html#progsorted3h" tppabs="http://www.brpreiss.com/books/opus4/html/page194.html#progsorted3h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+The class definition makes use of multiple inheritance:
+The <tt>SortedListAsLinkedList</tt> class is derived from both
+the <tt>SortedList</tt> class and the <tt>ListAsLinkedList</tt> class.
+The former provides the sorted list interface;
+the latter provides almost all of the implementation.
+<P>
+<P><A NAME="11057">&#160;</A><A NAME="progsorted3h">&#160;</A> <IMG WIDTH=575 HEIGHT=143 ALIGN=BOTTOM ALT="program10834" SRC="img859.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img859.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>SortedListAsLinkedList</tt> Class Definition<BR>
+<P>
+<P>
+There are no additional member variables or member functions defined
+in the <tt>SortedListAsLinkedList</tt> class.
+The inherited member variables are sufficient to implement a sorted list.
+In fact, the functionality inherited
+from the <tt>ListAsLinkedList</tt> class is almost sufficient--the only member function of which the functionality must change
+is the <tt>Insert</tt> operation.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html4315" HREF="page195.html#SECTION008221000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page195.html#SECTION008221000000000000000">Inserting Items in a Sorted List</A>
+<LI> <A NAME="tex2html4316" HREF="page196.html#SECTION008222000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page196.html#SECTION008222000000000000000">Other Operations on Sorted Lists</A>
+</UL>
+<HR><A NAME="tex2html4311" HREF="page195.html" tppabs="http://www.brpreiss.com/books/opus4/html/page195.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4309" HREF="page188.html" tppabs="http://www.brpreiss.com/books/opus4/html/page188.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4303" HREF="page193.html" tppabs="http://www.brpreiss.com/books/opus4/html/page193.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4313" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4314" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

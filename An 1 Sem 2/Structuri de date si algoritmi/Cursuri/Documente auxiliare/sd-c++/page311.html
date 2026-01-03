@@ -1,0 +1,57 @@
+<HTML>
+<HEAD>
+<TITLE>Implementing Search Trees</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html5771" HREF="page312.html" tppabs="http://www.brpreiss.com/books/opus4/html/page312.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5769" HREF="page299.html" tppabs="http://www.brpreiss.com/books/opus4/html/page299.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5763" HREF="page310.html" tppabs="http://www.brpreiss.com/books/opus4/html/page310.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5773" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5774" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION0011400000000000000000">Implementing Search Trees</A></H1>
+<P>
+Since search trees are designed to support efficient searching,
+it is only appropriate that they be implemented as
+classes derived from the <tt>SearchableContainer</tt> abstract base class.
+Recall from Section&nbsp;<A HREF="page127.html#secadtssrchcont" tppabs="http://www.brpreiss.com/books/opus4/html/page127.html#secadtssrchcont"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> that the searchable container
+interface includes the member functions <tt>Find</tt>, <tt>IsMember</tt>,
+<tt>Insert</tt>, and <tt>Withdraw</tt>.
+<P>
+<P><A NAME="19294">&#160;</A><A NAME="figclasses6">&#160;</A> <IMG WIDTH=575 HEIGHT=108 ALIGN=BOTTOM ALT="figure19290" SRC="img1287.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1287.gif"  ><BR>
+<STRONG>Figure:</STRONG> Object Class Hierarchy<BR>
+<P>
+<P>
+Program&nbsp;<A HREF="page311.html#progtree3h" tppabs="http://www.brpreiss.com/books/opus4/html/page311.html#progtree3h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> declares the <tt>SearchTree</tt> abstract base class.
+The <tt>SearchTree</tt> is derived from the classes <tt>Tree</tt>
+and <tt>SearchableContainer</tt>.
+The <tt>Tree</tt> class encapsulates those interface elements
+which are common to trees and search trees.
+The common member functions include
+<tt>Key</tt>, <tt>Subtree</tt>, <tt>IsEmpty</tt>,
+<tt>IsLeaf</tt>, <tt>Height</tt>, and <tt>Degree</tt>,
+as well as all of the various traversal routines
+(see Section&nbsp;<A HREF="page266.html#sectreesimpltree" tppabs="http://www.brpreiss.com/books/opus4/html/page266.html#sectreesimpltree"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>).
+<P>
+<P><A NAME="19503">&#160;</A><A NAME="progtree3h">&#160;</A> <IMG WIDTH=575 HEIGHT=143 ALIGN=BOTTOM ALT="program19310" SRC="img1288.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1288.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>SearchTree</tt> Class Definition<BR>
+<P>
+<P>
+In addition, two more member functions are defined--<tt>FindMin</tt> and <tt>FindMax</tt>.
+These functions are accessors.
+The function <tt>FindMin</tt> returns a reference to the object contained
+in the search tree having the smallest key.
+Similarly, the function <tt>FindMax</tt> returns a reference to the contained
+object having the largest key.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html5775" HREF="page312.html#SECTION0011410000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page312.html#SECTION0011410000000000000000">Binary Search Trees</A>
+<LI> <A NAME="tex2html5776" HREF="page316.html#SECTION0011420000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page316.html#SECTION0011420000000000000000">Inserting Items in a Binary Search Tree</A>
+<LI> <A NAME="tex2html5777" HREF="page318.html#SECTION0011430000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page318.html#SECTION0011430000000000000000">Removing Items from a Binary Search Tree</A>
+</UL>
+<HR><A NAME="tex2html5771" HREF="page312.html" tppabs="http://www.brpreiss.com/books/opus4/html/page312.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5769" HREF="page299.html" tppabs="http://www.brpreiss.com/books/opus4/html/page299.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5763" HREF="page310.html" tppabs="http://www.brpreiss.com/books/opus4/html/page310.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5773" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5774" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

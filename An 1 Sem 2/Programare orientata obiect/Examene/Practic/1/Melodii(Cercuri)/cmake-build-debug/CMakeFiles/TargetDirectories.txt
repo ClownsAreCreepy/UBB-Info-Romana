@@ -1,0 +1,5 @@
+D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Melodii(Cercuri)/cmake-build-debug/CMakeFiles/Melodii_Cercuri_.dir
+D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Melodii(Cercuri)/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Melodii(Cercuri)/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Melodii(Cercuri)/cmake-build-debug/CMakeFiles/Melodii_Cercuri__autogen_timestamp_deps.dir
+D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Melodii(Cercuri)/cmake-build-debug/CMakeFiles/Melodii_Cercuri__autogen.dir

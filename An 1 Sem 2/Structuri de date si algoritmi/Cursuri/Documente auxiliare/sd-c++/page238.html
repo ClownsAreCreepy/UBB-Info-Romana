@@ -1,0 +1,73 @@
+<HTML>
+<HEAD>
+<TITLE>Linear Probing</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html4859" HREF="page239.html" tppabs="http://www.brpreiss.com/books/opus4/html/page239.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4857" HREF="page237.html" tppabs="http://www.brpreiss.com/books/opus4/html/page237.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4851" HREF="page237.html" tppabs="http://www.brpreiss.com/books/opus4/html/page237.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4861" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4862" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION009610000000000000000">Linear Probing</A></H2>
+<P>
+The simplest collision resolution strategy in open addressing
+is called <em>linear probing</em><A NAME=13215>&#160;</A>.
+In linear probing, the function <I>c</I>(<I>i</I>) is a linear function in <I>i</I>.
+I.e., it is of the form
+<P> <IMG WIDTH=296 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath63020" SRC="img1030.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1030.gif"  ><P>
+Property&nbsp;1 requires that <I>c</I>(0)=0.
+Therefore,  <IMG WIDTH=10 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline63030" SRC="img1031.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1031.gif"  > must be zero.
+<P>
+In order for  <IMG WIDTH=61 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline63032" SRC="img1032.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1032.gif"  > to satisfy Property&nbsp;2,
+ <IMG WIDTH=9 HEIGHT=7 ALIGN=BOTTOM ALT="tex2html_wrap_inline63034" SRC="img1033.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1033.gif"  > and <I>M</I> must be relatively prime.
+If we know the <I>M</I> will always be a prime number,
+then any  <IMG WIDTH=9 HEIGHT=7 ALIGN=BOTTOM ALT="tex2html_wrap_inline63034" SRC="img1033.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1033.gif"  > will do.
+On the other hand,
+if we cannot be certain that <I>M</I> is prime,
+then  <IMG WIDTH=9 HEIGHT=7 ALIGN=BOTTOM ALT="tex2html_wrap_inline63034" SRC="img1033.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1033.gif"  > must be one.
+Therefore, linear probing sequence that is usually used is
+<P> <IMG WIDTH=330 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath63021" SRC="img1034.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1034.gif"  ><P>
+for  <IMG WIDTH=147 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline63046" SRC="img1035.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1035.gif"  >.
+<P>
+Figure&nbsp;<A HREF="page238.html#fighash3" tppabs="http://www.brpreiss.com/books/opus4/html/page238.html#fighash3"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> illustrates an example of
+a scatter table using open addressing together with linear probing.
+For example, consider the string <tt>&quot;&#229;tta&quot;</tt>.
+This string hashes to array position  <IMG WIDTH=12 HEIGHT=21 ALIGN=MIDDLE ALT="tex2html_wrap_inline62904" SRC="img996.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img996.gif"  >.
+The corresponding linear probing sequence begins at position
+ <IMG WIDTH=12 HEIGHT=21 ALIGN=MIDDLE ALT="tex2html_wrap_inline62904" SRC="img996.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img996.gif"  > and goes on to positions  <IMG WIDTH=14 HEIGHT=21 ALIGN=MIDDLE ALT="tex2html_wrap_inline62908" SRC="img997.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img997.gif"  >,  <IMG WIDTH=13 HEIGHT=21 ALIGN=MIDDLE ALT="tex2html_wrap_inline62910" SRC="img998.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img998.gif"  >,....
+In this case,
+the search for the string <tt>&quot;&#229;tta&quot;</tt> succeeds after three probes.
+<P>
+<P><A NAME="13865">&#160;</A><A NAME="fighash3">&#160;</A> <IMG WIDTH=575 HEIGHT=380 ALIGN=BOTTOM ALT="figure13223" SRC="img1036.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1036.gif"  ><BR>
+<STRONG>Figure:</STRONG> Scatter Table using Open Addressing and Linear Probing<BR>
+<P>
+<P>
+To insert an item <I>x</I> into the scatter table,
+an empty cell is found by following the same probe sequence that
+would be used in a search for item <I>x</I>.
+Thus, linear probing finds an empty cell by doing a linear search
+beginning from array position <I>h</I>(<I>x</I>).
+<P>
+An unfortunate characteristic of linear probing arises from the fact
+that as the table fills,
+clusters of consecutive cells form
+and the time required for a search increases with the size of the cluster.
+Furthermore, when we attempt to insert an item in the table
+at a position which is already occupied,
+that item is ultimately inserted at the end of the cluster--thereby increasing its length.
+This by itself is not inherently a bad thing.
+After all, when using the chained approach,
+every insertion increase the length of some chain by one.
+However, whenever an insertion is made between two clusters
+that are separated by one unoccupied position,
+the two clusters become one,
+thereby potentially increasing the cluster length by an amount
+much greater than one--a bad thing!
+This phenomenon is called <em>primary clustering</em><A NAME=13869>&#160;</A>.
+<P>
+<HR><A NAME="tex2html4859" HREF="page239.html" tppabs="http://www.brpreiss.com/books/opus4/html/page239.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4857" HREF="page237.html" tppabs="http://www.brpreiss.com/books/opus4/html/page237.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4851" HREF="page237.html" tppabs="http://www.brpreiss.com/books/opus4/html/page237.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4861" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4862" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

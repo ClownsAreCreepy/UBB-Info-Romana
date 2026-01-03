@@ -1,0 +1,78 @@
+<HTML>
+<HEAD>
+<TITLE>Run-Time Type Information and Casts</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html9489" HREF="page615.html" tppabs="http://www.brpreiss.com/books/opus4/html/page615.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html9487" HREF="page606.html" tppabs="http://www.brpreiss.com/books/opus4/html/page606.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html9483" HREF="page613.html" tppabs="http://www.brpreiss.com/books/opus4/html/page613.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html9491" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html9492" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0018440000000000000000">Run-Time Type Information and Casts</A></H2>
+<P>
+Consider the following declarations which make use of the
+<tt>Rectangle</tt> and <tt>Square</tt> classes defined in Program&nbsp;<A HREF="page609.html#proggraphic2h" tppabs="http://www.brpreiss.com/books/opus4/html/page609.html#proggraphic2h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>:
+<PRE>Rectangle r (Point (0,0), 5, 10);
+Square s (Point (0,0), 15);</PRE>
+Clearly, the assignment
+<PRE>r = s;</PRE>
+is valid because <tt>Square</tt> is derived from <tt>Rectangle</tt>.
+I.e., since a <tt>Square</tt> is a <tt>Rectangle</tt>,
+we may assign <tt>s</tt> to <tt>r</tt>.
+<P>
+On the other hand, the assignment
+<PRE>s = r;</PRE>
+is not valid because a <tt>Rectangle</tt> instance
+is not necessarily a <tt>Square</tt>.
+<P>
+Consider now the following declarations:
+<PRE>Rectangle&amp; r = *new Square (Point (0,0), 20);
+Square s;</PRE>
+The assignment <tt>s=r</tt> is still invalid because <tt>r</tt>
+is a reference to a <tt>Rectangle</tt>,
+and a <tt>Rectangle</tt> instance is not necessarily a <tt>Square</tt>,
+despite the fact that in this case it actually is!
+<P>
+In order to do the assignment,
+it is necessary to convert the type of <tt>r</tt> from
+a reference to a <tt>Rectangle</tt>
+to a reference to a <tt>Square</tt>.
+This is done in C++ using a <em>cast operator</em><A NAME=57946>&#160;</A>:
+<PRE>s = (Square&amp;) r;</PRE>
+However, a conversion like this is unchecked.
+Neither the compiler nor the run-time system can determine
+whether <tt>r</tt> actually refers to a <tt>Square</tt>.
+<P>
+To determine the actual type of the object to which <tt>r</tt> refers,
+we must make use of
+<em>run-time type information</em><A NAME=57951>&#160;</A>
+<A NAME=58041>&#160;</A>.
+In C++ every object instance of a class that has virtual functions
+keeps track of its type.
+We can test the type of such an object explicitly using the C++ <tt>typeid</tt> 
+operator like this:
+<PRE>if (typeid (r) == typeid (Square))
+    s = (Square&amp;) r;</PRE>
+This code is type-safe because the cast is only done
+when the object to which <tt>r</tt> refers actually is a <tt>Square</tt>.
+<P>
+C++ also provides a type-safe cast operator
+called <tt>dynamiccast&lt;T&gt;()</tt><A NAME=57957>&#160;</A>.
+In this case, <tt>T</tt> must either a pointer type or a reference type.
+The <tt>dynamiccast</tt> operator
+combines the run-time type-compatibility check with the type cast operation.
+For example, the statement
+<PRE>s = dynamic_cast&lt;Square&amp;&gt; (r);</PRE>
+succeeds if <tt>r</tt> is found at run-time to be
+is an instance of the <tt>Square</tt> class.
+If it is not,
+the <tt>dynamiccast</tt> operator throws
+a <tt>badcast</tt><A NAME=57964>&#160;</A> exception.
+(Exceptions are discussed in Section&nbsp;<A HREF="page616.html#seccppexceptions" tppabs="http://www.brpreiss.com/books/opus4/html/page616.html#seccppexceptions"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>).
+<P>
+<HR><A NAME="tex2html9489" HREF="page615.html" tppabs="http://www.brpreiss.com/books/opus4/html/page615.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html9487" HREF="page606.html" tppabs="http://www.brpreiss.com/books/opus4/html/page606.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html9483" HREF="page613.html" tppabs="http://www.brpreiss.com/books/opus4/html/page613.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html9491" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html9492" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,92 @@
+<HTML>
+<HEAD>
+<TITLE>Iterator</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html3603" HREF="page138.html" tppabs="http://www.brpreiss.com/books/opus4/html/page138.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3601" HREF="page132.html" tppabs="http://www.brpreiss.com/books/opus4/html/page132.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3597" HREF="page136.html" tppabs="http://www.brpreiss.com/books/opus4/html/page136.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3605" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3606" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION007115000000000000000">Iterator</A></H3>
+<P>
+In addition to the <tt>StackAsArray</tt> class,
+Program&nbsp;<A HREF="page132.html#progstack2h" tppabs="http://www.brpreiss.com/books/opus4/html/page132.html#progstack2h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> also defines the nested class <tt>Iter</tt>.
+Notice that the <tt>StackAsArray::Iter</tt> class
+is a <em>friend</em><A NAME=5936>&#160;</A>
+of the <tt>StackAsArray</tt> class.
+The friend of a class has access to the private member variables
+and functions of that class.
+Consequently, the implementation of the iterator
+depends on the implementation of the container.
+<P>
+<P><A NAME="6289">&#160;</A><A NAME="progstack4c">&#160;</A> <IMG WIDTH=575 HEIGHT=451 ALIGN=BOTTOM ALT="program5938" SRC="img716.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img716.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>StackAsArray::Iter</tt> Class Member Function Definitions<BR>
+<P>
+<P>
+Recall from Chapter&nbsp;<A HREF="page107.html#chapadts" tppabs="http://www.brpreiss.com/books/opus4/html/page107.html#chapadts"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+that an iterator is meant to be used like this:
+<PRE>StackAsArray stack;
+stack.Push (*new Int (3));
+stack.Push (*new Int (1));
+stack.Push (*new Int (4));
+Iterator&amp; i = stack.NewIterator ();
+while (!i.IsDone ()) {
+    cout &lt;&lt; *i &lt;&lt; endl;
+    ++i;
+}
+delete &amp;i;</PRE>
+This example declares the variable <tt>stack</tt>,
+pushes several <tt>Int</tt> objects onto the stack,
+and then uses an iterator to systematically print out all
+of the elements contained in the stack.
+<P>
+The <tt>StackAsArray::Iter</tt> class definition is given
+in Program&nbsp;<A HREF="page132.html#progstack2h" tppabs="http://www.brpreiss.com/books/opus4/html/page132.html#progstack2h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+Two member variables are defined--<tt>stack</tt> and <tt>position</tt>.
+The former is a <tt>const</tt> reference to a <tt>StackAsArray</tt>;
+the latter, an unsigned integer.
+The <tt>StackAsArray::Iter</tt> constructor takes as its lone
+argument a <tt>const</tt> reference to an <tt>StackAsArray</tt> object
+and it makes the <tt>stack</tt> member variable refer to that object.
+Then, it calls the <tt>Reset</tt> member function which sets the
+<tt>position</tt> member variable to zero.
+The effect of all this is to associate the iterator
+with the given stack instance
+and to make it refer to the first element
+(i.e., the one at the bottom) of the associated stack.
+Clearly, the running time of the <tt>StackAsArray::Iter</tt>
+constructor is <I>O</I>(1).
+<P>
+The <tt>IsDone</tt> member function is called
+in the loop termination test of the <tt>while</tt> loop given above.
+The purpose of <tt>IsDone</tt> member function is to determine
+when all of the contained objects have been exhausted.
+In Program&nbsp;<A HREF="page137.html#progstack4c" tppabs="http://www.brpreiss.com/books/opus4/html/page137.html#progstack4c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> this occurs when
+the variable <tt>position</tt> is equal
+to the <tt>count</tt> variable of the associated stack.
+The running time of <tt>IsDone</tt> is <I>O</I>(1).
+<P>
+The dereferencing operator, <tt>operator*</tt>,
+is called in the body of the <tt>for</tt> loops 
+to access the object to which the iterator refers.
+It returns a reference to the appropriate <tt>Object</tt> in the stack,
+provided that the list has not been exhausted,
+i.e., provided that the value of the <tt>position</tt> variable
+in the range between 0 and  <IMG WIDTH=68 HEIGHT=20 ALIGN=MIDDLE ALT="tex2html_wrap_inline61316" SRC="img711.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img711.gif"  >.
+Otherwise, it returns a reference to the <tt>NullObject</tt> instance
+when the position is invalid.
+<P>
+Finally, the increment operator, <tt>operator++</tt>,
+is used to cause the iterator to advance its position to the next
+contained object.
+In this case, advancing the position simply means adding one.
+This operator does nothing if the position is initially invalid.
+In either case, the running time is simply <I>O</I>(1).
+<P>
+<HR><A NAME="tex2html3603" HREF="page138.html" tppabs="http://www.brpreiss.com/books/opus4/html/page138.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3601" HREF="page132.html" tppabs="http://www.brpreiss.com/books/opus4/html/page132.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3597" HREF="page136.html" tppabs="http://www.brpreiss.com/books/opus4/html/page136.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3605" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3606" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

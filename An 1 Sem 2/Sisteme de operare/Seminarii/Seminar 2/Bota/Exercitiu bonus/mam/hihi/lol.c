@@ -1,0 +1,9 @@
+std::cout
+sd
+asdasd
+a
+sf
+f
+as
+fasf
+std::cout

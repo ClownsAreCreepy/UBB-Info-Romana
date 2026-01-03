@@ -1,0 +1,10 @@
+1,Gucci,S,9000,True
+2,Benoli,XS,1000,True
+3,Mimi,L,10000,False
+4,Mama,XL,8000,True
+5,Mumu,L,10,False
+6,Pipi,M,100,True
+7,Bubu,XM,900,True
+8,Bibi,M,1999,False
+9,Pupu,L,2999,True
+10,Ilibili,S,999,True

@@ -1,0 +1,53 @@
+<HTML>
+<HEAD>
+<TITLE>Find Member Function</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html5813" HREF="page315.html" tppabs="http://www.brpreiss.com/books/opus4/html/page315.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5811" HREF="page312.html" tppabs="http://www.brpreiss.com/books/opus4/html/page312.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5805" HREF="page313.html" tppabs="http://www.brpreiss.com/books/opus4/html/page313.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5815" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5816" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0011412000000000000000"><tt>Find</tt> Member Function</A></H3>
+<P>
+Program&nbsp;<A HREF="page314.html#progbst2c" tppabs="http://www.brpreiss.com/books/opus4/html/page314.html#progbst2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives the code for the <tt>Find</tt> member function
+of the <tt>BST</tt> class.
+The <tt>Find</tt> function takes as its lone argument a <tt>const</tt> reference
+to an <tt>Object</tt> instance.
+The purpose of the routine is to search the tree for an object
+which matches the argument.
+If a match is found, <tt>Find</tt> returns a reference to the matching object.
+Otherwise, <tt>Find</tt> returns <tt>NullObject::Instance()</tt>.
+<P>
+<P><A NAME="19516">&#160;</A><A NAME="progbst2c">&#160;</A> <IMG WIDTH=575 HEIGHT=429 ALIGN=BOTTOM ALT="program19396" SRC="img1291.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1291.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>BST</tt> Class <tt>Find</tt> and <tt>FindMin</tt> 	Member Function Definitions<BR>
+<P>
+<P>
+The recursive <tt>Find</tt> member function starts its search at the root
+and descends one level in the tree for each recursive call.
+At each level at most one object comparison is made (line&nbsp;5).
+The worst case running time for a search is
+<P> <IMG WIDTH=346 HEIGHT=17 ALIGN=BOTTOM ALT="displaymath64814" SRC="img1292.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1292.gif"  ><P>
+where  <IMG WIDTH=125 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline64816" SRC="img1293.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1293.gif"  > is the time to compare two objects
+and <I>n</I> is the number of internal nodes in the tree.
+The same asymptotic running time applies for both successful
+and unsuccessful searches.
+<P>
+The average running time for a successful search is
+ <IMG WIDTH=224 HEIGHT=30 ALIGN=MIDDLE ALT="tex2html_wrap_inline64820" SRC="img1294.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1294.gif"  >,
+where  <IMG WIDTH=154 HEIGHT=28 ALIGN=MIDDLE ALT="tex2html_wrap_inline64822" SRC="img1295.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1295.gif"  > is the average depth
+of an internal node in a binary search tree.
+If  <IMG WIDTH=179 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline64824" SRC="img1296.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1296.gif"  >, the average time of a successful search is  <IMG WIDTH=56 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59891" SRC="img403.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img403.gif"  >.
+<P>
+The average running time for an unsuccessful search is
+ <IMG WIDTH=184 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline64828" SRC="img1297.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1297.gif"  >,
+where  <IMG WIDTH=151 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline64830" SRC="img1298.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1298.gif"  > is the average depth
+of an external node in a binary search tree.
+If  <IMG WIDTH=179 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline64824" SRC="img1296.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1296.gif"  >, the average time of an unsuccessful search is  <IMG WIDTH=56 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59891" SRC="img403.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img403.gif"  >.
+<P>
+<HR><A NAME="tex2html5813" HREF="page315.html" tppabs="http://www.brpreiss.com/books/opus4/html/page315.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5811" HREF="page312.html" tppabs="http://www.brpreiss.com/books/opus4/html/page312.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5805" HREF="page313.html" tppabs="http://www.brpreiss.com/books/opus4/html/page313.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5815" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5816" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

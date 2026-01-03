@@ -1,0 +1,41 @@
+<HTML>
+<HEAD>
+<TITLE>Releasing an Area</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html7223" HREF="page430.html" tppabs="http://www.brpreiss.com/books/opus4/html/page430.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7221" HREF="page427.html" tppabs="http://www.brpreiss.com/books/opus4/html/page427.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7215" HREF="page428.html" tppabs="http://www.brpreiss.com/books/opus4/html/page428.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7225" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7226" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0014312000000000000000">Releasing an Area</A></H3>
+<P>
+Program&nbsp;<A HREF="page429.html#progpool6c" tppabs="http://www.brpreiss.com/books/opus4/html/page429.html#progpool6c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives the code for the <tt>Release</tt> member
+function of the <tt>DoublyLinkedPool</tt> class.
+This function takes as its lone argument a pointer to the
+user part of the memory area to be released.
+<P>
+<P><A NAME="31404">&#160;</A><A NAME="progpool6c">&#160;</A> <IMG WIDTH=575 HEIGHT=219 ALIGN=BOTTOM ALT="program31331" SRC="img1761.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1761.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>DoublyLinkedPool</tt> Class <tt>Release</tt> 	Member Function Definition<BR>
+<P>
+<P>
+The implementation shown is both simple and fast.
+The <tt>Release</tt> function makes no attempt
+to combine adjacent free areas.
+And since the free list is not sorted,
+it simply inserts the area to be freed at the front of the free list.
+This is done by inserting the area into the free list
+immediately <em>after</em> the sentinel.
+The private member function <tt>InsertAfter</tt> is called to accomplish this.
+<P>
+Because the free list is a doubly-linked list,
+the insertion can be done in constant time.
+Therefore, the worst-case running time of the <tt>Release</tt> function
+is <I>O</I>(1).
+<P>
+<HR><A NAME="tex2html7223" HREF="page430.html" tppabs="http://www.brpreiss.com/books/opus4/html/page430.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7221" HREF="page427.html" tppabs="http://www.brpreiss.com/books/opus4/html/page427.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7215" HREF="page428.html" tppabs="http://www.brpreiss.com/books/opus4/html/page428.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7225" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7226" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

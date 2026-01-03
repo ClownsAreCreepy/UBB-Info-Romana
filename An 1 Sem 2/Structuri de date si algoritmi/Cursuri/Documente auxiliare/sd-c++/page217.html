@@ -1,0 +1,76 @@
+<HTML>
+<HEAD>
+<TITLE>Floating-Point Keys</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html4599" HREF="page218.html" tppabs="http://www.brpreiss.com/books/opus4/html/page218.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4597" HREF="page215.html" tppabs="http://www.brpreiss.com/books/opus4/html/page215.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4591" HREF="page216.html" tppabs="http://www.brpreiss.com/books/opus4/html/page216.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4601" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4602" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION009320000000000000000">Floating-Point Keys</A></H2>
+<P>
+Dealing with floating-point number involves only a little more work.
+In C++ the floating-point data types are <tt>float</tt>,
+<tt>double</tt> and <tt>long double</tt>.
+Typically, the size of a <tt>float</tt> is 4&nbsp;bytes,
+the size of a <tt>double</tt> is 8&nbsp;bytes,
+and the size of a <tt>long double</tt> is 12 or 16&nbsp;bytes.
+<P>
+We seek a function <I>f</I> which maps a floating-point value
+into a non-negative integer.
+One possibility is to simply reinterpret the bit pattern
+used to represent the floating point number as an integer.
+However, this is only possible when the size of the floating-point type
+does not exceed the size of <tt>unsigned int</tt>.
+This condition is typically only satisfied by the <tt>float</tt> type.<A NAME="tex2html403" HREF="footnode.html#11715" tppabs="http://www.brpreiss.com/books/opus4/html/footnode.html#11715"><IMG  ALIGN=BOTTOM ALT="gif" SRC="foot_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/foot_motif.gif"></A>
+<P>
+Another characteristic of floating-point numbers that must be dealt with
+is the extremely wide range of values which can be represented.
+E.g., when using IEEE floating-point,
+the smallest double precision quantity that can be represented is
+ <IMG WIDTH=108 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline62596" SRC="img926.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img926.gif"  >,
+and the largest is  <IMG WIDTH=99 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline62598" SRC="img927.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img927.gif"  >.
+Somehow we need to map values in this large domain
+into the range of an <tt>unsigned int</tt>.
+<P>
+Every non-zero floating-point quantity <I>x</I> can be written uniquely as
+<P> <IMG WIDTH=290 HEIGHT=15 ALIGN=BOTTOM ALT="displaymath62590" SRC="img928.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img928.gif"  ><P>
+where  <IMG WIDTH=92 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline62602" SRC="img929.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img929.gif"  >.
+The quantity <I>m</I> is called the <em>mantissa</em><A NAME=11391>&#160;</A>
+or <em>significant</em><A NAME=11393>&#160;</A>
+and <I>e</I> is called the <em>exponent</em><A NAME=11395>&#160;</A>.
+This suggests the following definition for the function <I>f</I>:
+<P><A NAME="eqnhashingfp">&#160;</A> <IMG WIDTH=500 HEIGHT=48 ALIGN=BOTTOM ALT="equation11396" SRC="img930.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img930.gif"  ><P>
+where  <IMG WIDTH=54 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline62294" SRC="img889.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img889.gif"  > such that <I>w</I> is the word size of the machine.
+<P>
+This hashing method is best understood by considering
+the conditions under which a collision occurs
+between two distinct floating-point numbers <I>x</I> and <I>y</I>.
+Let  <IMG WIDTH=20 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline62618" SRC="img931.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img931.gif"  > and  <IMG WIDTH=20 HEIGHT=16 ALIGN=MIDDLE ALT="tex2html_wrap_inline62620" SRC="img932.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img932.gif"  > be the mantissas of <I>x</I> and <I>y</I>, respectively.
+The collision occurs when <I>f</I>(<I>x</I>)=<I>f</I>(<I>y</I>).
+<P> <IMG WIDTH=500 HEIGHT=104 ALIGN=BOTTOM ALT="eqnarray11401" SRC="img933.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img933.gif"  ><P>
+Thus, <I>x</I> and <I>y</I> collide if the magnitudes
+of their mantissas differ by less than 1/2<I>W</I>.
+Notice too that the exponents are not considered at all.
+Therefore, if <I>x</I> and <I>y</I> collide,
+then so too do <I>x</I> and  <IMG WIDTH=42 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline62640" SRC="img934.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img934.gif"  > for all permissible values of <I>k</I>.
+<P>
+Program&nbsp;<A HREF="page217.html#proghash2c" tppabs="http://www.brpreiss.com/books/opus4/html/page217.html#proghash2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives an implementation for the
+hash function defined in Equation&nbsp;<A HREF="page217.html#eqnhashingfp" tppabs="http://www.brpreiss.com/books/opus4/html/page217.html#eqnhashingfp"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+This implementation makes use of
+the function <tt>frexp</tt><A NAME=11408>&#160;</A>
+which extracts from a <tt>double</tt> value
+its mantissa <I>m</I> and exponent <I>e</I> by doing
+efficient bit manipulations.
+Clearly the running time of the <tt>Hash</tt> function
+given in Program&nbsp;<A HREF="page217.html#proghash2c" tppabs="http://www.brpreiss.com/books/opus4/html/page217.html#proghash2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> is <I>O</I>(1).
+<P>
+<P><A NAME="11716">&#160;</A><A NAME="proghash2c">&#160;</A> <IMG WIDTH=575 HEIGHT=219 ALIGN=BOTTOM ALT="program11412" SRC="img935.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img935.gif"  ><BR>
+<STRONG>Program:</STRONG> Floating-Point <tt>Hash</tt> Function Definition<BR>
+<P><HR><A NAME="tex2html4599" HREF="page218.html" tppabs="http://www.brpreiss.com/books/opus4/html/page218.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4597" HREF="page215.html" tppabs="http://www.brpreiss.com/books/opus4/html/page215.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4591" HREF="page216.html" tppabs="http://www.brpreiss.com/books/opus4/html/page216.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4601" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4602" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

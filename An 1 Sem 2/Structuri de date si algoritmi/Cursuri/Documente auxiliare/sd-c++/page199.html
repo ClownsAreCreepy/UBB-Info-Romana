@@ -1,0 +1,68 @@
+<HTML>
+<HEAD>
+<TITLE>Implementation</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html4371" HREF="page200.html" tppabs="http://www.brpreiss.com/books/opus4/html/page200.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4369" HREF="page198.html" tppabs="http://www.brpreiss.com/books/opus4/html/page198.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4363" HREF="page198.html" tppabs="http://www.brpreiss.com/books/opus4/html/page198.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4373" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4374" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION008241000000000000000">Implementation</A></H3>
+<P>
+To begin with, we need to represent the terms of the polynomial.
+Program&nbsp;<A HREF="page199.html#progapp04ac" tppabs="http://www.brpreiss.com/books/opus4/html/page199.html#progapp04ac"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> repeats the definition of
+the <tt>Term</tt> class given in Section&nbsp;<A HREF="page187.html#seclistsapp1" tppabs="http://www.brpreiss.com/books/opus4/html/page187.html#seclistsapp1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+The reason for repeating the definition here is that
+some additions are needed to support the
+the implementation of polynomial addition.
+<P>
+<P><A NAME="11064">&#160;</A><A NAME="progapp04ac">&#160;</A> <IMG WIDTH=575 HEIGHT=466 ALIGN=BOTTOM ALT="program10916" SRC="img862.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img862.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>Term</tt> Class Definition<BR>
+<P>
+<P>
+Three additional functions are declared in Program&nbsp;<A HREF="page199.html#progapp04ac" tppabs="http://www.brpreiss.com/books/opus4/html/page199.html#progapp04ac"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+The first two, <tt>Coefficient</tt> and <tt>Exponent</tt>,
+are simple accessor functions
+which provide read-only access to the corresponding
+member variables of a <tt>Term</tt> instance.
+Clearly, the running time of each of these functions is <I>O</I>(1).
+<P>
+The third function overloads the addition operator,
+<tt>operator+</tt>.
+in such a way as to make it possible to add two <tt>Terms</tt> together.
+The result of the addition is another <tt>Term</tt>.
+The working assumption is that the terms to be added have identical exponents.
+If the exponents are allowed to differ,
+the result of of the addition is a polynomial
+which cannot be represented using a single term!
+To add terms with like exponents,
+we simply need to add their respective coefficients.
+Therefore, the running time of the <tt>Term</tt> addition operator is <I>O</I>(1).
+<P>
+We now turn to the polynomial itself.
+Program&nbsp;<A HREF="page199.html#progapp04bc" tppabs="http://www.brpreiss.com/books/opus4/html/page199.html#progapp04bc"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> declares the <tt>Polynomial</tt> class.
+We have chosen in this implementation to use
+the pointer-based sorted list implementation
+to represent the sequence of terms.
+Therefore, the <tt>Polynomial</tt> class
+is derived from the <tt>SortedListAsLinkedList</tt> class.
+<P>
+<P><A NAME="11072">&#160;</A><A NAME="progapp04bc">&#160;</A> <IMG WIDTH=575 HEIGHT=143 ALIGN=BOTTOM ALT="program10947" SRC="img863.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img863.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>Polynomial</tt> Class Definition<BR>
+<P>
+<P>
+Only one additional function is declared in Program&nbsp;<A HREF="page199.html#progapp04bc" tppabs="http://www.brpreiss.com/books/opus4/html/page199.html#progapp04bc"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+Specifically, the addition operator, <tt>operator+</tt>,
+has been overloaded to make it possible to add two <tt>Polynomials</tt>
+to obtain a third.
+Program&nbsp;<A HREF="page199.html#progapp04cc" tppabs="http://www.brpreiss.com/books/opus4/html/page199.html#progapp04cc"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives the implementation for this operator.
+<P>
+<P><A NAME="11075">&#160;</A><A NAME="progapp04cc">&#160;</A> <IMG WIDTH=575 HEIGHT=869 ALIGN=BOTTOM ALT="program10960" SRC="img864.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img864.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>Polynomial</tt> Addition Operator Definition<BR>
+<P><HR><A NAME="tex2html4371" HREF="page200.html" tppabs="http://www.brpreiss.com/books/opus4/html/page200.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4369" HREF="page198.html" tppabs="http://www.brpreiss.com/books/opus4/html/page198.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4363" HREF="page198.html" tppabs="http://www.brpreiss.com/books/opus4/html/page198.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4373" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4374" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

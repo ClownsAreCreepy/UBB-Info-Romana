@@ -1,0 +1,62 @@
+<HTML>
+<HEAD>
+<TITLE>Using Associations</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html4645" HREF="page222.html" tppabs="http://www.brpreiss.com/books/opus4/html/page222.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4643" HREF="page215.html" tppabs="http://www.brpreiss.com/books/opus4/html/page215.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4639" HREF="page220.html" tppabs="http://www.brpreiss.com/books/opus4/html/page220.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4647" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4648" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION009360000000000000000">Using <tt>Association</tt>s</A></H2>
+<P>
+Hashing provides a way to determine the position of a given object
+directly from that object itself.
+Given an object <I>x</I> we determine its position by
+evaluating the appropriate hash function, <I>h</I>(<I>x</I>).
+We find the location of object <I>x</I> in exactly the same way.
+But of what use is this ability to find an object if,
+in order to compute the hash function <I>h</I>(<I>x</I>),
+we must be able to access the object <I>x</I> in the first place?
+<P>
+In practice, when using hashing
+we are dealing with <em>keyed data</em><A NAME=11616>&#160;</A>.
+Mathematically, keyed data consists of ordered pairs
+<P> <IMG WIDTH=345 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath62774" SRC="img962.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img962.gif"  ><P>
+where <I>K</I> is a set of keys,
+and <I>V</I> is a set of values.
+The idea is that we will access elements of the set <I>A</I> using the key.
+I.e., the hash function for elements of the set <I>A</I> is given by
+<P> <IMG WIDTH=315 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath62775" SRC="img963.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img963.gif"  ><P>
+where  <IMG WIDTH=18 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline62796" SRC="img964.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img964.gif"  > is the hash function associated with the set <I>K</I>.
+<P>
+For example, suppose we wish to use hashing to implement
+a database which contains driver's license records.
+Each record contains information about a driver,
+such as her name, address, and perhaps a summary of traffic violations.
+Furthermore, each record has a unique driver's license number.
+The driver's license number is the key
+and the other information is the value associated with that key.
+<P>
+In Section&nbsp;<A HREF="page125.html#secadtsassociations" tppabs="http://www.brpreiss.com/books/opus4/html/page125.html#secadtsassociations"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> the class <tt>Association</tt>
+was declared which comprises two objects, a key and a value:
+<PRE>class Association : public Object, public Ownership
+{
+    Object* key;
+    Object* value;
+    ...
+};</PRE>
+Given this declaration,
+the definition of the hash function for <tt>Association</tt>s is trivial.
+As shown in Program&nbsp;<A HREF="page221.html#progassoc3c" tppabs="http://www.brpreiss.com/books/opus4/html/page221.html#progassoc3c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+it simply calls the <tt>Hash</tt> member function
+of the object to which the <tt>key</tt> member variable points.
+<P>
+<P><A NAME="11731">&#160;</A><A NAME="progassoc3c">&#160;</A> <IMG WIDTH=575 HEIGHT=50 ALIGN=BOTTOM ALT="program11623" SRC="img965.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img965.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>Association</tt> Class <tt>Hash</tt> Member Function Definition<BR>
+<P><HR><A NAME="tex2html4645" HREF="page222.html" tppabs="http://www.brpreiss.com/books/opus4/html/page222.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4643" HREF="page215.html" tppabs="http://www.brpreiss.com/books/opus4/html/page215.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4639" HREF="page220.html" tppabs="http://www.brpreiss.com/books/opus4/html/page220.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4647" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4648" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

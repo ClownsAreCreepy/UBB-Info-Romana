@@ -1,0 +1,90 @@
+<HTML>
+<HEAD>
+<TITLE>Variables, Pointers and References</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html9161" HREF="page588.html" tppabs="http://www.brpreiss.com/books/opus4/html/page588.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html9159" HREF="page586.html" tppabs="http://www.brpreiss.com/books/opus4/html/page586.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html9153" HREF="page586.html" tppabs="http://www.brpreiss.com/books/opus4/html/page586.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html9163" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html9164" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION0018100000000000000000">Variables, Pointers and References</A></H1>
+<P>
+A <em>variable</em><A NAME=56933>&#160;</A> is a programming language abstraction
+that represents a storage location.
+A variable has the following <em>attributes</em>:
+<DL ><DT><STRONG>name</STRONG>
+<DD>
+	The <em>name</em><A NAME=56937>&#160;</A> of a variable is the label
+	used to identify a variable in the text of a program.
+    <DT><STRONG>address</STRONG>
+<DD>
+	The <em>address</em><A NAME=56939>&#160;</A> of a variable is the
+	memory address of the storage location(s) occupied by that variable.
+	The address attribute of a variable
+	is also known as the <em>l-value</em><A NAME=56941>&#160;</A> because
+	the <I>l</I>-value of a variable is required when a variable name is used
+	on the <em>left</em> side of an assignment statement.
+    <DT><STRONG>size</STRONG>
+<DD>
+	The <em>size</em><A NAME=56944>&#160;</A> of a variable is the amount
+	of storage (in bytes) occupied by that variable.
+    <DT><STRONG>type</STRONG>
+<DD>
+	The <em>type</em><A NAME=56946>&#160;</A> of a variable determines the set of values
+	that the variable can have <em>and</em>
+	the set of operations that can be performed on that variable.
+    <DT><STRONG>value</STRONG>
+<DD>
+	The <em>value</em><A NAME=56949>&#160;</A> of a variable is the content
+	of the memory location(s) occupied by that variable.
+	(How the contents of the memory locations are interpreted is
+	determined by the <em>type</em> of the variable).
+	The value attribute of a variable
+	is also known as the <em>r-value</em><A NAME=56952>&#160;</A> because
+	the <I>r</I>-value of a variable is required when a variable name is used
+	on the <em>right</em> side of an assignment statement.
+    <DT><STRONG>lifetime</STRONG>
+<DD>
+	The <em>lifetime</em><A NAME=56955>&#160;</A> of a variable is the
+	interval of time in the execution of a program
+	during which a variable is said to exist.
+	Some variables exist for the entire execution of a program;
+	some are created and destroyed automatically
+	during the execution of a program;
+	and others are explicitly created and destroyed by the programmer.
+    <DT><STRONG>scope</STRONG>
+<DD>
+	The <em>scope</em><A NAME=56957>&#160;</A> of a variable is the range
+	of statements in the text of a program in which that variable
+	can be referenced.
+<P>
+ </DL>
+<P>
+Consider the C++ variable declaration statement:
+<PRE>int i = 57;</PRE>
+This statement defines a variable
+and <em>binds</em><A NAME=56960>&#160;</A> various attributes with that variable.
+The name of the variable is <tt>i</tt>,
+the type of the variable is <tt>int</tt>,
+its size is  <IMG WIDTH=86 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline73355" SRC="img2593.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2593.gif"  > (typically two or four bytes),
+and its initial value is 57.
+<P>
+Some attributes of a variable, such its name, type and size,
+are bound at compile time.
+This is called <em>static binding</em>.
+Other attributes of a variable, such as its address and value,
+may be bound at run time.
+This is called <em>dynamic binding</em>.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html9165" HREF="page588.html#SECTION0018110000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page588.html#SECTION0018110000000000000000">Pointers Are Variables</A>
+<LI> <A NAME="tex2html9166" HREF="page590.html#SECTION0018120000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page590.html#SECTION0018120000000000000000">References are Not Variables</A>
+</UL>
+<HR><A NAME="tex2html9161" HREF="page588.html" tppabs="http://www.brpreiss.com/books/opus4/html/page588.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html9159" HREF="page586.html" tppabs="http://www.brpreiss.com/books/opus4/html/page586.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html9153" HREF="page586.html" tppabs="http://www.brpreiss.com/books/opus4/html/page586.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html9163" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html9164" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

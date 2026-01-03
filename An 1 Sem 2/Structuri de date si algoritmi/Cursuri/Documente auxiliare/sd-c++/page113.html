@@ -1,0 +1,36 @@
+<HTML>
+<HEAD>
+<TITLE>The NullObject Singleton Class</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html3311" HREF="page114.html" tppabs="http://www.brpreiss.com/books/opus4/html/page114.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3309" HREF="page109.html" tppabs="http://www.brpreiss.com/books/opus4/html/page109.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3303" HREF="page112.html" tppabs="http://www.brpreiss.com/books/opus4/html/page112.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3313" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3314" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION006230000000000000000">The <tt>NullObject</tt> Singleton Class</A></H2>
+<A NAME="secadtsnullobject">&#160;</A>
+<P>
+The declaration of the <tt>NullObject</tt> class is given in Program&nbsp;<A HREF="page113.html#progobject3h" tppabs="http://www.brpreiss.com/books/opus4/html/page113.html#progobject3h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+The <tt>NullObject</tt> class is a concrete class
+derived from the <tt>Object</tt> abstract base class.
+The <tt>NullObject</tt> class is also a <em>singleton</em><A NAME=4644>&#160;</A> class.
+I.e., it is a class of which there will only ever be exactly one instance.
+The one instance is in fact a static member variable of the class itself.
+In order to ensure that no other instances can be created,
+the default constructor is declared to be a private member function.
+The static member function <tt>Instance</tt> returns a reference
+to the one and only <tt>NullObject</tt> instance.
+<P>
+<P><A NAME="5456">&#160;</A><A NAME="progobject3h">&#160;</A> <IMG WIDTH=575 HEIGHT=276 ALIGN=BOTTOM ALT="program4647" SRC="img685.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img685.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>NullObject</tt> Class Definition<BR>
+<P><BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html3315" HREF="page114.html#SECTION006231000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page114.html#SECTION006231000000000000000">Implementation</A>
+</UL>
+<HR><A NAME="tex2html3311" HREF="page114.html" tppabs="http://www.brpreiss.com/books/opus4/html/page114.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3309" HREF="page109.html" tppabs="http://www.brpreiss.com/books/opus4/html/page109.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3303" HREF="page112.html" tppabs="http://www.brpreiss.com/books/opus4/html/page112.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3313" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3314" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

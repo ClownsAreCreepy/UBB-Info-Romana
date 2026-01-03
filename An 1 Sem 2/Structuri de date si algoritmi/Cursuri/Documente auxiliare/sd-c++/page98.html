@@ -1,0 +1,80 @@
+<HTML>
+<HEAD>
+<TITLE>Extract</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html3118" HREF="page99.html" tppabs="http://www.brpreiss.com/books/opus4/html/page99.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3116" HREF="page88.html" tppabs="http://www.brpreiss.com/books/opus4/html/page88.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3110" HREF="page97.html" tppabs="http://www.brpreiss.com/books/opus4/html/page97.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3120" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3121" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0052100000000000000000"><tt>Extract</tt></A></H2>
+<P>
+In this section we consider the <tt>Extract</tt>
+member function of the <tt>LinkedList&lt;T&gt;</tt> class.
+The purpose of this function is to delete the specified element
+from the linked list.
+<P>
+<P><A NAME="3847">&#160;</A><A NAME="proglinklist8c">&#160;</A> <IMG WIDTH=575 HEIGHT=390 ALIGN=BOTTOM ALT="program3702" SRC="img630.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img630.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>LinkedList&lt;T&gt;</tt> Class <tt>Extract</tt> Function Definition<BR>
+<P>
+<P>
+The element to be deleted is identified by its value.
+The <tt>Extract</tt> function searches sequentially for the item to be deleted.
+In the absence of any <em>a priori</em> knowledge,
+we do not know in which list element the item to be deleted will be found.
+In fact, the specified item may not even appear in the list!
+<P>
+If we assume that the item to be deleted <em>is</em> in the list,
+and if we assume that there is an equal probability of finding it in
+each of the possible positions,
+then on average we will need to search half way through the list
+before the item to be deleted is found.
+In the worst case, the item will be found at the tail--assuming
+it is in the list.
+<P>
+If the item to be deleted does not appear in the list,
+the algorithm shown in Program&nbsp;<A HREF="page98.html#proglinklist8c" tppabs="http://www.brpreiss.com/books/opus4/html/page98.html#proglinklist8c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> throws
+a <tt>domainerror</tt> exception.
+A simpler alternative might be to do nothing--after all, if the item to be deleted is not in the list,
+then we are already done!
+However, attempting to delete an item which is not there,
+is more likely to indicate a logic error in the programming.
+It is for this reason that an exception is thrown.
+<P>
+In order to determine the running time of the <tt>Extract</tt> function,
+we first need to determine the time to find the element to be deleted.
+And to determine that, we need to know the running time for the
+comparison on line&nbsp;8.
+Unfortunately, since <tt>LinkedList&lt;T&gt;</tt> is a generic class,
+we don't know in general what the running time of the comparison will be.
+So we need to introduce yet another variable to represent this unknown.
+Let  <IMG WIDTH=89 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline61059" SRC="img631.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img631.gif"  > be the time required to determine if two objects
+of type <tt>T</tt> are equal.
+<P>
+If the item to be deleted <em>is not</em> in the list,
+then the running time of Program&nbsp;<A HREF="page98.html#proglinklist8c" tppabs="http://www.brpreiss.com/books/opus4/html/page98.html#proglinklist8c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+up to the point where it throws the exception (line&nbsp;12)
+is  <IMG WIDTH=205 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline61061" SRC="img632.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img632.gif"  >,
+which simplifies to <I>T</I>(<I>n</I>)=<I>O</I>(<I>n</I>) if  <IMG WIDTH=144 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline61065" SRC="img633.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img633.gif"  >.
+<P>
+Now consider what happens
+if the item to be deleted <em>is</em> found in the list.
+In the worst-case the item to be deleted is at the tail.
+Thus, the running time to find the element is  <IMG WIDTH=151 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline61067" SRC="img634.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img634.gif"  >
+in the worst case.
+Actually deleting the element from the list once it has been found
+is a short sequence of relatively straight-forward pointer manipulations.
+These manipulations can be done in constant time.
+Finally, the list element, having been unlinked from the list,
+is returned to the free store.
+So, the total running time is  <IMG WIDTH=290 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline61069" SRC="img635.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img635.gif"  >.
+For a built-in type,  <IMG WIDTH=144 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline61065" SRC="img633.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img633.gif"  > and  <IMG WIDTH=95 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline61073" SRC="img636.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img636.gif"  >,
+which gives the running time <I>T</I>(<I>n</I>)=<I>O</I>(<I>n</I>).
+<P>
+<HR><A NAME="tex2html3118" HREF="page99.html" tppabs="http://www.brpreiss.com/books/opus4/html/page99.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3116" HREF="page88.html" tppabs="http://www.brpreiss.com/books/opus4/html/page88.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3110" HREF="page97.html" tppabs="http://www.brpreiss.com/books/opus4/html/page97.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3120" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3121" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

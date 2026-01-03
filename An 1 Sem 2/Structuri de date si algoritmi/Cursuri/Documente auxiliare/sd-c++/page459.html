@@ -1,0 +1,105 @@
+<HTML>
+<HEAD>
+<TITLE>Running Time of Divide-and-Conquer Algorithms</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html7592" HREF="page460.html" tppabs="http://www.brpreiss.com/books/opus4/html/page460.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7590" HREF="page455.html" tppabs="http://www.brpreiss.com/books/opus4/html/page455.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7584" HREF="page458.html" tppabs="http://www.brpreiss.com/books/opus4/html/page458.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7594" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7595" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0015340000000000000000">Running Time of Divide-and-Conquer Algorithms</A></H2>
+<P>
+A number of divide-and-conquer algorithms are presented
+in the preceding sections.
+Because these algorithms have a similar form,
+the recurrences which give the running times of the algorithms
+are also similar in form.
+Table&nbsp;<A HREF="page459.html#tblalgstimes" tppabs="http://www.brpreiss.com/books/opus4/html/page459.html#tblalgstimes"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> summarizes the running times
+of Programs&nbsp;<A HREF="page456.html#progalgs1c" tppabs="http://www.brpreiss.com/books/opus4/html/page456.html#progalgs1c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>, <A HREF="page457.html#progalgs2c" tppabs="http://www.brpreiss.com/books/opus4/html/page457.html#progalgs2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> and&nbsp;<A HREF="page458.html#progalgs3c" tppabs="http://www.brpreiss.com/books/opus4/html/page458.html#progalgs3c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+<P>
+<P><A NAME="32997">&#160;</A>
+<P>
+    <A NAME="tblalgstimes">&#160;</A>
+    <DIV ALIGN=CENTER><P ALIGN=CENTER><TABLE COLS=3 BORDER FRAME=HSIDES RULES=GROUPS>
+<COL ALIGN=LEFT><COL ALIGN=LEFT><COL ALIGN=LEFT>
+<TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP>
+	    program </TD><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> recurrence </TD><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> solution </TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP>Program&nbsp;<A HREF="page456.html#progalgs1c" tppabs="http://www.brpreiss.com/books/opus4/html/page456.html#progalgs1c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> </TD><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> <I>T</I>(<I>n</I>)=<I>T</I>(<I>n</I>/2)+<I>O</I>(1)  </TD><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP>  <IMG WIDTH=56 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59891" SRC="img403.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img403.gif"  > </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> 
+	    Program&nbsp;<A HREF="page457.html#progalgs2c" tppabs="http://www.brpreiss.com/books/opus4/html/page457.html#progalgs2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> </TD><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> <I>T</I>(<I>n</I>)=2<I>T</I>(<I>n</I>/2)+<I>O</I>(1) </TD><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> <I>O</I>(<I>n</I>) </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> 
+	    Program&nbsp;<A HREF="page458.html#progalgs3c" tppabs="http://www.brpreiss.com/books/opus4/html/page458.html#progalgs3c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> </TD><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> <I>T</I>(<I>n</I>)=2<I>T</I>(<I>n</I>/2)+<I>O</I>(<I>n</I>) </TD><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP>  <IMG WIDTH=68 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59897" SRC="img405.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img405.gif"  > </TD></TR>
+</TBODY>
+<CAPTION ALIGN=BOTTOM><STRONG>Table:</STRONG> Running Times of Divide-and-Conquer Algorithms</CAPTION></TABLE>
+</P></DIV><P>
+<P>
+In this section we develop a general recurrence
+that characterizes the running times of many divide-and-conquer algorithms.
+Consider the form of a divide-and-conquer algorithm to solve a given problem.
+Let <I>n</I> be a measure of the size of the problem.
+Since the divide-and-conquer paradigm is essentially recursive,
+there must be a base case.
+I.e., there must be some value of <I>n</I>, say  <IMG WIDTH=16 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline59043" SRC="img238.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img238.gif"  >,
+for which the solution to the problem is computed directly.
+We assume that the worst-case running time for the base case
+is bounded by a constant.
+<P>
+To solve an arbitrarily large problem using divide-and-conquer,
+the problem is <em>divided</em> into a number smaller problems,
+each of which is solved independently.
+Let <I>a</I> be the number of smaller problems to be solved
+( <IMG WIDTH=39 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline68785" SRC="img1888.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1888.gif"  >,  <IMG WIDTH=37 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline68787" SRC="img1889.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1889.gif"  >).
+The size of each of these problems is some fraction of
+the original problem,
+typically either  <IMG WIDTH=34 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline68789" SRC="img1890.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1890.gif"  > or  <IMG WIDTH=35 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline68791" SRC="img1891.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1891.gif"  >
+( <IMG WIDTH=36 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline68793" SRC="img1892.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1892.gif"  >,  <IMG WIDTH=34 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline68795" SRC="img1893.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1893.gif"  >).
+<P>
+The solution to the original problem is constructed
+from the solutions to the smaller problems.
+The running time required to do this depends on the problem to be solved.
+In this section we consider polynomial running times.
+I.e.,  <IMG WIDTH=40 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline60893" SRC="img580.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img580.gif"  > for some integer  <IMG WIDTH=36 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline61524" SRC="img761.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img761.gif"  >.
+<P>
+For the assumptions stated above,
+the running time of a divide-and-conquer algorithm is given by
+<P><A NAME="eqnalgsdandq">&#160;</A> <IMG WIDTH=500 HEIGHT=48 ALIGN=BOTTOM ALT="equation33009" SRC="img1894.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1894.gif"  ><P>
+<P>
+In order to make it easier to find the solution to Equation&nbsp;<A HREF="page459.html#eqnalgsdandq" tppabs="http://www.brpreiss.com/books/opus4/html/page459.html#eqnalgsdandq"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+we drop the  <IMG WIDTH=28 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline58163" SRC="img1.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1.gif"  >s as well as the  <IMG WIDTH=15 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline58485" SRC="img105.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img105.gif"  > from the recurrence.
+We can also assume (without loss of generality) that  <IMG WIDTH=45 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline59539" SRC="img348.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img348.gif"  >.
+As a result, the recurrence becomes
+<P> <IMG WIDTH=359 HEIGHT=48 ALIGN=BOTTOM ALT="displaymath68763" SRC="img1895.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1895.gif"  ><P>
+<P>
+Finally, we assume that <I>n</I> is a power of <I>b</I>.
+I.e.,  <IMG WIDTH=48 HEIGHT=11 ALIGN=BOTTOM ALT="tex2html_wrap_inline68811" SRC="img1896.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1896.gif"  > for some integer  <IMG WIDTH=43 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline68813" SRC="img1897.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1897.gif"  >.
+Consequently, the recurrence formula becomes
+<P><A NAME="eqnalgsi">&#160;</A> <IMG WIDTH=500 HEIGHT=48 ALIGN=BOTTOM ALT="equation33017" SRC="img1898.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1898.gif"  ><P>
+<P>
+We solve Equation&nbsp;<A HREF="page459.html#eqnalgsi" tppabs="http://www.brpreiss.com/books/opus4/html/page459.html#eqnalgsi"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> as follows.
+Divide both sizes of the recurrence by  <IMG WIDTH=19 HEIGHT=10 ALIGN=BOTTOM ALT="tex2html_wrap_inline68815" SRC="img1899.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1899.gif"  >
+and then <em>telescope</em><A NAME=33026>&#160;</A>:
+<P><A NAME="eqnalgsiii">&#160;</A><A NAME="eqnalgsii">&#160;</A> <IMG WIDTH=500 HEIGHT=214 ALIGN=BOTTOM ALT="eqnarray33027" SRC="img1900.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1900.gif"  ><P>
+<P>
+Adding Equation&nbsp;<A HREF="page459.html#eqnalgsii" tppabs="http://www.brpreiss.com/books/opus4/html/page459.html#eqnalgsii"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> through Equation&nbsp;<A HREF="page459.html#eqnalgsiii" tppabs="http://www.brpreiss.com/books/opus4/html/page459.html#eqnalgsiii"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+substituting <I>T</I>(1)=1
+and multiplying both sides by  <IMG WIDTH=19 HEIGHT=10 ALIGN=BOTTOM ALT="tex2html_wrap_inline68815" SRC="img1899.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1899.gif"  > gives
+<P><A NAME="eqnalgsiv">&#160;</A> <IMG WIDTH=500 HEIGHT=47 ALIGN=BOTTOM ALT="equation33058" SRC="img1901.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1901.gif"  ><P>
+In order to evaluate the summation in Equation&nbsp;<A HREF="page459.html#eqnalgsiii" tppabs="http://www.brpreiss.com/books/opus4/html/page459.html#eqnalgsiii"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+we must consider three cases:
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html7596" HREF="page460.html#SECTION0015340100000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page460.html#SECTION0015340100000000000000">Case 1 ( <IMG WIDTH=42 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline68825" SRC="img1902.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1902.gif"  >)</A>
+<LI> <A NAME="tex2html7597" HREF="page461.html#SECTION0015340200000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page461.html#SECTION0015340200000000000000">Case 2 ( <IMG WIDTH=42 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline68839" SRC="img1908.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1908.gif"  >)</A>
+<LI> <A NAME="tex2html7598" HREF="page462.html#SECTION0015340300000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page462.html#SECTION0015340300000000000000">Case 3 ( <IMG WIDTH=43 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline68849" SRC="img1911.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1911.gif"  >)</A>
+<LI> <A NAME="tex2html7599" HREF="page463.html#SECTION0015340400000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page463.html#SECTION0015340400000000000000">Summary</A>
+</UL>
+<HR><A NAME="tex2html7592" HREF="page460.html" tppabs="http://www.brpreiss.com/books/opus4/html/page460.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7590" HREF="page455.html" tppabs="http://www.brpreiss.com/books/opus4/html/page455.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7584" HREF="page458.html" tppabs="http://www.brpreiss.com/books/opus4/html/page458.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7594" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7595" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

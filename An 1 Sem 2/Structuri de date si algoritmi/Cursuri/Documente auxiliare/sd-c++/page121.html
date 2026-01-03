@@ -1,0 +1,156 @@
+<HTML>
+<HEAD>
+<TITLE>Iterators</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html3405" HREF="page122.html" tppabs="http://www.brpreiss.com/books/opus4/html/page122.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3403" HREF="page109.html" tppabs="http://www.brpreiss.com/books/opus4/html/page109.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3397" HREF="page120.html" tppabs="http://www.brpreiss.com/books/opus4/html/page120.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3407" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3408" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION006270000000000000000">Iterators</A></H2>
+<A NAME="secadtsiterators">&#160;</A>
+<P>
+In this section we introduce an abstraction called an <em>iterator</em>.
+An iterator provides a means for visiting one-by-one all the
+objects in a container.
+Iterators are an alternative to using the visitors
+described in Section&nbsp;<A HREF="page118.html#secadtsvisitors" tppabs="http://www.brpreiss.com/books/opus4/html/page118.html#secadtsvisitors"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+The basic idea is that for every concrete container class
+we will also implement a related concrete iterator
+derived from an abstract <tt>Iterator</tt> class.
+<P>
+Program&nbsp;<A HREF="page121.html#progiterator1h" tppabs="http://www.brpreiss.com/books/opus4/html/page121.html#progiterator1h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives the declaration
+of the abstract <tt>Iterator</tt> class.
+It defines an interface comprised of
+a virtual destructor and
+four pure virtual member functions--<tt>Reset</tt>, <tt>IsDone</tt>  and two overloaded operators.
+<P>
+<P><A NAME="5517">&#160;</A><A NAME="progiterator1h">&#160;</A> <IMG WIDTH=575 HEIGHT=180 ALIGN=BOTTOM ALT="program5041" SRC="img694.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img694.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>Iterator</tt> Class Definition<BR>
+<P>
+<P>
+The <tt>Iterator</tt> class is intended to be used as the base class
+from which other classes are derived in a polymorphic class hierarchy.
+Consequently, the destructor is declared as a virtual member function.
+Since the <tt>Iterator</tt> class is an abstract class which has
+no member variables,
+the behavior of the destructor trivial--it does nothing.
+<P>
+In addition to the destructor,
+the <tt>Iterator</tt> class interface comprises
+the <tt>Reset</tt> and <tt>IsDone</tt> functions and two overloaded operators--<tt>operator*</tt> and <tt>operator++</tt>.
+In order to understand the desired semantics,
+it is best to consider first an example which illustrates
+the use of an iterator.
+<P>
+Consider the implementation of a concrete container class,
+say <tt>SomeContainer</tt>,
+which is derived from the abstract base class <tt>Container</tt>.
+Associated with this container class is
+a concrete iterator,
+say <tt>SomeIterator</tt>,
+which is derived from the abstract base class <tt>Iterator</tt>.
+The following code fragment serves to illustrate the use of the iterator
+to visit one-by-one the objects contained in the container:
+<PRE>SomeContainer c;
+Iterator&amp; i = c.NewIterator ();
+while (!i.IsDone ()) {
+    cout &lt;&lt; *i &lt;&lt; endl;
+    ++i;
+}
+delete &amp;i;</PRE>
+<P>
+The <tt>NewIterator</tt> function of the <tt>SomeContainer</tt> class
+is defined as follows:
+<PRE>Iterator&amp; SomeContainer::NewIterator () const
+    { return *new SomeIterator (*this); }</PRE>
+I.e., given an instance <tt>c</tt> of <tt>SomeContainer</tt>,
+the call
+<PRE>c.NewIterator ();</PRE>
+results in the creation of a new instance of <tt>SomeIterator</tt>
+associated with container <tt>c</tt>.
+<P>
+In order to have the desired effect,
+the member functions
+<tt>IsDone</tt>, <tt>operator*</tt>, and <tt>operator++</tt>,
+must have the following behaviors:
+<DL ><DT><STRONG><tt>IsDone</tt></STRONG>
+<DD>
+	The <tt>IsDone</tt> member function is called
+	in the loop-termination test of the <tt>while</tt> statement.
+	The <tt>IsDone</tt> function returns <tt>false</tt>
+	if the iterator still refers to an object in the container,
+	and <tt>true</tt> when the container has been exhausted.
+	I.e., if all of the contained objects have been visited.
+    <DT><STRONG><tt>operator*</tt></STRONG>
+<DD>
+	The pointer dereferencing operator, <tt>operator*</tt>,
+	is used to access the object to which the iterator currently refers.
+	If this function is called when the container has been exhausted,
+	a reference to the <tt>NullObject</tt> instance is returned.
+    <DT><STRONG><tt>operator++</tt></STRONG>
+<DD>
+	The pre-increment operator is used to advance the iterator
+	to the next object in the container.
+	If the container is exhausted,
+	the increment operator has no effect on the iterator.
+<P>
+ </DL>
+Given these semantics for the iterator operators,
+the program fragment shown above systematically visits
+all of the objects in the container
+and prints each one on its own line of the standard output file.
+<P>
+After an iterator has exhausted all the contained objects,
+it can be reset via the <tt>Reset</tt> function
+and used again like this:
+<PRE>Iterator&amp; i = c.NewIterator ();
+while (!i.IsDone ()) {
+    cout &lt;&lt; *i &lt;&lt; endl;
+    ++i;
+}
+i.Reset ()
+while (!i.IsDone ()) {
+    cout &lt;&lt; *i &lt;&lt; endl;
+    ++i;
+}
+delete &amp;i;</PRE>
+<P>
+One of the advantages of using an iterator object which
+is separate from the container is that it is possible then
+to have more than one iterator associated with a given container.
+This provides greater flexibility than possible using a visitor,
+since only one visitor can be accepted by the container at any given time.
+E.g., consider the following code fragment:
+<PRE>SomeContainer c;
+Iterator&amp; i = c.NewIterator ();
+while (!i.IsDone ()) {
+    Iterator&amp; j = c.NewIterator ();
+    while (!j.IsDone ()) {
+        if (*i == *j)
+            cout &lt;&lt; *i &lt;&lt; endl;
+	++j
+    }
+    delete &amp;j;
+    ++i;
+}
+delete &amp;i;</PRE>
+This code compares all pairs of objects, (<I>i</I>,<I>j</I>), in the container
+and prints out those which are equal.
+<P>
+A certain amount of care is required when defining and using iterators.
+In order to simplify the implementation of iterators,
+we shall assume that while an iterator is in use,
+the associated container will not be modified.
+Specifically, this means that the no non-<tt>const</tt>
+member function of the associated container may be called.
+In particular, this also means that the container must not be deleted
+while an iterator is in use!
+<P>
+<HR><A NAME="tex2html3405" HREF="page122.html" tppabs="http://www.brpreiss.com/books/opus4/html/page122.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3403" HREF="page109.html" tppabs="http://www.brpreiss.com/books/opus4/html/page109.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3397" HREF="page120.html" tppabs="http://www.brpreiss.com/books/opus4/html/page120.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3407" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3408" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,17 @@
+1. Folosind utilitarul GREP afisati pe ecran toate liniile dintr-un fisier care contin un numar de caractere divizibil cu 3.
+
+2. Folosind utilitarul GREP afisati pe ecran toate linile unui fisier care contin cel putin 3 vocale mari si nu contin cifre impare.
+
+3. Folosind utilitarul GREP afisati pe ecran toate linile unui fisier care incep cu un numar par de cifre impare si se termina cu un numar impar de cifre pare.
+
+4. Folosind utilitarul GREP afisati pe ecran toate linile unui fisier care contin cel mult 3 vocale mari si nu contin cifre impare.
+
+5. Folosid utilitarul GREP afisati pe ecran toate caraterele care apar intre prima aparitie a caracterului '|' si ultima aparitie a caracterului '^' de pe toate linile dintr-un fisier.
+
+6. Using grep display how many lines from a file contains only big letters.
+
+7. Using grep display the lines and the line index of thoese lines that start and end with 2 digits.
+
+8. Using grep display all the characters of each line from a file after the last aparition of the '$', character includig the '$'.
+
+9. Using grep display all the lines from a file that don't contain any letter or digit.

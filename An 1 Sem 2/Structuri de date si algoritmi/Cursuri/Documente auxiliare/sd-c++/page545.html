@@ -1,0 +1,47 @@
+<HTML>
+<HEAD>
+<TITLE>Using Adjacency Lists</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html8651" HREF="page546.html" tppabs="http://www.brpreiss.com/books/opus4/html/page546.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8649" HREF="page543.html" tppabs="http://www.brpreiss.com/books/opus4/html/page543.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8645" HREF="page544.html" tppabs="http://www.brpreiss.com/books/opus4/html/page544.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8653" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8654" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0017242000000000000000">Using Adjacency Lists</A></H3>
+<P>
+Program&nbsp;<A HREF="page545.html#proggraph5h" tppabs="http://www.brpreiss.com/books/opus4/html/page545.html#proggraph5h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> declares the <tt>GraphAsLists</tt> concrete class.
+The <tt>GraphAsLists</tt> class is derived from
+the abstract base class <tt>Graph</tt>.
+The <tt>GraphAsLists</tt> class represents the edges
+of a graph using adjacency lists.
+<P>
+<P><A NAME="50111">&#160;</A><A NAME="proggraph5h">&#160;</A> <IMG WIDTH=575 HEIGHT=180 ALIGN=BOTTOM ALT="program49914" SRC="img2380.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2380.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>GraphAsLists</tt> Class Definition<BR>
+<P>
+<P>
+Two member variables are declared--<tt>vertices</tt> and <tt>adjacencyLists</tt>.
+The former is an array of pointers to <tt>Vertex</tt> instances.
+This array is used to represent the elements of the vertex set  <IMG WIDTH=10 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline71357" SRC="img2283.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2283.gif"  >.
+<P>
+The second member variable is an array of linked lists of pointers to edges.
+The  <IMG WIDTH=17 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58387" SRC="img77.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img77.gif"  > linked list, <tt>adjacencyLists[i]</tt>,
+represents the set  <IMG WIDTH=37 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71873" SRC="img2381.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2381.gif"  > which is
+the set of edges emanating from vertex  <IMG WIDTH=11 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline71521" SRC="img2317.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2317.gif"  >.
+The implementation uses the <tt>LinkedList&lt;T&gt;</tt> class
+given in Section&nbsp;<A HREF="page88.html#secfdslinklist" tppabs="http://www.brpreiss.com/books/opus4/html/page88.html#secfdslinklist"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+<P>
+The <tt>GraphAsLists</tt> constructor takes a single argument
+of type <tt>unsigned int</tt> that specifies
+the maximum number of vertices that the graph may contain.
+This quantity specifies the lengths of the
+array of vertices and the array of adjacency lists.
+The implementation of the <tt>GraphAsLists</tt> class is left
+as programming project for the reader (Project&nbsp;<A HREF="page585.html#projectgraphslists" tppabs="http://www.brpreiss.com/books/opus4/html/page585.html#projectgraphslists"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>).
+<P>
+<HR><A NAME="tex2html8651" HREF="page546.html" tppabs="http://www.brpreiss.com/books/opus4/html/page546.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8649" HREF="page543.html" tppabs="http://www.brpreiss.com/books/opus4/html/page543.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8645" HREF="page544.html" tppabs="http://www.brpreiss.com/books/opus4/html/page544.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8653" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8654" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

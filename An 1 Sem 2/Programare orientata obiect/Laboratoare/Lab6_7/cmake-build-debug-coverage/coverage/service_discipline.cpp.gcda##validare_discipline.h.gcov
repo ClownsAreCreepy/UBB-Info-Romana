@@ -1,0 +1,136 @@
+        -:    0:Source:D:/C,C++/CLion 2024.3.4/Projects/Lab6_7/Valid/validare_discipline.h
+        -:    0:Graph:D:\C,C++\CLion 2024.3.4\Projects\Lab6_7\cmake-build-debug-coverage\CMakeFiles\Lab6_7.dir\Service\service_discipline.cpp.gcno
+        -:    0:Data:D:\C,C++\CLion 2024.3.4\Projects\Lab6_7\cmake-build-debug-coverage\CMakeFiles\Lab6_7.dir\Service\service_discipline.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#pragma once
+        -:    2:#include "../Domain/discipline.h"
+        -:    3:#include <fstream>
+        -:    4:#include <exception>
+        -:    5:#include <unordered_set>
+        -:    6:
+        -:    7:using std::string;
+        -:    8:using std::exception;
+        -:    9:using std::unordered_set;
+        -:   10:using std::ofstream;
+        -:   11:
+        -:   12:/**
+        -:   13: * O clasa de baza, care defineste comportamentul fiecarui tip special de exceptie
+        -:   14: * Contine mesajul care se va afisa in caz de exceptie
+        -:   15: */
+        -:   16:class BaseException : public exception {
+        -:   17:protected:
+        -:   18:    string mesaj;
+        -:   19:
+        -:   20:public:
+        -:   21:    /**
+        -:   22:     * Constructorul creeaza o exceptie si o arunca cu mesajul m
+        -:   23:     * @param m mesajul care se afiseaza
+        -:   24:     */
+function _ZN13BaseExceptionC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 0 returned 0% blocks executed 0%
+    #####:   25:    explicit BaseException(string m) : mesaj{move(m)} {
+    %%%%%:   25-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+    #####:   26:    }
+        -:   27:
+        -:   28:    /**
+        -:   29:     * Functia returneaza mesajul de eroare a exceptiei cand e apelata de sistem
+        -:   30:     * @return returneaza mesajul de eroare
+        -:   31:     */
+        -:   32:    [[nodiscard]] const char *what() const noexcept override;
+        -:   33:
+        -:   34:    /**
+        -:   35:     * Functia returneaza mesajul de eroare a exceptiei
+        -:   36:     * @return returneaza mesajul de eroare
+        -:   37:     */
+        -:   38:    [[nodiscard]] const string &getMesaj() const noexcept;
+        -:   39:};
+        -:   40:
+        -:   41:/**
+        -:   42: * O clasa pentru lucru cu fisiere
+        -:   43: * Contine mesajul care se va afisa in caz de exceptie
+        -:   44: */
+        -:   45:class FileException final : public BaseException {
+        -:   46:    using BaseException::BaseException;
+        -:   47:};
+        -:   48:
+        -:   49:
+        -:   50:/**
+        -:   51: * O clasa pentru modificarea contractului
+        -:   52: * Contine mesajul care se va afisa in caz de exceptie
+        -:   53: */
+        -:   54:class ContractException final : public BaseException {
+        -:   55:    using BaseException::BaseException;
+        -:   56:};
+        -:   57:
+        -:   58:/**
+        -:   59: * O clasa pentru modificarea repository-ului
+        -:   60: * Contine mesajul care se va afisa in caz de exceptie
+        -:   61: */
+        -:   62:class RepoException final : public BaseException {
+        -:   63:    using BaseException::BaseException;
+        -:   64:};
+        -:   65:
+        -:   66:
+        -:   67:/**
+        -:   68: * O clasa pentru validarea tipurilor de data
+        -:   69: * Contine mesajul care se va afisa in caz de exceptie
+        -:   70: */
+        -:   71:class ValidationException final : public BaseException {
+        -:   72:    using BaseException::BaseException;
+        -:   73:};
+        -:   74:
+        -:   75:
+        -:   76:/**
+        -:   77: * Clasa pentru a valida tipurilor de date
+        -:   78: * Contine metode pentru validare
+        -:   79: */
+        -:   80:class Validator final {
+        -:   81:private:
+        -:   82:    /**
+        -:   83:     * Functia returneaza tipurile valide de discipline
+        -:   84:     * @return tipurile valide de discipline
+        -:   85:     */
+        -:   86:    [[nodiscard]] static const unordered_set<string> &validTypes();
+        -:   87:
+        -:   88:public:
+        -:   89:    /**
+        -:   90:     * Valideaza o disciplina data
+        -:   91:     * @param d o disciplina
+        -:   92:     * @throw ValidationException cu mesajul
+        -:   93:     *      - "Numele nu poate fi gol!\n", daca numele disciplinei e gol
+        -:   94:     *      - "Numarul de ore trebuie sa fie pozitiv!\n", daca numarul de ore a disciplinei este negativ
+        -:   95:     *      - "Tipul poate fi doar 'Uman', 'Real' sau '??'!\n", daca tipul nu este {Uman, Real, ??}
+        -:   96:     *      - "Profesorul nu poate fi gol", daca numele profesorului este gol
+        -:   97:     */
+        -:   98:    static void valideaza_disciplina(const Disciplina &d);
+        -:   99:
+        -:  100:    /**
+        -:  101:     * Functia verifica daca un numar este mai mare sau egal cu 0 si mai mic decat maxim
+        -:  102:     * @param index un numar
+        -:  103:     * @param maxim maximul posibil
+        -:  104:     * @throw RepoException cu mesajul
+        -:  105:     *      -"Elementele sunt doar pe pozitii pozitive!", daca index-ul este negativ
+        -:  106:     *      -"Disciplina nu a fost gasita!", daca index-ul este mai mare decat maxim
+        -:  107:     */
+        -:  108:    static void valideaza_index(int index, size_t maxim);
+        -:  109:
+        -:  110:    /**
+        -:  111:     * Functia verifica daca un numar este mai mare sau egal cu 0 si mai mic decat maxim
+        -:  112:     * Este specializata pentru lucru cu contracte
+        -:  113:     * @param index un numar
+        -:  114:     * @param maxim maximul posibil, in acest caz, marimea catalogului de discipline
+        -:  115:     * @throw ContractException cu mesajul
+        -:  116:     *      -"Nu se poate genera un contract cu un numar negativ de discipline!", daca index-ul este negativ
+        -:  117:     *      -"Nu exista atatea discipline in catalog!", daca index-ul este mai mare decat maxim
+        -:  118:     */
+        -:  119:    static void valideaza_index_contract(int index, size_t maxim);
+        -:  120:
+        -:  121:    /**
+        -:  122:     * Functia verifica daca se poate scrie in fisierul dorit
+        -:  123:     * @param file_path numele unui fisier
+        -:  124:     * @throw FileException cu mesajul - "Nu s-a putut scrie in fisier!", daca nu se poate scrie in fisier
+        -:  125:     */
+        -:  126:    static void valideaza_ofstream(const string &file_path);
+        -:  127:};

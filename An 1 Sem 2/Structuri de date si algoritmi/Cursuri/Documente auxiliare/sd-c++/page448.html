@@ -1,0 +1,85 @@
+<HTML>
+<HEAD>
+<TITLE>Representing the Solution Space</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html7458" HREF="page449.html" tppabs="http://www.brpreiss.com/books/opus4/html/page449.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7456" HREF="page446.html" tppabs="http://www.brpreiss.com/books/opus4/html/page446.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7450" HREF="page447.html" tppabs="http://www.brpreiss.com/books/opus4/html/page447.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7460" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7461" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0015220000000000000000">Representing the Solution Space</A></H2>
+<P>
+This section presents an abstract base class
+for representing the nodes of a solution space.
+By defining an abstract interface,
+it is possible to hide the details of the specific problem to be solved
+from the backtracking algorithm.
+In so doing, it is possible to implement completely
+generic backtracking problem solvers.
+<P>
+Although a backtracking algorithm behaves
+as if it is traversing a solution tree,
+it is important to realize that it is not necessary to have
+the entire solution tree constructed at once.
+Instead, the backtracking algorithm creates and destroys
+the nodes dynamically as it explores the solution space.
+<P>
+Program&nbsp;<A HREF="page448.html#progsolution1h" tppabs="http://www.brpreiss.com/books/opus4/html/page448.html#progsolution1h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> defines
+the abstract class called <tt>Solution</tt>.
+The <tt>Solution</tt> class is intended to serve as
+the base class from which problem-specific classes are derived.
+Each <tt>Solution</tt> instance represents a single node
+in the solution space.
+<P>
+<P><A NAME="33595">&#160;</A><A NAME="progsolution1h">&#160;</A> <IMG WIDTH=575 HEIGHT=200 ALIGN=BOTTOM ALT="program32621" SRC="img1836.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1836.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>Solution</tt> Class Definition<BR>
+<P>
+<P>
+The <tt>Solution</tt> class is derived from the <tt>Object</tt> base class.
+Consequently, instances of the <tt>Solution</tt> class can be inserted
+in the various containers discussed in the preceding chapters.
+The <tt>Solution</tt> class adds the following functions
+to the inherited interface:
+<DL ><DT><STRONG><tt>IsFeasible</tt></STRONG>
+<DD>
+	This function returns true if the solution instance is a
+	feasible solution to the given problem.
+	A solution is feasible if it satisfies the problem constraints.
+    <DT><STRONG><tt>IsComplete</tt></STRONG>
+<DD>
+	This function returns true if the solution instance
+	represents a complete solution.
+	A solution is complete when all possible decisions have been made.
+    <DT><STRONG><tt>Objective</tt></STRONG>
+<DD>
+	This function returns the value of the objective function
+	for the given solution instance.
+    <DT><STRONG><tt>Bound</tt></STRONG>
+<DD>
+	This function returns a value that is a lower bound (if it exists)
+	on the objective function for the given solution instance
+	as well as all the solutions
+	that can possibly be derived from that instance.
+	This is a hook provided for to facilitate the implementation
+	of <em>branch-and-bound</em> backtracking which is described
+	in Section&nbsp;<A HREF="page452.html#secalgsbandb" tppabs="http://www.brpreiss.com/books/opus4/html/page452.html#secalgsbandb"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+    <DT><STRONG><tt>Clone</tt></STRONG>
+<DD>
+	This function is used to <em>clone</em> the given solution instance.
+	It returns a reference to another, dynamically allocated
+	solution that is identical to the given solution instance.
+    <DT><STRONG><tt>Successors</tt></STRONG>
+<DD>
+	This function returns an iterator that enumerates
+	all of the successors (i.e., the children)
+	of the given solution instance.
+	It is assumed that this iterator creates the children of the given
+	node <em>dynamically</em>.
+<P>
+ </DL><HR><A NAME="tex2html7458" HREF="page449.html" tppabs="http://www.brpreiss.com/books/opus4/html/page449.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7456" HREF="page446.html" tppabs="http://www.brpreiss.com/books/opus4/html/page446.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7450" HREF="page447.html" tppabs="http://www.brpreiss.com/books/opus4/html/page447.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7460" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7461" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

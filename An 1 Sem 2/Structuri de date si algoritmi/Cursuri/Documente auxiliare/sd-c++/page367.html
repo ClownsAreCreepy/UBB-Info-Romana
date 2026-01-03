@@ -1,0 +1,78 @@
+<HTML>
+<HEAD>
+<TITLE>Merging Leftist Heaps</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html6462" HREF="page368.html" tppabs="http://www.brpreiss.com/books/opus4/html/page368.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6460" HREF="page362.html" tppabs="http://www.brpreiss.com/books/opus4/html/page362.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6454" HREF="page366.html" tppabs="http://www.brpreiss.com/books/opus4/html/page366.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6464" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6465" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0012330000000000000000">Merging Leftist Heaps</A></H2>
+<P>
+In order to merge two leftist heaps, say <tt>h1</tt> and <tt>h2</tt>,
+declared as follows
+<PRE>LeftistHeap h1;
+LeftistHeap h2;</PRE>
+we invoke the <tt>Merge</tt> operation like this:
+<PRE>h1.Merge (h2);</PRE>
+The effect of the <tt>Merge</tt> routine is to take all the nodes from <tt>h2</tt>
+and to attach them to <tt>h1</tt>,
+thus leaving <tt>h2</tt> as the empty heap.
+<P>
+In order to achieve a logarithmic running time,
+it is important for the <tt>Merge</tt> routine to do all its work
+on the right sides of <tt>h1</tt> and <tt>h2</tt>.
+It turns out that the algorithm for merging leftist heaps
+is actually quite simple.
+<P>
+To begin with, if <tt>h1</tt> is the empty heap,
+then we can simply swap the contents of <tt>h1</tt> and <tt>h2</tt>.
+Otherwise, let us assume that the root of <tt>h2</tt> is larger than
+the root of <tt>h1</tt>.
+Then we can merge the two heaps by recursively merging <tt>h2</tt>
+with the <em>right</em> subheap of <tt>h1</tt>.
+After doing so, it may turn out that the right subheap of <tt>h1</tt>
+now has a larger null path length than the left subheap.
+This we rectify by swapping the left and right subheaps so that the result
+is again leftist.
+On the other hand, if <tt>h2</tt> initially has the smaller root,
+we simply exchange the r&#244;les of <tt>h1</tt> and <tt>h2</tt> and proceed as above.
+<P>
+Figure&nbsp;<A HREF="page367.html#figleftist2" tppabs="http://www.brpreiss.com/books/opus4/html/page367.html#figleftist2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> illustrates the merge operation.
+In this example, we wish to merge the two trees  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63404" SRC="img1086.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1086.gif"  > and  <IMG WIDTH=16 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63406" SRC="img1087.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1087.gif"  >
+shown in Figure&nbsp;<A HREF="page367.html#figleftist2" tppabs="http://www.brpreiss.com/books/opus4/html/page367.html#figleftist2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>&nbsp;(a).
+Since  <IMG WIDTH=16 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63406" SRC="img1087.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1087.gif"  > has the larger root,
+it is recursively merged with the right subtree of  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63404" SRC="img1086.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1086.gif"  >.
+The result of that merge replaces the right subtree of  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63404" SRC="img1086.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1086.gif"  >
+as shown in Figure&nbsp;<A HREF="page367.html#figleftist2" tppabs="http://www.brpreiss.com/books/opus4/html/page367.html#figleftist2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>&nbsp;(b).
+Since the null path length of the right subtree is now greater than the left,
+the subtrees of  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63404" SRC="img1086.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1086.gif"  > are swapped giving the leftist heap
+shown in Figure&nbsp;<A HREF="page367.html#figleftist2" tppabs="http://www.brpreiss.com/books/opus4/html/page367.html#figleftist2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>&nbsp;(c).
+<P>
+<P><A NAME="26528">&#160;</A><A NAME="figleftist2">&#160;</A> <IMG WIDTH=575 HEIGHT=670 ALIGN=BOTTOM ALT="figure26151" SRC="img1485.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1485.gif"  ><BR>
+<STRONG>Figure:</STRONG> Merging Leftist Heaps<BR>
+<P>
+<P>
+Program&nbsp;<A HREF="page367.html#progleftist1c" tppabs="http://www.brpreiss.com/books/opus4/html/page367.html#progleftist1c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives the code for the <tt>Merge</tt> member
+function of the <tt>LeftistHeap</tt> class.
+Clearly, the <tt>Merge</tt> routine only visits nodes on the rightmost paths
+of the trees being merged.
+Suppose we are merging two trees, say  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63404" SRC="img1086.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1086.gif"  > and  <IMG WIDTH=16 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63406" SRC="img1087.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1087.gif"  >,
+with null path lengths  <IMG WIDTH=14 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline66516" SRC="img1486.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1486.gif"  > and  <IMG WIDTH=15 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline66518" SRC="img1487.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1487.gif"  >, respectively.
+Then the running time of the <tt>Merge</tt> routine is
+<P> <IMG WIDTH=418 HEIGHT=17 ALIGN=BOTTOM ALT="displaymath66494" SRC="img1488.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1488.gif"  ><P>
+where  <IMG WIDTH=125 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline64816" SRC="img1293.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1293.gif"  > is time required to compare two keys.
+If we assume that the time to compare two keys is a constant,
+then we get  <IMG WIDTH=123 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline66522" SRC="img1489.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1489.gif"  >,
+where  <IMG WIDTH=16 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline59249" SRC="img272.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img272.gif"  > and  <IMG WIDTH=16 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline59251" SRC="img273.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img273.gif"  > are the number of internal nodes in
+trees  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63404" SRC="img1086.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1086.gif"  > and  <IMG WIDTH=16 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63406" SRC="img1087.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1087.gif"  >, respectively.
+<P>
+<P><A NAME="26661">&#160;</A><A NAME="progleftist1c">&#160;</A> <IMG WIDTH=575 HEIGHT=315 ALIGN=BOTTOM ALT="program26536" SRC="img1490.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1490.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>LeftistHeap</tt> Class <tt>Merge</tt> Member Function Definition<BR>
+<P><HR><A NAME="tex2html6462" HREF="page368.html" tppabs="http://www.brpreiss.com/books/opus4/html/page368.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6460" HREF="page362.html" tppabs="http://www.brpreiss.com/books/opus4/html/page362.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6454" HREF="page366.html" tppabs="http://www.brpreiss.com/books/opus4/html/page366.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6464" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6465" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

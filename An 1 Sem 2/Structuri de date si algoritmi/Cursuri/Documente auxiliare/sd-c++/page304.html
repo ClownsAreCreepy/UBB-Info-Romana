@@ -1,0 +1,50 @@
+<HTML>
+<HEAD>
+<TITLE>Searching an M-way Tree</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html5687" HREF="page305.html" tppabs="http://www.brpreiss.com/books/opus4/html/page305.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5685" HREF="page303.html" tppabs="http://www.brpreiss.com/books/opus4/html/page303.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5679" HREF="page303.html" tppabs="http://www.brpreiss.com/books/opus4/html/page303.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5689" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5690" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0011201000000000000000">Searching an <I>M</I>-way Tree</A></H3>
+<P>
+Consider the search for a particular item, say <I>x</I>,
+in an <I>M</I>-way search tree.
+The search always begins at the root.
+If the tree is empty, the search fails.
+Otherwise, the keys contained in the root node are examined to determine
+if the object of the search is present.
+If it is, the search terminates successfully.
+If it is not,
+there are three possibilities:
+Either the object of the search, <I>x</I>, is less than  <IMG WIDTH=13 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline64392" SRC="img1220.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1220.gif"  >,
+in which case subtree  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63638" SRC="img1114.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1114.gif"  > is searched; or
+<I>x</I> is greater than  <IMG WIDTH=31 HEIGHT=21 ALIGN=MIDDLE ALT="tex2html_wrap_inline64396" SRC="img1222.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1222.gif"  >,
+in which case subtree  <IMG WIDTH=34 HEIGHT=21 ALIGN=MIDDLE ALT="tex2html_wrap_inline64388" SRC="img1219.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1219.gif"  > is searched; or
+there exists an <I>i</I> such that  <IMG WIDTH=91 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline64482" SRC="img1236.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1236.gif"  > for which  <IMG WIDTH=93 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline64484" SRC="img1237.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1237.gif"  >,
+in which case subtree  <IMG WIDTH=13 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63460" SRC="img1099.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1099.gif"  > is searched.
+<P>
+Notice that when <I>x</I> is not found in a given node,
+only one of the <I>n</I> subtrees of that node is searched.
+Therefore, a complete tree traversal is not required.
+A successful search begins at the root and traces
+a downward path in the tree,
+which terminates at the node containing the object of the search.
+Clearly, the running time of a successful search is determined
+by the <em>depth</em> in the tree of object of the search.
+<P>
+When the object of the search is not in the search tree,
+the search method described above traces a downward path from
+the root which terminates when an empty subtree is encountered.
+In the worst case, the search path passes through the deepest leaf node.
+Therefore, the worst-case running time for an unsuccessful search
+is determined by the <em>height</em> of the search tree.
+<P>
+<HR><A NAME="tex2html5687" HREF="page305.html" tppabs="http://www.brpreiss.com/books/opus4/html/page305.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5685" HREF="page303.html" tppabs="http://www.brpreiss.com/books/opus4/html/page303.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5679" HREF="page303.html" tppabs="http://www.brpreiss.com/books/opus4/html/page303.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5689" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5690" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

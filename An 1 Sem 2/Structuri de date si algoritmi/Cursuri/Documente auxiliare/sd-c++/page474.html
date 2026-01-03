@@ -1,0 +1,48 @@
+<HTML>
+<HEAD>
+<TITLE>Implementation</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html7777" HREF="page475.html" tppabs="http://www.brpreiss.com/books/opus4/html/page475.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7775" HREF="page472.html" tppabs="http://www.brpreiss.com/books/opus4/html/page472.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7771" HREF="page473.html" tppabs="http://www.brpreiss.com/books/opus4/html/page473.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7779" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7780" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0015512000000000000000">Implementation</A></H3>
+<P>
+We now describe the implementation of a random number generator
+based on Equation&nbsp;<A HREF="page473.html#eqnalgsschrage" tppabs="http://www.brpreiss.com/books/opus4/html/page473.html#eqnalgsschrage"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+Program&nbsp;<A HREF="page474.html#prograndom1h" tppabs="http://www.brpreiss.com/books/opus4/html/page474.html#prograndom1h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> defines the <tt>RandomNumberGenerator</tt> class.
+This class has only <em>static members</em><A NAME=33999>&#160;</A>.
+Because there can only be one instance of a static data member,
+the implementation of the <tt>RandomNumberGenerator</tt> class
+follows the <em>singleton</em><A NAME=34002>&#160;</A> design pattern.
+<P>
+<P><A NAME="34153">&#160;</A><A NAME="prograndom1h">&#160;</A> <IMG WIDTH=575 HEIGHT=238 ALIGN=BOTTOM ALT="program34003" SRC="img2031.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2031.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>RandomNumberGenerator</tt> Class Definition<BR>
+<P>
+<P>
+Program&nbsp;<A HREF="page474.html#prograndom1c" tppabs="http://www.brpreiss.com/books/opus4/html/page474.html#prograndom1c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives
+the implementation of the <tt>RandomNumberGenerator</tt> class.
+The <tt>SetSeed</tt> function is used
+to specify the initial seed,  <IMG WIDTH=19 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline69291" SRC="img1996.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1996.gif"  >.
+The seed must fall between 0 and <I>m</I>-1.
+If it does not, an exception is thrown.
+<P>
+<P><A NAME="34157">&#160;</A><A NAME="prograndom1c">&#160;</A> <IMG WIDTH=575 HEIGHT=390 ALIGN=BOTTOM ALT="program34017" SRC="img2032.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2032.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>RandomNumberGenerator</tt> Class<tt>SetSeed</tt> and <tt>Next</tt> Member Function Definitions<BR>
+<P>
+<P>
+The <tt>Next</tt> function generates the elements of the random sequence.
+Each subsequent call returns the next element of the sequence.
+The implementation follows directly from Equation&nbsp;<A HREF="page473.html#eqnalgsschrage" tppabs="http://www.brpreiss.com/books/opus4/html/page473.html#eqnalgsschrage"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+Notice that the return value is normalized.
+Therefore, the values computed by the <tt>Next</tt> function are uniformly
+distributed on the interval (0,1).
+<P>
+<HR><A NAME="tex2html7777" HREF="page475.html" tppabs="http://www.brpreiss.com/books/opus4/html/page475.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7775" HREF="page472.html" tppabs="http://www.brpreiss.com/books/opus4/html/page472.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7771" HREF="page473.html" tppabs="http://www.brpreiss.com/books/opus4/html/page473.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7779" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7780" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,57 @@
+<HTML>
+<HEAD>
+<TITLE>Two-Dimensional Array Implementation</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html3168" HREF="page103.html" tppabs="http://www.brpreiss.com/books/opus4/html/page103.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3166" HREF="page100.html" tppabs="http://www.brpreiss.com/books/opus4/html/page100.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3160" HREF="page101.html" tppabs="http://www.brpreiss.com/books/opus4/html/page101.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3170" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3171" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION005320000000000000000">Two-Dimensional Array Implementation</A></H2>
+<A NAME="secfdsarray2d">&#160;</A>
+<P>
+In this section we illustrate the implementation of a multi-dimensional array
+by giving the code for a generic two-dimensional array class,
+<tt>Array2D&lt;T&gt;</tt>,
+which is derived from the <tt>Array&lt;T&gt;</tt> class
+discussed in Section&nbsp;<A HREF="page80.html#secfdsarrays" tppabs="http://www.brpreiss.com/books/opus4/html/page80.html#secfdsarrays"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+The declaration of the <tt>Array2D&lt;T&gt;</tt> class template
+is shown in Program&nbsp;<A HREF="page102.html#progarray2dh" tppabs="http://www.brpreiss.com/books/opus4/html/page102.html#progarray2dh"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+<P>
+<P><A NAME="4282">&#160;</A><A NAME="progarray2dh">&#160;</A> <IMG WIDTH=575 HEIGHT=448 ALIGN=BOTTOM ALT="program4055" SRC="img657.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img657.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>Array2D&lt;T&gt;</tt> and <tt>Array2D&lt;T&gt;::Row</tt> Class Definitions<BR>
+<P>
+<P>
+Objects of the <tt>Array2D&lt;T&gt;</tt> class contain three member variables--<tt>numberOfRows</tt>, <tt>numberOfColumns</tt>, and <tt>array</tt>.
+The first two record the dimensions of the array.
+The last is an instance of the one-dimension array object
+discussed in Section&nbsp;<A HREF="page80.html#secfdsarrays" tppabs="http://www.brpreiss.com/books/opus4/html/page80.html#secfdsarrays"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+<P>
+The definitions of the <tt>Array2D&lt;T&gt;</tt> class member functions
+are given in Program&nbsp;<A HREF="page102.html#progarray2dc" tppabs="http://www.brpreiss.com/books/opus4/html/page102.html#progarray2dc"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+The constructor takes two arguments, <I>m</I> and <I>n</I>,
+which are the desired dimensions of the array.
+It calls the <tt>Array&lt;T&gt;</tt> class constructor
+to build a one-dimensional array of size <I>mn</I>.
+Using the result from Section&nbsp;<A HREF="page82.html#secfdsarraycons" tppabs="http://www.brpreiss.com/books/opus4/html/page82.html#secfdsarraycons"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+it can be shown that the running time
+for the <tt>Array2D&lt;T&gt;</tt> constructor is  <IMG WIDTH=135 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline61161" SRC="img658.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img658.gif"  >.
+<P>
+<P><A NAME="4290">&#160;</A><A NAME="progarray2dc">&#160;</A> <IMG WIDTH=575 HEIGHT=391 ALIGN=BOTTOM ALT="program4087" SRC="img659.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img659.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>Array2D&lt;T&gt;</tt> Class Member Functions<BR>
+<P>
+<P>
+The <tt>Select</tt> function takes two arguments, <I>i</I> and <I>j</I>,
+and returns a reference to the  <IMG WIDTH=43 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline61089" SRC="img639.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img639.gif"  > element of the array.
+In the previous section we saw that the running time for the array
+subscripting calculation in an <I>k</I>-dimensional array is <I>O</I>(<I>k</I>).
+For a two-dimensional array, <I>k</I>=2.
+Therefore, the running time for the subscript calculation is <I>O</I>(2)=<I>O</I>(1).
+<P>
+<HR><A NAME="tex2html3168" HREF="page103.html" tppabs="http://www.brpreiss.com/books/opus4/html/page103.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3166" HREF="page100.html" tppabs="http://www.brpreiss.com/books/opus4/html/page100.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3160" HREF="page101.html" tppabs="http://www.brpreiss.com/books/opus4/html/page101.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3170" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3171" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

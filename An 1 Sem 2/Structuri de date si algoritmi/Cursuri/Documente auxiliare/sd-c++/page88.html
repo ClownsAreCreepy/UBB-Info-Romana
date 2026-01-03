@@ -1,0 +1,156 @@
+<HTML>
+<HEAD>
+<TITLE>Singly-Linked Lists</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html2987" HREF="page89.html" tppabs="http://www.brpreiss.com/books/opus4/html/page89.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2985" HREF="page79.html" tppabs="http://www.brpreiss.com/books/opus4/html/page79.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2979" HREF="page87.html" tppabs="http://www.brpreiss.com/books/opus4/html/page87.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2989" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2990" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION005200000000000000000">Singly-Linked Lists</A></H1>
+<A NAME="secfdslinklist">&#160;</A>
+<P>
+The singly-linked list is the most basic of
+all the pointer-based data structures.
+A singly-linked list is simply a sequence of dynamically allocated
+storage elements,
+each containing a pointer to its successor.
+Despite this obvious simplicity,
+there are myriad implementation variations.
+Figure&nbsp;<A HREF="page88.html#figlinklist1" tppabs="http://www.brpreiss.com/books/opus4/html/page88.html#figlinklist1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> shows several of the most common
+singly-linked list variants.
+<P>
+<P><A NAME="3065">&#160;</A><A NAME="figlinklist1">&#160;</A> <IMG WIDTH=575 HEIGHT=362 ALIGN=BOTTOM ALT="figure2829" SRC="img611.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img611.gif"  ><BR>
+<STRONG>Figure:</STRONG> Singly-Linked List Variations<BR>
+<P>
+<P>
+The basic singly-linked list is shown in Figure&nbsp;<A HREF="page88.html#figlinklist1" tppabs="http://www.brpreiss.com/books/opus4/html/page88.html#figlinklist1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>&nbsp;(a).
+Each element of the list contains a pointer to its successor;
+the last element contains a null pointer.
+A pointer to the first element of the list,
+labeled <tt>head</tt><A NAME=3070>&#160;</A> in Figure&nbsp;<A HREF="page88.html#figlinklist1" tppabs="http://www.brpreiss.com/books/opus4/html/page88.html#figlinklist1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>&nbsp;(a),
+is used to keep track of the list.
+<P>
+The basic singly-linked list is inefficient in those cases when
+we wish to add elements to both ends of the list.
+While it is easy to add elements at the head of the list,
+to add elements at the other end (the <em>tail</em><A NAME=3073>&#160;</A>)
+we need to locate the last element.
+If the basic basic singly-linked list is used,
+the entire list needs to be traversed in order to find its tail.
+<P>
+Figure&nbsp;<A HREF="page88.html#figlinklist1" tppabs="http://www.brpreiss.com/books/opus4/html/page88.html#figlinklist1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>&nbsp;(b) shows
+a way in which to make adding elements to the tail of a list more efficient.
+The solution is to keep a second pointer, <tt>tail</tt><A NAME=3076>&#160;</A>,
+which points to the last element of the list.
+Of course, this time efficiency comes at the cost of the additional space
+used to store the <tt>tail</tt> pointer.
+<P>
+The singly-linked lists labeled (c) and (d)
+in Figure&nbsp;<A HREF="page88.html#figlinklist1" tppabs="http://www.brpreiss.com/books/opus4/html/page88.html#figlinklist1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> illustrate two common programming tricks.
+The list (c) has an extra element at the head of the list
+called a <em>sentinel</em><A NAME=3080>&#160;</A>.
+This element is never used to hold data
+and it is always present.
+The principal advantage of using a sentinel is that
+it simplifies the programming of certain operations.
+E.g., since there is always a sentinel standing guard,
+we never need to modify the <tt>head</tt> pointer.
+Of course, the disadvantage of a sentinel such as that shown in (c)
+is that extra space is required,
+and the sentinel needs to be created when the list is initialized.
+<P>
+The list (c) is also a <em>circular list</em><A NAME=3083>&#160;</A>.
+Instead of using a null pointer to demarcate the end of the list,
+the pointer in the last element points to the sentinel.
+The advantage of this programming trick is that
+insertion at the head of the list,
+insertion at the tail of the list,
+and insertion at an arbitrary position of the list
+are all identical operations.
+<P>
+Figure&nbsp;<A HREF="page88.html#figlinklist1" tppabs="http://www.brpreiss.com/books/opus4/html/page88.html#figlinklist1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>&nbsp;(d) shows a variation of a singly-linked
+list using a sentinel in which
+instead of keeping a pointer to the sentinel,
+the sentinel itself serves as the handle for the list.
+This variant eliminates the need to allocate storage
+for the sentinel separately.
+<P>
+Of course, it is also possible to make a circular, singly-linked list
+that does not use a sentinel.
+Figure&nbsp;<A HREF="page88.html#figlinklist1" tppabs="http://www.brpreiss.com/books/opus4/html/page88.html#figlinklist1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>&nbsp;(e) shows a variation in which
+a single pointer is used to keep track of the list,
+but this time the pointer, <tt>tail</tt>,
+points to the last element of the list.
+Since the list is circular in this case,
+the first element follows the last element of the list.
+Therefore, it is relatively simple to insert both
+at the head and at the tail of this list.
+This variation minimizes the storage required,
+at the expense of a little extra time for certain operations.
+<P>
+Figure&nbsp;<A HREF="page88.html#figlinklist2" tppabs="http://www.brpreiss.com/books/opus4/html/page88.html#figlinklist2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> illustrates how the empty list
+(i.e., the list containing no list elements)
+is represented for each of the variations given in Figure&nbsp;<A HREF="page88.html#figlinklist2" tppabs="http://www.brpreiss.com/books/opus4/html/page88.html#figlinklist2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+Notice that the sentinel is always present
+in those list variants which use it.
+On the other hand,
+in the list variants which do not use a sentinel,
+null pointers are used to indicate the empty list.
+<P>
+<P><A NAME="3235">&#160;</A><A NAME="figlinklist2">&#160;</A> <IMG WIDTH=575 HEIGHT=344 ALIGN=BOTTOM ALT="figure3089" SRC="img612.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img612.gif"  ><BR>
+<STRONG>Figure:</STRONG> Empty Singly-Linked Lists<BR>
+<P>
+<P>
+The list variant&nbsp;(b) introduces a potential source of very
+subtle programming errors.
+A conservative programmer would insist that <em>both</em>
+the <tt>head</tt> and <tt>tail</tt> pointers must be null.
+However, a clever programmer might realize that it is sufficient
+require only that the <tt>head</tt> pointer be null in the case
+of an empty list.
+Since, the <tt>tail</tt> pointer is not used when the list is empty,
+its value may be left undefined.
+Of course, if that is the case,
+extreme care must be taken to ensure that the <tt>tail</tt> pointer
+is never used when the <tt>head</tt> pointer is null.
+<P>
+In the following sections,
+we will present the implementation details of a generic singly-linked list.
+We have chosen to present variation&nbsp;(b)--the one which uses a head and a tail pointer--since is supports append and prepend operations  efficiently.
+While linked lists which use a sentinel do present some
+interesting time efficiencies,
+we have chosen not to use a sentinel because
+the use of a sentinel is essentially a programming trick.
+Also, from an object-oriented perspective,
+the use of a sentinel introduces some semantic difficulties.
+E.g., if each element of the list contains an object of type <tt>T</tt>,
+and we create a list to hold exactly <I>n</I> elements,
+it might be reasonable to expect that <tt>T</tt>'s constructor is called
+only <I>n</I> times.
+However, when using a sentinel
+<I>n</I>+1 objects of type <tt>T</tt> are actually created--the extra one being the sentinel itself.
+Thus, the constructor of <tt>T</tt> objects is called <I>n</I>+1 times
+which may not be at all what the programmer expects.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html2991" HREF="page89.html#SECTION005210000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page89.html#SECTION005210000000000000000">An Implementation</A>
+<LI> <A NAME="tex2html2992" HREF="page90.html#SECTION005220000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page90.html#SECTION005220000000000000000">List Elements</A>
+<LI> <A NAME="tex2html2993" HREF="page91.html#SECTION005230000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page91.html#SECTION005230000000000000000">Default Constructor</A>
+<LI> <A NAME="tex2html2994" HREF="page92.html#SECTION005240000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page92.html#SECTION005240000000000000000">Destructor and <tt>Purge</tt> Member Function</A>
+<LI> <A NAME="tex2html2995" HREF="page93.html#SECTION005250000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page93.html#SECTION005250000000000000000">Accessors</A>
+<LI> <A NAME="tex2html2996" HREF="page94.html#SECTION005260000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page94.html#SECTION005260000000000000000"><tt>First</tt> and <tt>Last</tt> Functions</A>
+<LI> <A NAME="tex2html2997" HREF="page95.html#SECTION005270000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page95.html#SECTION005270000000000000000"><tt>Prepend</tt></A>
+<LI> <A NAME="tex2html2998" HREF="page96.html#SECTION005280000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page96.html#SECTION005280000000000000000"><tt>Append</tt></A>
+<LI> <A NAME="tex2html2999" HREF="page97.html#SECTION005290000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page97.html#SECTION005290000000000000000">Copy Constructor and Assignment Operator</A>
+<LI> <A NAME="tex2html3000" HREF="page98.html#SECTION0052100000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page98.html#SECTION0052100000000000000000"><tt>Extract</tt></A>
+<LI> <A NAME="tex2html3001" HREF="page99.html#SECTION0052110000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page99.html#SECTION0052110000000000000000"><tt>InsertAfter</tt> and <tt>InsertBefore</tt></A>
+</UL>
+<HR><A NAME="tex2html2987" HREF="page89.html" tppabs="http://www.brpreiss.com/books/opus4/html/page89.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2985" HREF="page79.html" tppabs="http://www.brpreiss.com/books/opus4/html/page79.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2979" HREF="page87.html" tppabs="http://www.brpreiss.com/books/opus4/html/page87.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2989" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2990" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

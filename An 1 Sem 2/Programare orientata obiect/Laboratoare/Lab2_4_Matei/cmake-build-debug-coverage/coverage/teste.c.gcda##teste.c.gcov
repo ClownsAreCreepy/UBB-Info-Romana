@@ -1,0 +1,867 @@
+        -:    0:Source:/mnt/d/C,C++/CLion 2024.3.4/Projects/Lab2_4_Matei/teste.c
+        -:    0:Graph:/mnt/d/C,C++/CLion 2024.3.4/Projects/Lab2_4_Matei/cmake-build-debug-coverage/CMakeFiles/Lab03.dir/teste.c.gcno
+        -:    0:Data:/mnt/d/C,C++/CLion 2024.3.4/Projects/Lab2_4_Matei/cmake-build-debug-coverage/CMakeFiles/Lab03.dir/teste.c.gcda
+        -:    0:Runs:1
+        -:    1:#include <assert.h>
+        -:    2:#include <string.h>
+        -:    3:#include <stdio.h>
+        -:    4:#include "teste.h"
+        -:    5:#include "repo.h"
+        -:    6:#include "service.h"
+        -:    7:#include "lista_dinamica.h"
+        -:    8:
+function test_creeaza_distruge_repo called 1 returned 100% blocks executed 83%
+        1:    9:void test_creeaza_distruge_repo() {
+        1:   10:  Repo* repo = creeaza_repo();
+        1:   10-block  0
+call    0 returned 1
+       1*:   11:  assert(repo_dimensiune(repo) == 0);
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:   11-block  0
+call    3 never executed
+        1:   12:  distruge_repo(repo);
+        1:   12-block  0
+call    0 returned 1
+        1:   13:}
+        -:   14:
+function test_repo_adauga called 1 returned 100% blocks executed 79%
+        1:   15:void test_repo_adauga() {
+        1:   16:  Repo* repo = creeaza_repo();
+        1:   16-block  0
+call    0 returned 1
+        1:   17:  Medicament* m1 = creeaza_medicament(101, "M", 100.0, 5);
+call    0 returned 1
+        1:   18:  int r = repo_adauga(repo, m1);
+call    0 returned 1
+       1*:   19:  assert(r == 1);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   19-block  0
+call    2 never executed
+       1*:   20:  assert(repo_dimensiune(repo) == 1);
+        1:   20-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:   20-block  1
+call    3 never executed
+        1:   21:  Medicament* m1_extra = creeaza_medicament(101, "X", 50.0, 3);
+        1:   21-block  0
+call    0 returned 1
+        1:   22:  r = repo_adauga(repo, m1_extra);
+call    0 returned 1
+       1*:   23:  assert(r == 2);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   23-block  0
+call    2 never executed
+       1*:   24:  assert(repo_dimensiune(repo) == 1);
+        1:   24-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:   24-block  1
+call    3 never executed
+        -:   25:
+        1:   26:  distruge_repo(repo);
+        1:   26-block  0
+call    0 returned 1
+        1:   27:  distruge_medicament(m1);
+call    0 returned 1
+        1:   28:  distruge_medicament(m1_extra);
+call    0 returned 1
+        1:   29:}
+        -:   30:
+function test_repo_actualizeaza called 1 returned 100% blocks executed 83%
+        1:   31:void test_repo_actualizeaza() {
+        1:   32:  Repo* repo = creeaza_repo();
+        1:   32-block  0
+call    0 returned 1
+        1:   33:  Medicament* m = creeaza_medicament(100, "Test", 123.0, 10);
+call    0 returned 1
+        1:   34:  repo_adauga(repo, m);
+call    0 returned 1
+        1:   35:  int r = repo_actualizeaza(repo, 100, "NumeNou", 999.0);
+call    0 returned 1
+       1*:   36:  assert(r == 1);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   36-block  0
+call    2 never executed
+        1:   37:  r = repo_actualizeaza(repo, 999, "X", 1.0);
+        1:   37-block  0
+call    0 returned 1
+       1*:   38:  assert(r == 0);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   38-block  0
+call    2 never executed
+        -:   39:
+        1:   40:  distruge_repo(repo);
+        1:   40-block  0
+call    0 returned 1
+        1:   41:  distruge_medicament(m);
+call    0 returned 1
+        1:   42:}
+        -:   43:
+function test_repo_sterge called 1 returned 100% blocks executed 82%
+        1:   44:void test_repo_sterge() {
+        1:   45:  Repo* repo = creeaza_repo();
+        1:   45-block  0
+call    0 returned 1
+        1:   46:  Medicament* m = creeaza_medicament(111, "A", 1.0, 1);
+call    0 returned 1
+        1:   47:  ListaDinamica* lista = creeaza_lista();
+call    0 returned 1
+       1*:   48:  assert(sterge_din_lista(lista, -1, distruge_medicament) == 0);
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:   48-block  0
+call    3 never executed
+        1:   49:  distruge_lista(lista, distruge_medicament);
+        1:   49-block  0
+call    0 returned 1
+        1:   50:  repo_adauga(repo, m);
+call    0 returned 1
+        1:   51:  int r = repo_sterge(repo, 111);
+call    0 returned 1
+       1*:   52:  assert(r == 1);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   52-block  0
+call    2 never executed
+        1:   53:  r = repo_sterge(repo, 111);
+        1:   53-block  0
+call    0 returned 1
+       1*:   54:  assert(r == 0);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   54-block  0
+call    2 never executed
+        1:   55:  distruge_repo(repo);
+        1:   55-block  0
+call    0 returned 1
+        1:   56:  distruge_medicament(m);
+call    0 returned 1
+        1:   57:}
+        -:   58:
+function test_gaseste_medicament called 1 returned 100% blocks executed 83%
+        1:   59:void test_gaseste_medicament() {
+        1:   60:  Repo* repo = creeaza_repo();
+        1:   60-block  0
+call    0 returned 1
+        1:   61:  Medicament* m = creeaza_medicament(101, "M", 100.0, 5);
+call    0 returned 1
+        1:   62:  repo_adauga(repo, m);
+call    0 returned 1
+        1:   63:  int idx = gaseste_medicament(repo, 101);
+call    0 returned 1
+       1*:   64:  assert(idx == 0);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   64-block  0
+call    2 never executed
+        1:   65:  idx = gaseste_medicament(repo, 999);
+        1:   65-block  0
+call    0 returned 1
+       1*:   66:  assert(idx == -1);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   66-block  0
+call    2 never executed
+        1:   67:  distruge_repo(repo);
+        1:   67-block  0
+call    0 returned 1
+        1:   68:  distruge_medicament(m);
+call    0 returned 1
+        1:   69:}
+        -:   70:
+function test_repo_dimensiune called 1 returned 100% blocks executed 87%
+        1:   71:void test_repo_dimensiune() {
+        1:   72:  Repo* repo = creeaza_repo();
+        1:   72-block  0
+call    0 returned 1
+       1*:   73:  assert(repo_dimensiune(repo) == 0);
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:   73-block  0
+call    3 never executed
+        1:   74:  Medicament* m1 = creeaza_medicament(11, "X", 1.0, 1);
+        1:   74-block  0
+call    0 returned 1
+        1:   75:  Medicament* m2 = creeaza_medicament(12, "Y", 2.0, 2);
+call    0 returned 1
+        1:   76:  repo_adauga(repo, m1);
+call    0 returned 1
+        1:   77:  repo_adauga(repo, m2);
+call    0 returned 1
+       1*:   78:  assert(repo_dimensiune(repo) == 2);
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:   78-block  0
+call    3 never executed
+        1:   79:  distruge_repo(repo);
+        1:   79-block  0
+call    0 returned 1
+        1:   80:  distruge_medicament(m1);
+call    0 returned 1
+        1:   81:  distruge_medicament(m2);
+call    0 returned 1
+        1:   82:}
+        -:   83:
+function test_repo_get_medicament called 1 returned 100% blocks executed 89%
+        1:   84:void test_repo_get_medicament() {
+        1:   85:  Repo* repo = creeaza_repo();
+        1:   85-block  0
+call    0 returned 1
+        1:   86:  Medicament* m = creeaza_medicament(11, "AA", 100.0, 2);
+call    0 returned 1
+        1:   87:  repo_adauga(repo, m);
+call    0 returned 1
+        1:   88:  Medicament* x = repo_get_medicament(repo, 0);
+call    0 returned 1
+       1*:   89:  assert(x->cod == 11);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   89-block  0
+call    2 never executed
+        1:   90:  distruge_repo(repo);
+        1:   90-block  0
+call    0 returned 1
+        1:   91:  distruge_medicament(m);
+call    0 returned 1
+        1:   92:}
+        -:   93:
+function test_lista_medicamente_sterse called 1 returned 100% blocks executed 74%
+        1:   94:void test_lista_medicamente_sterse() {
+        1:   95:  Service* service = creeaza_service();
+        1:   95-block  0
+call    0 returned 1
+        -:   96:
+        -:   97:  // initial count = 10
+       1*:   98:  assert(repo_dimensiune(service->repo) == 10);
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:   98-block  0
+call    3 never executed
+       1*:   99:  assert(dimensiune_lista(repo_get_lista_de_sters(service->repo)) == 0);
+        1:   99-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 0 (fallthrough)
+branch  3 taken 1
+    %%%%%:   99-block  1
+call    4 never executed
+        -:  100:
+        -:  101:  // delete med #1
+        1:  102:  int rez1 = sterge_medicament(service, 1);
+        1:  102-block  0
+call    0 returned 1
+       1*:  103:  assert(rez1 == 1);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  103-block  0
+call    2 never executed
+       1*:  104:  assert(repo_dimensiune(service->repo) == 9);
+        1:  104-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  104-block  1
+call    3 never executed
+       1*:  105:  assert(dimensiune_lista(repo_get_lista_de_sters(service->repo)) == 1);
+        1:  105-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 0 (fallthrough)
+branch  3 taken 1
+    %%%%%:  105-block  1
+call    4 never executed
+        1:  106:}
+        -:  107:
+        -:  108:
+function test_creeaza_distruge_service called 1 returned 100% blocks executed 83%
+        1:  109:void test_creeaza_distruge_service() {
+        1:  110:  Service* service = creeaza_service();
+        1:  110-block  0
+call    0 returned 1
+       1*:  111:  assert(repo_dimensiune(service->repo) == 10);
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  111-block  0
+call    3 never executed
+        1:  112:  distruge_service(service);
+        1:  112-block  0
+call    0 returned 1
+        1:  113:}
+        -:  114:
+function test_adauga_medicament called 1 returned 100% blocks executed 78%
+        1:  115:void test_adauga_medicament() {
+        1:  116:  Service* service = creeaza_service();
+        1:  116-block  0
+call    0 returned 1
+        1:  117:  int r = adauga_medicament(service, 1, "Paracetamol", 500.0, 5);
+call    0 returned 1
+       1*:  118:  assert(r == 2);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  118-block  0
+call    2 never executed
+        1:  119:  r = adauga_medicament(service, 15, "X", 100.0, 3);
+        1:  119-block  0
+call    0 returned 1
+       1*:  120:  assert(r == 1);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  120-block  0
+call    2 never executed
+        1:  121:  distruge_service(service);
+        1:  121-block  0
+call    0 returned 1
+        1:  122:}
+        -:  123:
+function test_actualizeaza_medicament called 1 returned 100% blocks executed 78%
+        1:  124:void test_actualizeaza_medicament() {
+        1:  125:  Service* service = creeaza_service();
+        1:  125-block  0
+call    0 returned 1
+        1:  126:  int r = actualizeaza_medicament(service, 2, "Algocalmin", 123.0);
+call    0 returned 1
+       1*:  127:  assert(r == 1);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  127-block  0
+call    2 never executed
+        1:  128:  r = actualizeaza_medicament(service, 999, "X", 1.0);
+        1:  128-block  0
+call    0 returned 1
+       1*:  129:  assert(r == 0);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  129-block  0
+call    2 never executed
+        1:  130:  distruge_service(service);
+        1:  130-block  0
+call    0 returned 1
+        1:  131:}
+        -:  132:
+function test_sterge_medicament called 1 returned 100% blocks executed 78%
+        1:  133:void test_sterge_medicament() {
+        1:  134:  Service* service = creeaza_service();
+        1:  134-block  0
+call    0 returned 1
+        1:  135:  int r = sterge_medicament(service, 3);
+call    0 returned 1
+       1*:  136:  assert(r == 1);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  136-block  0
+call    2 never executed
+        1:  137:  r = sterge_medicament(service, 3);
+        1:  137-block  0
+call    0 returned 1
+       1*:  138:  assert(r == 0);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  138-block  0
+call    2 never executed
+        1:  139:  distruge_service(service);
+        1:  139-block  0
+call    0 returned 1
+        1:  140:}
+        -:  141:
+function test_comparatoare_nume called 1 returned 100% blocks executed 72%
+        1:  142:void test_comparatoare_nume() {
+        1:  143:  Medicament* a = creeaza_medicament(1, "Aspirina", 100.0, 10);
+        1:  143-block  0
+call    0 returned 1
+        1:  144:  Medicament* b = creeaza_medicament(2, "Paracetamol", 200.0, 20);
+call    0 returned 1
+        -:  145:
+       1*:  146:  assert(compara_nume(a, b) < 0);
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  146-block  0
+call    3 never executed
+       1*:  147:  assert(compara_nume(b, a) > 0);
+        1:  147-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  147-block  1
+call    3 never executed
+       1*:  148:  assert(compara_nume(a, a) == 0);
+        1:  148-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  148-block  1
+call    3 never executed
+        -:  149:
+       1*:  150:  assert(cmp_nume_crescator(a, b) == 1);
+        1:  150-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  150-block  1
+call    3 never executed
+       1*:  151:  assert(cmp_nume_crescator(b, a) == 0);
+        1:  151-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  151-block  1
+call    3 never executed
+       1*:  152:  assert(cmp_nume_descrescator(a, b) == 0);
+        1:  152-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  152-block  1
+call    3 never executed
+       1*:  153:  assert(cmp_nume_descrescator(b, a) == 1);
+        1:  153-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  153-block  1
+call    3 never executed
+       1*:  154:  assert(cmp_nume_descrescator(a, a) == 1);
+        1:  154-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  154-block  1
+call    3 never executed
+        -:  155:
+        1:  156:  distruge_medicament(a);
+        1:  156-block  0
+call    0 returned 1
+        1:  157:  distruge_medicament(b);
+call    0 returned 1
+        1:  158:}
+        -:  159:
+function test_comparatoare_cantitate called 1 returned 100% blocks executed 72%
+        1:  160:void test_comparatoare_cantitate() {
+        1:  161:  Medicament* a = creeaza_medicament(1, "X", 100.0, 5);
+        1:  161-block  0
+call    0 returned 1
+        1:  162:  Medicament* b = creeaza_medicament(2, "Y", 200.0, 10);
+call    0 returned 1
+        -:  163:
+       1*:  164:  assert(compara_cantitate(a, b) < 0);
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  164-block  0
+call    3 never executed
+       1*:  165:  assert(compara_cantitate(b, a) > 0);
+        1:  165-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  165-block  1
+call    3 never executed
+       1*:  166:  assert(compara_cantitate(a, a) == 0);
+        1:  166-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  166-block  1
+call    3 never executed
+        -:  167:
+       1*:  168:  assert(cmp_cantitate_crescator(a, b) == 1);
+        1:  168-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  168-block  1
+call    3 never executed
+       1*:  169:  assert(cmp_cantitate_crescator(b, a) == 0);
+        1:  169-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  169-block  1
+call    3 never executed
+       1*:  170:  assert(cmp_cantitate_descrescator(a, b) == 0);
+        1:  170-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  170-block  1
+call    3 never executed
+       1*:  171:  assert(cmp_cantitate_descrescator(b, a) == 1);
+        1:  171-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  171-block  1
+call    3 never executed
+       1*:  172:  assert(cmp_cantitate_descrescator(a, a) == 1);
+        1:  172-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  172-block  1
+call    3 never executed
+        -:  173:
+        1:  174:  distruge_medicament(a);
+        1:  174-block  0
+call    0 returned 1
+        1:  175:  distruge_medicament(b);
+call    0 returned 1
+        1:  176:}
+        -:  177:
+function test_sorteaza_medicamente called 1 returned 100% blocks executed 91%
+        1:  178:void test_sorteaza_medicamente() {
+        1:  179:  Service* service = creeaza_service();
+        1:  179-block  0
+call    0 returned 1
+        -:  180:
+        1:  181:  ListaDinamica* s1 = sorteaza_medicamente_criteriu(service, 1, 1);
+call    0 returned 1
+       10:  182:  for (int i = 0; i < dimensiune_lista(s1) - 1; i++) {
+        9:  182-block  0
+       10:  182-block  1
+call    0 returned 10
+branch  1 taken 9
+branch  2 taken 1 (fallthrough)
+        9:  183:    Medicament* a = get_element_lista(s1, i);
+        9:  183-block  0
+call    0 returned 9
+        9:  184:    Medicament* b = get_element_lista(s1, i + 1);
+call    0 returned 9
+       9*:  185:    assert(cmp_nume_crescator(a, b));
+call    0 returned 9
+branch  1 taken 0 (fallthrough)
+branch  2 taken 9
+    %%%%%:  185-block  0
+call    3 never executed
+        -:  186:  }
+        1:  187:  distruge_lista(s1, distruge_medicament);
+        1:  187-block  0
+call    0 returned 1
+        -:  188:
+        1:  189:  ListaDinamica* s2 = sorteaza_medicamente_criteriu(service, 1, 2);
+call    0 returned 1
+       10:  190:  for (int i = 0; i < dimensiune_lista(s2) - 1; i++) {
+        9:  190-block  0
+       10:  190-block  1
+call    0 returned 10
+branch  1 taken 9
+branch  2 taken 1 (fallthrough)
+        9:  191:    Medicament* a = get_element_lista(s2, i);
+        9:  191-block  0
+call    0 returned 9
+        9:  192:    Medicament* b = get_element_lista(s2, i + 1);
+call    0 returned 9
+       9*:  193:    assert(cmp_nume_descrescator(a, b));
+call    0 returned 9
+branch  1 taken 0 (fallthrough)
+branch  2 taken 9
+    %%%%%:  193-block  0
+call    3 never executed
+        -:  194:  }
+        1:  195:  distruge_lista(s2, distruge_medicament);
+        1:  195-block  0
+call    0 returned 1
+        -:  196:
+        1:  197:  ListaDinamica* s3 = sorteaza_medicamente_criteriu(service, 2, 1);
+call    0 returned 1
+       10:  198:  for (int i = 0; i < dimensiune_lista(s3) - 1; i++) {
+        9:  198-block  0
+       10:  198-block  1
+call    0 returned 10
+branch  1 taken 9
+branch  2 taken 1 (fallthrough)
+        9:  199:    Medicament* a = get_element_lista(s3, i);
+        9:  199-block  0
+call    0 returned 9
+        9:  200:    Medicament* b = get_element_lista(s3, i + 1);
+call    0 returned 9
+       9*:  201:    assert(cmp_cantitate_crescator(a, b));
+call    0 returned 9
+branch  1 taken 0 (fallthrough)
+branch  2 taken 9
+    %%%%%:  201-block  0
+call    3 never executed
+        -:  202:  }
+        1:  203:  distruge_lista(s3, distruge_medicament);
+        1:  203-block  0
+call    0 returned 1
+        -:  204:
+        1:  205:  ListaDinamica* s4 = sorteaza_medicamente_criteriu(service, 2, 2);
+call    0 returned 1
+       10:  206:  for (int i = 0; i < dimensiune_lista(s4) - 1; i++) {
+        9:  206-block  0
+       10:  206-block  1
+call    0 returned 10
+branch  1 taken 9
+branch  2 taken 1 (fallthrough)
+        9:  207:    Medicament* a = get_element_lista(s4, i);
+        9:  207-block  0
+call    0 returned 9
+        9:  208:    Medicament* b = get_element_lista(s4, i + 1);
+call    0 returned 9
+       9*:  209:    assert(cmp_cantitate_descrescator(a, b));
+call    0 returned 9
+branch  1 taken 0 (fallthrough)
+branch  2 taken 9
+    %%%%%:  209-block  0
+call    3 never executed
+        -:  210:  }
+        1:  211:  distruge_lista(s4, distruge_medicament);
+        1:  211-block  0
+call    0 returned 1
+        -:  212:
+        1:  213:  distruge_service(service);
+call    0 returned 1
+        1:  214:}
+        -:  215:
+function test_filtreaza_dupa_stoc called 1 returned 100% blocks executed 92%
+        1:  216:void test_filtreaza_dupa_stoc() {
+        1:  217:  Service* service = creeaza_service();
+        1:  217-block  0
+call    0 returned 1
+        1:  218:  ListaDinamica* rez = filtreaza_dupa_stoc(service, 10);
+call    0 returned 1
+        3:  219:  for (int i = 0; i < dimensiune_lista(rez); i++) {
+        2:  219-block  0
+        3:  219-block  1
+call    0 returned 3
+branch  1 taken 2
+branch  2 taken 1 (fallthrough)
+        2:  220:    Medicament* m = rez->elems[i];
+       2*:  221:    assert(get_cantitate(m) < 10);
+        2:  221-block  0
+call    0 returned 2
+branch  1 taken 0 (fallthrough)
+branch  2 taken 2
+    %%%%%:  221-block  1
+call    3 never executed
+        -:  222:  }
+        1:  223:  distruge_lista(rez, distruge_medicament);
+        1:  223-block  0
+call    0 returned 1
+        1:  224:  distruge_service(service);
+call    0 returned 1
+        1:  225:}
+        -:  226:
+function test_filtreaza_dupa_litera called 1 returned 100% blocks executed 92%
+        1:  227:void test_filtreaza_dupa_litera() {
+        1:  228:  Service* service = creeaza_service();
+        1:  228-block  0
+call    0 returned 1
+        1:  229:  ListaDinamica* rez = filtreaza_dupa_litera(service, 'A');
+call    0 returned 1
+        3:  230:  for (int i = 0; i < dimensiune_lista(rez); i++) {
+        2:  230-block  0
+        3:  230-block  1
+call    0 returned 3
+branch  1 taken 2
+branch  2 taken 1 (fallthrough)
+        2:  231:    Medicament* m = rez->elems[i];
+       2*:  232:    assert(get_nume(m)[0] == 'A');
+        2:  232-block  0
+call    0 returned 2
+branch  1 taken 0 (fallthrough)
+branch  2 taken 2
+    %%%%%:  232-block  1
+call    3 never executed
+        -:  233:  }
+        1:  234:  distruge_lista(rez, distruge_medicament);
+        1:  234-block  0
+call    0 returned 1
+        1:  235:  distruge_service(service);
+call    0 returned 1
+        1:  236:}
+        -:  237:
+function test_filtreaza_dupa_concentratie called 1 returned 100% blocks executed 92%
+        1:  238:void test_filtreaza_dupa_concentratie() {
+        1:  239:  Service* service = creeaza_service();
+        1:  239-block  0
+call    0 returned 1
+        1:  240:  ListaDinamica* rez = filtreaza_dupa_concentratie(service, 500.0);
+call    0 returned 1
+        5:  241:  for (int i = 0; i < dimensiune_lista(rez); i++) {
+        4:  241-block  0
+        5:  241-block  1
+call    0 returned 5
+branch  1 taken 4
+branch  2 taken 1 (fallthrough)
+        4:  242:    Medicament* m = rez->elems[i];
+       4*:  243:    assert(get_concentratie(m) > 500.0);
+        4:  243-block  0
+call    0 returned 4
+branch  1 taken 0 (fallthrough)
+branch  2 taken 4
+    %%%%%:  243-block  1
+call    3 never executed
+        -:  244:  }
+        1:  245:  distruge_lista(rez, distruge_medicament);
+        1:  245-block  0
+call    0 returned 1
+        1:  246:  distruge_service(service);
+call    0 returned 1
+        1:  247:}
+        -:  248:
+function test_undo called 1 returned 100% blocks executed 75%
+        1:  249:void test_undo() {
+        1:  250:  Service* service = creeaza_service();
+        1:  250-block  0
+call    0 returned 1
+       1*:  251:  assert(repo_dimensiune(service->repo) == 10);
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  251-block  0
+call    3 never executed
+        -:  252:
+        1:  253:  adauga_medicament(service, 999, "UndoTest", 10.5, 3);
+        1:  253-block  0
+call    0 returned 1
+       1*:  254:  assert(repo_dimensiune(service->repo) == 11);
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  254-block  0
+call    3 never executed
+       1*:  255:  assert(undo(service) == 1);
+        1:  255-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  255-block  1
+call    3 never executed
+       1*:  256:  assert(repo_dimensiune(service->repo) == 10);
+        1:  256-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  256-block  1
+call    3 never executed
+        -:  257:
+        1:  258:  sterge_medicament(service, 1);
+        1:  258-block  0
+call    0 returned 1
+       1*:  259:  assert(repo_dimensiune(service->repo) == 9);
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  259-block  0
+call    3 never executed
+       1*:  260:  assert(undo(service) == 1);
+        1:  260-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  260-block  1
+call    3 never executed
+       1*:  261:  assert(repo_dimensiune(service->repo) == 10);
+        1:  261-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  261-block  1
+call    3 never executed
+        -:  262:
+        1:  263:  actualizeaza_medicament(service, 2, "UpdatedMed", 1337.0);
+        1:  263-block  0
+call    0 returned 1
+        1:  264:  Medicament* m = repo_get_medicament(service->repo, 1);
+call    0 returned 1
+       1*:  265:  assert(strcmp(get_nume(m), "UpdatedMed") == 0);
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  265-block  0
+call    3 never executed
+       1*:  266:  assert(undo(service) == 1);
+        1:  266-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  266-block  1
+call    3 never executed
+        1:  267:  m = repo_get_medicament(service->repo, 1);
+        1:  267-block  0
+call    0 returned 1
+       1*:  268:  assert(strcmp(get_nume(m), "Algocalmin") == 0);
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  268-block  0
+call    3 never executed
+        -:  269:
+        -:  270:  // clean up everything else
+       11:  271:  while (undo(service));
+        1:  271-block  0
+       11:  271-block  1
+call    0 returned 11
+branch  1 taken 10
+branch  2 taken 1 (fallthrough)
+       1*:  272:  assert(undo(service) == 0);
+        1:  272-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  272-block  1
+call    3 never executed
+        -:  273:
+        1:  274:  distruge_service(service);
+        1:  274-block  0
+call    0 returned 1
+        1:  275:}
+        -:  276:
+function ruleaza_toate_testele called 1 returned 100% blocks executed 100%
+        1:  277:void ruleaza_toate_testele() {
+        1:  278:  test_creeaza_distruge_repo();
+        1:  278-block  0
+call    0 returned 1
+        1:  279:  test_repo_adauga();
+call    0 returned 1
+        1:  280:  test_repo_actualizeaza();
+call    0 returned 1
+        1:  281:  test_repo_sterge();
+call    0 returned 1
+        1:  282:  test_gaseste_medicament();
+call    0 returned 1
+        1:  283:  test_repo_dimensiune();
+call    0 returned 1
+        1:  284:  test_repo_get_medicament();
+call    0 returned 1
+        1:  285:  test_lista_medicamente_sterse();
+call    0 returned 1
+        -:  286:
+        1:  287:  test_creeaza_distruge_service();
+call    0 returned 1
+        1:  288:  test_adauga_medicament();
+call    0 returned 1
+        1:  289:  test_actualizeaza_medicament();
+call    0 returned 1
+        1:  290:  test_sterge_medicament();
+call    0 returned 1
+        1:  291:  test_comparatoare_nume();
+call    0 returned 1
+        1:  292:  test_comparatoare_cantitate();
+call    0 returned 1
+        1:  293:  test_sorteaza_medicamente();
+call    0 returned 1
+        1:  294:  test_filtreaza_dupa_stoc();
+call    0 returned 1
+        1:  295:  test_filtreaza_dupa_litera();
+call    0 returned 1
+        1:  296:  test_filtreaza_dupa_concentratie();
+call    0 returned 1
+        1:  297:  test_undo();
+call    0 returned 1
+        1:  298:}

@@ -1,0 +1,93 @@
+<HTML>
+<HEAD>
+<TITLE>Exceptions</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html9511" HREF="page617.html" tppabs="http://www.brpreiss.com/books/opus4/html/page617.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html9509" HREF="page586.html" tppabs="http://www.brpreiss.com/books/opus4/html/page586.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html9505" HREF="page615.html" tppabs="http://www.brpreiss.com/books/opus4/html/page615.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html9513" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html9514" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION0018600000000000000000">Exceptions</A></H1>
+<A NAME="seccppexceptions">&#160;</A>
+<P>
+Sometimes unexpected situations arise during the execution of a program.
+Careful programmers write code that detects errors and
+deals with them appropriately.
+However, a simple algorithm can become unintelligible
+when error-checking is added because the error-checking code
+can obscure the normal operation of the algorithm.
+<P>
+<em>Exceptions</em><A NAME=58008>&#160;</A> provide a clean way to detect
+and handle unexpected situations.
+When a program detects an error,
+it <em>throws</em><A NAME=58010>&#160;</A> an exception.
+When an exception is thrown,
+control is transfered to the appropriate
+<em>exception handler</em><A NAME=58012>&#160;</A>.
+By defining a function that <em>catches</em> the exception,
+the programmer can write the code to handle the error.
+<P>
+In C++, an exception is an object.
+Typically exceptions are derived (directly or indirectly)
+from the base class called <tt>exception</tt>
+which is defined in the C++ standard library
+header file called <tt>&lt;exception&gt;</tt>.
+<P>
+A function throws an exception by using the <tt>throw</tt> statement:
+<PRE>class domain_error : public exception {};
+
+void f ()
+{
+    // ...
+    throw domain_error ();
+}</PRE>
+The <tt>throw</tt> statement is similar to a <tt>return</tt> statement.
+A <tt>return</tt> statement represents the normal termination
+of a function and the object returned matches the return value of the function.
+A <tt>throw</tt> statement represents the abnormal termination of a function
+and the object thrown represents the type of error encountered.
+<P>
+Exception handlers are defined using a <tt>try</tt> block:
+<PRE>void g ()
+{
+    try {
+        f ();
+    }
+    catch (domain_error) {
+        // exception handler
+    }
+    catch (range_error) {
+        // exception handler
+    }
+}</PRE>
+The body of the <tt>try</tt> block is executed
+either until an exception is thrown or until it terminates normally.
+<P>
+One or more exception handlers follow a <tt>try</tt> block.
+Each exception handler consists of a <tt>catch</tt> clause
+which specifies the exceptions to be caught,
+and a block of code,
+which is executed when the exception occurs.
+When the body of the <tt>try</tt> block throws an exception
+for which an exception is defined,
+control is transfered to the body of the exception handler.
+<P>
+In this example, the exception was thrown by the function <tt>f()</tt>
+and caught by the function <tt>g()</tt>.
+In general when an exception is thrown,
+the chain of functions called is searched in reverse
+(from caller to callee)
+to find the closest matching <tt>catch</tt> statement.
+As the stack of called functions unwinds,
+the destructors for the local variables declared in those functions
+are automatically executed.
+When a program throws an exception that is not caught,
+the program terminates.
+<P>
+<HR><A NAME="tex2html9511" HREF="page617.html" tppabs="http://www.brpreiss.com/books/opus4/html/page617.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html9509" HREF="page586.html" tppabs="http://www.brpreiss.com/books/opus4/html/page586.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html9505" HREF="page615.html" tppabs="http://www.brpreiss.com/books/opus4/html/page615.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html9513" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html9514" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

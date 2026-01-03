@@ -1,0 +1,147 @@
+<HTML>
+<HEAD>
+<TITLE>Buddy System for Storage Management</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html7245" HREF="page432.html" tppabs="http://www.brpreiss.com/books/opus4/html/page432.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7243" HREF="page416.html" tppabs="http://www.brpreiss.com/books/opus4/html/page416.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7237" HREF="page430.html" tppabs="http://www.brpreiss.com/books/opus4/html/page430.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7247" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7248" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION0014400000000000000000">Buddy System for Storage Management</A></H1>
+<A NAME="secheapbuddy">&#160;</A>
+<P>
+The preceding sections describe two storage pool implementations
+that both use a linear list to keep track of the free areas.
+When the singly-linked list is used,
+the linear list is kept sorted by address;
+when the doubly-linked list is used,
+the order of the areas in the list is essentially random.
+<P>
+Each time an area is to be reserved,
+the free lists are searched in order to find
+an area that is sufficiently large to satisfy the request.
+Since there is no direct relationship between the size of an area
+and its position in the free list,
+the search has worst-case running time that is <I>O</I>(<I>l</I>),
+where <I>l</I> is the length of the free list.
+And in the worst case <I>l</I> is <I>O</I>(<I>n</I>),
+where <I>n</I> is the number of blocks in the storage pool.
+<P>
+In this section we present a storage pool implementation,
+called a <em>buddy system</em><A NAME=31615>&#160;</A>,
+that uses more than one free list.
+All of the areas in a given free list have the same size
+and there is a separate free list for each available size of area.
+As a result a suitable free area can be found quickly.
+<P>
+Given a storage pool of size <I>N</I> bytes,
+we would require <I>N</I> free lists altogether if we were to
+place no restriction the allowable size of an area.
+This is clearly infeasible.
+Instead we require that <I>N</I> is a power of two,
+i.e.,  <IMG WIDTH=54 HEIGHT=11 ALIGN=BOTTOM ALT="tex2html_wrap_inline68165" SRC="img1765.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1765.gif"  > for some positive integer <I>m</I>.
+Furthermore, the size of each area in the pool
+must also be a power of two.
+As a result, we only need <I>m</I>+1 free lists,
+since the allowed sizes of an area (in bytes) are
+<P> <IMG WIDTH=309 HEIGHT=17 ALIGN=BOTTOM ALT="displaymath68145" SRC="img1766.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1766.gif"  ><P>
+<P>
+The key feature of a buddy system is that when a request is made
+for an area of size  <IMG WIDTH=14 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58821" SRC="img179.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img179.gif"  > for some <I>k</I> less than <I>m</I>,
+we first look in the corresponding free list for an area with the correct size.
+Notice that if there are no areas of size  <IMG WIDTH=14 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58821" SRC="img179.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img179.gif"  > left,
+we can obtain one by splitting an area of size  <IMG WIDTH=30 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline68179" SRC="img1767.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1767.gif"  > in two.
+And if there are no areas of size  <IMG WIDTH=30 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline68179" SRC="img1767.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1767.gif"  > left,
+we can obtain one of those by splitting an area of size  <IMG WIDTH=30 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline68183" SRC="img1768.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1768.gif"  > in two,
+and so on.
+<P>
+The two areas obtained when a larger
+area is split in two are called <em>buddies</em>.
+Whenever an area is freed,
+we check to see if its buddy is also free.
+If an area of size  <IMG WIDTH=14 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58821" SRC="img179.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img179.gif"  > and its buddy are both free,
+they can be combined into a single area of size  <IMG WIDTH=30 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline68179" SRC="img1767.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1767.gif"  >.
+<P>
+Of course, the user does not always need an an amount of storage
+that is exactly a power of two.
+In those situations where it is not,
+we shall allocate an amount of memory that is the smallest power of two
+no less than the amount requested.
+<P>
+Figure&nbsp;<A HREF="page431.html#figpool3" tppabs="http://www.brpreiss.com/books/opus4/html/page431.html#figpool3"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> shows a memory map of
+a storage pool managed using the buddy system.
+The reserved areas in Figure&nbsp;<A HREF="page431.html#figpool3" tppabs="http://www.brpreiss.com/books/opus4/html/page431.html#figpool3"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> are exactly the same as those
+shown in Figure&nbsp;<A HREF="page417.html#figpool1" tppabs="http://www.brpreiss.com/books/opus4/html/page417.html#figpool1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+Figure&nbsp;<A HREF="page431.html#figpool3" tppabs="http://www.brpreiss.com/books/opus4/html/page431.html#figpool3"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> shows an important characteristic of the buddy pool:
+An area of size  <IMG WIDTH=14 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58821" SRC="img179.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img179.gif"  > bytes is always aligned on a  <IMG WIDTH=14 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58821" SRC="img179.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img179.gif"  > byte boundary.
+E.g., all 1KB areas are aligned on 1KB boundaries.
+I.e., they begin at 0KB, 1KB, 2KB, ...
+<P>
+<P><A NAME="31629">&#160;</A><A NAME="figpool3">&#160;</A> <IMG WIDTH=575 HEIGHT=557 ALIGN=BOTTOM ALT="figure31625" SRC="img1769.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1769.gif"  ><BR>
+<STRONG>Figure:</STRONG> Memory Map of a Buddy System Storage Pool<BR>
+<P>
+<P>
+Let <I>b</I> be the offset from the start of the pool
+(in bytes) of an area of size  <IMG WIDTH=14 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58821" SRC="img179.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img179.gif"  >.
+Then for <I>b</I> to be aligned on a  <IMG WIDTH=14 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58821" SRC="img179.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img179.gif"  > byte boundary means that
+ <IMG WIDTH=105 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline68201" SRC="img1770.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1770.gif"  >.
+In other words, the binary representation of the number <I>b</I> has the form
+<P> <IMG WIDTH=364 HEIGHT=32 ALIGN=BOTTOM ALT="displaymath68146" SRC="img1771.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1771.gif"  ><P>
+where  <IMG WIDTH=68 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline66822" SRC="img1537.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1537.gif"  > is the  <IMG WIDTH=17 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58387" SRC="img77.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img77.gif"  > bit
+in the representation of <I>b</I>.
+<P>
+If we take the block of size  <IMG WIDTH=14 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58821" SRC="img179.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img179.gif"  > at offset <I>b</I> and split
+it into two blocks of size  <IMG WIDTH=30 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline68217" SRC="img1772.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1772.gif"  >,
+the offsets of the two blocks which result are
+<P> <IMG WIDTH=288 HEIGHT=77 ALIGN=BOTTOM ALT="align31641" SRC="img1773.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1773.gif"  ><P>
+I.e., the offsets of the buddies of size  <IMG WIDTH=14 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58821" SRC="img179.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img179.gif"  >
+differ in only the  <IMG WIDTH=20 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline61700" SRC="img803.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img803.gif"  > bit position.
+This gives us a very simple way to determine the position of the
+buddy of a given area.
+I.e., given the offset of a buddy of size  <IMG WIDTH=14 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58821" SRC="img179.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img179.gif"  > is <I>b</I>,
+the offset of the buddy is given by
+<P><A NAME="eqnbuddy">&#160;</A> <IMG WIDTH=500 HEIGHT=48 ALIGN=BOTTOM ALT="equation31657" SRC="img1774.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1774.gif"  ><P>
+<P>
+Fortunately, it is quite simple to compute Equation&nbsp;<A HREF="page431.html#eqnbuddy" tppabs="http://www.brpreiss.com/books/opus4/html/page431.html#eqnbuddy"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+since all that we need to do is toggle the  <IMG WIDTH=20 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline61700" SRC="img803.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img803.gif"  > bit
+of the binary representation <I>b</I>.
+This can be done using the
+<em>bitwise exclusive-or operation</em><A NAME=31671>&#160;</A><A NAME=31672>&#160;</A>
+as the following function definition shows:
+<PRE>unsigned int Buddy (unsigned int b, unsigned int k)
+    { return b ^ (1 &lt;&lt; (k - 1U)); }</PRE>
+<P>
+As before, we implement the storage pool as an array of <tt>Block</tt>s.
+The structure of a <tt>Block</tt> is shown in Figure&nbsp;<A HREF="page431.html#figblock3" tppabs="http://www.brpreiss.com/books/opus4/html/page431.html#figblock3"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+A sequence of contiguous blocks in the array constitutes and area.
+This time the size (in bytes) of every area in the pool
+is an integer power of two.
+The first block in each area is used to keep track the entire area.
+<P>
+<P><A NAME="32210">&#160;</A><A NAME="figblock3">&#160;</A> <IMG WIDTH=575 HEIGHT=171 ALIGN=BOTTOM ALT="figure31676" SRC="img1775.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1775.gif"  ><BR>
+<STRONG>Figure:</STRONG> <tt>BuddyPool::Block</tt> Structure Layout<BR>
+<P>
+<P>
+The structure of the block is quite similar to that used in
+the implementation of the <tt>DoublyLinkedPool</tt> class.
+I.e., the header is comprised of two parts:
+A single bit which indicates whether the area represented by the block
+is reserved or free
+and a field called <tt>k</tt> which specifies the size of the area.
+I.e., the size of the block is  <IMG WIDTH=12 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline68235" SRC="img1776.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1776.gif"  > bytes.
+<P>
+The free lists are implemented as doubly-linked lists.
+Therefore, a free block contains two pointers, <tt>prev</tt> and <tt>next</tt>,
+which point to the previous and next areas (respectively) in the free list.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html7249" HREF="page432.html#SECTION0014410000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page432.html#SECTION0014410000000000000000">Implementation</A>
+</UL>
+<HR><A NAME="tex2html7245" HREF="page432.html" tppabs="http://www.brpreiss.com/books/opus4/html/page432.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7243" HREF="page416.html" tppabs="http://www.brpreiss.com/books/opus4/html/page416.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7237" HREF="page430.html" tppabs="http://www.brpreiss.com/books/opus4/html/page430.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7247" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7248" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

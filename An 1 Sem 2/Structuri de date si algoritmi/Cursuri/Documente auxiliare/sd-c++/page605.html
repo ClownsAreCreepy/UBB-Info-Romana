@@ -1,0 +1,52 @@
+<HTML>
+<HEAD>
+<TITLE>Member Access Control</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html9379" HREF="page606.html" tppabs="http://www.brpreiss.com/books/opus4/html/page606.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html9377" HREF="page603.html" tppabs="http://www.brpreiss.com/books/opus4/html/page603.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html9373" HREF="page604.html" tppabs="http://www.brpreiss.com/books/opus4/html/page604.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html9381" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html9382" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0018332000000000000000">Member Access Control</A></H3>
+<A NAME="seccppaccess">&#160;</A>
+<P>
+Every member of a class, be it a variable or a function,
+has an <em>access control attribute</em>
+which affects the manner in which that member can be accessed.
+The members of a class can be <tt>private</tt>, <tt>public</tt> or <tt>protected</tt>.
+<P>
+By default, the members of a <tt>class</tt> are private.
+For example,
+the member variables <tt>real</tt> and <tt>imag</tt>
+declared in Program&nbsp;<A HREF="page597.html#progcomplex1h" tppabs="http://www.brpreiss.com/books/opus4/html/page597.html#progcomplex1h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> are both <tt>private</tt>.
+<tt>Private</tt> members can be used only by member functions
+and friends of the class in which the member is declared.
+<P>
+On the other hand,
+<tt>public</tt> members of a class can be used by any function.
+In Program&nbsp;<A HREF="page597.html#progcomplex1h" tppabs="http://www.brpreiss.com/books/opus4/html/page597.html#progcomplex1h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> the keyword <tt>public</tt> on line&nbsp;5
+indicates that all the following member functions are publicly accessible.
+<P>
+In effect, the public part of a class defines the interface to that class
+and the private part of the class encapsulates the implementation of that class.
+By making the implementation of a class private,
+we ensure that the code which uses the class depends only
+on the interface and not on the implementation of the class.
+Furthermore, we can modify the implementation of the class
+without affecting the code of the user of that class.
+<P>
+<tt>Protected</tt> members are similar to <tt>private</tt> members.
+I.e., they can be used by member functions
+and friends of the class in which the member is declared.
+In addition, <tt>protected</tt> members can also be
+used by member functions and friends of all the classes derived
+from the class in which the member is declared.
+The <tt>protected</tt> category is discussed again in Section&nbsp;<A HREF="page608.html#seccppprotected" tppabs="http://www.brpreiss.com/books/opus4/html/page608.html#seccppprotected"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+<P>
+<HR><A NAME="tex2html9379" HREF="page606.html" tppabs="http://www.brpreiss.com/books/opus4/html/page606.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html9377" HREF="page603.html" tppabs="http://www.brpreiss.com/books/opus4/html/page603.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html9373" HREF="page604.html" tppabs="http://www.brpreiss.com/books/opus4/html/page604.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html9381" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html9382" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

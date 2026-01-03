@@ -1,0 +1,59 @@
+<HTML>
+<HEAD>
+<TITLE>About Logarithms</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html2665" HREF="page63.html" tppabs="http://www.brpreiss.com/books/opus4/html/page63.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2663" HREF="page57.html" tppabs="http://www.brpreiss.com/books/opus4/html/page57.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2657" HREF="page61.html" tppabs="http://www.brpreiss.com/books/opus4/html/page61.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2667" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2668" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION004150000000000000000">About Logarithms</A></H2>
+<P>
+In this section we determine the asymptotic behavior of logarithms.
+Interestingly,
+despite the fact that  <IMG WIDTH=33 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59565" SRC="img353.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img353.gif"  > diverges as <I>n</I> gets large,
+ <IMG WIDTH=63 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59569" SRC="img354.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img354.gif"  > for all integers  <IMG WIDTH=38 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59063" SRC="img241.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img241.gif"  >.  Hence,  <IMG WIDTH=88 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59573" SRC="img355.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img355.gif"  >.
+Furthermore, as the following theorem will show,
+ <IMG WIDTH=33 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59565" SRC="img353.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img353.gif"  > raised to any integer power  <IMG WIDTH=36 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline59577" SRC="img356.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img356.gif"  > is still <I>O</I>(<I>n</I>).
+<P>
+<BLOCKQUOTE> <b>Theorem</b><A NAME="theoremvii">&#160;</A>
+For every integer  <IMG WIDTH=36 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline59577" SRC="img356.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img356.gif"  >,  <IMG WIDTH=96 HEIGHT=30 ALIGN=MIDDLE ALT="tex2html_wrap_inline59583" SRC="img357.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img357.gif"  >.
+</BLOCKQUOTE>
+<P>
+	extbfProof
+This result follows immediately from Theorem&nbsp;<A HREF="page60.html#theoremv" tppabs="http://www.brpreiss.com/books/opus4/html/page60.html#theoremv"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+and the observation that for all integers  <IMG WIDTH=36 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline59577" SRC="img356.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img356.gif"  >,
+<P><A NAME="eqnloglimit">&#160;</A> <IMG WIDTH=500 HEIGHT=36 ALIGN=BOTTOM ALT="equation1536" SRC="img358.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img358.gif"  ><P>
+This observation can be proved by induction as follows:
+<P>
+<b>Base Case</b>
+Consider the limit
+<P> <IMG WIDTH=289 HEIGHT=36 ALIGN=BOTTOM ALT="displaymath59561" SRC="img359.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img359.gif"  ><P>
+for the case <I>k</I>=1.
+Using L'H&#244;pital's rule<A NAME="tex2html56" HREF="footnode.html#1686" tppabs="http://www.brpreiss.com/books/opus4/html/footnode.html#1686"><IMG  ALIGN=BOTTOM ALT="gif" SRC="foot_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/foot_motif.gif"></A><A NAME=1555>&#160;</A>
+we see that
+<P> <IMG WIDTH=500 HEIGHT=50 ALIGN=BOTTOM ALT="eqnarray1556" SRC="img365.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img365.gif"  ><P>
+<P>
+<b>Inductive Hypothesis</b>
+Assume that Equation&nbsp;<A HREF="page62.html#eqnloglimit" tppabs="http://www.brpreiss.com/books/opus4/html/page62.html#eqnloglimit"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> holds for  <IMG WIDTH=104 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline59607" SRC="img366.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img366.gif"  >.
+Consider the case <I>k</I>=<I>m</I>+1.
+Using L'H&#244;pital's rule<A NAME=1567>&#160;</A> we see that
+<P> <IMG WIDTH=500 HEIGHT=94 ALIGN=BOTTOM ALT="eqnarray1568" SRC="img367.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img367.gif"  ><P>
+<P>
+Therefore, by induction on <I>m</I>, Equation&nbsp;<A HREF="page62.html#eqnloglimit" tppabs="http://www.brpreiss.com/books/opus4/html/page62.html#eqnloglimit"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+holds for all integers  <IMG WIDTH=36 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline59577" SRC="img356.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img356.gif"  >.
+<P>
+For example,
+using this property of logarithms
+together with the rule for determining the asymptotic behavior
+of the product of two functions (Theorem&nbsp;<A HREF="page60.html#theoremiii" tppabs="http://www.brpreiss.com/books/opus4/html/page60.html#theoremiii"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>),
+we can determine that since  <IMG WIDTH=88 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59573" SRC="img355.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img355.gif"  >,
+then  <IMG WIDTH=107 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59617" SRC="img368.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img368.gif"  >.
+<P>
+<HR><A NAME="tex2html2665" HREF="page63.html" tppabs="http://www.brpreiss.com/books/opus4/html/page63.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2663" HREF="page57.html" tppabs="http://www.brpreiss.com/books/opus4/html/page57.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2657" HREF="page61.html" tppabs="http://www.brpreiss.com/books/opus4/html/page61.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2667" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2668" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

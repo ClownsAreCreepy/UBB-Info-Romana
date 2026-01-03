@@ -1,0 +1,80 @@
+<HTML>
+<HEAD>
+<TITLE>Binary Trees</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html5082" HREF="page257.html" tppabs="http://www.brpreiss.com/books/opus4/html/page257.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5080" HREF="page250.html" tppabs="http://www.brpreiss.com/books/opus4/html/page250.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5074" HREF="page255.html" tppabs="http://www.brpreiss.com/books/opus4/html/page255.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5084" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5085" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION0010300000000000000000">Binary Trees</A></H1>
+<A NAME="sectreesbintree">&#160;</A>
+<P>
+In this section we consider an extremely important and useful
+category of tree structure--<em>binary trees</em><A NAME=15546>&#160;</A>.
+A binary tree is an <I>N</I>-ary tree for which <I>N</I> is two.
+Since a binary tree is an <I>N</I>-ary tree,
+all of the results derived in the preceding section apply to binary trees.
+However, binary trees have some interesting characteristics
+that arise from the restriction that <I>N</I> is two.
+E.g., there is an interesting relationship between binary trees
+and the binary number system.
+Binary trees are also very useful for the representation of
+mathematical expressions involving
+the binary operations such as addition and multiplication.
+<P>
+Binary trees are defined as follows:
+<P>
+<BLOCKQUOTE> <b>Definition (Binary Tree)</b><A NAME="defnbinarytree">&#160;</A>
+A <em>binary tree</em><A NAME=15551>&#160;</A><A NAME=15552>&#160;</A> <I>T</I>
+is a finite set of <em>nodes</em><A NAME=15554>&#160;</A>
+with the following properties:
+<OL><LI> Either the set is empty,  <IMG WIDTH=40 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline63628" SRC="img1112.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1112.gif"  >; or<LI> The set consists of a root, <I>r</I>,
+	and exactly two distinct binary trees  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63784" SRC="img1133.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1133.gif"  > and  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63786" SRC="img1134.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1134.gif"  >,
+	 <IMG WIDTH=107 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline63788" SRC="img1135.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1135.gif"  >.
+</OL>
+The tree  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63784" SRC="img1133.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1133.gif"  > is called the <em>left subtree</em><A NAME=15558>&#160;</A> of <I>T</I>,
+and the tree  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63786" SRC="img1134.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1134.gif"  > is called
+the <em>right subtree</em><A NAME=15560>&#160;</A> of <I>T</I>.
+</BLOCKQUOTE>
+<P>
+Binary trees are almost always considered to be
+<em>ordered trees</em><A NAME=15563>&#160;</A><A NAME=15564>&#160;</A>.
+Therefore, the two subtrees  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63784" SRC="img1133.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1133.gif"  > and  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63786" SRC="img1134.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1134.gif"  > are called the
+<em>left</em> and <em>right</em> subtrees, respectively.
+Consider the two binary trees shown in Figure&nbsp;<A HREF="page256.html#figtree4" tppabs="http://www.brpreiss.com/books/opus4/html/page256.html#figtree4"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+Both trees have a root with a single non-empty subtree.
+However, in one case it is the left subtree which is non-empty;
+in the other case it is the right subtree that is non-empty.
+Since the order of the subtrees matters,
+the two binary trees shown in Figure&nbsp;<A HREF="page256.html#figtree4" tppabs="http://www.brpreiss.com/books/opus4/html/page256.html#figtree4"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> are different.
+<P>
+<P><A NAME="15711">&#160;</A><A NAME="figtree4">&#160;</A> <IMG WIDTH=575 HEIGHT=133 ALIGN=BOTTOM ALT="figure15569" SRC="img1136.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1136.gif"  ><BR>
+<STRONG>Figure:</STRONG> Two Distinct Binary Trees<BR>
+<P>
+<P>
+We can determine some of the characteristics of binary trees
+from the theorems given in the preceding section by letting <I>N</I>=2.
+E.g., Theorem&nbsp;<A HREF="page255.html#theoremtreesi" tppabs="http://www.brpreiss.com/books/opus4/html/page255.html#theoremtreesi"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> tells us that 
+an binary tree with  <IMG WIDTH=38 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59063" SRC="img241.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img241.gif"  > internal nodes contains <I>n</I>+1 external nodes.
+This result is true regardless of the shape of the tree.
+Consequently, we expect that the storage overhead of associated
+with the empty trees will be <I>O</I>(<I>n</I>).
+<P>
+From Theorem&nbsp;<A HREF="page255.html#theoremtreesii" tppabs="http://www.brpreiss.com/books/opus4/html/page255.html#theoremtreesii"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> we learn that
+a binary tree of height  <IMG WIDTH=36 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline63700" SRC="img1122.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1122.gif"  > has at most  <IMG WIDTH=58 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline63812" SRC="img1137.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1137.gif"  > internal nodes.
+Conversely, the height of a binary tree with <I>n</I> internal nodes
+is at least  <IMG WIDTH=106 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline63816" SRC="img1138.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1138.gif"  >.
+I.e., the height of a binary tree with <I>n</I> nodes is  <IMG WIDTH=55 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60675" SRC="img525.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img525.gif"  >.
+<P>
+Finally, according to Theorem&nbsp;<A HREF="page255.html#theoremtreesiii" tppabs="http://www.brpreiss.com/books/opus4/html/page255.html#theoremtreesiii"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+a binary tree of height  <IMG WIDTH=36 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline63700" SRC="img1122.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1122.gif"  > has at most  <IMG WIDTH=14 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline63824" SRC="img1139.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1139.gif"  > leaves.
+Conversely, the height of a binary tree with <I>l</I> leaves
+is at least  <IMG WIDTH=46 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline63828" SRC="img1140.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1140.gif"  >.
+Thus, the height of a binary tree with <I>l</I> leaves is  <IMG WIDTH=50 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline63832" SRC="img1141.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1141.gif"  ><HR><A NAME="tex2html5082" HREF="page257.html" tppabs="http://www.brpreiss.com/books/opus4/html/page257.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5080" HREF="page250.html" tppabs="http://www.brpreiss.com/books/opus4/html/page250.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5074" HREF="page255.html" tppabs="http://www.brpreiss.com/books/opus4/html/page255.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5084" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5085" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

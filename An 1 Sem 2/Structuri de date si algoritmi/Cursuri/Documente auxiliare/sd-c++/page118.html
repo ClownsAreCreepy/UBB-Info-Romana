@@ -1,0 +1,96 @@
+<HTML>
+<HEAD>
+<TITLE>Visitors</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html3369" HREF="page119.html" tppabs="http://www.brpreiss.com/books/opus4/html/page119.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3367" HREF="page109.html" tppabs="http://www.brpreiss.com/books/opus4/html/page109.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3361" HREF="page117.html" tppabs="http://www.brpreiss.com/books/opus4/html/page117.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3371" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3372" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION006260000000000000000">Visitors</A></H2>
+<A NAME="secadtsvisitors">&#160;</A>
+<P>
+The <tt>Container</tt> class described in the preceding section
+interacts closely with the <tt>Visitor</tt> class
+shown in Program&nbsp;<A HREF="page118.html#progvisitor1h" tppabs="http://www.brpreiss.com/books/opus4/html/page118.html#progvisitor1h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+In particular, the <tt>Accept</tt> member function of the <tt>Container</tt>
+class takes as its lone argument a reference to a <tt>Visitor</tt>.
+<P>
+<P><A NAME="5506">&#160;</A><A NAME="progvisitor1h">&#160;</A> <IMG WIDTH=575 HEIGHT=143 ALIGN=BOTTOM ALT="program4922" SRC="img692.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img692.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>Visitor</tt> Class Definition<BR>
+<P>
+<P>
+But what is a visitor?
+A shown in Program&nbsp;<A HREF="page118.html#progvisitor1h" tppabs="http://www.brpreiss.com/books/opus4/html/page118.html#progvisitor1h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+a visitor is an object that has the two member functions
+<tt>Visit</tt> and <tt>IsDone</tt>.
+Of these, the <tt>Visit</tt> function is the most interesting.
+The <tt>Visit</tt> function takes as its lone argument a reference
+to an <tt>Object</tt> instance.
+<P>
+The interaction between a container and a visitor goes like this.
+The container is passed a reference to a visitor by calling
+the container's <tt>Accept</tt> member function.
+I.e., the container ``accepts'' the visitor.
+What does a container do with a visitor?
+It calls the <tt>Visit</tt> member function of that visitor
+one-by-one for each object contained in the container.
+<P>
+The interaction between a <tt>Container</tt> and its <tt>Visitor</tt>
+are best understood by considering an example.
+The following code fragment gives the design framework
+for the implementation of the <tt>Accept</tt> function
+in some concrete class, say <tt>SomeContainer</tt>,
+which is derived from the abstract base class <tt>Container</tt>:
+<P>
+<PRE>void SomeContainer::Accept (Visitor& visitor) const
+<P>
+    <em>for each</em> Object i <em>in this container</em>
+<P>
+        visitor.Visit (i);
+<P>
+</PRE>
+<P>
+The <tt>Accept</tt> function calls <tt>Visit</tt>
+for each object <tt>i</tt> in the container.
+Since the class <tt>Visitor</tt> is an abstract base class
+which does not provide an implementation for the <tt>Visit</tt> operation,
+what the visitor actually does with an object
+depends on the type of visitor used.
+<P>
+Suppose that we want to print all of the objects in the container.
+One way to do this is to create a <tt>PrintingVisitor</tt>
+which prints every object it visits,
+and then to pass the visitor to the container
+by calling the <tt>Accept</tt> member function.
+The following code shows how we can declare the <tt>PrintingVisitor</tt> class
+which prints an object on the standard output stream, <tt>cout</tt>.
+<PRE>class PrintingVisitor : public Visitor
+{
+public:
+    void Visit (object&amp; object)
+        { cout &lt;&lt; object; }
+};</PRE>
+<P>
+Finally, given a container <tt>c</tt> that is an instance of
+a concrete container class <tt>SomeContainer</tt>
+which is derived from the abstract base class <tt>Container</tt>,
+we can call the <tt>Accept</tt> function as follows:
+<PRE>SomeContainer c;
+PrintingVisitor v;
+c.Accept (v);</PRE>
+The effect of this call is to call the <tt>Visit</tt> member function
+of the visitor for each object in the container.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html3373" HREF="page119.html#SECTION006261000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page119.html#SECTION006261000000000000000">The <tt>IsDone</tt> Member Function</A>
+<LI> <A NAME="tex2html3374" HREF="page120.html#SECTION006262000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page120.html#SECTION006262000000000000000"><tt>Container</tt> Class Default <tt>Put</tt> Member Function</A>
+</UL>
+<HR><A NAME="tex2html3369" HREF="page119.html" tppabs="http://www.brpreiss.com/books/opus4/html/page119.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3367" HREF="page109.html" tppabs="http://www.brpreiss.com/books/opus4/html/page109.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3361" HREF="page117.html" tppabs="http://www.brpreiss.com/books/opus4/html/page117.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3371" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3372" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,67 @@
+<HTML>
+<HEAD>
+<TITLE>Single Rotations</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html5958" HREF="page327.html" tppabs="http://www.brpreiss.com/books/opus4/html/page327.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5956" HREF="page324.html" tppabs="http://www.brpreiss.com/books/opus4/html/page324.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5950" HREF="page325.html" tppabs="http://www.brpreiss.com/books/opus4/html/page325.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5960" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5961" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0011522000000000000000">Single Rotations</A></H3>
+<P>
+Figure&nbsp;<A HREF="page326.html#figavl1" tppabs="http://www.brpreiss.com/books/opus4/html/page326.html#figavl1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>&nbsp;(a) shows an AVL balanced tree.
+E.g., the balance factor for node <I>A</I> is zero,
+since its left and right subtrees have the same height;
+and the balance factor of node <I>B</I> is +1,
+since its left subtree has height <I>h</I>+1 and its right subtree has height <I>h</I>.
+<P>
+<P><A NAME="20517">&#160;</A><A NAME="figavl1">&#160;</A> <IMG WIDTH=575 HEIGHT=728 ALIGN=BOTTOM ALT="figure20135" SRC="img1341.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1341.gif"  ><BR>
+<STRONG>Figure:</STRONG> Balancing an AVL Tree with a Single (LL) Rotation<BR>
+<P>
+<P>
+Suppose we insert an item into  <IMG WIDTH=20 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline65114" SRC="img1342.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1342.gif"  >, the left subtree of <I>A</I>.
+The height of  <IMG WIDTH=20 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline65114" SRC="img1342.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1342.gif"  > can either increase or remain the same.
+In this case we assume that it increases.
+Then, as shown in Figure&nbsp;<A HREF="page326.html#figavl1" tppabs="http://www.brpreiss.com/books/opus4/html/page326.html#figavl1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>&nbsp;(b),
+the resulting tree is no longer AVL balanced.
+Notice where the imbalance has been manifested--node <I>A</I> is balanced but node <I>B</I> is not.
+<P>
+Balance can be restored by reorganizing the two nodes <I>A</I> and <I>B</I>,
+and the three subtrees,  <IMG WIDTH=20 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline65114" SRC="img1342.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1342.gif"  >,  <IMG WIDTH=21 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline65130" SRC="img1343.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1343.gif"  >, and  <IMG WIDTH=21 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline65132" SRC="img1344.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1344.gif"  >,
+as shown in Figure&nbsp;<A HREF="page326.html#figavl1" tppabs="http://www.brpreiss.com/books/opus4/html/page326.html#figavl1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>&nbsp;(c).
+This is called an <em>LL rotation</em><A NAME=20523>&#160;</A><A NAME=20524>&#160;</A>,
+because the first two edges in the insertion path from node <I>B</I>
+both go to the left.
+<P>
+There are three important properties of the LL rotation:
+<OL><LI>
+	The rotation does not destroy the data ordering property
+	so the result is still a valid search tree.
+	Subtree  <IMG WIDTH=20 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline65114" SRC="img1342.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1342.gif"  > remains to the left of node <I>A</I>,
+	subtree  <IMG WIDTH=21 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline65130" SRC="img1343.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1343.gif"  > remains between nodes <I>A</I> and <I>B</I>,
+	and subtree  <IMG WIDTH=21 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline65132" SRC="img1344.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1344.gif"  > remains to the right of node <I>B</I>.<LI>
+	After the rotation both <I>A</I> and <I>B</I> are AVL balanced.
+	Both nodes <I>A</I> and <I>B</I> end up with zero balance factors.<LI>
+	After the rotation, the tree has the same height it had originally.
+	Inserting the item did not increase the overall height of the tree!
+</OL>
+Notice, the LL rotation was called for because
+the root became unbalanced with a positive balance factor
+(i.e., its left subtree was too high)
+and the left subtree of the root also had a positive balance factor.
+<P>
+Not surprisingly,
+the left-right mirror image of the LL rotation is called
+an <em>RR rotation</em><A NAME=20528>&#160;</A><A NAME=20529>&#160;</A>.
+An RR rotation is called for when
+the root becomes unbalanced with a negative balance factor
+(i.e., its right subtree is too high)
+and the right subtree of the root also has a negative balance factor.
+<P>
+<HR><A NAME="tex2html5958" HREF="page327.html" tppabs="http://www.brpreiss.com/books/opus4/html/page327.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5956" HREF="page324.html" tppabs="http://www.brpreiss.com/books/opus4/html/page324.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5950" HREF="page325.html" tppabs="http://www.brpreiss.com/books/opus4/html/page325.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5960" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5961" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

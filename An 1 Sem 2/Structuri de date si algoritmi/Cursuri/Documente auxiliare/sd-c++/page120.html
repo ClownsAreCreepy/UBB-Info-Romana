@@ -1,0 +1,48 @@
+<HTML>
+<HEAD>
+<TITLE>Container Class Default Put Member Function</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html3393" HREF="page121.html" tppabs="http://www.brpreiss.com/books/opus4/html/page121.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3391" HREF="page118.html" tppabs="http://www.brpreiss.com/books/opus4/html/page118.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3387" HREF="page119.html" tppabs="http://www.brpreiss.com/books/opus4/html/page119.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3395" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3396" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION006262000000000000000"><tt>Container</tt> Class Default <tt>Put</tt> Member Function</A></H3>
+<P>
+Program&nbsp;<A HREF="page120.html#progcontainer2c" tppabs="http://www.brpreiss.com/books/opus4/html/page120.html#progcontainer2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives the definition of the
+default <tt>Put</tt> function for containers.
+Recall that the <tt>Put</tt> function is a virtual function
+inherited by the <tt>Container</tt> class from the 
+abstract base class <tt>Object</tt>.
+<P>
+<P><A NAME="5512">&#160;</A><A NAME="progcontainer2c">&#160;</A> <IMG WIDTH=575 HEIGHT=504 ALIGN=BOTTOM ALT="program5005" SRC="img693.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img693.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>Container</tt> Class <tt>Put</tt> Function Definition<BR>
+<P>
+<P>
+A default <tt>Put</tt> function is provided to
+simplify the implementation of classes derived
+from the <tt>Container</tt> class.
+The default behavior is to print out the name of the class
+and then to print each of the elements in the container,
+by using the <tt>Accept</tt> member function
+with the visitor <tt>PuttingVisitor</tt>.
+<P>
+This implementation makes us of
+<em>run-time type information</em><A NAME=5024>&#160;</A>
+to determine the name of the class.
+The C++ operator <tt>typeid</tt><A NAME=5026>&#160;</A>
+returns a reference to an instance of
+the <tt>typeinfo</tt> class
+which is defined in the standard header file
+<tt>typeinfo.h</tt><A NAME=5029>&#160;</A>.
+This class has member function, <tt>name()</tt><A NAME=5031>&#160;</A>,
+which returns a pointer to a character string
+that contains the name of the class.
+<P>
+<HR><A NAME="tex2html3393" HREF="page121.html" tppabs="http://www.brpreiss.com/books/opus4/html/page121.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3391" HREF="page118.html" tppabs="http://www.brpreiss.com/books/opus4/html/page118.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3387" HREF="page119.html" tppabs="http://www.brpreiss.com/books/opus4/html/page119.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3395" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3396" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

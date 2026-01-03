@@ -1,0 +1,141 @@
+        -:    0:Source:D:/C,C++/CLion 2024.3.4/Projects/Lab6_7/Repo/repository_fals_discipline.h
+        -:    0:Graph:D:\C,C++\CLion 2024.3.4\Projects\Lab6_7\cmake-build-debug-coverage\CMakeFiles\Lab6_7.dir\Test\teste_discipline.cpp.gcno
+        -:    0:Data:D:\C,C++\CLion 2024.3.4\Projects\Lab6_7\cmake-build-debug-coverage\CMakeFiles\Lab6_7.dir\Test\teste_discipline.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#pragma once
+        -:    2:
+        -:    3:#include "repository_file_discipline.h"
+        -:    4:#include <random>
+        -:    5:#include <ranges>
+        -:    6:#include <map>
+        -:    7:
+        -:    8:using std::map;
+        -:    9:using std::mt19937;
+        -:   10:using std::random_device;
+        -:   11:using std::uniform_real_distribution;
+        -:   12:using std::views::values;
+        -:   13:using std::ranges::sort;
+        -:   14:
+        -:   15:/**
+        -:   16: * Clasa de repository care arunca exceptii cu o anumita probabilitate
+        -:   17: */
+        -:   18:class RepoDisciplinaFals final : public IRepoDisciplina {
+        -:   19:private:
+        -:   20:    map<int, Disciplina> data;
+        -:   21:    double prob;
+        -:   22:    mutable mt19937 gen;
+        -:   23:
+        -:   24:    /**
+        -:   25:     * Functie care are o probabilitate sa arunce o exceptie de fiecare data cand e apelata
+        -:   26:     */
+        -:   27:    void try_throw() const;
+        -:   28:
+        -:   29:public:
+        -:   30:    /**
+        -:   31:     * Constructor explicit pentru repository-ul naspa facut
+        -:   32:     * @param probabilitate probabilitatea cu care se vor arunca exceptiile
+        -:   33:     */
+function _ZN18RepoDisciplinaFalsC1Ed called 0 returned 0% blocks executed 0%
+    #####:   34:    explicit RepoDisciplinaFals(const double probabilitate) : prob{probabilitate}, gen{random_device{}()} {
+    %%%%%:   34-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+branch  3 never executed (fallthrough)
+branch  4 never executed (throw)
+    %%%%%:   34-block  1
+call    5 never executed
+branch  6 never executed (fallthrough)
+branch  7 never executed (throw)
+    %%%%%:   34-block  2
+call    8 never executed
+branch  9 never executed (fallthrough)
+branch 10 never executed (throw)
+    %%%%%:   34-block  3
+call   11 never executed
+    $$$$$:   34-block  4
+call   12 never executed
+    $$$$$:   34-block  5
+    #####:   35:        if (prob < 0.0 || prob > 1.0)
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    %%%%%:   35-block  0
+branch  2 never executed (fallthrough)
+branch  3 never executed
+    #####:   36:            throw ValidationException("Probabilitatea trebuie sa fie intre 0 si 1!");
+    %%%%%:   36-block  0
+call    0 never executed
+    %%%%%:   36-block  1
+call    1 never executed
+branch  2 never executed (fallthrough)
+branch  3 never executed (throw)
+    %%%%%:   36-block  2
+call    4 never executed
+call    5 never executed
+    %%%%%:   36-block  3
+call    6 never executed
+    $$$$$:   36-block  4
+    $$$$$:   36-block  5
+    $$$$$:   36-block  6
+call    7 never executed
+    #####:   37:    }
+    %%%%%:   37-block  0
+    $$$$$:   37-block  1
+call    0 never executed
+    $$$$$:   37-block  2
+call    1 never executed
+        -:   38:
+        -:   39:    /**
+        -:   40:     * Destructorul specific acestui repository
+        -:   41:     */
+function _ZN18RepoDisciplinaFalsD1Ev called 0 returned 0% blocks executed 0%
+    #####:   42:    ~RepoDisciplinaFals() override = default;
+    %%%%%:   42-block  0
+call    0 never executed
+call    1 never executed
+        -:   43:
+        -:   44:
+        -:   45:    /**
+        -:   46:     * Functia adauga o disciplina in repository si are o sansa sa arunce exceptii
+        -:   47:     * @param dis o disciplina
+        -:   48:     * @throw RepoException cu mesajul
+        -:   49:     *      -"Disciplina exista deja!", daca disciplina exista deja in repository
+        -:   50:     */
+        -:   51:    void adauga(const Disciplina &dis) override;
+        -:   52:
+        -:   53:    /**
+        -:   54:     * Functia modifica o disciplina in repository si are o sansa sa arunce exceptii
+        -:   55:     * @param index pozitia elementului care va fi modificat
+        -:   56:     * @param d datele noi ale disciplinei
+        -:   57:     * @throw RepoException cu mesajul
+        -:   58:     *      -"Disciplina exista deja!", daca disciplina noua exista deja in repository
+        -:   59:     */
+        -:   60:    void modifica(size_t index, const Disciplina &d) override;
+        -:   61:
+        -:   62:    /**
+        -:   63:     * Functia sterge o disciplina in repository si are o sansa sa arunce exceptii
+        -:   64:     * @param index pozitia elementului care va fi sters
+        -:   65:     */
+        -:   66:    void sterge(int index) override;
+        -:   67:
+        -:   68:    /**
+        -:   69:     * Functia returneaza un element din repository si are o sansa sa arunce exceptii
+        -:   70:     * @param index pozitia elementului dorit
+        -:   71:     * @return elementul dorit
+        -:   72:     */
+        -:   73:    const Disciplina& cauta(size_t index) const override;
+        -:   74:
+        -:   75:    /**
+        -:   76:     * Functia returneaza intregul repository sub forma de vector
+        -:   77:     * @return intregul repository sub forma de vector
+        -:   78:     */
+        -:   79:    const vector<Disciplina> &getAll() const noexcept override;
+        -:   80:
+        -:   81:    /**
+        -:   82:     * Functia virtuala protejata pentru inserare la o pozitie
+        -:   83:     * Permite undo-ului sa insereze disciplina inapoi la index
+        -:   84:     * @param index pozitia in care adaugam
+        -:   85:     * @param d disciplina pe care o adaugam
+        -:   86:     */
+        -:   87:    void inserare_la_index(size_t index, const Disciplina &d) override;
+        -:   88:};

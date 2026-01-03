@@ -1,0 +1,71 @@
+<HTML>
+<HEAD>
+<TITLE>Inserting Items into an AVL Tree</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html5930" HREF="page325.html" tppabs="http://www.brpreiss.com/books/opus4/html/page325.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5928" HREF="page320.html" tppabs="http://www.brpreiss.com/books/opus4/html/page320.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5922" HREF="page323.html" tppabs="http://www.brpreiss.com/books/opus4/html/page323.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5932" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5933" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0011520000000000000000">Inserting Items into an AVL Tree</A></H2>
+<P>
+Inserting an item into an AVL tree is a two-part process.
+First, the item is inserted into the tree
+using the usual method for insertion in binary search trees.
+After the item has been inserted,
+it is necessary to check that the resulting tree is still AVL balanced
+and to balance the tree when it is not.
+<P>
+Just as in a regular binary search tree,
+items are inserted into AVL trees by attaching them to the leaves.
+To find the correct leaf we pretend that the item is already in the tree
+and follow the path taken by the <tt>Find</tt> routine
+to determine where the item should go.
+Assuming that the item is not already in the tree,
+the search is unsuccessful and terminates an an external, empty node.
+The item to be inserted is placed in that external node.
+<P>
+Inserting an item in a given external node affects potentially
+the heights of all of the nodes along
+the <em>access path</em><A NAME=20127>&#160;</A><A NAME=20128>&#160;</A>,
+i.e., the path from the root to that node.
+Of course, when an item is inserted in a tree,
+the height of the tree may increase by one.
+Therefore, to ensure that it resulting tree is still AVL balanced,
+the heights of all the nodes along the access path
+must be recomputed and the AVL balance condition must be checked.
+<P>
+Sometimes increasing the height of a subtree does not violate the
+AVL balance condition.
+For example, consider an AVL tree  <IMG WIDTH=107 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline63788" SRC="img1135.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1135.gif"  >.
+Let  <IMG WIDTH=17 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline64912" SRC="img1311.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1311.gif"  > and  <IMG WIDTH=17 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline64916" SRC="img1312.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1312.gif"  > be the heights of  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63784" SRC="img1133.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1133.gif"  > and  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63786" SRC="img1134.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1134.gif"  >, respectively.
+Since <I>T</I> is an AVL tree, then  <IMG WIDTH=93 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline65010" SRC="img1334.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1334.gif"  >.
+Now, suppose that  <IMG WIDTH=85 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline65012" SRC="img1335.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1335.gif"  >.
+Then, if we insert an item into  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63786" SRC="img1134.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1134.gif"  >,
+its height may increase by one to  <IMG WIDTH=86 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline65016" SRC="img1336.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1336.gif"  >.
+The resulting tree is still AVL balanced since  <IMG WIDTH=85 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline65018" SRC="img1337.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1337.gif"  >.
+In fact, this particular insertion actually makes the tree more balanced!
+Similarly if  <IMG WIDTH=57 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline65020" SRC="img1338.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1338.gif"  > initially,
+an insertion in either subtree will not result in a violation
+of the balance condition at the root of <I>T</I>.
+<P>
+On the other hand, if  <IMG WIDTH=85 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline65012" SRC="img1335.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1335.gif"  > and an the insertion of an item
+into the left subtree  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63784" SRC="img1133.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1133.gif"  > increases the height of that tree to  <IMG WIDTH=85 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline65028" SRC="img1339.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1339.gif"  >,
+the AVL balance condition is no longer satisfied because  <IMG WIDTH=85 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline65030" SRC="img1340.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1340.gif"  >.
+Therefore it is necessary to change the structure of the tree
+to bring it back into balance.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html5934" HREF="page325.html#SECTION0011521000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page325.html#SECTION0011521000000000000000">Balancing AVL Trees</A>
+<LI> <A NAME="tex2html5935" HREF="page326.html#SECTION0011522000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page326.html#SECTION0011522000000000000000">Single Rotations</A>
+<LI> <A NAME="tex2html5936" HREF="page327.html#SECTION0011523000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page327.html#SECTION0011523000000000000000">Double Rotations</A>
+<LI> <A NAME="tex2html5937" HREF="page328.html#SECTION0011524000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page328.html#SECTION0011524000000000000000">Implementation</A>
+</UL>
+<HR><A NAME="tex2html5930" HREF="page325.html" tppabs="http://www.brpreiss.com/books/opus4/html/page325.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5928" HREF="page320.html" tppabs="http://www.brpreiss.com/books/opus4/html/page320.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5922" HREF="page323.html" tppabs="http://www.brpreiss.com/books/opus4/html/page323.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5932" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5933" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

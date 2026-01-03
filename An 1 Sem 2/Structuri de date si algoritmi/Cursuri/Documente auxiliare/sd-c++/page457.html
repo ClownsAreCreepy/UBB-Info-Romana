@@ -1,0 +1,60 @@
+<HTML>
+<HEAD>
+<TITLE>Example-Computing Fibonacci Numbers</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html7568" HREF="page458.html" tppabs="http://www.brpreiss.com/books/opus4/html/page458.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7566" HREF="page455.html" tppabs="http://www.brpreiss.com/books/opus4/html/page455.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7560" HREF="page456.html" tppabs="http://www.brpreiss.com/books/opus4/html/page456.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7570" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7571" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0015320000000000000000">Example-Computing Fibonacci Numbers</A></H2>
+<A NAME="secalgsfibonacci">&#160;</A>
+<P>
+The Fibonacci numbers<A NAME=32895>&#160;</A>
+are given by following recurrence
+<P><A NAME="eqnalgsfib">&#160;</A> <IMG WIDTH=500 HEIGHT=66 ALIGN=BOTTOM ALT="equation32896" SRC="img1872.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1872.gif"  ><P>
+Section&nbsp;<A HREF="page73.html#secfibonacci" tppabs="http://www.brpreiss.com/books/opus4/html/page73.html#secfibonacci"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> presents a recursive function to compute
+the Fibonacci numbers by implementing directly Equation&nbsp;<A HREF="page457.html#eqnalgsfib" tppabs="http://www.brpreiss.com/books/opus4/html/page457.html#eqnalgsfib"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+(See Program&nbsp;<A HREF="page73.html#progfibonacci2c" tppabs="http://www.brpreiss.com/books/opus4/html/page73.html#progfibonacci2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>).
+The running time of that program is shown to be  <IMG WIDTH=123 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline68703" SRC="img1873.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1873.gif"  >.
+<P>
+In this section we present a divide-and-conquer style
+of algorithm for computing Fibonacci numbers.
+We make use of the following identities
+<P> <IMG WIDTH=171 HEIGHT=43 ALIGN=BOTTOM ALT="gather32906" SRC="img1874.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1874.gif"  ><P>
+for  <IMG WIDTH=36 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline59577" SRC="img356.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img356.gif"  >.
+(See Exercise&nbsp;<A HREF="page77.html#exerciseasymptoticfib" tppabs="http://www.brpreiss.com/books/opus4/html/page77.html#exerciseasymptoticfib"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>).
+Thus, we can rewrite Equation&nbsp;<A HREF="page457.html#eqnalgsfib" tppabs="http://www.brpreiss.com/books/opus4/html/page457.html#eqnalgsfib"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> as
+<P><A NAME="eqnalgsfibx">&#160;</A> <IMG WIDTH=500 HEIGHT=87 ALIGN=BOTTOM ALT="equation32914" SRC="img1875.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1875.gif"  ><P>
+<P>
+Program&nbsp;<A HREF="page457.html#progalgs2c" tppabs="http://www.brpreiss.com/books/opus4/html/page457.html#progalgs2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> defines the function <tt>Fibonacci</tt> which
+implements directly Equation&nbsp;<A HREF="page457.html#eqnalgsfibx" tppabs="http://www.brpreiss.com/books/opus4/html/page457.html#eqnalgsfibx"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+Given <I>n</I><I>&gt;</I>1 it computes  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline60413" SRC="img474.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img474.gif"  > by calling itself recursively
+to compute  <IMG WIDTH=39 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline68715" SRC="img1876.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1876.gif"  > and  <IMG WIDTH=58 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline68717" SRC="img1877.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1877.gif"  >
+and then combines the two results as required.
+<P>
+<P><A NAME="32934">&#160;</A><A NAME="progalgs2c">&#160;</A> <IMG WIDTH=575 HEIGHT=277 ALIGN=BOTTOM ALT="program32931" SRC="img1878.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1878.gif"  ><BR>
+<STRONG>Program:</STRONG> Divide-and-Conquer Example--Computing Fibonacci Numbers<BR>
+<P>
+<P>
+To determine a bound on the running time of the <tt>Fibonacci</tt> routine
+in Program&nbsp;<A HREF="page457.html#progalgs2c" tppabs="http://www.brpreiss.com/books/opus4/html/page457.html#progalgs2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> we assume that <I>T</I>(<I>n</I>) is a non-decreasing function.
+I.e.,  <IMG WIDTH=115 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline68721" SRC="img1879.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1879.gif"  > for all  <IMG WIDTH=38 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59533" SRC="img344.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img344.gif"  >.
+Therefore  <IMG WIDTH=174 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline68725" SRC="img1880.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1880.gif"  >.
+Although the program works correctly for all values of <I>n</I>,
+it is convenient to assume that <I>n</I> is a power of 2.
+In this case, the running time of the routine is upper-bounded by <I>T</I>(<I>n</I>)
+where
+<P><A NAME="eqnalgsfibtn">&#160;</A> <IMG WIDTH=500 HEIGHT=48 ALIGN=BOTTOM ALT="equation32940" SRC="img1881.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1881.gif"  ><P>
+<P>
+Equation&nbsp;<A HREF="page457.html#eqnalgsfibtn" tppabs="http://www.brpreiss.com/books/opus4/html/page457.html#eqnalgsfibtn"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> is easily solved using repeated substitution:
+<P> <IMG WIDTH=500 HEIGHT=208 ALIGN=BOTTOM ALT="eqnarray32946" SRC="img1882.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1882.gif"  ><P>
+Thus, <I>T</I>(<I>n</I>)=2<I>n</I>-1=<I>O</I>(<I>n</I>).
+<P>
+<HR><A NAME="tex2html7568" HREF="page458.html" tppabs="http://www.brpreiss.com/books/opus4/html/page458.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7566" HREF="page455.html" tppabs="http://www.brpreiss.com/books/opus4/html/page455.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7560" HREF="page456.html" tppabs="http://www.brpreiss.com/books/opus4/html/page456.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7570" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7571" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,87 @@
+<HTML>
+<HEAD>
+<TITLE>Applications</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html4967" HREF="page248.html" tppabs="http://www.brpreiss.com/books/opus4/html/page248.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4965" HREF="page203.html" tppabs="http://www.brpreiss.com/books/opus4/html/page203.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4959" HREF="page246.html" tppabs="http://www.brpreiss.com/books/opus4/html/page246.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4969" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4970" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION009700000000000000000">Applications</A></H1>
+<P>
+Hash and Scatter tables have many applications.
+The principal characteristic of such applications
+is that keyed information needs to be frequently accessed
+and the access pattern is either unknown or known to be random.
+E.g., hash tables are often used to implement the
+<em>symbol table</em><A NAME=14533>&#160;</A> of a programming language compiler.
+A symbol table is used to keep track of information associated
+with the symbols (variable and procedure names) used by a programmer.
+In this case,
+the keys are character strings and each key hash associated
+with it some information about the symbol
+(e.g., type, address, value, lifetime, scope).
+<P>
+This section presents a simple application of hash and scatter tables.
+Suppose we are required to count the number of occurrences of
+each distinct word contained in a text file.
+We can do this easily using a hash or scatter table.
+Program&nbsp;<A HREF="page247.html#progapp05c" tppabs="http://www.brpreiss.com/books/opus4/html/page247.html#progapp05c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives the an implementation.
+<P>
+<P><A NAME="14538">&#160;</A><A NAME="progapp05c">&#160;</A> <IMG WIDTH=575 HEIGHT=581 ALIGN=BOTTOM ALT="program14535" SRC="img1077.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1077.gif"  ><BR>
+<STRONG>Program:</STRONG> Hash/Scatter Table Application--Counting Words<BR>
+<P>
+<P>
+The class <tt>Counter</tt> is derived from
+the class <tt>Int</tt> defined in Section&nbsp;<A HREF="page115.html#secadtswrappers" tppabs="http://www.brpreiss.com/books/opus4/html/page115.html#secadtswrappers"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+In addition to all the functionality inherited from the base class,
+the <tt>Counter</tt> class adds the member function <tt>operator++</tt>
+which increments the value by one.
+<P>
+The <tt>CountWords</tt> function does the actual work of counting the words
+in the input file.
+It takes as its lone argument a reference to a <tt>HashTable</tt>.
+Consequently, it can use any of the hash or scatter table
+implementations discussed in this chapter.
+The objects which are put into the hash table by <tt>CountWords</tt>
+are all instances of the class <tt>Association</tt>.
+Each association has as its key a <tt>String</tt> class instance,
+and as its value a <tt>Counter</tt> class instance.
+<P>
+The <tt>CountWords</tt> function reads words from the standard input file,
+<tt>cin</tt>, one at a time.
+As each word is read,
+a <tt>Find</tt> operation is done on the hash table to determine
+if there is already an association for the given key.
+If none is found,
+a new association is created an inserted into the hash table.
+The given word is used as the key of the new association
+and the value is a counter which is initialized to one.
+On the other hand,
+if there is already an association for the given word in the hash table,
+the corresponding counter is incremented.
+When it encounters the end of the input file,
+the <tt>CountWords</tt> function simply prints the hash table
+on the standard output file, <tt>cout</tt>.
+<P>
+The running time of the <tt>CountWords</tt> function depends
+on a number of factors,
+including the number of different keys,
+the frequency of occurrence of each key,
+and the distribution of the keys in the overall space of keys.
+Of course, the hash/scatter table implementation chosen
+has an effect as does the size of the table used.
+For a reasonable set of keys we expect the hash function
+to do a good job of spreading the keys uniformly in the table.
+Provided a sufficiently large table is used,
+the average search and insertion time is bounded by a constant.
+Under these ideal conditions the running time should be <I>O</I>(<I>n</I>),
+where <I>n</I> is the number of words in the input file.
+<P>
+<HR><A NAME="tex2html4967" HREF="page248.html" tppabs="http://www.brpreiss.com/books/opus4/html/page248.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4965" HREF="page203.html" tppabs="http://www.brpreiss.com/books/opus4/html/page203.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4959" HREF="page246.html" tppabs="http://www.brpreiss.com/books/opus4/html/page246.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4969" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4970" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

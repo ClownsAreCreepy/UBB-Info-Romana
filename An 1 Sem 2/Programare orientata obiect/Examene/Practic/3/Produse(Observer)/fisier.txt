@@ -1,0 +1,14 @@
+1,Caca,Pute,20
+2,Pipi,Pute,10
+3,Mumu,Scuze,5.5
+4,Damn,Uuh,8.3
+5,Soare,Uuh,70.5
+6,Oops,Scuze,10.2
+7,Pupu,Pute,90.3
+8,Kiki,Uuh,87.7
+9,Mancare,Uuh,60.4
+10,Apa,Pute,99.9
+12,Damn,Pute,23
+42,Damn,AloAlo,23
+11,a,Pute,12
+13,Urat,Pute,29.4

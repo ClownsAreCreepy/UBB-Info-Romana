@@ -1,0 +1,77 @@
+<HTML>
+<HEAD>
+<TITLE>Stacks</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html3525" HREF="page132.html" tppabs="http://www.brpreiss.com/books/opus4/html/page132.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3523" HREF="page130.html" tppabs="http://www.brpreiss.com/books/opus4/html/page130.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3517" HREF="page130.html" tppabs="http://www.brpreiss.com/books/opus4/html/page130.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3527" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3528" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION007100000000000000000">Stacks</A></H1>
+<P>
+<P><A NAME="5587">&#160;</A><A NAME="figclasses2">&#160;</A> <IMG WIDTH=575 HEIGHT=201 ALIGN=BOTTOM ALT="figure5583" SRC="img703.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img703.gif"  ><BR>
+<STRONG>Figure:</STRONG> Object Class Hierarchy<BR>
+<P>
+<P>
+The simplest of all the containers is a <em>stack</em><A NAME=5591>&#160;</A>.
+A stack is a container which provides exactly one function, <tt>Push</tt>,
+for putting objects into the container;
+and one function, <tt>Pop</tt>,
+for taking objects out of the container.
+Figure&nbsp;<A HREF="page131.html#figstack" tppabs="http://www.brpreiss.com/books/opus4/html/page131.html#figstack"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> illustrates the basic idea.
+<P>
+<P><A NAME="5769">&#160;</A><A NAME="figstack">&#160;</A> <IMG WIDTH=575 HEIGHT=335 ALIGN=BOTTOM ALT="figure5595" SRC="img704.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img704.gif"  ><BR>
+<STRONG>Figure:</STRONG> Basic Stack Operations<BR>
+<P>
+<P>
+Objects which are stored in stack are kept in a pile.
+The last item put into the stack is a the top.
+When an item is pushed into a stack,
+it is placed at the top of the pile.
+When an item popped,
+it is always the top item which is removed.
+Since it is always the last item to be put into the stack
+that is the first item to be removed,
+a stack is a <em>last-in, first-out</em><A NAME=5773>&#160;</A>
+or <em>LIFO</em><A NAME=5775>&#160;</A> data structure.
+<P>
+In addition to the <tt>Push</tt> and <tt>Pop</tt> operations,
+the typical stack implementation also provides
+an accessor called <tt>Top</tt> which returns the item at the top of the
+stack without removing it from the stack.
+<P>
+Program&nbsp;<A HREF="page131.html#progstack1h" tppabs="http://www.brpreiss.com/books/opus4/html/page131.html#progstack1h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives the <tt>Stack</tt> abstract class definition.
+The <tt>Stack</tt> class is derived from the <tt>Container</tt> class.
+Hence, its interface comprises all of the member functions
+inherited from the base class plus the three member functions
+<tt>Push</tt>, <tt>Pop</tt>, and <tt>Top</tt>.
+Notice also that the <tt>Stack</tt> class is an abstract class.
+The functions <tt>Push</tt>, <tt>Pop</tt>, and <tt>Top</tt>
+are declared as pure virtual functions.
+<P>
+<P><A NAME="6267">&#160;</A><A NAME="progstack1h">&#160;</A> <IMG WIDTH=575 HEIGHT=143 ALIGN=BOTTOM ALT="program5790" SRC="img705.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img705.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>Stack</tt> Class Definition<BR>
+<P>
+<P>
+When implementing a data structure,
+the first issue to be addressed
+is to select the foundational data structure(s) to use.
+Often, the choice is between an array-based implementation
+and a pointer-based implementation.
+The next two sections show an array-based implementation of stacks
+which uses the <tt>Array&lt;T&gt;</tt> class introduced in Chapter&nbsp;<A HREF="page79.html#chapfds" tppabs="http://www.brpreiss.com/books/opus4/html/page79.html#chapfds"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+and a pointer-based implementation which uses the <tt>LinkedList&lt;T&gt;</tt> class.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html3529" HREF="page132.html#SECTION007110000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page132.html#SECTION007110000000000000000">Array Implementation</A>
+<LI> <A NAME="tex2html3530" HREF="page138.html#SECTION007120000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page138.html#SECTION007120000000000000000">Linked List Implementation</A>
+<LI> <A NAME="tex2html3531" HREF="page144.html#SECTION007130000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page144.html#SECTION007130000000000000000">Applications</A>
+</UL>
+<HR><A NAME="tex2html3525" HREF="page132.html" tppabs="http://www.brpreiss.com/books/opus4/html/page132.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3523" HREF="page130.html" tppabs="http://www.brpreiss.com/books/opus4/html/page130.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3517" HREF="page130.html" tppabs="http://www.brpreiss.com/books/opus4/html/page130.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3527" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3528" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

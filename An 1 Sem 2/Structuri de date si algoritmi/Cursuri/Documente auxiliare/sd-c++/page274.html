@@ -1,0 +1,58 @@
+<HTML>
+<HEAD>
+<TITLE>Constructor and Reset Member Function</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html5314" HREF="page275.html" tppabs="http://www.brpreiss.com/books/opus4/html/page275.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5312" HREF="page272.html" tppabs="http://www.brpreiss.com/books/opus4/html/page272.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5306" HREF="page273.html" tppabs="http://www.brpreiss.com/books/opus4/html/page273.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5316" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5317" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0010622000000000000000">Constructor and <tt>Reset</tt> Member Function</A></H3>
+<P>
+The code for the <tt>Tree::Iter</tt>
+constructor and <tt>Reset</tt>
+member functions is given in Program&nbsp;<A HREF="page274.html#progtree4c" tppabs="http://www.brpreiss.com/books/opus4/html/page274.html#progtree4c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+The constructor is quite simple.
+It takes as its lone argument a reference to a <tt>Tree</tt> instance
+and initializes the two member variables as follows.
+First, <tt>tree</tt> made to refer to the specified tree.
+Next a new instance of the <tt>StackAsLinkedList</tt> class is created.
+(The linked-list implementation of stacks
+is described in Section&nbsp;<A HREF="page138.html#secstackslinked" tppabs="http://www.brpreiss.com/books/opus4/html/page138.html#secstackslinked"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>).
+This stack will be used to contain subtrees of the given tree.
+Since the subtrees of a tree are owned by that tree,
+they cannot also be owned by the stack.
+Therefore the <tt>RescindOwnership</tt> function of the stack is called.
+Finally the <tt>Reset</tt> function is called.
+The running time for the constructor is <I>O</I>(1) assuming <tt>Reset</tt>
+takes a constant amount of time which indeed it does as we shall now see.
+<P>
+<P><A NAME="16505">&#160;</A><A NAME="progtree4c">&#160;</A> <IMG WIDTH=575 HEIGHT=334 ALIGN=BOTTOM ALT="program16383" SRC="img1166.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1166.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>Tree::Iter</tt> Class Constructor 	and <tt>Reset</tt> Member Function Definitions<BR>
+<P>
+<P>
+The <tt>Reset</tt> function is called whenever it is necessary to start
+a new preorder traversal.
+It begins by calling the <tt>Purge</tt> function
+to make sure that the stack is empty.
+Then, if the associated <tt>tree</tt> is not empty,
+that tree is pushed onto the stack.
+The running time of the <tt>Reset</tt> function depends on the number
+of items in the stack when it is called.
+<P>
+Of course, the stack is initially empty.
+Therefore, the first time <tt>Reset</tt> is called (by the constructor)
+it runs in constant time.
+However, if the <tt>Reset</tt> function is called only after a traversal
+is completed,
+the stack will always be empty when the function is called.
+Therefore, under these circumstances,
+the running time for the <tt>Reset</tt> function is <I>O</I>(1).
+<P>
+<HR><A NAME="tex2html5314" HREF="page275.html" tppabs="http://www.brpreiss.com/books/opus4/html/page275.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5312" HREF="page272.html" tppabs="http://www.brpreiss.com/books/opus4/html/page272.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5306" HREF="page273.html" tppabs="http://www.brpreiss.com/books/opus4/html/page273.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5316" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5317" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

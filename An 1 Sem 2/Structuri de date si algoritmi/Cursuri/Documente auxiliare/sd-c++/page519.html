@@ -1,0 +1,91 @@
+<HTML>
+<HEAD>
+<TITLE>Implementation</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html8321" HREF="page520.html" tppabs="http://www.brpreiss.com/books/opus4/html/page520.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8319" HREF="page518.html" tppabs="http://www.brpreiss.com/books/opus4/html/page518.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8315" HREF="page518.html" tppabs="http://www.brpreiss.com/books/opus4/html/page518.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8323" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8324" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0016821000000000000000">Implementation</A></H3>
+<P>
+Program&nbsp;<A HREF="page519.html#progradix2h" tppabs="http://www.brpreiss.com/books/opus4/html/page519.html#progradix2h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives the declaration of the <tt>RadixSorter</tt> class.
+Notice that the <tt>RadixSorter</tt> class is not a template.
+This radix sorter is designed to sort specifically
+an array of <tt>unsigned int</tt>s.
+<P>
+Three constants are declared as static members of the
+in the <tt>RadixSorter</tt> class--<tt>R</tt>, <tt>r</tt> and <tt>p</tt>.
+The constant <I>R</I> represents the radix and  <IMG WIDTH=72 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline70697" SRC="img2249.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2249.gif"  >.
+The constant <I>p</I> is the number sorting passes needed to sort the data.
+<P>
+The <tt>RadixSorter</tt> class contains one member variable--<tt>count</tt>.
+The <tt>count</tt> variable is an array of unsigned integers
+used to implement the sorting passes.
+The <tt>RadixSorter</tt> constructor simply
+initializes the <tt>count</tt> array with length <I>R</I>.
+<P>
+<P><A NAME="46660">&#160;</A><A NAME="progradix2h">&#160;</A> <IMG WIDTH=575 HEIGHT=257 ALIGN=BOTTOM ALT="program46493" SRC="img2250.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2250.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>RadixSorter</tt> Class Definition<BR>
+<P>
+<P>
+Program&nbsp;<A HREF="page519.html#progradix2c" tppabs="http://www.brpreiss.com/books/opus4/html/page519.html#progradix2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> defines the constants <tt>R</tt>, <tt>r</tt> and <tt>p</tt>,
+and gives the code for the <tt>DoSort</tt> member function
+of the <tt>RadixSorter</tt> class.
+In this case <I>r</I>=8 and  <IMG WIDTH=92 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline70705" SRC="img2251.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2251.gif"  >.
+Therefore, a radix-256 sort is being done.
+We have chosen <I>R</I> as a power of two because
+that way the computations required to implement the radix sort
+can be implemented efficiently using simple bit shift and mask operations.
+In order to sort <I>b</I>-bit unsigned integers,
+it is necessary to make  <IMG WIDTH=148 HEIGHT=28 ALIGN=MIDDLE ALT="tex2html_wrap_inline70711" SRC="img2252.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2252.gif"  >
+sorting passes.
+The constants <tt>r</tt>, <tt>R</tt> and <tt>p</tt> are initialized accordingly.
+<P>
+<P><A NAME="46664">&#160;</A><A NAME="progradix2c">&#160;</A> <IMG WIDTH=575 HEIGHT=619 ALIGN=BOTTOM ALT="program46513" SRC="img2253.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2253.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>RadixSorter</tt> Class <tt>DoSort</tt> Member Function Definition<BR>
+<P>
+<P>
+<tt>DoSort</tt> begins by creating a temporary array
+of <tt>unsigned int</tt>s of length <I>n</I>.
+Each iteration of the main loop corresponds to one pass
+of the radix sort (lines&nbsp;9-30).
+In all <I>p</I> iterations are required.
+<P>
+During the  <IMG WIDTH=17 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58387" SRC="img77.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img77.gif"  > pass of the main loop
+the following steps are done:
+First, the <I>R</I> counters are all set to zero (lines&nbsp;11-12).
+This takes <I>O</I>(<I>R</I>) time.
+Then a pass is made through the input array during which
+the number of occurrences of each radix-<I>R</I> digit in the  <IMG WIDTH=17 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58387" SRC="img77.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img77.gif"  >
+digit position are counted (lines&nbsp;13-17).
+This pass takes <I>O</I>(<I>n</I>) time.
+Notice that during this pass all the input data is copied
+into the temporary array.
+<P>
+Next,
+the array of counts is transformed into an array of offsets
+according to Equation&nbsp;<A HREF="page518.html#eqnsortingx" tppabs="http://www.brpreiss.com/books/opus4/html/page518.html#eqnsortingx"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+This requires a single pass through the counter array (lines&nbsp;18-24).
+Therefore, it takes <I>O</I>(<I>R</I>) time.
+Finally, the data sequence is permuted by copying the values
+from the temporary array back into the input array (lines&nbsp;25-30).
+Since this requires a single pass through the data arrays,
+the running time is <I>O</I>(<I>n</I>).
+<P>
+After the <I>p</I> sorting passes have been done,
+the array of data is sorted.
+The running time for the <tt>DoSort</tt> routine
+of the <tt>RadixSorter</tt> class is  <IMG WIDTH=85 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline70735" SRC="img2254.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2254.gif"  >.
+If we assume that the size of an integer is 32 bits and given that <I>R</I>=256, 
+the number of sorting passes required is <I>p</I>=4.
+Therefore, the running time for the radix sort is simply <I>O</I>(<I>n</I>).
+I.e., radix sort is a linear-time sorting algorithm.
+<P>
+<HR><A NAME="tex2html8321" HREF="page520.html" tppabs="http://www.brpreiss.com/books/opus4/html/page520.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8319" HREF="page518.html" tppabs="http://www.brpreiss.com/books/opus4/html/page518.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8315" HREF="page518.html" tppabs="http://www.brpreiss.com/books/opus4/html/page518.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8323" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8324" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

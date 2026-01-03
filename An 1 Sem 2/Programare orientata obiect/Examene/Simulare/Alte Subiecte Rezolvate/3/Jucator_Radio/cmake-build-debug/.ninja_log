@@ -1,0 +1,46 @@
+# ninja log v6
+23	139	7695507776985942	Jucator_Radio_autogen/timestamp	61e73ee016fd56c7
+1675	2408	7695507245102320	CMakeFiles/Jucator_Radio.dir/Teste/Teste.cpp.obj	37400cb26b6ad3c1
+23	139	7695507776985942	Jucator_Radio_autogen/mocs_compilation.cpp	61e73ee016fd56c7
+23	139	7695507776985942	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/Jucator_Radio/cmake-build-debug/Jucator_Radio_autogen/timestamp	61e73ee016fd56c7
+2139	3250	7695463874829295	CMakeFiles/Jucator_Radio.dir/Repo/Repository.cpp.obj	3155b9105a0b73d1
+23	139	7695507776985942	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/Jucator_Radio/cmake-build-debug/Jucator_Radio_autogen/mocs_compilation.cpp	61e73ee016fd56c7
+140	2954	7695507778151175	CMakeFiles/Jucator_Radio.dir/GUI/Window.cpp.obj	e67fb88157503468
+1665	4844	7695507244997308	CMakeFiles/Jucator_Radio.dir/Jucator_Radio_autogen/mocs_compilation.cpp.obj	84a37d61bfd0f7de
+1671	2491	7695507245067239	CMakeFiles/Jucator_Radio.dir/Service/Service.cpp.obj	a1cf865fc497a47a
+1668	4915	7695507245037262	CMakeFiles/Jucator_Radio.dir/main.cpp.obj	f01cfbf3527eef87
+2954	3294	7695507806286184	Jucator_Radio.exe	bfc98bcf7b5072c4
+8	1732	7695513749901423	Jucator_Radio_autogen/timestamp	61e73ee016fd56c7
+8	1732	7695513749901423	Jucator_Radio_autogen/mocs_compilation.cpp	61e73ee016fd56c7
+8	1732	7695513749901423	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/Jucator_Radio/cmake-build-debug/Jucator_Radio_autogen/timestamp	61e73ee016fd56c7
+8	1732	7695513749901423	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/Jucator_Radio/cmake-build-debug/Jucator_Radio_autogen/mocs_compilation.cpp	61e73ee016fd56c7
+1736	5247	7695513750540192	CMakeFiles/Jucator_Radio.dir/main.cpp.obj	f01cfbf3527eef87
+1733	5326	7695513750510157	CMakeFiles/Jucator_Radio.dir/Jucator_Radio_autogen/mocs_compilation.cpp.obj	84a37d61bfd0f7de
+1739	5386	7695513750571672	CMakeFiles/Jucator_Radio.dir/GUI/Window.cpp.obj	e67fb88157503468
+5386	5737	7695513787035554	Jucator_Radio.exe	bfc98bcf7b5072c4
+7	119	7695515160550819	Jucator_Radio_autogen/timestamp	61e73ee016fd56c7
+7	119	7695515160550819	Jucator_Radio_autogen/mocs_compilation.cpp	61e73ee016fd56c7
+7	119	7695515160550819	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/Jucator_Radio/cmake-build-debug/Jucator_Radio_autogen/timestamp	61e73ee016fd56c7
+7	119	7695515160550819	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/Jucator_Radio/cmake-build-debug/Jucator_Radio_autogen/mocs_compilation.cpp	61e73ee016fd56c7
+119	3081	7695515161673397	CMakeFiles/Jucator_Radio.dir/GUI/Window.cpp.obj	e67fb88157503468
+3081	3430	7695515191297426	Jucator_Radio.exe	bfc98bcf7b5072c4
+7	1717	7695518581044111	Jucator_Radio_autogen/timestamp	61e73ee016fd56c7
+7	1717	7695518581044111	Jucator_Radio_autogen/mocs_compilation.cpp	61e73ee016fd56c7
+7	1717	7695518581044111	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/Jucator_Radio/cmake-build-debug/Jucator_Radio_autogen/timestamp	61e73ee016fd56c7
+7	1717	7695518581044111	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/Jucator_Radio/cmake-build-debug/Jucator_Radio_autogen/mocs_compilation.cpp	61e73ee016fd56c7
+1721	5022	7695518581738912	CMakeFiles/Jucator_Radio.dir/main.cpp.obj	f01cfbf3527eef87
+1717	5071	7695518581698858	CMakeFiles/Jucator_Radio.dir/Jucator_Radio_autogen/mocs_compilation.cpp.obj	84a37d61bfd0f7de
+1724	5177	7695518581772342	CMakeFiles/Jucator_Radio.dir/GUI/Window.cpp.obj	e67fb88157503468
+5177	5526	7695518616299333	Jucator_Radio.exe	bfc98bcf7b5072c4
+25	136	7695518924729759	Jucator_Radio_autogen/timestamp	61e73ee016fd56c7
+25	136	7695518924729759	Jucator_Radio_autogen/mocs_compilation.cpp	61e73ee016fd56c7
+25	136	7695518924729759	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/Jucator_Radio/cmake-build-debug/Jucator_Radio_autogen/timestamp	61e73ee016fd56c7
+25	136	7695518924729759	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/Jucator_Radio/cmake-build-debug/Jucator_Radio_autogen/mocs_compilation.cpp	61e73ee016fd56c7
+137	3059	7695518925846580	CMakeFiles/Jucator_Radio.dir/GUI/Window.cpp.obj	e67fb88157503468
+3059	3407	7695518955067157	Jucator_Radio.exe	bfc98bcf7b5072c4
+25	141	7695520558455774	Jucator_Radio_autogen/timestamp	61e73ee016fd56c7
+25	141	7695520558455774	Jucator_Radio_autogen/mocs_compilation.cpp	61e73ee016fd56c7
+25	141	7695520558455774	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/Jucator_Radio/cmake-build-debug/Jucator_Radio_autogen/timestamp	61e73ee016fd56c7
+25	141	7695520558455774	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/Jucator_Radio/cmake-build-debug/Jucator_Radio_autogen/mocs_compilation.cpp	61e73ee016fd56c7
+141	3161	7695520559618459	CMakeFiles/Jucator_Radio.dir/GUI/Window.cpp.obj	e67fb88157503468
+3161	3512	7695520589810753	Jucator_Radio.exe	bfc98bcf7b5072c4

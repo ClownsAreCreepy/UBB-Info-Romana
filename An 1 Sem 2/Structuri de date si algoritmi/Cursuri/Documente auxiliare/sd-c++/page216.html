@@ -1,0 +1,37 @@
+<HTML>
+<HEAD>
+<TITLE>Integral Keys</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html4587" HREF="page217.html" tppabs="http://www.brpreiss.com/books/opus4/html/page217.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4585" HREF="page215.html" tppabs="http://www.brpreiss.com/books/opus4/html/page215.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4579" HREF="page215.html" tppabs="http://www.brpreiss.com/books/opus4/html/page215.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4589" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4590" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION009310000000000000000">Integral Keys</A></H2>
+<P>
+Out of all the C++ built-in data types,
+the so-called <em>integral types</em><A NAME=11361>&#160;</A>
+are the simplest to hash into integers.
+The integral data types are <tt>char</tt> and <tt>wchart</tt>,
+<tt>int</tt> of all sizes, and enumerations.
+Since the underlying representation of such data types
+can be viewed as an integer,
+the hash function <I>f</I> is trivial.
+The only wrinkle involves dealing with negative values.
+Thus, a suitable function <I>f</I> for an integral data type is
+the absolute value function:
+<P> <IMG WIDTH=286 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath62582" SRC="img923.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img923.gif"  ><P>
+Program&nbsp;<A HREF="page216.html#proghash1c" tppabs="http://www.brpreiss.com/books/opus4/html/page216.html#proghash1c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> shows how to do this
+for plain <tt>char</tt> and <tt>int</tt> data types.
+Clearly, the running time of both of the functions defined
+in Program&nbsp;<A HREF="page216.html#proghash1c" tppabs="http://www.brpreiss.com/books/opus4/html/page216.html#proghash1c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> is <I>O</I>(1).
+<P>
+<P><A NAME="11713">&#160;</A><A NAME="proghash1c">&#160;</A> <IMG WIDTH=575 HEIGHT=143 ALIGN=BOTTOM ALT="program11369" SRC="img924.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img924.gif"  ><BR>
+<STRONG>Program:</STRONG> Integral <tt>Hash</tt> Function Definitions<BR>
+<P><HR><A NAME="tex2html4587" HREF="page217.html" tppabs="http://www.brpreiss.com/books/opus4/html/page217.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4585" HREF="page215.html" tppabs="http://www.brpreiss.com/books/opus4/html/page215.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4579" HREF="page215.html" tppabs="http://www.brpreiss.com/books/opus4/html/page215.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4589" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4590" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,95 @@
+        -:    0:Source:/mnt/d/C,C++/CLion 2024.3.4/Projects/Lab2_4_Matei/medicament.c
+        -:    0:Graph:/mnt/d/C,C++/CLion 2024.3.4/Projects/Lab2_4_Matei/cmake-build-debug-coverage/CMakeFiles/Lab03.dir/medicament.c.gcno
+        -:    0:Data:/mnt/d/C,C++/CLion 2024.3.4/Projects/Lab2_4_Matei/cmake-build-debug-coverage/CMakeFiles/Lab03.dir/medicament.c.gcda
+        -:    0:Runs:1
+        -:    1:#include <stdlib.h>
+        -:    2:#include <string.h>
+        -:    3:#include "medicament.h"
+        -:    4:
+function creeaza_medicament called 825 returned 100% blocks executed 100%
+      825:    5:Medicament* creeaza_medicament(const int cod, const char* nume,const float conc,const int cant) {
+      825:    6:  Medicament* m = malloc(sizeof(Medicament));
+      825:    7:  m->cod = cod;
+      825:    8:  m->nume=malloc(strlen(nume)+1);
+      825:    9:  strcpy(m->nume,nume);
+      825:   10:  m->concentratie = conc;
+      825:   11:  m->cantitate = cant;
+      825:   12:  return m;
+      825:   12-block  0
+        -:   13:}
+        -:   14:
+function distruge_medicament called 760 returned 100% blocks executed 75%
+      760:   15:void* distruge_medicament(void* m) {
+      760:   16:  Medicament* med = m;
+     760*:   17:  if (med == NULL) return NULL;
+      760:   17-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 760
+    %%%%%:   17-block  1
+      760:   18:  free(med->nume);
+      760:   19:  free(med);
+      760:   20:  return NULL;
+      760:   20-block  0
+        -:   21:}
+        -:   22:
+function get_cod called 617 returned 100% blocks executed 100%
+      617:   23:int get_cod(const Medicament* m) {
+      617:   24:  return m->cod;
+      617:   24-block  0
+        -:   25:}
+        -:   26:
+function get_nume called 246 returned 100% blocks executed 100%
+      246:   27:char* get_nume(const Medicament* m) {
+      246:   28:  return m->nume;
+      246:   28-block  0
+        -:   29:}
+        -:   30:
+function get_concentratie called 14 returned 100% blocks executed 100%
+       14:   31:float get_concentratie(const Medicament* m) {
+       14:   32:  return m->concentratie;
+       14:   32-block  0
+        -:   33:}
+        -:   34:
+function get_cantitate called 400 returned 100% blocks executed 100%
+      400:   35:int get_cantitate(const Medicament* m) {
+      400:   36:  return m->cantitate;
+      400:   36-block  0
+        -:   37:}
+        -:   38:
+function set_nume called 3 returned 100% blocks executed 80%
+        3:   39:void set_nume(Medicament* m,const char* nume_nou) {
+       3*:   40:  if (m == NULL || m->nume == NULL) return;
+        3:   40-block  0
+branch  0 taken 3 (fallthrough)
+branch  1 taken 0
+        3:   40-block  1
+branch  2 taken 0 (fallthrough)
+branch  3 taken 3
+    %%%%%:   40-block  2
+        3:   41:  free(m->nume);
+        3:   42:  m->nume=malloc((strlen(nume_nou) + 1));
+        3:   43:  strcpy(m->nume,nume_nou);
+        3:   43-block  0
+        -:   44:}
+        -:   45:
+function set_concentratie called 3 returned 100% blocks executed 100%
+        3:   46:void set_concentratie(Medicament* m,const float concentratie_noua) {
+        3:   47:  m->concentratie = concentratie_noua;
+        3:   48:}
+        -:   49:
+function set_cantitate called 2 returned 100% blocks executed 100%
+        2:   50:void set_cantitate(Medicament* m,const int cantitate_noua) {
+        2:   51:  m->cantitate = cantitate_noua;
+        2:   52:}
+        -:   53:
+function copiaza_medicament called 710 returned 100% blocks executed 75%
+      710:   54:Medicament* copiaza_medicament(const Medicament* m) {
+     710*:   55:  if (m==NULL) return NULL;
+      710:   55-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 710
+    %%%%%:   55-block  1
+      710:   56:  return creeaza_medicament(m->cod, m->nume, m->concentratie, m->cantitate);
+      710:   56-block  0
+call    0 returned 710
+        -:   57:}

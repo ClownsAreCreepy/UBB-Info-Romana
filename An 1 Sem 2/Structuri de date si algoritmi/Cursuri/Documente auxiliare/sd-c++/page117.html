@@ -1,0 +1,111 @@
+<HTML>
+<HEAD>
+<TITLE>Containers</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html3357" HREF="page118.html" tppabs="http://www.brpreiss.com/books/opus4/html/page118.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3355" HREF="page109.html" tppabs="http://www.brpreiss.com/books/opus4/html/page109.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3349" HREF="page116.html" tppabs="http://www.brpreiss.com/books/opus4/html/page116.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3359" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3360" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION006250000000000000000">Containers</A></H2>
+<A NAME="secadtscontainers">&#160;</A>
+<P>
+The <tt>Container</tt> class abstracts the notion of a container--an object that holds within it other objects.
+A container is itself an object.
+Therefore, the <tt>Container</tt> class is derived
+from the <tt>Object</tt> class.
+A consequence of this is that containers
+can be held in other containers!
+<P>
+The declaration of the <tt>Container</tt> class is given
+in Program&nbsp;<A HREF="page117.html#progcontainer1h" tppabs="http://www.brpreiss.com/books/opus4/html/page117.html#progcontainer1h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+Notice that the <tt>Container</tt> declaration
+uses <em>multiple inheritance</em><A NAME=4823>&#160;</A>.
+It is derived from two base classes, <tt>Object</tt> and <tt>Ownership</tt>.
+We have already seen the definition of the <tt>Object</tt> class.
+The <tt>Ownership</tt> class is defined
+below in Section&nbsp;<A HREF="page124.html#secadtsowner" tppabs="http://www.brpreiss.com/books/opus4/html/page124.html#secadtsowner"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+<P>
+<P><A NAME="5491">&#160;</A><A NAME="progcontainer1h">&#160;</A> <IMG WIDTH=575 HEIGHT=333 ALIGN=BOTTOM ALT="program4829" SRC="img690.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img690.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>Container</tt> Class Definition<BR>
+<P>
+<P>
+The <tt>Container</tt> class is an <em>abstract base class</em>.
+It is intended to be used as the base class from which
+concrete container realizations are derived.
+The <tt>Container</tt> class public interface comprises eight
+virtual member functions--<tt>Count</tt>, <tt>IsEmpty</tt>, <tt>IsFull</tt>, <tt>Hash</tt>,
+<tt>Put</tt>, <tt>NewIterator</tt>, <tt>Purge</tt> and <tt>Accept</tt>.
+Default implementations are provided for the first six;
+the last two are pure virtual member functions.
+<P>
+A single member variable, <tt>count</tt>, is declared.
+This variable is used to keep track of the number of objects
+held in the container.
+The <tt>count</tt> field is set initially to zero.
+It is the responsibility of the derived class
+to update this field as required.
+<P>
+The <tt>Count</tt> member function is an accessor that
+returns the number of items contained in the container.
+The <tt>IsEmpty</tt> and <tt>IsFull</tt> functions are
+Boolean-valued accessors which indicate whether a given
+container is empty or full, respectively.
+The <tt>Hash</tt> function is used in conjunction with hash tables
+as discussed in Chapter&nbsp;<A HREF="page203.html#chaphashing" tppabs="http://www.brpreiss.com/books/opus4/html/page203.html#chaphashing"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> and the <tt>Put</tt> function
+inserts a human-readable representation of the container and its
+contents in a specified output stream.
+The purpose of the <tt>Purge</tt> function
+is to remove all the objects from a container,
+making it empty.
+<P>
+In order to describe the remaining two member functions,
+<tt>Accept</tt> and <tt>NewIterator</tt>,
+we need to become familiar first with the concepts of a visitor
+and an iterator,
+as well as with the <tt>Visitor</tt> and <tt>Iterator</tt> classes
+which embody these concepts.
+Visitors are discussed below in Section&nbsp;<A HREF="page118.html#secadtsvisitors" tppabs="http://www.brpreiss.com/books/opus4/html/page118.html#secadtsvisitors"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+and iterators are discussed in Section&nbsp;<A HREF="page121.html#secadtsiterators" tppabs="http://www.brpreiss.com/books/opus4/html/page121.html#secadtsiterators"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+<P>
+Program&nbsp;<A HREF="page117.html#progcontainer1c" tppabs="http://www.brpreiss.com/books/opus4/html/page117.html#progcontainer1c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives code that defines the
+<tt>Container</tt> class constructor
+as well as the default behaviors for several of the member functions.
+The three functions <tt>Count</tt>, <tt>IsEmpty</tt> and <tt>IsFull</tt>
+are member variable accessors--they are idempotent <tt>const</tt> member functions which
+provide information about the status of the container.
+<P>
+<P><A NAME="5501">&#160;</A><A NAME="progcontainer1c">&#160;</A> <IMG WIDTH=575 HEIGHT=239 ALIGN=BOTTOM ALT="program4884" SRC="img691.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img691.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>Container</tt> Class Member Function Definitions<BR>
+<P>
+<P>
+The <tt>Count</tt> function simply returns
+the value of the <tt>count</tt> member variable.
+The <tt>IsEmpty</tt> function is a Boolean-valued accessor
+which returns the value <tt>true</tt> if the container is empty,
+i.e., it contains no objects.
+Notice that the <tt>IsEmpty</tt> function
+does not directly access the <tt>count</tt> field.
+Instead it calls <tt>Count</tt> which is virtual function.
+<P>
+In some cases, a container is implemented in a way
+which makes its capacity finite.
+When this is the case,
+it is necessary to be able to determine when the container is full.
+The <tt>IsFull</tt> function is a Boolean-valued accessor
+which returns the value <tt>true</tt> if the container is full.
+However, the default version always returns <tt>false</tt>.
+<P>
+Default behaviors are also provided by the <tt>Container</tt> class
+for the <tt>Hash</tt> and <tt>Put</tt> operations.
+The implementation of the <tt>Put</tt> function is discussed
+in the following section.
+The <tt>Hash</tt> function is given in Chapter&nbsp;<A HREF="page203.html#chaphashing" tppabs="http://www.brpreiss.com/books/opus4/html/page203.html#chaphashing"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+<P>
+<HR><A NAME="tex2html3357" HREF="page118.html" tppabs="http://www.brpreiss.com/books/opus4/html/page118.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3355" HREF="page109.html" tppabs="http://www.brpreiss.com/books/opus4/html/page109.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3349" HREF="page116.html" tppabs="http://www.brpreiss.com/books/opus4/html/page116.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3359" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3360" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

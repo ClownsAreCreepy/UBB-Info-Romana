@@ -1,0 +1,94 @@
+<HTML>
+<HEAD>
+<TITLE>Selecting the Pivot</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html8094" HREF="page501.html" tppabs="http://www.brpreiss.com/books/opus4/html/page501.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8092" HREF="page492.html" tppabs="http://www.brpreiss.com/books/opus4/html/page492.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8088" HREF="page499.html" tppabs="http://www.brpreiss.com/books/opus4/html/page499.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8096" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8097" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0016450000000000000000">Selecting the Pivot</A></H2>
+<P>
+The analysis in the preceding section shows
+that selecting a good pivot is important.
+If we do a bad job of choosing the pivot,
+the running time of quicksort is  <IMG WIDTH=40 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59179" SRC="img261.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img261.gif"  >.
+On the other hand,
+the average-case analysis shows that if every element
+of a sequence is equally likely to be chosen for the pivot,
+the running time is  <IMG WIDTH=68 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59897" SRC="img405.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img405.gif"  >.
+This suggests that we can expect to get good performance
+simply by selecting <em>a random pivot</em>!
+<P>
+If we expect to be sorting random input sequences,
+then we can achieve random pivot selection simply by
+always choosing, say,
+the first element of the sequence to be the pivot.
+Clearly this can be done in constant time.
+(Remember, the analysis requires that  <IMG WIDTH=161 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline70183" SRC="img2161.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2161.gif"  >).
+As long as each element in the sequence is equally likely to
+appear in the first position,
+the average running time will be  <IMG WIDTH=68 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59897" SRC="img405.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img405.gif"  >.
+<P>
+In practice it is often the case
+that the sequence to be sorted is almost sorted.
+In particular, consider what happens if the sequence to be sorted
+using quicksort is already sorted.
+If we always choose the first element as the pivot,
+then we are guaranteed to have the worst-case running time!
+This is also true if we always pick the last element of the sequence.
+And it is also true if the sequence is initially sorted in reverse.
+<P>
+Therefore, we need to be more careful when choosing the pivot.
+Ideally, the pivot divides the input sequence exactly in two.
+I.e., the ideal pivot is the <em>median</em><A NAME=38040>&#160;</A>
+element of the sequence.
+This suggests that the <tt>SelectPivot</tt> routine should find the median.
+To ensure that the running time analysis is valid,
+we need to find the median in <I>O</I>(<I>n</I>) time.
+<P>
+How do you find the median?
+One way is to sort the sequence
+and then select the  <IMG WIDTH=50 HEIGHT=28 ALIGN=MIDDLE ALT="tex2html_wrap_inline70267" SRC="img2181.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2181.gif"  > element.
+But this is not possible,
+because we need to find the median to sort the sequence in the first place!
+<P>
+While it is possible to find
+the median of a sequence of <I>n</I> elements in <I>O</I>(<I>n</I>) time,
+it is usually not necessary to do so.
+All that we really need to do is select a random element of the sequence 
+while avoiding the problems described above.
+<P>
+A common way to do this is the
+<em>median-of-three pivot selection</em><A NAME=38044>&#160;</A>
+technique.
+In this approach,
+we choose as the pivot the median of
+the element at the left end of the sequence,
+the element at the right end of the sequence,
+and the element in the middle of the sequence.
+Clearly, this does the <em>right thing</em>
+if the input sequence is initially sorted
+(either in forward or reverse order).
+<P>
+Program&nbsp;<A HREF="page500.html#progsorter6c" tppabs="http://www.brpreiss.com/books/opus4/html/page500.html#progsorter6c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> declares the <tt>MedianOfThreeQuickSorter&lt;T&gt;</tt>
+class template.
+The <tt>MedianOfThreeQuickSorter&lt;T&gt;</tt> class
+is derived from <tt>QuickSorter&lt;T&gt;</tt> abstract base class.
+It provides an implementation for the <tt>SelectPivot</tt> function
+based on median-of-three pivot selection.
+Notice that this algorithm does exactly three comparisons
+to select the pivot.
+As a result, its running time is <I>O</I>(1).
+In practice this scheme performs sufficiently well
+that more complicated pivot selection approaches are unnecessary.
+<P>
+<P><A NAME="38210">&#160;</A><A NAME="progsorter6c">&#160;</A> <IMG WIDTH=575 HEIGHT=409 ALIGN=BOTTOM ALT="program38053" SRC="img2182.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2182.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>MedianOfThreeQuickSorter&lt;T&gt;</tt> Class<tt>SelectPivot</tt> Member Function Definition<BR>
+<P><HR><A NAME="tex2html8094" HREF="page501.html" tppabs="http://www.brpreiss.com/books/opus4/html/page501.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8092" HREF="page492.html" tppabs="http://www.brpreiss.com/books/opus4/html/page492.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8088" HREF="page499.html" tppabs="http://www.brpreiss.com/books/opus4/html/page499.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8096" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8097" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

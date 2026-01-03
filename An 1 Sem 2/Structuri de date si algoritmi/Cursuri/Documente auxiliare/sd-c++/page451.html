@@ -1,0 +1,54 @@
+<HTML>
+<HEAD>
+<TITLE>Breadth-First Solver</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html7494" HREF="page452.html" tppabs="http://www.brpreiss.com/books/opus4/html/page452.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7492" HREF="page449.html" tppabs="http://www.brpreiss.com/books/opus4/html/page449.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7488" HREF="page450.html" tppabs="http://www.brpreiss.com/books/opus4/html/page450.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7496" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7497" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0015232000000000000000">Breadth-First Solver</A></H3>
+<P>
+If we can find the optimal solution
+by doing a depth-first traversal of the solution space,
+then we can find the solution with a breadth-first traversal too.
+As defined in Section&nbsp;<A HREF="page257.html#sectreestraversals" tppabs="http://www.brpreiss.com/books/opus4/html/page257.html#sectreestraversals"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+a breadth-first traversal of a tree visits the nodes
+in the order of their depth in the tree.
+I.e., first the root is visited,
+then the children of the root are visited,
+then the grandchildren are visited, and so on.
+<P>
+As shown in Program&nbsp;<A HREF="page451.html#progsolution4h" tppabs="http://www.brpreiss.com/books/opus4/html/page451.html#progsolution4h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+the <tt>BreadthFirstSolver</tt> class simply provides
+an implementation for the <tt>DoSolve</tt> member function.
+<P>
+<P><A NAME="33617">&#160;</A><A NAME="progsolution4h">&#160;</A> <IMG WIDTH=575 HEIGHT=85 ALIGN=BOTTOM ALT="program32749" SRC="img1841.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1841.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>BreadthFirstSolver</tt> Class Definition<BR>
+<P>
+<P>
+The body of the <tt>DoSolve</tt> routine is given in Program&nbsp;<A HREF="page451.html#progsolution3c" tppabs="http://www.brpreiss.com/books/opus4/html/page451.html#progsolution3c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+This non-recursive, breadth-first traversal algorithm
+uses a queue to keep track of nodes to be visited.
+The initial solution is enqueued first.
+Then the following steps are repeated until the queue is empty:
+<OL><LI>
+	Dequeue the first solution in the queue.<LI>
+	If the solution is complete,
+	call the <tt>UpdateBest</tt> routine to keep track
+	of the solution which minimizes the objective function.<LI>
+	Otherwise the solution is not complete.
+	Enqueue all its successors.
+</OL>
+Clearly, this algorithm does a complete traversal
+of the solution space.<A NAME="tex2html864" HREF="footnode.html#33620" tppabs="http://www.brpreiss.com/books/opus4/html/footnode.html#33620"><IMG  ALIGN=BOTTOM ALT="gif" SRC="foot_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/foot_motif.gif"></A>
+<P>
+<P><A NAME="33621">&#160;</A><A NAME="progsolution3c">&#160;</A> <IMG WIDTH=575 HEIGHT=468 ALIGN=BOTTOM ALT="program32766" SRC="img1842.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1842.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>BreadthFirstSolver</tt> Class     <tt>DoSolve</tt> Member Function Definition<BR>
+<P><HR><A NAME="tex2html7494" HREF="page452.html" tppabs="http://www.brpreiss.com/books/opus4/html/page452.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7492" HREF="page449.html" tppabs="http://www.brpreiss.com/books/opus4/html/page449.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7488" HREF="page450.html" tppabs="http://www.brpreiss.com/books/opus4/html/page450.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7496" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7497" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

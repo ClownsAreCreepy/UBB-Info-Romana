@@ -1,0 +1,86 @@
+<HTML>
+<HEAD>
+<TITLE>Implementation</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html3345" HREF="page117.html" tppabs="http://www.brpreiss.com/books/opus4/html/page117.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3343" HREF="page115.html" tppabs="http://www.brpreiss.com/books/opus4/html/page115.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3339" HREF="page115.html" tppabs="http://www.brpreiss.com/books/opus4/html/page115.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3347" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3348" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION006241000000000000000">Implementation</A></H3>
+<P>
+The implementation of the <tt>Wrapper&lt;T&gt;</tt> class member functions
+is shown in Program&nbsp;<A HREF="page116.html#progwrapper1c" tppabs="http://www.brpreiss.com/books/opus4/html/page116.html#progwrapper1c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+The <tt>Wrapper&lt;T&gt;</tt> class default constructor
+simply initializes the member variable <tt>datum</tt>
+using its default constructor.
+A second constructor takes as its lone
+argument a <tt>const</tt> reference to an object of type <tt>T</tt>
+and copies that value to the member variable <tt>datum</tt>.
+In effect, the constructor <em>wraps</em> its argument.
+<P>
+<P><A NAME="5479">&#160;</A><A NAME="progwrapper1c">&#160;</A> <IMG WIDTH=575 HEIGHT=620 ALIGN=BOTTOM ALT="program4736" SRC="img688.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img688.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>Wrapper&lt;T&gt;</tt> Class Member Function Definitions<BR>
+<P>
+<P>
+A type-cast operator is defined, <tt>operator T const&amp;</tt>,
+which converts from an object of type <tt>Wrapper&lt;T&gt;</tt>
+to a <tt>const</tt> reference to an object of type <tt>T</tt>.
+In effect, the type-cast operator <em>unwraps</em> the contained object!
+This, together with the automatic type coercion rules of C++,
+makes it possible to use the wrapped object in the same
+context in which the unwrapped object is expected.
+<P>
+The <tt>Hash</tt> member function of the <tt>Wrapper&lt;T&gt;</tt> class
+simply calls the global (non-member) function, <tt>::Hash(T)</tt>.
+In effect, we have punted on the implementation of the <tt>Hash</tt> function.
+The implementation of a suitable hash function
+for an object of type <tt>T</tt> depends on the actual type used.
+However, the <tt>Wrapper&lt;T&gt;</tt> class is generic--we don't know what <tt>T</tt> is.
+Hash functions are discussed in Chapter&nbsp;<A HREF="page203.html#chaphashing" tppabs="http://www.brpreiss.com/books/opus4/html/page203.html#chaphashing"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+<P>
+The <tt>CompareTo</tt> function takes as its lone argument
+a <tt>const</tt> reference to <tt>Object</tt>.
+It uses the <tt>dynamiccast</tt><A NAME=4771>&#160;</A>
+operator to convert the argument
+to the type <tt>Wrapper&lt;T&gt;</tt>.
+In C++, the dynamic cast will succeed
+only if the type of the referenced actually is <tt>Wrapper&lt;T&gt;</tt>.
+Otherwise a <tt>badcast</tt><A NAME=4775>&#160;</A>
+exception is thrown.
+The <tt>CompareTo</tt> member function is implemented
+in the same way as the <tt>Hash</tt> member function.
+I.e., it calls the global (non-member) function <tt>::Compare</tt>
+to do the actual comparison.
+<P>
+The implementation of the <tt>Put</tt> member function is trivial.
+It simply inserts <tt>datum</tt> into the given <tt>ostream</tt>
+using <tt>operator&lt;&lt;</tt>.
+Again, this assumes that the operator has already been defined
+for objects of type <tt>T</tt>.
+<P>
+Program&nbsp;<A HREF="page116.html#progwrapper2h" tppabs="http://www.brpreiss.com/books/opus4/html/page116.html#progwrapper2h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> uses the <tt>Wrapper&lt;T&gt;</tt> class
+defined above to define the <tt>Int</tt>,
+<tt>Char</tt>, <tt>Double</tt>, and <tt>String</tt> object classes
+which simply encapsulate variables of type
+<tt>int</tt>, <tt>char</tt>, <tt>double</tt>, and <tt>string</tt>, respectively.
+<P>
+<P><A NAME="5486">&#160;</A><A NAME="progwrapper2h">&#160;</A> <IMG WIDTH=575 HEIGHT=87 ALIGN=BOTTOM ALT="program4794" SRC="img689.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img689.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>Int</tt>, <tt>Char</tt>,     <tt>Double</tt> and <tt>String</tt> Class Definitions<BR>
+<P>
+<P>
+These declarations require the existence of suitable
+<tt>::Compare</tt> and <tt>::Hash</tt> functions.
+E.g., the <tt>Int</tt> class definition requires
+the existence of a <tt>Compare(int)</tt> and a <tt>Hash(int)</tt> function.
+Hash functions are described in Chapter&nbsp;<A HREF="page203.html#chaphashing" tppabs="http://www.brpreiss.com/books/opus4/html/page203.html#chaphashing"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+The implementation of a suitable compare function
+is left as a project for the reader (Project&nbsp;<A HREF="page129.html#projectadtscompare" tppabs="http://www.brpreiss.com/books/opus4/html/page129.html#projectadtscompare"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>).
+<P>
+<HR><A NAME="tex2html3345" HREF="page117.html" tppabs="http://www.brpreiss.com/books/opus4/html/page117.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3343" HREF="page115.html" tppabs="http://www.brpreiss.com/books/opus4/html/page115.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3339" HREF="page115.html" tppabs="http://www.brpreiss.com/books/opus4/html/page115.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3347" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3348" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

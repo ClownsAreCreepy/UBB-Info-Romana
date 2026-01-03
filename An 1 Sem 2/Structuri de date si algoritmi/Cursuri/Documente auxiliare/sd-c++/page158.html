@@ -1,0 +1,116 @@
+<HTML>
+<HEAD>
+<TITLE>Deques</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html3858" HREF="page159.html" tppabs="http://www.brpreiss.com/books/opus4/html/page159.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3856" HREF="page130.html" tppabs="http://www.brpreiss.com/books/opus4/html/page130.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3850" HREF="page157.html" tppabs="http://www.brpreiss.com/books/opus4/html/page157.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3860" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3861" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION007300000000000000000">Deques</A></H1>
+<A NAME="secstacksdeques">&#160;</A>
+<P>
+In the preceding section we saw that a queue comprises a pile of objects
+into which we insert items at one and
+and from which we remove items at the other end.
+In this section we examine an extension of the queue
+which provides a means to insert and remove items at both ends of the pile.
+This data structure is a <em>deque</em><A NAME=8019>&#160;</A>.
+The word <em>deque</em> is an acronym derived
+from <em>double-ended queue</em><A NAME=8022>&#160;</A>.<A NAME="tex2html310" HREF="footnode.html#8074" tppabs="http://www.brpreiss.com/books/opus4/html/footnode.html#8074"><IMG  ALIGN=BOTTOM ALT="gif" SRC="foot_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/foot_motif.gif"></A>
+<P>
+Figure&nbsp;<A HREF="page158.html#figdeque1" tppabs="http://www.brpreiss.com/books/opus4/html/page158.html#figdeque1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> illustrates the basic deque operations.
+A deque provides three operations which access the head of the queue,
+<tt>Head</tt>, <tt>EnqueueHead</tt> and <tt>DequeueHead</tt>,
+and three operations to access the tail of the queue,
+<tt>Tail</tt>, <tt>EnqueueTail</tt> and <tt>DequeueTail</tt>.
+<P>
+<P><A NAME="8374">&#160;</A><A NAME="figdeque1">&#160;</A> <IMG WIDTH=575 HEIGHT=200 ALIGN=BOTTOM ALT="figure8031" SRC="img751.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img751.gif"  ><BR>
+<STRONG>Figure:</STRONG> Basic Deque Operations<BR>
+<P>
+<P>
+Program&nbsp;<A HREF="page158.html#progdeque1h" tppabs="http://www.brpreiss.com/books/opus4/html/page158.html#progdeque1h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives the declaration of the <tt>Deque</tt> abstract class.
+Because a deque is an extension of the notion of a single-ended queue
+to a double ended queue,
+it makes sense for the <tt>Deque</tt> class
+to be derived from the <tt>Queue</tt> class.
+<P>
+<P><A NAME="8631">&#160;</A><A NAME="progdeque1h">&#160;</A> <IMG WIDTH=575 HEIGHT=238 ALIGN=BOTTOM ALT="program8381" SRC="img752.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img752.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>Deque</tt> Class Definition<BR>
+<P>
+<P>
+Notice that the <tt>Deque</tt> class interface
+includes the <tt>Enqueue</tt> and <tt>Dequeue</tt> operations
+inherited from the <tt>Queue</tt> base class.
+In the base class only one enqueue is required
+because items are always enqueued at the tail
+and only one dequeue operation is required
+because items are always dequeued at the head.
+However, in a deque items can be enqueued and dequeued at either end.
+<P>
+In order to ensure consistent semantics,
+the <tt>Deque</tt> class provides the default behaviors for
+the <tt>Enqueue</tt> and <tt>Dequeue</tt> functions
+as shown in Program&nbsp;<A HREF="page158.html#progdeque1c" tppabs="http://www.brpreiss.com/books/opus4/html/page158.html#progdeque1c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+Viz., the <tt>Enqueue</tt> function simply calls <tt>EnqueueTail</tt>
+and the <tt>Dequeue</tt> function calls <tt>DequeueHead</tt>.
+<P>
+<P><A NAME="8641">&#160;</A><A NAME="progdeque1c">&#160;</A> <IMG WIDTH=575 HEIGHT=107 ALIGN=BOTTOM ALT="program8416" SRC="img753.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img753.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>Deque</tt> Class <tt>Enqueue</tt> 	and <tt>Dequeue</tt> Member Function Definitions<BR>
+<P>
+<P>
+Why have we chosen to derive the <tt>Deque</tt> class from the <tt>Queue</tt>
+class and not the other way around?
+When we have two abstractions,
+one of which is essentially a subset of the other,
+there are two possible implementation approaches:
+<DL ><DT><STRONG>Specialization<A NAME=8431>&#160;</A></STRONG>
+<DD>
+	The more general abstraction is the base class
+	and the restricted abstraction is the derived class.
+	E.g., when using specialization we would
+	derive the class <tt>Queue</tt> from the class <tt>Deque</tt> thus:
+<PRE>class Queue : public Deque { ... };</PRE>
+	The <tt>Queue</tt> class interface should restrict access to only
+	those base class member functions that are appropriate.
+    <DT><STRONG>Generalization<A NAME=8435>&#160;</A></STRONG>
+<DD>
+	The more restricted abstraction is the base class
+	from which the more general abstraction is derived.
+	E.g., when using generalization we would
+	derive the class <tt>Deque</tt> from the class <tt>Queue</tt> thus:
+<PRE>class Deque : public Queue { ... };</PRE>
+	The <tt>Deque</tt> class inherits and generalizes the interface
+	of the <tt>Queue</tt> class.
+<P>
+ </DL>
+<P>
+Often when using generalization,
+it turns out that the inherited member functions need to be
+overridden because their functionality needs to be enhanced in some way.
+In those cases, specialization may be the preferred approach,
+since only one implementation needs to be written.
+The more general implementation serves the needs of both
+the general base class and the specialized derived class.
+<P>
+On the other hand, making the base class more general
+and the derived class more specialized means that
+sometimes we have more functionality at our disposal than we really need.
+If we only have single-ended queues,
+we don't want the overhead associated with double-ended queue operations.
+For this reason,
+we have chosen the generalization approach.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html3862" HREF="page159.html#SECTION007310000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page159.html#SECTION007310000000000000000">Array Implementation</A>
+<LI> <A NAME="tex2html3863" HREF="page161.html#SECTION007320000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page161.html#SECTION007320000000000000000">Linked List Implementation</A>
+<LI> <A NAME="tex2html3864" HREF="page163.html#SECTION007330000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page163.html#SECTION007330000000000000000">Doubly-Linked and Circular Lists</A>
+</UL>
+<HR><A NAME="tex2html3858" HREF="page159.html" tppabs="http://www.brpreiss.com/books/opus4/html/page159.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3856" HREF="page130.html" tppabs="http://www.brpreiss.com/books/opus4/html/page130.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3850" HREF="page157.html" tppabs="http://www.brpreiss.com/books/opus4/html/page157.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3860" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3861" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

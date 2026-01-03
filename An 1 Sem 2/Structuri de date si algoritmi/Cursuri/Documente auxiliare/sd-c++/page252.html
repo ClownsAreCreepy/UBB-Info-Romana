@@ -1,0 +1,61 @@
+<HTML>
+<HEAD>
+<TITLE>Terminology</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html5036" HREF="page253.html" tppabs="http://www.brpreiss.com/books/opus4/html/page253.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5034" HREF="page251.html" tppabs="http://www.brpreiss.com/books/opus4/html/page251.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5028" HREF="page251.html" tppabs="http://www.brpreiss.com/books/opus4/html/page251.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5038" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5039" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0010101000000000000000">Terminology</A></H3>
+<P>
+Consider a tree  <IMG WIDTH=157 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline63410" SRC="img1089.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1089.gif"  >,  <IMG WIDTH=38 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59063" SRC="img241.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img241.gif"  >,
+as given by Definition&nbsp;<A HREF="page251.html#defntree" tppabs="http://www.brpreiss.com/books/opus4/html/page251.html#defntree"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+<UL><LI>
+	The <em>degree</em> of a node is the number of subtrees
+	associated with that node.
+	E.g., the degree of tree <I>T</I> is <I>n</I>.<LI>
+	A node of degree zero has no subtrees.
+	Such a node is called a <em>leaf</em><A NAME=15079>&#160;</A>.<LI>
+	Each root  <IMG WIDTH=10 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline63458" SRC="img1098.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1098.gif"  > of subtree  <IMG WIDTH=13 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63460" SRC="img1099.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1099.gif"  >
+	of tree <I>T</I> is called a <em>child</em><A NAME=15081>&#160;</A> of <I>r</I>.
+	The term <em>grandchild</em> is defined in a similar manner.<LI>
+	The root node <I>r</I> of tree <I>T</I>
+	is the <em>parent</em><A NAME=15084>&#160;</A>
+	of all the roots  <IMG WIDTH=10 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline63458" SRC="img1098.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1098.gif"  > of the subtrees  <IMG WIDTH=13 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63460" SRC="img1099.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1099.gif"  >,  <IMG WIDTH=64 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline63474" SRC="img1100.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1100.gif"  >.
+	The term <em>grandparent</em> is defined in a similar manner.<LI>
+	Two roots  <IMG WIDTH=10 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline63458" SRC="img1098.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1098.gif"  > and  <IMG WIDTH=13 HEIGHT=16 ALIGN=MIDDLE ALT="tex2html_wrap_inline63478" SRC="img1101.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1101.gif"  > of distinct subtrees  <IMG WIDTH=13 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63460" SRC="img1099.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1099.gif"  >
+	and  <IMG WIDTH=14 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline63482" SRC="img1102.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1102.gif"  > of tree <I>T</I> are called <em>siblings</em><A NAME=15087>&#160;</A>.
+</UL>
+<P>
+Clearly the terminology used for describing tree data structures
+is a curious mixture of the mathematical, the genealogical,
+and the botanical.
+There is still more terminology to be introduced,
+but in order to do that, we need the following definition:
+<P>
+<BLOCKQUOTE> <b>Definition (Path and Path Length)</b><A NAME="defnpath">&#160;</A>
+Given a tree <I>T</I> containing the set of nodes <I>R</I>,
+a <em>path</em> in <I>T</I> is defined as a non-empty sequence of nodes
+<P> <IMG WIDTH=320 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath63448" SRC="img1103.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1103.gif"  ><P>
+where  <IMG WIDTH=44 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63492" SRC="img1104.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1104.gif"  >, for  <IMG WIDTH=63 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline63494" SRC="img1105.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1105.gif"  >
+such that the  <IMG WIDTH=17 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58387" SRC="img77.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img77.gif"  > node in the sequence,  <IMG WIDTH=10 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline63458" SRC="img1098.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1098.gif"  >,
+is the <em>parent</em> of the  <IMG WIDTH=56 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline63500" SRC="img1106.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1106.gif"  > node in the sequence  <IMG WIDTH=28 HEIGHT=16 ALIGN=MIDDLE ALT="tex2html_wrap_inline63502" SRC="img1107.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1107.gif"  >.
+The <em>length</em> of path <I>P</I> is <I>k</I>-1.
+</BLOCKQUOTE>
+<P>
+For example, consider again the tree  <IMG WIDTH=14 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63428" SRC="img1096.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1096.gif"  > shown in Figure&nbsp;<A HREF="page251.html#figtree1" tppabs="http://www.brpreiss.com/books/opus4/html/page251.html#figtree1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+This tree contains many different paths.
+In fact, if you count carefully, you should find that there are exactly&nbsp;29
+distinct paths in tree  <IMG WIDTH=14 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63428" SRC="img1096.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1096.gif"  >.
+This includes the path of length zero,  <IMG WIDTH=25 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline63512" SRC="img1108.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1108.gif"  >;
+the path of length one,  <IMG WIDTH=45 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline63514" SRC="img1109.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1109.gif"  >;
+and the path of length three,  <IMG WIDTH=83 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline63516" SRC="img1110.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1110.gif"  >.
+<P>
+<HR><A NAME="tex2html5036" HREF="page253.html" tppabs="http://www.brpreiss.com/books/opus4/html/page253.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5034" HREF="page251.html" tppabs="http://www.brpreiss.com/books/opus4/html/page251.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5028" HREF="page251.html" tppabs="http://www.brpreiss.com/books/opus4/html/page251.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5038" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5039" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,98 @@
+<HTML>
+<HEAD>
+<TITLE>The IsDone Member Function</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html3383" HREF="page120.html" tppabs="http://www.brpreiss.com/books/opus4/html/page120.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3381" HREF="page118.html" tppabs="http://www.brpreiss.com/books/opus4/html/page118.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3375" HREF="page118.html" tppabs="http://www.brpreiss.com/books/opus4/html/page118.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3385" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3386" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION006261000000000000000">The <tt>IsDone</tt> Member Function</A></H3>
+<P>
+As shown in Program&nbsp;<A HREF="page118.html#progvisitor1h" tppabs="http://www.brpreiss.com/books/opus4/html/page118.html#progvisitor1h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+the <tt>Visitor</tt> class interface
+also includes the member function <tt>IsDone</tt>.
+The <tt>IsDone</tt> member function is an accessor
+which is used to determine whether a visitor has finished its work.
+I.e., the <tt>IsDone</tt> member function returns the boolean value
+<tt>true</tt> if the visitor ``is done.''
+<P>
+The idea is this:
+Sometimes a visitor does not need to visit all the objects in a container.
+I.e., in some cases, the visitor may be finished its task
+after having visited only a some of the objects.
+The <tt>IsDone</tt> member function can be used by the
+container to terminate the <tt>Accept</tt> function like this:
+<P>
+<PRE>void SomeContainer::Accept (Visitor& visitor) const
+<P>
+    <em>for each</em> Object i <em>in this container</em>
+<P>
+        if (visitor.IsDone ())
+            return;
+        visitor.Visit (i);
+<P>
+</PRE>
+<P>
+To illustrate the usefulness of <tt>IsDone</tt>,
+consider a visitor which visits the objects in a container
+with the purpose of finding the first object that matches a given object.
+Having found the first matching object in the container,
+the visitor is done and does not need to visit any more contained objects.
+<P>
+The following code fragment defines a visitor
+which finds the first object in the container
+that matches a given object.
+<PRE>class MatchingVisitor : public Visitor
+{
+    Object const&amp; target;
+    Object* found;
+public:
+    MatchingVisitor (Object const&amp; object) :
+        target (object), found (0)
+        {}
+    void Visit (Object&amp; object)
+    {
+        if (found == 0 &amp;&amp; object == target)
+            found = &amp;object;
+    }
+    bool IsDone ()
+        { return found != 0; }
+};</PRE>
+<P>
+The constructor of the <tt>MatchingVisitor</tt> visitor takes a reference
+to an <tt>Object</tt> instance that is the target of the search.
+I.e., we wish to find an object in a container that matches the target.
+For each object the <tt>MatchingVisitor</tt> visitor visits,
+it compares that object with the target
+and makes <tt>found</tt> point at that object if it matches.
+Clearly, the <tt>MatchingVisitor</tt> visitor is done
+when the <tt>found</tt> pointer is non-zero.
+<P>
+Suppose we have a container <tt>c</tt>
+that is an instance of a concrete container class, <tt>SomeContainer</tt>,
+which is derived from the abstract base class <tt>Container</tt>;
+and an object <tt>x</tt>
+that is an instance of a concrete object class, <tt>SomeObject</tt>,
+which is derived from the abstract base class <tt>Object</tt>.
+Then, we can call use the <tt>MatchingVisitor</tt> visitor as follows:
+<PRE>SomeContainer c;
+SomeObject x;
+MatchingVisitor v (x);
+c.Accept (v);</PRE>
+<P>
+The observant reader will have noticed in Program&nbsp;<A HREF="page118.html#progvisitor1h" tppabs="http://www.brpreiss.com/books/opus4/html/page118.html#progvisitor1h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+that the <tt>Visit</tt> member function
+of the abstract <tt>Iterator</tt> class is <em>pure</em> virtual function
+whereas the <tt>IsDone</tt> function is not.
+It turns out that it is convenient to define a default
+implementation for the <tt>IsDone</tt> function
+that always returns <tt>false</tt>.
+<P>
+<HR><A NAME="tex2html3383" HREF="page120.html" tppabs="http://www.brpreiss.com/books/opus4/html/page120.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3381" HREF="page118.html" tppabs="http://www.brpreiss.com/books/opus4/html/page118.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3375" HREF="page118.html" tppabs="http://www.brpreiss.com/books/opus4/html/page118.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3385" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3386" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

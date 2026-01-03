@@ -1,0 +1,193 @@
+        -:    0:Source:/mnt/d/C,C++/CLion 2024.3.4/Projects/Lab2_4/UI/meniu.c
+        -:    0:Graph:/mnt/d/C,C++/CLion 2024.3.4/Projects/Lab2_4/cmake-build-debug-coverage/CMakeFiles/Lab2_4.dir/UI/meniu.c.gcno
+        -:    0:Data:/mnt/d/C,C++/CLion 2024.3.4/Projects/Lab2_4/cmake-build-debug-coverage/CMakeFiles/Lab2_4.dir/UI/meniu.c.gcda
+        -:    0:Runs:1
+        -:    1:#include "meniu.h"
+        -:    2:#include <stdlib.h>
+        -:    3:
+function afisare called 0 returned 0% blocks executed 0%
+    #####:    4:void afisare(ListaMaterii lista) {
+    #####:    5:    if (lista.nr_elemente == 0) {
+    %%%%%:    5-block  0
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    #####:    6:        printf("Nu exista materii.\n");
+    %%%%%:    6-block  0
+call    0 never executed
+    #####:    7:        return;
+        -:    8:    }
+    #####:    9:    for (int i = 0; i < lista.nr_elemente; i++) {
+    %%%%%:    9-block  0
+    %%%%%:    9-block  1
+branch  0 never executed
+branch  1 never executed (fallthrough)
+    #####:   10:        printf("%d - Nume: %s, Producator: %s, Cantitate: %d\n", i, lista.materii[i].nume, lista.materii[i].producator, lista.materii[i].cantitate);
+    %%%%%:   10-block  0
+call    0 never executed
+        -:   11:    }
+        -:   12:}
+        -:   13:
+function meniu called 1 returned 100% blocks executed 29%
+        1:   14:void meniu(ListaMaterii* lista) {
+        1:   14-block  0
+        -:   15:    int optiune;
+        -:   16:    do {
+        1:   17:        printf("\n");
+        1:   17-block  0
+call    0 returned 1
+        1:   18:        printf("\n");
+call    0 returned 1
+        1:   19:        printf("--------------------MENIU_APLICATIE--------------------");
+call    0 returned 1
+        1:   20:        printf("\n1. Adauga materie\n2. Modifica materie\n3. Sterge materie\n4. Afiseaza materii\n5. Filtreaza dupa nume\n6. Filtreaza dupa cantitate\n7. Sorteaza materii\n0. Iesire\n");
+call    0 returned 1
+        1:   21:        printf("Alege optiunea: ");
+call    0 returned 1
+        1:   22:        scanf("%d", &optiune);
+call    0 returned 1
+        -:   23:
+        1:   24:        if (optiune == 1) {
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+        -:   25:            MateriePrima m;
+    #####:   26:            printf("Introdu numele, producatorul,si cantitatea: ");
+    %%%%%:   26-block  0
+call    0 never executed
+    #####:   27:            scanf("%s %s %d", m.nume, m.producator, &m.cantitate);
+call    0 never executed
+    #####:   28:            adaugare_validata(lista, m);
+call    0 never executed
+        -:   29:        }
+        -:   30:
+        1:   31:        else if (optiune == 2) {
+        1:   31-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+        -:   32:            int index;
+        -:   33:            MateriePrima m;
+    #####:   34:            printf("Index si materia noua: ");
+    %%%%%:   34-block  0
+call    0 never executed
+    #####:   35:            scanf("%d %s %s %d",&index, m.nume, m.producator, &m.cantitate);
+call    0 never executed
+    #####:   36:            modificare_validata(lista, index, m);
+call    0 never executed
+        -:   37:        }
+        -:   38:
+        1:   39:        else if (optiune == 3) {
+        1:   39-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+        -:   40:            int index;
+    #####:   41:            printf("Index de sters: ");
+    %%%%%:   41-block  0
+call    0 never executed
+    #####:   42:            scanf("%d", &index);
+call    0 never executed
+    #####:   43:            stergere_validata(lista, index);
+call    0 never executed
+        -:   44:        }
+        -:   45:
+        1:   46:        else if (optiune == 4) {
+        1:   46-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    #####:   47:            afisare(*lista);
+    %%%%%:   47-block  0
+call    0 never executed
+        -:   48:        }
+        -:   49:
+        1:   50:        else if (optiune == 5) {
+        1:   50-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+        -:   51:            ListaMaterii filtrata;
+        -:   52:            char litera;
+    #####:   53:            printf("Introdu litera cu care incep materiile filtrate: ");
+    %%%%%:   53-block  0
+call    0 never executed
+    #####:   54:            scanf("%s", &litera);
+call    0 never executed
+    #####:   55:            filtrata = filtrare_dupa_nume(*lista, litera);
+call    0 never executed
+        -:   56:
+    #####:   57:            afisare(filtrata);
+call    0 never executed
+    #####:   58:            eliberare(&filtrata);
+call    0 never executed
+        -:   59:        }
+        -:   60:
+        1:   61:        else if (optiune == 6) {
+        1:   61-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+        -:   62:            ListaMaterii filtrata;
+        -:   63:            int cantitate;
+    #####:   64:            printf("Introdu cantitatea maxima a materiilor filtrate: ");
+    %%%%%:   64-block  0
+call    0 never executed
+    #####:   65:            scanf("%d", &cantitate);
+call    0 never executed
+    #####:   66:            filtrata = filtrare_dupa_cantitate(*lista, cantitate);
+call    0 never executed
+        -:   67:
+    #####:   68:            afisare(filtrata);
+call    0 never executed
+    #####:   69:            eliberare(&filtrata);
+call    0 never executed
+        -:   70:        }
+        -:   71:
+        1:   72:        else if (optiune == 7) {
+        1:   72-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    #####:   73:            ListaMaterii sortata = creeare();
+    %%%%%:   73-block  0
+call    0 never executed
+    #####:   74:            for (int i = 0; i < lista->nr_elemente;++i)
+    %%%%%:   74-block  0
+branch  0 never executed
+branch  1 never executed (fallthrough)
+    #####:   75:                adaugare(&sortata, lista->materii[i]);
+    %%%%%:   75-block  0
+call    0 never executed
+        -:   76:
+        -:   77:            int criteriu;
+    #####:   78:            printf("Introdu campul dupa care se doreste sortarea(1->nume, 2->cantitate): ");
+    %%%%%:   78-block  0
+call    0 never executed
+    #####:   79:            scanf("%d", &criteriu);
+call    0 never executed
+        -:   80:
+    #####:   81:            if (criteriu == 1) sortare(&sortata, cmpDupaNume);
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    %%%%%:   81-block  0
+call    2 never executed
+    #####:   82:            if (criteriu == 2) sortare(&sortata, cmpDupaCantitate);
+    %%%%%:   82-block  0
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    %%%%%:   82-block  1
+call    2 never executed
+        -:   83:
+    #####:   84:            afisare(sortata);
+    %%%%%:   84-block  0
+call    0 never executed
+    #####:   85:            eliberare(&sortata);
+call    0 never executed
+        -:   86:        }
+        -:   87:
+       1*:   88:        else if (optiune !=0)  printf("Comanda invalida!");
+        1:   88-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   88-block  1
+call    2 never executed
+        -:   89:
+        1:   90:    } while (optiune != 0);
+        1:   90-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+        -:   91:
+        1:   92:}

@@ -1,0 +1,77 @@
+        -:    0:Source:D:/C,C++/CLion 2024.3.4/Projects/Lab6_7/Contract/contract_discipline.h
+        -:    0:Graph:D:\C,C++\CLion 2024.3.4\Projects\Lab6_7\cmake-build-debug-coverage\CMakeFiles\Lab6_7.dir\Test\teste_discipline.cpp.gcno
+        -:    0:Data:D:\C,C++\CLion 2024.3.4\Projects\Lab6_7\cmake-build-debug-coverage\CMakeFiles\Lab6_7.dir\Test\teste_discipline.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#pragma once
+        -:    2:#include "../Valid/validare_discipline.h"
+        -:    3:#include <vector>
+        -:    4:#include <random>
+        -:    5:#include <algorithm>
+        -:    6:
+        -:    7:using std::vector;
+        -:    8:using std::ranges::find;
+        -:    9:using std::ranges::shuffle;
+        -:   10:using std::mt19937;
+        -:   11:using std::random_device;
+        -:   12:using std::endl;
+        -:   13:
+        -:   14:class ContractStudii final {
+        -:   15:private:
+        -:   16:    vector<Disciplina> contract;
+        -:   17:
+        -:   18:public:
+        -:   19:    /**
+        -:   20:     * Constructorul creeaza o copie a contractului ot
+        -:   21:     * @param ot alt contract
+        -:   22:     */
+        -:   23:    ContractStudii(const ContractStudii &ot) = delete;
+        -:   24:
+        -:   25:    /**
+        -:   26:     * Operatorul creeaza o copie a contractului ot
+        -:   27:     * @param ot alt contract
+        -:   28:     */
+        -:   29:    ContractStudii &operator=(const ContractStudii &ot) = delete;
+        -:   30:
+        -:   31:    /**
+        -:   32:     * Constructor implicit.
+        -:   33:     * Permite creearea unui contract neinitializat
+        -:   34:     */
+function _ZN14ContractStudiiC1Ev called 0 returned 0% blocks executed 0%
+    #####:   35:    ContractStudii() = default;
+    %%%%%:   35-block  0
+call    0 never executed
+        -:   36:
+        -:   37:
+        -:   38:    /**
+        -:   39:     * Functia adauga o disciplina in contract
+        -:   40:     * @param d o disciplina
+        -:   41:     * @throw ContractException cu mesajul "Disciplina exista deja in contract!", daca disciplina se afla deja in contract
+        -:   42:     */
+        -:   43:    void adauga(const Disciplina &d);
+        -:   44:
+        -:   45:    /**
+        -:   46:     * Functia goleste contractul de materii
+        -:   47:     * @throw ContractException "Contractul este deja gol!", daca contractul este gol
+        -:   48:     */
+        -:   49:    void goleste();
+        -:   50:
+        -:   51:    /**
+        -:   52:     * Functia adauga in contrat un numar dat de discipline la intamplare din repository
+        -:   53:     * @param all vector de unde alegem disicplinele cu care populam contractul
+        -:   54:     * @param nr numarul de discipline adaugate la intamplare
+        -:   55:     */
+        -:   56:    void generare(const vector<Disciplina> &all, int nr);
+        -:   57:
+        -:   58:    /**
+        -:   59:     * Functia returneaza lista de discipline din contract sub forma de vector
+        -:   60:     * @return contractul de discipline
+        -:   61:     */
+        -:   62:    [[nodiscard]] const vector<Disciplina> &getAll() const noexcept;
+        -:   63:
+        -:   64:
+        -:   65:    /**
+        -:   66:     * Functia scrie intr-un fisier contractul actual
+        -:   67:     * @param out modalitate de a scrie intr-un fisier, cu tot cu calea de fisier
+        -:   68:     */
+        -:   69:    void exporta_contract(ofstream &out) const;
+        -:   70:};

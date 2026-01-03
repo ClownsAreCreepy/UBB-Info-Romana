@@ -1,0 +1,51 @@
+1. 1. Print only the first 4 fields from each even-numbered line from a file, considering that 
+the fields are separated by whitespaces. If a line has fewer than 4 fields, print all the fields from that line.
+
+2. Print all the lines that contain only non-alphanumeric characters from a file. (any character that
+isn’t a letter or a digit).
+
+3. Duplicate each occurrence of an integer number from a file. We will consider that an integer
+number is a sequence of neighboring base 10 digits.
+
+4. Delete all characters after the last whitespace from each line from a file.
+
+5. Print the line number and the field from the middle of the line from each line that contains an
+odd number of fields from a file. Consider that the fields are separated by whitespaces. Note:
+division in awk is by default float division. If you need the integer part of a division use the int
+
+6. Swap field number 2 with field number 3 from a file where the fields are separated by the “:”
+character
+
+7. Print all lines that contain at most 5 vowels, not necessarily consecutive, situated between 2 ^
+signs from a file.
+
+8. Remove the first word containing only lowercase letters from each line of a file
+
+9. Print the number of processes run by each user in the system (in the format nr_processes user).
+
+10.  For each file from the current directory, display only the name of the file and the permissions
+for the user. (not the permissions for the group or for other; you can use ls -l to get information
+about files and folders from the current directory)
+
+11. Display the number of lines that end in a vowel and the number of lines that end in a
+consonant from a file.
+
+12. 
+
+13.
+
+14.
+
+15.
+
+16.
+
+17.
+
+18.
+
+19.
+
+20.
+
+21.

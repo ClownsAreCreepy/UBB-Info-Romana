@@ -1,0 +1,141 @@
+<HTML>
+<HEAD>
+<TITLE>Exercises</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html4979" HREF="page249.html" tppabs="http://www.brpreiss.com/books/opus4/html/page249.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4977" HREF="page203.html" tppabs="http://www.brpreiss.com/books/opus4/html/page203.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4971" HREF="page247.html" tppabs="http://www.brpreiss.com/books/opus4/html/page247.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4981" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4982" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION009800000000000000000">Exercises</A></H1>
+<P>
+<OL><LI>
+	Suppose we know <em>a priori</em> that a given key is
+	equally likely to be any integer between <I>a</I> and <I>b</I>.
+	<OL><LI>
+		When is the <em>division method of hashing</em>
+		a good choice?<LI>
+		When is the <em>middle square method of hashing</em>
+		a good choice?
+	</OL><LI>
+	Compute (by hand) the hash value obtained by Program&nbsp;<A HREF="page218.html#proghash3c" tppabs="http://www.brpreiss.com/books/opus4/html/page218.html#proghash3c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+	for the strings <tt>&quot;ece.uw.ca&quot;</tt> and <tt>&quot;cs.uw.ca&quot;</tt>.
+	<b>Hint</b>: Refer to Appendix&nbsp;<A HREF="page618.html#appcharcode" tppabs="http://www.brpreiss.com/books/opus4/html/page618.html#appcharcode"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.<LI>
+	Canadian postal codes have the format <code>LDL DLD</code>
+	where <tt>L</tt> is always a letter (<tt>A</tt>-<tt>Z</tt>),
+	<tt>D</tt> is always a digit (<tt>0</tt>-<tt>9</tt>),
+	and <code> </code> is always a single space.
+	E.g., the postal code for the
+	University of Waterloo is <code>N2L 3G1</code>.
+	Devise a suitable hash function for Canadian postal codes.<LI> <A NAME="exercisehashingi">&#160;</A>
+	For each type of hash table listed below,
+	show the hash table obtained when we insert the keys
+	<P> <IMG WIDTH=500 HEIGHT=40 ALIGN=BOTTOM ALT="equation14577" SRC="img1078.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1078.gif"  ><P>
+	in the order given into a table of size <I>M</I>=16
+	that is initially empty.
+	Use the following table of hash values:
+	<DIV ALIGN=CENTER><P ALIGN=CENTER><TABLE COLS=2 BORDER FRAME=HSIDES RULES=GROUPS>
+<COL ALIGN=LEFT><COL ALIGN=RIGHT>
+<TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP>
+		<I>x</I> </TD><TD VALIGN=BASELINE ALIGN=RIGHT NOWRAP> <tt>Hash(<I>x</I>)</tt> (octal) </TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP><tt>&quot;un&quot;</tt> </TD><TD VALIGN=BASELINE ALIGN=RIGHT NOWRAP> <tt>016456</tt> </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> 
+		<tt>&quot;deux&quot;</tt> </TD><TD VALIGN=BASELINE ALIGN=RIGHT NOWRAP> <tt>0145446470</tt> </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> 
+		<tt>&quot;trois&quot;</tt> </TD><TD VALIGN=BASELINE ALIGN=RIGHT NOWRAP> <tt>016563565063</tt> </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> 
+		<tt>&quot;quatre&quot;</tt> </TD><TD VALIGN=BASELINE ALIGN=RIGHT NOWRAP> <tt>010440656345</tt> </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> 
+		<tt>&quot;cinq&quot;</tt> </TD><TD VALIGN=BASELINE ALIGN=RIGHT NOWRAP> <tt>0142505761</tt> </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> 
+		<tt>&quot;six&quot;</tt> </TD><TD VALIGN=BASELINE ALIGN=RIGHT NOWRAP> <tt>01625070</tt> </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> 
+		<tt>&quot;sept&quot;</tt> </TD><TD VALIGN=BASELINE ALIGN=RIGHT NOWRAP> <tt>0162446164</tt> </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> 
+		<tt>&quot;huit&quot;</tt> </TD><TD VALIGN=BASELINE ALIGN=RIGHT NOWRAP> <tt>0151645064</tt> </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> 
+		<tt>&quot;neuf&quot;</tt> </TD><TD VALIGN=BASELINE ALIGN=RIGHT NOWRAP> <tt>0157446446</tt> </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> 
+		<tt>&quot;dix&quot;</tt> </TD><TD VALIGN=BASELINE ALIGN=RIGHT NOWRAP> <tt>01455070</tt> </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> 
+		<tt>&quot;onze&quot;</tt> </TD><TD VALIGN=BASELINE ALIGN=RIGHT NOWRAP> <tt>0156577345</tt> </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> 
+		<tt>&quot;douze&quot;</tt> </TD><TD VALIGN=BASELINE ALIGN=RIGHT NOWRAP> <tt>014556647345</tt> </TD></TR>
+</TBODY>
+</TABLE>
+</P></DIV>
+	<OL><LI> chained hash table,<LI> chained scatter table,<LI> open scatter table using <em>linear probing</em>,<LI> open scatter table using <em>quadratic probing</em>, and<LI> open scatter table using <em>double hashing</em>.
+		(Use Equation&nbsp;<A HREF="page240.html#eqnhashingdouble" tppabs="http://www.brpreiss.com/books/opus4/html/page240.html#eqnhashingdouble"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> as the secondary hash function).
+	</OL><LI>
+	For each table obtained in Exercise&nbsp;<A HREF="page248.html#exercisehashingi" tppabs="http://www.brpreiss.com/books/opus4/html/page248.html#exercisehashingi"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+	show the result when the key <tt>&quot;deux&quot;</tt> is withdrawn.<LI>
+	For each table considered in Exercise&nbsp;<A HREF="page248.html#exercisehashingi" tppabs="http://www.brpreiss.com/books/opus4/html/page248.html#exercisehashingi"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+	derive an expression for the total memory space used
+	to represent a table of size <I>M</I> that contains <I>n</I> items.<LI>
+	Consider a chained hash table of size <I>M</I> that contains <I>n</I> items.
+	The performance of the table decreases
+	as the load factor  <IMG WIDTH=63 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline62864" SRC="img984.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img984.gif"  > increases.
+	In order to keep the load factor below one,
+	we propose to double the size of the array when <I>n</I>=<I>M</I>.
+	However, in order to do so we must <em>rehash</em>
+	all of the elements in the table.
+	Explain why rehashing is necessary.<LI>
+	Give the sequence of <I>M</I> keys that
+	fills a <em>chained scatter table</em> of size <I>M</I>
+	in the <em>shortest</em> possible time.
+	Find a tight, asymptotic bound on the minimum running time taken
+	to fill the table.<LI>
+	Give the sequence of <I>M</I> keys that
+	fills a <em>chained scatter table</em> of size <I>M</I>
+	in the longest possible time.
+	Find a tight, asymptotic bound on the minimum running time taken
+	to fill the table.<LI>
+	Consider the chained hash table implementation shown in
+	Programs&nbsp;<A HREF="page224.html#proghashtbl2h" tppabs="http://www.brpreiss.com/books/opus4/html/page224.html#proghashtbl2h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>, <A HREF="page225.html#proghashtbl2c" tppabs="http://www.brpreiss.com/books/opus4/html/page225.html#proghashtbl2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>, <A HREF="page226.html#proghashtbl3c" tppabs="http://www.brpreiss.com/books/opus4/html/page226.html#proghashtbl3c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> and&nbsp;<A HREF="page227.html#proghashtbl4c" tppabs="http://www.brpreiss.com/books/opus4/html/page227.html#proghashtbl4c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+	<OL><LI>
+		Rewrite the <tt>Insert</tt> routine so that it doubles
+		the length of the array when  <IMG WIDTH=37 HEIGHT=11 ALIGN=BOTTOM ALT="tex2html_wrap_inline62978" SRC="img1016.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1016.gif"  >.<LI>
+		Rewrite the <tt>Withdraw</tt> routine so that it halves
+		the length of the array when  <IMG WIDTH=39 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline63360" SRC="img1079.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1079.gif"  >.<LI>
+		Show that the <em>average</em> time for both insert and withdraw
+		operations is still <I>O</I>(1).
+	</OL><LI>
+	Consider two sets of integers,  <IMG WIDTH=139 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline63364" SRC="img1080.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1080.gif"  >
+	and  <IMG WIDTH=133 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline63366" SRC="img1081.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1081.gif"  >.
+	<OL><LI>
+		Devise an algorithm that uses a hash table
+		to test whether <I>S</I> is a subset of <I>T</I>.
+		What is the average running time of your algorithm?<LI>
+		Two sets are <em>equivalent</em>
+		if and only if both  <IMG WIDTH=42 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline63372" SRC="img1082.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1082.gif"  > and  <IMG WIDTH=43 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline63374" SRC="img1083.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1083.gif"  >.
+		Show that we can test if two sets of integers are equivalent
+		in <I>O</I>(<I>m</I>+<I>n</I>) time (on average).
+	</OL><LI> <A NAME="exercisehashingtree">&#160;</A>
+	(This question should be attempted
+	<em>after</em> reading Chapter&nbsp;<A HREF="page299.html#chapsrchtree" tppabs="http://www.brpreiss.com/books/opus4/html/page299.html#chapsrchtree"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>).
+	Rather than use an array of linked lists,
+	suppose we implement a hash table
+	with an array of <em>binary search trees</em>.
+	<OL><LI>
+		What are the worst-case running times for
+		<tt>Insert</tt>, <tt>Find</tt> and <tt>Withdraw</tt>.<LI>
+		What are the average running times for
+		<tt>Insert</tt>, <tt>Find</tt> and <tt>Withdraw</tt>.
+	</OL><LI> <A NAME="exercisehashingrandom">&#160;</A>
+	(This question should be attempted
+	<em>after</em> reading Section&nbsp;<A HREF="page472.html#secalgsrng" tppabs="http://www.brpreiss.com/books/opus4/html/page472.html#secalgsrng"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>).
+	Consider a scatter table with open addressing.
+	Devise a probe sequence of the form
+	<P> <IMG WIDTH=351 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath62985" SRC="img1027.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1027.gif"  ><P>
+	where <I>c</I>(<I>i</I>) is a <em>full-period pseudo random number generator</em>.
+	Why is such a sequence likely to be better than either
+	linear probing or quadratic probing?
+</OL><HR><A NAME="tex2html4979" HREF="page249.html" tppabs="http://www.brpreiss.com/books/opus4/html/page249.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4977" HREF="page203.html" tppabs="http://www.brpreiss.com/books/opus4/html/page203.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4971" HREF="page247.html" tppabs="http://www.brpreiss.com/books/opus4/html/page247.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4981" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4982" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

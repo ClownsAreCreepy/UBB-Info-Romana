@@ -1,0 +1,55 @@
+<HTML>
+<HEAD>
+<TITLE>Depth-First, Branch-and-Bound Solver</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html7517" HREF="page454.html" tppabs="http://www.brpreiss.com/books/opus4/html/page454.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7515" HREF="page452.html" tppabs="http://www.brpreiss.com/books/opus4/html/page452.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7511" HREF="page452.html" tppabs="http://www.brpreiss.com/books/opus4/html/page452.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7519" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7520" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0015241000000000000000">Depth-First, Branch-and-Bound Solver</A></H3>
+<P>
+Only a relatively minor modification of the simple,
+depth-first solver shown in Program&nbsp;<A HREF="page450.html#progsolution2c" tppabs="http://www.brpreiss.com/books/opus4/html/page450.html#progsolution2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> is needed
+to transform it into a branch-and-bound solver.
+Program&nbsp;<A HREF="page453.html#progsolution4c" tppabs="http://www.brpreiss.com/books/opus4/html/page453.html#progsolution4c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives the implementation of the <tt>DoSolve</tt>
+routine of the <tt>DepthFirstBranchAndBoundSolver</tt> class.<A NAME="tex2html868" HREF="footnode.html#33623" tppabs="http://www.brpreiss.com/books/opus4/html/footnode.html#33623"><IMG  ALIGN=BOTTOM ALT="gif" SRC="foot_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/foot_motif.gif"></A>
+<P>
+<P><A NAME="33624">&#160;</A><A NAME="progsolution4c">&#160;</A> <IMG WIDTH=575 HEIGHT=372 ALIGN=BOTTOM ALT="program32802" SRC="img1850.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1850.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>DepthFirstBranchAndBoundSolver</tt> Class<tt>DoSolve</tt> Member Function Definition<BR>
+<P>
+<P>
+The only difference between the simple, depth-first solver
+and the branch-and-bound version is the <tt>if</tt> statement on lines&nbsp;11-12.
+As each node in the solution space is visited two tests are done:
+First, the <tt>IsFeasible</tt> routine is called to check whether
+the given node represents a feasible solution.
+Next, the <tt>Bound</tt> routine is called to determine 
+the lower bound on the best possible solution in the given subtree.
+The second test determines whether this bound is less than
+the value of the objective function of the best solution already found.
+The recursive call to explore the subtree is only made
+if both tests succeed.
+Otherwise, the subtree of the solution space is pruned.
+<P>
+The degree to which the solution space may be pruned
+depends strongly on the nature of the problem being solved.
+In the worst case, no subtrees are pruned and the branch-and-bound
+routine visits all the nodes in the solution space.
+The branch-and-bound technique is really just
+a <em>heuristic</em><A NAME=32815>&#160;</A>--sometimes it works and sometimes it does not.
+<P>
+It is important to understand the trade-off being made:
+The solution space is being pruned at the added expense
+of performing the tests as each node is visited.
+The technique is successful only if
+the savings which accrue from pruning
+exceed the additional execution time arising from the tests.
+<P>
+<HR><A NAME="tex2html7517" HREF="page454.html" tppabs="http://www.brpreiss.com/books/opus4/html/page454.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7515" HREF="page452.html" tppabs="http://www.brpreiss.com/books/opus4/html/page452.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7511" HREF="page452.html" tppabs="http://www.brpreiss.com/books/opus4/html/page452.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7519" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7520" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

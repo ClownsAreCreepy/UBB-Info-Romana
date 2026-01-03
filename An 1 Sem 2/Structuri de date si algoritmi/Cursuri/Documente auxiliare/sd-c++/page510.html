@@ -1,0 +1,38 @@
+<HTML>
+<HEAD>
+<TITLE>Implementation</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html8217" HREF="page511.html" tppabs="http://www.brpreiss.com/books/opus4/html/page511.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8215" HREF="page509.html" tppabs="http://www.brpreiss.com/books/opus4/html/page509.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8209" HREF="page509.html" tppabs="http://www.brpreiss.com/books/opus4/html/page509.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8219" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8220" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0016601000000000000000">Implementation</A></H3>
+<P>
+Program&nbsp;<A HREF="page510.html#progsorter5h" tppabs="http://www.brpreiss.com/books/opus4/html/page510.html#progsorter5h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> declares the <tt>TwoWayMergeSorter&lt;T&gt;</tt> class template.
+A single member variable, <tt>tempArray</tt>, is declared.
+This variable is a pointer to an <tt>Array&lt;T&gt;</tt> instance.
+Since merge operations cannot be done in place,
+a second, temporary array is needed.
+The <tt>tempArray</tt> variable is keeps track of that array.
+The <tt>TwoWayMergeSorter</tt> constructor simply
+sets the <tt>tempArray</tt> pointer to zero.
+<P>
+<P><A NAME="44731">&#160;</A><A NAME="progsorter5h">&#160;</A> <IMG WIDTH=575 HEIGHT=257 ALIGN=BOTTOM ALT="program44548" SRC="img2201.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2201.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>TwoWayMergeSorter&lt;T&gt;</tt> Class Definition<BR>
+<P>
+<P>
+In addition to the constructor,
+three protected member functions are declared,
+<tt>Merge</tt> and two versions of <tt>DoSort</tt>.
+The purpose of the <tt>Merge</tt> function is to merge
+sorted subsequences of the array to be sorted.
+The two <tt>DoSort</tt> routines implement the sorting algorithm itself.
+<P>
+<HR><A NAME="tex2html8217" HREF="page511.html" tppabs="http://www.brpreiss.com/books/opus4/html/page511.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8215" HREF="page509.html" tppabs="http://www.brpreiss.com/books/opus4/html/page509.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8209" HREF="page509.html" tppabs="http://www.brpreiss.com/books/opus4/html/page509.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8219" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8220" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

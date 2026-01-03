@@ -1,0 +1,50 @@
+<HTML>
+<HEAD>
+<TITLE>Separate Chaining</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html4671" HREF="page224.html" tppabs="http://www.brpreiss.com/books/opus4/html/page224.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4669" HREF="page222.html" tppabs="http://www.brpreiss.com/books/opus4/html/page222.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4663" HREF="page222.html" tppabs="http://www.brpreiss.com/books/opus4/html/page222.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4673" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4674" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION009410000000000000000">Separate Chaining</A></H2>
+<P>
+Figure&nbsp;<A HREF="page223.html#fighash1" tppabs="http://www.brpreiss.com/books/opus4/html/page223.html#fighash1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> shows a hash table that uses
+<em>separate chaining</em><A NAME=11680>&#160;</A>
+to resolve collisions.
+The hash table is implemented as an array of linked lists.
+To insert an item into the table,
+it is appended to one of the linked lists.
+The linked list to it is appended is
+determined by hashing that item.
+<P>
+<P><A NAME="11892">&#160;</A><A NAME="fighash1">&#160;</A> <IMG WIDTH=575 HEIGHT=400 ALIGN=BOTTOM ALT="figure11681" SRC="img969.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img969.gif"  ><BR>
+<STRONG>Figure:</STRONG> Hash Table using Separate Chaining<BR>
+<P>
+<P>
+Figure&nbsp;<A HREF="page223.html#fighash1" tppabs="http://www.brpreiss.com/books/opus4/html/page223.html#fighash1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> illustrates an example in which
+there are <I>M</I>=16 linked lists.
+The twelve character strings <tt>&quot;ett&quot;</tt>-<tt>&quot;tolv&quot;</tt>
+have been inserted into the table using the hashed values
+and in the order given in Table&nbsp;<A HREF="page218.html#tblhashingwords" tppabs="http://www.brpreiss.com/books/opus4/html/page218.html#tblhashingwords"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+Notice that in this example since <I>M</I>=16,
+the linked list is selected by the least significant four bits
+of the hashed value given in Table&nbsp;<A HREF="page218.html#tblhashingwords" tppabs="http://www.brpreiss.com/books/opus4/html/page218.html#tblhashingwords"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+In effect,
+it is only the last letter of a string which determines
+the linked list in which that string appears.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html4675" HREF="page224.html#SECTION009411000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page224.html#SECTION009411000000000000000">Implementation</A>
+<LI> <A NAME="tex2html4676" HREF="page225.html#SECTION009412000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page225.html#SECTION009412000000000000000">Constructor and Destructor</A>
+<LI> <A NAME="tex2html4677" HREF="page226.html#SECTION009413000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page226.html#SECTION009413000000000000000">Inserting and Removing Items</A>
+<LI> <A NAME="tex2html4678" HREF="page227.html#SECTION009414000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page227.html#SECTION009414000000000000000">Finding an Item</A>
+</UL>
+<HR><A NAME="tex2html4671" HREF="page224.html" tppabs="http://www.brpreiss.com/books/opus4/html/page224.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4669" HREF="page222.html" tppabs="http://www.brpreiss.com/books/opus4/html/page222.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4663" HREF="page222.html" tppabs="http://www.brpreiss.com/books/opus4/html/page222.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4673" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4674" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

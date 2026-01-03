@@ -1,0 +1,71 @@
+<HTML>
+<HEAD>
+<TITLE>Multi-Dimensional Subscripting in C++</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html3180" HREF="page104.html" tppabs="http://www.brpreiss.com/books/opus4/html/page104.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3178" HREF="page100.html" tppabs="http://www.brpreiss.com/books/opus4/html/page100.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3172" HREF="page102.html" tppabs="http://www.brpreiss.com/books/opus4/html/page102.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3182" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3183" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION005330000000000000000">Multi-Dimensional Subscripting in C++</A></H2>
+<P>
+When accessing the elements of a multi-dimensional array,
+programmers usually prefer to use the C++ array subscripting operator
+rather than call a member function explicitly.
+This is because it is much more convenient to write <tt>a[i][j]</tt>
+than to write <tt>a.Select(i,j)</tt>.
+However, C++ does not directly support the overloading of
+multi-dimensional array subscripting.
+E.g., an experienced Fortran programmer would expect to be able to write
+<tt>a[i,j]</tt> and to overload <code>operator[](int,int)</code>.
+Alas, neither of these things is valid in C++.
+<P>
+The solution to this problem is to do the subscripting in two steps.
+Consider the reference <tt>a[i][j]</tt>.
+In C++ this is equivalent to
+<PRE>a.operator[] (i).operator[] (j)</PRE>
+In effect, the first subscripting operator selects the  <IMG WIDTH=17 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58387" SRC="img77.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img77.gif"  > row,
+and then the second subscripting operator
+picks the  <IMG WIDTH=19 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline60619" SRC="img514.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img514.gif"  > element of that row.
+<P>
+Program&nbsp;<A HREF="page102.html#progarray2dh" tppabs="http://www.brpreiss.com/books/opus4/html/page102.html#progarray2dh"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives a framework
+for implementing the two-step process in C++.
+Two object classes are declared--<tt>Array2D&lt;T&gt;</tt>
+and the nested class <tt>Row</tt>.
+The latter class
+is used to represent a reference to a particular row of a given
+two-dimensional array.
+<P>
+In Program&nbsp;<A HREF="page102.html#progarray2dh" tppabs="http://www.brpreiss.com/books/opus4/html/page102.html#progarray2dh"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> we see that <tt>operator[]</tt>
+for <tt>Array2D&lt;T&gt;</tt> objects returns an object of type <tt>Array2D&lt;T&gt;::Row</tt>.
+The purpose of a <tt>Row</tt> object is to ``remember''
+both the array and the row of that array that is being accessed--its data members are a reference to the accessed array,
+and the row number.
+<P>
+There is also a subscripting operator
+defined for <tt>Row</tt> class objects.
+This one uses the remembered row number together with the given
+column number to call the <tt>Select</tt> function on the appropriate array.
+<P>
+The definition of the <tt>Array2D&lt;T&gt;</tt>
+subscripting member function, <tt>operator[]</tt>,
+is given in Program&nbsp;<A HREF="page102.html#progarray2dc" tppabs="http://www.brpreiss.com/books/opus4/html/page102.html#progarray2dc"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+This function simply constructs an instance of the <tt>Array2D&lt;T&gt;::Row</tt> class.
+Clearly, the running time of this function is <I>O</I>(1).
+<P>
+Given the <tt>Array2D&lt;T&gt;</tt> class we are able to write
+code such as the following:
+<PRE>Array2D&lt;int&gt; a (4, 5);
+for (int i = 0; i &lt; 4; ++i)
+    for (int j = 0; j &lt; 5; ++j)
+        a[i][j] = 0;</PRE>
+which declares a  <IMG WIDTH=34 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline61183" SRC="img660.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img660.gif"  > array of integers,
+and initializes all of the elements with the value zero.
+<P>
+<HR><A NAME="tex2html3180" HREF="page104.html" tppabs="http://www.brpreiss.com/books/opus4/html/page104.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3178" HREF="page100.html" tppabs="http://www.brpreiss.com/books/opus4/html/page100.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3172" HREF="page102.html" tppabs="http://www.brpreiss.com/books/opus4/html/page102.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3182" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3183" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

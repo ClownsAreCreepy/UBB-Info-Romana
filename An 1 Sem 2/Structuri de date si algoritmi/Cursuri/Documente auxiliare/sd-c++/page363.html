@@ -1,0 +1,139 @@
+<HTML>
+<HEAD>
+<TITLE>Leftist Trees</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html6414" HREF="page364.html" tppabs="http://www.brpreiss.com/books/opus4/html/page364.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6412" HREF="page362.html" tppabs="http://www.brpreiss.com/books/opus4/html/page362.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6406" HREF="page362.html" tppabs="http://www.brpreiss.com/books/opus4/html/page362.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6416" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6417" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0012310000000000000000">Leftist Trees</A></H2>
+<P>
+A <em>leftist tree</em> is a tree which tends to ``lean'' to the left.
+The tendency to lean to the left is defined in terms
+of the shortest path from the root to an external node.
+In a leftist tree,
+the shortest path to an external node is always found on the right.
+<P>
+Every node in binary tree has associated with it a quantity
+called its <em>null path length</em> which is defined as follows:
+<P>
+<BLOCKQUOTE> <b>Definition (Null Path and Null Path Length)</b><A NAME="defnnpl">&#160;</A>
+<P>
+Consider an arbitrary node <I>x</I> in some binary tree <I>T</I>.
+The <em>null path</em> of node <I>x</I>
+is the shortest path in <I>T</I> from <I>x</I> to an external node of <I>T</I>.
+<P>
+The <em>null path length</em><A NAME=25664>&#160;</A>
+of node <I>x</I> is the length of its null path.
+</BLOCKQUOTE>
+<P>
+Sometimes it is convenient to talk about the null path length of an
+entire tree rather than of a node:
+<P>
+<BLOCKQUOTE> <b>Definition (Null Path Length of a Tree)</b>
+<P>
+The <em>null path length</em><A NAME=25669>&#160;</A>
+of an empty tree is zero
+and the null path length of a non-empty binary tree  <IMG WIDTH=111 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline66432" SRC="img1474.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1474.gif"  >
+is the null path length its root <I>R</I>.
+</BLOCKQUOTE>
+<P>
+When a new node or subtree is attached to a given tree,
+it is usually attached in place of an external node.
+Since the null path length of a tree is the length of the shortest path
+from the root of the tree to an external node,
+the null path length gives a lower bound on the cost of insertion.
+For example, the running time for insertion in a binary search tree,
+Program&nbsp;<A HREF="page314.html#progbst2c" tppabs="http://www.brpreiss.com/books/opus4/html/page314.html#progbst2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>, is at least
+<P> <IMG WIDTH=342 HEIGHT=17 ALIGN=BOTTOM ALT="displaymath66414" SRC="img1475.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1475.gif"  ><P>
+where <I>d</I> is the null path length of the tree.
+<P>
+A <em>leftist tree</em> is a tree in which the shortest
+path to an external node is always on the right.
+This informal idea is defined more precisely in terms
+of the null path lengths as follows:
+<P>
+<BLOCKQUOTE> <b>Definition (Leftist Tree)</b><A NAME="defnleftist">&#160;</A>
+A <em>leftist tree</em><A NAME=25677>&#160;</A><A NAME=25678>&#160;</A>
+is a binary tree <I>T</I> with the following properties:
+<OL><LI> Either  <IMG WIDTH=40 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline63628" SRC="img1112.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1112.gif"  >; or<LI>  <IMG WIDTH=111 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline66432" SRC="img1474.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1474.gif"  >,
+	where both  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63784" SRC="img1133.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1133.gif"  > and  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63786" SRC="img1134.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1134.gif"  > are leftist trees
+	which have null path lengths  <IMG WIDTH=16 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline66448" SRC="img1476.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1476.gif"  > and  <IMG WIDTH=18 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline66450" SRC="img1477.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1477.gif"  >, respectively,
+	such that 
+	<P> <IMG WIDTH=280 HEIGHT=15 ALIGN=BOTTOM ALT="displaymath66415" SRC="img1478.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1478.gif"  ><P></OL></BLOCKQUOTE>
+<P>
+Figure&nbsp;<A HREF="page363.html#figleftist1" tppabs="http://www.brpreiss.com/books/opus4/html/page363.html#figleftist1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> shows an example of a leftist heap.
+A leftist heap is simply a heap-ordered leftist tree.
+The external depth of the node is shown to the right of each node
+in Figure&nbsp;<A HREF="page363.html#figleftist1" tppabs="http://www.brpreiss.com/books/opus4/html/page363.html#figleftist1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+The figure clearly shows that it is not necessarily the case in a leftist tree
+that the number of nodes to the left of a given node is greater than
+the number to the right.
+However, it is always the case that the null path length on the left
+is greater than or equal to the null path length on the right
+for every node in the tree.
+<P>
+<P><A NAME="26077">&#160;</A><A NAME="figleftist1">&#160;</A> <IMG WIDTH=575 HEIGHT=271 ALIGN=BOTTOM ALT="figure25684" SRC="img1479.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1479.gif"  ><BR>
+<STRONG>Figure:</STRONG> A Leftist Heap<BR>
+<P>
+<P>
+The reason for our interest in leftist trees is illustrated
+by the following theorems:
+<P>
+<BLOCKQUOTE> <b>Theorem</b><A NAME="theorempqueuesiv">&#160;</A>
+Consider a leftist tree <I>T</I> which contains <I>n</I> internal nodes.
+The path leading from the root of <I>T</I> downwards to the rightmost external node
+contains at most  <IMG WIDTH=87 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline66458" SRC="img1480.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1480.gif"  > nodes.
+</BLOCKQUOTE>
+<P>
+	extbfProof
+Assume that <I>T</I> has null path length <I>d</I>.
+Then <I>T</I> must contain at least  <IMG WIDTH=14 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline66466" SRC="img1481.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1481.gif"  > leaves.
+Otherwise, there would be a shorter path than <I>d</I>
+from the root of <I>T</I> to an external node.
+<P>
+A binary tree with exactly <I>l</I> leaves
+has exactly <I>l</I>+1 non-leaf internal nodes.
+Since <I>T</I> has at least  <IMG WIDTH=14 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline66466" SRC="img1481.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1481.gif"  > leaves,
+it must contain at least  <IMG WIDTH=89 HEIGHT=30 ALIGN=MIDDLE ALT="tex2html_wrap_inline66480" SRC="img1482.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1482.gif"  > internal nodes altogether.
+Therefore,  <IMG WIDTH=134 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline66482" SRC="img1483.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1483.gif"  >.
+<P>
+Since <I>T</I> is a leftist tree,
+the shortest path to an external node must be the path on the right.
+Thus, the length of the path to the rightmost external is at most
+ <IMG WIDTH=87 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline66458" SRC="img1480.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1480.gif"  >.
+<P>
+There is an interesting dichotomy between AVL balanced trees and leftist trees.
+The shape of an AVL tree satisfies the AVL balance condition
+which stipulates that the difference in the heights of the left and
+right subtrees of every node may differ by at most one.
+The effect of AVL balancing is to ensure that
+the height of the tree is  <IMG WIDTH=56 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59891" SRC="img403.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img403.gif"  >.
+<P>
+On the other hand, leftist trees have an ``imbalance condition''
+which requires the null path length of the left subtree to be greater than
+or equal to that of the right subtree.
+The effect of the condition is to ensure that
+the length of the right path in a leftist tree is  <IMG WIDTH=56 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59891" SRC="img403.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img403.gif"  >.
+Therefore, by devising algorithms for manipulating leftist heaps
+which only follow the right path of the heap,
+we can achieve running times which are logarithmic in the number of nodes.
+<P>
+The dichotomy also extends to the structure of the algorithms.
+For example, an imbalance sometimes results from an insertion in an AVL tree.
+The imbalance is rectified by doing rotations.
+Similarly, an insertion into a leftist tree may result in a violation of
+the ``imbalance condition.''
+I.e., the null path length of the right subtree of a node my become
+greater than that of the left subtree.
+Fortunately, it is possible to restore the proper condition simply by
+swapping the left and right subtrees of that node.
+<P>
+<HR><A NAME="tex2html6414" HREF="page364.html" tppabs="http://www.brpreiss.com/books/opus4/html/page364.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6412" HREF="page362.html" tppabs="http://www.brpreiss.com/books/opus4/html/page362.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6406" HREF="page362.html" tppabs="http://www.brpreiss.com/books/opus4/html/page362.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6416" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6417" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

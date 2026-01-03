@@ -1,0 +1,91 @@
+<HTML>
+<HEAD>
+<TITLE>Binary Insertion Sort</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html7984" HREF="page492.html" tppabs="http://www.brpreiss.com/books/opus4/html/page492.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7982" HREF="page487.html" tppabs="http://www.brpreiss.com/books/opus4/html/page487.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7978" HREF="page490.html" tppabs="http://www.brpreiss.com/books/opus4/html/page490.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7986" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7987" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0016330000000000000000">Binary Insertion Sort</A></H2>
+<P>
+The straight insertion algorithm presented in the preceding section
+does a linear search to find the position in which to do the insertion.
+However, since the element is inserted into a sequence that is already sorted,
+we can use a binary search instead of a linear search.
+Whereas a linear search requires <I>O</I>(<I>n</I>) comparisons in the worst case,
+a binary search only requires  <IMG WIDTH=56 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59891" SRC="img403.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img403.gif"  > comparisons.
+Therefore, if the cost of a comparison is significant,
+the binary search may be preferred.
+<P>
+Program&nbsp;<A HREF="page491.html#progsorter2c" tppabs="http://www.brpreiss.com/books/opus4/html/page491.html#progsorter2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> defines the <tt>DoSort</tt> routine
+of the <tt>BinaryInsertionSorter&lt;T&gt;</tt> class.
+The framework of this routine is essentially the same as that of
+the <tt>StraightInsertionSorter&lt;T&gt;</tt> class.
+<P>
+<P><A NAME="35506">&#160;</A><A NAME="progsorter2c">&#160;</A> <IMG WIDTH=575 HEIGHT=524 ALIGN=BOTTOM ALT="program35333" SRC="img2130.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2130.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>BinaryInsertionSorter&lt;T&gt;</tt> Class 	<tt>DoSort</tt> Member Function Definition<BR>
+<P>
+<P>
+Exactly, <I>n</I>-1 iterations of the outer loop are done (lines&nbsp;11-26).
+In each iteration, a binary search search is done to determine
+the position at which to do the insertion (lines&nbsp;13-23).
+In the  <IMG WIDTH=17 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58387" SRC="img77.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img77.gif"  > iteration of the outer loop,
+the binary search considers array positions 0 to <I>i</I> (for  <IMG WIDTH=64 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline69979" SRC="img2131.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2131.gif"  >).
+The running time for the binary search in the  <IMG WIDTH=17 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58387" SRC="img77.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img77.gif"  >
+iteration is  <IMG WIDTH=185 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline69983" SRC="img2132.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2132.gif"  >.
+Once the correct position is found,
+at most <I>i</I> swaps are needed to insert the element in its place.
+<P>
+The worst-case running time of the binary insertion sort
+is dominated by the <I>i</I> swaps needed to do the insertion.
+Therefore, the worst-case running time is  <IMG WIDTH=40 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59179" SRC="img261.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img261.gif"  >.
+Furthermore, since the algorithm only swaps adjacent array elements,
+the average running time is also  <IMG WIDTH=40 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59179" SRC="img261.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img261.gif"  > (see Section&nbsp;<A HREF="page490.html#secsortingavg" tppabs="http://www.brpreiss.com/books/opus4/html/page490.html#secsortingavg"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>).
+Asymptotically, the binary insertion sort is no better than straight insertion.
+<P>
+However, the binary insertion sort does
+fewer array element comparisons than insertion sort.
+In the  <IMG WIDTH=17 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58387" SRC="img77.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img77.gif"  > iteration of the outer loop,
+the binary search requires  <IMG WIDTH=84 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline69995" SRC="img2133.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2133.gif"  > comparisons,
+for  <IMG WIDTH=64 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline69979" SRC="img2131.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2131.gif"  >.
+Therefore, the total number of comparisons is
+<P> <IMG WIDTH=500 HEIGHT=96 ALIGN=BOTTOM ALT="eqnarray35346" SRC="img2134.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2134.gif"  ><P>
+(This result follows directly from Theorem&nbsp;<A HREF="page355.html#theorempqueuesiii" tppabs="http://www.brpreiss.com/books/opus4/html/page355.html#theorempqueuesiii"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>).
+<P>
+The number of comparisons required by
+the straight insertion sort is  <IMG WIDTH=40 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59179" SRC="img261.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img261.gif"  > in the worst case
+as well as on average.
+Therefore on average, the binary insertion sort
+uses fewer comparisons than straight insertion sort.
+On the other hand, the previous section shows that in the best case
+the running time for straight insertion is <I>O</I>(<I>n</I>).
+Since the binary insertion sort routine <em>always</em> does the binary search,
+its best case running time is  <IMG WIDTH=68 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59897" SRC="img405.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img405.gif"  >.
+Table&nbsp;<A HREF="page491.html#tblsortinginsertion" tppabs="http://www.brpreiss.com/books/opus4/html/page491.html#tblsortinginsertion"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> summarizes the asymptotic running times
+for the two insertion sorts.
+<P>
+<P><A NAME="35357">&#160;</A>
+<P>
+    <A NAME="tblsortinginsertion">&#160;</A>
+    <DIV ALIGN=CENTER><P ALIGN=CENTER><TABLE COLS=4 BORDER FRAME=HSIDES RULES=GROUPS>
+<COL ALIGN=LEFT><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER>
+<TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP>
+	</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP COLSPAN=3> running time</TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP>
+<P>
+	algorithm </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> best case </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> average case </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> worst case </TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP>straight insertion sort </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>O</I>(<I>n</I>) </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=40 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59179" SRC="img261.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img261.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=40 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59179" SRC="img261.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img261.gif"  > </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> 
+	binary insertion sort </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=68 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59897" SRC="img405.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img405.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=40 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59179" SRC="img261.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img261.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=40 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59179" SRC="img261.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img261.gif"  > </TD></TR>
+</TBODY>
+<CAPTION ALIGN=BOTTOM><STRONG>Table:</STRONG> Running Times for Insertion Sorting</CAPTION></TABLE>
+</P></DIV><P><HR><A NAME="tex2html7984" HREF="page492.html" tppabs="http://www.brpreiss.com/books/opus4/html/page492.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7982" HREF="page487.html" tppabs="http://www.brpreiss.com/books/opus4/html/page487.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7978" HREF="page490.html" tppabs="http://www.brpreiss.com/books/opus4/html/page490.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7986" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7987" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

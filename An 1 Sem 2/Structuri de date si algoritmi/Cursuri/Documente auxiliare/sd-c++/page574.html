@@ -1,0 +1,126 @@
+<HTML>
+<HEAD>
+<TITLE>Minimum-Cost Spanning Trees</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html9003" HREF="page575.html" tppabs="http://www.brpreiss.com/books/opus4/html/page575.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html9001" HREF="page523.html" tppabs="http://www.brpreiss.com/books/opus4/html/page523.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8995" HREF="page573.html" tppabs="http://www.brpreiss.com/books/opus4/html/page573.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html9005" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html9006" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION0017500000000000000000">Minimum-Cost Spanning Trees</A></H1>
+<P>
+In this section we consider undirected graphs and their subgraphs.
+A <em>subgraph</em><A NAME=52296>&#160;</A> of a graph  <IMG WIDTH=72 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71355" SRC="img2282.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2282.gif"  >
+is any graph  <IMG WIDTH=86 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline72801" SRC="img2511.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2511.gif"  >
+such that  <IMG WIDTH=47 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline72803" SRC="img2512.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2512.gif"  > and  <IMG WIDTH=45 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline72805" SRC="img2513.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2513.gif"  >.
+In particular, we consider <em>connected</em> undirected graphs
+and their <em>minimal subgraphs</em><A NAME=52299>&#160;</A><A NAME=52300>&#160;</A>.
+The minimal subgraph of a connected graph is called a <em>spanning tree</em>:
+<P>
+<BLOCKQUOTE> <b>Definition (Spanning Tree)</b><A NAME="defngraphsspantree">&#160;</A>
+Consider a <em>connected</em>, <em>undirected</em> graph  <IMG WIDTH=72 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71355" SRC="img2282.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2282.gif"  >.
+A <em>spanning tree</em><A NAME=52308>&#160;</A> of <I>G</I>
+is a subgraph of <I>G</I>, say  <IMG WIDTH=81 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline72813" SRC="img2514.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2514.gif"  >,
+with the following properties:
+<OL><LI>  <IMG WIDTH=47 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline72815" SRC="img2515.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2515.gif"  >.<LI> <I>T</I> is connected.<LI> <I>T</I> is acyclic.
+</OL></BLOCKQUOTE>
+<P>
+Figure&nbsp;<A HREF="page574.html#figgraph15" tppabs="http://www.brpreiss.com/books/opus4/html/page574.html#figgraph15"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> shows an undirected graph,  <IMG WIDTH=24 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline72821" SRC="img2516.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2516.gif"  >,
+together with three of its spanning trees.
+A spanning tree is called a <em>tree</em>
+because every <em>acyclic</em> undirected graph
+can be viewed as a general, unordered tree.
+Because the edges are undirected,
+any vertex may be chosen to serve as the root of the tree.
+For example, the spanning tree of  <IMG WIDTH=24 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline72821" SRC="img2516.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2516.gif"  >
+given in Figure&nbsp;<A HREF="page574.html#figgraph15" tppabs="http://www.brpreiss.com/books/opus4/html/page574.html#figgraph15"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>&nbsp;(c)
+can be viewed as the general, unordered tree
+<P> <IMG WIDTH=340 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath72795" SRC="img2517.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2517.gif"  ><P>
+<P>
+<P><A NAME="52563">&#160;</A><A NAME="figgraph15">&#160;</A> <IMG WIDTH=575 HEIGHT=404 ALIGN=BOTTOM ALT="figure52318" SRC="img2518.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2518.gif"  ><BR>
+<STRONG>Figure:</STRONG> An Undirected Graph and Three Spanning Trees<BR>
+<P>
+<P>
+According to Definition&nbsp;<A HREF="page574.html#defngraphsspantree" tppabs="http://www.brpreiss.com/books/opus4/html/page574.html#defngraphsspantree"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+a spanning tree is connected.
+Therefore, as long as the tree contains more than one vertex,
+there can be no vertex with degree zero.
+Furthermore, the following theorem guarantees that there is always
+at least one vertex with degree one:
+<P>
+<BLOCKQUOTE> <b>Theorem</b><A NAME="theoremgraphsi">&#160;</A>
+Consider a connected, undirected graph  <IMG WIDTH=72 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71355" SRC="img2282.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2282.gif"  >, where  <IMG WIDTH=47 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72829" SRC="img2519.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2519.gif"  >.
+Let  <IMG WIDTH=76 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline72831" SRC="img2520.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2520.gif"  > be a spanning tree of <I>G</I>.
+The spanning tree <I>T</I> contains at least one vertex of degree one.
+</BLOCKQUOTE>
+<P>
+	extbfProof (By contradiction).
+Assume that there is no vertex in <I>T</I> of degree one.
+I.e., all the vertices in <I>T</I> have degree two or greater.
+Then by following edges into and out of vertices
+we can construct a path that is cyclic.
+But a spanning tree is acyclic--a contradiction.
+Therefore, a spanning tree always contains at least one vertex of degree one.
+<P>
+According to Definition&nbsp;<A HREF="page574.html#defngraphsspantree" tppabs="http://www.brpreiss.com/books/opus4/html/page574.html#defngraphsspantree"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+the edge set of a spanning tree
+is a subset of the edges in the spanned graph.
+How many edges must a spanning tree have?
+The following theorem answers the question:
+<P>
+<BLOCKQUOTE> <b>Theorem</b><A NAME="theoremgraphsii">&#160;</A>
+Consider a connected, undirected graph  <IMG WIDTH=72 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71355" SRC="img2282.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2282.gif"  >.
+Let  <IMG WIDTH=76 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline72831" SRC="img2520.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2520.gif"  > be a spanning tree of <I>G</I>.
+The number of edges in the spanning tree is given by
+<P> <IMG WIDTH=296 HEIGHT=17 ALIGN=BOTTOM ALT="displaymath72796" SRC="img2521.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2521.gif"  ><P></BLOCKQUOTE>
+<P>
+	extbfProof (By induction).
+We can prove Theorem&nbsp;<A HREF="page574.html#theoremgraphsii" tppabs="http://www.brpreiss.com/books/opus4/html/page574.html#theoremgraphsii"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> by induction on  <IMG WIDTH=17 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71781" SRC="img2365.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2365.gif"  >,
+the number of vertices in the graph.
+<P>
+<b>Base Case</b>
+Consider a graph that contains only one node, i.e.,  <IMG WIDTH=46 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72849" SRC="img2522.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2522.gif"  >.
+Clearly, the spanning tree for such a graph contains no edges.
+Since  <IMG WIDTH=74 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72851" SRC="img2523.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2523.gif"  >,
+the theorem is valid.
+<P>
+<b>Inductive Hypothesis</b>
+Assume that the number of edges in a spanning tree for a graph
+with  <IMG WIDTH=17 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71781" SRC="img2365.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2365.gif"  > has been shown to be  <IMG WIDTH=44 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72855" SRC="img2524.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2524.gif"  >
+for  <IMG WIDTH=109 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72857" SRC="img2525.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2525.gif"  >.
+<P>
+Consider a graph  <IMG WIDTH=96 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline72859" SRC="img2526.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2526.gif"  > with <I>k</I>+1 vertices
+and its spanning tree  <IMG WIDTH=99 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline72863" SRC="img2527.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2527.gif"  >.
+According to Theorem&nbsp;<A HREF="page574.html#theoremgraphsi" tppabs="http://www.brpreiss.com/books/opus4/html/page574.html#theoremgraphsi"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+ <IMG WIDTH=35 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72865" SRC="img2528.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2528.gif"  > contains at least one vertex of degree one.
+Let  <IMG WIDTH=38 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline72363" SRC="img2460.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2460.gif"  > be one such vertex
+and  <IMG WIDTH=74 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline72869" SRC="img2529.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2529.gif"  > be the one edge emanating from <I>v</I> in  <IMG WIDTH=32 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline64724" SRC="img1278.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1278.gif"  >.
+<P>
+Let  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline64708" SRC="img1274.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1274.gif"  > be the graph of <I>k</I> nodes obtained by removing <I>v</I>
+and its emanating edge from the graph  <IMG WIDTH=32 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline64724" SRC="img1278.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1278.gif"  >.
+I.e.,  <IMG WIDTH=188 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline72883" SRC="img2530.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2530.gif"  >.
+<P>
+Since  <IMG WIDTH=32 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline64724" SRC="img1278.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1278.gif"  > is connected, so too is  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline64708" SRC="img1274.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1274.gif"  >.
+Similarly, since  <IMG WIDTH=32 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline64724" SRC="img1278.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1278.gif"  > is acyclic, so too is  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline64708" SRC="img1274.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1274.gif"  >.
+Therefore  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline64708" SRC="img1274.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1274.gif"  > is a spanning tree with <I>k</I> vertices.
+By the inductive hypothesis  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline64708" SRC="img1274.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1274.gif"  > has <I>k</I>-1 edges.
+Thus,  <IMG WIDTH=32 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline64724" SRC="img1278.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1278.gif"  > as <I>k</I> edges.
+<P>
+Therefore, by induction on <I>k</I>,
+the spanning tree for a graph with  <IMG WIDTH=17 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71781" SRC="img2365.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2365.gif"  > vertices
+contains  <IMG WIDTH=44 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72855" SRC="img2524.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2524.gif"  > edges.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html9007" HREF="page575.html#SECTION0017501000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page575.html#SECTION0017501000000000000000">Constructing Spanning Trees</A>
+<LI> <A NAME="tex2html9008" HREF="page576.html#SECTION0017502000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page576.html#SECTION0017502000000000000000">Minimum-Cost Spanning Trees</A>
+<LI> <A NAME="tex2html9009" HREF="page577.html#SECTION0017510000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page577.html#SECTION0017510000000000000000">Prim's Algorithm</A>
+<LI> <A NAME="tex2html9010" HREF="page579.html#SECTION0017520000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page579.html#SECTION0017520000000000000000">Kruskal's Algorithm</A>
+</UL>
+<HR><A NAME="tex2html9003" HREF="page575.html" tppabs="http://www.brpreiss.com/books/opus4/html/page575.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html9001" HREF="page523.html" tppabs="http://www.brpreiss.com/books/opus4/html/page523.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8995" HREF="page573.html" tppabs="http://www.brpreiss.com/books/opus4/html/page573.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html9005" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html9006" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,44 @@
+<HTML>
+<HEAD>
+<TITLE>Adjacency Lists</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html8524" HREF="page536.html" tppabs="http://www.brpreiss.com/books/opus4/html/page536.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8522" HREF="page532.html" tppabs="http://www.brpreiss.com/books/opus4/html/page532.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8518" HREF="page534.html" tppabs="http://www.brpreiss.com/books/opus4/html/page534.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8526" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8527" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0017113000000000000000">Adjacency Lists</A></H3>
+<P>
+One technique that is often used for a sparse graph, say  <IMG WIDTH=72 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71355" SRC="img2282.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2282.gif"  >,
+uses  <IMG WIDTH=17 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71781" SRC="img2365.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2365.gif"  > linked lists--one for each vertex.
+The linked list for vertex  <IMG WIDTH=43 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline71485" SRC="img2309.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2309.gif"  > contains
+the elements of  <IMG WIDTH=139 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71785" SRC="img2366.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2366.gif"  >,
+the set of nodes adjacent to  <IMG WIDTH=11 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline71521" SRC="img2317.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2317.gif"  >.
+As a result, the lists are called
+<em>adjacency lists</em><A NAME=49401>&#160;</A>.
+<P>
+Figure&nbsp;<A HREF="page535.html#figgraph5" tppabs="http://www.brpreiss.com/books/opus4/html/page535.html#figgraph5"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> shows the adjacency lists for the directed graph  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline71449" SRC="img2298.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2298.gif"  >
+of Figure&nbsp;<A HREF="page525.html#figgraph1" tppabs="http://www.brpreiss.com/books/opus4/html/page525.html#figgraph1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> and the directed graph  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline71603" SRC="img2334.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2334.gif"  > of Figure&nbsp;<A HREF="page529.html#figgraph3" tppabs="http://www.brpreiss.com/books/opus4/html/page529.html#figgraph3"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+Notice that the total number of list elements used to represent
+a directed graph is  <IMG WIDTH=16 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71793" SRC="img2367.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2367.gif"  >
+but the number of lists elements used to represent
+an undirected graph is  <IMG WIDTH=44 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71795" SRC="img2368.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2368.gif"  >.
+Therefore, the space required for the adjacency lists is  <IMG WIDTH=42 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71797" SRC="img2369.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2369.gif"  >.
+<P>
+<P><A NAME="49662">&#160;</A><A NAME="figgraph5">&#160;</A> <IMG WIDTH=575 HEIGHT=411 ALIGN=BOTTOM ALT="figure49405" SRC="img2370.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2370.gif"  ><BR>
+<STRONG>Figure:</STRONG> Adjacency Lists<BR>
+<P>
+<P>
+By definition, a sparse graph has  <IMG WIDTH=82 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71739" SRC="img2360.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2360.gif"  >.
+Hence the space required to represent a sparse graph
+using adjacency lists is  <IMG WIDTH=43 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71805" SRC="img2371.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2371.gif"  >.
+Clearly this is asymptotically better than using adjacency matrices
+which require  <IMG WIDTH=50 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline71729" SRC="img2358.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2358.gif"  > space.
+<P>
+<HR><A NAME="tex2html8524" HREF="page536.html" tppabs="http://www.brpreiss.com/books/opus4/html/page536.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8522" HREF="page532.html" tppabs="http://www.brpreiss.com/books/opus4/html/page532.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8518" HREF="page534.html" tppabs="http://www.brpreiss.com/books/opus4/html/page534.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8526" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8527" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

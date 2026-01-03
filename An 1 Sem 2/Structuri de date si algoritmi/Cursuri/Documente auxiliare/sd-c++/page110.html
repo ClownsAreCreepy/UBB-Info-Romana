@@ -1,0 +1,76 @@
+<HTML>
+<HEAD>
+<TITLE>Class Hierarchy</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html3276" HREF="page111.html" tppabs="http://www.brpreiss.com/books/opus4/html/page111.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3274" HREF="page109.html" tppabs="http://www.brpreiss.com/books/opus4/html/page109.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3268" HREF="page109.html" tppabs="http://www.brpreiss.com/books/opus4/html/page109.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3278" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3279" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION006210000000000000000">Class Hierarchy</A></H2>
+<P>
+The C++ class hierarchy which is used to represent
+the basic repertoire of abstract data types is shown
+in Figure&nbsp;<A HREF="page110.html#figclasses" tppabs="http://www.brpreiss.com/books/opus4/html/page110.html#figclasses"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+Two kinds of classes are shown in Figure&nbsp;<A HREF="page110.html#figclasses" tppabs="http://www.brpreiss.com/books/opus4/html/page110.html#figclasses"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>;
+<em>abstract C++ classes</em><A NAME=4454>&#160;</A>,
+which look like this
+ <IMG WIDTH=92 HEIGHT=19 ALIGN=BOTTOM ALT="tex2html_wrap61267" SRC="img675.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img675.gif"  >,
+and <em>concrete C++ classes</em><A NAME=4457>&#160;</A>,
+which look like this
+ <IMG WIDTH=91 HEIGHT=19 ALIGN=BOTTOM ALT="tex2html_wrap61269" SRC="img676.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img676.gif"  >.
+Lines in the figure indicate derivation;
+base classes always appear to the left of derived classes.
+<P>
+<P><A NAME="4463">&#160;</A><A NAME="figclasses">&#160;</A> <IMG WIDTH=575 HEIGHT=706 ALIGN=BOTTOM ALT="figure4459" SRC="img677.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img677.gif"  ><BR>
+<STRONG>Figure:</STRONG> Object Class Hierarchy<BR>
+<P>
+<P>
+An <em>abstract class</em><A NAME=4467>&#160;</A> is a class 
+which specifies an <em>interface</em><A NAME=4469>&#160;</A> only.
+It is not possible create object instances of abstract classes.
+In C++ an abstract class typically has one or more
+<em>pure virtual member functions</em><A NAME=4471>&#160;</A>.
+A <em>pure</em> virtual member function declares an interface only--there is no implementation defined.
+In effect, the interface specifies the set of operations
+without specifying the implementation.
+<P>
+An abstract class is intended to be used a the
+<em>base class</em><A NAME=4474>&#160;</A>
+from which other classes are <em>derived</em><A NAME=4476>&#160;</A>.
+Declaring the member functions <em>virtual</em><A NAME=4478>&#160;</A>
+makes it possible to access the implementations provided
+by the derived classes through the base-class interface.
+Consequently,
+we don't need to know how a particular object instance is implemented,
+nor do we need to know of which derived class it is an instance.
+<P>
+This design pattern uses the idea of <em>polymorphism</em><A NAME=4480>&#160;</A>.
+Polymorphism literally means ``having many forms.''
+The essential idea is that a single, common abstraction
+is used to define the set of values and the set of operations--the abstract data type.
+This interface is embodied in the C++ abstract class definition.
+Then, various different implementations (<em>many forms</em>)
+of the abstract data type can be made.
+This is done in C++ by deriving concrete class instances
+from the abstract base class.
+<P>
+The remainder of this section presents the
+top levels of the class hierarchy which are shown in Figure&nbsp;<A HREF="page110.html#figclasses1" tppabs="http://www.brpreiss.com/books/opus4/html/page110.html#figclasses1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+The top levels define those attributes of objects which
+are common to all of the classes in the hierarchy.
+The lower levels of the hierarchy
+(i.e., those derived from the <tt>Container</tt> class)
+are presented in subsequent chapters where
+the abstractions are defined and
+various implementations of those abstractions are elaborated.
+<P>
+<P><A NAME="4488">&#160;</A><A NAME="figclasses1">&#160;</A> <IMG WIDTH=575 HEIGHT=201 ALIGN=BOTTOM ALT="figure4484" SRC="img678.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img678.gif"  ><BR>
+<STRONG>Figure:</STRONG> Object Class Hierarchy<BR>
+<P><HR><A NAME="tex2html3276" HREF="page111.html" tppabs="http://www.brpreiss.com/books/opus4/html/page111.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3274" HREF="page109.html" tppabs="http://www.brpreiss.com/books/opus4/html/page109.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3268" HREF="page109.html" tppabs="http://www.brpreiss.com/books/opus4/html/page109.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3278" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3279" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

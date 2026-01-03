@@ -1,0 +1,12 @@
+
+Exerciţii - Programare shell
+---------------------------------------------------------------------------
+1. Să se afișeze conținutul unui fișier de tip text în ordinea inversă a liniilor (mai întai se va afișa ultima linie, apoi penultima etc.).
+
+2. Să se determine și să afișeze linia dintr-un fișier care conține cele mai multe caractere.
+
+3. Să se calculeze și să afișeze numărul de vocale  și numărul de consoane dintr-un fișier.
+
+4. Să se afișeze liniile dintr-un fișier în care un cuvânt se repetă de cel puțin 2 ori. 
+
+5. Să se determine și să afișeze numărul de numere valide (sau suma lor) dintr-un fișier.

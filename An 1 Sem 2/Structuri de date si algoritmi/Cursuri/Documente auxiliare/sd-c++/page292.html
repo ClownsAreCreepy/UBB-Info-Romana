@@ -1,0 +1,45 @@
+<HTML>
+<HEAD>
+<TITLE>Destructor and Purge Member Functions</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html5536" HREF="page293.html" tppabs="http://www.brpreiss.com/books/opus4/html/page293.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5534" HREF="page289.html" tppabs="http://www.brpreiss.com/books/opus4/html/page289.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5530" HREF="page291.html" tppabs="http://www.brpreiss.com/books/opus4/html/page291.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5538" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5539" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0010653000000000000000">Destructor and <tt>Purge</tt> Member Functions</A></H3>
+<P>
+The destructor for the <tt>BinaryTree</tt> class
+is defined in Program&nbsp;<A HREF="page292.html#progbintree2c" tppabs="http://www.brpreiss.com/books/opus4/html/page292.html#progbintree2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+It simply calls the <tt>Purge</tt> member function to do the job.
+The <tt>Purge</tt> member function is part of the <tt>Container</tt> class
+interface which all container instance must provide.
+The purpose of the <tt>Purge</tt> routine is to delete all the owned objects
+in the container and to return the container to its initial empty state.
+<P>
+<P><A NAME="17416">&#160;</A><A NAME="progbintree2c">&#160;</A> <IMG WIDTH=575 HEIGHT=317 ALIGN=BOTTOM ALT="program17245" SRC="img1186.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1186.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>BinaryTree</tt> Class <tt>Purge</tt> Member Function 	and Destructor Definitions<BR>
+<P>
+<P>
+Clearly the <tt>Purge</tt> function has nothing to do
+if the tree is already the empty tree.
+If the tree is not the empty tree,
+then the <tt>Purge</tt> function has some cleaning-up to do.
+It begins by deleting the root
+only if the binary tree is the owner of the contained objects.
+Then, because a tree always owns its subtrees,
+the <tt>Purge</tt> routine deletes the left and right subtrees.
+<P>
+Suppose the binary tree contains <I>n</I> non-empty nodes.
+Theorem&nbsp;<A HREF="page255.html#theoremtreesi" tppabs="http://www.brpreiss.com/books/opus4/html/page255.html#theoremtreesi"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> tells us that there are <I>n</I>+1 empty nodes.
+Altogether there are 2<I>n</I>+1=<I>O</I>(<I>n</I>) nodes.
+Therefore, the running time of <tt>Purge</tt>
+is  <IMG WIDTH=129 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline64120" SRC="img1187.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1187.gif"  > in the worst case.
+<P>
+<HR><A NAME="tex2html5536" HREF="page293.html" tppabs="http://www.brpreiss.com/books/opus4/html/page293.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5534" HREF="page289.html" tppabs="http://www.brpreiss.com/books/opus4/html/page289.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5530" HREF="page291.html" tppabs="http://www.brpreiss.com/books/opus4/html/page291.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5538" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5539" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

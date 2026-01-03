@@ -1,0 +1,77 @@
+<HTML>
+<HEAD>
+<TITLE>Putting Items into a Binary Heap</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html6375" HREF="page361.html" tppabs="http://www.brpreiss.com/books/opus4/html/page361.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6373" HREF="page354.html" tppabs="http://www.brpreiss.com/books/opus4/html/page354.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6367" HREF="page359.html" tppabs="http://www.brpreiss.com/books/opus4/html/page359.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6377" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6378" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0012230000000000000000">Putting Items into a Binary Heap</A></H2>
+<P>
+There are two requirements which must be satisfied when
+an item is inserted in a binary heap.
+First, the resulting tree must have the correct shape.
+Second, the tree must remain heap-ordered.
+Figure&nbsp;<A HREF="page360.html#figheap2" tppabs="http://www.brpreiss.com/books/opus4/html/page360.html#figheap2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> illustrates the way in which this is done.
+<P>
+Since the resulting tree must be a complete tree,
+there is only one place in the tree where a node can be added.
+I.e., since the bottom level must be filled from left to right,
+the node node must be added at the next available position in the bottom
+level of the tree as shown in Figure&nbsp;<A HREF="page360.html#figheap2" tppabs="http://www.brpreiss.com/books/opus4/html/page360.html#figheap2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>&nbsp;(a).
+<P>
+<P><A NAME="25210">&#160;</A><A NAME="figheap2">&#160;</A> <IMG WIDTH=575 HEIGHT=322 ALIGN=BOTTOM ALT="figure24897" SRC="img1465.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1465.gif"  ><BR>
+<STRONG>Figure:</STRONG> Inserting an Item into a Binary Heap<BR>
+<P>
+<P>
+In this example, the new item to be inserted has the key&nbsp;2.
+Note that we cannot simply drop the new item into the next position
+in the complete tree because the resulting tree is no longer heap ordered.
+Instead, the hole in the heap is moved toward the root
+by moving items down in the heap
+as shown in Figure&nbsp;<A HREF="page360.html#figheap2" tppabs="http://www.brpreiss.com/books/opus4/html/page360.html#figheap2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>&nbsp;(b) and&nbsp;(c).
+The process of moving items down terminates either when we reach the root
+of the tree or when the hole has been moved up to a position in which
+when the new item is inserted the result is a heap.
+<P>
+Program&nbsp;<A HREF="page360.html#progbinheap2c" tppabs="http://www.brpreiss.com/books/opus4/html/page360.html#progbinheap2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives the code for inserting an item
+in a binary heap.
+The <tt>Enqueue</tt> member function of the <tt>BinaryHeap</tt> class
+takes as its lone argument a reference to the item to be inserted in the heap.
+If the priority queue is full an exception is thrown.
+Otherwise, the item is inserted as described above.
+<P>
+<P><A NAME="25305">&#160;</A><A NAME="progbinheap2c">&#160;</A> <IMG WIDTH=575 HEIGHT=258 ALIGN=BOTTOM ALT="program25217" SRC="img1466.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1466.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>BinaryHeap</tt> Class 	<tt>Enqueue</tt> Member Function Definition<BR>
+<P>
+<P>
+The implementation of the algorithm is actually remarkably simple.
+Lines&nbsp;6-11 move the hole in the heap up by moving items down.
+When the loop terminates, the new item can be inserted at position <I>i</I>.
+Therefore, the loop terminates either at the root, <I>i</I>=1,
+or when the key in the parent of <I>i</I>,
+which is found at position  <IMG WIDTH=32 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline66352" SRC="img1457.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1457.gif"  >,
+is smaller than the item to be inserted.
+<P>
+Notice too that a good optimizing compiler will recognize that
+the subscript calculations involve only division by two.
+Therefore, the divisions can be replaced by bitwise right shifts
+which usually run much more quickly.
+<P>
+Since the depth of a complete binary tree with <I>n</I>
+nodes is  <IMG WIDTH=51 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline66396" SRC="img1467.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1467.gif"  >,
+the worst case running time for the <tt>Enqueue</tt> operation is
+<P> <IMG WIDTH=379 HEIGHT=17 ALIGN=BOTTOM ALT="displaymath66382" SRC="img1468.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1468.gif"  ><P>
+where  <IMG WIDTH=125 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline64816" SRC="img1293.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1293.gif"  > is the time required to compare to objects.
+If
+<P> <IMG WIDTH=341 HEIGHT=17 ALIGN=BOTTOM ALT="displaymath66383" SRC="img1469.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1469.gif"  ><P>
+the <tt>Enqueue</tt> operation is simply  <IMG WIDTH=56 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59891" SRC="img403.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img403.gif"  > in the worst case.
+<P>
+<HR><A NAME="tex2html6375" HREF="page361.html" tppabs="http://www.brpreiss.com/books/opus4/html/page361.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6373" HREF="page354.html" tppabs="http://www.brpreiss.com/books/opus4/html/page354.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6367" HREF="page359.html" tppabs="http://www.brpreiss.com/books/opus4/html/page359.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6377" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6378" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

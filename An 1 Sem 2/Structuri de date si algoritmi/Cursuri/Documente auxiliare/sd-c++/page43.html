@@ -1,0 +1,68 @@
+<HTML>
+<HEAD>
+<TITLE>Average Running Times</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html2423" HREF="page44.html" tppabs="http://www.brpreiss.com/books/opus4/html/page44.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2421" HREF="page35.html" tppabs="http://www.brpreiss.com/books/opus4/html/page35.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2415" HREF="page42.html" tppabs="http://www.brpreiss.com/books/opus4/html/page42.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2425" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2426" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION003170000000000000000">Average Running Times</A></H2>
+<A NAME="secmodelavg">&#160;</A>
+<P>
+In the previous section,
+we found the function,  <IMG WIDTH=149 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline58401" SRC="img82.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img82.gif"  >,
+which gives the running time of Program&nbsp;<A HREF="page42.html#progfindmaxc" tppabs="http://www.brpreiss.com/books/opus4/html/page42.html#progfindmaxc"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+as a function both of number of inputs, <I>n</I>,
+and of the actual input values.
+Suppose instead we are interested in a function  <IMG WIDTH=73 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline58409" SRC="img83.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img83.gif"  >
+which gives the running time <em>on average</em>
+for <I>n</I> inputs, regardless of the values of those inputs.
+In other words, if we run Program&nbsp;<A HREF="page42.html#progfindmaxc" tppabs="http://www.brpreiss.com/books/opus4/html/page42.html#progfindmaxc"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+a large number of times on a selection of random inputs of length <I>n</I>,
+what will the average running time be?
+<P>
+We can write the sum of the running times given in Table&nbsp;<A HREF="page42.html#tblfindmaxc" tppabs="http://www.brpreiss.com/books/opus4/html/page42.html#tblfindmaxc"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+in the following form
+<P><A NAME="eqnmodelavg">&#160;</A> <IMG WIDTH=500 HEIGHT=46 ALIGN=BOTTOM ALT="equation533" SRC="img84.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img84.gif"  ><P>
+where  <IMG WIDTH=13 HEIGHT=14 ALIGN=MIDDLE ALT="tex2html_wrap_inline58415" SRC="img85.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img85.gif"  > is the probability that line&nbsp;6 of the program is executed.
+The probability  <IMG WIDTH=13 HEIGHT=14 ALIGN=MIDDLE ALT="tex2html_wrap_inline58415" SRC="img85.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img85.gif"  > is given by
+<P> <IMG WIDTH=337 HEIGHT=38 ALIGN=BOTTOM ALT="displaymath58403" SRC="img86.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img86.gif"  ><P>
+I.e.,  <IMG WIDTH=13 HEIGHT=14 ALIGN=MIDDLE ALT="tex2html_wrap_inline58415" SRC="img85.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img85.gif"  > is the probability that the  <IMG WIDTH=17 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58387" SRC="img77.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img77.gif"  > array entry,  <IMG WIDTH=11 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline58389" SRC="img78.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img78.gif"  >,
+is larger than the maximum of all the preceding array entries,
+ <IMG WIDTH=106 HEIGHT=13 ALIGN=MIDDLE ALT="tex2html_wrap_inline58425" SRC="img87.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img87.gif"  >.
+<P>
+In order to determine  <IMG WIDTH=13 HEIGHT=14 ALIGN=MIDDLE ALT="tex2html_wrap_inline58415" SRC="img85.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img85.gif"  >,
+we need to know (or to assume)
+something about the distribution of input values.
+For example, if we know <em>a priori</em> that the array passed to the function
+<tt>FindMaximum</tt> is ordered from smallest to largest,
+then we know that  <IMG WIDTH=42 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline58429" SRC="img88.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img88.gif"  >.
+Conversely, if we know that the array is ordered from largest to smallest,
+then we know that  <IMG WIDTH=43 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline58431" SRC="img89.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img89.gif"  >.
+<P>
+In the general case, we have no <em>a priori</em> knowledge of the
+distribution of the values in the input array.
+In this case, consider the  <IMG WIDTH=17 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58387" SRC="img77.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img77.gif"  > iteration of the loop.
+In this iteration  <IMG WIDTH=11 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline58389" SRC="img78.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img78.gif"  > is compared with the maximum of the <I>i</I> values,
+ <IMG WIDTH=106 HEIGHT=13 ALIGN=MIDDLE ALT="tex2html_wrap_inline58425" SRC="img87.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img87.gif"  > preceding it in the array.
+Line&nbsp;6 of Program&nbsp;<A HREF="page42.html#progfindmaxc" tppabs="http://www.brpreiss.com/books/opus4/html/page42.html#progfindmaxc"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> is only executed if  <IMG WIDTH=11 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline58389" SRC="img78.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img78.gif"  > is the largest
+of the <I>i</I>+1 values  <IMG WIDTH=88 HEIGHT=14 ALIGN=MIDDLE ALT="tex2html_wrap_inline58445" SRC="img90.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img90.gif"  >.
+All things being equal,
+we can say that this will happen with probability 1/(<I>i</I>+1).
+Thus
+<P><A NAME="eqnmodelprob">&#160;</A> <IMG WIDTH=500 HEIGHT=79 ALIGN=BOTTOM ALT="eqnarray549" SRC="img91.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img91.gif"  ><P>
+<P>
+Substituting this expression for  <IMG WIDTH=13 HEIGHT=14 ALIGN=MIDDLE ALT="tex2html_wrap_inline58415" SRC="img85.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img85.gif"  > in Equation&nbsp;<A HREF="page43.html#eqnmodelavg" tppabs="http://www.brpreiss.com/books/opus4/html/page43.html#eqnmodelavg"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+and simplifying the result we get
+<P><A NAME="eqnmodeltn">&#160;</A> <IMG WIDTH=500 HEIGHT=179 ALIGN=BOTTOM ALT="eqnarray555" SRC="img92.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img92.gif"  ><P>
+where  <IMG WIDTH=93 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline58451" SRC="img93.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img93.gif"  >,
+is the  <IMG WIDTH=21 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58453" SRC="img94.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img94.gif"  > <em>harmonic number</em><A NAME=574>&#160;</A>.
+<P>
+<HR><A NAME="tex2html2423" HREF="page44.html" tppabs="http://www.brpreiss.com/books/opus4/html/page44.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2421" HREF="page35.html" tppabs="http://www.brpreiss.com/books/opus4/html/page35.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2415" HREF="page42.html" tppabs="http://www.brpreiss.com/books/opus4/html/page42.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2425" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2426" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

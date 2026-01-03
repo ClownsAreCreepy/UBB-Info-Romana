@@ -1,0 +1,35 @@
+<HTML>
+<HEAD>
+<TITLE>Implementation</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html3846" HREF="page158.html" tppabs="http://www.brpreiss.com/books/opus4/html/page158.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3844" HREF="page156.html" tppabs="http://www.brpreiss.com/books/opus4/html/page156.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3840" HREF="page156.html" tppabs="http://www.brpreiss.com/books/opus4/html/page156.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3848" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3849" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION007231000000000000000">Implementation</A></H3>
+<P>
+Program&nbsp;<A HREF="page157.html#progapp02c" tppabs="http://www.brpreiss.com/books/opus4/html/page157.html#progapp02c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> defines the function <tt>BreadthFirstTraversal</tt>.
+This function takes as its lone argument a reference to an <tt>NaryTree</tt>
+which is the root of the tree to be traversed.
+The algorithm makes use of the <tt>QueueAsLinkedList</tt> data structure,
+which was defined in the preceding section,
+to hold the appropriate tree nodes.
+<P>
+The running time of the <tt>BreadthFirstTraversal</tt>
+algorithm depends on the number of nodes in the tree which is being traversed.
+Each node of the tree is enqueued exactly once--this requires a constant amount of work.
+Furthermore, in each iteration of the loop,
+each node is dequeued exactly once--again a constant amount of work.
+As a result, the running time of the <tt>BreadthFirstTraversal</tt> algorithm
+is <I>O</I>(<I>n</I>) where <I>n</I> is the number of nodes in the traversed tree.
+<P>
+<P><A NAME="8013">&#160;</A><A NAME="progapp02c">&#160;</A> <IMG WIDTH=575 HEIGHT=334 ALIGN=BOTTOM ALT="program8010" SRC="img750.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img750.gif"  ><BR>
+<STRONG>Program:</STRONG> Queue Application--Breadth-First Tree Traversal<BR>
+<P><HR><A NAME="tex2html3846" HREF="page158.html" tppabs="http://www.brpreiss.com/books/opus4/html/page158.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3844" HREF="page156.html" tppabs="http://www.brpreiss.com/books/opus4/html/page156.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3840" HREF="page156.html" tppabs="http://www.brpreiss.com/books/opus4/html/page156.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3848" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3849" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

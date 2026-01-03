@@ -1,0 +1,10 @@
+Dani,Sigma,90,1
+Ashley,Ashley Manor,85,2
+Mirel,China,80,3
+Mara,Andorra,76,4
+Victor,Lebanon,70,5
+Dacian,Niger,69,6
+Luci,Thailanda,66,7
+Armina,Armenia,55,8
+Flavius,Vaslui,50,9
+Cassian,Maria,40,10

@@ -1,0 +1,158 @@
+        -:    0:Source:/mnt/d/C,C++/CLion 2024.3.4/Projects/Lab2_4_Matei/repo.c
+        -:    0:Graph:/mnt/d/C,C++/CLion 2024.3.4/Projects/Lab2_4_Matei/cmake-build-debug-coverage/CMakeFiles/Lab03.dir/repo.c.gcno
+        -:    0:Data:/mnt/d/C,C++/CLion 2024.3.4/Projects/Lab2_4_Matei/cmake-build-debug-coverage/CMakeFiles/Lab03.dir/repo.c.gcda
+        -:    0:Runs:1
+        -:    1:#include <stdlib.h>
+        -:    2:#include "repo.h"
+        -:    3:
+function creeaza_repo called 17 returned 100% blocks executed 100%
+       17:    4:Repo* creeaza_repo() {
+       17:    5:  Repo* repo = malloc(sizeof(Repo));
+       17:    6:  repo->lista = creeaza_lista();
+       17:    6-block  0
+call    0 returned 17
+       17:    7:  repo->medicamente_sterse = creeaza_lista();
+call    0 returned 17
+       17:    8:  return repo;
+        -:    9:}
+        -:   10:
+function distruge_repo called 16 returned 100% blocks executed 83%
+       16:   11:void distruge_repo(Repo* repo) {
+      16*:   12:  if (repo == NULL) return;
+       16:   12-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 16
+    %%%%%:   12-block  1
+       16:   13:  distruge_lista(repo->lista,distruge_medicament);
+       16:   13-block  0
+call    0 returned 16
+       16:   14:  distruge_lista(repo->medicamente_sterse, distruge_medicament);
+call    0 returned 16
+       16:   15:  free(repo);
+        -:   16:}
+        -:   17:
+function gaseste_medicament called 124 returned 100% blocks executed 100%
+      124:   18:int gaseste_medicament(const Repo* repo,const int cod) {
+      620:   19:  for (int i = 0; i < dimensiune_lista(repo->lista); i++) {
+      124:   19-block  0
+      496:   19-block  1
+      620:   19-block  2
+call    0 returned 620
+branch  1 taken 506
+branch  2 taken 114 (fallthrough)
+      506:   20:    const Medicament* m = get_element_lista(repo->lista, i);
+      506:   20-block  0
+call    0 returned 506
+      506:   21:    if (get_cod(m) == cod)
+call    0 returned 506
+branch  1 taken 10 (fallthrough)
+branch  2 taken 496
+       10:   22:      return i;
+       10:   22-block  0
+        -:   23:  }
+      114:   24:  return -1;
+      114:   24-block  0
+        -:   25:}
+        -:   26:
+function repo_adauga called 111 returned 100% blocks executed 100%
+      111:   27:int repo_adauga(Repo* repo,const Medicament* m) {
+      111:   28:  int const index = gaseste_medicament(repo, get_cod(m));
+      111:   28-block  0
+call    0 returned 111
+call    1 returned 111
+      111:   29:  if (index == -1) {
+branch  0 taken 109 (fallthrough)
+branch  1 taken 2
+      109:   30:    adauga_in_lista(repo->lista, copiaza_medicament(m));
+      109:   30-block  0
+call    0 returned 109
+call    1 returned 109
+      109:   31:    return 1;
+        -:   32:  } else {
+        2:   33:    Medicament* existent = get_element_lista(repo->lista, index);
+        2:   33-block  0
+call    0 returned 2
+        2:   34:    int cantitate_noua = get_cantitate(existent) + get_cantitate(m);
+call    0 returned 2
+call    1 returned 2
+        2:   35:    set_cantitate(existent, cantitate_noua);
+call    0 returned 2
+        2:   36:    return 2;
+        -:   37:  }
+        -:   38:}
+        -:   39:
+function repo_actualizeaza called 5 returned 100% blocks executed 100%
+        5:   40:int repo_actualizeaza(Repo* repo,const int cod,const char* nume_nou,const float concentratie_noua) {
+        5:   41:  const int index = gaseste_medicament(repo, cod);
+        5:   41-block  0
+call    0 returned 5
+        5:   42:  if (index == -1)
+branch  0 taken 2 (fallthrough)
+branch  1 taken 3
+        2:   43:    return 0;
+        2:   43-block  0
+        -:   44:
+        3:   45:  Medicament* m = get_element_lista(repo->lista, index);
+        3:   45-block  0
+call    0 returned 3
+        3:   46:  set_nume(m, nume_nou);
+call    0 returned 3
+        3:   47:  set_concentratie(m, concentratie_noua);
+call    0 returned 3
+        3:   48:  return 1;
+        -:   49:}
+        -:   50:
+function repo_sterge called 6 returned 100% blocks executed 100%
+        6:   51:int repo_sterge(Repo* repo,const int cod) {
+        6:   52:  int index = gaseste_medicament(repo, cod);
+        6:   52-block  0
+call    0 returned 6
+        6:   53:  if (index == -1)
+branch  0 taken 2 (fallthrough)
+branch  1 taken 4
+        2:   54:    return 0;
+        2:   54-block  0
+        4:   55:  Medicament* m = get_element_lista(repo->lista, index);
+        4:   55-block  0
+call    0 returned 4
+        4:   56:  Medicament* copie = copiaza_medicament(m);
+call    0 returned 4
+        4:   57:  adauga_in_lista(repo->medicamente_sterse, copie);
+call    0 returned 4
+        -:   58:
+        4:   59:  return sterge_din_lista(repo->lista, index, distruge_medicament);
+call    0 returned 4
+        -:   60:}
+        -:   61:
+function repo_dimensiune called 20 returned 100% blocks executed 100%
+       20:   62:int repo_dimensiune(const Repo* repo) {
+       20:   63:  return dimensiune_lista(repo->lista);
+       20:   63-block  0
+call    0 returned 20
+        -:   64:}
+        -:   65:
+function repo_get_medicament called 73 returned 100% blocks executed 100%
+       73:   66:Medicament* repo_get_medicament(const Repo* repo,const int index) {
+       73:   67:  return get_element_lista(repo->lista, index);
+       73:   67-block  0
+call    0 returned 73
+        -:   68:}
+        -:   69:
+function repo_get_lista_de_sters called 2 returned 100% blocks executed 100%
+        2:   70:ListaDinamica* repo_get_lista_de_sters(Repo* repo) {
+        2:   71:  return repo->medicamente_sterse;
+        2:   71-block  0
+        -:   72:}
+        -:   73:
+function repo_clear_lista_de_sters called 13 returned 100% blocks executed 100%
+       13:   74:void repo_clear_lista_de_sters(Repo* repo) {
+       13:   75:  if (dimensiune_lista(repo->medicamente_sterse) >0)
+       13:   75-block  0
+call    0 returned 13
+branch  1 taken 1 (fallthrough)
+branch  2 taken 12
+        1:   76:    sterge_din_lista(repo->medicamente_sterse, dimensiune_lista(repo->medicamente_sterse) - 1, distruge_medicament);
+        1:   76-block  0
+call    0 returned 1
+call    1 returned 1
+       13:   77:}

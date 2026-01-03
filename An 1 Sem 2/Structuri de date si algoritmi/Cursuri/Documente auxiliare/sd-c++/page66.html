@@ -1,0 +1,45 @@
+<HTML>
+<HEAD>
+<TITLE>An Asymptotic Lower Bound-Omega</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html2711" HREF="page67.html" tppabs="http://www.brpreiss.com/books/opus4/html/page67.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2709" HREF="page56.html" tppabs="http://www.brpreiss.com/books/opus4/html/page56.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2703" HREF="page65.html" tppabs="http://www.brpreiss.com/books/opus4/html/page65.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2713" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2714" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION004200000000000000000">An Asymptotic Lower Bound-Omega</A></H1>
+<P>
+The big oh notation introduced in the preceding section
+is an asymptotic <em>upper bound</em>.
+In this section, we introduce a similar notation
+for characterizing the asymptotic behavior of a function,
+but in this case it is a <em>lower bound</em>.
+<P>
+<BLOCKQUOTE> <b>Definition (Omega)</b><A NAME=1655>&#160;</A><A NAME=1690>&#160;</A>
+<A NAME="defnomega">&#160;</A>
+Consider a function <I>f</I>(<I>n</I>) which is non-negative
+for all integers  <IMG WIDTH=38 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59063" SRC="img241.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img241.gif"  >.
+We say that ``<I>f</I>(<I>n</I>) is omega <I>g</I>(<I>n</I>),''
+which we write  <IMG WIDTH=104 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59919" SRC="img408.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img408.gif"  >,
+if there exists an integer  <IMG WIDTH=16 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline59043" SRC="img238.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img238.gif"  > and a constant <I>c</I><I>&gt;</I>0
+such that for all integers  <IMG WIDTH=46 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline59075" SRC="img242.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img242.gif"  >,
+ <IMG WIDTH=88 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59927" SRC="img409.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img409.gif"  >.
+</BLOCKQUOTE>
+<P>
+The definition of omega is almost identical to that of big oh.
+The only difference is in the comparison--for big oh it is
+ <IMG WIDTH=88 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59077" SRC="img243.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img243.gif"  >; for omega, it is  <IMG WIDTH=88 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59927" SRC="img409.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img409.gif"  >.
+All of the same conventions and caveats apply to omega as they do to big oh.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html2715" HREF="page67.html#SECTION004210000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page67.html#SECTION004210000000000000000">A Simple Example</A>
+<LI> <A NAME="tex2html2716" HREF="page68.html#SECTION004220000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page68.html#SECTION004220000000000000000">About Polynomials Again</A>
+</UL>
+<HR><A NAME="tex2html2711" HREF="page67.html" tppabs="http://www.brpreiss.com/books/opus4/html/page67.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2709" HREF="page56.html" tppabs="http://www.brpreiss.com/books/opus4/html/page56.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2703" HREF="page65.html" tppabs="http://www.brpreiss.com/books/opus4/html/page65.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2713" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2714" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

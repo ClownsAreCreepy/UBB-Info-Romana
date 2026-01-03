@@ -1,0 +1,85 @@
+<HTML>
+<HEAD>
+<TITLE>Basics</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html5021" HREF="page252.html" tppabs="http://www.brpreiss.com/books/opus4/html/page252.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5019" HREF="page250.html" tppabs="http://www.brpreiss.com/books/opus4/html/page250.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5013" HREF="page250.html" tppabs="http://www.brpreiss.com/books/opus4/html/page250.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5023" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5024" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION0010100000000000000000">Basics</A></H1>
+<P>
+The following is a mathematical definition of a tree:
+<P>
+<BLOCKQUOTE> <b>Definition (Tree)</b><A NAME="defntree">&#160;</A>
+A <em>tree</em><A NAME=14845>&#160;</A> <I>T</I>
+is a finite, non-empty set of <em>nodes</em><A NAME=14847>&#160;</A>,
+<P> <IMG WIDTH=349 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath63396" SRC="img1085.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1085.gif"  ><P>
+with the following properties:
+<OL><LI> A designated node of the set, <I>r</I>,
+	is called the <em>root</em><A NAME=14850>&#160;</A> of the tree; and<LI> The remaining nodes are partitioned into  <IMG WIDTH=38 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59063" SRC="img241.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img241.gif"  > subsets,
+	 <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63404" SRC="img1086.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1086.gif"  >,  <IMG WIDTH=16 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63406" SRC="img1087.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1087.gif"  >, ...,  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63408" SRC="img1088.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1088.gif"  >,
+	each of which is a tree.
+</OL>
+For convenience,
+we shall use the notation  <IMG WIDTH=157 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline63410" SRC="img1089.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1089.gif"  > to denote the tree <I>T</I>.
+</BLOCKQUOTE>
+<P>
+Notice that Definition&nbsp;<A HREF="page251.html#defntree" tppabs="http://www.brpreiss.com/books/opus4/html/page251.html#defntree"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> is <em>recursive</em>--a tree is defined in terms of itself!
+Fortunately, we do not have a problem with infinite recursion
+because every tree has a <em>finite</em> number of of nodes
+and because in the base case a tree has <I>n</I>=0 subtrees.
+<P>
+It follows from Definition&nbsp;<A HREF="page251.html#defntree" tppabs="http://www.brpreiss.com/books/opus4/html/page251.html#defntree"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+that the minimal tree is a tree comprised of a single root node.
+For example  <IMG WIDTH=64 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline63416" SRC="img1090.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1090.gif"  > is such a tree.
+When there is more than one node,
+the remaining nodes are partitioned into subtrees.
+E.g., the  <IMG WIDTH=100 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline63418" SRC="img1091.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1091.gif"  > is a tree which is comprised of
+the root node <I>B</I> and the subtree  <IMG WIDTH=25 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline63422" SRC="img1092.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1092.gif"  >.
+Finally, the following is also a tree
+<P><A NAME="eqntreestc">&#160;</A> <IMG WIDTH=500 HEIGHT=16 ALIGN=BOTTOM ALT="equation14857" SRC="img1093.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1093.gif"  ><P>
+<P>
+How do  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63424" SRC="img1094.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1094.gif"  >,  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63426" SRC="img1095.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1095.gif"  > and  <IMG WIDTH=14 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63428" SRC="img1096.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1096.gif"  > resemble their arboreal namesake?
+The similarity becomes apparent when we consider the graphical
+representation of these trees shown in Figure&nbsp;<A HREF="page251.html#figtree1" tppabs="http://www.brpreiss.com/books/opus4/html/page251.html#figtree1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+To draw such a pictorial representation of a tree,
+ <IMG WIDTH=157 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline63410" SRC="img1089.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1089.gif"  >,
+the following recursive procedure is used:
+First, we first draw the root node <I>r</I>.
+Then, we draw each of the subtrees,  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63404" SRC="img1086.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1086.gif"  >,  <IMG WIDTH=16 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63406" SRC="img1087.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1087.gif"  >, ...,  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63408" SRC="img1088.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1088.gif"  >,
+beside each other below the root.
+Finally, lines are drawn from <I>r</I> to the roots of each of the subtrees.
+<P>
+<P><A NAME="15068">&#160;</A><A NAME="figtree1">&#160;</A> <IMG WIDTH=575 HEIGHT=210 ALIGN=BOTTOM ALT="figure14861" SRC="img1097.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1097.gif"  ><BR>
+<STRONG>Figure:</STRONG> Examples of Trees<BR>
+<P>
+<P>
+Of course, trees drawn in this fashion are upside down.
+Nevertheless, this is the conventional way
+in which tree data structures are drawn.
+In fact, it is understood that when we speak of ``up'' and ``down,''
+we do so with respect to this pictorial representation.
+E.g., when we move from a root to a subtree,
+we will say that we are moving <em>down</em> the tree.
+<P>
+The inverted pictorial representation of trees is probably due to
+the way that genealogical <em>lineal charts</em> are drawn.
+A <em>lineal chart</em> is a family tree
+that shows the descendants of some person.
+And it is from genealogy that much of the terminology associated
+with tree data structures is taken.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html5025" HREF="page252.html#SECTION0010101000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page252.html#SECTION0010101000000000000000">Terminology</A>
+<LI> <A NAME="tex2html5026" HREF="page253.html#SECTION0010102000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page253.html#SECTION0010102000000000000000">More Terminology</A>
+<LI> <A NAME="tex2html5027" HREF="page254.html#SECTION0010103000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page254.html#SECTION0010103000000000000000">Alternate Representations for Trees</A>
+</UL>
+<HR><A NAME="tex2html5021" HREF="page252.html" tppabs="http://www.brpreiss.com/books/opus4/html/page252.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5019" HREF="page250.html" tppabs="http://www.brpreiss.com/books/opus4/html/page250.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5013" HREF="page250.html" tppabs="http://www.brpreiss.com/books/opus4/html/page250.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5023" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5024" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

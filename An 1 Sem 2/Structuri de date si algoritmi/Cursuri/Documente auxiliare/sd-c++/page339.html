@@ -1,0 +1,41 @@
+<HTML>
+<HEAD>
+<TITLE>Removing Items from an M-Way Search Tree</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html6113" HREF="page340.html" tppabs="http://www.brpreiss.com/books/opus4/html/page340.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6111" HREF="page330.html" tppabs="http://www.brpreiss.com/books/opus4/html/page330.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6107" HREF="page338.html" tppabs="http://www.brpreiss.com/books/opus4/html/page338.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6115" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6116" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0011640000000000000000">Removing Items from an <I>M</I>-Way Search Tree</A></H2>
+<P>
+The procedure for removing items from an <I>M</I>-way search tree
+follows directly from the algorithm for removing items from
+a binary search tree given in Section&nbsp;<A HREF="page318.html#secsrchtreebstout" tppabs="http://www.brpreiss.com/books/opus4/html/page318.html#secsrchtreebstout"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+The basic idea is that the item to be deleted is pushed down the tree
+from its initial position to a node from which it can be easily deleted.
+Clearly, items are easily deleted from leaf nodes.
+In addition, consider an internal node of an <I>M</I>-way search tree of the form
+<P> <IMG WIDTH=419 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath65574" SRC="img1381.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1381.gif"  ><P>
+If both  <IMG WIDTH=30 HEIGHT=21 ALIGN=MIDDLE ALT="tex2html_wrap_inline64404" SRC="img1227.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1227.gif"  > and  <IMG WIDTH=13 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63460" SRC="img1099.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1099.gif"  > are empty trees,
+then the key  <IMG WIDTH=10 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline64406" SRC="img1228.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1228.gif"  > can be deleted from <I>T</I>
+by removing both  <IMG WIDTH=10 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline64406" SRC="img1228.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1228.gif"  > and  <IMG WIDTH=13 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63460" SRC="img1099.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1099.gif"  >, say.
+If  <IMG WIDTH=30 HEIGHT=21 ALIGN=MIDDLE ALT="tex2html_wrap_inline64404" SRC="img1227.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1227.gif"  > is non-empty,  <IMG WIDTH=10 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline64406" SRC="img1228.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1228.gif"  > can be pushed down the tree by
+swapping it with the largest key in  <IMG WIDTH=30 HEIGHT=21 ALIGN=MIDDLE ALT="tex2html_wrap_inline64404" SRC="img1227.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1227.gif"  >;
+and if  <IMG WIDTH=13 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63460" SRC="img1099.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1099.gif"  > is non-empty,  <IMG WIDTH=10 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline64406" SRC="img1228.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1228.gif"  > can be pushed down the tree by
+swapping it with the smallest key in  <IMG WIDTH=13 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63460" SRC="img1099.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1099.gif"  >.
+<P>
+Program&nbsp;<A HREF="page339.html#progmwaytree5c" tppabs="http://www.brpreiss.com/books/opus4/html/page339.html#progmwaytree5c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives the code for the <tt>Withdraw</tt>
+function of the <tt>MWayTree</tt> class.
+The general form of the algorithm follows that of the <tt>Withdraw</tt>
+routine for the <tt>BST</tt> class (Program&nbsp;<A HREF="page319.html#progbst4c" tppabs="http://www.brpreiss.com/books/opus4/html/page319.html#progbst4c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>).
+<P>
+<P><A NAME="21729">&#160;</A><A NAME="progmwaytree5c">&#160;</A> <IMG WIDTH=575 HEIGHT=678 ALIGN=BOTTOM ALT="program21665" SRC="img1382.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1382.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>MWayTree</tt> Class <tt>Withdraw</tt> Member Function Definition<BR>
+<P><HR><A NAME="tex2html6113" HREF="page340.html" tppabs="http://www.brpreiss.com/books/opus4/html/page340.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6111" HREF="page330.html" tppabs="http://www.brpreiss.com/books/opus4/html/page330.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6107" HREF="page338.html" tppabs="http://www.brpreiss.com/books/opus4/html/page338.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6115" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6116" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

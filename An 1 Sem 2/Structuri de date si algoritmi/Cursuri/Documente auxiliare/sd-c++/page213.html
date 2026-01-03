@@ -1,0 +1,69 @@
+<HTML>
+<HEAD>
+<TITLE>Multiplication Method</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html4547" HREF="page214.html" tppabs="http://www.brpreiss.com/books/opus4/html/page214.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4545" HREF="page210.html" tppabs="http://www.brpreiss.com/books/opus4/html/page210.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4539" HREF="page212.html" tppabs="http://www.brpreiss.com/books/opus4/html/page212.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4549" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4550" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION009230000000000000000">Multiplication Method</A></H2>
+<P>
+A very simple variation on the middle-square method that
+alleviates its deficiencies is the so-called,
+<em>multiplication hashing method</em><A NAME=11233>&#160;</A><A NAME=11234>&#160;</A>.
+Instead of multiplying the key <I>x</I> by itself,
+we multiply the key by a carefully chosen constant <I>a</I>,
+and then extract the middle <I>k</I> bits from the result.
+In this case,
+the hashing function is
+<P> <IMG WIDTH=342 HEIGHT=38 ALIGN=BOTTOM ALT="displaymath62346" SRC="img897.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img897.gif"  ><P>
+<P>
+What is a suitable choice for the constant <I>a</I>?
+If we want to avoid the problems that the middle-square method
+encounters with keys having a large number of leading or trailing zeroes,
+then we should choose an <I>a</I> that has neither
+leading nor trailing zeroes.
+<P>
+Furthermore, if we choose an <I>a</I> that is
+<em>relatively prime</em><A NAME="tex2html393" HREF="footnode.html#11300" tppabs="http://www.brpreiss.com/books/opus4/html/footnode.html#11300"><IMG  ALIGN=BOTTOM ALT="gif" SRC="foot_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/foot_motif.gif"></A>
+to <I>W</I>,
+then there exists another number <I>a</I>' such that  <IMG WIDTH=122 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline62374" SRC="img898.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img898.gif"  >.
+In other words, <I>a</I>' is the <em>inverse</em><A NAME=11242>&#160;</A>
+of <I>a</I> modulo <I>W</I>,
+since the product of <I>a</I> and its inverse is one.
+Such a number has the nice property that if we take a key <I>x</I>,
+and multiply it by <I>a</I> to get <I>ax</I>,
+we can recover the original key by multiplying the product again by <I>a</I>',
+since <I>axa</I>'=<I>aa</I>'<I>x</I>=1<I>x</I>.
+<P>
+There are many possible constants which the desired properties.
+One possibility which is suited for 32-bit arithmetic (i.e.,  <IMG WIDTH=58 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline62396" SRC="img899.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img899.gif"  >)
+is  <IMG WIDTH=117 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline62398" SRC="img900.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img900.gif"  >.
+The binary representation of <I>a</I> is
+<P> <IMG WIDTH=392 HEIGHT=12 ALIGN=BOTTOM ALT="displaymath62347" SRC="img901.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img901.gif"  ><P>
+This number has neither many leading nor trailing zeroes.
+Also, this value of <I>a</I> and  <IMG WIDTH=58 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline62396" SRC="img899.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img899.gif"  > are relatively prime
+and the inverse of <I>a</I> modulo <I>W</I> is  <IMG WIDTH=111 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline62410" SRC="img902.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img902.gif"  >.
+<P>
+The following code fragment illustrates
+the multiplication method of hashing:
+<PRE>unsigned int const k = 10; // M==1024
+unsigned int const w = bitsizeof (unsigned int);
+unsigned int const a = 2654435769U;
+
+unsigned int h (unsigned int x)
+    { return (x * a) &gt;&gt; (w - k); }</PRE>
+Note, this implementation assumes that
+ <IMG WIDTH=232 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline62412" SRC="img903.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img903.gif"  >.
+I.e., the natural word size of the machine is 32 bits.
+The code is a simple modification of the middle-square version.
+Nevertheless, the running time remains <I>O</I>(1).
+<P>
+<HR><A NAME="tex2html4547" HREF="page214.html" tppabs="http://www.brpreiss.com/books/opus4/html/page214.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4545" HREF="page210.html" tppabs="http://www.brpreiss.com/books/opus4/html/page210.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4539" HREF="page212.html" tppabs="http://www.brpreiss.com/books/opus4/html/page212.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4549" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4550" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

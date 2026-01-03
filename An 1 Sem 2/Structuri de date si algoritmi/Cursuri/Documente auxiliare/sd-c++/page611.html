@@ -1,0 +1,63 @@
+<HTML>
+<HEAD>
+<TITLE>Abstract Classes and Concrete Classes</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html9457" HREF="page612.html" tppabs="http://www.brpreiss.com/books/opus4/html/page612.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html9455" HREF="page609.html" tppabs="http://www.brpreiss.com/books/opus4/html/page609.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html9449" HREF="page610.html" tppabs="http://www.brpreiss.com/books/opus4/html/page610.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html9459" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html9460" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0018422000000000000000">Abstract Classes and Concrete Classes</A></H3>
+<P>
+In C++ an <em>abstract class</em><A NAME=57647>&#160;</A>
+is one which defines an interface,
+but does not necessarily provide implementations for all its member functions.
+An abstract class is meant to be used as the base class from
+which other classes are derived.
+The derived class is expected to provide implementations for the member
+functions that are not implemented in the base class.
+A derived class that implements all the missing functionality is called
+a <em>concrete class</em><A NAME=57649>&#160;</A>.
+<P>
+E.g., the <tt>GraphicalObject</tt> class
+defined in Programs&nbsp;<A HREF="page609.html#proggraphic1h" tppabs="http://www.brpreiss.com/books/opus4/html/page609.html#proggraphic1h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> and&nbsp;<A HREF="page609.html#proggraphic1c" tppabs="http://www.brpreiss.com/books/opus4/html/page609.html#proggraphic1c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> is an abstract class.
+In particular,
+no implementation is given for the virtual member function <tt>Draw</tt>.
+The fact that no implementation is given is indicated by the <tt>=0</tt>
+attached to the <tt>Draw</tt> function prototype
+in the class definition (Program&nbsp;<A HREF="page609.html#proggraphic1h" tppabs="http://www.brpreiss.com/books/opus4/html/page609.html#proggraphic1h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>, line&nbsp;19).
+Recall that an object carries a pointer to the appropriate routine
+for every virtual member function it supports.
+The <tt>=0</tt> says that the pointer for the <tt>Draw</tt> function is
+not defined in the <tt>GraphicalObject</tt> class and,
+therefore, it must be defined in a derived class.
+<P>
+A virtual member function for which no implementation is given is called
+a <em>pure virtual function</em><A NAME=57661>&#160;</A>.
+If a C++ class contains a pure virtual function,
+it is an <em>abstract class</em>.
+In C++ it is not possible to instantiate an abstract class.
+E.g., the following declaration is illegal:
+<PRE>GraphicalObject g (Point (0,0)); // Wrong.</PRE>
+If we were allowed to declare <tt>g</tt> in this way,
+then we could attempt to invoke the non-existent
+member function <tt>g.Draw()</tt>.
+<P>
+In fact, there is a second reason why the declaration
+of <tt>g</tt> is an error:
+The <tt>GraphicalObject</tt> constructor is not <tt>public</tt>
+(see Program&nbsp;<A HREF="page609.html#proggraphic1h" tppabs="http://www.brpreiss.com/books/opus4/html/page609.html#proggraphic1h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>, lines&nbsp;15-16).
+So, even if the <tt>GraphicalObject</tt> class was a concrete class,
+we are still prevented from instantiating it.
+Since the constructor is <tt>protected</tt>,
+it can be called by a derived class.
+Therefore, it is possible to instantiate <tt>Circle</tt>,
+<tt>Rectangle</tt> and <tt>Square</tt>.
+<P>
+<HR><A NAME="tex2html9457" HREF="page612.html" tppabs="http://www.brpreiss.com/books/opus4/html/page612.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html9455" HREF="page609.html" tppabs="http://www.brpreiss.com/books/opus4/html/page609.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html9449" HREF="page610.html" tppabs="http://www.brpreiss.com/books/opus4/html/page610.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html9459" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html9460" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

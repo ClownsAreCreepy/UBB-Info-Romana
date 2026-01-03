@@ -1,0 +1,94 @@
+<HTML>
+<HEAD>
+<TITLE>Doubly-Linked and Circular Lists</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html3917" HREF="page164.html" tppabs="http://www.brpreiss.com/books/opus4/html/page164.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3915" HREF="page158.html" tppabs="http://www.brpreiss.com/books/opus4/html/page158.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3911" HREF="page162.html" tppabs="http://www.brpreiss.com/books/opus4/html/page162.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3919" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3920" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION007330000000000000000">Doubly-Linked and Circular Lists</A></H2>
+<P>
+In the preceding section we saw that the running time of
+<tt>DequeueHead</tt> is <I>O</I>(1),
+but that the running time of <tt>DequeueTail</tt> is <I>O</I>(<I>n</I>),
+for the pointer based implementation of a deque.
+This is because the linked list data structure used,
+<tt>LinkedList&lt;T&gt;</tt> is a <em>singly-linked list</em><A NAME=8598>&#160;</A>.
+Each element in a singly-linked list contains a single pointer--a pointer to the successor (next) element of the list.
+As a result, deleting the head of the linked list is easy:
+The new head is the successor of the old head.
+<P>
+However, deleting the tail of a linked list is not so easy:
+The new tail is the predecessor of the original tail.
+Since there is no pointer from the original tail to its predecessor,
+the predecessor must be found by traversing the linked list from the head.
+This traversal gives rise to the <I>O</I>(<I>n</I>) running time.
+<P>
+In a <em>doubly-linked list</em><A NAME=8600>&#160;</A>,
+each list element contains two pointers--one to its successor and one to its predecessor.
+There are many different variations of doubly-linked lists:
+Figure&nbsp;<A HREF="page163.html#figdeque2" tppabs="http://www.brpreiss.com/books/opus4/html/page163.html#figdeque2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> illustrates four of them.
+<P>
+<P><A NAME="8915">&#160;</A><A NAME="figdeque2">&#160;</A> <IMG WIDTH=575 HEIGHT=558 ALIGN=BOTTOM ALT="figure8602" SRC="img760.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img760.gif"  ><BR>
+<STRONG>Figure:</STRONG> Doubly-Linked and Circular List Variations<BR>
+<P>
+<P>
+Figure&nbsp;<A HREF="page163.html#figdeque2" tppabs="http://www.brpreiss.com/books/opus4/html/page163.html#figdeque2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>&nbsp;(a) shows the simplest case:
+Two pointers, say <em>head</em> and <em>tail</em>,
+are used to keep track of the list elements.
+One of them points to the first element of the list,
+the other points to the last.
+The first element of the list has no predecessor,
+therefore that pointer is null.
+Similarly, the last element has no successor
+and the corresponding pointer is also null.
+In effect, we have two overlapping singly-linked lists
+which go in opposite directions.
+Figure&nbsp;<A HREF="page163.html#figdeque2" tppabs="http://www.brpreiss.com/books/opus4/html/page163.html#figdeque2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> also shows the representation of an empty list.
+In this case the head and tail pointers are both null.
+<P>
+Figure&nbsp;<A HREF="page163.html#figdeque2" tppabs="http://www.brpreiss.com/books/opus4/html/page163.html#figdeque2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>&nbsp;(b) shows a case which uses sentinels.
+In this variation <em>two</em> sentinels are used!
+Because there are in effect two overlapping linked lists
+that go in opposite directions,
+two sentinels are used--one for each singly-linked list.
+Recall, the use of a sentinel is motivated by the fact that
+the code for insertion and deletion is often simpler to write
+because there are fewer special cases to consider.
+Figure&nbsp;<A HREF="page163.html#figdeque2" tppabs="http://www.brpreiss.com/books/opus4/html/page163.html#figdeque2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>&nbsp;(b) shows that in the empty list,
+the two sentinels point to each other.
+<P>
+A <em>circular, doubly-linked list</em><A NAME=8926>&#160;</A> is shown in
+Figure&nbsp;<A HREF="page163.html#figdeque2" tppabs="http://www.brpreiss.com/books/opus4/html/page163.html#figdeque2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>&nbsp;(c).
+A circular list is formed by making
+use of pointers which would otherwise be null:
+The last element of the list is made the predecessor of the first element;
+the first element, the successor of the last.
+The upshot is that we no longer need both a head and tail pointer to
+keep track of the list.
+Even if only a single pointer is used,
+both the first and the last list elements can be found in constant time.
+<P>
+Finally, Figure&nbsp;<A HREF="page163.html#figdeque2" tppabs="http://www.brpreiss.com/books/opus4/html/page163.html#figdeque2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>&nbsp;(d) shows a circular,
+doubly-linked list which has a single sentinel.
+This variation is similar to the preceding one in that
+both the first and the last list elements can be found in constant time.
+This variation has the advantage that no special cases are
+required when dealing with an empty list.
+Figure&nbsp;<A HREF="page163.html#figdeque2" tppabs="http://www.brpreiss.com/books/opus4/html/page163.html#figdeque2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> shows that the empty list is represented by a list
+with exactly one element--the sentinel.
+In the case of the empty list,
+the sentinel is both is own successor and predecessor.
+Since the sentinel is always present,
+and since it always has both a successor and a predecessor,
+the code for adding elements to the empty list
+is identical to that for adding elements to a non-empty list.
+<P>
+<HR><A NAME="tex2html3917" HREF="page164.html" tppabs="http://www.brpreiss.com/books/opus4/html/page164.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3915" HREF="page158.html" tppabs="http://www.brpreiss.com/books/opus4/html/page158.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3911" HREF="page162.html" tppabs="http://www.brpreiss.com/books/opus4/html/page162.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3919" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3920" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

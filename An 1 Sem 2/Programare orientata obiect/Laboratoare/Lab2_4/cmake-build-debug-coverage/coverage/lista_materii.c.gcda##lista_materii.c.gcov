@@ -1,0 +1,114 @@
+        -:    0:Source:/mnt/d/C,C++/CLion 2024.3.4/Projects/Lab2_4/repository/lista_materii.c
+        -:    0:Graph:/mnt/d/C,C++/CLion 2024.3.4/Projects/Lab2_4/cmake-build-debug-coverage/CMakeFiles/Lab2_4.dir/repository/lista_materii.c.gcno
+        -:    0:Data:/mnt/d/C,C++/CLion 2024.3.4/Projects/Lab2_4/cmake-build-debug-coverage/CMakeFiles/Lab2_4.dir/repository/lista_materii.c.gcda
+        -:    0:Runs:1
+        -:    1:#include "lista_materii.h"
+        -:    2:
+        -:    3:#include <stdlib.h>
+        -:    4:#include <string.h>
+        -:    5:
+        -:    6:#include "../domain/materie_prima.h"
+        -:    7:
+        -:    8:
+function creeare called 12 returned 100% blocks executed 100%
+       12:    9:ListaMaterii creeare() {
+        -:   10:    ListaMaterii lista;
+       12:   11:    lista.nr_elemente = 0;
+       12:   12:    lista.capacitate = 2;
+       12:   13:    lista.materii = (MateriePrima*)malloc(lista.capacitate * sizeof(MateriePrima));
+       12:   14:    return lista;
+       12:   14-block  0
+        -:   15:}
+        -:   16:
+        -:   17:
+function eliberare called 12 returned 100% blocks executed 100%
+       12:   18:void eliberare(ListaMaterii* lista) {
+       12:   19:    free(lista->materii);
+       12:   20:    lista->materii = NULL;
+       12:   21:    lista->nr_elemente = 0;
+       12:   22:    lista->capacitate = 0;
+       12:   23:}
+        -:   24:
+        -:   25:
+function redimensionareCrestere called 5 returned 100% blocks executed 100%
+        5:   26:void redimensionareCrestere(ListaMaterii* lista) {
+        5:   27:    lista->capacitate *= 2;
+        5:   28:    lista->materii = (MateriePrima*)realloc(lista->materii, lista->capacitate * sizeof(MateriePrima));
+        5:   29:}
+        -:   30:
+        -:   31:
+function redimensionareScadere called 1 returned 100% blocks executed 100%
+        1:   32:void redimensionareScadere(ListaMaterii* lista) {
+        1:   33:    lista->capacitate /= 2;
+        1:   34:    lista->materii = (MateriePrima*)realloc(lista->materii, lista->capacitate * sizeof(MateriePrima));
+        1:   35:}
+        -:   36:
+        -:   37:
+function adaugare called 26 returned 100% blocks executed 100%
+       26:   38:void adaugare(ListaMaterii* lista, MateriePrima m) {
+       53:   39:    for (int i = 0; i < lista->nr_elemente; i++) {
+       26:   39-block  0
+       27:   39-block  1
+       53:   39-block  2
+branch  0 taken 28
+branch  1 taken 25 (fallthrough)
+       28:   40:        if (strcmp(lista->materii[i].nume, m.nume) == 0) {
+       28:   40-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 27
+        1:   41:            lista->materii[i].cantitate += m.cantitate;
+        1:   42:            return;
+        1:   42-block  0
+        -:   43:        }
+        -:   44:    }
+       25:   45:    if (lista->nr_elemente == lista->capacitate) {
+       25:   45-block  0
+branch  0 taken 5 (fallthrough)
+branch  1 taken 20
+        5:   46:        redimensionareCrestere(lista);
+        5:   46-block  0
+call    0 returned 5
+        -:   47:    }
+        -:   48:
+       25:   49:    lista->materii[lista->nr_elemente] = m;
+       25:   50:    lista->nr_elemente += 1;
+       25:   50-block  0
+        -:   51:}
+        -:   52:
+        -:   53:
+function modificare called 1 returned 100% blocks executed 100%
+        1:   54:void modificare(ListaMaterii* lista, int index, MateriePrima m) {
+        1:   55:    if (index >= 0 && index < lista->nr_elemente) {
+        1:   55-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 0
+        1:   55-block  1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0
+        1:   56:        lista->materii[index] = m;
+        1:   56-block  0
+        -:   57:    }
+        1:   58:}
+        -:   59:
+        -:   60:
+function stergere called 5 returned 100% blocks executed 100%
+        5:   61:void stergere(ListaMaterii* lista, int index) {
+       12:   62:    for (int i = index; i < lista->nr_elemente - 1; i++) {
+        5:   62-block  0
+       12:   62-block  1
+branch  0 taken 7
+branch  1 taken 5 (fallthrough)
+        7:   63:        lista->materii[i] = lista->materii[i + 1];
+        7:   63-block  0
+        -:   64:    }
+        5:   65:    lista->nr_elemente--;
+        -:   66:
+        5:   67:    if (lista->nr_elemente < lista->capacitate/4) {
+        5:   67-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 4
+        1:   68:        redimensionareScadere(lista);
+        1:   68-block  0
+call    0 returned 1
+        -:   69:    }
+        5:   70:}

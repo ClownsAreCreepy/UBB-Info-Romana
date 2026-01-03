@@ -1,0 +1,60 @@
+<HTML>
+<HEAD>
+<TITLE>Implementation</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html7256" HREF="page433.html" tppabs="http://www.brpreiss.com/books/opus4/html/page433.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7254" HREF="page431.html" tppabs="http://www.brpreiss.com/books/opus4/html/page431.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7250" HREF="page431.html" tppabs="http://www.brpreiss.com/books/opus4/html/page431.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7258" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7259" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0014410000000000000000">Implementation</A></H2>
+<P>
+The class <tt>BuddyPool</tt> is declared in Program&nbsp;<A HREF="page432.html#progpool4h" tppabs="http://www.brpreiss.com/books/opus4/html/page432.html#progpool4h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+<tt>BuddyPool</tt> is a concrete class derived from the
+abstract base class <tt>StoragePool</tt>.
+The public interface includes a constructor, a destructor,
+and the member functions <tt>Acquire</tt> and <tt>Release</tt>.
+Three additional private member functions,
+<tt>Buddy</tt>, <tt>Unlink</tt> and <tt>InsertAfter</tt> are declared.
+<P>
+<P><A NAME="32212">&#160;</A><A NAME="progpool4h">&#160;</A> <IMG WIDTH=575 HEIGHT=753 ALIGN=BOTTOM ALT="program31910" SRC="img1777.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1777.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>BuddyPool</tt> Class Definition<BR>
+<P>
+<P>
+The nested structures <tt>Header</tt> and <tt>Block</tt>
+implement the layout given in Figure&nbsp;<A HREF="page431.html#figblock3" tppabs="http://www.brpreiss.com/books/opus4/html/page431.html#figblock3"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+The <tt>Header</tt> contains fields which are used in the representation
+of both <tt>reserved</tt> and <tt>free</tt> areas.
+A <tt>Header</tt> comprises the two members <tt>status</tt> and <tt>k</tt>.
+The former is a one-bit field of type <tt>Status</tt>.
+The latter encodes the length of the block as described above.
+<P>
+The <tt>Block</tt> structure contains a <tt>union</tt>
+that overlays an instance of the structure <tt>Links</tt>
+with the <tt>userPart</tt> of the block.
+If the block is a free block,
+the contents of the <tt>Links</tt> structure are used to link the associated
+area in the appropriate free list.
+If the block is reserved,
+the space in the <tt>userPart</tt> has been allocated to the user.
+<P>
+The minimum size of a block is the same
+as for the <tt>DoublyLinkedPool</tt> class, viz.,
+<P> <IMG WIDTH=387 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath68239" SRC="img1778.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1778.gif"  ><P>
+which on a 32-bit machine is typically 12 bytes.
+In the <tt>BuddyPool</tt> implementation given in Program&nbsp;<A HREF="page432.html#progpool4h" tppabs="http://www.brpreiss.com/books/opus4/html/page432.html#progpool4h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+the size of the <tt>Block</tt> structure is set to 16&nbsp;bytes.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html7260" HREF="page433.html#SECTION0014411000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page433.html#SECTION0014411000000000000000">Constructor and Destructor</A>
+<LI> <A NAME="tex2html7261" HREF="page434.html#SECTION0014412000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page434.html#SECTION0014412000000000000000">Acquiring an Area</A>
+<LI> <A NAME="tex2html7262" HREF="page435.html#SECTION0014413000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page435.html#SECTION0014413000000000000000">Releasing an Area</A>
+</UL>
+<HR><A NAME="tex2html7256" HREF="page433.html" tppabs="http://www.brpreiss.com/books/opus4/html/page433.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7254" HREF="page431.html" tppabs="http://www.brpreiss.com/books/opus4/html/page431.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7250" HREF="page431.html" tppabs="http://www.brpreiss.com/books/opus4/html/page431.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7258" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7259" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

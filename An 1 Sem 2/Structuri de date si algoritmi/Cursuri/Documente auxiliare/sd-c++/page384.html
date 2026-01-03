@@ -1,0 +1,120 @@
+<HTML>
+<HEAD>
+<TITLE>Implementation</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html6671" HREF="page385.html" tppabs="http://www.brpreiss.com/books/opus4/html/page385.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6669" HREF="page382.html" tppabs="http://www.brpreiss.com/books/opus4/html/page382.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6665" HREF="page383.html" tppabs="http://www.brpreiss.com/books/opus4/html/page383.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6673" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6674" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0012520000000000000000">Implementation</A></H2>
+<P>
+This section presents the simulation of
+a system comprised of a single queue and server as shown in Figure&nbsp;<A HREF="page383.html#figqueueing" tppabs="http://www.brpreiss.com/books/opus4/html/page383.html#figqueueing"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+Program&nbsp;<A HREF="page384.html#progapp08ac" tppabs="http://www.brpreiss.com/books/opus4/html/page384.html#progapp08ac"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> declares the class <tt>Event</tt> which represents the events.
+There are two parts to an event,
+a <tt>Type</tt> (either <tt>arrival</tt> or <tt>departure</tt>),
+and a <tt>Time</tt> (a <tt>double</tt>).
+<P>
+<P><A NAME="28063">&#160;</A><A NAME="progapp08ac">&#160;</A> <IMG WIDTH=575 HEIGHT=371 ALIGN=BOTTOM ALT="program27885" SRC="img1578.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1578.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>Event</tt> Class Definition<BR>
+<P>
+<P>
+Since events will be put into a priority queue,
+the <tt>Event</tt> class is derived from the <tt>Association</tt> class
+which is defined in Section&nbsp;<A HREF="page125.html#secadtsassociations" tppabs="http://www.brpreiss.com/books/opus4/html/page125.html#secadtsassociations"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+An association is an ordered pair comprised of a key and a value.
+In the case of the <tt>Event</tt> class,
+the key is the time of the event and the value is the type of the event.
+Therefore, the events in a priority queue are prioritized by their times.
+<P>
+Program&nbsp;<A HREF="page384.html#progapp08bc" tppabs="http://www.brpreiss.com/books/opus4/html/page384.html#progapp08bc"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> defines the function
+which implements the discrete event simulation.
+This function takes two arguments.
+The first, <tt>eventList</tt>, is a reference to a priority queue.
+This priority queue is used to hold the events during the course
+of the simulation.
+The second parameter, <tt>timeLimit</tt>,
+specifies the total amount of time to be simulated.
+<P>
+<P><A NAME="27901">&#160;</A><A NAME="progapp08bc">&#160;</A> <IMG WIDTH=575 HEIGHT=907 ALIGN=BOTTOM ALT="program27898" SRC="img1579.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1579.gif"  ><BR>
+<STRONG>Program:</STRONG> Application of Priority Queues--Discrete Event Simulation<BR>
+<P>
+<P>
+The state of the system being simulated is represented by the two
+variables <tt>serverBusy</tt> and <tt>numberInQueue</tt>.
+The first is a Boolean value which indicates whether the server is busy.
+The second keeps track of the number of customers in the queue.
+<P>
+In addition to the state variables,
+there are two instances of the class <tt>ExponentialRV</tt>.
+The class <tt>ExponentialRV</tt> is a random number generator
+defined in Section&nbsp;<A HREF="page472.html#secalgsrng" tppabs="http://www.brpreiss.com/books/opus4/html/page472.html#secalgsrng"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+This class provides a member function called <tt>Sample</tt>
+which is used to sample the random number generator.
+I.e., every time <tt>Sample</tt> is called,
+a different (random) result is returned.
+The random values are exponentially distributed around a mean value
+which is specified in the constructor.
+For example, in this case both <tt>serviceTime</tt> and <tt>interArrivalTime</tt>
+produce random distributions with the mean value of 100 (lines&nbsp;5-6).
+<P>
+It is assumed that the <tt>eventList</tt> priority queue is initially empty.
+The simulation begins by enqueuing a customer arrival at time zero (line&nbsp;8).
+The <tt>while</tt> loop (lines&nbsp;9-46) constitutes the main simulation loop.
+This loop continues as long as the <tt>eventList</tt> is not empty,
+i.e., as long as there is an event to be simulated
+<P>
+Each iteration of the simulation loop begins
+by dequeuing the next event in the event list (lines&nbsp;11-12).
+If the time of that event exceeds <tt>timeLimit</tt>,
+the event is discarded,
+the <tt>eventList</tt> is purged,
+and the simulation is terminated.
+Otherwise, the simulation proceeds.
+<P>
+The simulation of an event depends on the type of that event.
+The <tt>switch</tt> statement (line&nbsp;20) invokes the appropriate code
+for the given event.
+If the event is a customer arrival and the server is not busy,
+<tt>serverBusy</tt> is set to <tt>true</tt>
+and the <tt>serviceTime</tt> random number generator is sampled
+to determine the amount of time required to service the customer.
+A customer departure is scheduled
+at the appropriate time in the future (lines&nbsp;25-27).
+On the other hand, if the server is already busy when the customer arrives,
+we add one to the <tt>numberInQueue</tt> variable (line&nbsp;30).
+<P>
+Another customer arrival is scheduled after every customer arrival.
+The <tt>interArrivalTime</tt> random number generator is sampled,
+and the arrival is scheduled
+at the appropriate time in the future (lines&nbsp;31-32).
+<P>
+If the event is a customer departure and the queue is empty,
+the server becomes idle (lines&nbsp;35-36).
+When a customer departs and there are still customers in the queue,
+the next customer in the queue is served.
+Therefore, <tt>numberInQueue</tt> is decreased by one
+and the <tt>serviceTime</tt> random number generator is sampled
+to determine the amount of time required to service the next customer.
+A customer departure is scheduled
+at the appropriate time in the future (lines&nbsp;39-41).
+<P>
+Clearly the execution of the <tt>Simulation</tt> routine
+given in Program&nbsp;<A HREF="page384.html#progapp08bc" tppabs="http://www.brpreiss.com/books/opus4/html/page384.html#progapp08bc"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> mimics the modeled system.
+Of course, the program given produces no output.
+For it to be of any practical value,
+the simulation program should be instrumented
+to allow the user to study its behavior.
+For example, the user may be interested in knowing statistics
+such as the average queue length
+and the average waiting time that a customer waits for service.
+And such instrumentation can be easily incorporated into the given framework.
+<P>
+<HR><A NAME="tex2html6671" HREF="page385.html" tppabs="http://www.brpreiss.com/books/opus4/html/page385.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6669" HREF="page382.html" tppabs="http://www.brpreiss.com/books/opus4/html/page382.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6665" HREF="page383.html" tppabs="http://www.brpreiss.com/books/opus4/html/page383.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6673" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6674" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

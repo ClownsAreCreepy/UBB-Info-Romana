@@ -1,0 +1,15 @@
+# ninja log v6
+25	3707	7722006272653216	Tasks_ObsBtn__autogen/timestamp	cd0b17bf678e63c3
+25	3707	7722006272653216	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Tasks(ObsBtn)/cmake-build-debug/Tasks_ObsBtn__autogen/timestamp	cd0b17bf678e63c3
+25	3707	7722006272653216	Tasks_ObsBtn__autogen/mocs_compilation.cpp	cd0b17bf678e63c3
+2731	4023	7721180760351922	CMakeFiles/Tasks_ObsBtn_.dir/Test/Teste.cpp.obj	6747222d4f88c99a
+25	3707	7722006272653216	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/Tasks(ObsBtn)/cmake-build-debug/Tasks_ObsBtn__autogen/mocs_compilation.cpp	cd0b17bf678e63c3
+7423	7931	7722006310357622	Tasks_ObsBtn_.exe	3bbdd0d39cbbed2b
+3710	7279	7722006273238453	CMakeFiles/Tasks_ObsBtn_.dir/main.cpp.obj	4dcdb9c7d9abd343
+3707	7423	7722006273208479	CMakeFiles/Tasks_ObsBtn_.dir/Tasks_ObsBtn__autogen/mocs_compilation.cpp.obj	f5f4c49b6261bb5c
+140	762	7721992360058801	CMakeFiles/Tasks_ObsBtn_.dir/Repo/Repository.cpp.obj	c9c423297e5b26d5
+181	958	7721989023413838	CMakeFiles/Tasks_ObsBtn_.dir/Service/Service.cpp.obj	424cd4ca274c4306
+3714	7192	7722006273268457	CMakeFiles/Tasks_ObsBtn_.dir/GUI/Windows.cpp.obj	9bc274071c703f01
+2894	3572	7721125970323905	CMakeFiles/Tasks_ObsBtn_.dir/Observe/Observe.cpp.obj	fb4eb3ce23abb2e2
+3717	7411	7722006273298460	CMakeFiles/Tasks_ObsBtn_.dir/GUI/Window.cpp.obj	9ea05169efe6b396
+3720	7080	7722006273342783	CMakeFiles/Tasks_ObsBtn_.dir/GUI/Model.cpp.obj	7109cc4815307863

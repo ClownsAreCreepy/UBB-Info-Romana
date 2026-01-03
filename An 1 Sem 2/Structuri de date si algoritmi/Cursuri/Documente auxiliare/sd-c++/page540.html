@@ -1,0 +1,78 @@
+<HTML>
+<HEAD>
+<TITLE>Accessors and Mutators</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html8593" HREF="page541.html" tppabs="http://www.brpreiss.com/books/opus4/html/page541.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8591" HREF="page539.html" tppabs="http://www.brpreiss.com/books/opus4/html/page539.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8585" HREF="page539.html" tppabs="http://www.brpreiss.com/books/opus4/html/page539.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8595" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8596" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0017231000000000000000">Accessors and Mutators</A></H3>
+<P>
+The <tt>Graph</tt> class declares the following
+accessor and mutator member functions:
+<P>
+<DL ><DT><STRONG><tt>NumberOfEdges</tt></STRONG>
+<DD>
+	This accessor returns the number of edges contained by the graph.
+    <DT><STRONG><tt>NumberOfVertices</tt></STRONG>
+<DD>
+	This accessor returns the number of vertices contained by the graph.
+    <DT><STRONG><tt>AddVertex</tt></STRONG>
+<DD>
+	This mutator inserts a given vertex into a graph.
+	For simplicity, we shall assume that a given vertex
+	is inserted into exactly one graph.
+	All the vertices contained in a given graph must have
+	a unique vertex number.
+	Furthermore, if a graph contains <I>n</I> vertices,
+	those vertices shall be numbered 0, 1, ..., <I>n</I>-1.
+	Therefore, the next vertex inserted into the graph shall
+	have the number <I>n</I>.
+    <DT><STRONG><tt>SelectVertex</tt></STRONG>
+<DD>
+	This accessor takes an integer, say <I>i</I> where  <IMG WIDTH=64 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline62662" SRC="img940.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img940.gif"  >,
+	and returns reference to the  <IMG WIDTH=17 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58387" SRC="img77.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img77.gif"  > vertex
+	contained in the graph.
+    <DT><STRONG><tt>operator[]</tt></STRONG>
+<DD>
+	This subscript operator takes an integer-valued subscript expression.
+	We shall assume that the default behavior of this operator
+	is to call <tt>SelectVertex</tt>.
+    <DT><STRONG><tt>AddEdge</tt></STRONG>
+<DD>
+	This mutator inserts a given edge into a graph.
+	For simplicity, we shall assume that a given edge
+	is inserted into exactly one graph.
+	Both vertices referenced by the edge must be vertices
+	in the given graph.
+    <DT><STRONG><tt>IsEdge</tt></STRONG>
+<DD>
+	This Boolean-valued accessor takes two <tt>Vertex::Number</tt> arguments.
+	It returns <tt>true</tt> if the graph contains an edge
+	that connects the corresponding vertices.
+    <DT><STRONG><tt>SelectEdge</tt></STRONG>
+<DD>
+	This accessor takes two <tt>Vertex::Number</tt> arguments.
+	It returns a reference to the edge instance (if it exists)
+	that connects the corresponding vertices.
+	The behavior of this routine is undefined when the edge
+	does not exist.
+	(An implementation will typically throw an exception).
+    <DT><STRONG><tt>IsCyclic</tt></STRONG>
+<DD>
+	This Boolean-valued accessor returns <tt>true</tt>
+	if the graph is <em>cyclic</em>.
+    <DT><STRONG><tt>IsConnected</tt></STRONG>
+<DD>
+	This Boolean-valued accessor returns <tt>true</tt>
+	if the graph is <em>connected</em>.
+	Connectedness of graphs is discussed in Section&nbsp;<A HREF="page560.html#secgraphconnected" tppabs="http://www.brpreiss.com/books/opus4/html/page560.html#secgraphconnected"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+<P>
+ </DL><HR><A NAME="tex2html8593" HREF="page541.html" tppabs="http://www.brpreiss.com/books/opus4/html/page541.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8591" HREF="page539.html" tppabs="http://www.brpreiss.com/books/opus4/html/page539.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8585" HREF="page539.html" tppabs="http://www.brpreiss.com/books/opus4/html/page539.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8595" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8596" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

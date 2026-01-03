@@ -1,0 +1,77 @@
+<HTML>
+<HEAD>
+<TITLE>A Lower Bound on Sorting</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html8263" HREF="page515.html" tppabs="http://www.brpreiss.com/books/opus4/html/page515.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8261" HREF="page483.html" tppabs="http://www.brpreiss.com/books/opus4/html/page483.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8255" HREF="page513.html" tppabs="http://www.brpreiss.com/books/opus4/html/page513.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8265" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8266" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION0016700000000000000000">A Lower Bound on Sorting</A></H1>
+<P>
+The preceding sections present
+three  <IMG WIDTH=68 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59897" SRC="img405.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img405.gif"  > sorting algorithms--quicksort, heapsort, and the two-way merge sort.
+But is  <IMG WIDTH=68 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59897" SRC="img405.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img405.gif"  > the best we can do?
+In this section we answer the question by showing that
+any sorting algorithm that sorts using only binary comparisons
+must make  <IMG WIDTH=67 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60695" SRC="img533.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img533.gif"  > such comparisons.
+If each binary comparison takes a constant amount of time,
+then running time for any such sorting algorithm is also  <IMG WIDTH=67 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60695" SRC="img533.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img533.gif"  >.
+<P>
+Consider the problem of sorting the sequence  <IMG WIDTH=82 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline70487" SRC="img2213.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2213.gif"  >
+comprised of three distinct items.
+I.e.,  <IMG WIDTH=143 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline70489" SRC="img2214.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2214.gif"  >.
+Figure&nbsp;<A HREF="page514.html#figcomparison" tppabs="http://www.brpreiss.com/books/opus4/html/page514.html#figcomparison"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> illustrates a possible sorting algorithm
+in the form of a <em>decision tree</em><A NAME=44649>&#160;</A>.
+Each node of the decision tree represents one binary comparison.
+I.e., in each node of the tree,
+exactly two elements of the sequence are compared.
+Since there are exactly two possible outcomes for each comparison,
+each non-leaf node of the binary tree has degree two.
+<P>
+<P><A NAME="45190">&#160;</A><A NAME="figcomparison">&#160;</A> <IMG WIDTH=575 HEIGHT=287 ALIGN=BOTTOM ALT="figure44650" SRC="img2215.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2215.gif"  ><BR>
+<STRONG>Figure:</STRONG> A Decision Tree for Comparison Sorting<BR>
+<P>
+<P>
+For example, suppose that <I>a</I><I>&lt;</I><I>b</I><I>&lt;</I><I>c</I>.
+Consider how the algorithm shown in Figure&nbsp;<A HREF="page514.html#figcomparison" tppabs="http://www.brpreiss.com/books/opus4/html/page514.html#figcomparison"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> discovers this. 
+The first comparison compares <I>a</I> and <I>b</I> which reveals that <I>a</I><I>&lt;</I><I>b</I>.
+The second comparison compares <I>a</I> and <I>c</I> to find that <I>a</I><I>&lt;</I><I>c</I>.
+At this point it has been determined that <I>a</I><I>&lt;</I><I>b</I> and <I>a</I><I>&lt;</I><I>c</I>--
+the relative order of <I>b</I> and <I>c</I> is not yet known.
+Therefore, one more comparison is required to determine that <I>b</I><I>&lt;</I><I>c</I>.
+Notice that the algorithm shown in Figure&nbsp;<A HREF="page514.html#figcomparison" tppabs="http://www.brpreiss.com/books/opus4/html/page514.html#figcomparison"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> works correctly
+in all cases because every possible permutation of the sequence <I>S</I>
+appears as a leaf node in the decision tree.
+Furthermore, the number of comparisons required in the worst case
+is equal to the height of the decision tree!
+<P>
+Any sorting algorithm that uses
+only binary comparisons can be represented by a binary decision tree.
+Furthermore, it is the height of the binary decision tree that
+determines the worst-case running time of the algorithm.
+In general, the size and shape of the decision tree is a function of
+the sorting algorithm and the number of items to be sorted.
+<P>
+Given an input sequence of <I>n</I> items to be sorted,
+every binary decision tree that correctly sorts the input sequence
+must have <em>at least</em> <I>n</I>! leaves--one for each permutation of the input.
+Therefore, it follows directly from Theorem&nbsp;<A HREF="page255.html#theoremtreesiii" tppabs="http://www.brpreiss.com/books/opus4/html/page255.html#theoremtreesiii"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+that the height of the binary decision tree is <em>at least</em>
+ <IMG WIDTH=55 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline70551" SRC="img2216.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2216.gif"  >:
+<P> <IMG WIDTH=500 HEIGHT=172 ALIGN=BOTTOM ALT="eqnarray45198" SRC="img2217.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2217.gif"  ><P>
+<P>
+Since the height of the decision tree is  <IMG WIDTH=67 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60695" SRC="img533.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img533.gif"  >,
+the number of comparisons done by
+any sorting algorithm that sorts using only binary comparisons
+is  <IMG WIDTH=67 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60695" SRC="img533.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img533.gif"  >.
+Assuming each comparison can be done in constant time,
+the running time of any such sorting algorithm is  <IMG WIDTH=67 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60695" SRC="img533.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img533.gif"  >.
+<P>
+<HR><A NAME="tex2html8263" HREF="page515.html" tppabs="http://www.brpreiss.com/books/opus4/html/page515.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8261" HREF="page483.html" tppabs="http://www.brpreiss.com/books/opus4/html/page483.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8255" HREF="page513.html" tppabs="http://www.brpreiss.com/books/opus4/html/page513.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8265" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8266" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

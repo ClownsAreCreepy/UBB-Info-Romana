@@ -1,0 +1,60 @@
+<HTML>
+<HEAD>
+<TITLE>Running Time Analysis</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html9086" HREF="page582.html" tppabs="http://www.brpreiss.com/books/opus4/html/page582.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html9084" HREF="page579.html" tppabs="http://www.brpreiss.com/books/opus4/html/page579.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html9080" HREF="page580.html" tppabs="http://www.brpreiss.com/books/opus4/html/page580.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html9088" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html9089" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0017522000000000000000">Running Time Analysis</A></H3>
+<P>
+The <tt>KruskalsAlgorithm</tt> routine begins by creating
+an graph to hold the result spanning tree (lines&nbsp;3-7).
+Since a spanning tree is a sparse graph
+the <tt>GraphAsLists</tt> class is used to represent it.
+Initially the graph contains  <IMG WIDTH=17 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71781" SRC="img2365.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2365.gif"  > vertices but no edges.
+The running time for lines&nbsp;3-7 is  <IMG WIDTH=43 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71805" SRC="img2371.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2371.gif"  >.
+<P>
+Next all of the edges in the input graph
+are inserted one-by-one into the priority queue (lines&nbsp;9-18).
+Since there are  <IMG WIDTH=16 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71793" SRC="img2367.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2367.gif"  > edges,
+the worst-case running time for a single insertion is  <IMG WIDTH=65 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72651" SRC="img2482.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2482.gif"  >.
+Therefore, the worst-case running time to initialize the priority queue is
+<P> <IMG WIDTH=315 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath72639" SRC="img2483.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2483.gif"  ><P>
+when adjacency lists are used, and
+<P> <IMG WIDTH=318 HEIGHT=18 ALIGN=BOTTOM ALT="displaymath72640" SRC="img2484.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2484.gif"  ><P>
+when adjacency matrices are used to represent the input graph.
+<P>
+The main loop of the routine comprises lines 21-36.
+This loop is done at most  <IMG WIDTH=16 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71793" SRC="img2367.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2367.gif"  > times.
+In each iteration of the loop,
+one edge is removed from the priority queue (lines&nbsp;23-25).
+In the worst-case this takes  <IMG WIDTH=65 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72651" SRC="img2482.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2482.gif"  > time.
+<P>
+Then, two partition <em>find</em> operations are done
+to determine the elements of the partition
+that contain the two end-points of the given edge (lines&nbsp;26-29).
+Since the partition contains at most  <IMG WIDTH=17 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71781" SRC="img2365.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2365.gif"  > elements,
+the running time for the find operations is  <IMG WIDTH=66 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline73111" SRC="img2562.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2562.gif"  >.
+If the two elements of the partition are distinct,
+then an edge is added to the spanning tree
+and a <em>join</em> operation is done to unite
+the two elements of the partition (lines&nbsp;30-34).
+The join operation also requires  <IMG WIDTH=66 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline73111" SRC="img2562.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2562.gif"  > time in the worst-case.
+Therefore, the total running time for the main loop
+is  <IMG WIDTH=170 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline73115" SRC="img2563.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2563.gif"  >.
+<P>
+Thus, the worst-case running time for Kruskal's algorithm is
+<P> <IMG WIDTH=356 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath73091" SRC="img2564.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2564.gif"  ><P>
+when adjacency lists are used, and
+<P> <IMG WIDTH=360 HEIGHT=18 ALIGN=BOTTOM ALT="displaymath73092" SRC="img2565.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2565.gif"  ><P>
+when adjacency matrices are used to represent the input graph.
+<P>
+<HR><A NAME="tex2html9086" HREF="page582.html" tppabs="http://www.brpreiss.com/books/opus4/html/page582.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html9084" HREF="page579.html" tppabs="http://www.brpreiss.com/books/opus4/html/page579.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html9080" HREF="page580.html" tppabs="http://www.brpreiss.com/books/opus4/html/page580.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html9088" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html9089" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

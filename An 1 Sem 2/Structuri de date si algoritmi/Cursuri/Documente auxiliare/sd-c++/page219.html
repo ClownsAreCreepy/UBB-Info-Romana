@@ -1,0 +1,67 @@
+<HTML>
+<HEAD>
+<TITLE>Hashing Objects</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html4623" HREF="page220.html" tppabs="http://www.brpreiss.com/books/opus4/html/page220.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4621" HREF="page215.html" tppabs="http://www.brpreiss.com/books/opus4/html/page215.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4615" HREF="page218.html" tppabs="http://www.brpreiss.com/books/opus4/html/page218.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4625" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4626" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION009340000000000000000">Hashing <tt>Object</tt>s</A></H2>
+<P>
+In this section we consider hashing in the context
+of the object hierarchy defined in Chapter&nbsp;<A HREF="page107.html#chapadts" tppabs="http://www.brpreiss.com/books/opus4/html/page107.html#chapadts"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+The abstract base class called <tt>Object</tt>
+which was defined in Section&nbsp;<A HREF="page111.html#secadtsobjects" tppabs="http://www.brpreiss.com/books/opus4/html/page111.html#secadtsobjects"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+has a <tt>const</tt> virtual member function called <tt>Hash</tt>
+which was declared as follows:
+<PRE>class Object
+{
+    ...
+    virtual HashValue Hash () const = 0;
+    ...
+};</PRE>
+The idea is that every object instance of a class which is derived
+from the class <tt>Object</tt> has an associated member function
+called <tt>Hash</tt> which hashes that object
+to produce an integer <tt>HashValue</tt>.
+For example, given a reference to an object, <tt>Object&amp; obj</tt>,
+the following computation
+<PRE>HashValue x = obj.Hash ();</PRE>
+sets the variable <tt>x</tt> to the value returned by
+the <tt>Hash</tt> function associated with
+the object to which <tt>obj</tt> refers.
+<P>
+A <tt>Wrapper</tt> class template was declared
+in Section&nbsp;<A HREF="page115.html#secadtswrappers" tppabs="http://www.brpreiss.com/books/opus4/html/page115.html#secadtswrappers"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+which is used to wrap instances of the C++ built-in data types
+within an <tt>Object</tt> abstract interface.
+Using the <tt>Wrapper</tt> template,
+the four classes <tt>Char</tt>, <tt>Int</tt>, <tt>Double</tt>, and <tt>String</tt>
+were declared as follows:
+<PRE>typedef Wrapper&lt;char&gt; Char;
+typedef Wrapper&lt;int&gt; Int;
+typedef Wrapper&lt;double&gt; Double;
+typedef Wrapper&lt;string&gt; String;</PRE>
+Since these classes are meant to be concrete classes,
+they must provide implementations for all of the member functions
+including the <tt>Hash</tt> function.
+<P>
+<P><A NAME="11722">&#160;</A><A NAME="progwrapper2c">&#160;</A> <IMG WIDTH=575 HEIGHT=66 ALIGN=BOTTOM ALT="program11556" SRC="img957.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img957.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>Wrapper&lt;T&gt;</tt> Class <tt>Hash</tt> Member Function Definition<BR>
+<P>
+<P>
+Program&nbsp;<A HREF="page219.html#progwrapper2c" tppabs="http://www.brpreiss.com/books/opus4/html/page219.html#progwrapper2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives the definition of the
+<tt>Hash</tt> member function of the <tt>Wrapper&lt;T&gt;</tt> class.
+The implementation simply calls the appropriate hashing function
+from those given in Programs&nbsp;<A HREF="page216.html#proghash1c" tppabs="http://www.brpreiss.com/books/opus4/html/page216.html#proghash1c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>, <A HREF="page217.html#proghash2c" tppabs="http://www.brpreiss.com/books/opus4/html/page217.html#proghash2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> and&nbsp;<A HREF="page218.html#proghash3c" tppabs="http://www.brpreiss.com/books/opus4/html/page218.html#proghash3c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+For example the <tt>Wrapper&lt;int&gt;::Hash</tt> function calls <tt>Hash(int)</tt> and
+the <tt>Wrapper&lt;string&gt;::Hash</tt> function calls <tt>Hash(string)</tt>.
+<P>
+<HR><A NAME="tex2html4623" HREF="page220.html" tppabs="http://www.brpreiss.com/books/opus4/html/page220.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4621" HREF="page215.html" tppabs="http://www.brpreiss.com/books/opus4/html/page215.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4615" HREF="page218.html" tppabs="http://www.brpreiss.com/books/opus4/html/page218.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4625" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4626" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

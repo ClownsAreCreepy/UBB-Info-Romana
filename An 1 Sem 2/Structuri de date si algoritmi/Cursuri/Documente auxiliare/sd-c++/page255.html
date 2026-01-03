@@ -1,0 +1,189 @@
+<HTML>
+<HEAD>
+<TITLE>N-ary Trees</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html5070" HREF="page256.html" tppabs="http://www.brpreiss.com/books/opus4/html/page256.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5068" HREF="page250.html" tppabs="http://www.brpreiss.com/books/opus4/html/page250.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5062" HREF="page254.html" tppabs="http://www.brpreiss.com/books/opus4/html/page254.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5072" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5073" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION0010200000000000000000"><I>N</I>-ary Trees</A></H1>
+<P>
+In the preceding section we considered trees in which
+the nodes can have arbitrary degrees.
+In particular, the general case allows each of the nodes of a tree
+to have a different degree.
+In this section we consider a variation in which all of the
+nodes of the tree are required to have exactly the same degree.
+<P>
+Unfortunately, simply adding to Definition&nbsp;<A HREF="page251.html#defntree" tppabs="http://www.brpreiss.com/books/opus4/html/page251.html#defntree"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+the additional requirement that all of the nodes of the tree
+have the same degree does not work.
+It is not possible to construct a tree which has a finite number of nodes
+all of which have the same degree <I>N</I>
+in any case except the trivial case of <I>N</I>=0.
+In order to make it work,
+we need to introduce the notion of an empty tree as follows:
+<P>
+<BLOCKQUOTE> <b>Definition (<I>N</I>-ary Tree)</b><A NAME="defnnarytree">&#160;</A>
+An <em><I>N</I>-ary tree</em><A NAME=15301>&#160;</A><A NAME=15302>&#160;</A> <I>T</I>
+is a finite set of <em>nodes</em><A NAME=15304>&#160;</A>
+with the following properties:
+<OL><LI> Either the set is empty,  <IMG WIDTH=40 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline63628" SRC="img1112.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1112.gif"  >; or<LI> The set consists of a root, <I>R</I>,
+	and exactly <I>N</I> distinct <I>N</I>-ary trees.
+	I.e., the remaining nodes are partitioned into  <IMG WIDTH=43 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline63636" SRC="img1113.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1113.gif"  > subsets,
+	 <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63638" SRC="img1114.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1114.gif"  >,  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63404" SRC="img1086.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1086.gif"  >, ...,  <IMG WIDTH=37 HEIGHT=21 ALIGN=MIDDLE ALT="tex2html_wrap_inline63642" SRC="img1115.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1115.gif"  >, each of which is an <I>N</I>-ary tree
+	such that  <IMG WIDTH=182 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline63646" SRC="img1116.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1116.gif"  >.
+</OL></BLOCKQUOTE>
+<P>
+According to Definition&nbsp;<A HREF="page255.html#defnnarytree" tppabs="http://www.brpreiss.com/books/opus4/html/page255.html#defnnarytree"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+an <I>N</I>-ary tree is either the empty tree,  <IMG WIDTH=6 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline63650" SRC="img1117.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1117.gif"  >,
+or it is a non-empty set of nodes which consists of a root
+and exactly <I>N</I> subtrees.
+Clearly, the empty set contains neither a root, nor any subtrees.
+Therefore, the degree of each node of an <I>N</I>-ary tree is either zero or <I>N</I>.
+<P>
+There is subtle, yet extremely important consequence
+of Definition&nbsp;<A HREF="page255.html#defnnarytree" tppabs="http://www.brpreiss.com/books/opus4/html/page255.html#defnnarytree"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> that often goes unrecognized.
+The empty tree,  <IMG WIDTH=40 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline63628" SRC="img1112.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1112.gif"  >, is a tree.
+I.e., it is an object of the same type as a non-empty tree.
+Therefore, from the perspective of object-oriented program design,
+an empty tree must be an instance of some object class.
+It is inappropriate to use a null pointer to represent an empty tree,
+since a null pointer points to nothing at all!
+<P>
+The empty trees are called <em>external nodes</em><A NAME=15313>&#160;</A>
+because they have no subtrees and therefore appear
+at the extremities of the tree.
+Conversely, the non-empty trees are called
+<em>internal nodes</em><A NAME=15315>&#160;</A>.
+<P>
+Figure&nbsp;<A HREF="page255.html#figtree3" tppabs="http://www.brpreiss.com/books/opus4/html/page255.html#figtree3"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> shows the following
+<em>tertiary</em><A NAME=15318>&#160;</A><A NAME=15319>&#160;</A>
+(<I>N</I>=3) trees:
+<P> <IMG WIDTH=500 HEIGHT=111 ALIGN=BOTTOM ALT="eqnarray15320" SRC="img1118.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1118.gif"  ><P>
+In the figure, square boxes denote the empty trees
+and circles denote non-empty nodes.
+Except for the empty trees,
+the tertiary trees shown in the figure contain the same sets of
+nodes as the corresponding trees shown in Figure&nbsp;<A HREF="page251.html#figtree1" tppabs="http://www.brpreiss.com/books/opus4/html/page251.html#figtree1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+<P>
+<P><A NAME="15495">&#160;</A><A NAME="figtree3">&#160;</A> <IMG WIDTH=575 HEIGHT=422 ALIGN=BOTTOM ALT="figure15323" SRC="img1119.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1119.gif"  ><BR>
+<STRONG>Figure:</STRONG> Examples of <I>N</I>-ary Trees<BR>
+<P>
+<P>
+Definitions&nbsp;<A HREF="page251.html#defntree" tppabs="http://www.brpreiss.com/books/opus4/html/page251.html#defntree"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> and&nbsp;<A HREF="page255.html#defnnarytree" tppabs="http://www.brpreiss.com/books/opus4/html/page255.html#defnnarytree"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> both define trees
+in terms of sets.
+In mathematics, elements of a set are normally unordered.
+Therefore, we might conclude that that relative ordering of the
+subtrees is not important.
+However, most practical implementations of trees define
+an implicit ordering of the subtrees.
+Consequently, it is usual to assume that the subtrees are ordered.
+As a result, the two tertiary trees,
+ <IMG WIDTH=169 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline63670" SRC="img1120.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1120.gif"  >
+and
+ <IMG WIDTH=162 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline63672" SRC="img1121.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1121.gif"  >,
+are considered to be distinct unequal trees.
+Trees in which the subtrees are ordered are called
+<em>ordered trees</em><A NAME=15501>&#160;</A><A NAME=15502>&#160;</A>.
+On the other hand, trees in which the order does not matter
+are called <em>oriented trees</em><A NAME=15504>&#160;</A><A NAME=15505>&#160;</A>.
+In this book, we shall assume that all trees are ordered
+unless otherwise specified.
+<P>
+Figure&nbsp;<A HREF="page255.html#figtree3" tppabs="http://www.brpreiss.com/books/opus4/html/page255.html#figtree3"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> suggests that every <I>N</I>-ary tree contains
+a significant number of external nodes.
+The following theorem tells us precisely how many external nodes we can expect:
+<P>
+<BLOCKQUOTE> <b>Theorem</b><A NAME="theoremtreesi">&#160;</A>
+An <I>N</I>-ary tree with  <IMG WIDTH=38 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59063" SRC="img241.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img241.gif"  > internal nodes
+contains (<I>N</I>-1)<I>n</I>+1 external nodes.
+</BLOCKQUOTE>
+<P>
+	extbfProof
+Let the number of external nodes be <I>l</I>.
+Since every node except the root (empty or not) has a parent,
+there must be (<I>n</I>+<I>l</I>-1)/<I>N</I> parents in the tree
+since every parent has <I>N</I> children.
+Therefore, <I>n</I>=(<I>n</I>+<I>l</I>-1)/<I>N</I>.
+Rearranging this gives <I>l</I>=(<I>N</I>-1)<I>n</I>+1.
+<P>
+Since the external nodes have no subtrees,
+it is tempting to consider them to be the leaves of the tree.
+However, in the context of <I>N</I>-ary trees,
+it is customary to define a <em>leaf node</em><A NAME=15513>&#160;</A>
+as an internal node which has only external subtrees.
+According to this definition,
+the trees shown in Figure&nbsp;<A HREF="page255.html#figtree3" tppabs="http://www.brpreiss.com/books/opus4/html/page255.html#figtree3"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> have exactly the same
+sets of leaves as the corresponding
+general trees shown in Figure&nbsp;<A HREF="page251.html#figtree1" tppabs="http://www.brpreiss.com/books/opus4/html/page251.html#figtree1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+<P>
+Furthermore, since height is defined with respect to the leaves,
+by having the leaves the same for both kinds of trees,
+the heights are also the same.
+The following theorem tells us something about
+the maximum size of a tree of a given height <I>h</I>:
+<P>
+<BLOCKQUOTE> <b>Theorem</b><A NAME="theoremtreesii">&#160;</A>
+Consider an <I>N</I>-ary tree <I>T</I> of height  <IMG WIDTH=36 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline63700" SRC="img1122.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1122.gif"  >.
+The maximum number of internal nodes in <I>T</I> is given by
+<P> <IMG WIDTH=285 HEIGHT=35 ALIGN=BOTTOM ALT="displaymath63606" SRC="img1123.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1123.gif"  ><P></BLOCKQUOTE>
+<P>
+	extbfProof (By induction).
+<P>
+<b>Base Case</b>
+Consider an <I>N</I>-ary tree of height zero.
+It consists of exactly one internal node and <I>N</I> empty subtrees.
+Clearly the theorem holds for <I>h</I>=0 since
+<P> <IMG WIDTH=315 HEIGHT=40 ALIGN=BOTTOM ALT="displaymath63607" SRC="img1124.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1124.gif"  ><P>
+<P>
+<b>Inductive Hypothesis</b>
+Suppose the theorem holds for  <IMG WIDTH=114 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline63710" SRC="img1125.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1125.gif"  >, for some  <IMG WIDTH=36 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline61524" SRC="img761.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img761.gif"  >.
+Consider a tree of height <I>k</I>+1.
+Such a tree consists of a root and <I>N</I> subtrees each of which
+contains at most  <IMG WIDTH=139 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline63718" SRC="img1126.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1126.gif"  > nodes.
+Therefore, altogether the number of nodes is at most
+<P> <IMG WIDTH=500 HEIGHT=39 ALIGN=BOTTOM ALT="equation15527" SRC="img1127.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1127.gif"  ><P>
+I.e., the theorem holds for <I>k</I>+1.
+Therefore, by induction on <I>k</I>,
+the theorem is true for all values of <I>h</I>.
+<P>
+An interesting consequence of Theorems&nbsp;<A HREF="page255.html#theoremtreesi" tppabs="http://www.brpreiss.com/books/opus4/html/page255.html#theoremtreesi"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> and&nbsp;<A HREF="page255.html#theoremtreesii" tppabs="http://www.brpreiss.com/books/opus4/html/page255.html#theoremtreesii"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+is that the maximum number of external nodes
+in an <I>N</I>-ary tree of height <I>h</I> is given by
+<P> <IMG WIDTH=362 HEIGHT=39 ALIGN=BOTTOM ALT="displaymath63608" SRC="img1128.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1128.gif"  ><P>
+<P>
+The final theorem of this section addresses the maximum number of <em>leaves</em>
+in an <I>N</I>-ary tree of height <I>h</I>:
+<P>
+<BLOCKQUOTE> <b>Theorem</b><A NAME="theoremtreesiii">&#160;</A>
+Consider an <I>N</I>-ary tree <I>T</I> of height  <IMG WIDTH=36 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline63700" SRC="img1122.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1122.gif"  >.
+The maximum number of leaf nodes in <I>T</I> is  <IMG WIDTH=21 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline63742" SRC="img1129.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1129.gif"  >.
+</BLOCKQUOTE>
+<P>
+	extbfProof (By induction).
+<P>
+<b>Base Case</b>
+Consider an <I>N</I>-ary tree of height zero.
+It consists of exactly one internal node which has <I>N</I> empty subtrees.
+Therefore, the one node is a leaf.
+Clearly the theorem holds for <I>h</I>=0 since  <IMG WIDTH=50 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline63750" SRC="img1130.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1130.gif"  >.
+<P>
+<b>Inductive Hypothesis</b>
+Suppose the theorem holds for  <IMG WIDTH=114 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline63710" SRC="img1125.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1125.gif"  >, for some  <IMG WIDTH=36 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline61524" SRC="img761.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img761.gif"  >.
+Consider a tree of height <I>k</I>+1.
+Such a tree consists of a root and <I>N</I> subtrees each of which
+contains at most  <IMG WIDTH=21 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline63760" SRC="img1131.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1131.gif"  > leaf nodes.
+Therefore, altogether the number of leaves is at most  <IMG WIDTH=115 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline63762" SRC="img1132.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1132.gif"  >.
+I.e., the theorem holds for <I>k</I>+1.
+Therefore, by induction on <I>k</I>,
+the theorem is true for all values of <I>h</I>.
+<P>
+<HR><A NAME="tex2html5070" HREF="page256.html" tppabs="http://www.brpreiss.com/books/opus4/html/page256.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5068" HREF="page250.html" tppabs="http://www.brpreiss.com/books/opus4/html/page250.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5062" HREF="page254.html" tppabs="http://www.brpreiss.com/books/opus4/html/page254.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5072" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5073" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

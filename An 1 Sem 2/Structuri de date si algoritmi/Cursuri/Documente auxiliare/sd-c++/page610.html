@@ -1,0 +1,60 @@
+<HTML>
+<HEAD>
+<TITLE>Virtual Member Functions</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html9445" HREF="page611.html" tppabs="http://www.brpreiss.com/books/opus4/html/page611.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html9443" HREF="page609.html" tppabs="http://www.brpreiss.com/books/opus4/html/page609.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html9437" HREF="page609.html" tppabs="http://www.brpreiss.com/books/opus4/html/page609.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html9447" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html9448" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0018421000000000000000">Virtual Member Functions</A></H3>
+<P>
+In Program&nbsp;<A HREF="page609.html#proggraphic1h" tppabs="http://www.brpreiss.com/books/opus4/html/page609.html#proggraphic1h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+<tt>Draw</tt>, <tt>Erase</tt> and <tt>MoveTo</tt>
+are all declared as <tt>virtual</tt> member functions of the 
+<tt>GraphicalObject</tt> class.
+Declaring a member function <tt>virtual</tt> changes the way
+in which the compiler determines the member function to call.
+<P>
+Consider the following sequence of instructions:
+<PRE>GraphicalObject&amp; g1 = *new Circle (Point (0,0), 5);
+GraphicalObject&amp; g2 = *new Square (Point (0,0), 5);
+g1.Draw ();
+g2.Draw ();</PRE>
+If the <tt>Draw</tt> function was not declared virtual,
+then both <tt>g1.Draw()</tt> and
+<tt>g2.Draw()</tt>
+would invoke <tt>GraphicalObject::Draw</tt>.
+However, because <tt>Draw</tt> is a <tt>virtual</tt> function,
+<tt>g1.Draw()</tt> calls <tt>Circle::Draw</tt>
+and <tt>g2.Draw()</tt> calls <tt>Rectangle::Draw</tt>.
+<P>
+It is as if every object of a class contains a pointer to the actual routine
+to be invoked when a virtual function is called on that object.
+E.g, <tt>Circle</tt> objects carry pointers to
+<tt>Circle::Draw</tt>,
+<tt>GraphicalObject::Erase</tt> and <tt>GraphicalObject::MoveTo</tt>,
+whereas <tt>Square</tt> objects carry pointers to
+<tt>Rectangle::Draw</tt>,
+<tt>GraphicalObject::Erase</tt> and <tt>GraphicalObject::MoveTo</tt>.
+<P>
+Virtual functions ensure that the ``correct''
+member function is actually called,
+regardless of how the object is accessed.
+Consider the following sequence:
+<PRE>Square s (Point (0,0), 5);
+Rectangle&amp; r = s;
+GraphicalObject&amp; g = r;</PRE>
+Here <tt>s</tt>, <tt>r</tt> and <tt>g</tt> all refer to the same object,
+even though they are all of different types.
+However, because <tt>Draw</tt> is <tt>virtual</tt>,
+<tt>s.Draw()</tt>, <tt>r.Draw()</tt> and <tt>g.Draw()</tt>
+all invoke <tt>Rectangle::Draw</tt>.
+<P>
+<HR><A NAME="tex2html9445" HREF="page611.html" tppabs="http://www.brpreiss.com/books/opus4/html/page611.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html9443" HREF="page609.html" tppabs="http://www.brpreiss.com/books/opus4/html/page609.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html9437" HREF="page609.html" tppabs="http://www.brpreiss.com/books/opus4/html/page609.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html9447" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html9448" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,42 @@
+        -:    0:Source:/mnt/d/C,C++/CLion 2024.3.4/Projects/Lab2_4/main.c
+        -:    0:Graph:/mnt/d/C,C++/CLion 2024.3.4/Projects/Lab2_4/cmake-build-debug-coverage/CMakeFiles/Lab2_4.dir/main.c.gcno
+        -:    0:Data:/mnt/d/C,C++/CLion 2024.3.4/Projects/Lab2_4/cmake-build-debug-coverage/CMakeFiles/Lab2_4.dir/main.c.gcda
+        -:    0:Runs:1
+        -:    1:#include "repository/lista_materii.h"
+        -:    2:#include "ui/meniu.h"
+        -:    3:#include "test/test_materii.h"
+        -:    4:
+function main called 1 returned 100% blocks executed 100%
+        1:    5:int main() {
+        1:    6:    ListaMaterii lista = creeare();
+        1:    6-block  0
+call    0 returned 1
+        -:    7:
+        1:    8:    MateriePrima m1={"Faina", "Marcel", 20};
+        1:    9:    adaugare_validata(&lista, m1);
+call    0 returned 1
+        -:   10:
+        1:   11:    MateriePrima m2={"Lalele", "Ciolacu", 300};
+        1:   12:    adaugare_validata(&lista, m2);
+call    0 returned 1
+        -:   13:
+        1:   14:    MateriePrima m3={"Varza", "Vasile", 150};
+        1:   15:    adaugare_validata(&lista, m3);
+call    0 returned 1
+        -:   16:
+        1:   17:    MateriePrima m4={"Oua", "Ciprian", 100};
+        1:   18:    adaugare_validata(&lista, m4);
+call    0 returned 1
+        -:   19:
+        1:   20:    MateriePrima m5={"Carne", "Oana", 240};
+        1:   21:    adaugare_validata(&lista, m5);
+call    0 returned 1
+        -:   22:
+        1:   23:    run_tests();
+call    0 returned 1
+        1:   24:    meniu(&lista);
+call    0 returned 1
+        1:   25:    eliberare(&lista);
+call    0 returned 1
+        1:   26:    return 0;
+        -:   27:}

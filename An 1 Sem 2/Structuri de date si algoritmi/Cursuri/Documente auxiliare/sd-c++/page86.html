@@ -1,0 +1,42 @@
+<HTML>
+<HEAD>
+<TITLE>Array Subscripting Operator</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html2965" HREF="page87.html" tppabs="http://www.brpreiss.com/books/opus4/html/page87.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2963" HREF="page80.html" tppabs="http://www.brpreiss.com/books/opus4/html/page80.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2957" HREF="page85.html" tppabs="http://www.brpreiss.com/books/opus4/html/page85.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2967" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2968" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION005160000000000000000">Array Subscripting Operator</A></H2>
+<P>
+Program&nbsp;<A HREF="page86.html#progarray6c" tppabs="http://www.brpreiss.com/books/opus4/html/page86.html#progarray6c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> defines two functions,
+each of which overloads the array subscripting operation.
+The purpose of overloading <tt>operator[]</tt>
+is to allow arbitrary subscript ranges and to provide array bounds-checking.
+The array subscripting operator,
+<tt>operator[]</tt> is provided in two forms.
+One which operates on a <tt>const</tt> array object
+and returns a <tt>const</tt> reference to an object of type <tt>T</tt>;
+and another which does the same for non-<tt>const</tt> objects.
+The code in both instances is identical.
+The <tt>position</tt> argument is checked and then
+a reference to the selected item is returned.
+In the event of an array-bounds error,
+an <tt>outofrange</tt><A NAME=2789>&#160;</A><A NAME="tex2html128" HREF="footnode.html#2880" tppabs="http://www.brpreiss.com/books/opus4/html/footnode.html#2880"><IMG  ALIGN=BOTTOM ALT="gif" SRC="foot_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/foot_motif.gif"></A>
+<em>exception</em><A NAME=2792>&#160;</A> is thrown.
+<P>
+We will assume that in a bug-free program there will never
+be an array-bounds error.
+Therefore, the running time of <tt>operator[]</tt> is a constant.
+I.e., <I>T</I>(<I>n</I>)=<I>O</I>(1).
+This is, after all, the sole reason for using an array--the time it takes to access the  <IMG WIDTH=17 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58387" SRC="img77.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img77.gif"  > element of the array is a constant!
+<P>
+<P><A NAME="2882">&#160;</A><A NAME="progarray6c">&#160;</A> <IMG WIDTH=575 HEIGHT=333 ALIGN=BOTTOM ALT="program2795" SRC="img606.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img606.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>Array&lt;T&gt;</tt> Class Subscripting Function Definitions<BR>
+<P><HR><A NAME="tex2html2965" HREF="page87.html" tppabs="http://www.brpreiss.com/books/opus4/html/page87.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2963" HREF="page80.html" tppabs="http://www.brpreiss.com/books/opus4/html/page80.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2957" HREF="page85.html" tppabs="http://www.brpreiss.com/books/opus4/html/page85.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2967" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2968" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

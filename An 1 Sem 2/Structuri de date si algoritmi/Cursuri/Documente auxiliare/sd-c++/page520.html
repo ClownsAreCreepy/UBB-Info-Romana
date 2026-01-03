@@ -1,0 +1,92 @@
+<HTML>
+<HEAD>
+<TITLE>Performance Data</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html8333" HREF="page521.html" tppabs="http://www.brpreiss.com/books/opus4/html/page521.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8331" HREF="page483.html" tppabs="http://www.brpreiss.com/books/opus4/html/page483.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8325" HREF="page519.html" tppabs="http://www.brpreiss.com/books/opus4/html/page519.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8335" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8336" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION0016900000000000000000">Performance Data</A></H1>
+<P>
+In order to better understand the actual performance
+of the various sorting algorithms presented in this chapter,
+it is necessary to conduct some experiments.
+Only by conducting experiments is it possible to determine
+the relative performance of algorithms
+with the same asymptotic running time.
+<P>
+To measure the performance of a sorting algorithm,
+we need to provide it with some data to sort.
+To obtain the results presented here,
+random sequences of unsigned integers were sorted.
+I.e., for each value of <I>n</I>,
+the <tt>RandomNumberGenerator</tt> class defined in Section&nbsp;<A HREF="page472.html#secalgsrng" tppabs="http://www.brpreiss.com/books/opus4/html/page472.html#secalgsrng"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+was used to create a sequence of <I>n</I> integers.
+In all cases (except for bucket sort)
+the random numbers are uniformly distributed
+in the interval  <IMG WIDTH=71 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline70747" SRC="img2255.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2255.gif"  >.
+For the bucket sort the numbers are uniformly distributed in  <IMG WIDTH=70 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline70749" SRC="img2256.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2256.gif"  >.
+<P>
+Figures&nbsp;<A HREF="page520.html#figsorting1" tppabs="http://www.brpreiss.com/books/opus4/html/page520.html#figsorting1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>, <A HREF="page520.html#figsorting2" tppabs="http://www.brpreiss.com/books/opus4/html/page520.html#figsorting2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> and&nbsp;<A HREF="page520.html#figsorting3" tppabs="http://www.brpreiss.com/books/opus4/html/page520.html#figsorting3"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> show the actual running times
+of the sorting algorithms presented in this chapter.
+These running times were measured on a Sun SPARCstation&nbsp;5,
+Model&nbsp;85, which has an 85&nbsp;MHz clock, and 32MB RAM.
+The programs were compiled using the SPARCompiler C++ 4.1 compiler,
+and run under the Solaris&nbsp;2.3 operating system.
+The times shown are user CPU times, measured in seconds.
+<P>
+Figure&nbsp;<A HREF="page520.html#figsorting1" tppabs="http://www.brpreiss.com/books/opus4/html/page520.html#figsorting1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> shows the running times of the  <IMG WIDTH=40 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59179" SRC="img261.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img261.gif"  > sorts
+for sequences of length <I>n</I>,  <IMG WIDTH=117 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline70755" SRC="img2257.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2257.gif"  >.
+Notice that the bubble sort has the worst performance
+and that the binary insertion sort has the best performance.
+Figure&nbsp;<A HREF="page520.html#figsorting1" tppabs="http://www.brpreiss.com/books/opus4/html/page520.html#figsorting1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> clearly shows that, as predicted,
+binary insertion is better than straight insertion.
+Notice too that all of the  <IMG WIDTH=40 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59179" SRC="img261.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img261.gif"  > sorts require in excess of two minutes
+of execution time to sort an array of 20000 integers.
+<P>
+<P><A NAME="47230">&#160;</A><A NAME="figsorting1">&#160;</A> <IMG WIDTH=575 HEIGHT=417 ALIGN=BOTTOM ALT="figure46539" SRC="img2258.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2258.gif"  ><BR>
+<STRONG>Figure:</STRONG> Actual Running Times of the  <IMG WIDTH=40 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59179" SRC="img261.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img261.gif"  > Sorts<BR>
+<P>
+<P>
+The performance of the  <IMG WIDTH=68 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59897" SRC="img405.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img405.gif"  > sorts is shown in Figure&nbsp;<A HREF="page520.html#figsorting2" tppabs="http://www.brpreiss.com/books/opus4/html/page520.html#figsorting2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+In this case, the length of the sequence varies between <I>n</I>=100
+and  <IMG WIDTH=81 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline70901" SRC="img2259.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2259.gif"  >.
+The graph clearly shows that the  <IMG WIDTH=68 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59897" SRC="img405.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img405.gif"  > algorithms are significantly
+faster that the  <IMG WIDTH=40 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59179" SRC="img261.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img261.gif"  > ones.
+All three algorithms sort 100000 integers in under 6 seconds.
+Clearly, quick sort is the best of the three,
+whereas the two-way merge sort and heap sort have similar running times.
+<P>
+<P><A NAME="47466">&#160;</A><A NAME="figsorting2">&#160;</A> <IMG WIDTH=575 HEIGHT=400 ALIGN=BOTTOM ALT="figure47234" SRC="img2260.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2260.gif"  ><BR>
+<STRONG>Figure:</STRONG> Actual Running Times of the  <IMG WIDTH=68 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59897" SRC="img405.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img405.gif"  > Sorts<BR>
+<P>
+<P>
+Figure&nbsp;<A HREF="page520.html#figsorting3" tppabs="http://www.brpreiss.com/books/opus4/html/page520.html#figsorting3"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> shows the actual running times for the bucket sort
+and radix sort algorithms.
+Both these algorithms were shown to be <I>O</I>(<I>n</I>) sorts.
+The graph shows results for <I>n</I> between 100 and  <IMG WIDTH=60 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline71071" SRC="img2261.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2261.gif"  >.
+The universe used to test bucket sort was  <IMG WIDTH=105 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71073" SRC="img2262.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2262.gif"  >.
+I.e., a total of <I>m</I>=1024 counters (buckets) were used.
+For the radix sort, 32-bit integers were sorted by using the radix <I>R</I>=256
+and doing <I>p</I>=4 sorting passes.
+<P>
+<P><A NAME="47713">&#160;</A><A NAME="figsorting3">&#160;</A> <IMG WIDTH=575 HEIGHT=383 ALIGN=BOTTOM ALT="figure47470" SRC="img2263.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2263.gif"  ><BR>
+<STRONG>Figure:</STRONG> Actual Running Times of the <I>O</I>(<I>n</I>) Sorts<BR>
+<P>
+<P>
+Clearly, the bucket sort has the best running time.
+For example, it sorts one million 10-bit integers in about 5 seconds.
+Radix sort performs extremely well too.
+It sorts one-million 32-bit integers in about 20 seconds.
+This is a factor of four slower than the bucket sort
+due largely to the fact that radix sort does four sorting passes
+whereas bucket sort requires only one.
+<P>
+<HR><A NAME="tex2html8333" HREF="page521.html" tppabs="http://www.brpreiss.com/books/opus4/html/page521.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8331" HREF="page483.html" tppabs="http://www.brpreiss.com/books/opus4/html/page483.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8325" HREF="page519.html" tppabs="http://www.brpreiss.com/books/opus4/html/page519.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8335" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8336" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

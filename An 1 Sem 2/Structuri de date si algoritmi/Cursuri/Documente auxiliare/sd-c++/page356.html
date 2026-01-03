@@ -1,0 +1,84 @@
+<HTML>
+<HEAD>
+<TITLE>Complete N-ary Trees</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html6327" HREF="page357.html" tppabs="http://www.brpreiss.com/books/opus4/html/page357.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6325" HREF="page355.html" tppabs="http://www.brpreiss.com/books/opus4/html/page355.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6321" HREF="page355.html" tppabs="http://www.brpreiss.com/books/opus4/html/page355.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6329" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6330" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0012211000000000000000">Complete <I>N</I>-ary Trees</A></H3>
+<P>
+The definition for complete binary trees can be easily extended
+to trees with arbitrary fixed degree  <IMG WIDTH=43 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline66294" SRC="img1450.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1450.gif"  > as follows:
+<P>
+<BLOCKQUOTE> <b>Definition (Complete <I>N</I>-ary Tree)</b><A NAME="defncompletent">&#160;</A>
+A <em>complete <I>N</I>-ary tree</em><A NAME=24281>&#160;</A><A NAME=24335>&#160;</A>
+of height  <IMG WIDTH=36 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline63700" SRC="img1122.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1122.gif"  >,
+is an <I>N</I>-ary tree  <IMG WIDTH=171 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline66306" SRC="img1451.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1451.gif"  >
+with the following properties.
+<OL><LI> If <I>h</I>=0,  <IMG WIDTH=43 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline66310" SRC="img1452.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1452.gif"  > for all <I>i</I>,  <IMG WIDTH=69 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline66314" SRC="img1453.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1453.gif"  >.<LI> For <I>h</I><I>&gt;</I>0 there exists a <I>j</I>,  <IMG WIDTH=71 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline66320" SRC="img1454.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1454.gif"  > such that
+	<OL><LI>  <IMG WIDTH=13 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63460" SRC="img1099.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1099.gif"  > is a perfect binary tree of height <I>h</I>-1
+		for all  <IMG WIDTH=81 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline66326" SRC="img1455.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1455.gif"  >;<LI>  <IMG WIDTH=14 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline63482" SRC="img1102.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1102.gif"  > is a complete binary tree of height <I>h</I>-1; and,<LI>  <IMG WIDTH=13 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63460" SRC="img1099.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1099.gif"  > is a perfect binary tree of height <I>h</I>-2
+		for all <I>i</I>:<I>j</I><I>&lt;</I><I>i</I><I>&lt;</I><I>N</I>.
+	</OL></OL></BLOCKQUOTE>
+<P>
+Note that while it is expressed in somewhat different terms,
+the definition of a complete <I>N</I>-ary tree is consistent
+with the definition of a binary tree for <I>N</I>=2.
+Figure&nbsp;<A HREF="page356.html#figtree17" tppabs="http://www.brpreiss.com/books/opus4/html/page356.html#figtree17"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> shows an example of a complete ternary (<I>N</I>=3) tree.
+<P>
+<P><A NAME="24580">&#160;</A><A NAME="figtree17">&#160;</A> <IMG WIDTH=575 HEIGHT=181 ALIGN=BOTTOM ALT="figure24290" SRC="img1456.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1456.gif"  ><BR>
+<STRONG>Figure:</STRONG> A Complete Ternary Tree<BR>
+<P>
+<P>
+Informally, a complete tree is a tree in which all the levels
+are full except for the bottom level
+and the bottom level is filled from left to right.
+For example in Figure&nbsp;<A HREF="page356.html#figtree17" tppabs="http://www.brpreiss.com/books/opus4/html/page356.html#figtree17"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+the first three levels are full.
+The fourth level which comprises nodes&nbsp;14-21
+is partially full and has been filled from left to right.
+<P>
+The main advantage of using complete binary trees is that
+they can be easily stored in an array.
+Specifically, consider the nodes of a complete tree
+numbered consecutively in <em>level-order</em><A NAME=24585>&#160;</A> as they are
+in Figures&nbsp;<A HREF="page355.html#figtree16" tppabs="http://www.brpreiss.com/books/opus4/html/page355.html#figtree16"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> and&nbsp;<A HREF="page356.html#figtree17" tppabs="http://www.brpreiss.com/books/opus4/html/page356.html#figtree17"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+There is a simple formula that relates the number of a node
+with the number of its parent
+and the numbers of its children.
+<P>
+Consider the case of a complete binary tree.
+The root node is node&nbsp;1 and its children are nodes&nbsp;2 and&nbsp;3.
+In general, the children of node <I>i</I> are 2<I>i</I> and 2<I>i</I>+1.
+Conversely, the parent of node <I>i</I> is  <IMG WIDTH=32 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline66352" SRC="img1457.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1457.gif"  >.
+Figure&nbsp;<A HREF="page356.html#figheap1" tppabs="http://www.brpreiss.com/books/opus4/html/page356.html#figheap1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> illustrates this idea by showing how
+the complete binary tree shown in Figure&nbsp;<A HREF="page355.html#figtree16" tppabs="http://www.brpreiss.com/books/opus4/html/page355.html#figtree16"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+is mapped into an array.
+When using this approach,
+the pointers are no longer explicitly recorded.
+<P>
+<P><A NAME="24837">&#160;</A><A NAME="figheap1">&#160;</A> <IMG WIDTH=575 HEIGHT=201 ALIGN=BOTTOM ALT="figure24590" SRC="img1458.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1458.gif"  ><BR>
+<STRONG>Figure:</STRONG> Array Representation of a Complete Binary Tree<BR>
+<P>
+<P>
+A remarkable characteristic of complete trees is that filling the bottom level
+from left to right corresponds to adding elements at the end of the array!
+Thus, a complete tree containing <I>n</I> nodes occupies the first
+<I>n</I> consecutive array positions.
+<P>
+The array subscript calculations given above
+can be easily generalized to complete <I>N</I>-ary trees.
+Assuming that the root occupies position 1 of the array,
+its <I>N</I> children occupy positions 2, 3, ..., <I>N</I>+1.
+In general, the children of node <I>i</I> occupy positions
+<P> <IMG WIDTH=432 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath66288" SRC="img1459.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1459.gif"  ><P>
+and the parent of node <I>i</I> is found at
+<P> <IMG WIDTH=291 HEIGHT=17 ALIGN=BOTTOM ALT="displaymath66289" SRC="img1460.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1460.gif"  ><P><HR><A NAME="tex2html6327" HREF="page357.html" tppabs="http://www.brpreiss.com/books/opus4/html/page357.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6325" HREF="page355.html" tppabs="http://www.brpreiss.com/books/opus4/html/page355.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6321" HREF="page355.html" tppabs="http://www.brpreiss.com/books/opus4/html/page355.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6329" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6330" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

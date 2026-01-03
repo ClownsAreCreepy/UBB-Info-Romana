@@ -1,0 +1,45 @@
+1. awk 'NR % 2 == 0 { if ( NR < 4 ) print; else print $1, $2, $3, $4 }' files/file.txt
+
+2. grep -Ev "\w" files/file.txt
+
+3. sed 's/[0-9]\+/&&/g' files/fileWithNumbers.txt
+
+4. sed 's/ [^ ]*$//g' files/file.txt
+
+5. awk 'NF % 2 == 1 { print NR, $(int((NF+1)/2)) }' files/file.txt
+
+6. sed -E 's/^([^:]*:)([^:]*:)([^:]*:)/\1\3\2/' files/passwd.fake
+
+7. grep -Ei "\^([^aeiou]*[aeiou][^aeiou]*){,5}\^" files/specific_7.txt
+
+8. sed -E 's/\<[a-z]+\>//' files/file.txt
+
+9. grep -Ev "UID" files/ps.fake | awk '{print $1}' | sort | uniq -c
+
+10. ls -l | grep -E "^-" | awk '{print $9, $1}' | sed -E 's/( )(.{1})(.{3})(.{6})$/\1\3/'
+
+11. awk '
+	$0 ~ /[aeiouAEIOU]$/ {vowels++}
+	$0 ~ /[a-zA-Z]$/ && $0 !~ /[aeiouAEIOU]$/ {consonants++} 
+	END{ print "Vowels:", vowels; print "Consonants:", consonants }
+' files/file.txt
+
+12. grep -E "^([^ ]+[ ]+){7}(\<vim\>|\<joe\>|\<nano\>|\<pico\>|\<emacs\>)" files/ps.fake | awk '{sum+=$2} END{print sum}'
+
+13. grep -Ei "^[aeiou]" files/passwd.fake
+
+14. ls -l | grep -E "^-(r..){3}"
+
+15. awk '{print $1}' files/last.fake | sort | uniq -c
+
+16. grep -Ec "^.*$" files/file.txt
+
+17. sort files/last.fake | uniq -d | wc -l
+
+18. ls -l files | awk '$1 ~ /^-/ && $5 < 100 {print $NF}'
+
+19. cut -d: -f1 files/passwd.fake | sed 'y/0123456789/1234567890/'
+
+20. awk '$1 ~ /^.{,4}$/ { sum+=$2 } END{ print sum }' files/ps.fake
+
+21. awk '{for (i = 2; i <= NF; i += 2) { $i = "" } print $0}' files/file.txt

@@ -1,0 +1,39 @@
+<HTML>
+<HEAD>
+<TITLE>Brute-Force Algorithm</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html7397" HREF="page444.html" tppabs="http://www.brpreiss.com/books/opus4/html/page444.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7395" HREF="page442.html" tppabs="http://www.brpreiss.com/books/opus4/html/page442.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7389" HREF="page442.html" tppabs="http://www.brpreiss.com/books/opus4/html/page442.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7399" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7400" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0015111000000000000000">Brute-Force Algorithm</A></H3>
+<P>
+Since each of the elements of  <IMG WIDTH=145 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline68425" SRC="img1808.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1808.gif"  >
+is either a zero or a one,
+there are  <IMG WIDTH=14 HEIGHT=11 ALIGN=BOTTOM ALT="tex2html_wrap_inline60823" SRC="img563.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img563.gif"  > possible values for <I>X</I>.
+A brute-force algorithm to solve this problem
+finds the best solution by enumerating all the possible values of <I>X</I>.
+<P>
+For each possible value of <I>X</I> we check first
+if the constraint  <IMG WIDTH=101 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline68439" SRC="img1813.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1813.gif"  > is satisfied.
+A value which satisfies the constraint is called
+a <em>feasible solution</em><A NAME=32311>&#160;</A>.
+The solution to the problem is the feasible solution which
+minimizes  <IMG WIDTH=52 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline68441" SRC="img1814.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1814.gif"  > which is called the
+<em>objective function</em><A NAME=32315>&#160;</A>.
+<P>
+Since there are  <IMG WIDTH=14 HEIGHT=11 ALIGN=BOTTOM ALT="tex2html_wrap_inline60823" SRC="img563.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img563.gif"  > possible values of <I>X</I>
+the running time of a brute-force solution is  <IMG WIDTH=38 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60725" SRC="img544.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img544.gif"  >.
+The running time needed to determine whether a possible value is
+a feasible solution is <I>O</I>(<I>n</I>)
+and the time required to evaluate the objective function is also <I>O</I>(<I>n</I>).
+Therefore, the running time of the brute-force algorithm is  <IMG WIDTH=49 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline68453" SRC="img1815.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1815.gif"  >.
+<P>
+<HR><A NAME="tex2html7397" HREF="page444.html" tppabs="http://www.brpreiss.com/books/opus4/html/page444.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7395" HREF="page442.html" tppabs="http://www.brpreiss.com/books/opus4/html/page442.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7389" HREF="page442.html" tppabs="http://www.brpreiss.com/books/opus4/html/page442.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7399" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7400" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

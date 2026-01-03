@@ -1,0 +1,27 @@
+# ninja log v6
+22	124	7685022642395734	CMakeFiles/Laborator_rezolvat__17_.dir/DictionarOrdonat/Iterator.cpp.obj	bff97e16f030f797
+19	400	7685022642355477	CMakeFiles/Laborator_rezolvat__17_.dir/DictionarOrdonat/DO.cpp.obj	8999fd5e1509db87
+32	168	7685016526552065	CMakeFiles/Laborator_rezolvat__17_.dir/Teste/TestScurt.cpp.obj	98df29e32f1e66a8
+21	482	7685016526440853	CMakeFiles/Laborator_rezolvat__17_.dir/main.cpp.obj	30eb9fd63a638db0
+400	481	7685022646170045	Laborator_rezolvat__17_.exe	29faf980e65bd739
+25	371	7685017921771336	CMakeFiles/Laborator_rezolvat__17_.dir/Teste/TestExtins.cpp.obj	55c918ed2a2b13f5
+120	621	7689269564575006	CMakeFiles/Laborator_rezolvat__17_.dir/Teste/TestScurt.cpp.obj	98df29e32f1e66a8
+114	631	7689269564522313	CMakeFiles/Laborator_rezolvat__17_.dir/DictionarOrdonat/Iterator.cpp.obj	bff97e16f030f797
+126	972	7689269564636498	CMakeFiles/Laborator_rezolvat__17_.dir/Teste/TestExtins.cpp.obj	55c918ed2a2b13f5
+109	1112	7689269564462082	CMakeFiles/Laborator_rezolvat__17_.dir/DictionarOrdonat/DO.cpp.obj	8999fd5e1509db87
+1112	1290	7689269574492565	Laborator_rezolvat__17_.exe	29faf980e65bd739
+4	442	7689270332544917	CMakeFiles/Laborator_rezolvat__17_.dir/Teste/TestScurt.cpp.obj	98df29e32f1e66a8
+443	579	7689270336931627	Laborator_rezolvat__17_.exe	29faf980e65bd739
+49	967	7689271832593742	CMakeFiles/Laborator_rezolvat__17_.dir/DictionarOrdonat/DO.cpp.obj	8999fd5e1509db87
+967	1109	7689271841781012	Laborator_rezolvat__17_.exe	29faf980e65bd739
+51	436	7689272267523099	CMakeFiles/Laborator_rezolvat__17_.dir/Teste/TestScurt.cpp.obj	98df29e32f1e66a8
+437	595	7689272271385759	Laborator_rezolvat__17_.exe	29faf980e65bd739
+44	544	7689272372967756	CMakeFiles/Laborator_rezolvat__17_.dir/Teste/TestScurt.cpp.obj	98df29e32f1e66a8
+545	673	7689272377979010	Laborator_rezolvat__17_.exe	29faf980e65bd739
+4	433	7689272732958152	CMakeFiles/Laborator_rezolvat__17_.dir/Teste/TestScurt.cpp.obj	98df29e32f1e66a8
+434	567	7689272737247831	Laborator_rezolvat__17_.exe	29faf980e65bd739
+70	1075	7689272841681653	CMakeFiles/Laborator_rezolvat__17_.dir/DictionarOrdonat/DO.cpp.obj	8999fd5e1509db87
+1076	1204	7689272851740025	Laborator_rezolvat__17_.exe	29faf980e65bd739
+65	479	7689292005928085	CMakeFiles/Laborator_rezolvat__17_.dir/Teste/TestScurt.cpp.obj	98df29e32f1e66a8
+53	982	7689292005798721	CMakeFiles/Laborator_rezolvat__17_.dir/DictionarOrdonat/DO.cpp.obj	8999fd5e1509db87
+982	1142	7689292015098395	Laborator_rezolvat__17_.exe	29faf980e65bd739

@@ -1,0 +1,82 @@
+<HTML>
+<HEAD>
+<TITLE>Bubble Sort</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html8013" HREF="page494.html" tppabs="http://www.brpreiss.com/books/opus4/html/page494.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8011" HREF="page492.html" tppabs="http://www.brpreiss.com/books/opus4/html/page492.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8005" HREF="page492.html" tppabs="http://www.brpreiss.com/books/opus4/html/page492.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8015" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8016" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0016410000000000000000">Bubble Sort</A></H2>
+<P>
+The simplest and, perhaps, the best known of the exchange sorts
+is the <em>bubble sort</em><A NAME=35375>&#160;</A>.<A NAME="tex2html961" HREF="footnode.html#35376" tppabs="http://www.brpreiss.com/books/opus4/html/footnode.html#35376"><IMG  ALIGN=BOTTOM ALT="gif" SRC="foot_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/foot_motif.gif"></A>
+Figure&nbsp;<A HREF="page493.html#figsort2" tppabs="http://www.brpreiss.com/books/opus4/html/page493.html#figsort2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> shows the operation of bubble sort.
+<P>
+<P><A NAME="36549">&#160;</A><A NAME="figsort2">&#160;</A> <IMG WIDTH=575 HEIGHT=546 ALIGN=BOTTOM ALT="figure35378" SRC="img2135.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2135.gif"  ><BR>
+<STRONG>Figure:</STRONG> Bubble Sorting<BR>
+<P>
+<P>
+To sort the sequence  <IMG WIDTH=173 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline70037" SRC="img2136.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2136.gif"  >,
+bubble sort makes <I>n</I>-1 passes through the data.
+In each pass, adjacent elements are compared and swapped if necessary.
+First,  <IMG WIDTH=12 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline62714" SRC="img948.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img948.gif"  > and  <IMG WIDTH=12 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline61127" SRC="img644.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img644.gif"  > are compared;
+next,  <IMG WIDTH=12 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline61127" SRC="img644.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img644.gif"  > and  <IMG WIDTH=13 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline61129" SRC="img645.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img645.gif"  >; and so on.
+<P>
+Notice that after the first pass through the data,
+the largest element in the sequence has <em>bubbled up</em>
+into the last array position.
+In general, after <I>k</I> passes through the data,
+the last <I>k</I> elements of the array are correct
+and need not be considered any longer.
+In this regard the bubble sort differs from the insertion sort algorithms--the sorted subsequence of <I>k</I> elements is never modified (by an insertion).
+<P>
+Figure&nbsp;<A HREF="page493.html#figsort2" tppabs="http://www.brpreiss.com/books/opus4/html/page493.html#figsort2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> also shows that while <I>n</I>-1 passes through the data are required
+to guarantee that the list is sorted in the end,
+it is possible for the list to become sorted much earlier!
+When no exchanges at all are made in a given pass,
+then the array is sorted and no additional passes are required.
+A minor algorithmic modification
+would be to count the exchanges made in a pass,
+and to terminate the sort when none are made.
+<P>
+Program&nbsp;<A HREF="page493.html#progsorter3c" tppabs="http://www.brpreiss.com/books/opus4/html/page493.html#progsorter3c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> defines the <tt>BubbleSorter&lt;T&gt;</tt> class template.
+This class simply provides an implementation for the <tt>DoSort</tt> routine.
+The <tt>DoSort</tt> routine takes a reference to an <tt>Array&lt;T&gt;</tt> instance
+and sorts its elements in place.
+The implementation makes use of the <tt>Swap</tt> routine
+described in Section&nbsp;<A HREF="page488.html#secsortinginsertion" tppabs="http://www.brpreiss.com/books/opus4/html/page488.html#secsortinginsertion"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+<P>
+<P><A NAME="36706">&#160;</A><A NAME="progsorter3c">&#160;</A> <IMG WIDTH=575 HEIGHT=294 ALIGN=BOTTOM ALT="program36562" SRC="img2137.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2137.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>BubbleSorter&lt;T&gt;</tt> Class <tt>DoSort</tt> Member Function Definition<BR>
+<P>
+<P>
+The outer loop (lines&nbsp;11-14) is done for  <IMG WIDTH=197 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline70057" SRC="img2138.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2138.gif"  >.
+That makes <I>n</I>-1 iterations in total.
+During the  <IMG WIDTH=17 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58387" SRC="img77.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img77.gif"  > iteration of the outer loop,
+exactly <I>i</I>-1 iterations of the inner loop are done (lines&nbsp;12-14).
+Therefore, the number of iterations of the inner loop,
+summed over all the passes of the outer loop is
+<P> <IMG WIDTH=354 HEIGHT=46 ALIGN=BOTTOM ALT="displaymath70017" SRC="img2139.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2139.gif"  ><P>
+Consequently, the running time of bubble sort is  <IMG WIDTH=39 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline70065" SRC="img2140.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2140.gif"  >.
+<P>
+The body of the inner loop compares adjacent array elements
+and swaps them if necessary (lines&nbsp;13-14).
+This takes at most a constant amount of time.
+Of course, the algorithm will run slightly faster when no swapping is needed.
+For example, this occurs if the array is already sorted to begin with.
+In the worst case,
+it is necessary to swap in every iteration of the inner loop.
+This occurs when the array is sorted initially in reverse order.
+Since only adjacent elements are swapped,
+bubble sort removes inversions one at time.
+Therefore, the average number of swaps required is  <IMG WIDTH=40 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59179" SRC="img261.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img261.gif"  >.
+Nevertheless, the running time of bubble sort is always  <IMG WIDTH=39 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline70065" SRC="img2140.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2140.gif"  >.
+<P>
+<HR><A NAME="tex2html8013" HREF="page494.html" tppabs="http://www.brpreiss.com/books/opus4/html/page494.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8011" HREF="page492.html" tppabs="http://www.brpreiss.com/books/opus4/html/page492.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8005" HREF="page492.html" tppabs="http://www.brpreiss.com/books/opus4/html/page492.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8015" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8016" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

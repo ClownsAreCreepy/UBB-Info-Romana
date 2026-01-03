@@ -1,0 +1,61 @@
+<HTML>
+<HEAD>
+<TITLE>Scatter Table using Open Addressing</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html4842" HREF="page238.html" tppabs="http://www.brpreiss.com/books/opus4/html/page238.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4840" HREF="page203.html" tppabs="http://www.brpreiss.com/books/opus4/html/page203.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4834" HREF="page236.html" tppabs="http://www.brpreiss.com/books/opus4/html/page236.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4844" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4845" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION009600000000000000000">Scatter Table using Open Addressing</A></H1>
+<P>
+An alternative method of dealing with collisions 
+which entirely does away with the need for links and chaining
+is called <em>open addressing</em><A NAME=13206>&#160;</A>.
+The basic idea is to define a <em>probe sequence</em><A NAME=13208>&#160;</A>
+for every key which, when followed, always leads to the key in question.
+<P>
+The probe sequence is essentially a sequence of functions
+<P> <IMG WIDTH=317 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath62984" SRC="img1022.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1022.gif"  ><P>
+where  <IMG WIDTH=12 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline62992" SRC="img1023.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1023.gif"  > is a hash function,  <IMG WIDTH=186 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline62994" SRC="img1024.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1024.gif"  >.
+To insert item <I>x</I> into the scatter table,
+we examine array locations  <IMG WIDTH=36 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline62998" SRC="img1025.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1025.gif"  >,  <IMG WIDTH=36 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline63000" SRC="img1026.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1026.gif"  >, ...,
+until we find an empty cell.
+Similarly, to find item <I>x</I> in the scatter table
+we examine the same sequence of locations in the same order.
+<P>
+The most common probe sequences are of the form
+<P> <IMG WIDTH=351 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath62985" SRC="img1027.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1027.gif"  ><P>
+where  <IMG WIDTH=132 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline62822" SRC="img973.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img973.gif"  >.
+The function <I>h</I>(<I>x</I>) is the same hash function that we have seen before.
+I.e., the function <I>h</I> maps keys
+into integers in the range from zero to <I>M</I>-1.
+<P>
+The function <I>c</I>(<I>i</I>) represents the collision resolution strategy.
+It is required to have the following two properties:
+<DL ><DT><STRONG>Property 1</STRONG>
+<DD> <I>c</I>(0)=0.
+	This ensures that the first probe in the sequence is
+	<P> <IMG WIDTH=370 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath62986" SRC="img1028.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1028.gif"  ><P>
+    <DT><STRONG>Property 2</STRONG>
+<DD> The set of values
+	<P> <IMG WIDTH=466 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath62987" SRC="img1029.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1029.gif"  ><P>
+	must contain every integer between 0 and <I>M</I>-1.
+	This second property ensures that the probe sequence
+	eventually probes <em>every possible array position</em>.
+<P>
+ </DL><BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html4846" HREF="page238.html#SECTION009610000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page238.html#SECTION009610000000000000000">Linear Probing</A>
+<LI> <A NAME="tex2html4847" HREF="page239.html#SECTION009620000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page239.html#SECTION009620000000000000000">Quadratic Probing</A>
+<LI> <A NAME="tex2html4848" HREF="page240.html#SECTION009630000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page240.html#SECTION009630000000000000000">Double Hashing</A>
+<LI> <A NAME="tex2html4849" HREF="page241.html#SECTION009640000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page241.html#SECTION009640000000000000000">Implementation</A>
+<LI> <A NAME="tex2html4850" HREF="page246.html#SECTION009650000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page246.html#SECTION009650000000000000000">Average Case Analysis</A>
+</UL>
+<HR><A NAME="tex2html4842" HREF="page238.html" tppabs="http://www.brpreiss.com/books/opus4/html/page238.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4840" HREF="page203.html" tppabs="http://www.brpreiss.com/books/opus4/html/page203.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4834" HREF="page236.html" tppabs="http://www.brpreiss.com/books/opus4/html/page236.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4844" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4845" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

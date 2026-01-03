@@ -1,0 +1,48 @@
+<HTML>
+<HEAD>
+<TITLE>Intersection</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html6903" HREF="page404.html" tppabs="http://www.brpreiss.com/books/opus4/html/page404.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6901" HREF="page401.html" tppabs="http://www.brpreiss.com/books/opus4/html/page401.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6897" HREF="page402.html" tppabs="http://www.brpreiss.com/books/opus4/html/page402.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6905" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6906" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0013322000000000000000">Intersection</A></H3>
+<P>
+The implementation of the intersection operator for the
+<tt>MultisetAsLinkedList</tt> class
+is similar to that of union.
+However, instead of merging of two ordered, linked lists
+to construct a third,
+we compare the elements of two lists
+and append an item to the third only when 
+it appears in both of the input lists.
+The intersection operator, <tt>operator*</tt>,
+is shown in Program&nbsp;<A HREF="page403.html#progmultiset4c" tppabs="http://www.brpreiss.com/books/opus4/html/page403.html#progmultiset4c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+<P>
+<P><A NAME="28781">&#160;</A><A NAME="progmultiset4c">&#160;</A> <IMG WIDTH=575 HEIGHT=391 ALIGN=BOTTOM ALT="program28613" SRC="img1645.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1645.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>MultisetAsLinkedList</tt> Class Intersection Operator Definition<BR>
+<P>
+<P>
+The main loop of the program traverses the linked lists
+of both input operands at once using two pointers (lines&nbsp;9-18).
+If the next element in each list is the same,
+that element is appended to the result and both pointers are advanced.
+Otherwise, only one of the pointers is advanced--the one pointing to the smaller element.
+<P>
+The number of iterations of the main loop actually done
+depends on the contents of the respective linked lists.
+The best case occurs when both lists are identical.
+In this case, the number of iterations is <I>m</I>,
+where  <IMG WIDTH=89 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline67566" SRC="img1646.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1646.gif"  >.
+In the worst case case, the number of iterations done is <I>m</I>+<I>n</I>.
+Therefore, the running time of the intersection operation,
+<tt>operator*</tt>, is <I>O</I>(<I>m</I>+<I>n</I>).
+<P>
+<HR><A NAME="tex2html6903" HREF="page404.html" tppabs="http://www.brpreiss.com/books/opus4/html/page404.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6901" HREF="page401.html" tppabs="http://www.brpreiss.com/books/opus4/html/page401.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6897" HREF="page402.html" tppabs="http://www.brpreiss.com/books/opus4/html/page402.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6905" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6906" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

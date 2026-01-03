@@ -1,0 +1,254 @@
+        -:    0:Source:D:/C,C++/CLion 2024.3.4/Projects/Lab6_7/Repo/repository_file_discipline.cpp
+        -:    0:Graph:D:\C,C++\CLion 2024.3.4\Projects\Lab6_7\cmake-build-debug-coverage\CMakeFiles\Lab6_7.dir\Repo\repository_file_discipline.cpp.gcno
+        -:    0:Data:D:\C,C++\CLion 2024.3.4\Projects\Lab6_7\cmake-build-debug-coverage\CMakeFiles\Lab6_7.dir\Repo\repository_file_discipline.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include "repository_file_discipline.h"
+        -:    2:
+function _ZN18RepoDisciplinaFile14load_from_fileEv called 31 returned 100% blocks executed 67%
+       31:    3:void RepoDisciplinaFile::load_from_file() {
+       31:    4:    discipline.clear();
+       31:    4-block  0
+call    0 returned 31
+       31:    5:    ifstream in(file_path);
+call    0 returned 31
+branch  1 taken 31 (fallthrough)
+branch  2 taken 0 (throw)
+       31:    6:    if (!in.is_open()) return; // daca fisierul nu exista, incepem de la 0
+       31:    6-block  0
+call    0 returned 31
+branch  1 taken 8 (fallthrough)
+branch  2 taken 23
+        8:    6-block  1
+        -:    7:
+       23:    8:    string line;
+       23:    8-block  0
+call    0 returned 23
+      163:    9:    while (getline(in, line)) {
+      163:    9-block  0
+call    0 returned 163
+branch  1 taken 163 (fallthrough)
+branch  2 taken 0 (throw)
+      163:    9-block  1
+call    3 returned 163
+branch  4 taken 163 (fallthrough)
+branch  5 taken 0 (throw)
+      163:    9-block  2
+branch  6 taken 140
+branch  7 taken 23 (fallthrough)
+      140:   10:        std::stringstream ss(line);
+      140:   10-block  0
+call    0 returned 140
+call    1 returned 140
+branch  2 taken 140 (fallthrough)
+branch  3 taken 0 (throw)
+      140:   11:        string nume, tip, profesor;
+      140:   11-block  0
+call    0 returned 140
+call    1 returned 140
+call    2 returned 140
+        -:   12:        int ore;
+        -:   13:
+      140:   14:        getline(ss, nume, ',');
+call    0 returned 140
+branch  1 taken 140 (fallthrough)
+branch  2 taken 0 (throw)
+      140:   15:        ss >> ore;
+      140:   15-block  0
+call    0 returned 140
+branch  1 taken 140 (fallthrough)
+branch  2 taken 0 (throw)
+      140:   16:        ss.ignore(1); //ignoram virgula
+      140:   16-block  0
+call    0 returned 140
+branch  1 taken 140 (fallthrough)
+branch  2 taken 0 (throw)
+      140:   17:        getline(ss, tip, ',');
+      140:   17-block  0
+call    0 returned 140
+branch  1 taken 140 (fallthrough)
+branch  2 taken 0 (throw)
+      140:   18:        getline(ss, profesor);
+      140:   18-block  0
+call    0 returned 140
+branch  1 taken 140 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   19:
+      140:   20:        if (!nume.empty()) {
+      140:   20-block  0
+call    0 returned 140
+branch  1 taken 140 (fallthrough)
+branch  2 taken 0
+      140:   21:            Disciplina d{nume, ore, tip, profesor};
+      140:   21-block  0
+call    0 returned 140
+branch  1 taken 140 (fallthrough)
+branch  2 taken 0 (throw)
+      140:   21-block  1
+call    3 returned 140
+branch  4 taken 140 (fallthrough)
+branch  5 taken 0 (throw)
+      140:   21-block  2
+call    6 returned 140
+branch  7 taken 140 (fallthrough)
+branch  8 taken 0 (throw)
+      140:   21-block  3
+call    9 returned 140
+call   10 returned 140
+call   11 returned 140
+call   12 returned 140
+    $$$$$:   21-block  4
+    $$$$$:   21-block  5
+call   13 never executed
+    $$$$$:   21-block  6
+    $$$$$:   21-block  7
+call   14 never executed
+    $$$$$:   21-block  8
+      140:   22:            discipline.emplace_back(d);
+call    0 returned 140
+branch  1 taken 140 (fallthrough)
+branch  2 taken 0 (throw)
+      140:   23:        }
+      140:   23-block  0
+call    0 returned 140
+    $$$$$:   23-block  1
+call    1 never executed
+      140:   24:    }
+      140:   24-block  0
+call    0 returned 140
+call    1 returned 140
+call    2 returned 140
+call    3 returned 140
+    $$$$$:   24-block  1
+call    4 never executed
+    $$$$$:   24-block  2
+call    5 never executed
+    $$$$$:   24-block  3
+call    6 never executed
+    $$$$$:   24-block  4
+call    7 never executed
+       23:   25:    in.close();
+       23:   25-block  0
+call    0 returned 23
+branch  1 taken 23 (fallthrough)
+branch  2 taken 0 (throw)
+       31:   26:}
+       23:   26-block  0
+call    0 returned 23
+       31:   26-block  1
+call    1 returned 31
+branch  2 taken 23 (fallthrough)
+branch  3 taken 8
+    $$$$$:   26-block  2
+call    4 never executed
+    $$$$$:   26-block  3
+call    5 never executed
+        -:   27:
+function _ZNK18RepoDisciplinaFile12save_to_fileEv called 26 returned 100% blocks executed 88%
+       26:   28:void RepoDisciplinaFile::save_to_file() const {
+       26:   29:    ofstream out(file_path);
+       26:   29-block  0
+call    0 returned 26
+branch  1 taken 26 (fallthrough)
+branch  2 taken 0 (throw)
+      167:   30:    for (const auto &d: discipline)
+       26:   30-block  0
+call    0 returned 26
+call    1 returned 26
+      141:   30-block  1
+call    2 returned 141
+      141:   30-block  2
+call    3 returned 141
+      167:   30-block  3
+call    4 returned 167
+branch  5 taken 141
+branch  6 taken 26 (fallthrough)
+      141:   31:        out << d.getNume() << "," << d.getOre() << "," << d.getTip() << "," << d.getProfesor() << "\n";
+call    0 returned 141
+call    1 returned 141
+branch  2 taken 141 (fallthrough)
+branch  3 taken 0 (throw)
+      141:   31-block  0
+call    4 returned 141
+branch  5 taken 141 (fallthrough)
+branch  6 taken 0 (throw)
+      141:   31-block  1
+call    7 returned 141
+call    8 returned 141
+branch  9 taken 141 (fallthrough)
+branch 10 taken 0 (throw)
+      141:   31-block  2
+call   11 returned 141
+branch 12 taken 141 (fallthrough)
+branch 13 taken 0 (throw)
+      141:   31-block  3
+call   14 returned 141
+call   15 returned 141
+branch 16 taken 141 (fallthrough)
+branch 17 taken 0 (throw)
+      141:   31-block  4
+call   18 returned 141
+branch 19 taken 141 (fallthrough)
+branch 20 taken 0 (throw)
+      141:   31-block  5
+call   21 returned 141
+call   22 returned 141
+branch 23 taken 141 (fallthrough)
+branch 24 taken 0 (throw)
+      141:   31-block  6
+call   25 returned 141
+branch 26 taken 141 (fallthrough)
+branch 27 taken 0 (throw)
+       26:   32:    out.close();
+       26:   32-block  0
+call    0 returned 26
+branch  1 taken 26 (fallthrough)
+branch  2 taken 0 (throw)
+       26:   33:}
+       26:   33-block  0
+call    0 returned 26
+    $$$$$:   33-block  1
+call    1 never executed
+        -:   34:
+        -:   35:
+function _ZN18RepoDisciplinaFile6adaugaERK10Disciplina called 17 returned 94% blocks executed 100%
+       17:   36:void RepoDisciplinaFile::adauga(const Disciplina &dis) {
+       17:   37:    load_from_file();
+       17:   37-block  0
+call    0 returned 17
+       17:   38:    RepoDisciplinaMem::adauga(dis);
+call    0 returned 16
+       16:   39:    save_to_file();
+call    0 returned 16
+       16:   40:}
+        -:   41:
+function _ZN18RepoDisciplinaFile8modificaEyRK10Disciplina called 4 returned 75% blocks executed 100%
+        4:   42:void RepoDisciplinaFile::modifica(size_t index, const Disciplina &ot) {
+        4:   43:    load_from_file();
+        4:   43-block  0
+call    0 returned 4
+        4:   44:    RepoDisciplinaMem::modifica(index, ot);
+call    0 returned 3
+        3:   45:    save_to_file();
+call    0 returned 3
+        3:   46:}
+        -:   47:
+function _ZN18RepoDisciplinaFile6stergeEi called 5 returned 100% blocks executed 100%
+        5:   48:void RepoDisciplinaFile::sterge(int index) {
+        5:   49:    load_from_file();
+        5:   49-block  0
+call    0 returned 5
+        5:   50:    RepoDisciplinaMem::sterge(index);
+call    0 returned 5
+        5:   51:    save_to_file();
+call    0 returned 5
+        5:   52:}
+        -:   53:
+function _ZN18RepoDisciplinaFile17inserare_la_indexEyRK10Disciplina called 2 returned 100% blocks executed 100%
+        2:   54:void RepoDisciplinaFile::inserare_la_index(size_t index, const Disciplina &d) {
+        2:   55:    RepoDisciplinaMem::inserare_la_index(index, d);
+        2:   55-block  0
+call    0 returned 2
+        2:   56:    save_to_file();
+call    0 returned 2
+        2:   57:}
+        -:   58:

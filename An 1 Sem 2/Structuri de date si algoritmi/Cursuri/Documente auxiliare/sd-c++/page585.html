@@ -1,0 +1,72 @@
+<HTML>
+<HEAD>
+<TITLE>Projects</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html9131" HREF="page586.html" tppabs="http://www.brpreiss.com/books/opus4/html/page586.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html9129" HREF="page523.html" tppabs="http://www.brpreiss.com/books/opus4/html/page523.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html9125" HREF="page584.html" tppabs="http://www.brpreiss.com/books/opus4/html/page584.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html9133" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html9134" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION0017800000000000000000">Projects</A></H1>
+<P>
+<OL><LI> <A NAME="projectgraphsi">&#160;</A>
+	Devise a graph description language.
+	Implement a routine that reads the description of a graph
+	and constructs a graph object instance.
+	Your routine should be completely generic--it should not depend on the graph implementation used.<LI> <A NAME="projectgraphsii">&#160;</A>
+	Extend Project&nbsp;<A HREF="page585.html#projectgraphsi" tppabs="http://www.brpreiss.com/books/opus4/html/page585.html#projectgraphsi"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> by writing a routine
+	that prints the description of a given graph object instance.<LI> <A NAME="projectgraphsmatrix">&#160;</A>
+	Complete the implementation of the <tt>GraphAsMatrix</tt> class
+	declared in Program&nbsp;<A HREF="page544.html#proggraph4h" tppabs="http://www.brpreiss.com/books/opus4/html/page544.html#proggraph4h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+	by providing suitable definitions for the following member functions:
+	<tt>GraphAsMatrix</tt> (constructor),
+	<tt>GraphAsMatrix</tt> (destructor), <tt>Purge</tt>,
+	<tt>AddVertex</tt>, <tt>SelectVertex</tt>,
+	<tt>AddEdge</tt>, <tt>SelectEdge</tt>, <tt>IsEdge</tt>,
+	<tt>Vertices</tt>,
+	<tt>Edges</tt>,
+	<tt>IncidentEdges</tt> and
+	<tt>EmanatingEdges</tt>.
+	Write a test program and test your implementation.<LI> <A NAME="projectgraphslists">&#160;</A>
+	Repeat Project&nbsp;<A HREF="page585.html#projectgraphsmatrix" tppabs="http://www.brpreiss.com/books/opus4/html/page585.html#projectgraphsmatrix"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> for the <tt>GraphAsLists</tt> class.<LI> <A NAME="projectgraphsdimat">&#160;</A>
+	The <tt>DigraphAsMatrix</tt> class can be implemented using
+	multiple inheritance:
+<PRE>class DigraphAsMatrix : public Digraph, public GraphAsMatrix
+{
+    ...
+};</PRE>
+	Implement the <tt>DigraphAsMatrix</tt> class
+	by providing suitable definitions for the following member functions:
+	<tt>DigraphAsMatrix</tt> (constructor),
+	<tt>DigraphAsMatrix</tt> (destructor), <tt>Purge</tt>,
+	<tt>AddEdge</tt>, <tt>SelectEdge</tt>, <tt>IsEdge</tt> and&nbsp;<tt>Edges</tt>.
+	You must also have a complete implementation of the base class
+	<tt>GraphAsMatrix</tt> (see Project&nbsp;<A HREF="page585.html#projectgraphsmatrix" tppabs="http://www.brpreiss.com/books/opus4/html/page585.html#projectgraphsmatrix"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>).
+	Write a test program and test your implementation.<LI>
+	Repeat Project&nbsp;<A HREF="page585.html#projectgraphsdimat" tppabs="http://www.brpreiss.com/books/opus4/html/page585.html#projectgraphsdimat"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> for the <tt>DigraphAsLists</tt> class.<LI>
+	Add a member function to the <tt>Digraph</tt> class abstract interface
+	that creates an instance of and returns a reference to
+	an undirected graph which underlies the given digraph.<LI>
+	Devise an approach using an iterator and a stack
+	to perform a topological-order traversal
+	by doing a postorder depth-first traversal in reverse.<LI>
+	The single-source shortest path problem on a DAG
+	can be solved by visiting the vertices in topological order.
+	Write an visitor for use with the <tt>TopologicalOrderTraversal</tt>
+	routine that solves the single-source shortest path problem on a DAG.<LI> <A NAME="projectgraphsxform">&#160;</A>
+	Devise and implement an routine that transforms
+	a vertex-weighted <em>activity-node graph</em> 
+	into an edge-weighted <em>event-node graph</em>.<LI>
+	Complete the implementation of the critical path analysis routines.
+	In particular, you must implement the <tt>LatestTimeVisitor</tt>
+	along the lines of the <tt>EarliestTimeVisitor</tt>
+	defined in Program&nbsp;<A HREF="page583.html#progapp11ac" tppabs="http://www.brpreiss.com/books/opus4/html/page583.html#progapp11ac"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+</OL>
+<P>
+<HR><A NAME="tex2html9131" HREF="page586.html" tppabs="http://www.brpreiss.com/books/opus4/html/page586.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html9129" HREF="page523.html" tppabs="http://www.brpreiss.com/books/opus4/html/page523.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html9125" HREF="page584.html" tppabs="http://www.brpreiss.com/books/opus4/html/page584.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html9133" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html9134" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

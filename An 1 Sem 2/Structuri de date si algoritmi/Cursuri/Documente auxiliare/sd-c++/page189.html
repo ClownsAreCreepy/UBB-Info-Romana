@@ -1,0 +1,48 @@
+<HTML>
+<HEAD>
+<TITLE>Array Implementation</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html4249" HREF="page190.html" tppabs="http://www.brpreiss.com/books/opus4/html/page190.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4247" HREF="page188.html" tppabs="http://www.brpreiss.com/books/opus4/html/page188.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4241" HREF="page188.html" tppabs="http://www.brpreiss.com/books/opus4/html/page188.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4251" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4252" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION008210000000000000000">Array Implementation</A></H2>
+<P>
+The <tt>SortedListAsArray</tt> class is declared in Program&nbsp;<A HREF="page189.html#progsorted2h" tppabs="http://www.brpreiss.com/books/opus4/html/page189.html#progsorted2h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+Notice the use of multiple inheritance:
+The <tt>SortedListAsArray</tt> class is derived from both
+the <tt>SortedList</tt> class and the <tt>ListAsArray</tt> class.
+The <tt>SortedList</tt> base class is an abstract class.
+It provides the sorted list <em>interface</em>.
+The <tt>ListAsArray</tt> base class is a concrete class
+from which the sorted list class <em>inherits</em> much of its functionality.
+<P>
+<P><A NAME="10586">&#160;</A><A NAME="progsorted2h">&#160;</A> <IMG WIDTH=575 HEIGHT=161 ALIGN=BOTTOM ALT="program10503" SRC="img848.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img848.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>SortedListAsArray</tt> Class Definition<BR>
+<P>
+<P>
+There are no addition member variables required to implement
+the <tt>SortedListAsArray</tt> class.
+I.e., the member variables provided by the base class
+<tt>ListAsArray</tt> are sufficient.
+However, there is an additional private member function declared
+called <tt>FindOffset</tt>.
+As explained below,
+<tt>FindOffset</tt> is used by other member functions
+to locate an item in the sorted list.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html4253" HREF="page190.html#SECTION008211000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page190.html#SECTION008211000000000000000">Inserting Items in a Sorted List</A>
+<LI> <A NAME="tex2html4254" HREF="page191.html#SECTION008212000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page191.html#SECTION008212000000000000000">Locating Items in an Array-Binary Search</A>
+<LI> <A NAME="tex2html4255" HREF="page192.html#SECTION008213000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page192.html#SECTION008213000000000000000">Finding Items in a Sorted List</A>
+<LI> <A NAME="tex2html4256" HREF="page193.html#SECTION008214000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page193.html#SECTION008214000000000000000">Removing Items from a List</A>
+</UL>
+<HR><A NAME="tex2html4249" HREF="page190.html" tppabs="http://www.brpreiss.com/books/opus4/html/page190.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4247" HREF="page188.html" tppabs="http://www.brpreiss.com/books/opus4/html/page188.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4241" HREF="page188.html" tppabs="http://www.brpreiss.com/books/opus4/html/page188.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4251" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4252" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

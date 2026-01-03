@@ -1,0 +1,150 @@
+        -:    0:Source:D:/C,C++/CLion 2024.3.4/Projects/Lab6_7/Repo/repository_discipline.h
+        -:    0:Graph:D:\C,C++\CLion 2024.3.4\Projects\Lab6_7\cmake-build-debug-coverage\CMakeFiles\Lab6_7.dir\Repo\repository_file_discipline.cpp.gcno
+        -:    0:Data:D:\C,C++\CLion 2024.3.4\Projects\Lab6_7\cmake-build-debug-coverage\CMakeFiles\Lab6_7.dir\Repo\repository_file_discipline.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#pragma once
+        -:    2:#include <vector>
+        -:    3:#include "../Valid/validare_discipline.h"
+        -:    4:#include <algorithm>
+        -:    5:
+        -:    6:using std::vector;
+        -:    7:using std::ranges::find;
+        -:    8:using std::ranges::any_of;
+        -:    9:
+        -:   10:/**
+        -:   11: * Clasa pur virtuala (interfata) pentru repository-uri
+        -:   12: */
+        -:   13:class IRepoDisciplina {
+        -:   14:public:
+        -:   15:    /**
+        -:   16:     * Destructor marcat virtual pentru mostenire
+        -:   17:     */
+function _ZN15IRepoDisciplinaD2Ev called 0 returned 0% blocks executed 0%
+    #####:   18:    virtual ~IRepoDisciplina() = default;
+        -:   19:
+        -:   20:
+        -:   21:    /**
+        -:   22:     * Functia adauga o disciplina in repository
+        -:   23:     * @param d o disciplina
+        -:   24:     * @throw RepoException cu mesajul
+        -:   25:     *      -"Disciplina exista deja!", daca disciplina exista deja in repository
+        -:   26:     */
+        -:   27:    virtual void adauga(const Disciplina &d) = 0;
+        -:   28:
+        -:   29:    /**
+        -:   30:     * Functia modifica o disciplina in repository
+        -:   31:     * @param index pozitia elementului care va fi modificat
+        -:   32:     * @param d datele noi ale disciplinei
+        -:   33:     * @throw RepoException cu mesajul
+        -:   34:     *      -"Disciplina exista deja!", daca disciplina noua exista deja in repository
+        -:   35:     */
+        -:   36:    virtual void modifica(size_t index, const Disciplina &d) = 0;
+        -:   37:
+        -:   38:    /**
+        -:   39:     * Functia sterge o disciplina in repository
+        -:   40:     * @param index pozitia elementului care va fi sters
+        -:   41:     */
+        -:   42:    virtual void sterge(int index) = 0;
+        -:   43:
+        -:   44:    /**
+        -:   45:     * Functia returneaza un element din repository
+        -:   46:     * @param index pozitia elementului dorit
+        -:   47:     * @return elementul dorit
+        -:   48:     */
+        -:   49:    [[nodiscard]] virtual const Disciplina &cauta(size_t index) const = 0;
+        -:   50:
+        -:   51:    /**
+        -:   52:     * Functia returneaza intregul repository sub forma de vector
+        -:   53:     * @return intregul repository sub forma de vector
+        -:   54:     */
+        -:   55:    [[nodiscard]] virtual const vector<Disciplina> &getAll() const noexcept = 0;
+        -:   56:
+        -:   57:    /**
+        -:   58:     * Functia virtuala protejata pentru inserare la o pozitie
+        -:   59:     * Permite undo-ului sa insereze disciplina inapoi la index
+        -:   60:     * @param index pozitia in care adaugam
+        -:   61:     * @param d disciplina pe care o adaugam
+        -:   62:     */
+        -:   63:    virtual void inserare_la_index(size_t index, const Disciplina &d) = 0;
+        -:   64:
+        -:   65:};
+        -:   66:
+        -:   67:
+        -:   68:/**
+        -:   69: * Clasa RepoDisciplinaMem
+        -:   70: * Contine un vector dinamic, numit discipline, de discipline si functioneaza pe memorie
+        -:   71: */
+        -:   72:class RepoDisciplinaMem : public IRepoDisciplina{
+        -:   73:protected:
+        -:   74:    vector<Disciplina> discipline;
+        -:   75:
+        -:   76:public:
+        -:   77:    /**
+        -:   78:     * Constructorul creeaza o copie a functiei ot
+        -:   79:     * @param ot alt repository
+        -:   80:     */
+        -:   81:    RepoDisciplinaMem(const RepoDisciplinaMem &ot) = delete;
+        -:   82:
+        -:   83:    /**
+        -:   84:     * Constructor implicit
+        -:   85:     * Permite declararea unui repo neinitializat
+        -:   86:     */
+        -:   87:    RepoDisciplinaMem() = default;
+        -:   88:
+        -:   89:    /**
+        -:   90:     * Destructor implicit
+        -:   91:     * Il scriem explicit pentru a-l face virtual, ca ca functioneze si in polimorfism
+        -:   92:     */
+function _ZN17RepoDisciplinaMemD2Ev called 0 returned 0% blocks executed 0%
+    #####:   93:    ~RepoDisciplinaMem() override = default;
+    %%%%%:   93-block  0
+call    0 never executed
+call    1 never executed
+        -:   94:
+        -:   95:
+        -:   96:    /**
+        -:   97:     * Functia adauga o disciplina in repository
+        -:   98:     * @param dis o disciplina
+        -:   99:     * @throw RepoException cu mesajul
+        -:  100:     *      -"Disciplina exista deja!", daca disciplina exista deja in repository
+        -:  101:     */
+        -:  102:    void adauga(const Disciplina &dis) override;
+        -:  103:
+        -:  104:    /**
+        -:  105:     * Functia modifica o disciplina in repository
+        -:  106:     * @param index pozitia elementului care va fi modificat
+        -:  107:     * @param ot datele noi ale disciplinei
+        -:  108:     * @throw RepoException cu mesajul
+        -:  109:     *      -"Disciplina exista deja!", daca disciplina noua exista deja in repository
+        -:  110:     */
+        -:  111:    void modifica(size_t index, const Disciplina &ot) override;
+        -:  112:
+        -:  113:    /**
+        -:  114:     * Functia sterge o disciplina in repository
+        -:  115:     * @param index pozitia elementului care va fi sters
+        -:  116:     */
+        -:  117:    void sterge(int index) override;
+        -:  118:
+        -:  119:    /**
+        -:  120:     * Functia returneaza un element din repository
+        -:  121:     * @param index pozitia elementului dorit
+        -:  122:     * @return elementul dorit
+        -:  123:     */
+        -:  124:    [[nodiscard]] const Disciplina &cauta(size_t index) const override;
+        -:  125:
+        -:  126:    /**
+        -:  127:     * Functia returneaza intregul repository sub forma de vector
+        -:  128:     * @return intregul repository sub forma de vector
+        -:  129:     */
+        -:  130:    [[nodiscard]] const vector<Disciplina> &getAll() const noexcept override;
+        -:  131:
+        -:  132:    /**
+        -:  133:     * Functia virtuala protejata pentru inserare la o pozitie
+        -:  134:     * Permite undo-ului sa insereze disciplina inapoi la index
+        -:  135:     * @param index pozitia in care adaugam
+        -:  136:     * @param d disciplina pe care o adaugam
+        -:  137:     */
+        -:  138:    void inserare_la_index(size_t index, const Disciplina &d) override;
+        -:  139:
+        -:  140:
+        -:  141:};

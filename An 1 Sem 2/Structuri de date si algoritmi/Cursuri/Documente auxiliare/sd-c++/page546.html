@@ -1,0 +1,66 @@
+<HTML>
+<HEAD>
+<TITLE>Edge-Weighted and Vertex-Weighted Graphs</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html8663" HREF="page547.html" tppabs="http://www.brpreiss.com/books/opus4/html/page547.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8661" HREF="page536.html" tppabs="http://www.brpreiss.com/books/opus4/html/page536.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8655" HREF="page545.html" tppabs="http://www.brpreiss.com/books/opus4/html/page545.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8665" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8666" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0017250000000000000000">Edge-Weighted and Vertex-Weighted Graphs</A></H2>
+<P>
+An <em>edge-weighted graph</em><A NAME=49938>&#160;</A><A NAME=49939>&#160;</A>
+is a graph in which
+each edge has been assigned a <em>weight</em>.
+Similarly, a <em>vertex-weighted graph</em><A NAME=49942>&#160;</A><A NAME=49943>&#160;</A>
+is a graph in which
+each vertex has been assigned a <em>weight</em>.
+In such graphs,
+the quantity represented by a weight depends on the application.
+<P>
+Since a graph is a container
+that contains specifically vertices and edges,
+it is not necessary to introduce new graph classes to represent
+edge-weighted and vertex-weighted graphs.
+Instead, we introduce two classes,
+<tt>WeightedVertex</tt> and <tt>WeightedEdge</tt>.
+By using instances of these new classes
+together with the existing graph classes,
+we can create arbitrary edge-weighted and vertex-weighted graphs.
+Program&nbsp;<A HREF="page546.html#proggraph6h" tppabs="http://www.brpreiss.com/books/opus4/html/page546.html#proggraph6h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> contains the declarations
+of the <tt>WeightedVertex</tt>
+and <tt>WeightedEdge</tt> classes.
+<P>
+<P><A NAME="50116">&#160;</A><A NAME="proggraph6h">&#160;</A> <IMG WIDTH=575 HEIGHT=333 ALIGN=BOTTOM ALT="program49950" SRC="img2382.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2382.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>WeightedVertex</tt> and <tt>WeightedEdge</tt> Class Definitions<BR>
+<P>
+<P>
+Since the <tt>WeightedVertex</tt> class
+is derived from the <tt>Vertex</tt> class,
+instances of the former can be used wherever the latter is expected.
+Therefore, we can create a vertex-weighted graph
+simply by inserting weighted vertices into an instance
+of one of the graph implementations discussed in the preceding section.
+<P>
+The <tt>WeightedVertex&lt;T&gt;</tt> class
+contains a single member variable called <tt>weight</tt>
+which is a pointer to an <tt>Object</tt> instance.
+Therefore, any object type can be used as the weight.
+The constructor sets the weight to a given value,
+and the member function <tt>Weight</tt> is used to access the weight.
+<P>
+The <tt>WeightedEdge&lt;T&gt;</tt> class is implemented similarly.
+I.e., weighted edge instances can be used wherever an edge is expected.
+By inserting weighted edges into a graph,
+we get an edge-weighted graph.
+Clearly, if the application demands it,
+it is possible to use both weighted vertices and weighted edges
+in the same graph.
+<P>
+<HR><A NAME="tex2html8663" HREF="page547.html" tppabs="http://www.brpreiss.com/books/opus4/html/page547.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8661" HREF="page536.html" tppabs="http://www.brpreiss.com/books/opus4/html/page536.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8655" HREF="page545.html" tppabs="http://www.brpreiss.com/books/opus4/html/page545.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8665" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8666" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

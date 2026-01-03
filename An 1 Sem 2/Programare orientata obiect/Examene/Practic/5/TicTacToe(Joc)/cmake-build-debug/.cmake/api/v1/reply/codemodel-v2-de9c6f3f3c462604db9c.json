@@ -1,0 +1,78 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "TicTacToe_Joc_",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "TicTacToe_Joc_::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-TicTacToe_Joc_-Debug-9c2cde37947c13f1b1ed.json",
+					"name" : "TicTacToe_Joc_",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "TicTacToe_Joc__autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-TicTacToe_Joc__autogen-Debug-4257fac1b082ef879992.json",
+					"name" : "TicTacToe_Joc__autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "TicTacToe_Joc__autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-TicTacToe_Joc__autogen_timestamp_deps-Debug-d187bd942985b2a6beb3.json",
+					"name" : "TicTacToe_Joc__autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/TicTacToe(Joc)/cmake-build-debug",
+		"source" : "D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/TicTacToe(Joc)"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}

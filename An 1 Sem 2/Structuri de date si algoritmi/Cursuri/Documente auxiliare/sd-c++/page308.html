@@ -1,0 +1,53 @@
+<HTML>
+<HEAD>
+<TITLE>Solving The Recurrence-Telescoping</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html5737" HREF="page309.html" tppabs="http://www.brpreiss.com/books/opus4/html/page309.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5735" HREF="page306.html" tppabs="http://www.brpreiss.com/books/opus4/html/page306.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5729" HREF="page307.html" tppabs="http://www.brpreiss.com/books/opus4/html/page307.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5739" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5740" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0011320000000000000000">Solving The Recurrence-Telescoping</A></H2>
+<P>
+This section presents a technique for solving recurrence relations
+such as Equation&nbsp;<A HREF="page307.html#eqnsrchtreed" tppabs="http://www.brpreiss.com/books/opus4/html/page307.html#eqnsrchtreed"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+called <em>telescoping</em><A NAME=19138>&#160;</A>.
+The basic idea is this:
+We rewrite the recurrence formula so that a similar functional
+form appears on both sides of the equal sign.
+E.g., in this case, we consider <I>n</I><I>&gt;</I>2 and divide
+both sides of Equation&nbsp;<A HREF="page307.html#eqnsrchtreed" tppabs="http://www.brpreiss.com/books/opus4/html/page307.html#eqnsrchtreed"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> by <I>n</I>+1 to get
+<P> <IMG WIDTH=369 HEIGHT=38 ALIGN=BOTTOM ALT="displaymath64662" SRC="img1264.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1264.gif"  ><P>
+Since this equation is valid for any <I>n</I><I>&gt;</I>2,
+we can write the following series of equations:
+<P><A NAME="eqnsrchtreef">&#160;</A><A NAME="eqnsrchtreee">&#160;</A> <IMG WIDTH=537 HEIGHT=271 ALIGN=BOTTOM ALT="eqnarray19148" SRC="img1265.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1265.gif"  ><P>
+Each subsequent equation in this series is obtained by substituting <I>n</I>-1
+for <I>n</I> in the preceding equation.
+In principle, we repeat this substitution until we get an expression
+on the right-hand-side involving the base case.
+In this example, we stop at <I>n</I>-<I>k</I>-1=2.
+<P>
+Because Equation&nbsp;<A HREF="page308.html#eqnsrchtreee" tppabs="http://www.brpreiss.com/books/opus4/html/page308.html#eqnsrchtreee"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> has a similar functional form on both
+sides of the equal sign,
+when we add Equation&nbsp;<A HREF="page308.html#eqnsrchtreee" tppabs="http://www.brpreiss.com/books/opus4/html/page308.html#eqnsrchtreee"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> through Equation&nbsp;<A HREF="page308.html#eqnsrchtreef" tppabs="http://www.brpreiss.com/books/opus4/html/page308.html#eqnsrchtreef"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> together, 
+most of the terms cancel leaving
+<P> <IMG WIDTH=500 HEIGHT=120 ALIGN=BOTTOM ALT="eqnarray19195" SRC="img1266.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1266.gif"  ><P>
+where  <IMG WIDTH=20 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline64676" SRC="img1267.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1267.gif"  > is the  <IMG WIDTH=21 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58453" SRC="img94.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img94.gif"  > <em>harmonic number</em><A NAME=19219>&#160;</A>.
+In Section&nbsp;<A HREF="page44.html#secmodelharmonic" tppabs="http://www.brpreiss.com/books/opus4/html/page44.html#secmodelharmonic"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> it is shown that
+ <IMG WIDTH=96 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline64680" SRC="img1268.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1268.gif"  >,
+where  <IMG WIDTH=93 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline64682" SRC="img1269.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1269.gif"  >
+is called <em>Euler's constant</em><A NAME=19222>&#160;</A>.
+Thus, we get that the average internal path length of the average
+binary search tree with <I>n</I> internal nodes is
+<P> <IMG WIDTH=500 HEIGHT=40 ALIGN=BOTTOM ALT="eqnarray19223" SRC="img1270.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1270.gif"  ><P>
+<P>
+Finally, we get to the point:
+The average depth of a node in the average binary search tree with <I>n</I>
+nodes is
+<P> <IMG WIDTH=500 HEIGHT=130 ALIGN=BOTTOM ALT="eqnarray19225" SRC="img1271.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1271.gif"  ><P><HR><A NAME="tex2html5737" HREF="page309.html" tppabs="http://www.brpreiss.com/books/opus4/html/page309.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5735" HREF="page306.html" tppabs="http://www.brpreiss.com/books/opus4/html/page306.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5729" HREF="page307.html" tppabs="http://www.brpreiss.com/books/opus4/html/page307.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5739" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5740" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

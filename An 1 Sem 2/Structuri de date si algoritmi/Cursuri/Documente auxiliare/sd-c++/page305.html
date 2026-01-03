@@ -1,0 +1,62 @@
+<HTML>
+<HEAD>
+<TITLE>Searching a Binary Tree</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html5697" HREF="page306.html" tppabs="http://www.brpreiss.com/books/opus4/html/page306.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5695" HREF="page303.html" tppabs="http://www.brpreiss.com/books/opus4/html/page303.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5691" HREF="page304.html" tppabs="http://www.brpreiss.com/books/opus4/html/page304.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5699" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5700" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0011202000000000000000">Searching a Binary Tree</A></H3>
+<P>
+The search method described above applies directly to binary search trees.
+As above, the search begins at the root node of the tree.
+If the object of the search, <I>x</I>, matches the root <I>r</I>,
+the search terminates successfully.
+If it does not,
+then if <I>x</I> is less than <I>r</I>,
+the left subtree is searched;
+otherwise <I>x</I> must be greater than <I>r</I>,
+in which case the right subtree is searched.
+<P>
+Figure&nbsp;<A HREF="page305.html#figtree13" tppabs="http://www.brpreiss.com/books/opus4/html/page305.html#figtree13"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> shows two binary search trees.
+The tree  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63424" SRC="img1094.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1094.gif"  > is an example of a particularly bad search tree
+because it is not really very tree-like at all.
+In fact, it is topologically isomorphic with a linear, linked list.
+In the worst case, a tree which contains <I>n</I> items has height <I>O</I>(<I>n</I>).
+Therefore, in the worst case an unsuccessful search must visit <I>O</I>(<I>n</I>)
+internal nodes.
+<P>
+<P><A NAME="19057">&#160;</A><A NAME="figtree13">&#160;</A> <IMG WIDTH=575 HEIGHT=316 ALIGN=BOTTOM ALT="figure18879" SRC="img1238.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1238.gif"  ><BR>
+<STRONG>Figure:</STRONG> Examples of Search Trees<BR>
+<P>
+<P>
+On the other hand,
+tree  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63426" SRC="img1095.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1095.gif"  > in Figure&nbsp;<A HREF="page305.html#figtree13" tppabs="http://www.brpreiss.com/books/opus4/html/page305.html#figtree13"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+is an example of a particularly good binary search tree.
+This tree is an instance of
+a <em>perfect binary tree</em><A NAME=19062>&#160;</A>.
+<P>
+<BLOCKQUOTE> <b>Definition (Perfect Binary Tree)</b><A NAME="defnperfectbt">&#160;</A>
+A <em>perfect binary tree</em> of height  <IMG WIDTH=36 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline63700" SRC="img1122.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1122.gif"  >
+is a binary tree  <IMG WIDTH=107 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline63788" SRC="img1135.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1135.gif"  > with the following properties:
+<OL><LI> If <I>h</I>=0, then  <IMG WIDTH=47 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline64524" SRC="img1239.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1239.gif"  > and  <IMG WIDTH=48 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline64526" SRC="img1240.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1240.gif"  >.<LI> Otherwise, <I>h</I><I>&gt;</I>0, in which case both  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63784" SRC="img1133.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1133.gif"  > and  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline63786" SRC="img1134.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1134.gif"  >
+	are both perfect binary trees of height <I>h</I>-1.
+</OL></BLOCKQUOTE>
+<P>
+It is fairly easy to show that a perfect binary tree of height <I>h</I>
+has exactly  <IMG WIDTH=58 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline63812" SRC="img1137.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1137.gif"  > internal nodes.
+Conversely, the height of a perfect binary tree with <I>n</I> internal nodes
+is  <IMG WIDTH=76 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline64542" SRC="img1241.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1241.gif"  >.
+If we have a search tree that has the shape of a perfect binary tree,
+then every unsuccessful search visits exactly <I>h</I>+1 internal nodes,
+where  <IMG WIDTH=105 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline64546" SRC="img1242.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1242.gif"  >.
+Thus, the worst case for unsuccessful search in a perfect tree is  <IMG WIDTH=56 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59891" SRC="img403.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img403.gif"  >.
+<P>
+<HR><A NAME="tex2html5697" HREF="page306.html" tppabs="http://www.brpreiss.com/books/opus4/html/page306.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5695" HREF="page303.html" tppabs="http://www.brpreiss.com/books/opus4/html/page303.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5691" HREF="page304.html" tppabs="http://www.brpreiss.com/books/opus4/html/page304.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5699" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5700" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

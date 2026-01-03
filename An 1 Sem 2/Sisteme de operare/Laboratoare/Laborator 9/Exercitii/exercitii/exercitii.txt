@@ -1,0 +1,22 @@
+
+Enunțuri
+-----------------------------------------------------------------
+Să se scrie un program C în care două procese comunică prin pipe,
+astfel:
+
+Ex. 1
+  Procesul părinte:
+  - deschide un fișier text, citește întreg conținutul acestuia
+  și-l trimite prin pipe procesului copil
+
+  Procesul copil:
+  - citește din pipe, calculează și afișează numărul de cuvinte/litere
+
+Ex. 2
+  Procesul părinte:
+  - citește continuu o operație ('+', '-', '*', '/') și două numere
+  întregi de la tastatură și le scrie în pipe
+
+  Procesul copil:
+  - citește din pipe, execută operația și scrie numerele și rezultatul
+  obținut într-un fișier text

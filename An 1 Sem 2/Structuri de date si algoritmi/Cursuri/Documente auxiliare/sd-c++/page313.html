@@ -1,0 +1,41 @@
+<HTML>
+<HEAD>
+<TITLE>Member Variables</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html5801" HREF="page314.html" tppabs="http://www.brpreiss.com/books/opus4/html/page314.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5799" HREF="page312.html" tppabs="http://www.brpreiss.com/books/opus4/html/page312.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5793" HREF="page312.html" tppabs="http://www.brpreiss.com/books/opus4/html/page312.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5803" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5804" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0011411000000000000000">Member Variables</A></H3>
+<P>
+The <tt>BST</tt> class inherits the three member variables
+<tt>key</tt>, <tt>left</tt>, and <tt>right</tt>
+for the <tt>BinaryTree</tt> class.
+All three of them are pointers.
+The first is a pointer to an <tt>Object</tt> instance,
+and the latter two are pointers to <tt>BinaryTree</tt> instances.
+All three pointers are zero if the node represents the empty tree.
+Otherwise, the tree must have a root and two subtrees.
+Therefore, all three pointers are non-zero in an internal node.
+<P>
+Program&nbsp;<A HREF="page313.html#progbst1c" tppabs="http://www.brpreiss.com/books/opus4/html/page313.html#progbst1c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> defines the two member functions <tt>Left</tt>
+and <tt>Right</tt> which return the left and right subtrees,
+respectively, of a given binary search tree.
+Since the implementation extends the <tt>BinaryTree</tt> class,
+the <tt>left</tt> and <tt>right</tt> member variables are declared as pointers
+to <tt>BinaryTree</tt>s.
+However, in a binary search tree,
+the subtrees will be instances of the <tt>BST</tt> class.
+Therefore, these functions make use of the <tt>dynamiccast</tt>
+operator to return a reference of the correct type.
+<P>
+<P><A NAME="19512">&#160;</A><A NAME="progbst1c">&#160;</A> <IMG WIDTH=575 HEIGHT=107 ALIGN=BOTTOM ALT="program19374" SRC="img1290.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1290.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>BST</tt> Class <tt>Left</tt> and <tt>Right</tt> 	Member Function Definitions<BR>
+<P><HR><A NAME="tex2html5801" HREF="page314.html" tppabs="http://www.brpreiss.com/books/opus4/html/page314.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5799" HREF="page312.html" tppabs="http://www.brpreiss.com/books/opus4/html/page312.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5793" HREF="page312.html" tppabs="http://www.brpreiss.com/books/opus4/html/page312.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5803" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5804" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

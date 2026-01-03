@@ -1,0 +1,58 @@
+<HTML>
+<HEAD>
+<TITLE>Pass By Value</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html9222" HREF="page593.html" tppabs="http://www.brpreiss.com/books/opus4/html/page593.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html9220" HREF="page591.html" tppabs="http://www.brpreiss.com/books/opus4/html/page591.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html9214" HREF="page591.html" tppabs="http://www.brpreiss.com/books/opus4/html/page591.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html9224" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html9225" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0018210000000000000000">Pass By Value</A></H2>
+<A NAME="seccpppassbyvalue">&#160;</A>
+<P>
+Consider a pair of C++ functions defined in Program&nbsp;<A HREF="page592.html#progcpp1c" tppabs="http://www.brpreiss.com/books/opus4/html/page592.html#progcpp1c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+The function <tt>One</tt> calls the function <tt>Two</tt>.
+In general, every function call includes a (possibly empty) list of arguments.
+The arguments specified in a function call are called
+<em>actual parameters</em><A NAME=57152>&#160;</A>.
+In this case, there is only one actual parameter--<tt>y</tt>.
+<P>
+<P><A NAME="57157">&#160;</A><A NAME="progcpp1c">&#160;</A> <IMG WIDTH=575 HEIGHT=238 ALIGN=BOTTOM ALT="program57154" SRC="img2599.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2599.gif"  ><BR>
+<STRONG>Program:</STRONG> Example of Pass-By-Value Parameter Passing<BR>
+<P>
+<P>
+The method by which the parameter is passed to a function is determined
+by the function definition.
+In this case, the function <tt>Two</tt> is defined as accepting
+a single argument of type <tt>int</tt> called <tt>x</tt>.
+The arguments which appear in a function definition are called
+<em>formal parameters</em><A NAME=57164>&#160;</A>.
+If the type of a formal parameter is <em>not</em> a reference
+(see Section&nbsp;<A HREF="page590.html#seccppreference" tppabs="http://www.brpreiss.com/books/opus4/html/page590.html#seccppreference"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>),
+then the parameter passing method is <em>pass-by-value</em>.
+<P>
+The semantics of pass-by-value work like this:
+The effect of the formal parameter definition is to create a local
+variable of the specified type in the given function.
+E.g., the function <tt>Two</tt> has a local variable of type <tt>int</tt>
+called <tt>x</tt>.
+When the function is called,
+the <em>values</em> (<I>r</I>-values) of the <em>actual parameters</em> are used
+to initialize the <em>formal parameters</em>
+before the body of the function is executed.
+<P>
+Since the formal parameters give rise to local variables,
+if a new value is assigned to a formal parameter,
+that value has no effect on the actual parameters.
+Therefore, the output obtained produced by the function <tt>One</tt>
+defined in Program&nbsp;<A HREF="page592.html#progcpp1c" tppabs="http://www.brpreiss.com/books/opus4/html/page592.html#progcpp1c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> is:
+<PRE>2
+1</PRE>
+<P>
+<HR><A NAME="tex2html9222" HREF="page593.html" tppabs="http://www.brpreiss.com/books/opus4/html/page593.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html9220" HREF="page591.html" tppabs="http://www.brpreiss.com/books/opus4/html/page591.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html9214" HREF="page591.html" tppabs="http://www.brpreiss.com/books/opus4/html/page591.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html9224" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html9225" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

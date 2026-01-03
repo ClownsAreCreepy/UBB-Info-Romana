@@ -1,0 +1,52 @@
+<HTML>
+<HEAD>
+<TITLE>Greedy Algorithm</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html7407" HREF="page445.html" tppabs="http://www.brpreiss.com/books/opus4/html/page445.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7405" HREF="page442.html" tppabs="http://www.brpreiss.com/books/opus4/html/page442.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7401" HREF="page443.html" tppabs="http://www.brpreiss.com/books/opus4/html/page443.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7409" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7410" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0015112000000000000000">Greedy Algorithm</A></H3>
+<P>
+A cashier does not really consider all the possible
+ways in which to count out a given sum of money.
+Instead, she counts out the required amount
+beginning with the largest denomination
+and proceeding to the smallest denomination.
+<P>
+For example,
+suppose we have ten coins:
+five pennies, two nickels, two dimes and quarter.
+I.e.,  <IMG WIDTH=315 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline68455" SRC="img1816.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1816.gif"  >.
+To count out 32 cents,
+we start with a quarter,
+then add a nickel followed by two pennies.
+This is a greedy strategy because once a coin has been counted out,
+it is never taken back.
+Furthermore, the solution obtained is the correct solution
+because it uses the fewest number of coins.
+<P>
+If we assume that the pieces of money (notes and coins)
+are sorted by their denomination,
+the running time for the greedy algorithm is <I>O</I>(<I>n</I>).
+This is significantly better than that of the brute-force
+algorithm given above.
+<P>
+Does this greedy algorithm always produce the correct answer?
+Unfortunately it does not.
+Consider what happens if we introduce a 15-cent coin.
+Suppose we are asked to count out 20 cents
+from the following set of coins:  <IMG WIDTH=151 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline68459" SRC="img1817.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1817.gif"  >.
+The greedy algorithm selects 15 followed by five ones--six coins in total.
+Of course, the correct solution requires only two coins.
+The solution found by the greedy strategy is a feasible solution,
+but it does not minimize the objective function.
+<P>
+<HR><A NAME="tex2html7407" HREF="page445.html" tppabs="http://www.brpreiss.com/books/opus4/html/page445.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7405" HREF="page442.html" tppabs="http://www.brpreiss.com/books/opus4/html/page442.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7401" HREF="page443.html" tppabs="http://www.brpreiss.com/books/opus4/html/page443.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7409" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7410" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,168 @@
+<HTML>
+<HEAD>
+<TITLE>Binomial Trees</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html6514" HREF="page372.html" tppabs="http://www.brpreiss.com/books/opus4/html/page372.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6512" HREF="page370.html" tppabs="http://www.brpreiss.com/books/opus4/html/page370.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6506" HREF="page370.html" tppabs="http://www.brpreiss.com/books/opus4/html/page370.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6516" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6517" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0012410000000000000000">Binomial Trees</A></H2>
+<P>
+A binomial tree is a general tree with a very special shape:
+<P>
+<BLOCKQUOTE> <b>Definition (Binomial Tree)</b><A NAME="defnbinomialtree">&#160;</A>
+The <em>binomial tree of order  <IMG WIDTH=36 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline61524" SRC="img761.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img761.gif"  ></em> with root <I>R</I>
+is the tree  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline66576" SRC="img1498.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1498.gif"  > defined as follows
+<OL><LI> If <I>k</I>=0,  <IMG WIDTH=108 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline66580" SRC="img1499.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1499.gif"  >.
+	I.e., the binomial tree of order zero consists of a single node, <I>R</I>.<LI> If <I>k</I><I>&gt;</I>0,  <IMG WIDTH=194 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline66586" SRC="img1500.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1500.gif"  >.
+	I.e., the binomial tree of order <I>k</I><I>&gt;</I>0 comprises the root <I>R</I>,
+	 and <I>k</I> binomial subtrees,  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline66594" SRC="img1501.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1501.gif"  >,  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline66596" SRC="img1502.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1502.gif"  >, ...,  <IMG WIDTH=36 HEIGHT=21 ALIGN=MIDDLE ALT="tex2html_wrap_inline66598" SRC="img1503.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1503.gif"  >.
+</OL></BLOCKQUOTE>
+<P>
+Figure&nbsp;<A HREF="page371.html#figbinom1" tppabs="http://www.brpreiss.com/books/opus4/html/page371.html#figbinom1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> shows the first five binomial trees,  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline66594" SRC="img1501.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1501.gif"  >- <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline66602" SRC="img1504.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1504.gif"  >.
+It follows directly from Definition&nbsp;<A HREF="page371.html#defnbinomialtree" tppabs="http://www.brpreiss.com/books/opus4/html/page371.html#defnbinomialtree"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> that the root of  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline66576" SRC="img1498.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1498.gif"  >,
+the binomial tree of order <I>k</I>,
+has degree <I>k</I>.
+Since <I>k</I> may arbitrarily large,
+so too can the degree of the root.
+Furthermore, the root of a binomial tree has the largest fanout of
+any of the nodes in that tree.
+<P>
+<P><A NAME="26877">&#160;</A><A NAME="figbinom1">&#160;</A> <IMG WIDTH=575 HEIGHT=426 ALIGN=BOTTOM ALT="figure26610" SRC="img1505.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1505.gif"  ><BR>
+<STRONG>Figure:</STRONG> Binomial Trees  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline66594" SRC="img1501.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1501.gif"  >,  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline66596" SRC="img1502.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1502.gif"  >, ...,  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline66602" SRC="img1504.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1504.gif"  ><BR>
+<P>
+<P>
+The number of nodes in a binomial tree of order <I>k</I> is a function of <I>k</I>:
+<P>
+<BLOCKQUOTE> <b>Theorem</b><A NAME="theorempqueuesv">&#160;</A>
+The binomial tree of order <I>k</I>,  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline66576" SRC="img1498.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1498.gif"  >,
+contains  <IMG WIDTH=14 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58821" SRC="img179.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img179.gif"  > nodes.
+</BLOCKQUOTE>
+<P>
+	extbfProof (By induction).
+Let  <IMG WIDTH=16 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline66638" SRC="img1506.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1506.gif"  > be the number of nodes in  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline66576" SRC="img1498.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1498.gif"  >,
+a binomial tree of order <I>k</I>.
+<P>
+<b>Base Case</b>
+By definition,  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline66594" SRC="img1501.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1501.gif"  > consists a single node.
+Therefore  <IMG WIDTH=82 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline66646" SRC="img1507.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1507.gif"  >.
+<P>
+<b>Inductive Hypothesis</b>
+Assume that  <IMG WIDTH=53 HEIGHT=28 ALIGN=MIDDLE ALT="tex2html_wrap_inline66648" SRC="img1508.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1508.gif"  > for  <IMG WIDTH=110 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline66650" SRC="img1509.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1509.gif"  >, for some  <IMG WIDTH=33 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline66652" SRC="img1510.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1510.gif"  >.
+Consider the binomial tree of order <I>l</I>+1:
+<P> <IMG WIDTH=359 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath66564" SRC="img1511.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1511.gif"  ><P>
+Therefore the number of nodes in  <IMG WIDTH=31 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline66656" SRC="img1512.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1512.gif"  > is given by
+<P> <IMG WIDTH=500 HEIGHT=168 ALIGN=BOTTOM ALT="eqnarray26890" SRC="img1513.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1513.gif"  ><P>
+Therefore, by induction on <I>l</I>,  <IMG WIDTH=53 HEIGHT=28 ALIGN=MIDDLE ALT="tex2html_wrap_inline66648" SRC="img1508.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1508.gif"  > for all  <IMG WIDTH=36 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline61524" SRC="img761.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img761.gif"  >.
+<P>
+It follows from Theorem&nbsp;<A HREF="page371.html#theorempqueuesv" tppabs="http://www.brpreiss.com/books/opus4/html/page371.html#theorempqueuesv"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> that binomial trees only come
+in sizes that are a power of two.
+I.e.,  <IMG WIDTH=155 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline66664" SRC="img1514.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1514.gif"  >.
+Furthermore, for a given power of two,
+there is exactly one shape of binomial tree.
+<P>
+<BLOCKQUOTE> <b>Theorem</b><A NAME="theorempqueuesvi">&#160;</A>
+The height of  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline66576" SRC="img1498.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1498.gif"  >, the binomial tree of order <I>k</I>, is <I>k</I>.
+</BLOCKQUOTE>
+<P>
+	extbfProof (By induction).
+Let  <IMG WIDTH=15 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline66672" SRC="img1515.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1515.gif"  > be the height of  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline66576" SRC="img1498.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1498.gif"  >,
+a binomial tree of order <I>k</I>.
+<P>
+<b>Base Case</b>
+By definition,  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline66594" SRC="img1501.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1501.gif"  > consists a single node.
+Therefore  <IMG WIDTH=44 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline66680" SRC="img1516.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1516.gif"  >.
+<P>
+<b>Inductive Hypothesis</b>
+Assume that  <IMG WIDTH=46 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline66682" SRC="img1517.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1517.gif"  > for  <IMG WIDTH=110 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline66650" SRC="img1509.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1509.gif"  >, for some  <IMG WIDTH=33 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline66652" SRC="img1510.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1510.gif"  >.
+Consider the binomial tree of order <I>l</I>+1:
+<P> <IMG WIDTH=359 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath66564" SRC="img1511.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1511.gif"  ><P>
+Therefore the height  <IMG WIDTH=31 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline66656" SRC="img1512.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1512.gif"  > is given by
+<P> <IMG WIDTH=500 HEIGHT=75 ALIGN=BOTTOM ALT="eqnarray26911" SRC="img1518.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1518.gif"  ><P>
+Therefore, by induction on <I>l</I>,  <IMG WIDTH=46 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline66682" SRC="img1517.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1517.gif"  > for all  <IMG WIDTH=36 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline61524" SRC="img761.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img761.gif"  >.
+<P>
+Theorem&nbsp;<A HREF="page371.html#theorempqueuesvi" tppabs="http://www.brpreiss.com/books/opus4/html/page371.html#theorempqueuesvi"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> tells us that the height of a binomial tree of order <I>k</I>
+is <I>k</I> and Theorem&nbsp;<A HREF="page371.html#theorempqueuesv" tppabs="http://www.brpreiss.com/books/opus4/html/page371.html#theorempqueuesv"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> tells us that the number of nodes is  <IMG WIDTH=53 HEIGHT=28 ALIGN=MIDDLE ALT="tex2html_wrap_inline66648" SRC="img1508.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1508.gif"  >.
+Therefore, the height of  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline66576" SRC="img1498.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1498.gif"  > is exactly  <IMG WIDTH=56 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59891" SRC="img403.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img403.gif"  >.
+<P>
+Figure&nbsp;<A HREF="page371.html#figbinom2" tppabs="http://www.brpreiss.com/books/opus4/html/page371.html#figbinom2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> shows that there are two ways
+to think about the construction of binomial trees.
+The first way follows directly from the Definition&nbsp;<A HREF="page371.html#defnbinomialtree" tppabs="http://www.brpreiss.com/books/opus4/html/page371.html#defnbinomialtree"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+I.e., binomial  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline66576" SRC="img1498.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1498.gif"  > consists of a root node to which the <I>k</I> binomial trees
+ <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline66594" SRC="img1501.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1501.gif"  >,  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline66596" SRC="img1502.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1502.gif"  >, ...,  <IMG WIDTH=36 HEIGHT=21 ALIGN=MIDDLE ALT="tex2html_wrap_inline66598" SRC="img1503.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1503.gif"  > are attached
+as shown in Figure&nbsp;<A HREF="page371.html#figbinom2" tppabs="http://www.brpreiss.com/books/opus4/html/page371.html#figbinom2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>&nbsp;(a).
+<P>
+<P><A NAME="27099">&#160;</A><A NAME="figbinom2">&#160;</A> <IMG WIDTH=575 HEIGHT=503 ALIGN=BOTTOM ALT="figure26922" SRC="img1519.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1519.gif"  ><BR>
+<STRONG>Figure:</STRONG> Two Views of Binomial Tree  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline66602" SRC="img1504.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1504.gif"  ><BR>
+<P>
+<P>
+Alternatively, we can think of  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline66576" SRC="img1498.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1498.gif"  > as being comprised of two binomial
+trees of order <I>k</I>-1.
+For example, Figure&nbsp;<A HREF="page371.html#figbinom2" tppabs="http://www.brpreiss.com/books/opus4/html/page371.html#figbinom2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>&nbsp;(b) shows that  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline66602" SRC="img1504.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1504.gif"  >
+is made up of two instances of  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline66738" SRC="img1520.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1520.gif"  >.
+In general, suppose we have two trees of order <I>k</I>-1,
+say  <IMG WIDTH=36 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline66742" SRC="img1521.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1521.gif"  > and  <IMG WIDTH=35 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline66744" SRC="img1522.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1522.gif"  >,
+where  <IMG WIDTH=246 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline66746" SRC="img1523.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1523.gif"  >.
+Then we can construct a binomial tree of order <I>k</I> by combining
+the trees to get
+<P> <IMG WIDTH=389 HEIGHT=18 ALIGN=BOTTOM ALT="displaymath66566" SRC="img1524.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1524.gif"  ><P>
+<P>
+Why do we call  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline66576" SRC="img1498.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1498.gif"  > a <em>binomial</em> tree?
+It is because the number of nodes at a given depth in the tree
+is determined by the <em>binomial coefficient</em>.
+And the binomial coefficient derives its name from the <em>binomial theorem</em>.
+And the binomial theorem tells us how to compute the  <IMG WIDTH=21 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58453" SRC="img94.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img94.gif"  > power of
+a <em>binomial</em><A NAME=27114>&#160;</A>.
+And a binomial is an expression which consists of two terms, such as <I>x</I>+<I>y</I>.
+That is why it is called a binomial tree!
+<P>
+<BLOCKQUOTE> <b>Theorem (Binomial Theorem)</b><A NAME="theorempqueuesbinom">&#160;</A>
+The  <IMG WIDTH=21 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58453" SRC="img94.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img94.gif"  > power of the binomial <I>x</I>+<I>y</I> for  <IMG WIDTH=38 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59063" SRC="img241.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img241.gif"  >
+is given by
+<P> <IMG WIDTH=343 HEIGHT=43 ALIGN=BOTTOM ALT="displaymath66567" SRC="img1525.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1525.gif"  ><P>
+where  <IMG WIDTH=88 HEIGHT=29 ALIGN=MIDDLE ALT="tex2html_wrap_inline66762" SRC="img1526.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1526.gif"  > is called the
+<em>binomial coefficient</em><A NAME=27128>&#160;</A><A NAME=27129>&#160;</A>.
+</BLOCKQUOTE>
+<P>
+	extbfProof
+The proof of the binomial theorem
+is left as an exercise for the reader (Exercise&nbsp;<A HREF="page385.html#exercisepqueuesbinom" tppabs="http://www.brpreiss.com/books/opus4/html/page385.html#exercisepqueuesbinom"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>).<A NAME="tex2html692" HREF="footnode.html#27283" tppabs="http://www.brpreiss.com/books/opus4/html/footnode.html#27283"><IMG  ALIGN=BOTTOM ALT="gif" SRC="foot_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/foot_motif.gif"></A>
+<P>
+The following theorem gives the expression
+for the number of nodes at a given depth in a binomial tree:
+<P>
+<BLOCKQUOTE> <b>Theorem</b><A NAME="theorempqueuesvii">&#160;</A>
+The number of nodes at level <I>l</I> in  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline66576" SRC="img1498.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1498.gif"  >,
+the binomial tree of order <I>k</I>, where  <IMG WIDTH=63 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline66770" SRC="img1527.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1527.gif"  >,
+is given by the <em>binomial coefficient</em>  <IMG WIDTH=17 HEIGHT=31 ALIGN=MIDDLE ALT="tex2html_wrap_inline66772" SRC="img1528.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1528.gif"  >.
+</BLOCKQUOTE>
+<P>
+	extbfProof (By induction).
+Let  <IMG WIDTH=34 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline66774" SRC="img1529.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1529.gif"  > be the number of nodes at level <I>l</I> in  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline66576" SRC="img1498.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1498.gif"  >,
+a binomial tree of order <I>k</I>.
+<P>
+<b>Base Case</b>
+Since  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline66594" SRC="img1501.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1501.gif"  > contains a single node,
+there is only one level in the tree, <I>l</I>=0,
+and exactly one node at that level.
+Therefore,  <IMG WIDTH=106 HEIGHT=29 ALIGN=MIDDLE ALT="tex2html_wrap_inline66786" SRC="img1530.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1530.gif"  >.
+<P>
+<b>Inductive Hypothesis</b>
+Assume that  <IMG WIDTH=76 HEIGHT=31 ALIGN=MIDDLE ALT="tex2html_wrap_inline66788" SRC="img1531.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1531.gif"  > for  <IMG WIDTH=114 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline66790" SRC="img1532.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1532.gif"  >, for some  <IMG WIDTH=36 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline63700" SRC="img1122.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1122.gif"  >.
+The binomial tree of order <I>h</I>+1 is composed of
+two binomial trees of height <I>h</I>,
+one attached under the root of the other.
+Hence, the number of nodes at level <I>l</I> in  <IMG WIDTH=35 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline66800" SRC="img1533.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1533.gif"  >
+is equal to the number of nodes at level <I>l</I> in  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline66804" SRC="img1534.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1534.gif"  >
+plus the number of nodes at level <I>l</I>-1 in  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline66804" SRC="img1534.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1534.gif"  >:
+<P> <IMG WIDTH=500 HEIGHT=279 ALIGN=BOTTOM ALT="eqnarray27151" SRC="img1535.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1535.gif"  ><P>
+Therefore by induction on <I>h</I>,  <IMG WIDTH=76 HEIGHT=31 ALIGN=MIDDLE ALT="tex2html_wrap_inline66788" SRC="img1531.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1531.gif"  >.
+<P>
+<HR><A NAME="tex2html6514" HREF="page372.html" tppabs="http://www.brpreiss.com/books/opus4/html/page372.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6512" HREF="page370.html" tppabs="http://www.brpreiss.com/books/opus4/html/page370.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6506" HREF="page370.html" tppabs="http://www.brpreiss.com/books/opus4/html/page370.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6516" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6517" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

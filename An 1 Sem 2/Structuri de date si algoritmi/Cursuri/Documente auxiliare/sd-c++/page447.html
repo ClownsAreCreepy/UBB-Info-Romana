@@ -1,0 +1,90 @@
+<HTML>
+<HEAD>
+<TITLE>Example-Balancing Scales</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html7446" HREF="page448.html" tppabs="http://www.brpreiss.com/books/opus4/html/page448.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7444" HREF="page446.html" tppabs="http://www.brpreiss.com/books/opus4/html/page446.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7438" HREF="page446.html" tppabs="http://www.brpreiss.com/books/opus4/html/page446.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7448" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7449" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0015210000000000000000">Example-Balancing Scales</A></H2>
+<A NAME="secalgsscales">&#160;</A>
+<P>
+Consider the set of <em>scales</em><A NAME=32361>&#160;</A> shown in Figure&nbsp;<A HREF="page447.html#figscales1" tppabs="http://www.brpreiss.com/books/opus4/html/page447.html#figscales1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+Suppose we are given a collection of <I>n</I> weights,
+ <IMG WIDTH=114 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline68483" SRC="img1820.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1820.gif"  >,
+and we are required to place <em>all</em> of the weights
+onto the scales so that they are balanced.
+<P>
+<P><A NAME="32391">&#160;</A><A NAME="figscales1">&#160;</A> <IMG WIDTH=575 HEIGHT=155 ALIGN=BOTTOM ALT="figure32364" SRC="img1825.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1825.gif"  ><BR>
+<STRONG>Figure:</STRONG> A Set of Scales<BR>
+<P>
+<P>
+The problem can be expressed mathematically as follows:
+Let  <IMG WIDTH=12 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline68477" SRC="img1819.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1819.gif"  > represent the pan in which weight  <IMG WIDTH=14 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline68467" SRC="img1818.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1818.gif"  > is placed
+such that
+<P> <IMG WIDTH=386 HEIGHT=48 ALIGN=BOTTOM ALT="displaymath68503" SRC="img1826.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1826.gif"  ><P>
+The scales are balanced when
+the sum of the weights in the left pan equals
+the sum of the weights in the right pan,
+<P> <IMG WIDTH=338 HEIGHT=43 ALIGN=BOTTOM ALT="displaymath68504" SRC="img1827.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1827.gif"  ><P>
+<P>
+Given an arbitrary set of <I>n</I> weights,
+there is no guarantee that a solution to the problem exists.
+A solution always exists if, instead of balancing the scales,
+the goal is to minimize the difference between between the total weights
+in the left and right pans.
+Thus, given  <IMG WIDTH=114 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline68483" SRC="img1820.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1820.gif"  >,
+our <em>objective</em> is to <em>minimize</em>  <IMG WIDTH=7 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline68525" SRC="img1828.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1828.gif"  > where
+<P> <IMG WIDTH=355 HEIGHT=49 ALIGN=BOTTOM ALT="displaymath68505" SRC="img1829.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1829.gif"  ><P>
+subject to the constraint that <em>all</em>
+the weights are placed on the scales.
+<P>
+Given a set of scales and collection of weights,
+we might solve the problem by trial-and-error:
+Place all the weights onto the pans one-by-one.
+If the scales balance, a solution has been found.
+If not, remove some number of the weights
+and place them back on the scales in some other combination.
+In effect, we search for a solution to the problem by
+first trying one solution and then backing-up to try another.
+<P>
+Figure&nbsp;<A HREF="page447.html#figscales2" tppabs="http://www.brpreiss.com/books/opus4/html/page447.html#figscales2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> shows the <em>solution space</em><A NAME=32410>&#160;</A>
+for the scales balancing problem.
+In this case the solution space takes the form of a tree:
+Each node of the tree represents a <em>partial solution</em> to the problem.
+At the root (node&nbsp;A)
+no weights have been placed yet and the scales are balanced.
+Let  <IMG WIDTH=7 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline68525" SRC="img1828.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1828.gif"  > be the difference between the
+the sum of the weights currently placed in the left and right pans.
+Therefore,  <IMG WIDTH=36 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline68529" SRC="img1830.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1830.gif"  > at node&nbsp;A.
+<P>
+<P><A NAME="32606">&#160;</A><A NAME="figscales2">&#160;</A> <IMG WIDTH=575 HEIGHT=241 ALIGN=BOTTOM ALT="figure32412" SRC="img1831.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1831.gif"  ><BR>
+<STRONG>Figure:</STRONG> Solution Space for the Scales Balancing Problem<BR>
+<P>
+<P>
+Node&nbsp;B represents the situation in which weight  <IMG WIDTH=17 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline68589" SRC="img1832.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1832.gif"  > has been placed
+in the left pan.
+The difference between the pans is  <IMG WIDTH=59 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline68591" SRC="img1833.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1833.gif"  >.
+Conversely, node&nbsp;C represents the situation in which the weight  <IMG WIDTH=17 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline68589" SRC="img1832.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1832.gif"  >
+has been placed in the right pan.
+In this case  <IMG WIDTH=59 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline68595" SRC="img1834.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1834.gif"  >.
+The complete solution tree has depth <I>n</I> and  <IMG WIDTH=14 HEIGHT=11 ALIGN=BOTTOM ALT="tex2html_wrap_inline60823" SRC="img563.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img563.gif"  > leaves.
+Clearly, the solution is the leaf node having the smallest  <IMG WIDTH=14 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline68601" SRC="img1835.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1835.gif"  > value.
+<P>
+In this case (as in many others) the solution space is a tree.
+In order to find the best solution
+a backtracking algorithm visits all the nodes in the solution space.
+I.e., it does a tree <em>traversal</em><A NAME=32610>&#160;</A>.
+Section&nbsp;<A HREF="page257.html#sectreestraversals" tppabs="http://www.brpreiss.com/books/opus4/html/page257.html#sectreestraversals"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> presents the two most
+important tree traversals--<em>depth-first</em><A NAME=32613>&#160;</A>
+and <em>breadth-first</em><A NAME=32615>&#160;</A>.
+Both kinds can be used to implement a backtracking algorithm.
+<P>
+<HR><A NAME="tex2html7446" HREF="page448.html" tppabs="http://www.brpreiss.com/books/opus4/html/page448.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7444" HREF="page446.html" tppabs="http://www.brpreiss.com/books/opus4/html/page446.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7438" HREF="page446.html" tppabs="http://www.brpreiss.com/books/opus4/html/page446.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7448" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7449" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

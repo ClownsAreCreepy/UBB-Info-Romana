@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>d:\istvan\___oop\curs\curs7\petstorecosundo\consoleapplication4\</FILEPATH>
+      <FILENAME>pet.h</FILENAME>
+      <LINE>35</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26432</DEFECTCODE>
+    <DESCRIPTION>If you define or delete any default operation in the type 'class Pet', define or delete them all (c.21: http://go.microsoft.com/fwlink/?linkid=853922).</DESCRIPTION>
+    <FUNCTION>Pet::{ctor}</FUNCTION>
+    <DECORATED>??0Pet@@QAE@ABV0@@Z</DECORATED>
+    <FUNCLINE>35</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>d:\istvan\___oop\curs\curs7\petstorecosundo\consoleapplication4\</FILEPATH>
+      <FILENAME>pet.h</FILENAME>
+      <LINE>53</LINE>
+      <COLUMN>5</COLUMN>
+    </SFA>
+    <DEFECTCODE>26440</DEFECTCODE>
+    <DESCRIPTION>Function 'Pet::getPrice' can be declared 'noexcept' (f.6: http://go.microsoft.com/fwlink/?linkid=853927).</DESCRIPTION>
+    <FUNCTION>Pet::getPrice</FUNCTION>
+    <DECORATED>?getPrice@Pet@@QBEHXZ</DECORATED>
+    <FUNCLINE>53</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>d:\istvan\___oop\curs\curs7\petstorecosundo\consoleapplication4\</FILEPATH>
+      <FILENAME>pet.h</FILENAME>
+      <LINE>57</LINE>
+      <COLUMN>6</COLUMN>
+    </SFA>
+    <DEFECTCODE>26440</DEFECTCODE>
+    <DESCRIPTION>Function 'Pet::setPrice' can be declared 'noexcept' (f.6: http://go.microsoft.com/fwlink/?linkid=853927).</DESCRIPTION>
+    <FUNCTION>Pet::setPrice</FUNCTION>
+    <DECORATED>?setPrice@Pet@@QAEXH@Z</DECORATED>
+    <FUNCLINE>57</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

@@ -1,0 +1,111 @@
+<HTML>
+<HEAD>
+<TITLE>Removing Items</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html4810" HREF="page235.html" tppabs="http://www.brpreiss.com/books/opus4/html/page235.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4808" HREF="page230.html" tppabs="http://www.brpreiss.com/books/opus4/html/page230.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4802" HREF="page233.html" tppabs="http://www.brpreiss.com/books/opus4/html/page233.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4812" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4813" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION009514000000000000000">Removing Items</A></H3>
+<P>
+Removing items from a chained scatter table is more complicated
+than putting them into the table.
+The goal when removing an item is to have the scatter table end up
+exactly as it would have appeared
+had that item never been inserted in the first place.
+Therefore, when an item is removed from the middle of a chain,
+items which follow it in the chain have to be moved up to fill in the hole.
+However, the moving-up operation is complicated by the fact that
+several chains may have coalesced.
+<P>
+Program&nbsp;<A HREF="page234.html#proghashtbl7c" tppabs="http://www.brpreiss.com/books/opus4/html/page234.html#proghashtbl7c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives an implementation of the
+<tt>Withdraw</tt> member function of the <tt>ChainedScatterTable</tt> class.
+The algorithm begins by checking that the table is not empty (lines&nbsp;3-4).
+To remove an item, we first have to find it.
+This is what the loop on lines&nbsp;5-7 does.
+If the item to be deleted is not in the table,
+when this loop terminates the variable <tt>i</tt> has the value <tt>null</tt>
+and an exception is thrown (lines&nbsp;8-9).
+Otherwise, the item a position <tt>i</tt> in the table is to be removed.
+<P>
+<P><A NAME="12592">&#160;</A><A NAME="proghashtbl7c">&#160;</A> <IMG WIDTH=575 HEIGHT=869 ALIGN=BOTTOM ALT="program12522" SRC="img1007.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1007.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>ChainedScatterTable</tt> Class 	<tt>Withdraw</tt> Member Function Definition<BR>
+<P>
+<P>
+The purpose of the loop on lines&nbsp;10-32 is to fill in the hole
+in the chain which results when the item at position <tt>i</tt> is removed
+by moving up items which follow it in the chain.
+What we need to do is to find the next item which follows the item at <tt>i</tt>
+that is safe to move into position <tt>i</tt>.
+The loop on lines&nbsp;13-27 searches the rest of the chain following
+the item at <tt>i</tt> to find an item which can be safely moved.
+<P>
+Figure&nbsp;<A HREF="page234.html#fighash4" tppabs="http://www.brpreiss.com/books/opus4/html/page234.html#fighash4"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> illustrates the basic idea.
+The figures shows a chained scatter table of length ten
+that contains integer-valued keys.
+There is a single chain as shown in the figure.
+However, notice that the values in the chain are not all equal modulo 10.
+In fact, this chain must have resulted from the coalescing of three chains--one which begins in position&nbsp;1,
+one which begins in position&nbsp;2, and one which begins in position 5.
+<P>
+<P><A NAME="13172">&#160;</A><A NAME="fighash4">&#160;</A> <IMG WIDTH=575 HEIGHT=452 ALIGN=BOTTOM ALT="figure12536" SRC="img1008.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1008.gif"  ><BR>
+<STRONG>Figure:</STRONG> Removing Items from a Chained Scatter Table<BR>
+<P>
+<P>
+Suppose we wish to remove item&nbsp;11 which is in position&nbsp;2,
+which is indicated by the box in Figure&nbsp;<A HREF="page234.html#fighash4" tppabs="http://www.brpreiss.com/books/opus4/html/page234.html#fighash4"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>&nbsp;(a).
+To delete it, we must follow the chain to find the next item that can
+be moved safely up to position 2.
+Item&nbsp;02 which follows 11 and can be moved safely up to position&nbsp;2
+because that is the location to which it hashes.
+Moving item&nbsp;02 up moves the hole down the list to position&nbsp;3
+(Figure&nbsp;<A HREF="page234.html#fighash4" tppabs="http://www.brpreiss.com/books/opus4/html/page234.html#fighash4"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>&nbsp;(b)).
+Again we follow the chain to find that item&nbsp;21 can be moved safely up
+giving rise to the situation in Figure&nbsp;<A HREF="page234.html#fighash4" tppabs="http://www.brpreiss.com/books/opus4/html/page234.html#fighash4"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>&nbsp;(c).
+<P>
+Now we have a case where an item cannot be moved.
+Item&nbsp;05 is the next candidate to be moved.
+However, it is in position&nbsp;5 which is the position to which it hashes.
+If we were to move it up,
+then it would no longer be in the chain which emanates from position&nbsp;5.
+In effect, the item would no longer be accessible!
+Therefore, it cannot be moved safely.
+Instead, we must move item&nbsp;31 ahead of item&nbsp;5
+as shown in Figure&nbsp;<A HREF="page234.html#fighash4" tppabs="http://www.brpreiss.com/books/opus4/html/page234.html#fighash4"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>&nbsp;(d).
+Eventually, the hole propagates to the end of the chain,
+where it can be delete easily (Figure&nbsp;<A HREF="page234.html#fighash4" tppabs="http://www.brpreiss.com/books/opus4/html/page234.html#fighash4"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>&nbsp;(e)).
+<P>
+The loop on lines&nbsp;13-27 of Program&nbsp;<A HREF="page234.html#proghashtbl7c" tppabs="http://www.brpreiss.com/books/opus4/html/page234.html#proghashtbl7c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+finds the position <tt>j</tt> of an item which can be safely moved
+to position <tt>i</tt>.
+The algorithm makes use of the following fact:
+An item can be safely moved up
+<em>only if it does not hash to a position
+which appears in the linked list between <tt>i</tt> and <tt>j</tt></em>.
+This is what the code on lines&nbsp;16-24 tests.
+<P>
+When execution reaches line&nbsp;28,
+either we have found an item which can be safely moved,
+or there does not exist such an item.
+If an item is found,
+it is moved up (lines&nbsp;30-31)
+and we repeat the whole process again.
+On the other hand,
+if there are no more items to be moved up,
+then the process is finished and the main loop (lines&nbsp;10-32) terminates.
+<P>
+The statements on lines&nbsp;33-34 do the actual deed of removing
+the data from the position which <tt>i</tt> which by now is at the end
+of the chain.
+The final task to be done is to remove the pointer to position <tt>i</tt>,
+since there is no longer any data at that position.
+That is the job of the loop on lines&nbsp;35-43.
+<P>
+<HR><A NAME="tex2html4810" HREF="page235.html" tppabs="http://www.brpreiss.com/books/opus4/html/page235.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4808" HREF="page230.html" tppabs="http://www.brpreiss.com/books/opus4/html/page230.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4802" HREF="page233.html" tppabs="http://www.brpreiss.com/books/opus4/html/page233.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4812" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4813" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

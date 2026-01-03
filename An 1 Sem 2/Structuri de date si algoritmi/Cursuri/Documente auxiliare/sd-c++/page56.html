@@ -1,0 +1,60 @@
+<HTML>
+<HEAD>
+<TITLE>Asymptotic Notation</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html2579" HREF="page57.html" tppabs="http://www.brpreiss.com/books/opus4/html/page57.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2577" HREF="book.html" tppabs="http://www.brpreiss.com/books/opus4/html/book.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2571" HREF="page55.html" tppabs="http://www.brpreiss.com/books/opus4/html/page55.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2581" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2582" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION004000000000000000000">Asymptotic Notation</A></H1>
+<P>
+<A NAME="chapasymptotic">&#160;</A>
+<P>
+Suppose we are considering two algorithms, <I>A</I> and <I>B</I>,
+for solving a given problem.
+Furthermore, let us say that we have done a careful analysis
+of the running times of each of the algorithms and determined them to be
+ <IMG WIDTH=40 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59029" SRC="img236.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img236.gif"  > and  <IMG WIDTH=42 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59031" SRC="img237.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img237.gif"  >, respectively,
+where <I>n</I> is a measure of the problem size.
+Then it should be a fairly simple matter to compare the
+two functions  <IMG WIDTH=40 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59029" SRC="img236.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img236.gif"  > and  <IMG WIDTH=42 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59031" SRC="img237.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img237.gif"  > to determine which
+algorithm is <em>the best</em>!
+<P>
+But is it really that simple?
+What exactly does it mean for one function, say  <IMG WIDTH=40 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59029" SRC="img236.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img236.gif"  >,
+to be <em>better than</em> another function,  <IMG WIDTH=42 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59031" SRC="img237.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img237.gif"  >?
+One possibility arises if we know the problem size <em>a priori</em>.
+E.g., suppose the problem size is  <IMG WIDTH=16 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline59043" SRC="img238.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img238.gif"  > and  <IMG WIDTH=119 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59045" SRC="img239.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img239.gif"  >.
+Then clearly algorithm <I>A</I> is better than algorithm <I>B</I>
+for problem size  <IMG WIDTH=16 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline59043" SRC="img238.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img238.gif"  >.
+<P>
+In the general case, we have no <em>a priori</em> knowledge of the problem size.
+However, if it can be shown, say,
+that  <IMG WIDTH=164 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59053" SRC="img240.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img240.gif"  >,
+then algorithm <I>A</I> is better than algorithm <I>B</I>
+regardless of the problem size.
+<P>
+Unfortunately, we usually don't know the problem size beforehand,
+nor is it true that one of the functions is less than or equal the other
+over the entire range of problem sizes.
+In this case,
+we consider the <em>asymptotic</em> behavior<A NAME=1317>&#160;</A>
+of the two functions for very large problem sizes.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html2583" HREF="page57.html#SECTION004100000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page57.html#SECTION004100000000000000000">An Asymptotic Upper Bound-Big Oh</A>
+<LI> <A NAME="tex2html2584" HREF="page66.html#SECTION004200000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page66.html#SECTION004200000000000000000">An Asymptotic Lower Bound-Omega</A>
+<LI> <A NAME="tex2html2585" HREF="page69.html#SECTION004300000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page69.html#SECTION004300000000000000000">More Notation-Theta and Little Oh</A>
+<LI> <A NAME="tex2html2586" HREF="page70.html#SECTION004400000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page70.html#SECTION004400000000000000000">Asymptotic Analysis of Algorithms</A>
+<LI> <A NAME="tex2html2587" HREF="page77.html#SECTION004500000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page77.html#SECTION004500000000000000000">Exercises</A>
+<LI> <A NAME="tex2html2588" HREF="page78.html#SECTION004600000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page78.html#SECTION004600000000000000000">Projects</A>
+</UL>
+<HR><A NAME="tex2html2579" HREF="page57.html" tppabs="http://www.brpreiss.com/books/opus4/html/page57.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2577" HREF="book.html" tppabs="http://www.brpreiss.com/books/opus4/html/book.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2571" HREF="page55.html" tppabs="http://www.brpreiss.com/books/opus4/html/page55.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2581" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2582" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

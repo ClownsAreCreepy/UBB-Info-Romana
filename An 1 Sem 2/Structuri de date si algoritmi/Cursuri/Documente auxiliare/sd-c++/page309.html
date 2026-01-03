@@ -1,0 +1,104 @@
+<HTML>
+<HEAD>
+<TITLE>Unsuccessful Search</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html5749" HREF="page310.html" tppabs="http://www.brpreiss.com/books/opus4/html/page310.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5747" HREF="page306.html" tppabs="http://www.brpreiss.com/books/opus4/html/page306.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5741" HREF="page308.html" tppabs="http://www.brpreiss.com/books/opus4/html/page308.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5751" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5752" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0011330000000000000000">Unsuccessful Search</A></H2>
+<P>
+All successful searches terminate when the object of the search is found.
+Therefore, all successful searches terminate at an internal node.
+In contrast, all unsuccessful searches terminate at an external node.
+In terms of the binary tree shown in Figure&nbsp;<A HREF="page302.html#figtree12" tppabs="http://www.brpreiss.com/books/opus4/html/page302.html#figtree12"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+a successful search terminates in one of the nodes
+which are drawn as a circles
+and an unsuccessful search terminates in one of the boxes.
+<P>
+The preceding analysis shows that the average number of nodes visited
+during a successful search depends on the
+<em>internal path length</em><A NAME=19235>&#160;</A><A NAME=19236>&#160;</A>,
+which is simply the sum of the depths of all the internal nodes.
+Similarly, the average number of nodes visited during an unsuccessful search
+depends on the <em>external path length</em><A NAME=19238>&#160;</A><A NAME=19239>&#160;</A>,
+which is the sum of the depths of all the external nodes.
+Fortunately, there is a simple relationship between the internal
+path length and the external path length of a binary tree.
+<P>
+<BLOCKQUOTE> <b>Theorem</b><A NAME="theoremsrchtreei">&#160;</A>
+Consider a binary tree <I>T</I> with <I>n</I> internal nodes
+and an internal path length of <I>I</I>.
+The external path length of <I>T</I> is given by
+<P> <IMG WIDTH=290 HEIGHT=13 ALIGN=BOTTOM ALT="displaymath64688" SRC="img1272.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1272.gif"  ><P></BLOCKQUOTE>
+<P>
+In other words, Theorem&nbsp;<A HREF="page309.html#theoremsrchtreei" tppabs="http://www.brpreiss.com/books/opus4/html/page309.html#theoremsrchtreei"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> says that the
+<em>difference</em> between the internal path length
+and the external path length of a binary tree with <I>n</I> internal nodes
+is <I>E</I>-<I>I</I>=2<I>n</I>.
+<P>
+	extbfProof (By induction).
+<P>
+<b>Base Case</b>
+Consider a binary tree with one internal node and internal path length of zero.
+Such a tree has exactly two empty subtrees immediately below the root and
+its external path length is two.
+Therefore, the theorem holds for <I>n</I>=1.
+<P>
+<b>Inductive Hypothesis</b>
+Assume that the theorem holds for  <IMG WIDTH=115 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline64704" SRC="img1273.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1273.gif"  > for some  <IMG WIDTH=36 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline59577" SRC="img356.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img356.gif"  >.
+Consider an arbitrary tree,  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline64708" SRC="img1274.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1274.gif"  >, that has <I>k</I> internal nodes.
+According to Theorem&nbsp;<A HREF="page255.html#theoremtreesi" tppabs="http://www.brpreiss.com/books/opus4/html/page255.html#theoremtreesi"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline64708" SRC="img1274.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1274.gif"  > has <I>k</I>+1 external nodes.
+Let  <IMG WIDTH=13 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline64716" SRC="img1275.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1275.gif"  > and  <IMG WIDTH=17 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline64718" SRC="img1276.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1276.gif"  > be the internal and external path length of  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline64708" SRC="img1274.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1274.gif"  >,
+respectively,
+According to the inductive hypothesis,  <IMG WIDTH=91 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline64722" SRC="img1277.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1277.gif"  >.
+<P>
+Consider what happens when we create a new tree  <IMG WIDTH=32 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline64724" SRC="img1278.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1278.gif"  >
+by removing an external node from  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline64708" SRC="img1274.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1274.gif"  >
+and replacing it with an internal node that has two empty subtrees.
+Clearly, the resulting tree has <I>k</I>+1 internal nodes.
+Furthermore, suppose the external node we remove is at depth <I>d</I>.
+Then the internal path length of  <IMG WIDTH=32 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline64724" SRC="img1278.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1278.gif"  > is  <IMG WIDTH=95 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline64734" SRC="img1279.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1279.gif"  >
+and the external path length of  <IMG WIDTH=32 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline64724" SRC="img1278.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1278.gif"  > is
+ <IMG WIDTH=274 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline64738" SRC="img1280.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1280.gif"  >.
+<P>
+The difference between the internal path length and the external
+path length of  <IMG WIDTH=32 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline64724" SRC="img1278.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1278.gif"  > is
+<P> <IMG WIDTH=500 HEIGHT=63 ALIGN=BOTTOM ALT="eqnarray19256" SRC="img1281.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1281.gif"  ><P>
+Therefore, by induction on <I>k</I>,
+the difference between the internal path length
+and the external path length of a binary tree with <I>n</I> internal nodes is 2<I>n</I>
+for all  <IMG WIDTH=38 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59533" SRC="img344.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img344.gif"  >.
+<P>
+Since the difference between the internal and external path lengths
+of any tree with <I>n</I> internal nodes is 2<I>n</I>,
+then we can say the same thing about the <em>average</em> internal
+and external path lengths averaged over all search trees.
+Therefore, <I>E</I>(<I>n</I>), the average external path length of a binary search tree
+is given by
+<P> <IMG WIDTH=500 HEIGHT=65 ALIGN=BOTTOM ALT="eqnarray19261" SRC="img1282.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1282.gif"  ><P>
+<P>
+A binary search tree with internal <I>n</I> nodes has <I>n</I>+1 external nodes.
+Thus, the average depth of an external node of a binary search tree
+with <I>n</I> internal nodes,  <IMG WIDTH=8 HEIGHT=10 ALIGN=BOTTOM ALT="tex2html_wrap_inline64762" SRC="img1283.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1283.gif"  >, is given by
+<P> <IMG WIDTH=500 HEIGHT=87 ALIGN=BOTTOM ALT="eqnarray19264" SRC="img1284.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1284.gif"  ><P>
+<P>
+These very nice results are the <em>raison d'&#234;tre</em> for binary search trees.
+What they say is that the average number of nodes visited
+during either a successful or an unsuccessful search
+in the average binary search tree having
+<I>n</I> nodes is  <IMG WIDTH=56 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59891" SRC="img403.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img403.gif"  >.
+We must remember, however,
+that these results are premised on the assumption that all
+possible search trees of <I>n</I> nodes are equiprobable.
+It is important to be aware that in practice
+this may not always be the case.
+<P>
+<HR><A NAME="tex2html5749" HREF="page310.html" tppabs="http://www.brpreiss.com/books/opus4/html/page310.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5747" HREF="page306.html" tppabs="http://www.brpreiss.com/books/opus4/html/page306.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5741" HREF="page308.html" tppabs="http://www.brpreiss.com/books/opus4/html/page308.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5751" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5752" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

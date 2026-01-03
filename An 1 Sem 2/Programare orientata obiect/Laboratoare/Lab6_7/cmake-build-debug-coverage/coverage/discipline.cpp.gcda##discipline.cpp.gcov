@@ -1,0 +1,49 @@
+        -:    0:Source:D:/C,C++/CLion 2024.3.4/Projects/Lab6_7/Domain/discipline.cpp
+        -:    0:Graph:D:\C,C++\CLion 2024.3.4\Projects\Lab6_7\cmake-build-debug-coverage\CMakeFiles\Lab6_7.dir\Domain\discipline.cpp.gcno
+        -:    0:Data:D:\C,C++\CLion 2024.3.4\Projects\Lab6_7\cmake-build-debug-coverage\CMakeFiles\Lab6_7.dir\Domain\discipline.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include "discipline.h"
+        -:    2:
+function _ZlsRSoRK10Disciplina called 3 returned 100% blocks executed 100%
+        3:    3:ostream &operator<<(ostream &os, const Disciplina &d) {
+        3:    4:    os << "Nume: " << d.getNume() << " | Ore: " << d.getOre() << " | Tip: " << d.getTip() << " | Profesor: " << d.getProfesor();
+        3:    4-block  0
+call    0 returned 3
+call    1 returned 3
+call    2 returned 3
+call    3 returned 3
+call    4 returned 3
+call    5 returned 3
+call    6 returned 3
+call    7 returned 3
+call    8 returned 3
+call    9 returned 3
+call   10 returned 3
+call   11 returned 3
+        3:    5:    return os;
+        -:    6:}
+        -:    7:
+        -:    8:
+function _ZNK10Disciplina7getNumeB5cxx11Ev called 1185 returned 100% blocks executed 100%
+     1185:    9:const string &Disciplina::getNume() const noexcept {
+     1185:   10:    return nume;
+     1185:   10-block  0
+        -:   11:}
+        -:   12:
+function _ZNK10Disciplina6getOreEv called 398 returned 100% blocks executed 100%
+      398:   13:int Disciplina::getOre() const noexcept {
+      398:   14:    return ore;
+      398:   14-block  0
+        -:   15:}
+        -:   16:
+function _ZNK10Disciplina6getTipB5cxx11Ev called 302 returned 100% blocks executed 100%
+      302:   17:const string &Disciplina::getTip() const noexcept {
+      302:   18:    return tip;
+      302:   18-block  0
+        -:   19:}
+        -:   20:
+function _ZNK10Disciplina11getProfesorB5cxx11Ev called 470 returned 100% blocks executed 100%
+      470:   21:const string &Disciplina::getProfesor() const noexcept {
+      470:   22:    return profesor;
+      470:   22-block  0
+        -:   23:}

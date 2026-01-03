@@ -1,0 +1,71 @@
+<HTML>
+<HEAD>
+<TITLE>Insertion Sorting</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html7936" HREF="page488.html" tppabs="http://www.brpreiss.com/books/opus4/html/page488.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7934" HREF="page483.html" tppabs="http://www.brpreiss.com/books/opus4/html/page483.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7928" HREF="page486.html" tppabs="http://www.brpreiss.com/books/opus4/html/page486.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7938" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7939" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION0016300000000000000000">Insertion Sorting</A></H1>
+<P>
+The first class of sorting algorithm that we consider
+comprises algorithms that <em>sort by insertion</em><A NAME=34639>&#160;</A><A NAME=34640>&#160;</A>.
+An algorithm that sorts by insertion takes the initial,
+unsorted sequence,  <IMG WIDTH=157 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69689" SRC="img2088.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2088.gif"  >,
+and computes a series of <em>sorted</em> sequences
+ <IMG WIDTH=118 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline69773" SRC="img2107.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2107.gif"  >,
+as follows:
+<OL><LI>
+	The first sequence in the series,  <IMG WIDTH=15 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline69775" SRC="img2108.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2108.gif"  > is the empty sequence.
+	I.e.,  <IMG WIDTH=51 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline69777" SRC="img2109.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2109.gif"  >.<LI>
+	Given a sequence  <IMG WIDTH=12 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69779" SRC="img2110.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2110.gif"  > in the series, for  <IMG WIDTH=64 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline62662" SRC="img940.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img940.gif"  >,
+	the next sequence in the series,  <IMG WIDTH=29 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline69783" SRC="img2111.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2111.gif"  >,
+	is obtained by inserting
+	the  <IMG WIDTH=56 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline63500" SRC="img1106.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1106.gif"  > element of the unsorted sequence  <IMG WIDTH=26 HEIGHT=16 ALIGN=MIDDLE ALT="tex2html_wrap_inline69787" SRC="img2112.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2112.gif"  >
+	into the correct position in  <IMG WIDTH=12 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69779" SRC="img2110.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2110.gif"  >.
+</OL>
+Each sequence  <IMG WIDTH=12 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69779" SRC="img2110.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2110.gif"  >,  <IMG WIDTH=64 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline62662" SRC="img940.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img940.gif"  >,
+contains the first <I>i</I> elements of the unsorted sequence <I>S</I>.
+Therefore, the final sequence in the series,  <IMG WIDTH=15 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline69799" SRC="img2113.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2113.gif"  >,
+is the sorted sequence we seek.  I.e.,  <IMG WIDTH=51 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline69801" SRC="img2114.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2114.gif"  >.
+<P>
+Figure&nbsp;<A HREF="page487.html#figsort1" tppabs="http://www.brpreiss.com/books/opus4/html/page487.html#figsort1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> illustrates the insertion sorting algorithm.
+The figure shows the progression of the insertion sorting algorithm
+as it sorts an array of ten integers.
+The array is sorted
+<em>in place</em><A NAME=34649>&#160;</A><A NAME=34650>&#160;</A>.
+I.e., the initial unsorted sequence, <I>S</I>,
+and the series of sorted sequences,  <IMG WIDTH=65 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline69805" SRC="img2115.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2115.gif"  >,
+occupy the same array.
+<P>
+<P><A NAME="35279">&#160;</A><A NAME="figsort1">&#160;</A> <IMG WIDTH=575 HEIGHT=600 ALIGN=BOTTOM ALT="figure34651" SRC="img2116.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2116.gif"  ><BR>
+<STRONG>Figure:</STRONG> Insertion Sorting<BR>
+<P>
+<P>
+In the  <IMG WIDTH=17 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58387" SRC="img77.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img77.gif"  > step,
+the element at position <I>i</I> in the array is inserted into the
+sorted sequence  <IMG WIDTH=12 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69779" SRC="img2110.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2110.gif"  > which occupies array positions 0 to (<I>i</I>-1).
+After this is done,
+array positions 0 to <I>i</I> contain the <I>i</I>+1 elements of  <IMG WIDTH=29 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline69783" SRC="img2111.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2111.gif"  >.
+Array positions (<I>i</I>+1) to (<I>n</I>-1) contain
+the remaining <I>n</I>-<I>i</I>-1 elements of the unsorted sequence <I>S</I>.
+<P>
+As shown in Figure&nbsp;<A HREF="page487.html#figsort1" tppabs="http://www.brpreiss.com/books/opus4/html/page487.html#figsort1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+the first step (<I>i</I>=0) is trivial--inserting an element into the empty list involves no work.
+Altogether, <I>n</I>-1 non-trivial insertions are required
+to sort a list of <I>n</I> elements.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html7940" HREF="page488.html#SECTION0016310000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page488.html#SECTION0016310000000000000000">Straight Insertion Sort</A>
+<LI> <A NAME="tex2html7941" HREF="page490.html#SECTION0016320000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page490.html#SECTION0016320000000000000000">Average Running Time</A>
+<LI> <A NAME="tex2html7942" HREF="page491.html#SECTION0016330000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page491.html#SECTION0016330000000000000000">Binary Insertion Sort</A>
+</UL>
+<HR><A NAME="tex2html7936" HREF="page488.html" tppabs="http://www.brpreiss.com/books/opus4/html/page488.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7934" HREF="page483.html" tppabs="http://www.brpreiss.com/books/opus4/html/page483.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7928" HREF="page486.html" tppabs="http://www.brpreiss.com/books/opus4/html/page486.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7938" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7939" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

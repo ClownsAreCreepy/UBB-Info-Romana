@@ -1,0 +1,52 @@
+<HTML>
+<HEAD>
+<TITLE>Finding the Position of an Item and Accessing by Position</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html4177" HREF="page184.html" tppabs="http://www.brpreiss.com/books/opus4/html/page184.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4175" HREF="page177.html" tppabs="http://www.brpreiss.com/books/opus4/html/page177.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4169" HREF="page182.html" tppabs="http://www.brpreiss.com/books/opus4/html/page182.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4179" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4180" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION008126000000000000000">Finding the Position of an Item and Accessing by Position</A></H3>
+<P>
+The <tt>FindPosition</tt> member function of the <tt>ListAsLinkedList</tt>
+class is used to determine the position of an item in an ordered list
+implemented as a linked list.
+Its result is a reference to a <tt>Position</tt>.
+Such a position can be used with the subscripting operator,
+<tt>operator[]</tt> to access the item in the ordered list
+found at the given position.
+The <tt>FindPosition</tt> and <tt>operator[]</tt> member functions
+are defined in Program&nbsp;<A HREF="page183.html#proglist10c" tppabs="http://www.brpreiss.com/books/opus4/html/page183.html#proglist10c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+<P>
+<P><A NAME="10559">&#160;</A><A NAME="proglist10c">&#160;</A> <IMG WIDTH=575 HEIGHT=372 ALIGN=BOTTOM ALT="program10239" SRC="img808.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img808.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>ListAsLinkedList</tt> Class <tt>FindPosition</tt> Member Function 	and Subscripting Operator Definitions<BR>
+<P>
+<P>
+The <tt>FindPosition</tt> function takes as its lone argument
+a <tt>const</tt> reference to an <tt>Object</tt> that is the target of the search.
+The search algorithm used by <tt>FindPosition</tt> is identical to that of
+<tt>Find</tt>, which is given in Program&nbsp;<A HREF="page180.html#proglist8c" tppabs="http://www.brpreiss.com/books/opus4/html/page180.html#proglist8c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+Consequently, the running time is the same:
+<P> <IMG WIDTH=338 HEIGHT=17 ALIGN=BOTTOM ALT="displaymath61730" SRC="img809.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img809.gif"  ><P>
+where  <IMG WIDTH=89 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline61648" SRC="img789.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img789.gif"  > is the time required to match to <tt>Object</tt>s,
+and  <IMG WIDTH=72 HEIGHT=9 ALIGN=BOTTOM ALT="tex2html_wrap_inline61308" SRC="img709.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img709.gif"  > is the number of items in the ordered list.
+<P>
+The subscripting operator, <tt>operator[]</tt>,
+which takes as its subscript expression a reference to
+a <tt>Position</tt> is also defined in Program&nbsp;<A HREF="page183.html#proglist10c" tppabs="http://www.brpreiss.com/books/opus4/html/page183.html#proglist10c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+This routine assumes that the position it is passed is
+an instance of a <tt>ListAsLinkedList::Pos</tt>.
+It simply dereferences the <tt>element</tt> pointer
+contained in the <tt>ListAsLinkedList::Pos</tt> argument
+to obtain the required item in the ordered list. 
+Assuming no exceptions are thrown,
+the running time is clearly <I>O</I>(1).
+<P>
+<HR><A NAME="tex2html4177" HREF="page184.html" tppabs="http://www.brpreiss.com/books/opus4/html/page184.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4175" HREF="page177.html" tppabs="http://www.brpreiss.com/books/opus4/html/page177.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4169" HREF="page182.html" tppabs="http://www.brpreiss.com/books/opus4/html/page182.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4179" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4180" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

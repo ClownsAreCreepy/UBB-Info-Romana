@@ -1,0 +1,126 @@
+<HTML>
+<HEAD>
+<TITLE>Performance Comparison:
+ListAsArray vs. ListAsLinkedList</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html4211" HREF="page187.html" tppabs="http://www.brpreiss.com/books/opus4/html/page187.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4209" HREF="page167.html" tppabs="http://www.brpreiss.com/books/opus4/html/page167.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4203" HREF="page185.html" tppabs="http://www.brpreiss.com/books/opus4/html/page185.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4213" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4214" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION008130000000000000000">Performance Comparison:
+<tt>ListAsArray</tt> vs. <tt>ListAsLinkedList</tt></A></H2>
+<P>
+<A NAME="seclistsperf">&#160;</A>
+<P>
+The running times calculated for the various
+member functions of the two ordered list implementations,
+<tt>ListAsArray</tt> and <tt>ListAsLinkedList</tt>,
+are summarized below in Table&nbsp;<A HREF="page186.html#tbllists" tppabs="http://www.brpreiss.com/books/opus4/html/page186.html#tbllists"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+With the exception of two member functions,
+the running times of the two implementations
+are asymptotically identical.
+<P>
+<P><A NAME="10320">&#160;</A>
+<P>
+    <A NAME="tbllists">&#160;</A>
+    <DIV ALIGN=CENTER><P ALIGN=CENTER><TABLE COLS=4 BORDER FRAME=HSIDES RULES=GROUPS>
+<COL ALIGN=LEFT><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER>
+<TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP>
+	</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP COLSPAN=3> ordered list implementation</TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP>
+<P>
+	member function	</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <tt>ListAsArray</tt> </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <tt>ListAsLinkedList</tt> </TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP><tt>Insert</tt>			</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>O</I>(1) </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>O</I>(1) </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> 
+	<tt>IsMember</tt>			</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>O</I>(<I>n</I>) </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>O</I>(<I>n</I>) </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> 
+	<tt>Find</tt>			</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>O</I>(<I>n</I>) </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>O</I>(<I>n</I>) </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> 
+	<tt>Withdraw(Object&amp;)</tt>	</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>O</I>(<I>n</I>) </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>O</I>(<I>n</I>) </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> 
+	<tt>FindPosition</tt>		</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>O</I>(<I>n</I>) </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>O</I>(<I>n</I>) </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> 
+	<tt>operator[](Position&amp;)</tt>	</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>O</I>(1) </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>O</I>(1) </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> 
+	<tt>operator[](unsigned int)</tt>
+					</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>O</I>(1) </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <IMG WIDTH=10 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline61776" SRC="img812.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img812.gif"  ></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>O</I>(<I>n</I>) </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> 
+	<tt>Withdraw(Position&amp;)</tt>	</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>O</I>(<I>n</I>) </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>O</I>(<I>n</I>) </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> 
+	<tt>InsertAfter</tt>		</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>O</I>(<I>n</I>) </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <IMG WIDTH=10 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline61776" SRC="img812.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img812.gif"  ></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>O</I>(1) </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> 
+	<tt>InsertBefore</tt>		</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>O</I>(<I>n</I>) </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>O</I>(<I>n</I>) </TD></TR>
+</TBODY>
+<CAPTION ALIGN=BOTTOM><STRONG>Table:</STRONG> Running Times of Operations on Ordered Lists</CAPTION></TABLE>
+</P></DIV><P>
+<P>
+The two differences are the subscripting operator which takes
+an integer offset, <tt>operator[] (unsigned int)</tt>,
+and the <tt>InsertAfter</tt> function.
+The subscripting operation can be done constant time when
+using an array,
+but it requires <I>O</I>(<I>n</I>) in a linked list.
+Conversely, <tt>InsertAfter</tt> requires <I>O</I>(<I>n</I>) time when using
+an array,
+but can be done in constant time in the singly-linked list.
+<P>
+Table&nbsp;<A HREF="page186.html#tbllists" tppabs="http://www.brpreiss.com/books/opus4/html/page186.html#tbllists"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> does not tell the whole story.
+The other important difference between the two implementations
+is the amount of space required.
+Consider first the array implementation, <tt>ListAsArray</tt>.
+An array object is comprised of two member variables--<tt>array</tt> and <tt>count</tt>.
+The former has type <tt>Array&lt;Object*&gt;</tt> and the latter is an
+<tt>unsigned int</tt>.
+The storage required for an <tt>Array&lt;T&gt;</tt>
+was computed in Chapter&nbsp;<A HREF="page79.html#chapfds" tppabs="http://www.brpreiss.com/books/opus4/html/page79.html#chapfds"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+Using that result, the storage needed for an <tt>ListAsArray</tt>
+which can hold <em>at most</em> <I>M</I> object pointers is given by:
+<P> <IMG WIDTH=538 HEIGHT=40 ALIGN=BOTTOM ALT="multline10357" SRC="img813.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img813.gif"  ><P>
+Notice that since we have implemented the ordered list container
+using indirect storage,
+we have calculated the space used by the pointers to the contained objects.
+However, since we cannot know the types of the contained objects,
+we cannot calculate the space required by those objects.
+<P>
+A similar calculation can also be done for the <tt>ListAsLinkedList</tt> class.
+In this case, we assume that the actual number of contained objects is <I>n</I>.
+The total storage required is given by:
+<P> <IMG WIDTH=539 HEIGHT=64 ALIGN=BOTTOM ALT="multline10365" SRC="img814.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img814.gif"  ><P>
+<P>
+If we assume that integers and pointers require four bytes each,
+the storage requirement for the <tt>ListAsArray</tt> class becomes 16+4<I>M</I> bytes;
+and for the <tt>ListAsList</tt> class, 12+8<I>n</I> bytes.
+I.e., the storage needed for the array implementation is <I>O</I>(<I>M</I>),
+where <I>M</I> is the maximum length of the ordered list;
+whereas, the storage needed for the linked list implementation is <I>O</I>(<I>n</I>),
+where <I>n</I> is the actual number of items in the ordered list.
+Equating the two expressions,
+we get that the break-even point occurs at <I>n</I>=(<I>M</I>+1)/2.
+I.e., if <I>n</I><I>&lt;</I>(<I>M</I>+1)/2,
+the array version uses more memory space;
+and for <I>n</I><I>&gt;</I>(<I>M</I>+1)/2, the linked list version uses more memory space.
+<P>
+It is not just the amount of memory space used that should be considered
+when choosing an ordered list implementation.
+We must also consider the implications of the existence of the limit <I>M</I>.
+The array implementation requires <em>a priori</em> knowledge
+about the maximum number of items to be put in the ordered list.
+The total amount of storage then remains constant during the course
+of execution.
+On the other hand, the linked list version has no pre-determined maximum length.
+It is only constrained by the total amount of memory available to the program.
+Furthermore, the amount of memory used by the linked list version varies
+during the course of execution.
+We do not have to commit a large chunk of memory
+for the duration of the program.
+<P>
+<HR><A NAME="tex2html4211" HREF="page187.html" tppabs="http://www.brpreiss.com/books/opus4/html/page187.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4209" HREF="page167.html" tppabs="http://www.brpreiss.com/books/opus4/html/page167.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4203" HREF="page185.html" tppabs="http://www.brpreiss.com/books/opus4/html/page185.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4213" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4214" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

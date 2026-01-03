@@ -1,0 +1,61 @@
+<HTML>
+<HEAD>
+<TITLE>Hashing Containers</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html4635" HREF="page221.html" tppabs="http://www.brpreiss.com/books/opus4/html/page221.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4633" HREF="page215.html" tppabs="http://www.brpreiss.com/books/opus4/html/page215.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4627" HREF="page219.html" tppabs="http://www.brpreiss.com/books/opus4/html/page219.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4637" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4638" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION009350000000000000000">Hashing <tt>Container</tt>s</A></H2>
+<P>
+The <tt>Container</tt> class
+which was defined in Section&nbsp;<A HREF="page117.html#secadtscontainers" tppabs="http://www.brpreiss.com/books/opus4/html/page117.html#secadtscontainers"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+abstracts the notion of an object which contains other objects.
+The <tt>Container</tt> class is derived from the <tt>Object</tt> class
+and, therefore, it has a member function called <tt>Hash</tt>.
+What is a suitable hash function for a container?
+<P>
+Given a container <I>c</I> which contains <I>n</I> objects,
+ <IMG WIDTH=14 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline62766" SRC="img958.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img958.gif"  >,  <IMG WIDTH=14 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline62766" SRC="img958.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img958.gif"  >, ...,  <IMG WIDTH=14 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline62770" SRC="img959.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img959.gif"  >,
+we can define the hash function <I>f</I>(<I>c</I>) as follows:
+<P><A NAME="eqnhashingcontainer">&#160;</A> <IMG WIDTH=500 HEIGHT=48 ALIGN=BOTTOM ALT="equation11581" SRC="img960.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img960.gif"  ><P>
+I.e., to hash a container,
+simply compute the sum of the hash values of the contained objects.
+<P>
+Program&nbsp;<A HREF="page220.html#progcontainer4c" tppabs="http://www.brpreiss.com/books/opus4/html/page220.html#progcontainer4c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> shows the implementation 
+of the <tt>Container::Hash</tt> function.
+This function makes use of the <tt>Accept</tt> function
+to cause a special visitor, <tt>HashingVisitor</tt>,
+to visit all of the objects contained in the container.
+When the <tt>HashingVisitor</tt> visits an object,
+it calls that object's <tt>Hash</tt> function
+and accumulates the result.
+<P>
+<P><A NAME="11725">&#160;</A><A NAME="progcontainer4c">&#160;</A> <IMG WIDTH=575 HEIGHT=351 ALIGN=BOTTOM ALT="program11592" SRC="img961.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img961.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>Container</tt> Class <tt>Hash</tt> Member Function Definition<BR>
+<P>
+<P>
+Since the <tt>Accept</tt> function is a virtual member function
+which is defined in the <tt>Container</tt> class.
+We assume that all classes derived from the <tt>Container</tt> class
+will provide an appropriate implementation for <tt>Accept</tt>.
+Note that it is not necessary for any derived class to redefine
+the behavior of the <tt>Hash</tt> member function--the behavior inherited from the <tt>Container</tt> class
+is completely generic and should suffice for all concrete container classes.
+<P>
+There is a slight problem with Equation&nbsp;<A HREF="page220.html#eqnhashingcontainer" tppabs="http://www.brpreiss.com/books/opus4/html/page220.html#eqnhashingcontainer"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+Different container types that happen to contain identical objects
+produce exactly the same hash value.
+E.g., an empty stack and an empty list both produce the same hash value.
+We have avoided this situation in Program&nbsp;<A HREF="page220.html#progcontainer4c" tppabs="http://www.brpreiss.com/books/opus4/html/page220.html#progcontainer4c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+by adding to the sum the value obtained from hashing the
+name of the container itself.
+<P>
+<HR><A NAME="tex2html4635" HREF="page221.html" tppabs="http://www.brpreiss.com/books/opus4/html/page221.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4633" HREF="page215.html" tppabs="http://www.brpreiss.com/books/opus4/html/page215.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4627" HREF="page219.html" tppabs="http://www.brpreiss.com/books/opus4/html/page219.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4637" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4638" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

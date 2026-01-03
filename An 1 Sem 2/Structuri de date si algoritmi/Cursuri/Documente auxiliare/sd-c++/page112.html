@@ -1,0 +1,47 @@
+<HTML>
+<HEAD>
+<TITLE>Implementation</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html3299" HREF="page113.html" tppabs="http://www.brpreiss.com/books/opus4/html/page113.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3297" HREF="page111.html" tppabs="http://www.brpreiss.com/books/opus4/html/page111.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3293" HREF="page111.html" tppabs="http://www.brpreiss.com/books/opus4/html/page111.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3301" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3302" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION006221000000000000000">Implementation</A></H3>
+<P>
+Only three functions need to be implemented to
+complete the definition of the <tt>Object</tt> class.
+These are shown in Program&nbsp;<A HREF="page112.html#progobject1c" tppabs="http://www.brpreiss.com/books/opus4/html/page112.html#progobject1c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+<P>
+<P><A NAME="5451">&#160;</A><A NAME="progobject1c">&#160;</A> <IMG WIDTH=575 HEIGHT=333 ALIGN=BOTTOM ALT="program4614" SRC="img684.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img684.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>Object</tt> Class Member Function Definitions<BR>
+<P>
+<P>
+The <tt>Object</tt> class destructor is trivial.
+Since there are no member variables,
+nothing remains to be cleaned up.
+It is necessary to define the destructor in any event.
+As explained above, the destructor needs to be <tt>virtual</tt>
+and because in C++ there is no such thing as a pure virtual destructor.
+<P>
+The implementation of the <tt>IsNull</tt> member function is trivial.
+It simply returns the Boolean value <tt>false</tt>.
+<P>
+The <tt>Compare</tt> member function makes use of
+<em>run-time type information</em><A NAME=4632>&#160;</A>
+to ensure that the <tt>CompareTo</tt> member function
+is only invoked for objects which are of the same class.
+For objects which are not instances of the same class,
+the <tt>before</tt> function is used to order those objects
+based on their types.
+The C++ run-time library provides an implementation for the <tt>before</tt>
+function which returns true if the left hand type
+precedes the right hand type in the implementation's collation order.
+<P>
+<HR><A NAME="tex2html3299" HREF="page113.html" tppabs="http://www.brpreiss.com/books/opus4/html/page113.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3297" HREF="page111.html" tppabs="http://www.brpreiss.com/books/opus4/html/page111.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3293" HREF="page111.html" tppabs="http://www.brpreiss.com/books/opus4/html/page111.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3301" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3302" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

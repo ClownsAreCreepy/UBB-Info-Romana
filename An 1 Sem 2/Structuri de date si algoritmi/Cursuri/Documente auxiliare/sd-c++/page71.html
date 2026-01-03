@@ -1,0 +1,66 @@
+<HTML>
+<HEAD>
+<TITLE>Rules For Big Oh Analysis of Running Time</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html2777" HREF="page72.html" tppabs="http://www.brpreiss.com/books/opus4/html/page72.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2775" HREF="page70.html" tppabs="http://www.brpreiss.com/books/opus4/html/page70.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2769" HREF="page70.html" tppabs="http://www.brpreiss.com/books/opus4/html/page70.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2779" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2780" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION004410000000000000000">Rules For Big Oh Analysis of Running Time</A></H2>
+<P>
+In this section we present some simple rules for determining
+a big-oh upper bound on the running time of the
+basic compound statements<A NAME=1867>&#160;</A> in a C++ program.
+<P>
+<P><A NAME="rulei">&#160;</A> <IMG WIDTH=575 HEIGHT=185 ALIGN=BOTTOM ALT="ruledef1868" SRC="img446.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img446.gif"  ><P>
+<P>
+Rule&nbsp;<A HREF="page71.html#rulei" tppabs="http://www.brpreiss.com/books/opus4/html/page71.html#rulei"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> follows directly from Theorem&nbsp;<A HREF="page60.html#theoremi" tppabs="http://www.brpreiss.com/books/opus4/html/page60.html#theoremi"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+The total running time of a sequence of statements is equal to the
+sum of the running times of the individual statements.
+By Theorem&nbsp;<A HREF="page60.html#theoremi" tppabs="http://www.brpreiss.com/books/opus4/html/page60.html#theoremi"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+when computing the sum of a series of functions
+it is the largest one (the  <IMG WIDTH=30 HEIGHT=7 ALIGN=BOTTOM ALT="tex2html_wrap_inline59303" SRC="img293.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img293.gif"  >) that determines the bound.
+<P>
+<P><A NAME="ruleii">&#160;</A> <IMG WIDTH=579 HEIGHT=134 ALIGN=BOTTOM ALT="ruledef1881" SRC="img447.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img447.gif"  ><P>
+<P>
+Rule&nbsp;<A HREF="page71.html#ruleii" tppabs="http://www.brpreiss.com/books/opus4/html/page71.html#ruleii"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> appears somewhat complicated due to the semantics
+of the C++ <tt>for</tt> statement.
+However, it follows directly from Theorem&nbsp;<A HREF="page60.html#theoremiv" tppabs="http://www.brpreiss.com/books/opus4/html/page60.html#theoremiv"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+Consider the following simple <em>counted do loop</em><A NAME=1897>&#160;</A>.
+<PRE>for (int i = 0; i < n; ++i)
+     <IMG WIDTH=14 HEIGHT=14 ALIGN=BOTTOM ALT="tex2html_wrap60263" SRC="img448.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img448.gif"  >;
+</PRE>
+Here  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline60305" SRC="img449.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img449.gif"  > is <code>int i = 0</code>, so its running time is constant ( <IMG WIDTH=66 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60307" SRC="img450.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img450.gif"  >);
+ <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline60309" SRC="img451.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img451.gif"  > is <code>i &lt; n</code>, so its running time is constant ( <IMG WIDTH=66 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60311" SRC="img452.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img452.gif"  >); and
+ <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline60313" SRC="img453.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img453.gif"  > is <code>++i</code>, so its running time is constant ( <IMG WIDTH=66 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60315" SRC="img454.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img454.gif"  >).
+Also, the number of iterations is <I>I</I>(<I>n</I>)=<I>n</I>.
+According to Rule&nbsp;<A HREF="page71.html#ruleii" tppabs="http://www.brpreiss.com/books/opus4/html/page71.html#ruleii"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+the running time of this is  <IMG WIDTH=276 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60319" SRC="img455.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img455.gif"  >,
+which simplifies to  <IMG WIDTH=149 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60321" SRC="img456.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img456.gif"  >.
+Furthermore, if the loop body <em>does anything at all</em>,
+its running time must be  <IMG WIDTH=91 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60323" SRC="img457.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img457.gif"  >.
+Hence, the loop body will dominate the calculation of the maximum,
+and the running time of the loop is simply  <IMG WIDTH=90 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60325" SRC="img458.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img458.gif"  >.
+<P>
+If we don't know the exact number of iterations executed, <I>I</I>(<I>n</I>),
+we can still use Rule&nbsp;<A HREF="page71.html#ruleii" tppabs="http://www.brpreiss.com/books/opus4/html/page71.html#ruleii"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> provided we have an upper bound,
+<I>I</I>(<I>n</I>)=<I>O</I>(<I>f</I>(<I>n</I>)), on the number of iterations executed.
+In this case, the running time is
+ <IMG WIDTH=441 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline60331" SRC="img459.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img459.gif"  >.
+<P>
+<P><A NAME="ruleiii">&#160;</A> <IMG WIDTH=576 HEIGHT=174 ALIGN=BOTTOM ALT="ruledef1904" SRC="img460.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img460.gif"  ><P>
+<P>
+Rule&nbsp;<A HREF="page71.html#ruleiii" tppabs="http://www.brpreiss.com/books/opus4/html/page71.html#ruleiii"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> follows directly from the observation
+that the total running time for an if-then-else statement
+will never exceed the sum of the running time of the conditional test,
+ <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline60305" SRC="img449.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img449.gif"  >, plus the larger of the running times of the <em>then part</em>,  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline60309" SRC="img451.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img451.gif"  >,
+and the <em>else part</em>,  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline60313" SRC="img453.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img453.gif"  >.
+<P>
+<HR><A NAME="tex2html2777" HREF="page72.html" tppabs="http://www.brpreiss.com/books/opus4/html/page72.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2775" HREF="page70.html" tppabs="http://www.brpreiss.com/books/opus4/html/page70.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2769" HREF="page70.html" tppabs="http://www.brpreiss.com/books/opus4/html/page70.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2779" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2780" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,1 @@
+/usr/bin/g++ -g CMakeFiles/Laborator_rezolvat__17_.dir/main.cpp.o CMakeFiles/Laborator_rezolvat__17_.dir/MultiDictionar/MD.cpp.o CMakeFiles/Laborator_rezolvat__17_.dir/MultiDictionar/IteratorMD.cpp.o CMakeFiles/Laborator_rezolvat__17_.dir/Teste/TestScurt.cpp.o CMakeFiles/Laborator_rezolvat__17_.dir/Teste/TestExtins.cpp.o -o Laborator_rezolvat__17_ 

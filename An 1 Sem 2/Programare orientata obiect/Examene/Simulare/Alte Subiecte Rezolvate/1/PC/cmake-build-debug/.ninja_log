@@ -1,0 +1,60 @@
+# ninja log v6
+22	1677	7695332061357029	PC_autogen/timestamp	c9f90a9857267bf7
+1712	2634	7695323747226427	CMakeFiles/PC.dir/Service/ServiceProcesor.cpp.obj	cf408e51f3082d4b
+22	1677	7695332061357029	PC_autogen/mocs_compilation.cpp	c9f90a9857267bf7
+1677	5024	7695332061907526	CMakeFiles/PC.dir/PC_autogen/mocs_compilation.cpp.obj	84f9afcc7526a119
+22	1677	7695332061357029	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/PC/cmake-build-debug/PC_autogen/mocs_compilation.cpp	c9f90a9857267bf7
+22	1677	7695332061357029	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/PC/cmake-build-debug/PC_autogen/timestamp	c9f90a9857267bf7
+1680	5030	7695332061937635	CMakeFiles/PC.dir/main.cpp.obj	b3605835a9098bdb
+5192	5562	7695332097061513	PC.exe	790e230558d3c248
+1715	2681	7695323747256392	CMakeFiles/PC.dir/Service/ServicePlacaDeBaza.cpp.obj	adff02b968dc66bf
+1719	2731	7695323747296483	CMakeFiles/PC.dir/Test/Teste.cpp.obj	277aefff322eceb9
+1706	2700	7695323747166392	CMakeFiles/PC.dir/Repo/Repository_Procesor.cpp.obj	99bcbc686a371a4a
+1709	2679	7695323747196383	CMakeFiles/PC.dir/Repo/Repository_PlacaDeBaza.cpp.obj	1fffb634f880e356
+1683	5192	7695332061967523	CMakeFiles/PC.dir/GUI/Window.cpp.obj	b2d49ee3a81310e3
+29	161	7695333797702266	PC_autogen/timestamp	c9f90a9857267bf7
+29	161	7695333797702266	PC_autogen/mocs_compilation.cpp	c9f90a9857267bf7
+29	161	7695333797702266	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/PC/cmake-build-debug/PC_autogen/timestamp	c9f90a9857267bf7
+29	161	7695333797702266	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/PC/cmake-build-debug/PC_autogen/mocs_compilation.cpp	c9f90a9857267bf7
+161	3142	7695333799027430	CMakeFiles/PC.dir/GUI/Window.cpp.obj	b2d49ee3a81310e3
+3142	3508	7695333828833556	PC.exe	790e230558d3c248
+25	1777	7695335461707701	PC_autogen/timestamp	c9f90a9857267bf7
+25	1777	7695335461707701	PC_autogen/mocs_compilation.cpp	c9f90a9857267bf7
+25	1777	7695335461707701	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/PC/cmake-build-debug/PC_autogen/timestamp	c9f90a9857267bf7
+25	1777	7695335461707701	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/PC/cmake-build-debug/PC_autogen/mocs_compilation.cpp	c9f90a9857267bf7
+1784	2452	7695335462321276	CMakeFiles/PC.dir/Service/ServicePlacaDeBaza.cpp.obj	adff02b968dc66bf
+1787	2506	7695335462361320	CMakeFiles/PC.dir/Test/Teste.cpp.obj	277aefff322eceb9
+1781	5169	7695335462289990	CMakeFiles/PC.dir/main.cpp.obj	b3605835a9098bdb
+1777	5221	7695335462260014	CMakeFiles/PC.dir/PC_autogen/mocs_compilation.cpp.obj	84f9afcc7526a119
+1790	5374	7695335462392411	CMakeFiles/PC.dir/GUI/Window.cpp.obj	b2d49ee3a81310e3
+5374	5747	7695335498236399	PC.exe	790e230558d3c248
+23	134	7695336761024922	PC_autogen/timestamp	c9f90a9857267bf7
+23	134	7695336761024922	PC_autogen/mocs_compilation.cpp	c9f90a9857267bf7
+23	134	7695336761024922	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/PC/cmake-build-debug/PC_autogen/timestamp	c9f90a9857267bf7
+23	134	7695336761024922	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/PC/cmake-build-debug/PC_autogen/mocs_compilation.cpp	c9f90a9857267bf7
+134	673	7695336762130907	CMakeFiles/PC.dir/Test/Teste.cpp.obj	277aefff322eceb9
+673	1043	7695336767524773	PC.exe	790e230558d3c248
+7	1777	7695339416252489	PC_autogen/timestamp	c9f90a9857267bf7
+7	1777	7695339416252489	PC_autogen/mocs_compilation.cpp	c9f90a9857267bf7
+7	1777	7695339416252489	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/PC/cmake-build-debug/PC_autogen/timestamp	c9f90a9857267bf7
+7	1777	7695339416252489	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/PC/cmake-build-debug/PC_autogen/mocs_compilation.cpp	c9f90a9857267bf7
+1778	4946	7695339416829115	CMakeFiles/PC.dir/PC_autogen/mocs_compilation.cpp.obj	84f9afcc7526a119
+1781	5024	7695339416859111	CMakeFiles/PC.dir/main.cpp.obj	b3605835a9098bdb
+1784	5224	7695339416889139	CMakeFiles/PC.dir/GUI/Window.cpp.obj	b2d49ee3a81310e3
+5224	5587	7695339451278707	PC.exe	790e230558d3c248
+7	1670	7695341039009315	PC_autogen/timestamp	c9f90a9857267bf7
+7	1670	7695341039009315	PC_autogen/mocs_compilation.cpp	c9f90a9857267bf7
+7	1670	7695341039009315	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/PC/cmake-build-debug/PC_autogen/timestamp	c9f90a9857267bf7
+7	1670	7695341039009315	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/PC/cmake-build-debug/PC_autogen/mocs_compilation.cpp	c9f90a9857267bf7
+1670	4907	7695341039594518	CMakeFiles/PC.dir/PC_autogen/mocs_compilation.cpp.obj	84f9afcc7526a119
+1674	4922	7695341039627725	CMakeFiles/PC.dir/main.cpp.obj	b3605835a9098bdb
+1677	5058	7695341039657798	CMakeFiles/PC.dir/GUI/Window.cpp.obj	b2d49ee3a81310e3
+5058	5420	7695341073463435	PC.exe	790e230558d3c248
+24	1822	7695343221989037	PC_autogen/timestamp	c9f90a9857267bf7
+24	1822	7695343221989037	PC_autogen/mocs_compilation.cpp	c9f90a9857267bf7
+24	1822	7695343221989037	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/PC/cmake-build-debug/PC_autogen/timestamp	c9f90a9857267bf7
+24	1822	7695343221989037	D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/PC/cmake-build-debug/PC_autogen/mocs_compilation.cpp	c9f90a9857267bf7
+1826	5000	7695343222574316	CMakeFiles/PC.dir/main.cpp.obj	b3605835a9098bdb
+1823	5004	7695343222544273	CMakeFiles/PC.dir/PC_autogen/mocs_compilation.cpp.obj	84f9afcc7526a119
+1829	5131	7695343222604204	CMakeFiles/PC.dir/GUI/Window.cpp.obj	b2d49ee3a81310e3
+5131	5499	7695343255631825	PC.exe	790e230558d3c248

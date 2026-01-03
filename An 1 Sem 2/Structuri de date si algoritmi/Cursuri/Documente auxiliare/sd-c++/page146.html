@@ -1,0 +1,60 @@
+<HTML>
+<HEAD>
+<TITLE>Implementation</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html3712" HREF="page147.html" tppabs="http://www.brpreiss.com/books/opus4/html/page147.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3710" HREF="page144.html" tppabs="http://www.brpreiss.com/books/opus4/html/page144.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3706" HREF="page145.html" tppabs="http://www.brpreiss.com/books/opus4/html/page145.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3714" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3715" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION007132000000000000000">Implementation</A></H3>
+<P>
+Program&nbsp;<A HREF="page146.html#progapp01c" tppabs="http://www.brpreiss.com/books/opus4/html/page146.html#progapp01c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives the implementation of a simple RPN calculator.
+The purpose of this example
+is to illustrate the use of the <tt>Stack</tt> class.
+The program shown accepts very simplified RPN expressions:
+The expression may contain only single-digit integers,
+the addition operator, <tt>+</tt>,
+and the multiplication operator, <tt>*</tt>.
+In addition, the operator <tt>=</tt> pops the top value off the stack
+and prints it on the standard output stream, <tt>cout</tt>.
+Furthermore, the calculator does its computation entirely with integers.
+<P>
+<P><A NAME="6594">&#160;</A><A NAME="progapp01c">&#160;</A> <IMG WIDTH=575 HEIGHT=601 ALIGN=BOTTOM ALT="program6591" SRC="img734.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img734.gif"  ><BR>
+<STRONG>Program:</STRONG> Stack Application--A Single-Digit, RPN Calculator<BR>
+<P>
+<P>
+Notice that the <tt>RPNCalculator</tt> function
+is passed a reference to a <tt>Stack</tt> object.
+Consequently, the function manipulates the stack entirely through
+the abstract interface.
+The calculator does not depend on the stack implementation used!
+For example, if we wish to use a stack implemented using an array,
+we would declare a <tt>StackAsArray</tt> variable and invoke the
+calculator as follows:
+<PRE>StackAsArray s (10);
+RPNCalculator (s);</PRE>
+On the other hand, if we decided to use the pointer-based stack implementation,
+we would write:
+<PRE>StackAsLinkedList s;
+RPNCalculator (s);</PRE>
+<P>
+The running time of the <tt>RPNCalculator</tt> function depends
+upon the number of symbols, operators and operands,
+in the expression being evaluated.
+If there are <I>n</I> symbols,
+the body of the <tt>for</tt> loop is executed <I>n</I> times.
+It should be fairly obvious that the amount of work done
+per symbol is constant, regardless of the type of symbol encountered.
+This is the case for both the <tt>StackAsArray</tt>
+and the <tt>StackAsLinkedList</tt> stack implementations.
+Therefore, the total running time needed to evaluate an
+expression comprised of <I>n</I> symbols is <I>O</I>(<I>n</I>).
+<P>
+<HR><A NAME="tex2html3712" HREF="page147.html" tppabs="http://www.brpreiss.com/books/opus4/html/page147.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3710" HREF="page144.html" tppabs="http://www.brpreiss.com/books/opus4/html/page144.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3706" HREF="page145.html" tppabs="http://www.brpreiss.com/books/opus4/html/page145.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3714" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3715" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

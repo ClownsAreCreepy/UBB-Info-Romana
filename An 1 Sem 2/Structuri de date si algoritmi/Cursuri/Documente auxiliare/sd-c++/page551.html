@@ -1,0 +1,56 @@
+<HTML>
+<HEAD>
+<TITLE>Depth-First Traversal</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html8725" HREF="page552.html" tppabs="http://www.brpreiss.com/books/opus4/html/page552.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8723" HREF="page550.html" tppabs="http://www.brpreiss.com/books/opus4/html/page550.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8717" HREF="page550.html" tppabs="http://www.brpreiss.com/books/opus4/html/page550.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8727" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8728" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0017310000000000000000">Depth-First Traversal</A></H2>
+<P>
+The <em>depth-first traversal</em><A NAME=50043>&#160;</A><A NAME=50044>&#160;</A>
+of a graph is like
+the depth-first traversal of a tree discussed in Section&nbsp;<A HREF="page257.html#sectreestraversals" tppabs="http://www.brpreiss.com/books/opus4/html/page257.html#sectreestraversals"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+A depth-first traversal of a tree always starts at the root of the tree.
+Since a graph has no root,
+when we do a depth-first traversal,
+we must specify the vertex at which to begin.
+<P>
+A depth-first traversal of a tree visits a node
+and then recursively visits the subtrees of that node.
+Similarly, depth-first traversal of a graph visits a vertex
+and then recursively visits all the vertices adjacent to that node.
+The catch is that the graph may contain cycles,
+but the traversal must visit every vertex at most once.
+The solution to the problem is
+to keep track of the nodes that have been visited,
+so that the traversal does not suffer the fate of infinite recursion.
+<P>
+<P><A NAME="50301">&#160;</A><A NAME="figgraph6">&#160;</A> <IMG WIDTH=575 HEIGHT=181 ALIGN=BOTTOM ALT="figure50046" SRC="img2394.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2394.gif"  ><BR>
+<STRONG>Figure:</STRONG> Depth-First Traversal<BR>
+<P>
+<P>
+For example, Figure&nbsp;<A HREF="page551.html#figgraph6" tppabs="http://www.brpreiss.com/books/opus4/html/page551.html#figgraph6"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> illustrates the depth-first traversal
+of the directed graph  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline71449" SRC="img2298.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2298.gif"  > starting from vertex <I>c</I>.
+The depth-first traversal visits the nodes in the order
+<P> <IMG WIDTH=278 HEIGHT=14 ALIGN=BOTTOM ALT="displaymath71965" SRC="img2395.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2395.gif"  ><P>
+A depth-first traversal only follows edges that lead to unvisited vertices.
+As shown in Figure&nbsp;<A HREF="page551.html#figgraph6" tppabs="http://www.brpreiss.com/books/opus4/html/page551.html#figgraph6"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+if we omit the edges that are not followed,
+the remaining edges form a tree.
+Clearly, the depth-first traversal of this tree
+is equivalent to the depth-first traversal of the graph
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html8729" HREF="page552.html#SECTION0017311000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page552.html#SECTION0017311000000000000000">Implementation</A>
+<LI> <A NAME="tex2html8730" HREF="page553.html#SECTION0017312000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page553.html#SECTION0017312000000000000000">Running Time Analysis</A>
+</UL>
+<HR><A NAME="tex2html8725" HREF="page552.html" tppabs="http://www.brpreiss.com/books/opus4/html/page552.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8723" HREF="page550.html" tppabs="http://www.brpreiss.com/books/opus4/html/page550.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8717" HREF="page550.html" tppabs="http://www.brpreiss.com/books/opus4/html/page550.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8727" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8728" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

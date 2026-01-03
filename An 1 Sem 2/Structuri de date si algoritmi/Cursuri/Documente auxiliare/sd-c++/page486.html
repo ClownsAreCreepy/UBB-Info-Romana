@@ -1,0 +1,41 @@
+<HTML>
+<HEAD>
+<TITLE>Sorter Class Hierarchy</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html7924" HREF="page487.html" tppabs="http://www.brpreiss.com/books/opus4/html/page487.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7922" HREF="page485.html" tppabs="http://www.brpreiss.com/books/opus4/html/page485.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7918" HREF="page485.html" tppabs="http://www.brpreiss.com/books/opus4/html/page485.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7926" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7927" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0016201000000000000000">Sorter Class Hierarchy</A></H3>
+<P>
+This chapter describes nine different sorting algorithms.
+These are organized into the following five categories:
+<UL><LI> insertion sorts<A NAME=34603>&#160;</A><LI> exchange sorts<A NAME=34604>&#160;</A><LI> selection sorts<A NAME=34605>&#160;</A><LI> merge sorts<A NAME=34606>&#160;</A><LI> distribution sorts<A NAME=34607>&#160;</A>.
+</UL>
+As shown in Figure&nbsp;<A HREF="page486.html#figsorters" tppabs="http://www.brpreiss.com/books/opus4/html/page486.html#figsorters"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+the sorter classes have been arranged in a class hierarchy
+that reflects this classification scheme.
+<P>
+<P><A NAME="34614">&#160;</A><A NAME="figsorters">&#160;</A> <IMG WIDTH=575 HEIGHT=229 ALIGN=BOTTOM ALT="figure34610" SRC="img2105.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2105.gif"  ><BR>
+<STRONG>Figure:</STRONG> Sorter Class Hierarchy<BR>
+<P>
+<P>
+Program&nbsp;<A HREF="page486.html#progsorter2h" tppabs="http://www.brpreiss.com/books/opus4/html/page486.html#progsorter2h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> defines five abstract sorter class templates:
+<tt>InsertionSorter&lt;T&gt;</tt>,
+<tt>ExchangeSorter&lt;T&gt;</tt>,
+<tt>SelectionSorter&lt;T&gt;</tt>,
+<tt>MergeSorter&lt;T&gt;</tt> and
+<tt>DistributionSorter&lt;T&gt;</tt>.
+Notice that these classes are all trivial (i.e., empty)
+extensions of the <tt>Sorter&lt;T&gt;</tt> abstract base class.
+<P>
+<P><A NAME="34629">&#160;</A><A NAME="progsorter2h">&#160;</A> <IMG WIDTH=575 HEIGHT=277 ALIGN=BOTTOM ALT="program34626" SRC="img2106.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2106.gif"  ><BR>
+<STRONG>Program:</STRONG> Classes of Sorters<BR>
+<P><HR><A NAME="tex2html7924" HREF="page487.html" tppabs="http://www.brpreiss.com/books/opus4/html/page487.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7922" HREF="page485.html" tppabs="http://www.brpreiss.com/books/opus4/html/page485.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7918" HREF="page485.html" tppabs="http://www.brpreiss.com/books/opus4/html/page485.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7926" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7927" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

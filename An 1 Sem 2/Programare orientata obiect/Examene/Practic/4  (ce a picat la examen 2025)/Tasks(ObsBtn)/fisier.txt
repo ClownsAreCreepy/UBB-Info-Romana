@@ -1,0 +1,13 @@
+1,Caca,Marius Petru,inprogress
+2,Pipi,Oana Petru,inprogress
+3,Mumu,Bianca Petru,closed
+4,Hihi,Alex Petru Oana,open
+5,Uau,Alex Marius,closed
+6,Ioi,Oana Bianca,open
+7,Haha,Marius Bianca Petru Oana,inprogress
+8,Alone,Alex,open
+9,What the sigma,Oana Petru,closed
+10,Mancare,Angel Petru,inprogress
+11,Apa,Oana,open
+0,Damn,Petru Oana,closed
+12,Um,Lmao Ceau,open

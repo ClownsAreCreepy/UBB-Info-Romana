@@ -1,0 +1,77 @@
+<HTML>
+<HEAD>
+<TITLE>Applications</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html6235" HREF="page350.html" tppabs="http://www.brpreiss.com/books/opus4/html/page350.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6233" HREF="page299.html" tppabs="http://www.brpreiss.com/books/opus4/html/page299.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6227" HREF="page348.html" tppabs="http://www.brpreiss.com/books/opus4/html/page348.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6237" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6238" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION0011800000000000000000">Applications</A></H1>
+<P>
+There are many applications for search trees.
+The principal characteristic of such applications
+is that a database of keyed information needs to be frequently accessed
+and the access pattern is either unknown or known to be random.
+E.g., <em>dictionaries</em> are often implemented using search trees. 
+A dictionary is essentially a container that contains ordered key/value pairs.
+The keys are words is a source language and,
+depending on the application,
+the values may be the definitions of the words or
+the translation of the word in a target language.
+<P>
+This section presents a simple application of search trees.
+Suppose we are required to translate the words in an input file
+one-by-one from some source language to another target language.
+In this example, the translation is done one word at a time.
+I.e., no natural language syntactic or semantic processing is done.
+<P>
+In order to implement the translator we assume that there exists a text file,
+say <tt>&quot;dict.txt&quot;</tt> which contains pairs of words.
+The first element of the pair is a word in the source language
+and the second element is a word in the target language.
+To translate a text, we first read the words and the associated translations
+and build a search tree.
+The translation is created one word at a time
+by looking up each word in the text.
+<P>
+Program&nbsp;<A HREF="page349.html#progapp07c" tppabs="http://www.brpreiss.com/books/opus4/html/page349.html#progapp07c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives an implementation of the translator.
+Two functions are given, <tt>ReadDictionary</tt> and <tt>TranslateText</tt>.
+The first function takes a reference to a <tt>SearchTree</tt> instance
+which is used to hold the pairs of words.
+Notice, this implementation works with all the search tree types
+described in this chapter
+(e.g., <tt>BST</tt>, <tt>AVLTree</tt>, <tt>MWayTree</tt>, and <tt>BTree</tt>).
+<P>
+<P><A NAME="23636">&#160;</A><A NAME="progapp07c">&#160;</A> <IMG WIDTH=579 HEIGHT=544 ALIGN=BOTTOM ALT="program23633" SRC="img1419.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1419.gif"  ><BR>
+<STRONG>Program:</STRONG> Application of Search Trees--Word Translation<BR>
+<P>
+<P>
+The <tt>ReadDictionary</tt> reads pairs of strings
+from the file <tt>&quot;dict.txt&quot;</tt> (lines&nbsp;6-7).
+The <tt>Association</tt> class defined in Section&nbsp;<A HREF="page125.html#secadtsassociations" tppabs="http://www.brpreiss.com/books/opus4/html/page125.html#secadtsassociations"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+is used to contain the key/value pairs.
+A new instance is created for each key/value pair
+which is then inserted into the search tree (lines&nbsp;8-9).
+The process of building the search tree terminates 
+when the end-of-file is encountered.
+<P>
+The <tt>TranslateText</tt> function takes as its lone argument
+a reference to a search tree which is assumed to contain
+the set of key/value pairs read in
+by the <tt>ReadDictionary</tt> function.
+The <tt>TranslateText</tt> function reads words one at a time from the
+standard input, <tt>cin</tt>,
+and writes the translation of each word on the standard output, <tt>cout</tt>.
+Each word is looked up as it is read (lines&nbsp;18-19).
+If no key matches the given word,
+the word is printed followed by a question mark (lines&nbsp;20-21).
+Otherwise, the value associated with the matching key is printed (lines&nbsp;24-26).
+<P>
+<HR><A NAME="tex2html6235" HREF="page350.html" tppabs="http://www.brpreiss.com/books/opus4/html/page350.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6233" HREF="page299.html" tppabs="http://www.brpreiss.com/books/opus4/html/page299.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6227" HREF="page348.html" tppabs="http://www.brpreiss.com/books/opus4/html/page348.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6237" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6238" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

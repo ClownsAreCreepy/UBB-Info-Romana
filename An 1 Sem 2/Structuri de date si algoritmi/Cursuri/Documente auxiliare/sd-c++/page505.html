@@ -1,0 +1,103 @@
+<HTML>
+<HEAD>
+<TITLE>Implementation</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html8155" HREF="page506.html" tppabs="http://www.brpreiss.com/books/opus4/html/page506.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8153" HREF="page504.html" tppabs="http://www.brpreiss.com/books/opus4/html/page504.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8149" HREF="page504.html" tppabs="http://www.brpreiss.com/books/opus4/html/page504.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8157" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8158" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0016521000000000000000">Implementation</A></H3>
+<P>
+Program&nbsp;<A HREF="page505.html#progsorter4h" tppabs="http://www.brpreiss.com/books/opus4/html/page505.html#progsorter4h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> defines the class template <tt>HeapSorter&lt;T&gt;</tt>.
+The <tt>HeapSorter&lt;T&gt;</tt> class is derived from the abstract
+<tt>Sorter&lt;T&gt;</tt> base class.
+Three protected member functions are defined--<tt>BuildHeap</tt>, <tt>PercolateDown</tt> and <tt>DoSort</tt>.
+The <tt>DoSort</tt> routine comprises the body of the sorting algorithm.
+The <tt>BuildHeap</tt> and <tt>PercolateDown</tt> routines
+are used by <tt>DoSort</tt> to build the heap and then to sort the array.
+<P>
+<P><A NAME="39412">&#160;</A><A NAME="progsorter4h">&#160;</A> <IMG WIDTH=575 HEIGHT=161 ALIGN=BOTTOM ALT="program39283" SRC="img2185.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2185.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>HeapSorter&lt;T&gt;</tt> Class Definition<BR>
+<P>
+<P>
+In the first phase of heapsort,
+the unsorted array is transformed into a max heap.
+Throughout the process we view the array as a complete binary tree.
+Since the data in the array is initially unsorted,
+the tree is not initially heap-ordered.
+We make the tree into a max heap from the bottom up.
+I.e., we start with the leaves and work towards the root.
+Figure&nbsp;<A HREF="page505.html#figpercolate" tppabs="http://www.brpreiss.com/books/opus4/html/page505.html#figpercolate"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> illustrates this process.
+<P>
+<P><A NAME="40100">&#160;</A><A NAME="figpercolate">&#160;</A> <IMG WIDTH=575 HEIGHT=368 ALIGN=BOTTOM ALT="figure39297" SRC="img2186.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2186.gif"  ><BR>
+<STRONG>Figure:</STRONG> Combining Heaps by Percolating Values<BR>
+<P>
+<P>
+Figure&nbsp;<A HREF="page505.html#figpercolate" tppabs="http://www.brpreiss.com/books/opus4/html/page505.html#figpercolate"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>&nbsp;(a) shows a complete tree that is not yet heap ordered--the root is smaller than both its children.
+However, the two subtrees of the root <em>are</em> heap ordered.
+Given that both of the subtrees of the root are already heap ordered,
+we can heapify the tree by <em>percolating</em>
+the value in the root down the tree.
+<P>
+To percolate a value down the tree,
+we swap it with its largest child.
+E.g., in Figure&nbsp;<A HREF="page505.html#figpercolate" tppabs="http://www.brpreiss.com/books/opus4/html/page505.html#figpercolate"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>&nbsp;(b) we swap 3 and 7.
+Swapping with the largest child ensures that after the swap,
+the new root is greater than or equal to <em>both</em> its children.
+<P>
+Notice that after the swap the heap-order is satisfied at the root,
+but not in the left subtree of the root.
+We continue percolating the 3 down by swapping it with 6
+as shown in Figure&nbsp;<A HREF="page505.html#figpercolate" tppabs="http://www.brpreiss.com/books/opus4/html/page505.html#figpercolate"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>&nbsp;(c).
+In general, we percolate a value down either until it arrives in
+a position in which the heap order is satisfied
+or until it arrives in a leaf.
+As shown in Figure&nbsp;<A HREF="page505.html#figpercolate" tppabs="http://www.brpreiss.com/books/opus4/html/page505.html#figpercolate"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>&nbsp;(d),
+the tree obtained when the percolation is finished is a max heap
+<P>
+The <tt>PercolateDown</tt> routine shown in Program&nbsp;<A HREF="page505.html#progsorter8c" tppabs="http://www.brpreiss.com/books/opus4/html/page505.html#progsorter8c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+implements the algorithm described above.
+The <tt>PercolateDown</tt> routine takes three arguments:
+a reference to the array;
+the number of elements in the array to be considered, <I>n</I>;
+and the position, <I>i</I>, of the node to be percolated.
+<P>
+<P><A NAME="40214">&#160;</A><A NAME="progsorter8c">&#160;</A> <IMG WIDTH=575 HEIGHT=313 ALIGN=BOTTOM ALT="program40113" SRC="img2187.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2187.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>HeapSorter&lt;T&gt;</tt> Class 	<tt>PercolateDown</tt> Member Function Definition<BR>
+<P>
+<P>
+The purpose of the <tt>PercolateDown</tt> routine
+is to transform the subtree rooted at position <I>i</I> into a max heap.
+It is assumed that the left and right subtrees of the node
+at position <I>i</I> are already max heaps.
+Recall that the children of node <I>i</I> are found at positions 2<I>i</I> and 2<I>i</I>+1.
+<tt>PercolateDown</tt> percolates the value in position <I>i</I> down the tree
+by swapping elements until the value arrives in a leaf node
+or until both children of <I>i</I> contain smaller value.
+<P>
+A constant amount of work is done in each iteration.
+Therefore, the running time of the <tt>PercolateDown</tt> routine
+is determined by the number of iterations of its main loop (lines&nbsp;5-15).
+In fact, the number of iterations required in the worst case
+is equal to the height in the tree of node <I>i</I>.
+<P>
+Since the root of the tree has the greatest height,
+the worst-case occurs for <I>i</I>=1.
+In Chapter&nbsp;<A HREF="page352.html#chappqueues" tppabs="http://www.brpreiss.com/books/opus4/html/page352.html#chappqueues"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> it is shown that the height of a complete binary tree
+is  <IMG WIDTH=51 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline66396" SRC="img1467.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1467.gif"  >.
+Therefore the worst-case running time
+of the <tt>PercolateDown</tt> routine is  <IMG WIDTH=56 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59891" SRC="img403.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img403.gif"  >.
+<P>
+Recall that <tt>BuildHeap</tt> calls <tt>PercolateDown</tt>
+for  <IMG WIDTH=260 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline70351" SRC="img2188.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2188.gif"  >.
+If we assume that the worst-case occurs every time,
+the running time of <tt>BuildHeap</tt> is  <IMG WIDTH=68 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59897" SRC="img405.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img405.gif"  >.
+<P>
+<HR><A NAME="tex2html8155" HREF="page506.html" tppabs="http://www.brpreiss.com/books/opus4/html/page506.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8153" HREF="page504.html" tppabs="http://www.brpreiss.com/books/opus4/html/page504.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8149" HREF="page504.html" tppabs="http://www.brpreiss.com/books/opus4/html/page504.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8157" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8158" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

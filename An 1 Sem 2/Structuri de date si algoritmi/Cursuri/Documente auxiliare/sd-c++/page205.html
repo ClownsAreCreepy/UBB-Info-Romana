@@ -1,0 +1,70 @@
+<HTML>
+<HEAD>
+<TITLE>Example</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html4448" HREF="page206.html" tppabs="http://www.brpreiss.com/books/opus4/html/page206.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4446" HREF="page204.html" tppabs="http://www.brpreiss.com/books/opus4/html/page204.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4442" HREF="page204.html" tppabs="http://www.brpreiss.com/books/opus4/html/page204.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4450" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4451" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H4><A NAME="SECTION009100100000000000000">Example</A></H4>
+<P>
+We wish to implement a searchable container
+which will be used to contain character strings from the set of strings <I>K</I>,
+<P> <IMG WIDTH=500 HEIGHT=40 ALIGN=BOTTOM ALT="equation11142" SRC="img867.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img867.gif"  ><P>
+<P>
+Suppose we define a function  <IMG WIDTH=72 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline62140" SRC="img868.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img868.gif"  > as given
+by the following table:
+<DIV ALIGN=CENTER><P ALIGN=CENTER><TABLE COLS=2 BORDER FRAME=HSIDES RULES=GROUPS>
+<COL ALIGN=LEFT><COL ALIGN=RIGHT>
+<TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP>
+	<I>x</I> </TD><TD VALIGN=BASELINE ALIGN=RIGHT NOWRAP> <I>h</I>(<I>x</I>) </TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP><tt>&quot;ett&quot;</tt>  </TD><TD VALIGN=BASELINE ALIGN=RIGHT NOWRAP> 1 </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> 
+	<tt>&quot;tv&#229;&quot;</tt>  </TD><TD VALIGN=BASELINE ALIGN=RIGHT NOWRAP> 2 </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> 
+	<tt>&quot;tre&quot;</tt>  </TD><TD VALIGN=BASELINE ALIGN=RIGHT NOWRAP> 3 </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> 
+	<tt>&quot;fyra&quot;</tt> </TD><TD VALIGN=BASELINE ALIGN=RIGHT NOWRAP> 4 </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> 
+	<tt>&quot;fem&quot;</tt>  </TD><TD VALIGN=BASELINE ALIGN=RIGHT NOWRAP> 5 </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> 
+	<tt>&quot;sex&quot;</tt>  </TD><TD VALIGN=BASELINE ALIGN=RIGHT NOWRAP> 6 </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> 
+	<tt>&quot;sju&quot;</tt>  </TD><TD VALIGN=BASELINE ALIGN=RIGHT NOWRAP> 7 </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> 
+	<tt>&quot;&#229;tta&quot;</tt> </TD><TD VALIGN=BASELINE ALIGN=RIGHT NOWRAP> 8 </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> 
+	<tt>&quot;nio&quot;</tt>  </TD><TD VALIGN=BASELINE ALIGN=RIGHT NOWRAP> 9 </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> 
+	<tt>&quot;tio&quot;</tt>  </TD><TD VALIGN=BASELINE ALIGN=RIGHT NOWRAP> 10 </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> 
+	<tt>&quot;elva&quot;</tt> </TD><TD VALIGN=BASELINE ALIGN=RIGHT NOWRAP> 11 </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> 
+	<tt>&quot;tolv&quot;</tt> </TD><TD VALIGN=BASELINE ALIGN=RIGHT NOWRAP> 12 </TD></TR>
+</TBODY>
+</TABLE>
+</P></DIV>
+Then, we can implement a searchable container
+using an array of length <I>n</I>=12.
+To insert item <I>x</I>, we simply store it a position <I>h</I>(<I>x</I>)-1 of the array.
+Similarly, to locate item <I>x</I>,
+we simply check to see if it is found at position <I>h</I>(<I>x</I>)-1.
+If the function  <IMG WIDTH=24 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59195" SRC="img264.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img264.gif"  > can be evaluated in constant time,
+then the both the insert and the find operations are <I>O</I>(1).
+<P>
+We expect that any reasonable implementation
+of the function  <IMG WIDTH=24 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59195" SRC="img264.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img264.gif"  > will run in constant time,
+since the size of the set of strings, <I>K</I>, is a constant!
+This example illustrates how we can achieve <I>O</I>(1) performance
+in the worst case when we have complete, <em>a priori</em> knowledge.
+<P>
+<HR><A NAME="tex2html4448" HREF="page206.html" tppabs="http://www.brpreiss.com/books/opus4/html/page206.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4446" HREF="page204.html" tppabs="http://www.brpreiss.com/books/opus4/html/page204.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4442" HREF="page204.html" tppabs="http://www.brpreiss.com/books/opus4/html/page204.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4450" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4451" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

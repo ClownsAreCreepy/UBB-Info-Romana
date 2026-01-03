@@ -1,0 +1,40 @@
+<HTML>
+<HEAD>
+<TITLE>All-Pairs Source Shortest Path</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html8954" HREF="page571.html" tppabs="http://www.brpreiss.com/books/opus4/html/page571.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8952" HREF="page564.html" tppabs="http://www.brpreiss.com/books/opus4/html/page564.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8948" HREF="page569.html" tppabs="http://www.brpreiss.com/books/opus4/html/page569.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8956" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8957" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0017420000000000000000">All-Pairs Source Shortest Path</A></H2>
+<P>
+In this section we consider the <em>all-pairs, shortest path</em> problem:
+Given an edge-weighted graph  <IMG WIDTH=72 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71355" SRC="img2282.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2282.gif"  >,
+for each pair of vertices in  <IMG WIDTH=10 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline71357" SRC="img2283.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2283.gif"  >
+find the <em>length</em> of the shortest weighted path between the two vertices.
+<P>
+One way to solve this problem is to run Dijkstra's algorithm  <IMG WIDTH=17 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71781" SRC="img2365.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2365.gif"  > times
+in turn using each vertex in  <IMG WIDTH=10 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline71357" SRC="img2283.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2283.gif"  > as the initial vertex.
+Therefore, we can solve the all-pairs problem in
+ <IMG WIDTH=153 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline72661" SRC="img2485.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2485.gif"  >
+time when adjacency lists are used, and
+ <IMG WIDTH=153 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline72663" SRC="img2486.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2486.gif"  >,
+when adjacency matrices are used.
+However, for a dense graph ( <IMG WIDTH=88 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline71755" SRC="img2362.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2362.gif"  >) the running time
+of Dijkstra's algorithm is  <IMG WIDTH=96 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline72667" SRC="img2487.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2487.gif"  >,
+regardless of the representation scheme used.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html8958" HREF="page571.html#SECTION0017421000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page571.html#SECTION0017421000000000000000">Floyd's Algorithm</A>
+<LI> <A NAME="tex2html8959" HREF="page572.html#SECTION0017422000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page572.html#SECTION0017422000000000000000">Implementation</A>
+<LI> <A NAME="tex2html8960" HREF="page573.html#SECTION0017423000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page573.html#SECTION0017423000000000000000">Running Time Analysis</A>
+</UL>
+<HR><A NAME="tex2html8954" HREF="page571.html" tppabs="http://www.brpreiss.com/books/opus4/html/page571.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8952" HREF="page564.html" tppabs="http://www.brpreiss.com/books/opus4/html/page564.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8948" HREF="page569.html" tppabs="http://www.brpreiss.com/books/opus4/html/page569.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8956" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8957" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

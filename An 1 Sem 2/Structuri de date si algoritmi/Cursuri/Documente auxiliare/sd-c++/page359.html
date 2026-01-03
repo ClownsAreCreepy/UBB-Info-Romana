@@ -1,0 +1,42 @@
+<HTML>
+<HEAD>
+<TITLE>Constructor, Destructor and Purge Member Functions</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html6363" HREF="page360.html" tppabs="http://www.brpreiss.com/books/opus4/html/page360.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6361" HREF="page357.html" tppabs="http://www.brpreiss.com/books/opus4/html/page357.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6357" HREF="page358.html" tppabs="http://www.brpreiss.com/books/opus4/html/page358.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6365" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6366" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0012222000000000000000">Constructor, Destructor and <tt>Purge</tt> Member Functions</A></H3>
+<P>
+Program&nbsp;<A HREF="page359.html#progbinheap1c" tppabs="http://www.brpreiss.com/books/opus4/html/page359.html#progbinheap1c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> defines the <tt>BinaryHeap</tt> class constructor.
+The constructor takes a single argument of type <tt>unsigned int</tt> which
+specifies the maximum capacity of the binary heap.
+The argument passed on to the constructor for the <tt>array</tt> member variable.
+Notice too that the array is initialized so that its positions are
+numbered starting from subscript&nbsp;1 rather than the default of zero.
+<P>
+<P><A NAME="24930">&#160;</A><A NAME="progbinheap1c">&#160;</A> <IMG WIDTH=575 HEIGHT=317 ALIGN=BOTTOM ALT="program24875" SRC="img1462.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1462.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>BinaryHeap</tt> Class Constructor, Destructor 	and <tt>Purge</tt> Member Function Definitions<BR>
+<P>
+<P>
+The purpose of the <tt>Purge</tt> member function
+of the <tt>BinaryHeap</tt> class is to delete from the priority queue
+all contained and owned objects.
+Pointers to the contained objects are found in the
+first  <IMG WIDTH=72 HEIGHT=9 ALIGN=BOTTOM ALT="tex2html_wrap_inline61308" SRC="img709.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img709.gif"  > array positions.
+Clearly the worst-case running time for the <tt>Purge</tt> function is
+<P> <IMG WIDTH=314 HEIGHT=17 ALIGN=BOTTOM ALT="displaymath66376" SRC="img1463.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1463.gif"  ><P>
+where  <IMG WIDTH=65 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline66380" SRC="img1464.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1464.gif"  > is the worst-case time required to delete an object instance.
+<P>
+The implementation of the destructor for the <tt>BinaryHeap</tt> class
+is trivial as it simply calls <tt>Purge</tt> to do its work.
+Consequently, the destructor has the same running time as above.
+<P>
+<HR><A NAME="tex2html6363" HREF="page360.html" tppabs="http://www.brpreiss.com/books/opus4/html/page360.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6361" HREF="page357.html" tppabs="http://www.brpreiss.com/books/opus4/html/page357.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6357" HREF="page358.html" tppabs="http://www.brpreiss.com/books/opus4/html/page358.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6365" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6366" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

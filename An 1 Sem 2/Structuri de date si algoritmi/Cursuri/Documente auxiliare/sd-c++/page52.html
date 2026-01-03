@@ -1,0 +1,166 @@
+<HTML>
+<HEAD>
+<TITLE>Example-Computing Powers</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html2535" HREF="page53.html" tppabs="http://www.brpreiss.com/books/opus4/html/page53.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2533" HREF="page47.html" tppabs="http://www.brpreiss.com/books/opus4/html/page47.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2527" HREF="page51.html" tppabs="http://www.brpreiss.com/books/opus4/html/page51.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2537" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2538" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION003250000000000000000">Example-Computing Powers</A></H2>
+<P>
+In this section we consider the running time
+to raise a number to a given integer power.
+I.e., given a value <I>x</I> and non-negative integer <I>n</I>,
+we wish to compute the  <IMG WIDTH=15 HEIGHT=10 ALIGN=BOTTOM ALT="tex2html_wrap_inline58739" SRC="img159.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img159.gif"  >.
+A na&#305;ve way to calculate  <IMG WIDTH=15 HEIGHT=10 ALIGN=BOTTOM ALT="tex2html_wrap_inline58739" SRC="img159.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img159.gif"  > would be to use a loop such as
+<PRE>int result = 1;
+for (unsigned int i = 0; i &lt;= n; ++i)
+    result *= x;</PRE>
+While this may be fine for small values of <I>n</I>,
+for large values of <I>n</I> the running time may become prohibitive.
+As an alternative, consider the following recursive definition
+<P><A NAME="eqnmodelpow">&#160;</A> <IMG WIDTH=500 HEIGHT=66 ALIGN=BOTTOM ALT="equation975" SRC="img160.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img160.gif"  ><P>
+<P>
+For example, using Equation&nbsp;<A HREF="page52.html#eqnmodelpow" tppabs="http://www.brpreiss.com/books/opus4/html/page52.html#eqnmodelpow"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+we would determine  <IMG WIDTH=21 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline58751" SRC="img161.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img161.gif"  > as follows
+<P> <IMG WIDTH=337 HEIGHT=51 ALIGN=BOTTOM ALT="displaymath58727" SRC="img162.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img162.gif"  ><P>
+which requires a total of five multiplication operations.
+Similarly, we would compute  <IMG WIDTH=21 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline58753" SRC="img163.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img163.gif"  > as follows
+<P> <IMG WIDTH=351 HEIGHT=41 ALIGN=BOTTOM ALT="displaymath58728" SRC="img164.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img164.gif"  ><P>
+which requires a total of eight multiplication operations.
+<P>
+A recursive algorithm to compute  <IMG WIDTH=15 HEIGHT=10 ALIGN=BOTTOM ALT="tex2html_wrap_inline58739" SRC="img159.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img159.gif"  >
+based on the direct implementation of Equation&nbsp;<A HREF="page52.html#eqnmodelpow" tppabs="http://www.brpreiss.com/books/opus4/html/page52.html#eqnmodelpow"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+is given in Program&nbsp;<A HREF="page52.html#progpowerc" tppabs="http://www.brpreiss.com/books/opus4/html/page52.html#progpowerc"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+Table&nbsp;<A HREF="page52.html#tblpowerc" tppabs="http://www.brpreiss.com/books/opus4/html/page52.html#tblpowerc"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives the running time,
+as predicted by the simplified model,
+for each of the executable statements in Program&nbsp;<A HREF="page52.html#progpowerc" tppabs="http://www.brpreiss.com/books/opus4/html/page52.html#progpowerc"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+<P>
+<P><A NAME="996">&#160;</A><A NAME="progpowerc">&#160;</A> <IMG WIDTH=575 HEIGHT=181 ALIGN=BOTTOM ALT="program993" SRC="img165.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img165.gif"  ><BR>
+<STRONG>Program:</STRONG> Program to compute  <IMG WIDTH=15 HEIGHT=10 ALIGN=BOTTOM ALT="tex2html_wrap_inline58739" SRC="img159.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img159.gif"  ><BR>
+<P>
+<P>
+<P><A NAME="1156">&#160;</A>
+<P>
+    <A NAME="tblpowerc">&#160;</A>
+    <DIV ALIGN=CENTER><P ALIGN=CENTER><TABLE COLS=4 BORDER FRAME=HSIDES RULES=GROUPS>
+<COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER>
+<TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+	    </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP COLSPAN=3> time</TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+<P>
+	    statement </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>n</I>=0 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>n</I><I>&gt;</I>0 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>n</I><I>&gt;</I>0 </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	    </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>n</I> is even </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>n</I> is odd </TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>3 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 3 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 3 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 3 </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	    4 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 2 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> -- </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> -- </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	    5 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> -- </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 5 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 5 </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	    6 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> -- </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=96 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline58781" SRC="img166.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img166.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> -- </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	    8 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> -- </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> -- </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=97 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline58783" SRC="img167.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img167.gif"  > </TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>TOTAL </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 5 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=96 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline58787" SRC="img168.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img168.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+		 <IMG WIDTH=97 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline58789" SRC="img169.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img169.gif"  > </TD></TR>
+</TBODY>
+<CAPTION ALIGN=BOTTOM><STRONG>Table:</STRONG> Computing the running time of Program&nbsp;<A HREF="page52.html#progpowerc" tppabs="http://www.brpreiss.com/books/opus4/html/page52.html#progpowerc"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A></CAPTION></TABLE>
+</P></DIV><P>
+<P>
+By summing the columns in Table&nbsp;<A HREF="page52.html#tblpowerc" tppabs="http://www.brpreiss.com/books/opus4/html/page52.html#tblpowerc"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> we get
+the following recurrence for the running time of Program&nbsp;<A HREF="page52.html#progpowerc" tppabs="http://www.brpreiss.com/books/opus4/html/page52.html#progpowerc"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+<P><A NAME="eqnmodelpowtime">&#160;</A> <IMG WIDTH=500 HEIGHT=66 ALIGN=BOTTOM ALT="equation1015" SRC="img170.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img170.gif"  ><P>
+As the first attempt at solving this recurrence,
+let us suppose that  <IMG WIDTH=45 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58795" SRC="img171.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img171.gif"  > for some <I>k</I><I>&gt;</I>0.
+Clearly, since <I>n</I> is a power of two, it is even.
+Therefore,  <IMG WIDTH=137 HEIGHT=28 ALIGN=MIDDLE ALT="tex2html_wrap_inline58801" SRC="img172.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img172.gif"  >.
+<P>
+For  <IMG WIDTH=45 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58795" SRC="img171.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img171.gif"  >, Equation&nbsp;<A HREF="page52.html#eqnmodelpowtime" tppabs="http://www.brpreiss.com/books/opus4/html/page52.html#eqnmodelpowtime"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives
+<P> <IMG WIDTH=358 HEIGHT=19 ALIGN=BOTTOM ALT="displaymath58729" SRC="img173.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img173.gif"  ><P>
+This can be solved by repeated substitution:
+<P> <IMG WIDTH=500 HEIGHT=124 ALIGN=BOTTOM ALT="eqnarray1025" SRC="img174.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img174.gif"  ><P>
+The substitution stops when <I>k</I>=<I>j</I>.
+Thus,
+<P> <IMG WIDTH=500 HEIGHT=88 ALIGN=BOTTOM ALT="eqnarray1031" SRC="img175.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img175.gif"  ><P>
+Note that if  <IMG WIDTH=45 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58795" SRC="img171.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img171.gif"  >, then  <IMG WIDTH=68 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline58809" SRC="img176.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img176.gif"  >.
+In this case, running time of Program&nbsp;<A HREF="page52.html#progpowerc" tppabs="http://www.brpreiss.com/books/opus4/html/page52.html#progpowerc"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+is  <IMG WIDTH=148 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline58811" SRC="img177.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img177.gif"  >.
+<P>
+The preceding result is, in fact, the best case--in all
+but the last two recursive calls of the function, <I>n</I> was even.
+Interestingly enough, there is a corresponding worst-case scenario.
+Suppose  <IMG WIDTH=73 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline58815" SRC="img178.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img178.gif"  > for some value of <I>k</I><I>&gt;</I>0.
+Clearly <I>n</I> is odd, since it is one less than  <IMG WIDTH=14 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58821" SRC="img179.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img179.gif"  >
+which is a power of two and even.
+Now consider  <IMG WIDTH=36 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline58823" SRC="img180.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img180.gif"  >:
+<P> <IMG WIDTH=500 HEIGHT=62 ALIGN=BOTTOM ALT="eqnarray1034" SRC="img181.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img181.gif"  ><P>
+Hence,  <IMG WIDTH=36 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline58823" SRC="img180.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img180.gif"  > is also odd!
+<P>
+For example, suppose <I>n</I> is 31 ( <IMG WIDTH=40 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline58829" SRC="img182.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img182.gif"  >).
+To compute  <IMG WIDTH=21 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline58753" SRC="img163.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img163.gif"  >, Program&nbsp;<A HREF="page52.html#progpowerc" tppabs="http://www.brpreiss.com/books/opus4/html/page52.html#progpowerc"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> calls itself
+recursively to compute  <IMG WIDTH=21 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline58833" SRC="img183.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img183.gif"  >,  <IMG WIDTH=14 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58835" SRC="img184.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img184.gif"  >,  <IMG WIDTH=15 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline58837" SRC="img185.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img185.gif"  >,  <IMG WIDTH=14 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline58839" SRC="img186.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img186.gif"  >, and finally,  <IMG WIDTH=15 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline58841" SRC="img187.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img187.gif"  >--all but the last of which are odd powers of <I>x</I>.
+<P>
+For  <IMG WIDTH=73 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline58815" SRC="img178.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img178.gif"  >, Equation&nbsp;<A HREF="page52.html#eqnmodelpowtime" tppabs="http://www.brpreiss.com/books/opus4/html/page52.html#eqnmodelpowtime"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives
+<P> <IMG WIDTH=385 HEIGHT=19 ALIGN=BOTTOM ALT="displaymath58730" SRC="img188.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img188.gif"  ><P>
+Solving this recurrence by repeated substitution we get
+<P> <IMG WIDTH=500 HEIGHT=124 ALIGN=BOTTOM ALT="eqnarray1042" SRC="img189.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img189.gif"  ><P>
+The substitution stops when <I>k</I>=<I>j</I>.
+Thus,
+<P> <IMG WIDTH=500 HEIGHT=40 ALIGN=BOTTOM ALT="eqnarray1048" SRC="img190.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img190.gif"  ><P>
+Note that if  <IMG WIDTH=73 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline58815" SRC="img178.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img178.gif"  >, then  <IMG WIDTH=105 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline58851" SRC="img191.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img191.gif"  >.
+In this case, running time of Program&nbsp;<A HREF="page52.html#progpowerc" tppabs="http://www.brpreiss.com/books/opus4/html/page52.html#progpowerc"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+is  <IMG WIDTH=177 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline58853" SRC="img192.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img192.gif"  >.
+<P>
+Consider now what happens for an arbitrary value of <I>n</I>.
+Table&nbsp;<A HREF="page52.html#tblcalls" tppabs="http://www.brpreiss.com/books/opus4/html/page52.html#tblcalls"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> shows the recursive calls made by
+Program&nbsp;<A HREF="page52.html#progpowerc" tppabs="http://www.brpreiss.com/books/opus4/html/page52.html#progpowerc"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> in computing  <IMG WIDTH=15 HEIGHT=10 ALIGN=BOTTOM ALT="tex2html_wrap_inline58739" SRC="img159.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img159.gif"  > for various values of <I>n</I>.
+<P>
+<P><A NAME="1157">&#160;</A>
+<P>
+    <A NAME="tblcalls">&#160;</A>
+    <DIV ALIGN=CENTER><P ALIGN=CENTER><TABLE COLS=3 BORDER FRAME=HSIDES RULES=GROUPS>
+<COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=LEFT>
+<TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+	    <I>n</I> </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=79 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline58863" SRC="img193.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img193.gif"  > </TD><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> powers computed recursively </TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>1 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 1 </TD><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP>  <IMG WIDTH=22 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline58865" SRC="img194.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img194.gif"  > </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	    2 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 2 </TD><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP>  <IMG WIDTH=37 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline58867" SRC="img195.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img195.gif"  > </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	    3 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 2 </TD><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP>  <IMG WIDTH=37 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline58869" SRC="img196.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img196.gif"  > </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	    4 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 3 </TD><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP>  <IMG WIDTH=53 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline58871" SRC="img197.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img197.gif"  > </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	    5 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 3 </TD><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP>  <IMG WIDTH=52 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline58873" SRC="img198.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img198.gif"  > </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	    6 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 3 </TD><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP>  <IMG WIDTH=52 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline58875" SRC="img199.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img199.gif"  > </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	    7 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 3 </TD><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP>  <IMG WIDTH=52 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline58877" SRC="img200.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img200.gif"  > </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+	    8 </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 4 </TD><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP>  <IMG WIDTH=67 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline58879" SRC="img201.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img201.gif"  > </TD></TR>
+</TBODY>
+<CAPTION ALIGN=BOTTOM><STRONG>Table:</STRONG> Recursive calls made in Program&nbsp;<A HREF="page52.html#progpowerc" tppabs="http://www.brpreiss.com/books/opus4/html/page52.html#progpowerc"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A></CAPTION></TABLE>
+</P></DIV><P>
+<P>
+By inspection we determine that the number of recursive calls made
+in which the second argument is non-zero is  <IMG WIDTH=79 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline58863" SRC="img193.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img193.gif"  >.
+Furthermore, depending on whether the argument is odd or even,
+each of these calls contributes either 18 or 20 cycles.
+The pattern emerging in Table&nbsp;<A HREF="page52.html#tblpowerc" tppabs="http://www.brpreiss.com/books/opus4/html/page52.html#tblpowerc"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> suggests that,
+on average just as many of the recursive calls result in an even
+number as result in an odd one.
+The final call (zero argument) adds another 5 cycles.
+So, on average, we can expect the running time of Program&nbsp;<A HREF="page52.html#progpowerc" tppabs="http://www.brpreiss.com/books/opus4/html/page52.html#progpowerc"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+to be
+<P><A NAME="eqnmodelpower">&#160;</A> <IMG WIDTH=500 HEIGHT=17 ALIGN=BOTTOM ALT="equation1072" SRC="img202.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img202.gif"  ><P><HR><A NAME="tex2html2535" HREF="page53.html" tppabs="http://www.brpreiss.com/books/opus4/html/page53.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2533" HREF="page47.html" tppabs="http://www.brpreiss.com/books/opus4/html/page47.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2527" HREF="page51.html" tppabs="http://www.brpreiss.com/books/opus4/html/page51.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2537" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2538" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,68 @@
+<HTML>
+<HEAD>
+<TITLE>Implementation</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html7136" HREF="page423.html" tppabs="http://www.brpreiss.com/books/opus4/html/page423.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7134" HREF="page421.html" tppabs="http://www.brpreiss.com/books/opus4/html/page421.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7130" HREF="page421.html" tppabs="http://www.brpreiss.com/books/opus4/html/page421.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7138" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7139" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0014210000000000000000">Implementation</A></H2>
+<P>
+Program&nbsp;<A HREF="page422.html#progpool2h" tppabs="http://www.brpreiss.com/books/opus4/html/page422.html#progpool2h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives the declaration
+of the concrete storage pool class <tt>SinglyLinkedPool</tt>.
+This class is derived from the abstract base class <tt>StoragePool</tt>.
+The public interface of the class comprises a constructor,
+the destructor,
+and the two member functions <tt>Acquire</tt> and <tt>Release</tt>.
+<P>
+<P><A NAME="30700">&#160;</A><A NAME="progpool2h">&#160;</A> <IMG WIDTH=575 HEIGHT=524 ALIGN=BOTTOM ALT="program30561" SRC="img1747.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1747.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>SinglyLinkedPool</tt> Class Definition<BR>
+<P>
+<P>
+The two nested <tt>struct</tt> definitions,
+<tt>Header</tt> and <tt>Block</tt>,
+correspond to the structure layout shown in Figure&nbsp;<A HREF="page421.html#figblock1" tppabs="http://www.brpreiss.com/books/opus4/html/page421.html#figblock1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+Specifically, the <tt>Header</tt> structure contains information
+which appears in the first block of an area,
+<em>regardless of whether it is reserved or free</em>.
+The <tt>Block</tt> structure contains a <tt>union</tt>.
+In C++, the elements of a union occupy the same space.
+I.e., if the block is <em>reserved</em>,
+the <tt>userPart</tt> of the block has been allocated to the user.
+On the other hand, if the block is <tt>free</tt>,
+the <tt>next</tt> field is used to point to the next element
+of the free list.
+<P>
+Notice how the size of the <tt>Block</tt> structure is controlled.
+In this case, the size is set to 16&nbsp;bytes.
+Recall that an <em>area</em> is a set of contiguous blocks.
+Therefore, the size of an area is a multiple of 16&nbsp;bytes.
+The selection of a block size of 16 represents a trade-off.
+If the block size is too large,
+then space is wasted when a user requests an amount of storage that
+that is not a multiple of 16.
+On the other hand, if the block size is too small,
+then it is possible for the memory pool to become excessively <em>fragmented</em>.
+E.g., it is possible for the free list to contain many small areas.
+The choice of 16 is somewhat arbitrary.
+However, values between 8 and 16 are typical.
+In this implementation the size of a block (in bytes)
+is required to be at least
+<P> <IMG WIDTH=371 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath68053" SRC="img1748.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1748.gif"  ><P>
+because we must be able to link a one-block area into the free list.
+On a 32-bit machine the minimum block size is typically 8 bytes.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html7140" HREF="page423.html#SECTION0014211000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page423.html#SECTION0014211000000000000000">Constructor and Destructor</A>
+<LI> <A NAME="tex2html7141" HREF="page424.html#SECTION0014212000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page424.html#SECTION0014212000000000000000">Acquiring an Area</A>
+<LI> <A NAME="tex2html7142" HREF="page425.html#SECTION0014213000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page425.html#SECTION0014213000000000000000">Releasing an Area</A>
+</UL>
+<HR><A NAME="tex2html7136" HREF="page423.html" tppabs="http://www.brpreiss.com/books/opus4/html/page423.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7134" HREF="page421.html" tppabs="http://www.brpreiss.com/books/opus4/html/page421.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7130" HREF="page421.html" tppabs="http://www.brpreiss.com/books/opus4/html/page421.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7138" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7139" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

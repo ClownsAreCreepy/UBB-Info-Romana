@@ -1,0 +1,62 @@
+<HTML>
+<HEAD>
+<TITLE>Performance Comparison:
+SortedListAsArray vs. SortedListAsList</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html4347" HREF="page198.html" tppabs="http://www.brpreiss.com/books/opus4/html/page198.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4345" HREF="page188.html" tppabs="http://www.brpreiss.com/books/opus4/html/page188.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4339" HREF="page196.html" tppabs="http://www.brpreiss.com/books/opus4/html/page196.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4349" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4350" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION008230000000000000000">Performance Comparison:
+<tt>SortedListAsArray</tt> vs. <tt>SortedListAsList</tt></A></H2>
+<P>
+The running times calculated for the various
+member functions of the two sorted list implementations,
+<tt>SortedListAsArray</tt> and <tt>SortedListAsLinkedList</tt>,
+are summarized below in Table&nbsp;<A HREF="page197.html#tblsortedlists" tppabs="http://www.brpreiss.com/books/opus4/html/page197.html#tblsortedlists"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+With the exception of two member functions,
+the running times of the two implementations
+are asymptotically identical.
+<P>
+<P><A NAME="10880">&#160;</A>
+<P>
+    <A NAME="tblsortedlists">&#160;</A>
+    <DIV ALIGN=CENTER><P ALIGN=CENTER><TABLE COLS=4 BORDER FRAME=HSIDES RULES=GROUPS>
+<COL ALIGN=LEFT><COL ALIGN=CENTER><COL ALIGN=CENTER><COL ALIGN=CENTER>
+<TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP>
+	</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP COLSPAN=3> sorted list implementation</TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP>
+<P>
+	member function	</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <tt>SortedListAsArray</tt> </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <tt>SortedListAsLinkedList</tt> </TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP><tt>Insert</tt>			</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>O</I>(<I>n</I>) </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>O</I>(<I>n</I>) </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> 
+	<tt>IsMember</tt>			</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>O</I>(<I>n</I>) </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>O</I>(<I>n</I>) </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> 
+	<tt>Find</tt>			</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=56 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59891" SRC="img403.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img403.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <IMG WIDTH=10 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline61776" SRC="img812.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img812.gif"  ></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>O</I>(<I>n</I>) </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> 
+	<tt>FindPosition</tt>		</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>  <IMG WIDTH=56 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59891" SRC="img403.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img403.gif"  > </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <IMG WIDTH=10 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline61776" SRC="img812.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img812.gif"  ></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>O</I>(<I>n</I>) </TD></TR>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT NOWRAP> 
+	<tt>Withdraw</tt>			</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>O</I>(<I>n</I>) </TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> <I>O</I>(<I>n</I>) </TD></TR>
+</TBODY>
+<CAPTION ALIGN=BOTTOM><STRONG>Table:</STRONG> Running Times of Operations on Sorted Lists</CAPTION></TABLE>
+</P></DIV><P>
+<P>
+Neither the <tt>SortedListAsArray</tt> nor <tt>SortedListAsLinkedList</tt>
+implementations required any additional member variables
+beyond those inherited from their respective base classes,
+<tt>ListAsArray</tt> and <tt>ListAsLinkedList</tt>.
+Consequently, the space requirements analysis
+of the sorted list implementations
+is identical to that of the ordered list implementations
+given in Section&nbsp;<A HREF="page186.html#seclistsperf" tppabs="http://www.brpreiss.com/books/opus4/html/page186.html#seclistsperf"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+<P>
+<HR><A NAME="tex2html4347" HREF="page198.html" tppabs="http://www.brpreiss.com/books/opus4/html/page198.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4345" HREF="page188.html" tppabs="http://www.brpreiss.com/books/opus4/html/page188.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4339" HREF="page196.html" tppabs="http://www.brpreiss.com/books/opus4/html/page196.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4349" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4350" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

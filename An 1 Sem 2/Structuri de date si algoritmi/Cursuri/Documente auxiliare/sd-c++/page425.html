@@ -1,0 +1,124 @@
+<HTML>
+<HEAD>
+<TITLE>Releasing an Area</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html7173" HREF="page426.html" tppabs="http://www.brpreiss.com/books/opus4/html/page426.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7171" HREF="page422.html" tppabs="http://www.brpreiss.com/books/opus4/html/page422.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7167" HREF="page424.html" tppabs="http://www.brpreiss.com/books/opus4/html/page424.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7175" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7176" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0014213000000000000000">Releasing an Area</A></H3>
+<P>
+It seems that releasing an area to the free list
+should be quite simple and fast.
+E.g., to release an area we might simply insert it at
+the head of the free list.
+This could be done in constant time.
+<P>
+However, there is a problem with this:
+The <tt>Acquire</tt> function occasionally splits free areas.
+And if we never coalesce adjacent free areas,
+the free list will eventually contain a large number of small areas
+that are each individually too small to satisfy a given request,
+even though there is sufficient contiguous memory available.
+<P>
+Therefore, the <tt>Release</tt> function
+needs to check when an area is freed
+whether the adjacent areas are already free.
+However, the problem is this:
+How do we know where the adjacent areas are?
+The solution we have adopted is to keep the list of free areas
+sorted by the starting addresses of the areas.
+<P>
+This means that in order to free an area,
+it must be inserted in the appropriate place in the linked list.
+And at the point where the appropriate place to do the insertion has been
+determined,
+we can check to see if the area to be freed
+needs to be merged with an adjacent free area.
+<P>
+Program&nbsp;<A HREF="page425.html#progpool3c" tppabs="http://www.brpreiss.com/books/opus4/html/page425.html#progpool3c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives the code for the <tt>Release</tt> function
+of the <tt>SinglyLinkedPool</tt> class.
+This function takes as its lone argument the address of the <tt>userPart</tt>
+of an area that was previously obtained from the <tt>Acquire</tt> function.
+The <tt>Release</tt> function begins by determining the block which corresponds
+to the given area and checking that this block is indeed a part
+of the memory pool (lines&nbsp;3-7).
+<P>
+<P><A NAME="30713">&#160;</A><A NAME="progpool3c">&#160;</A> <IMG WIDTH=575 HEIGHT=582 ALIGN=BOTTOM ALT="program30674" SRC="img1754.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1754.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>SinglyLinkedPool</tt> Class <tt>Release</tt> 	Member Function Definition<BR>
+<P>
+<P>
+The loop on lines&nbsp;9-15 traverses the linked list of free areas
+and when it terminates, the following is true:
+The pointer <tt>prevPtr</tt> either points to the sentinel
+or it points at a free area the address of which is less than that of
+the area to be released.
+The pointer <tt>ptr</tt> is either zero or its points to a free area
+the address of which is greater than that of the area to be released.
+And <tt>prevPtr</tt> and <tt>ptr</tt> always point to adjacent elements
+of the linked list.
+Figure&nbsp;<A HREF="page425.html#figpool4" tppabs="http://www.brpreiss.com/books/opus4/html/page425.html#figpool4"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> illustrates this situation.
+<P>
+<P><A NAME="30940">&#160;</A><A NAME="figpool4">&#160;</A> <IMG WIDTH=578 HEIGHT=437 ALIGN=BOTTOM ALT="figure30688" SRC="img1755.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1755.gif"  ><BR>
+<STRONG>Figure:</STRONG> Using a Singly-Linked, Sorted Free List<BR>
+<P>
+<P>
+The area immediately preceding the area to be freed
+can itself be either reserved or free.
+Similarly, the area immediately following the area to be freed
+may be reserved or free.
+Figure&nbsp;<A HREF="page425.html#figpool4" tppabs="http://www.brpreiss.com/books/opus4/html/page425.html#figpool4"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> shows two of the four possible situations that can arise.
+Specifically, in Figure&nbsp;<A HREF="page425.html#figpool4" tppabs="http://www.brpreiss.com/books/opus4/html/page425.html#figpool4"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>&nbsp;(a) both adjacent areas are reserved
+and in Figure&nbsp;<A HREF="page425.html#figpool4" tppabs="http://www.brpreiss.com/books/opus4/html/page425.html#figpool4"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>&nbsp;(b) both adjacent areas are free.
+<P>
+If the area to be freed immediately precedes a free area,
+the two areas are combined (lines&nbsp;16-20).
+Otherwise, the area is inserted
+into the free list <em>in front of</em>
+the area point to by <tt>ptr</tt> (line&nbsp;22).
+<P>
+Similarly, if the area to be freed is immediately follows a free area,
+the two areas are combined (lines&nbsp;23-27).
+Otherwise, the are is inserted
+into the free list <em>following</em>
+the area pointed to by <tt>prevPtr</tt> (line&nbsp;29).
+<P>
+Unfortunately, since the free list is kept sorted,
+the running time of the <tt>Release</tt> function
+is determined by the number of iterations required to find
+the position in the list at which to do the insertion.
+In the worst case, this is <I>O</I>(<I>n</I>) where <I>n</I>
+is the number blocks in the storage pool.
+In practice, the free list is significantly shorter than <I>n</I>,
+and the running time varies accordingly.
+<P>
+The combination of keeping the free list sorted by address
+and the first-fit allocation strategy sometimes
+leads to a degradation in the performance because
+the smaller free areas tend to appear near the head of the free list
+whereas the larger areas are found near the tail of the free list.
+This is because storage is always allocated in the first area
+that is large enough
+and if that area is too large, it is split in two
+and the left-over area is inserted into the free list.
+Eventually, many of the areas near the head of the free list
+are too small to satisfy most requests.
+Nevertheless, it is necessary to visit those areas
+every time the free list is traversed.
+<P>
+The use of a minimum block size alleviates partially this bias.
+I.e., the minimum block size sets the lower bound beyond which
+areas are not split.
+For example, in the implementation given the block size is 16&nbsp;bytes.
+As a result, any request for storage up to 12&nbsp;bytes can be satisfied
+in constant time because the first area in the free list is guaranteed
+be at least one block in length.
+<P>
+<HR><A NAME="tex2html7173" HREF="page426.html" tppabs="http://www.brpreiss.com/books/opus4/html/page426.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7171" HREF="page422.html" tppabs="http://www.brpreiss.com/books/opus4/html/page422.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7167" HREF="page424.html" tppabs="http://www.brpreiss.com/books/opus4/html/page424.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7175" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7176" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

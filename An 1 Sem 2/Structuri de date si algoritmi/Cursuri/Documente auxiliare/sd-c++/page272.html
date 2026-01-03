@@ -1,0 +1,67 @@
+<HTML>
+<HEAD>
+<TITLE>Tree Iterators</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html5287" HREF="page273.html" tppabs="http://www.brpreiss.com/books/opus4/html/page273.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5285" HREF="page266.html" tppabs="http://www.brpreiss.com/books/opus4/html/page266.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5279" HREF="page271.html" tppabs="http://www.brpreiss.com/books/opus4/html/page271.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5289" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5290" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0010620000000000000000">Tree Iterators</A></H2>
+<P>
+According to the object hierarchy defined in Chapter&nbsp;<A HREF="page107.html#chapadts" tppabs="http://www.brpreiss.com/books/opus4/html/page107.html#chapadts"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+every class derived from the <tt>Container</tt> class must provide
+an associated <tt>Iterator</tt> class.
+This section describes the implementation of the <tt>Tree::Iter</tt>
+class which can be used to step through the contents of any tree instance.
+<P>
+For example, suppose we have declared a variable <tt>tree</tt>
+which is of type <tt>BinaryTree</tt>.
+Then we can view the <tt>tree</tt> instance as a container
+and print its contents as follows:
+<PRE>BinaryTree tree;
+Iterator&amp; i = tree.NewIterator;
+while (!i.IsDone ()) {
+    cout &lt;&lt; *i &lt;&lt; endl;
+    ++i;
+}
+delete &amp;i;</PRE>
+Every concrete class derived from the <tt>Container</tt> abstract base class
+must provide a <tt>NewIterator</tt> function.
+The purpose of this function is to create an instance of the appropriate
+type of <tt>Iterator</tt>
+and to associate that iterator with the corresponding container.
+The iterator can then be used to systematically visit the contents
+of the associated container.
+<P>
+We have already seen that when we systematically visit the nodes of a tree,
+we are doing a tree traversal.
+Therefore, the implementation of the iterator must also do a tree traversal.
+However, there is a catch.
+A recursive tree traversal routine such as <tt>DepthFirstTraversal</tt>
+keeps track of where it is <em>implicitly</em> using the processor stack.
+However, when we implement an iterator
+we must keep track of the state of the traversal <em>explicitly</em>.
+This section presents an iterator implementation which does
+a preorder traversal of the tree and keeps track of the current state
+of the traversal using a stack from Chapter&nbsp;<A HREF="page130.html#chapstacks" tppabs="http://www.brpreiss.com/books/opus4/html/page130.html#chapstacks"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+<P>
+Program&nbsp;<A HREF="page273.html#progtree2h" tppabs="http://www.brpreiss.com/books/opus4/html/page273.html#progtree2h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives the declaration of the <tt>Tree::Iter</tt> class.
+The <tt>NewIterator</tt> member function of the abstract class <tt>Tree</tt>
+is implemented as follows:
+<PRE>Iterator&amp; Tree::NewIterator () const
+    { return *new Iter (*this); }</PRE>
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html5291" HREF="page273.html#SECTION0010621000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page273.html#SECTION0010621000000000000000">Member Variables</A>
+<LI> <A NAME="tex2html5292" HREF="page274.html#SECTION0010622000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page274.html#SECTION0010622000000000000000">Constructor and <tt>Reset</tt> Member Function</A>
+<LI> <A NAME="tex2html5293" HREF="page275.html#SECTION0010623000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page275.html#SECTION0010623000000000000000">Operator Member Functions</A>
+</UL>
+<HR><A NAME="tex2html5287" HREF="page273.html" tppabs="http://www.brpreiss.com/books/opus4/html/page273.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5285" HREF="page266.html" tppabs="http://www.brpreiss.com/books/opus4/html/page266.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5279" HREF="page271.html" tppabs="http://www.brpreiss.com/books/opus4/html/page271.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5289" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5290" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

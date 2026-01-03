@@ -1,0 +1,35 @@
+<HTML>
+<HEAD>
+<TITLE>Prefix Notation</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html5183" HREF="page265.html" tppabs="http://www.brpreiss.com/books/opus4/html/page265.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5181" HREF="page262.html" tppabs="http://www.brpreiss.com/books/opus4/html/page262.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5175" HREF="page263.html" tppabs="http://www.brpreiss.com/books/opus4/html/page263.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5185" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5186" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0010502000000000000000">Prefix Notation</A></H3>
+<P>
+In prefix notation<A NAME=16082>&#160;</A> the operator is written
+before its operands.
+Therefore, in order to print the prefix expression from an expression tree,
+preorder traversal is done.
+I.e., at every non-terminal node we do the following:
+<OL><LI> Print the root; and then<LI> print a left parenthesis; and then<LI> traverse the left subtree; and then<LI> print a comma; and then<LI> traverse the right subtree; and then<LI> print a right parenthesis.
+</OL>
+If we use this procedure to print the tree given
+in Figure&nbsp;<A HREF="page262.html#figtree6" tppabs="http://www.brpreiss.com/books/opus4/html/page262.html#figtree6"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> we get the prefix expression
+<P><A NAME="eqntreesprefix">&#160;</A> <IMG WIDTH=500 HEIGHT=16 ALIGN=BOTTOM ALT="equation16086" SRC="img1153.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1153.gif"  ><P>
+While this notation may appear unfamiliar at first,
+consider the result obtained when we spell out the names of the operators:
+<PRE>plus (div (a,b), times (minus (c,d), e))</PRE>
+This is precisely the notation used in a typical programming language
+to invoke user defined procedures <tt>plus</tt>, <tt>minus</tt>,
+<tt>times</tt>, and <tt>div</tt>.<A NAME="tex2html523" HREF="footnode.html#16465" tppabs="http://www.brpreiss.com/books/opus4/html/footnode.html#16465"><IMG  ALIGN=BOTTOM ALT="gif" SRC="foot_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/foot_motif.gif"></A>
+<P>
+<HR><A NAME="tex2html5183" HREF="page265.html" tppabs="http://www.brpreiss.com/books/opus4/html/page265.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5181" HREF="page262.html" tppabs="http://www.brpreiss.com/books/opus4/html/page262.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5175" HREF="page263.html" tppabs="http://www.brpreiss.com/books/opus4/html/page263.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5185" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5186" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

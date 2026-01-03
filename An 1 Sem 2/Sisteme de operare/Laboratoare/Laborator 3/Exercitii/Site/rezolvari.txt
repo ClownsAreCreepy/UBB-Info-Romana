@@ -1,0 +1,23 @@
+Rezolvari la probleme:
+
+1. grep -E 'economica' last.fake | grep -E 'Sun' | awk '{print $1}' | sort | uniq
+
+2. awk '{print $1, $7}' last.fake | grep -E "23:[0-9]{2}$" | awk '{print $1}' | sort -u
+
+3. grep "^m" passwd.fake | awk -F: '$3 % 7 == 0 {print $5}'
+
+4. grep "^root" ps.fake | awk ' {print $6}' | sort -u
+
+5. awk -F: '$1 ~ /^.*88$/ {print $5}' passwd.fake
+
+6. awk -F: ' $3  ~ /^23[0-9]$/ {print $5}' passwd.fake
+
+7. awk '$2 ~ /\/9$/ && $1 ~ /^t/ {print $1}' last.fake
+
+8. grep "^r" ps.fake | awk '{print $1}' | sort -u | sed 's/[aeiou]/&&/gi' 
+
+9. sed 's/\w//g' passwd.fake | sed 's/\s//g'
+
+10. sed 's/[^r]//g' passwd.fake | sort -u
+
+11. awk '{suma += $2}  END{print "Meide:", suma / NR}' ps.fake

@@ -1,0 +1,49 @@
+<HTML>
+<HEAD>
+<TITLE>Implementation</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html8132" HREF="page504.html" tppabs="http://www.brpreiss.com/books/opus4/html/page504.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8130" HREF="page502.html" tppabs="http://www.brpreiss.com/books/opus4/html/page502.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8126" HREF="page502.html" tppabs="http://www.brpreiss.com/books/opus4/html/page502.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8134" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8135" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0016511000000000000000">Implementation</A></H3>
+<P>
+Program&nbsp;<A HREF="page503.html#progsorter7c" tppabs="http://www.brpreiss.com/books/opus4/html/page503.html#progsorter7c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> defines the <tt>StraightSelectionSorter&lt;T&gt;</tt> class.
+This class is derived from the abstract <tt>Sorter&lt;T&gt;</tt> base class
+and it provides an implementation for <tt>DoSort</tt>.
+The <tt>DoSort</tt> routine follows directly from the algorithm discussed above.
+In each iteration of the main loop (lines&nbsp;11-18),
+exactly one element is selected from the unsorted elements
+and moved into the correct position.
+A linear search of the unsorted elements is done in order
+to determine the position of the largest remaining element (lines&nbsp;14-16).
+That element is then moved into the correct position (line&nbsp;17).
+<P>
+<P><A NAME="39409">&#160;</A><A NAME="progsorter7c">&#160;</A> <IMG WIDTH=575 HEIGHT=371 ALIGN=BOTTOM ALT="program39246" SRC="img2184.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2184.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>StraightSelectionSorter&lt;T&gt;</tt> Class 	<tt>DoSort</tt> Member Function Definition<BR>
+<P>
+<P>
+In all <I>n</I>-1 iterations of the outer loop are needed to sort the array.
+Notice that exactly one swap is done in each iteration of the outer loop.
+Therefore, <I>n</I>-1 data exchanges are needed to sort the list.
+<P>
+Furthermore, in the  <IMG WIDTH=17 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58387" SRC="img77.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img77.gif"  > iteration of the outer loop,
+<I>i</I>-1 iterations of the inner loop are required
+and each iteration of the inner loop does one data comparison.
+Therefore,  <IMG WIDTH=40 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59179" SRC="img261.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img261.gif"  > data comparisons are needed to sort the list.
+<P>
+The total running time of the straight selection
+<tt>DoSort</tt> routine is  <IMG WIDTH=40 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59179" SRC="img261.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img261.gif"  >.
+Because the same number of comparisons and swaps are always done,
+this running time bound applies in all cases.
+I.e., the best-case, average-case and worst-case
+running times are all  <IMG WIDTH=40 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59179" SRC="img261.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img261.gif"  >.
+<P>
+<HR><A NAME="tex2html8132" HREF="page504.html" tppabs="http://www.brpreiss.com/books/opus4/html/page504.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8130" HREF="page502.html" tppabs="http://www.brpreiss.com/books/opus4/html/page502.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8126" HREF="page502.html" tppabs="http://www.brpreiss.com/books/opus4/html/page502.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8134" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8135" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

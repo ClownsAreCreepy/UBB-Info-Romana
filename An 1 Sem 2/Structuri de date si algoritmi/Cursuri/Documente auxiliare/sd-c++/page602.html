@@ -1,0 +1,49 @@
+<HTML>
+<HEAD>
+<TITLE>Destructors</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html9345" HREF="page603.html" tppabs="http://www.brpreiss.com/books/opus4/html/page603.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html9343" HREF="page598.html" tppabs="http://www.brpreiss.com/books/opus4/html/page598.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html9339" HREF="page601.html" tppabs="http://www.brpreiss.com/books/opus4/html/page601.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html9347" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html9348" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0018324000000000000000">Destructors</A></H3>
+<P>
+A <em>destructor</em><A NAME=57325>&#160;</A> is a special member function
+used to <em>finalize</em> an object.
+The name the destructor for class <tt>T</tt> is <tt>T()</tt> and,
+like constructors, it has no return value.
+The destructor takes no arguments and, therefore,
+there is only one destructor per class.
+<P>
+It is normally not necessary to call a destructor explicitly.
+The destructor for an object is automatically invoked
+at the end of the lifetime of that object.
+In particular, this means that the destructors for global variables
+run after the <tt>main</tt> routine exits,
+and that the destructors for local and temporary variables run
+when the program exits the scope containing those variables.
+<P>
+If the programmer does not define a destructor explicitly,
+the C++ compiler generates one.
+The compiler-generated destructor simply invokes the destructors
+for the member variables of the class.
+The members of a class are always destroyed in the reverse of the order
+in which they were constructed.
+<P>
+Program&nbsp;<A HREF="page599.html#progcomplex1c" tppabs="http://www.brpreiss.com/books/opus4/html/page599.html#progcomplex1c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> defines explicitly a destructor
+for the class <tt>Complex</tt> (lines&nbsp;17-18).
+In this case,
+the body of the destructor is empty.
+When the destructor runs,
+the body of the destructor is run first.
+After the body of the destructor has completed,
+the destructors for the member variables run (automatically).
+<P>
+<HR><A NAME="tex2html9345" HREF="page603.html" tppabs="http://www.brpreiss.com/books/opus4/html/page603.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html9343" HREF="page598.html" tppabs="http://www.brpreiss.com/books/opus4/html/page598.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html9339" HREF="page601.html" tppabs="http://www.brpreiss.com/books/opus4/html/page601.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html9347" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html9348" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

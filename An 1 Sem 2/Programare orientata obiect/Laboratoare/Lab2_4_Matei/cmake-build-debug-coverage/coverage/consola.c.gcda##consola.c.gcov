@@ -1,0 +1,394 @@
+        -:    0:Source:/mnt/d/C,C++/CLion 2024.3.4/Projects/Lab2_4_Matei/consola.c
+        -:    0:Graph:/mnt/d/C,C++/CLion 2024.3.4/Projects/Lab2_4_Matei/cmake-build-debug-coverage/CMakeFiles/Lab03.dir/consola.c.gcno
+        -:    0:Data:/mnt/d/C,C++/CLion 2024.3.4/Projects/Lab2_4_Matei/cmake-build-debug-coverage/CMakeFiles/Lab03.dir/consola.c.gcda
+        -:    0:Runs:1
+        -:    1:#include <stdio.h>
+        -:    2:#include <string.h>
+        -:    3:#include "service.h"
+        -:    4:#include "consola.h"
+        -:    5:#include "lista_dinamica.h"
+        -:    6:
+function ui_afiseaza_meniu called 0 returned 0% blocks executed 0%
+    #####:    7:void ui_afiseaza_meniu() {
+    #####:    8:  printf("\n");
+    %%%%%:    8-block  0
+call    0 never executed
+    #####:    9:  printf("Alege una dintre urmatoarele optiuni:\n");
+call    0 never executed
+    #####:   10:  printf("0 - Iesire\n");
+call    0 never executed
+    #####:   11:  printf("1 - Adauga medicament\n");
+call    0 never executed
+    #####:   12:  printf("2 - Actualizeaza medicament\n");
+call    0 never executed
+    #####:   13:  printf("3 - Sterge medicament\n");
+call    0 never executed
+    #####:   14:  printf("4 - Afiseaza medicamente sortate\n");
+call    0 never executed
+    #####:   15:  printf("5 - Filtreaza dupa stoc\n");
+call    0 never executed
+    #####:   16:  printf("6 - Filtreaza dupa prima litera\n");
+call    0 never executed
+    #####:   17:  printf("7 - Filtreaza dupa concentratie\n");
+call    0 never executed
+    #####:   18:  printf("8 - Refa ultima operatie\n");
+call    0 never executed
+    #####:   19:}
+        -:   20:
+function citeste_int called 0 returned 0% blocks executed 0%
+    #####:   21:int citeste_int(const char* mesaj) {
+    %%%%%:   21-block  0
+        -:   22:  char buffer[64];
+        -:   23:  int val;
+        -:   24:  while (1) {
+    #####:   25:    printf("%s", mesaj);
+    %%%%%:   25-block  0
+call    0 never executed
+    #####:   26:    if (!fgets(buffer, sizeof(buffer), stdin))
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed
+    #####:   27:      continue;
+    %%%%%:   27-block  0
+    #####:   28:    if (sscanf(buffer, "%d", &val) == 1)
+    %%%%%:   28-block  0
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    #####:   29:      return val;
+    %%%%%:   29-block  0
+    #####:   30:    printf("VALOARE INVALIDA!\n");
+    %%%%%:   30-block  0
+call    0 never executed
+        -:   31:  }
+        -:   32:}
+        -:   33:
+function citeste_float called 0 returned 0% blocks executed 0%
+    #####:   34:float citeste_float(const char* mesaj) {
+    %%%%%:   34-block  0
+        -:   35:  char buffer[64];
+        -:   36:  float val;
+        -:   37:  while (1) {
+    #####:   38:    printf("%s", mesaj);
+    %%%%%:   38-block  0
+call    0 never executed
+    #####:   39:    if (!fgets(buffer, sizeof(buffer), stdin))
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed
+    #####:   40:      continue;
+    %%%%%:   40-block  0
+    #####:   41:    if (sscanf(buffer, "%f", &val) == 1)
+    %%%%%:   41-block  0
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    #####:   42:      return val;
+    %%%%%:   42-block  0
+    #####:   43:    printf("VALOARE INVALIDA!\n");
+    %%%%%:   43-block  0
+call    0 never executed
+        -:   44:  }
+        -:   45:}
+        -:   46:
+function citeste_sir called 0 returned 0% blocks executed 0%
+    #####:   47:void citeste_sir(const char* mesaj, char* dest, int size) {
+    %%%%%:   47-block  0
+    #####:   48:  while (1) {
+    %%%%%:   48-block  0
+    #####:   49:    printf("%s", mesaj);
+    %%%%%:   49-block  0
+call    0 never executed
+    #####:   50:    if (!fgets(dest, size, stdin))
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed
+    #####:   51:      continue;
+    %%%%%:   51-block  0
+    #####:   52:    int lung = strlen(dest);
+    #####:   53:    if (lung > 0 && dest[lung - 1] == '\n')
+    %%%%%:   53-block  0
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    %%%%%:   53-block  1
+branch  2 never executed (fallthrough)
+branch  3 never executed
+    #####:   54:      dest[lung - 1] = 0;
+    %%%%%:   54-block  0
+    #####:   55:    if (strlen(dest) == 0)
+    %%%%%:   55-block  0
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    #####:   56:      printf("SIR INVALID!\n");
+    %%%%%:   56-block  0
+call    0 never executed
+        -:   57:    else
+    #####:   58:      break;
+    %%%%%:   58-block  0
+        -:   59:  }
+    #####:   60:}
+        -:   61:
+        -:   62:/*
+        -:   63: Afiseaza lista
+        -:   64:*/
+function ui_afiseaza_lista called 0 returned 0% blocks executed 0%
+    #####:   65:void ui_afiseaza_lista(ListaDinamica* lista) {
+    #####:   66:  for (int i = 0; i <dimensiune_lista(lista); ++i) {
+    %%%%%:   66-block  0
+    %%%%%:   66-block  1
+call    0 never executed
+branch  1 never executed
+branch  2 never executed (fallthrough)
+    #####:   67:    Medicament* m=get_element_lista(lista,i);
+    %%%%%:   67-block  0
+call    0 never executed
+    #####:   68:    printf("<%d>: %s, %.2f%%, Cantitate: %d\n", m->cod, m->nume, m->concentratie, m->cantitate);
+call    0 never executed
+        -:   69:  }
+    #####:   70:}
+        -:   71:
+        -:   72:/*
+        -:   73:  Adauga medicament. Daca exista cod, creste cantitatea.
+        -:   74:*/
+function ui_adauga_medicament called 0 returned 0% blocks executed 0%
+    #####:   75:void ui_adauga_medicament(Service* service) {
+    #####:   76:  int cod = citeste_int("Cod: ");
+    %%%%%:   76-block  0
+call    0 never executed
+        -:   77:  char nume[50];
+    #####:   78:  citeste_sir("Nume: ", nume, 50);
+call    0 never executed
+    #####:   79:  float concentratie = citeste_float("Concentratie: ");
+call    0 never executed
+    #####:   80:  int cantitate = citeste_int("Cantitate: ");
+call    0 never executed
+    #####:   81:  int rez = adauga_medicament(service, cod, nume, concentratie, cantitate);
+call    0 never executed
+    #####:   82:  if (rez == 1) {
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    #####:   83:    printf("Medicament adaugat.\n");
+    %%%%%:   83-block  0
+call    0 never executed
+    #####:   84:  } else if (rez == 2) {
+    %%%%%:   84-block  0
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    #####:   85:    printf("Medicament existent. Cantitate adaugata.\n");
+    %%%%%:   85-block  0
+call    0 never executed
+        -:   86:  } else {
+    #####:   87:    printf("SPATIU INSUFICIENT!\n");
+    %%%%%:   87-block  0
+call    0 never executed
+        -:   88:  }
+    #####:   89:}
+        -:   90:
+        -:   91:/*
+        -:   92:  Actualizeaza medicament (nume, concentratie) dupa cod.
+        -:   93:*/
+function ui_actualizeaza_medicament called 0 returned 0% blocks executed 0%
+    #####:   94:void ui_actualizeaza_medicament(Service* service) {
+    #####:   95:  int cod = citeste_int("Cod: ");
+    %%%%%:   95-block  0
+call    0 never executed
+        -:   96:  char nume_nou[50];
+    #####:   97:  citeste_sir("Nume nou: ", nume_nou, 50);
+call    0 never executed
+    #####:   98:  float concentratie_noua = citeste_float("Concentratie noua: ");
+call    0 never executed
+    #####:   99:  int rez = actualizeaza_medicament(service, cod, nume_nou, concentratie_noua);
+call    0 never executed
+    #####:  100:  if (rez == 1) {
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    #####:  101:    printf("Medicament actualizat.\n");
+    %%%%%:  101-block  0
+call    0 never executed
+        -:  102:  } else {
+    #####:  103:    printf("MEDICAMENT INEXISTENT!\n");
+    %%%%%:  103-block  0
+call    0 never executed
+        -:  104:  }
+    #####:  105:}
+        -:  106:
+        -:  107:/*
+        -:  108:  Sterge medicament dupa cod si afiseaza lista de elemente sterse
+        -:  109:*/
+function ui_sterge_medicament called 0 returned 0% blocks executed 0%
+    #####:  110:void ui_sterge_medicament(Service* service) {
+    #####:  111:  int cod = citeste_int("Cod: ");
+    %%%%%:  111-block  0
+call    0 never executed
+    #####:  112:  int rez = sterge_medicament(service, cod);
+call    0 never executed
+    #####:  113:  if (rez == 1) {
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    #####:  114:    printf("Medicament sters.\n");
+    %%%%%:  114-block  0
+call    0 never executed
+        -:  115:  } else {
+    #####:  116:    printf("MEDICAMENT INEXISTENT!\n");
+    %%%%%:  116-block  0
+call    0 never executed
+        -:  117:  }
+        -:  118:
+    #####:  119:  printf("Medicamente sterse: \n");
+    %%%%%:  119-block  0
+call    0 never executed
+    #####:  120:  ListaDinamica* lista = repo_get_lista_de_sters(service->repo);
+call    0 never executed
+    #####:  121:  ui_afiseaza_lista(lista);
+call    0 never executed
+    #####:  122:}
+        -:  123:
+        -:  124:/*
+        -:  125:  Sorteaza medicamentele dupa un criteriu (1 - nume, 2 - cantitate),
+        -:  126:  intr-o ordine (1 - crescator, 2 - descrescator).
+        -:  127:*/
+function ui_sorteaza_medicamente_criteriu called 0 returned 0% blocks executed 0%
+    #####:  128:void ui_sorteaza_medicamente_criteriu(Service* service) {
+    #####:  129:  int criteriu = citeste_int("Criteriu (1-nume, 2-cantitate): ");
+    %%%%%:  129-block  0
+call    0 never executed
+    #####:  130:  int ordine = citeste_int("Ordine (1-cresc, 2-desc): ");
+call    0 never executed
+    #####:  131:  ListaDinamica* lista = sorteaza_medicamente_criteriu(service, criteriu, ordine);
+call    0 never executed
+    #####:  132:  ui_afiseaza_lista(lista);
+call    0 never executed
+    #####:  133:  distruge_lista(lista, distruge_medicament);
+call    0 never executed
+    #####:  134:}
+        -:  135:
+        -:  136:/*
+        -:  137:  Filtreaza medicamentele cu stoc < val data.
+        -:  138:*/
+function ui_filtreaza_dupa_stoc called 0 returned 0% blocks executed 0%
+    #####:  139:void ui_filtreaza_dupa_stoc(Service* service) {
+    #####:  140:  int val = citeste_int("Valoare stoc: ");
+    %%%%%:  140-block  0
+call    0 never executed
+    #####:  141:  ListaDinamica* lista = filtreaza_dupa_stoc(service, val);
+call    0 never executed
+    #####:  142:  ui_afiseaza_lista(lista);
+call    0 never executed
+    #####:  143:  distruge_lista(lista, distruge_medicament);
+call    0 never executed
+    #####:  144:}
+        -:  145:
+        -:  146:/*
+        -:  147:  Filtreaza medicamentele al caror nume incepe cu litera data.
+        -:  148:  Returneaza o lista noua.
+        -:  149:*/
+function ui_filtreaza_dupa_litera called 0 returned 0% blocks executed 0%
+    #####:  150:void ui_filtreaza_dupa_litera(Service* service) {
+        -:  151:  char buf[10];
+    #####:  152:  citeste_sir("Litera: ", buf, 10);
+    %%%%%:  152-block  0
+call    0 never executed
+    #####:  153:  char lit = buf[0];
+    #####:  154:  ListaDinamica* lista = filtreaza_dupa_litera(service, lit);
+call    0 never executed
+    #####:  155:  ui_afiseaza_lista(lista);
+call    0 never executed
+    #####:  156:  distruge_lista(lista,distruge_medicament);
+call    0 never executed
+    #####:  157:}
+        -:  158:
+        -:  159:/*
+        -:  160: Filtreaza medicamentele ale caror cantitai sunt mai mari decat procentul dat.
+        -:  161: Returneaza o lista noua.
+        -:  162:*/
+function ui_filtreaza_dupa_concentratie called 0 returned 0% blocks executed 0%
+    #####:  163:void ui_filtreaza_dupa_concentratie(Service* service) {
+    #####:  164:  float val = citeste_float("Valoare procent: ");
+    %%%%%:  164-block  0
+call    0 never executed
+    #####:  165:  ListaDinamica* lista = filtreaza_dupa_concentratie(service,val);
+call    0 never executed
+    #####:  166:  ui_afiseaza_lista(lista);
+call    0 never executed
+    #####:  167:  distruge_lista(lista,distruge_medicament);
+call    0 never executed
+    #####:  168:}
+        -:  169:
+function ui_undo called 0 returned 0% blocks executed 0%
+    #####:  170:void ui_undo(Service* service) {
+    #####:  171:  int rez = undo(service);
+    %%%%%:  171-block  0
+call    0 never executed
+    #####:  172:  if (rez) {
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    #####:  173:    printf("Undo efectutat cu succes\n");
+    %%%%%:  173-block  0
+call    0 never executed
+        -:  174:  } else {
+    #####:  175:    printf("Nu mai exista operatii de undo\n");
+    %%%%%:  175-block  0
+call    0 never executed
+        -:  176:  }
+    #####:  177:}
+        -:  178:
+        -:  179:
+function ui_ruleaza_aplicatie called 0 returned 0% blocks executed 0%
+    #####:  180:void ui_ruleaza_aplicatie() {
+    #####:  181:  Service* service = creeaza_service();
+    %%%%%:  181-block  0
+call    0 never executed
+    #####:  182:  int ok = 1;
+    #####:  183:  while (ok) {
+    %%%%%:  183-block  0
+branch  0 never executed
+branch  1 never executed (fallthrough)
+    #####:  184:    ui_afiseaza_meniu();
+    %%%%%:  184-block  0
+call    0 never executed
+    #####:  185:    int cmd = citeste_int("Optiune: ");
+call    0 never executed
+    #####:  186:    switch (cmd) {
+branch  0 never executed
+branch  1 never executed
+branch  2 never executed
+branch  3 never executed
+branch  4 never executed
+branch  5 never executed
+branch  6 never executed
+branch  7 never executed
+branch  8 never executed
+branch  9 never executed
+    #####:  187:      case 0: ok = 0; break;
+    %%%%%:  187-block  0
+    #####:  188:      case 1: ui_adauga_medicament(service); break;
+    %%%%%:  188-block  0
+call    0 never executed
+    #####:  189:      case 2: ui_actualizeaza_medicament(service); break;
+    %%%%%:  189-block  0
+call    0 never executed
+    #####:  190:      case 3: ui_sterge_medicament(service); break;
+    %%%%%:  190-block  0
+call    0 never executed
+    #####:  191:      case 4: ui_sorteaza_medicamente_criteriu(service); break;
+    %%%%%:  191-block  0
+call    0 never executed
+    #####:  192:      case 5: ui_filtreaza_dupa_stoc(service); break;
+    %%%%%:  192-block  0
+call    0 never executed
+    #####:  193:      case 6: ui_filtreaza_dupa_litera(service); break;
+    %%%%%:  193-block  0
+call    0 never executed
+    #####:  194:      case 7: ui_filtreaza_dupa_concentratie(service); break;
+    %%%%%:  194-block  0
+call    0 never executed
+    #####:  195:      case 8: ui_undo(service); break;
+    %%%%%:  195-block  0
+call    0 never executed
+    #####:  196:      default: printf("OPTIUNE INVALIDA!\n"); break;
+    %%%%%:  196-block  0
+call    0 never executed
+        -:  197:    }
+        -:  198:  }
+    #####:  199:  distruge_service(service);
+    %%%%%:  199-block  0
+call    0 never executed
+    #####:  200:}

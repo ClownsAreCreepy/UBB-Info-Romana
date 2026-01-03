@@ -1,0 +1,104 @@
+<HTML>
+<HEAD>
+<TITLE>Single-Source Shortest Path</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html8894" HREF="page566.html" tppabs="http://www.brpreiss.com/books/opus4/html/page566.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8892" HREF="page564.html" tppabs="http://www.brpreiss.com/books/opus4/html/page564.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8886" HREF="page564.html" tppabs="http://www.brpreiss.com/books/opus4/html/page564.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8896" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8897" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0017410000000000000000">Single-Source Shortest Path</A></H2>
+<P>
+In this section we consider the <em>single-source shortest path</em> problem:
+Given an edge-weighted graph  <IMG WIDTH=72 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71355" SRC="img2282.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2282.gif"  > and a vertex  <IMG WIDTH=45 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline72207" SRC="img2439.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2439.gif"  >,
+find the shortest weighted path from  <IMG WIDTH=13 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline72211" SRC="img2441.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2441.gif"  > to every other vertex in  <IMG WIDTH=10 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline71357" SRC="img2283.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2283.gif"  >.
+<P>
+Why do we find the shortest path to every other vertex
+if we are interested only in the shortest path from,
+say,  <IMG WIDTH=13 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline72211" SRC="img2441.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2441.gif"  > to  <IMG WIDTH=14 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline72213" SRC="img2442.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2442.gif"  >?
+It turns out that in order to find the shortest path from  <IMG WIDTH=13 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline72211" SRC="img2441.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2441.gif"  > to  <IMG WIDTH=14 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline72213" SRC="img2442.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2442.gif"  >,
+it is necessary to find the shortest path from  <IMG WIDTH=13 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline72211" SRC="img2441.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2441.gif"  >
+to every other vertex in <I>G</I>!
+<P>
+Clearly, when we search for the shortest path,
+we must consider all the vertices in  <IMG WIDTH=10 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline71357" SRC="img2283.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2283.gif"  >.
+If a vertex is ignored, say  <IMG WIDTH=11 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline71521" SRC="img2317.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2317.gif"  >,
+then we will not consider any of the paths from  <IMG WIDTH=13 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline72211" SRC="img2441.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2441.gif"  > to  <IMG WIDTH=14 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline72213" SRC="img2442.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2442.gif"  >
+that pass through  <IMG WIDTH=11 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline71521" SRC="img2317.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2317.gif"  >.
+But if we fail to consider all the paths from  <IMG WIDTH=13 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline72211" SRC="img2441.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2441.gif"  > to  <IMG WIDTH=14 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline72213" SRC="img2442.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2442.gif"  >,
+we cannot be assured of finding the shortest one.
+<P>
+Furthermore, suppose the shortest path from  <IMG WIDTH=13 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline72211" SRC="img2441.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2441.gif"  > to  <IMG WIDTH=14 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline72213" SRC="img2442.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2442.gif"  >
+passes through some intermediate node  <IMG WIDTH=11 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline71521" SRC="img2317.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2317.gif"  >.
+I.e., the shortest path is of the form  <IMG WIDTH=171 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72269" SRC="img2445.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2445.gif"  >
+It must be the case that the portion of <I>P</I> between  <IMG WIDTH=13 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline72211" SRC="img2441.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2441.gif"  > to  <IMG WIDTH=11 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline71521" SRC="img2317.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2317.gif"  >
+is also the shortest path from  <IMG WIDTH=13 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline72211" SRC="img2441.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2441.gif"  > to  <IMG WIDTH=11 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline71521" SRC="img2317.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2317.gif"  >.
+Suppose it is not.
+Then there exists another shorter path from  <IMG WIDTH=13 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline72211" SRC="img2441.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2441.gif"  > to  <IMG WIDTH=11 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline71521" SRC="img2317.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2317.gif"  >.
+But then, <I>P</I> would not be the shortest path from  <IMG WIDTH=13 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline72211" SRC="img2441.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2441.gif"  > to  <IMG WIDTH=14 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline72213" SRC="img2442.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2442.gif"  >,
+because we could obtain a shorter one by replacing the portion
+of <I>P</I> between  <IMG WIDTH=13 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline72211" SRC="img2441.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2441.gif"  > and  <IMG WIDTH=11 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline71521" SRC="img2317.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2317.gif"  > by the shorter path.
+<P>
+Consider the directed graph  <IMG WIDTH=24 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline72297" SRC="img2446.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2446.gif"  > shown in Figure&nbsp;<A HREF="page565.html#figgraph12" tppabs="http://www.brpreiss.com/books/opus4/html/page565.html#figgraph12"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+The shortest <em>weighted</em> path between vertices <I>b</I> and <I>f</I> is the path
+ <IMG WIDTH=85 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72303" SRC="img2447.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2447.gif"  >
+which has the weighted path length nine.
+On the other hand, the shortest <em>unweighted</em> path is from <I>b</I> to <I>f</I> is
+the path of length three,  <IMG WIDTH=64 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72309" SRC="img2448.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2448.gif"  >.
+<P>
+<P><A NAME="51697">&#160;</A><A NAME="figgraph12">&#160;</A> <IMG WIDTH=575 HEIGHT=181 ALIGN=BOTTOM ALT="figure51449" SRC="img2449.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2449.gif"  ><BR>
+<STRONG>Figure:</STRONG> Two Edge-Weighted Directed Graphs<BR>
+<P>
+<P>
+As long as all the edge weights are non-negative
+(as is the case for  <IMG WIDTH=24 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline72297" SRC="img2446.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2446.gif"  >),
+the shortest-path problem is well defined.
+Unfortunately, things get a little tricky
+in the presence of negative edge weights.
+<P>
+For example, consider the graph  <IMG WIDTH=24 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline72321" SRC="img2450.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2450.gif"  > shown in Figure&nbsp;<A HREF="page565.html#figgraph12" tppabs="http://www.brpreiss.com/books/opus4/html/page565.html#figgraph12"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+Suppose we are looking for the shortest path from <I>d</I> to <I>f</I>.
+Exactly two edges emanate from vertex <I>d</I>,
+both with the same edge weight of five.
+If the graph contained only positive edge weights,
+there could be no shorter path than the direct path  <IMG WIDTH=37 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72329" SRC="img2451.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2451.gif"  >.
+<P>
+However, in a graph that contains negative weights,
+a long path gets ``shorter'' when we add edges with negative weights to it.
+E.g., the path  <IMG WIDTH=81 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72331" SRC="img2452.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2452.gif"  > has a total weighted path length of four,
+even though the first edge, (<I>d</I>,<I>a</I>), has the weight five.
+<P>
+But negative weights are even more insidious than this:
+For example, the path  <IMG WIDTH=113 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72335" SRC="img2453.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2453.gif"  >,
+which also joins vertex <I>d</I> to <I>f</I>,
+has a weighted path length of two
+but the path  <IMG WIDTH=157 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72341" SRC="img2454.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2454.gif"  > has length zero.
+I.e., as the number of edges in the path increases,
+the weighted path length decreases!
+The problem in this case is the existence of the cycle  <IMG WIDTH=67 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72343" SRC="img2455.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2455.gif"  >
+the weighted path length of which is less than zero.
+Such a cycle is sometimes called a <em>negative cost cycle</em><A NAME=51704>&#160;</A><A NAME=51705>&#160;</A>.
+<P>
+Clearly, the shortest-path problem is not defined
+for graphs that contain negative cost cycles.
+However, negative edges are not intrinsically bad.
+Solutions to the problem do exist
+for graphs that contain both positive and negative edge weights,
+as long as there are no negative cost cycles.
+Nevertheless, the problem is greatly simplified
+when all edges carry non-negative weights.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html8898" HREF="page566.html#SECTION0017411000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page566.html#SECTION0017411000000000000000">Dijkstra's Algorithm</A>
+<LI> <A NAME="tex2html8899" HREF="page567.html#SECTION0017412000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page567.html#SECTION0017412000000000000000">Data Structures for Dijkstra's Algorithm</A>
+<LI> <A NAME="tex2html8900" HREF="page568.html#SECTION0017413000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page568.html#SECTION0017413000000000000000">Implementation</A>
+<LI> <A NAME="tex2html8901" HREF="page569.html#SECTION0017414000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page569.html#SECTION0017414000000000000000">Running Time Analysis</A>
+</UL>
+<HR><A NAME="tex2html8894" HREF="page566.html" tppabs="http://www.brpreiss.com/books/opus4/html/page566.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8892" HREF="page564.html" tppabs="http://www.brpreiss.com/books/opus4/html/page564.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8886" HREF="page564.html" tppabs="http://www.brpreiss.com/books/opus4/html/page564.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8896" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8897" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

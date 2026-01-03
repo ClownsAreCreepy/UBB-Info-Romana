@@ -1,0 +1,124 @@
+<HTML>
+<HEAD>
+<TITLE>Working with Multiple Storage Pools</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html7103" HREF="page420.html" tppabs="http://www.brpreiss.com/books/opus4/html/page420.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7101" HREF="page418.html" tppabs="http://www.brpreiss.com/books/opus4/html/page418.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7097" HREF="page418.html" tppabs="http://www.brpreiss.com/books/opus4/html/page418.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7105" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7106" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0014111000000000000000">Working with Multiple Storage Pools</A></H3>
+<P>
+C++ provides the means for the programmer
+to control the placement of dynamically allocated storage.
+The <em>placement syntax</em><A NAME=30394>&#160;</A> provides additional
+arguments to the <tt>new</tt> operator like this:
+<PRE>T* tptr = new (<i>argument list</i>...) T;
+</PRE>
+The extra arguments in the <em>argument list</em>
+are passed to a suitably overloaded version of <tt>operator new</tt>.
+<P>
+For example, suppose that we provide an <tt>operator new</tt> function
+with the following definition:
+<PRE>void* operator new (size_t bytes, StoragePool&amp; p)
+    { return p.Acquire (bytes); }</PRE>
+I.e., we have declared a version of <tt>operator new</tt>
+that takes two arguments.
+The first specifies the number of bytes to be allocated,
+and the second is a reference to an instance of a storage pool
+from which the storage is to be acquired.
+We can then write the following statement:
+<PRE>SomePool p, q;
+T* tptr1 = new (p) T;
+T* tptr2 = new (q) T;</PRE>
+Two distinct storage pools are declared--<tt>p</tt> and <tt>q</tt>.
+The first instance of <tt>T</tt> is allocated in the pool <tt>p</tt>,
+whereas the second instance is allocated in the pool <tt>q</tt>.
+<P>
+Unfortunately, but not without good cause,
+it is not possible to overload <tt>operator delete</tt>
+in an analogous fashion.
+There is no explicit way to return storage
+to a specific pool using <tt>operator delete</tt>.
+I.e., the only way to release storage is by using <tt>operator delete</tt>
+like this:
+<PRE>delete tptr1;
+delete tptr2;</PRE>
+What we would like to happen is for the first <tt>delete</tt>
+to invoke the <tt>Release</tt> member function of the pool <tt>p</tt>,
+and for the second <tt>delete</tt>
+to invoke the <tt>Release</tt> function of the pool <tt>q</tt>.
+<P>
+One way to achieve this is to keep track explicitly of the pool
+from which the memory was acquired
+in each block of dynamically allocated storage.
+We can accomplish this by attaching to each block
+a <em>tag</em> which contains a pointer to a pool to which it belongs.
+Program&nbsp;<A HREF="page419.html#progpool10c" tppabs="http://www.brpreiss.com/books/opus4/html/page419.html#progpool10c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> shows how this can be done.
+<P>
+<P><A NAME="30488">&#160;</A><A NAME="progpool10c">&#160;</A> <IMG WIDTH=575 HEIGHT=561 ALIGN=BOTTOM ALT="program30419" SRC="img1742.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1742.gif"  ><BR>
+<STRONG>Program:</STRONG> Overloading <tt>operator new</tt> and <tt>operator delete</tt><BR>
+<P>
+<P>
+The <tt>Tag</tt> <tt>struct</tt> encapsulates the tag which is attached
+to each block of dynamically allocated storage.
+In this implementation, the tag appears in memory immediately <em>before</em>
+the memory address returned to the caller.
+This means that when <I>N</I> bytes of storage are required,
+ <IMG WIDTH=120 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline68044" SRC="img1743.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1743.gif"  > bytes are actually allocated.
+The tag occupies the first  <IMG WIDTH=85 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline68046" SRC="img1744.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1744.gif"  > bytes.
+However, it is a pointer to the remaining <I>N</I> bytes
+that is returned to the user.
+<P>
+Two versions of <tt>operator new</tt> are defined in Program&nbsp;<A HREF="page419.html#progpool10c" tppabs="http://www.brpreiss.com/books/opus4/html/page419.html#progpool10c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+The first version makes use of the placement syntax described above
+to allow the user to specify the storage pool from which to allocate storage.
+This version saves a pointer to the pool from which the storage is allocated
+in the adjacent tag (lines&nbsp;6-12).
+Notice that the function returns  <IMG WIDTH=52 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline68050" SRC="img1745.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1745.gif"  >
+which is the address of the memory location which immediately follows the tag.
+<P>
+The second version of <tt>operator new</tt> is the version that gets
+invoked when the user does not use the placement syntax to specify the memory
+pool from which to acquire the storage.
+In this case, since no storage pool is specified,
+the standard C library routine <tt>malloc</tt> is called.
+And since no pool has been specified,
+the adjacent tag field is set to zero (lines&nbsp;14-20).
+<P>
+Since every block of dynamically allocated storage will have been tagged,
+the <tt>delete</tt> operator can determine the pool to which the storage
+is to be returned from the tag field.
+As shown in Program&nbsp;<A HREF="page419.html#progpool10c" tppabs="http://www.brpreiss.com/books/opus4/html/page419.html#progpool10c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+<tt>operator delete</tt> obtains a pointer to a <tt>StoragePool</tt>
+from the tag and calls the <tt>Release</tt> member function of that pool
+if the pointer is nonzero.
+If the pointer is zero,
+the <tt>malloc</tt> routine was used to acquire the storage.
+Therefore, the C library routine <tt>free</tt>
+is called to release the storage (lines&nbsp;22-29).
+<P>
+Given that we have defined the operations as shown in Program&nbsp;<A HREF="page419.html#progpool10c" tppabs="http://www.brpreiss.com/books/opus4/html/page419.html#progpool10c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+and that we have at our disposal a concrete storage pool class,
+say <tt>SomePool</tt>,
+we can safely write the following program fragment:
+<PRE>SomePool p, q;
+T* tptr0 = new T;
+T* tptr1 = new (p) T;
+T* tptr2 = new (q) T;
+// ...
+delete tptr0;
+delete tptr1;
+delete tptr2;</PRE>
+Each of the three instances of class <tt>T</tt>
+is allocated in a different memory pool.
+Nevertheless, each object is properly returned
+to the pool from which it came by the <tt>delete</tt> operation!
+<P>
+<HR><A NAME="tex2html7103" HREF="page420.html" tppabs="http://www.brpreiss.com/books/opus4/html/page420.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7101" HREF="page418.html" tppabs="http://www.brpreiss.com/books/opus4/html/page418.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7097" HREF="page418.html" tppabs="http://www.brpreiss.com/books/opus4/html/page418.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7105" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7106" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

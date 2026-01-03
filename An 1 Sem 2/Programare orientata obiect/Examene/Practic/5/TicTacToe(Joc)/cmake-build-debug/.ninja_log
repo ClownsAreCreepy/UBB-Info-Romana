@@ -1,0 +1,84 @@
+# ninja log v6
+415	1494	7721220128193093	CMakeFiles/TicTacToe_Joc_.dir/Repo/Repository.cpp.obj	5423627ef8a97
+2483	7653	7721251376706420	CMakeFiles/TicTacToe_Joc_.dir/TicTacToe_Joc__autogen/mocs_compilation.cpp.obj	f9a776407fa7c812
+9	310	7721253557925746	TicTacToe_Joc__autogen/timestamp	da1a878b1b196afc
+9	310	7721253557925746	TicTacToe_Joc__autogen/mocs_compilation.cpp	da1a878b1b196afc
+9	310	7721253557925746	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/TicTacToe(Joc)/cmake-build-debug/TicTacToe_Joc__autogen/timestamp	da1a878b1b196afc
+9	310	7721253557925746	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/TicTacToe(Joc)/cmake-build-debug/TicTacToe_Joc__autogen/mocs_compilation.cpp	da1a878b1b196afc
+2489	7799	7721251376766403	CMakeFiles/TicTacToe_Joc_.dir/main.cpp.obj	b10ca7b10880fa79
+2499	3915	7721251376863334	CMakeFiles/TicTacToe_Joc_.dir/Test/Teste.cpp.obj	1d59f4b9fe8caaaf
+2494	3967	7721251376809905	CMakeFiles/TicTacToe_Joc_.dir/Service/Service.cpp.obj	2fe09759a76b5e25
+6107	6817	7721253618907867	TicTacToe_Joc_.exe	9e7d7071e8b07789
+2504	7506	7721251376909745	CMakeFiles/TicTacToe_Joc_.dir/GUI/Model.cpp.obj	3fc753c936ffd812
+311	6107	7721253560951369	CMakeFiles/TicTacToe_Joc_.dir/GUI/Window.cpp.obj	71c6774d88162ef6
+21	1750	7721278903128778	TicTacToe_Joc__autogen/timestamp	da1a878b1b196afc
+21	1750	7721278903128778	TicTacToe_Joc__autogen/mocs_compilation.cpp	da1a878b1b196afc
+21	1750	7721278903128778	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/TicTacToe(Joc)/cmake-build-debug/TicTacToe_Joc__autogen/timestamp	da1a878b1b196afc
+21	1750	7721278903128778	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/TicTacToe(Joc)/cmake-build-debug/TicTacToe_Joc__autogen/mocs_compilation.cpp	da1a878b1b196afc
+1758	2487	7721278903822450	CMakeFiles/TicTacToe_Joc_.dir/Repo/Repository.cpp.obj	5423627ef8a97
+1754	5164	7721278903792562	CMakeFiles/TicTacToe_Joc_.dir/main.cpp.obj	b10ca7b10880fa79
+1751	5211	7721278903762425	CMakeFiles/TicTacToe_Joc_.dir/TicTacToe_Joc__autogen/mocs_compilation.cpp.obj	f9a776407fa7c812
+1761	5321	7721278903862441	CMakeFiles/TicTacToe_Joc_.dir/GUI/Window.cpp.obj	71c6774d88162ef6
+5321	5782	7721278939463469	TicTacToe_Joc_.exe	9e7d7071e8b07789
+21	133	7721280595496476	TicTacToe_Joc__autogen/timestamp	da1a878b1b196afc
+21	133	7721280595496476	TicTacToe_Joc__autogen/mocs_compilation.cpp	da1a878b1b196afc
+21	133	7721280595496476	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/TicTacToe(Joc)/cmake-build-debug/TicTacToe_Joc__autogen/timestamp	da1a878b1b196afc
+21	133	7721280595496476	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/TicTacToe(Joc)/cmake-build-debug/TicTacToe_Joc__autogen/mocs_compilation.cpp	da1a878b1b196afc
+133	3343	7721280596611961	CMakeFiles/TicTacToe_Joc_.dir/GUI/Window.cpp.obj	71c6774d88162ef6
+3343	3815	7721280628708245	TicTacToe_Joc_.exe	9e7d7071e8b07789
+22	1615	7721282394929882	TicTacToe_Joc__autogen/timestamp	da1a878b1b196afc
+22	1615	7721282394929882	TicTacToe_Joc__autogen/mocs_compilation.cpp	da1a878b1b196afc
+22	1615	7721282394929882	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/TicTacToe(Joc)/cmake-build-debug/TicTacToe_Joc__autogen/timestamp	da1a878b1b196afc
+22	1615	7721282394929882	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/TicTacToe(Joc)/cmake-build-debug/TicTacToe_Joc__autogen/mocs_compilation.cpp	da1a878b1b196afc
+1616	4997	7721282395545004	CMakeFiles/TicTacToe_Joc_.dir/TicTacToe_Joc__autogen/mocs_compilation.cpp.obj	f9a776407fa7c812
+1619	5010	7721282395575005	CMakeFiles/TicTacToe_Joc_.dir/main.cpp.obj	b10ca7b10880fa79
+1622	5178	7721282395615023	CMakeFiles/TicTacToe_Joc_.dir/GUI/Window.cpp.obj	71c6774d88162ef6
+5178	5632	7721282431172461	TicTacToe_Joc_.exe	9e7d7071e8b07789
+26	1615	7721283833084185	TicTacToe_Joc__autogen/timestamp	da1a878b1b196afc
+26	1615	7721283833084185	TicTacToe_Joc__autogen/mocs_compilation.cpp	da1a878b1b196afc
+26	1615	7721283833084185	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/TicTacToe(Joc)/cmake-build-debug/TicTacToe_Joc__autogen/timestamp	da1a878b1b196afc
+26	1615	7721283833084185	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/TicTacToe(Joc)/cmake-build-debug/TicTacToe_Joc__autogen/mocs_compilation.cpp	da1a878b1b196afc
+1616	4903	7721283833644257	CMakeFiles/TicTacToe_Joc_.dir/TicTacToe_Joc__autogen/mocs_compilation.cpp.obj	f9a776407fa7c812
+1623	4941	7721283833719305	CMakeFiles/TicTacToe_Joc_.dir/GUI/Window.cpp.obj	71c6774d88162ef6
+1619	4991	7721283833684242	CMakeFiles/TicTacToe_Joc_.dir/main.cpp.obj	b10ca7b10880fa79
+4991	5403	7721283867399181	TicTacToe_Joc_.exe	9e7d7071e8b07789
+32	152	7721284083450999	TicTacToe_Joc__autogen/timestamp	da1a878b1b196afc
+32	152	7721284083450999	TicTacToe_Joc__autogen/mocs_compilation.cpp	da1a878b1b196afc
+32	152	7721284083450999	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/TicTacToe(Joc)/cmake-build-debug/TicTacToe_Joc__autogen/timestamp	da1a878b1b196afc
+32	152	7721284083450999	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/TicTacToe(Joc)/cmake-build-debug/TicTacToe_Joc__autogen/mocs_compilation.cpp	da1a878b1b196afc
+153	2933	7721284084655412	CMakeFiles/TicTacToe_Joc_.dir/GUI/Window.cpp.obj	71c6774d88162ef6
+2933	3324	7721284112452746	TicTacToe_Joc_.exe	9e7d7071e8b07789
+7	1585	7721284489988685	TicTacToe_Joc__autogen/timestamp	da1a878b1b196afc
+7	1585	7721284489988685	TicTacToe_Joc__autogen/mocs_compilation.cpp	da1a878b1b196afc
+7	1585	7721284489988685	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/TicTacToe(Joc)/cmake-build-debug/TicTacToe_Joc__autogen/timestamp	da1a878b1b196afc
+7	1585	7721284489988685	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/TicTacToe(Joc)/cmake-build-debug/TicTacToe_Joc__autogen/mocs_compilation.cpp	da1a878b1b196afc
+1585	4824	7721284490539623	CMakeFiles/TicTacToe_Joc_.dir/TicTacToe_Joc__autogen/mocs_compilation.cpp.obj	f9a776407fa7c812
+1588	4840	7721284490569028	CMakeFiles/TicTacToe_Joc_.dir/main.cpp.obj	b10ca7b10880fa79
+1591	4904	7721284490599021	CMakeFiles/TicTacToe_Joc_.dir/GUI/Window.cpp.obj	71c6774d88162ef6
+4904	5323	7721284523731259	TicTacToe_Joc_.exe	9e7d7071e8b07789
+35	1980	7721301329122061	TicTacToe_Joc__autogen/timestamp	da1a878b1b196afc
+35	1980	7721301329122061	TicTacToe_Joc__autogen/mocs_compilation.cpp	da1a878b1b196afc
+35	1980	7721301329122061	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/TicTacToe(Joc)/cmake-build-debug/TicTacToe_Joc__autogen/timestamp	da1a878b1b196afc
+35	1980	7721301329122061	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/TicTacToe(Joc)/cmake-build-debug/TicTacToe_Joc__autogen/mocs_compilation.cpp	da1a878b1b196afc
+1981	5732	7721301329772159	CMakeFiles/TicTacToe_Joc_.dir/TicTacToe_Joc__autogen/mocs_compilation.cpp.obj	f9a776407fa7c812
+2073	5748	7721301330697528	CMakeFiles/TicTacToe_Joc_.dir/main.cpp.obj	b10ca7b10880fa79
+2077	5758	7721301330737478	CMakeFiles/TicTacToe_Joc_.dir/GUI/Window.cpp.obj	71c6774d88162ef6
+5758	8233	7721301367549847	TicTacToe_Joc_.exe	9e7d7071e8b07789
+22	137	7721301472653333	TicTacToe_Joc__autogen/timestamp	da1a878b1b196afc
+22	137	7721301472653333	TicTacToe_Joc__autogen/mocs_compilation.cpp	da1a878b1b196afc
+22	137	7721301472653333	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/TicTacToe(Joc)/cmake-build-debug/TicTacToe_Joc__autogen/timestamp	da1a878b1b196afc
+22	137	7721301472653333	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/TicTacToe(Joc)/cmake-build-debug/TicTacToe_Joc__autogen/mocs_compilation.cpp	da1a878b1b196afc
+137	3127	7721301473798523	CMakeFiles/TicTacToe_Joc_.dir/GUI/Window.cpp.obj	71c6774d88162ef6
+3127	3556	7721301503698540	TicTacToe_Joc_.exe	9e7d7071e8b07789
+23	147	7721301548992482	TicTacToe_Joc__autogen/timestamp	da1a878b1b196afc
+23	147	7721301548992482	TicTacToe_Joc__autogen/mocs_compilation.cpp	da1a878b1b196afc
+23	147	7721301548992482	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/TicTacToe(Joc)/cmake-build-debug/TicTacToe_Joc__autogen/timestamp	da1a878b1b196afc
+23	147	7721301548992482	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/TicTacToe(Joc)/cmake-build-debug/TicTacToe_Joc__autogen/mocs_compilation.cpp	da1a878b1b196afc
+147	3444	7721301550229200	CMakeFiles/TicTacToe_Joc_.dir/GUI/Window.cpp.obj	71c6774d88162ef6
+3445	3864	7721301583200749	TicTacToe_Joc_.exe	9e7d7071e8b07789
+34	200	7721301651913314	TicTacToe_Joc__autogen/timestamp	da1a878b1b196afc
+34	200	7721301651913314	TicTacToe_Joc__autogen/mocs_compilation.cpp	da1a878b1b196afc
+34	200	7721301651913314	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/TicTacToe(Joc)/cmake-build-debug/TicTacToe_Joc__autogen/timestamp	da1a878b1b196afc
+34	200	7721301651913314	D:/C,C++/CLion 2024.3.4/Projects/Examene/Practic/Practice/TicTacToe(Joc)/cmake-build-debug/TicTacToe_Joc__autogen/mocs_compilation.cpp	da1a878b1b196afc
+200	3215	7721301653582166	CMakeFiles/TicTacToe_Joc_.dir/GUI/Window.cpp.obj	71c6774d88162ef6
+3215	3636	7721301683737716	TicTacToe_Joc_.exe	9e7d7071e8b07789

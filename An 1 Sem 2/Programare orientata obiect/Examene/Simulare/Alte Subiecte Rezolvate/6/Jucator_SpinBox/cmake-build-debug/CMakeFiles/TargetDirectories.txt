@@ -1,0 +1,5 @@
+D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/Jucator_SpinBox/cmake-build-debug/CMakeFiles/Jucator_SpinBox.dir
+D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/Jucator_SpinBox/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/Jucator_SpinBox/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/Jucator_SpinBox/cmake-build-debug/CMakeFiles/Jucator_SpinBox_autogen_timestamp_deps.dir
+D:/C,C++/CLion 2024.3.4/Projects/Examene/Simulare/Practice/Jucator_SpinBox/cmake-build-debug/CMakeFiles/Jucator_SpinBox_autogen.dir

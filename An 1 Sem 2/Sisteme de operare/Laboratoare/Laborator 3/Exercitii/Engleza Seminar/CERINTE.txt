@@ -1,0 +1,15 @@
+1. Find all the empty lines from a file.
+
+2. Find all the entries from the /etc/passwd file that have at least 22 vowels on the 5th field.
+
+3. Write a sed command that removes all fields except the 5th one from the /etc/passwd file
+
+4. Write a sed command to swap consecutive lowercase letters
+
+5. Write a sed command that replaces every occurrence of “ab” with “ba” and every occurrence of
+“ba” with “ab”
+
+6. From a comma-separated values file with 2 fields, extract the first 2 consecutive letters from
+the first field, combine them with the contents of the second field, and create email addresses
+ending with “.com”. If there aren’t at least 2 consecutive letters in the first field of a line, leave
+the line unchanged.

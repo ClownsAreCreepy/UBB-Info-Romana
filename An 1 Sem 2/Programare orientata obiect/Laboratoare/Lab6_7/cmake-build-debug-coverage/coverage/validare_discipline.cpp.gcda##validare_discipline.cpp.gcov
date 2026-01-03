@@ -1,0 +1,260 @@
+        -:    0:Source:D:/C,C++/CLion 2024.3.4/Projects/Lab6_7/Valid/validare_discipline.cpp
+        -:    0:Graph:D:\C,C++\CLion 2024.3.4\Projects\Lab6_7\cmake-build-debug-coverage\CMakeFiles\Lab6_7.dir\Valid\validare_discipline.cpp.gcno
+        -:    0:Data:D:\C,C++\CLion 2024.3.4\Projects\Lab6_7\cmake-build-debug-coverage\CMakeFiles\Lab6_7.dir\Valid\validare_discipline.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include "validare_discipline.h"
+        -:    2:
+function _ZNK13BaseException4whatEv called 6 returned 100% blocks executed 100%
+        6:    3:const char *BaseException::what() const noexcept {
+        6:    4:    return mesaj.c_str();
+        6:    4-block  0
+call    0 returned 6
+        -:    5:}
+        -:    6:
+function _ZNK13BaseException8getMesajB5cxx11Ev called 31 returned 100% blocks executed 100%
+       31:    7:const string &BaseException::getMesaj() const noexcept {
+       31:    8:    return mesaj;
+       31:    8-block  0
+        -:    9:}
+        -:   10:
+        -:   11:
+function _ZN9Validator10validTypesB5cxx11Ev called 137 returned 100% blocks executed 62%
+      137:   12:const unordered_set<string> &Validator::validTypes() {
+      139:   13:    static const unordered_set<string> t = {"Real", "Uman", "??"};
+      137:   13-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 136
+        1:   13-block  1
+call    2 returned 1
+branch  3 taken 1 (fallthrough)
+branch  4 taken 0
+        1:   13-block  2
+        1:   13-block  3
+call    5 returned 1
+branch  6 taken 1 (fallthrough)
+branch  7 taken 0 (throw)
+        1:   13-block  4
+call    8 returned 1
+call    9 returned 1
+        1:   13-block  5
+    $$$$$:   13-block  6
+    $$$$$:   13-block  7
+    $$$$$:   13-block  8
+    $$$$$:   13-block  9
+    $$$$$:   13-block 10
+branch 10 never executed (fallthrough)
+branch 11 never executed
+    $$$$$:   13-block 11
+call   12 never executed
+      137:   14:    return t;
+      137:   14-block  0
+      137:   14-block  1
+        -:   15:}
+        -:   16:
+function _ZN9Validator20valideaza_disciplinaERK10Disciplina called 137 returned 98% blocks executed 91%
+      137:   17:void Validator::valideaza_disciplina(const Disciplina &d) {
+      137:   18:    string mesaj;
+      137:   18-block  0
+call    0 returned 137
+        -:   19:
+      137:   20:    if (d.getNume().empty())
+call    0 returned 137
+call    1 returned 137
+branch  2 taken 3 (fallthrough)
+branch  3 taken 134
+        3:   21:        mesaj += "Numele nu poate fi gol!\n";
+        3:   21-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   22:
+      137:   23:    if (d.getOre() <= 0)
+      137:   23-block  0
+call    0 returned 137
+branch  1 taken 2 (fallthrough)
+branch  2 taken 135
+        2:   24:        mesaj += "Numarul de ore trebuie sa fie pozitiv!\n";
+        2:   24-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   25:
+      137:   26:    if (!validTypes().contains(d.getTip()))
+      137:   26-block  0
+call    0 returned 137
+branch  1 taken 137 (fallthrough)
+branch  2 taken 0 (throw)
+      137:   26-block  1
+call    3 returned 137
+call    4 returned 137
+branch  5 taken 137 (fallthrough)
+branch  6 taken 0 (throw)
+      137:   26-block  2
+branch  7 taken 2 (fallthrough)
+branch  8 taken 135
+        2:   27:        mesaj += "Tipul poate fi doar 'Uman', 'Real' sau '??'!\n";
+        2:   27-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   28:
+      137:   29:    if (d.getProfesor().empty())
+      137:   29-block  0
+call    0 returned 137
+call    1 returned 137
+branch  2 taken 2 (fallthrough)
+branch  3 taken 135
+        2:   30:        mesaj += "Profesorul nu poate fi gol!\n";
+        2:   30-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   31:
+        -:   32:
+      137:   33:    if (!mesaj.empty()) {
+      137:   33-block  0
+call    0 returned 137
+branch  1 taken 3 (fallthrough)
+branch  2 taken 134
+        3:   34:        throw ValidationException(mesaj);
+        3:   34-block  0
+call    0 returned 3
+call    1 returned 3
+branch  2 taken 3 (fallthrough)
+branch  3 taken 0 (throw)
+        3:   34-block  1
+call    4 returned 3
+call    5 returned 3
+call    6 returned 3
+    $$$$$:   34-block  2
+    $$$$$:   34-block  3
+call    7 never executed
+        -:   35:    }
+      137:   36:}
+      134:   36-block  0
+call    0 returned 134
+        3:   36-block  1
+call    1 returned 3
+        -:   37:
+function _ZN9Validator15valideaza_indexEiy called 37 returned 62% blocks executed 65%
+       37:   38:void Validator::valideaza_index(int index, size_t maxim) {
+       37:   39:    if (index < 0)
+       37:   39-block  0
+branch  0 taken 4 (fallthrough)
+branch  1 taken 33
+       12:   40:        throw RepoException("Elementele sunt doar pe pozitii pozitive!");
+        4:   40-block  0
+call    0 returned 4
+        4:   40-block  1
+call    1 returned 4
+branch  2 taken 4 (fallthrough)
+branch  3 taken 0 (throw)
+        4:   40-block  2
+call    4 returned 4
+call    5 returned 4
+        4:   40-block  3
+call    6 returned 0
+    $$$$$:   40-block  4
+    $$$$$:   40-block  5
+    $$$$$:   40-block  6
+call    7 never executed
+       33:   41:    if (static_cast<size_t>(index) >= maxim)
+       33:   41-block  0
+branch  0 taken 10 (fallthrough)
+branch  1 taken 23
+       30:   42:        throw RepoException("Disciplina nu a fost gasita!");
+       10:   42-block  0
+call    0 returned 10
+       10:   42-block  1
+call    1 returned 10
+branch  2 taken 10 (fallthrough)
+branch  3 taken 0 (throw)
+       10:   42-block  2
+call    4 returned 10
+call    5 returned 10
+       10:   42-block  3
+call    6 returned 0
+    $$$$$:   42-block  4
+    $$$$$:   42-block  5
+    $$$$$:   42-block  6
+call    7 never executed
+       23:   43:}
+       23:   43-block  0
+        -:   44:
+function _ZN9Validator24valideaza_index_contractEiy called 4 returned 50% blocks executed 65%
+        4:   45:void Validator::valideaza_index_contract(int index, size_t maxim) {
+        4:   46:    if (index < 0)
+        4:   46-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 3
+        3:   47:        throw ContractException("Nu se poate genera un contract cu un numar negativ de discipline!");
+        1:   47-block  0
+call    0 returned 1
+        1:   47-block  1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   47-block  2
+call    4 returned 1
+call    5 returned 1
+        1:   47-block  3
+call    6 returned 0
+    $$$$$:   47-block  4
+    $$$$$:   47-block  5
+    $$$$$:   47-block  6
+call    7 never executed
+        3:   48:    if (static_cast<size_t>(index) > maxim)
+        3:   48-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 2
+        3:   49:        throw ContractException("Nu exista atatea discipline in catalog!");
+        1:   49-block  0
+call    0 returned 1
+        1:   49-block  1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   49-block  2
+call    4 returned 1
+call    5 returned 1
+        1:   49-block  3
+call    6 returned 0
+    $$$$$:   49-block  4
+    $$$$$:   49-block  5
+    $$$$$:   49-block  6
+call    7 never executed
+        2:   50:}
+        2:   50-block  0
+        -:   51:
+function _ZN9Validator18valideaza_ofstreamERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 2 returned 50% blocks executed 73%
+        2:   52:void Validator::valideaza_ofstream(const string &file_path) {
+        2:   53:    if (std::ofstream test(file_path); !test.is_open())
+        2:   53-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        2:   53-block  1
+call    3 returned 2
+branch  4 taken 1 (fallthrough)
+branch  5 taken 1
+        4:   54:        throw FileException("Nu s-a putut scrie in fisier!");
+        1:   54-block  0
+call    0 returned 1
+        1:   54-block  1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   54-block  2
+call    4 returned 1
+call    5 returned 1
+        1:   54-block  3
+call    6 returned 1
+        1:   54-block  4
+call    7 returned 1
+    $$$$$:   54-block  5
+    $$$$$:   54-block  6
+    $$$$$:   54-block  7
+call    8 never executed
+        1:   54-block  8
+call    9 returned 1
+        1:   55:}

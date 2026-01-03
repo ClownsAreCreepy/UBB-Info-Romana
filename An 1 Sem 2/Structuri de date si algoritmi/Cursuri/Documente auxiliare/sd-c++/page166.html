@@ -1,0 +1,63 @@
+<HTML>
+<HEAD>
+<TITLE>Ordered Lists and Sorted Lists</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html3951" HREF="page167.html" tppabs="http://www.brpreiss.com/books/opus4/html/page167.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3949" HREF="book.html" tppabs="http://www.brpreiss.com/books/opus4/html/book.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3943" HREF="page165.html" tppabs="http://www.brpreiss.com/books/opus4/html/page165.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3953" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3954" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION008000000000000000000">Ordered Lists and Sorted Lists</A></H1>
+<P>
+<A NAME="chaplists">&#160;</A>
+<P>
+The most simple,
+yet one of the most versatile containers is the <em>list</em><A NAME=9298>&#160;</A>.
+In this chapter we consider lists as <em>abstract data types</em>.
+A list is a series of items.
+In general,
+we can insert and remove items from a list
+and we can visit all the items in a list
+in the order in which they appear.
+<P>
+In this chapter we consider two kinds of lists--ordered lists and sorted lists.
+In an <em>ordered list</em><A NAME=9301>&#160;</A>
+the order of the items is significant.
+Consider a list of the titles of the chapters in this book.
+The order of the items in the list
+corresponds to the order in which they appear in the book.
+However, since the chapter titles are not sorted alphabetically,
+we cannot consider the list to be sorted.
+Since it is possible to change the order of the chapters in book,
+we must be able to do the same with the items of the list.
+As a result,
+we may insert an item into an ordered list at any position.
+<P>
+On the other hand,
+a <em>sorted list</em><A NAME=9303>&#160;</A>
+is one in which the order of the items is defined by some collating sequence.
+For example,
+the index of this book is a sorted list.
+The items in the index are sorted alphabetically.
+When an item is inserted into a sorted list,
+it must be inserted at the correct position.
+<P>
+The list abstractions can be implemented in many ways.
+In this chapter we examine implementations
+based on the <em>array</em> and the <em>linked list</em>
+foundational data structures presented in Chapter&nbsp;<A HREF="page79.html#chapfds" tppabs="http://www.brpreiss.com/books/opus4/html/page79.html#chapfds"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html3955" HREF="page167.html#SECTION008100000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page167.html#SECTION008100000000000000000">Ordered Lists</A>
+<LI> <A NAME="tex2html3956" HREF="page188.html#SECTION008200000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page188.html#SECTION008200000000000000000">Sorted Lists</A>
+<LI> <A NAME="tex2html3957" HREF="page201.html#SECTION008300000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page201.html#SECTION008300000000000000000">Exercises</A>
+<LI> <A NAME="tex2html3958" HREF="page202.html#SECTION008400000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page202.html#SECTION008400000000000000000">Projects</A>
+</UL>
+<HR><A NAME="tex2html3951" HREF="page167.html" tppabs="http://www.brpreiss.com/books/opus4/html/page167.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3949" HREF="book.html" tppabs="http://www.brpreiss.com/books/opus4/html/book.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3943" HREF="page165.html" tppabs="http://www.brpreiss.com/books/opus4/html/page165.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3953" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3954" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

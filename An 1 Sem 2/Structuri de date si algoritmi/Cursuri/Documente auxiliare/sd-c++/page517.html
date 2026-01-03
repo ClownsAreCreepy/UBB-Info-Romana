@@ -1,0 +1,74 @@
+<HTML>
+<HEAD>
+<TITLE>Implementation</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html8300" HREF="page518.html" tppabs="http://www.brpreiss.com/books/opus4/html/page518.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8298" HREF="page516.html" tppabs="http://www.brpreiss.com/books/opus4/html/page516.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8294" HREF="page516.html" tppabs="http://www.brpreiss.com/books/opus4/html/page516.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8302" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8303" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0016811000000000000000">Implementation</A></H3>
+<P>
+Program&nbsp;<A HREF="page517.html#progradix1h" tppabs="http://www.brpreiss.com/books/opus4/html/page517.html#progradix1h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives the declaration
+of the <tt>BucketSorter</tt> class.
+Notice that the <tt>BucketSorter</tt> class is not a template.
+This bucker sorter is designed to sort specifically
+an array of <tt>unsigned int</tt>s.
+The <tt>BucketSorter</tt> class contains two member variables,
+<tt>m</tt> and <tt>count</tt>.
+The unsigned integer <tt>m</tt> simply keeps track of the size of the universe.
+The <tt>count</tt> variable is an array of unsigned integers
+used to count the number of occurrences of each element of the universal set.
+<P>
+<P><A NAME="45677">&#160;</A><A NAME="progradix1h">&#160;</A> <IMG WIDTH=575 HEIGHT=200 ALIGN=BOTTOM ALT="program45590" SRC="img2221.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2221.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>BucketSorter</tt> Class Definition<BR>
+<P>
+<P>
+The constructor for the <tt>BucketSorter</tt> class takes a single argument
+which specifies the size of the universal set.
+The variable <tt>m</tt> is set to the specified value,
+and the <tt>count</tt> array is initialized to have the required size.
+<P>
+The <tt>DoSort</tt> routine of the <tt>BucketSorter</tt>
+is defined in Program&nbsp;<A HREF="page517.html#progradix1c" tppabs="http://www.brpreiss.com/books/opus4/html/page517.html#progradix1c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+This routine is passed a reference to the array of data to be sorted.
+<tt>DoSort</tt> begins by setting all of the counters to zero (lines&nbsp;3-4).
+This can clearly be done in <I>O</I>(<I>m</I>) time.
+<P>
+<P><A NAME="45681">&#160;</A><A NAME="progradix1c">&#160;</A> <IMG WIDTH=575 HEIGHT=200 ALIGN=BOTTOM ALT="program45608" SRC="img2222.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2222.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>BucketSorter</tt> Class <tt>DoSort</tt> Member Function Definition<BR>
+<P>
+<P>
+Next, a single pass is made through the data
+to count the number of occurrences of each element of the universe (lines&nbsp;5-6).
+Since each element of the array is examined exactly once,
+the running time is <I>O</I>(<I>n</I>).
+<P>
+In the final step, the sorted output sequence is created (lines&nbsp;7-9).
+Since the output sequence contains exactly <I>n</I> items,
+the body of the inner loop (line&nbsp;9) is executed exactly <I>n</I> times.
+During the  <IMG WIDTH=17 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58387" SRC="img77.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img77.gif"  > iteration of the outer loop (line&nbsp;7),
+the loop termination test of the inner loop (line&nbsp;8)
+is evaluated  <IMG WIDTH=82 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline70585" SRC="img2223.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2223.gif"  > times.
+As a result, the total running time of the final step is <I>O</I>(<I>m</I>+<I>n</I>).
+<P>
+Thus, the running time of the bucket sort routine is <I>O</I>(<I>m</I>+<I>n</I>).
+Note that if <I>m</I>=<I>O</I>(<I>n</I>),
+the running time for bucket sort is <I>O</I>(<I>n</I>).
+I.e., the bucket sort algorithm is a <em>linear-time</em> sorting algorithm!
+Bucket sort breaks the  <IMG WIDTH=67 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60695" SRC="img533.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img533.gif"  > bound associated
+with sorting algorithms that use binary comparisons
+because bucket sort does not do any binary comparisons.
+The cost associated with breaking the  <IMG WIDTH=67 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60695" SRC="img533.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img533.gif"  > running time bound
+is the <I>O</I>(<I>m</I>) space required for the array of counters.
+Consequently, bucket sort is practical only for small <I>m</I>.
+E.g., to sort 16-bit integers
+using bucket sort requires the use of an array of  <IMG WIDTH=83 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline70603" SRC="img2224.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2224.gif"  > counters.
+<P>
+<HR><A NAME="tex2html8300" HREF="page518.html" tppabs="http://www.brpreiss.com/books/opus4/html/page518.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8298" HREF="page516.html" tppabs="http://www.brpreiss.com/books/opus4/html/page516.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8294" HREF="page516.html" tppabs="http://www.brpreiss.com/books/opus4/html/page516.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8302" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8303" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

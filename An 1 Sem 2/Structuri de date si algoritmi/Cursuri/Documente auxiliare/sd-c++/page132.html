@@ -1,0 +1,38 @@
+<HTML>
+<HEAD>
+<TITLE>Array Implementation</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html3540" HREF="page133.html" tppabs="http://www.brpreiss.com/books/opus4/html/page133.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3538" HREF="page131.html" tppabs="http://www.brpreiss.com/books/opus4/html/page131.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3532" HREF="page131.html" tppabs="http://www.brpreiss.com/books/opus4/html/page131.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3542" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3543" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION007110000000000000000">Array Implementation</A></H2>
+<P>
+This section describes an array-based implementation of stacks.
+Program&nbsp;<A HREF="page132.html#progstack2h" tppabs="http://www.brpreiss.com/books/opus4/html/page132.html#progstack2h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives the declaration
+of the <tt>StackAsArray</tt> class.
+The <tt>StackAsArray</tt> class is a concrete object class.
+Therefore, its definition provides an implementation for
+all of the inherited member functions which
+are pure in the base class definition.
+Most of the function prototypes
+have been elided from Program&nbsp;<A HREF="page132.html#progstack2h" tppabs="http://www.brpreiss.com/books/opus4/html/page132.html#progstack2h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> for the sake of brevity.
+<P>
+<P><A NAME="6272">&#160;</A><A NAME="progstack2h">&#160;</A> <IMG WIDTH=575 HEIGHT=371 ALIGN=BOTTOM ALT="program5811" SRC="img706.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img706.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>StackAsArray</tt> Class Definition<BR>
+<P><BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html3544" HREF="page133.html#SECTION007111000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page133.html#SECTION007111000000000000000">Member Variables</A>
+<LI> <A NAME="tex2html3545" HREF="page134.html#SECTION007112000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page134.html#SECTION007112000000000000000">Constructor and Destructor</A>
+<LI> <A NAME="tex2html3546" HREF="page135.html#SECTION007113000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page135.html#SECTION007113000000000000000"><tt>Push</tt>, <tt>Pop</tt>, and <tt>Top</tt> Member Functions</A>
+<LI> <A NAME="tex2html3547" HREF="page136.html#SECTION007114000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page136.html#SECTION007114000000000000000">The <tt>Accept</tt> Member Function</A>
+<LI> <A NAME="tex2html3548" HREF="page137.html#SECTION007115000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page137.html#SECTION007115000000000000000">Iterator</A>
+</UL>
+<HR><A NAME="tex2html3540" HREF="page133.html" tppabs="http://www.brpreiss.com/books/opus4/html/page133.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3538" HREF="page131.html" tppabs="http://www.brpreiss.com/books/opus4/html/page131.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3532" HREF="page131.html" tppabs="http://www.brpreiss.com/books/opus4/html/page131.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3542" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3543" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

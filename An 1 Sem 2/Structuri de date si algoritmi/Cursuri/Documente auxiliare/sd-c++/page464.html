@@ -1,0 +1,94 @@
+<HTML>
+<HEAD>
+<TITLE>Example-Matrix Multiplication</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html7652" HREF="page465.html" tppabs="http://www.brpreiss.com/books/opus4/html/page465.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7650" HREF="page455.html" tppabs="http://www.brpreiss.com/books/opus4/html/page455.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7646" HREF="page463.html" tppabs="http://www.brpreiss.com/books/opus4/html/page463.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7654" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7655" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0015350000000000000000">Example-Matrix Multiplication</A></H2>
+<A NAME="secalgsmatrix">&#160;</A>
+<P>
+Consider the problem of computing the product of two matrices.
+I.e., given two  <IMG WIDTH=38 HEIGHT=14 ALIGN=MIDDLE ALT="tex2html_wrap_inline68887" SRC="img1918.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1918.gif"  > matrices, <I>A</I> and <I>B</I>,
+compute the  <IMG WIDTH=38 HEIGHT=14 ALIGN=MIDDLE ALT="tex2html_wrap_inline68887" SRC="img1918.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1918.gif"  > matrix  <IMG WIDTH=77 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline68895" SRC="img1919.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1919.gif"  >,
+the elements of which are given by
+<P><A NAME="eqnalgsmatmul">&#160;</A> <IMG WIDTH=500 HEIGHT=46 ALIGN=BOTTOM ALT="equation33138" SRC="img1920.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1920.gif"  ><P>
+Section&nbsp;<A HREF="page104.html#secfdsmatmul" tppabs="http://www.brpreiss.com/books/opus4/html/page104.html#secfdsmatmul"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> shows that the direct implementation
+of Equation&nbsp;<A HREF="page464.html#eqnalgsmatmul" tppabs="http://www.brpreiss.com/books/opus4/html/page464.html#eqnalgsmatmul"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> results in an  <IMG WIDTH=39 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59491" SRC="img332.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img332.gif"  > running time.
+In this section we show that the use of a divide-and-conquer
+strategy results in a slightly better asymptotic running time.
+<P>
+To implement a divide-and-conquer algorithm
+we must break the given problem into several subproblems
+that are similar to the original one.
+In this instance we view each of the  <IMG WIDTH=38 HEIGHT=14 ALIGN=MIDDLE ALT="tex2html_wrap_inline68887" SRC="img1918.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1918.gif"  > matrices
+as a  <IMG WIDTH=34 HEIGHT=20 ALIGN=MIDDLE ALT="tex2html_wrap_inline68901" SRC="img1921.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1921.gif"  > matrix,
+the elements of which are  <IMG WIDTH=65 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline68903" SRC="img1922.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1922.gif"  > submatrices.
+Thus, the original matrix multiplication,
+ <IMG WIDTH=77 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline68895" SRC="img1919.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1919.gif"  > can be written as
+<P> <IMG WIDTH=407 HEIGHT=38 ALIGN=BOTTOM ALT="displaymath68883" SRC="img1923.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1923.gif"  ><P>
+where each  <IMG WIDTH=25 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline68907" SRC="img1924.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1924.gif"  >,  <IMG WIDTH=26 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline68909" SRC="img1925.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1925.gif"  > and  <IMG WIDTH=24 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline68911" SRC="img1926.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1926.gif"  >
+is an  <IMG WIDTH=65 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline68903" SRC="img1922.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1922.gif"  > matrix.
+<P>
+From Equation&nbsp;<A HREF="page464.html#eqnalgsmatmul" tppabs="http://www.brpreiss.com/books/opus4/html/page464.html#eqnalgsmatmul"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> we get that
+the result submatrices can be computed as follows:
+<P> <IMG WIDTH=500 HEIGHT=87 ALIGN=BOTTOM ALT="eqnarray33178" SRC="img1927.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1927.gif"  ><P>
+Here the symbols + and  <IMG WIDTH=8 HEIGHT=14 ALIGN=MIDDLE ALT="tex2html_wrap_inline61394" SRC="img724.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img724.gif"  > are taken to mean
+addition and multiplication (respectively) of
+ <IMG WIDTH=65 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline68903" SRC="img1922.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1922.gif"  > matrices.
+<P>
+In order to compute the original  <IMG WIDTH=38 HEIGHT=14 ALIGN=MIDDLE ALT="tex2html_wrap_inline68887" SRC="img1918.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1918.gif"  > matrix multiplication
+we must compute eight  <IMG WIDTH=65 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline68903" SRC="img1922.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1922.gif"  > matrix products
+(<em>divide</em>)
+followed by four  <IMG WIDTH=65 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline68903" SRC="img1922.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1922.gif"  > matrix sums
+(<em>conquer</em>).
+Since matrix addition is an  <IMG WIDTH=40 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59179" SRC="img261.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img261.gif"  > operation,
+the total running time for the multiplication operation
+is given by the recurrence:
+<P><A NAME="eqnalgsmatmul2">&#160;</A> <IMG WIDTH=500 HEIGHT=48 ALIGN=BOTTOM ALT="equation33214" SRC="img1928.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1928.gif"  ><P>
+Note that Equation&nbsp;<A HREF="page464.html#eqnalgsmatmul2" tppabs="http://www.brpreiss.com/books/opus4/html/page464.html#eqnalgsmatmul2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> is an instance of the general
+recurrence given in Equation&nbsp;<A HREF="page459.html#eqnalgsdandq" tppabs="http://www.brpreiss.com/books/opus4/html/page459.html#eqnalgsdandq"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+In this case, <I>a</I>=8, <I>b</I>=2, and <I>k</I>=2.
+We can obtain the solution directly from Equation&nbsp;<A HREF="page463.html#eqnalgsdandqsoln" tppabs="http://www.brpreiss.com/books/opus4/html/page463.html#eqnalgsdandqsoln"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+Since  <IMG WIDTH=42 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline68825" SRC="img1902.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1902.gif"  >, the total running time is
+ <IMG WIDTH=216 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline68937" SRC="img1929.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1929.gif"  >.
+But this no better than the original, direct algorithm!
+<P>
+Fortunately,
+it turns out that one of the eight matrix multiplications is redundant.
+Consider the following series of seven
+ <IMG WIDTH=65 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline68903" SRC="img1922.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1922.gif"  > matrices:
+<P> <IMG WIDTH=500 HEIGHT=160 ALIGN=BOTTOM ALT="eqnarray33228" SRC="img1930.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1930.gif"  ><P>
+Each equation above has only one multiplication.
+Ten additions and seven multiplications are required
+to compute  <IMG WIDTH=21 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline68941" SRC="img1931.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1931.gif"  > through  <IMG WIDTH=20 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline68943" SRC="img1932.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1932.gif"  >.
+Given  <IMG WIDTH=21 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline68941" SRC="img1931.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1931.gif"  > through  <IMG WIDTH=20 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline68943" SRC="img1932.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1932.gif"  >,
+we can compute the elements of the product matrix <I>C</I> as follows:
+<P> <IMG WIDTH=500 HEIGHT=87 ALIGN=BOTTOM ALT="eqnarray33254" SRC="img1933.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1933.gif"  ><P>
+Altogether this approach requires seven  <IMG WIDTH=65 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline68903" SRC="img1922.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1922.gif"  >
+matrix multiplications and 18  <IMG WIDTH=65 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline68903" SRC="img1922.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1922.gif"  > additions.
+Therefore, the worst-case running time
+is given by the following recurrence:
+<P><A NAME="eqnalgsmatmul3">&#160;</A> <IMG WIDTH=500 HEIGHT=48 ALIGN=BOTTOM ALT="equation33268" SRC="img1934.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1934.gif"  ><P>
+<P>
+As above, Equation&nbsp;<A HREF="page464.html#eqnalgsmatmul3" tppabs="http://www.brpreiss.com/books/opus4/html/page464.html#eqnalgsmatmul3"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> is an instance of the general
+recurrence given in Equation&nbsp;<A HREF="page459.html#eqnalgsdandq" tppabs="http://www.brpreiss.com/books/opus4/html/page459.html#eqnalgsdandq"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+and we obtain the solution directly from Equation&nbsp;<A HREF="page463.html#eqnalgsdandqsoln" tppabs="http://www.brpreiss.com/books/opus4/html/page463.html#eqnalgsdandqsoln"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+In this case, <I>a</I>=7, <I>b</I>=2 and <I>k</I>=2.
+Therefore,  <IMG WIDTH=42 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline68825" SRC="img1902.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1902.gif"  > and the total running time is
+<P> <IMG WIDTH=328 HEIGHT=19 ALIGN=BOTTOM ALT="displaymath68884" SRC="img1935.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1935.gif"  ><P>
+Note  <IMG WIDTH=122 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline68963" SRC="img1936.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1936.gif"  >.
+Consequently,
+the running time of the divide-and-conquer matrix multiplication strategy
+is  <IMG WIDTH=50 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline68965" SRC="img1937.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1937.gif"  > which is better (asymptotically)
+than the straightforward  <IMG WIDTH=39 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59491" SRC="img332.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img332.gif"  > approach.
+<P>
+<HR><A NAME="tex2html7652" HREF="page465.html" tppabs="http://www.brpreiss.com/books/opus4/html/page465.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7650" HREF="page455.html" tppabs="http://www.brpreiss.com/books/opus4/html/page455.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7646" HREF="page463.html" tppabs="http://www.brpreiss.com/books/opus4/html/page463.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7654" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7655" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

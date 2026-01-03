@@ -1,0 +1,49 @@
+<HTML>
+<HEAD>
+<TITLE>Prepend</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html3082" HREF="page96.html" tppabs="http://www.brpreiss.com/books/opus4/html/page96.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3080" HREF="page88.html" tppabs="http://www.brpreiss.com/books/opus4/html/page88.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3074" HREF="page94.html" tppabs="http://www.brpreiss.com/books/opus4/html/page94.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3084" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3085" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION005270000000000000000"><tt>Prepend</tt></A></H2>
+<P>
+To <em>prepend</em><A NAME=3625>&#160;</A> an element to a linked list
+is to insert that element in front of the first element of the list.
+The prepended list element becomes the new head of the list.
+Program&nbsp;<A HREF="page95.html#proglinklist5c" tppabs="http://www.brpreiss.com/books/opus4/html/page95.html#proglinklist5c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives the algorithm for the
+<tt>Prepend</tt> member function of the <tt>LinkedList&lt;T&gt;</tt> class.
+<P>
+<P><A NAME="3838">&#160;</A><A NAME="proglinklist5c">&#160;</A> <IMG WIDTH=575 HEIGHT=161 ALIGN=BOTTOM ALT="program3629" SRC="img626.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img626.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>LinkedList&lt;T&gt;</tt> Class <tt>Prepend</tt> Function Definition<BR>
+<P>
+<P>
+The <tt>Prepend</tt> function first allocates a new <tt>ListElement&lt;T&gt;</tt>.
+Its <tt>datum</tt> field is initialized with the value to be prepended
+to the list, <tt>item</tt>; and
+the <tt>next</tt> field is made to point to the
+first element of the existing list by initializing it with
+the value of the current <tt>head</tt> pointer.
+If the list is initially empty,
+both <tt>head</tt> and <tt>tail</tt> are made to point at the new element.
+Otherwise, just <tt>head</tt> needs to be updated.
+<P>
+Note, <tt>operator new</tt> calls the constructor for objects of
+class <tt>ListElement&lt;T&gt;</tt>.
+In Section&nbsp;<A HREF="page90.html#secfdslistelem" tppabs="http://www.brpreiss.com/books/opus4/html/page90.html#secfdslistelem"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> the running time of the constructor
+was determined to be  <IMG WIDTH=124 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline61025" SRC="img621.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img621.gif"  >.
+And since the body of the <tt>Prepend</tt> function adds
+only a constant amount of work,
+the running time of the <tt>Prepend</tt> function is also  <IMG WIDTH=124 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline61025" SRC="img621.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img621.gif"  >.
+If <tt>T</tt> is one of the built-in types,
+then its copy constructor does a constant amount of work,
+and the running time of <tt>Prepend</tt> simplifies to <I>O</I>(1).
+<P>
+<HR><A NAME="tex2html3082" HREF="page96.html" tppabs="http://www.brpreiss.com/books/opus4/html/page96.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3080" HREF="page88.html" tppabs="http://www.brpreiss.com/books/opus4/html/page88.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3074" HREF="page94.html" tppabs="http://www.brpreiss.com/books/opus4/html/page94.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3084" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3085" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

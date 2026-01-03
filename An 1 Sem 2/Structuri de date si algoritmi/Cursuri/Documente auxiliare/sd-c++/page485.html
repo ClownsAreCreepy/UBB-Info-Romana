@@ -1,0 +1,94 @@
+<HTML>
+<HEAD>
+<TITLE>Sorting and Sorters</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html7913" HREF="page486.html" tppabs="http://www.brpreiss.com/books/opus4/html/page486.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7911" HREF="page483.html" tppabs="http://www.brpreiss.com/books/opus4/html/page483.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7905" HREF="page484.html" tppabs="http://www.brpreiss.com/books/opus4/html/page484.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7915" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7916" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION0016200000000000000000">Sorting and Sorters</A></H1>
+<A NAME="secsortingsorters">&#160;</A>
+<P>
+The traditional way to implement a sorting algorithm
+is to write a function or procedure that sorts an array of data.
+This chapter presents an alternate, object-oriented approach
+that is based on the notion of an
+<em>abstract sorter</em><A NAME=34542>&#160;</A><A NAME=34543>&#160;</A>.
+<P>
+Think of a sorter as an abstract machine,
+the sole purpose of which is to sort arrays of data.
+A machine is an object.
+Therefore, it makes sense that
+we represent it as an instance of some class.
+The machine sorts data.
+Therefore, the class will have a member function,
+say <tt>Sort</tt>,
+which sorts an array of data.
+<P>
+Program&nbsp;<A HREF="page485.html#progsorter1h" tppabs="http://www.brpreiss.com/books/opus4/html/page485.html#progsorter1h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> declares the abstract class template <tt>Sorter&lt;T&gt;</tt>.
+The public interface of this class consists
+of the single function <tt>Sort</tt>.
+This function takes as its lone argument
+a reference to an <tt>Array&lt;T&gt;</tt> instance
+and it sorts the data contained therein.
+We use the <tt>Array&lt;T&gt;</tt> class defined in Section&nbsp;<A HREF="page80.html#secfdsarrays" tppabs="http://www.brpreiss.com/books/opus4/html/page80.html#secfdsarrays"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+to represent the data to be sorted
+because all array subscript operations
+are bounds-checked and because we can determine the length
+of the array by calling the <tt>Length</tt> member function
+of the <tt>Array&lt;T&gt;</tt> class.
+<P>
+<P><A NAME="34653">&#160;</A><A NAME="progsorter1h">&#160;</A> <IMG WIDTH=575 HEIGHT=219 ALIGN=BOTTOM ALT="program34553" SRC="img2103.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2103.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>Sorter</tt> Class Definition<BR>
+<P>
+<P>
+Program&nbsp;<A HREF="page485.html#progsorter1h" tppabs="http://www.brpreiss.com/books/opus4/html/page485.html#progsorter1h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> also declares the member variable <tt>n</tt>,
+the static member function <tt>Swap</tt>,
+and the pure virtual function <tt>DoSort</tt>.
+Since <tt>DoSort</tt> is a pure virtual function,
+an implementation must be given in a derived class.
+Program&nbsp;<A HREF="page485.html#progsorter0c" tppabs="http://www.brpreiss.com/books/opus4/html/page485.html#progsorter0c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives the implementations
+for <tt>Sort</tt> and <tt>Swap</tt>.
+<P>
+<P><A NAME="34658">&#160;</A><A NAME="progsorter0c">&#160;</A> <IMG WIDTH=575 HEIGHT=390 ALIGN=BOTTOM ALT="program34574" SRC="img2104.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2104.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>Sorter&lt;T&gt;</tt> class 	<tt>Swap</tt> and <tt>Sort</tt> Member Function Definitions<BR>
+<P>
+<P>
+The <tt>Sort</tt> function does not sort the data itself.
+It is the <tt>DoSort</tt> routine,
+which is provided by a derived class,
+that does the actual sorting.
+The <tt>Sort</tt> routine merely sets things up for <tt>DoSort</tt>.
+<P>
+The <tt>Sort</tt> function takes a reference
+to an <tt>Array&lt;T&gt;</tt> instance
+which allows arbitrary array subscript ranges.
+E.g., the first element of an array <tt>a</tt>
+is the one at position <tt>a[a.Base()]</tt>.
+However, in most cases it is easier
+to write the sorting algorithm for a fixed lower bound of, say, zero,
+For this reason, the <tt>Sort</tt> function sets the array base to zero.
+Of course, the caller does not expect the array base to be changed.
+Therefore, the <tt>Sort</tt> routine restores the original
+array base before it returns.
+<P>
+The <tt>Swap</tt> function is used to implement most of the sorting
+algorithms presented in this chapter.
+The swap function takes two references to objects of some type <tt>T</tt>,
+and exchanges the contents of these two objects.
+The exchange is done as a sequence of three assignments.
+Therefore, if a <tt>T</tt> instance can be assigned in constant time,
+the <tt>Swap</tt> routine runs in constant time.<A NAME="tex2html937" HREF="footnode.html#34600" tppabs="http://www.brpreiss.com/books/opus4/html/footnode.html#34600"><IMG  ALIGN=BOTTOM ALT="gif" SRC="foot_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/foot_motif.gif"></A>
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html7917" HREF="page486.html#SECTION0016201000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page486.html#SECTION0016201000000000000000">Sorter Class Hierarchy</A>
+</UL>
+<HR><A NAME="tex2html7913" HREF="page486.html" tppabs="http://www.brpreiss.com/books/opus4/html/page486.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7911" HREF="page483.html" tppabs="http://www.brpreiss.com/books/opus4/html/page483.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7905" HREF="page484.html" tppabs="http://www.brpreiss.com/books/opus4/html/page484.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7915" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7916" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

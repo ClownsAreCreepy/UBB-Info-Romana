@@ -1,0 +1,85 @@
+<HTML>
+<HEAD>
+<TITLE>Implementation</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html5980" HREF="page329.html" tppabs="http://www.brpreiss.com/books/opus4/html/page329.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5978" HREF="page324.html" tppabs="http://www.brpreiss.com/books/opus4/html/page324.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5974" HREF="page327.html" tppabs="http://www.brpreiss.com/books/opus4/html/page327.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5982" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5983" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0011524000000000000000">Implementation</A></H3>
+<P>
+Program&nbsp;<A HREF="page328.html#progavl2c" tppabs="http://www.brpreiss.com/books/opus4/html/page328.html#progavl2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives the code for the <tt>LLRotation</tt>
+procedure of the <tt>AVLTree</tt> class.
+This code implements the LL rotation shown in Figure&nbsp;<A HREF="page326.html#figavl1" tppabs="http://www.brpreiss.com/books/opus4/html/page326.html#figavl1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+The purpose of the <tt>LLRotation</tt> member function 
+is to perform an LL rotation at the root of a given AVL tree instance.
+<P>
+<P><A NAME="21204">&#160;</A><A NAME="progavl2c">&#160;</A> <IMG WIDTH=575 HEIGHT=334 ALIGN=BOTTOM ALT="program21061" SRC="img1346.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1346.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>AVLTree</tt> Class <tt>LLRotation</tt> Member Function Definition<BR>
+<P>
+<P>
+The rotation is simply a sequence of pointer manipulations
+followed by two height adjustments.
+Notice the rotation is done in such a way so that the
+the given <tt>AVLTree</tt> instance remains the root of the tree.
+This is done so that if the tree has a parent,
+it is not necessary to modify the contents of the parent.
+<P>
+The <tt>AVLTree</tt> class also requires an <tt>RRRotation</tt> member
+function to implement an RR rotation.
+The implementation of that function
+follows directly from Program&nbsp;<A HREF="page328.html#progavl2c" tppabs="http://www.brpreiss.com/books/opus4/html/page328.html#progavl2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+Clearly, the running time for the single rotations is <I>O</I>(1).
+<P>
+Program&nbsp;<A HREF="page328.html#progavl3c" tppabs="http://www.brpreiss.com/books/opus4/html/page328.html#progavl3c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives the implementation for the
+<tt>LRRotation</tt> member function of the <tt>AVLTree</tt> class.
+This double rotation is trivially implemented as a sequence of
+two single rotations.
+As above, the routine for the complementary rotation
+is easily derived from the given code.
+The running time for each of the double rotation functions is also <I>O</I>(1).
+<P>
+<P><A NAME="21206">&#160;</A><A NAME="progavl3c">&#160;</A> <IMG WIDTH=575 HEIGHT=143 ALIGN=BOTTOM ALT="program21077" SRC="img1347.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1347.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>AVLTree</tt> Class <tt>LRRotation</tt> Member Function Definition<BR>
+<P>
+<P>
+When an imbalance is detected, it is necessary to correct the imbalance
+by doing the appropriate rotation.
+The code given in Program&nbsp;<A HREF="page328.html#progavl4c" tppabs="http://www.brpreiss.com/books/opus4/html/page328.html#progavl4c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> takes care of this.
+The <tt>Balance</tt> routine tests for an imbalance by calling
+the <tt>BalanceFactor</tt> function.
+The balance test itself takes constant time.
+If the node is balanced, only a constant-time height adjustment is needed.
+<P>
+<P><A NAME="21208">&#160;</A><A NAME="progavl4c">&#160;</A> <IMG WIDTH=575 HEIGHT=410 ALIGN=BOTTOM ALT="program21089" SRC="img1348.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1348.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>AVLTree</tt> Class <tt>Balance</tt> Member Function Definition<BR>
+<P>
+<P>
+Otherwise, the <tt>Balance</tt> routine of the <tt>AVLTree</tt> class
+determines which of the four cases has occurred,
+and invokes the appropriate rotation to correct the imbalance.
+To determine which case has occurred,
+the <tt>Balance</tt> routine calls the <tt>BalanceFactor</tt>
+function two more times.
+Therefore, the time for selecting the case is constant.
+In all only one rotation is done to correct the imbalance.
+Therefore, the running time of this routine is <I>O</I>(1).
+<P>
+The <tt>Insert</tt> routine for AVL trees is inherited from
+the <tt>BST</tt> class (see Program&nbsp;<A HREF="page317.html#progbst3c" tppabs="http://www.brpreiss.com/books/opus4/html/page317.html#progbst3c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>).
+The very last thing that routine does is to call the <tt>Balance</tt> function.
+which has been overridden.
+As a result the <tt>Insert</tt> routine
+adjusts the heights of the nodes along the insertion path
+and does a rotation when an imbalance is detected.
+Since the height of an AVL tree is guaranteed to be  <IMG WIDTH=56 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59891" SRC="img403.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img403.gif"  >,
+the time for insertion is simply  <IMG WIDTH=56 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59891" SRC="img403.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img403.gif"  >.
+<P>
+<HR><A NAME="tex2html5980" HREF="page329.html" tppabs="http://www.brpreiss.com/books/opus4/html/page329.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5978" HREF="page324.html" tppabs="http://www.brpreiss.com/books/opus4/html/page324.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5974" HREF="page327.html" tppabs="http://www.brpreiss.com/books/opus4/html/page327.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5982" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5983" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,104 @@
+<HTML>
+<HEAD>
+<TITLE>Implementation</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html8036" HREF="page496.html" tppabs="http://www.brpreiss.com/books/opus4/html/page496.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8034" HREF="page494.html" tppabs="http://www.brpreiss.com/books/opus4/html/page494.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8030" HREF="page494.html" tppabs="http://www.brpreiss.com/books/opus4/html/page494.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8038" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8039" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0016421000000000000000">Implementation</A></H3>
+<P>
+Program&nbsp;<A HREF="page491.html#progsorter2c" tppabs="http://www.brpreiss.com/books/opus4/html/page491.html#progsorter2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> declares
+the abstract <tt>QuickSorter&lt;T&gt;</tt> class template.
+The <tt>QuickSorter</tt> class declares two versions
+of the <tt>DoSort</tt> routine,
+as well as the pure virtual function <tt>SelectPivot</tt>.
+Since <tt>SelectPivot</tt> is a pure virtual function,
+its implementation is given in a derived class.
+<P>
+<P><A NAME="38200">&#160;</A><A NAME="progsorter3h">&#160;</A> <IMG WIDTH=575 HEIGHT=219 ALIGN=BOTTOM ALT="program37764" SRC="img2151.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2151.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>QuickSorter</tt> Class Definition<BR>
+<P>
+<P>
+Program&nbsp;<A HREF="page495.html#progsorter4c" tppabs="http://www.brpreiss.com/books/opus4/html/page495.html#progsorter4c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> defines the <tt>DoSort</tt> routine
+of the <tt>QuickSorter&lt;T&gt;</tt> class
+that takes three arguments--a reference to the array to be sorted, <tt>array</tt>,
+and two integers, <tt>left</tt> and <tt>right</tt>,
+which denote left and right ends, respectively,
+of the sequence of the array to be sorted.
+I.e., this <tt>DoSort</tt> routine sorts
+<P> <IMG WIDTH=415 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath70157" SRC="img2152.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2152.gif"  ><P>.
+<P>
+<P><A NAME="38204">&#160;</A><A NAME="progsorter4c">&#160;</A> <IMG WIDTH=575 HEIGHT=504 ALIGN=BOTTOM ALT="program37788" SRC="img2153.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2153.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>QuickSorter&lt;T&gt;</tt> class 	Recursive <tt>DoSort</tt> Member Function Definition<BR>
+<P>
+<P>
+As discussed above, the <tt>QuickSorter</tt> only sorts sequences
+whose length exceeds the <em>cut-off</em> value.
+Since the implementation shown only works correctly
+when the number of elements in
+the sequence to be sorted is three or more,
+the <em>cut-off</em> value of two is used (line&nbsp;5).
+<P>
+The algorithm begins by calling the function <tt>SelectPivot</tt> which
+chooses one of the elements to be the pivot (line&nbsp;7).
+The implementation of <tt>SelectPivot</tt> is discussed below.
+All that we require here is that the value <I>p</I> returned by <tt>SelectPivot</tt>
+satisfies  <IMG WIDTH=124 HEIGHT=21 ALIGN=MIDDLE ALT="tex2html_wrap_inline70161" SRC="img2154.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2154.gif"  >.
+Having selected an element to be the pivot,
+we <em>hide</em> the pivot by swapping it with the right-most element
+of the sequence (line&nbsp;8).
+The pivot is <em>hidden</em> in order
+to get it out of the way of the next step.
+<P>
+The next step partitions the remaining elements into two sequences--one comprised of values less than or equal to the pivot,
+the other comprised of values greater than or equal to the pivot.
+The partitioning is done using two array indices, <tt>i</tt> and <tt>j</tt>.
+The first, <tt>i</tt>, starts at the left end and moves to the right;
+the second, <tt>j</tt>, starts at the right end and moves to the left.
+<P>
+The variable <tt>i</tt> is increased
+as long as <tt>array[i]</tt> is less than the pivot (line&nbsp;14).
+Then the variable <tt>j</tt> is decreased
+as long as <tt>array[j]</tt> is greater than the pivot (line&nbsp;15).
+When <tt>i</tt> and <tt>j</tt> meet,
+the partitioning is done (line&nbsp;16).
+Otherwise,  <IMG WIDTH=35 HEIGHT=21 ALIGN=MIDDLE ALT="tex2html_wrap_inline70163" SRC="img2155.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2155.gif"  >
+but  <IMG WIDTH=214 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline70165" SRC="img2156.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2156.gif"  >.
+This situation is remedied
+by swapping <tt>array[i]</tt> and <tt>array[j]</tt> (line&nbsp;17).
+<P>
+When the partitioning loop terminates,
+the pivot is still in <tt>array[right]</tt>;
+the value in <tt>array[i]</tt> is greater than or equal to the pivot;
+everything to the left is less than or equal to the pivot; and
+everything to the right is greater than or equal to the pivot.
+We can now put the pivot in its proper place
+by swapping it with <tt>array[i]</tt> (lines&nbsp;19-20).
+This is called <em>restoring</em> the pivot.
+With the pivot in its final resting place,
+all we need to do is sort the subsequences
+on either side of the pivot (lines&nbsp;21-24).
+<P>
+Program&nbsp;<A HREF="page495.html#progsorter5c" tppabs="http://www.brpreiss.com/books/opus4/html/page495.html#progsorter5c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> defines the main <tt>DoSort</tt> routine
+of the <tt>QuickSorter</tt> class.
+The main <tt>DoSort</tt> acts as the front end
+to the recursive <tt>DoSort</tt> given in Program&nbsp;<A HREF="page495.html#progsorter4c" tppabs="http://www.brpreiss.com/books/opus4/html/page495.html#progsorter4c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+This routine takes as its lone argument a reference to the array to be sorted.
+It calls the recursive <tt>DoSort</tt> routine
+with <tt>left</tt> set to zero
+and <tt>right</tt> set to <I>n</I>-1,
+where <I>n</I> is the length of the array to be sorted.
+Finally, it uses a <tt>StraightInsertionSorter&lt;T&gt;</tt>
+to finish sorting the list.
+<P>
+<P><A NAME="38206">&#160;</A><A NAME="progsorter5c">&#160;</A> <IMG WIDTH=575 HEIGHT=141 ALIGN=BOTTOM ALT="program37838" SRC="img2157.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2157.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>QuickSorter&lt;T&gt;</tt> Class Main <tt>DoSort</tt> Member Function Definition<BR>
+<P><HR><A NAME="tex2html8036" HREF="page496.html" tppabs="http://www.brpreiss.com/books/opus4/html/page496.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8034" HREF="page494.html" tppabs="http://www.brpreiss.com/books/opus4/html/page494.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8030" HREF="page494.html" tppabs="http://www.brpreiss.com/books/opus4/html/page494.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8038" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8039" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

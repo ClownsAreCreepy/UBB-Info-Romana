@@ -1,0 +1,4 @@
+/usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS=--coverage -DCMAKE_C_FLAGS=--coverage -G "Unix Makefiles" -S "/mnt/d/C,C++/CLion 2024.3.4/Projects/Lab2_4" -B "/mnt/d/C,C++/CLion 2024.3.4/Projects/Lab2_4/cmake-build-debug-coverage"
+-- Configuring done (0.1s)
+-- Generating done (0.4s)
+-- Build files have been written to: /mnt/d/C,C++/CLion 2024.3.4/Projects/Lab2_4/cmake-build-debug-coverage

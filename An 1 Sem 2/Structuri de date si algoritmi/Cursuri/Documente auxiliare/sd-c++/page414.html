@@ -1,0 +1,97 @@
+<HTML>
+<HEAD>
+<TITLE>Exercises</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html7037" HREF="page415.html" tppabs="http://www.brpreiss.com/books/opus4/html/page415.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7035" HREF="page387.html" tppabs="http://www.brpreiss.com/books/opus4/html/page387.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7029" HREF="page413.html" tppabs="http://www.brpreiss.com/books/opus4/html/page413.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7039" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7040" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION0013600000000000000000">Exercises</A></H1>
+<P>
+<OL><LI> <A NAME="exercisesetsi">&#160;</A>
+	For each of the following implementations
+	derive an expression for the total memory space required
+	to represent a set which contains of <I>n</I> elements
+	drawn from the universe  <IMG WIDTH=150 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline67278" SRC="img1605.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1605.gif"  >.
+	<OL><LI> <tt>SetAsArray</tt> (Program&nbsp;<A HREF="page390.html#progbitset1h" tppabs="http://www.brpreiss.com/books/opus4/html/page390.html#progbitset1h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>),<LI> <tt>SetAsBitVector</tt> (Program&nbsp;<A HREF="page394.html#progbitset2h" tppabs="http://www.brpreiss.com/books/opus4/html/page394.html#progbitset2h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>),<LI> <tt>MultisetAsArray</tt> (Program&nbsp;<A HREF="page398.html#progmultiset2h" tppabs="http://www.brpreiss.com/books/opus4/html/page398.html#progmultiset2h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>), and<LI> <tt>MultisetAsLinkedList</tt> (Program&nbsp;<A HREF="page401.html#progmultiset3h" tppabs="http://www.brpreiss.com/books/opus4/html/page401.html#progmultiset3h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>).
+	</OL><LI> <A NAME="exercisesetscomparison">&#160;</A>
+	In addition to = and  <IMG WIDTH=10 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline67394" SRC="img1621.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1621.gif"  >,
+	a complete repertoire of set operators includes
+	 <IMG WIDTH=10 HEIGHT=19 ALIGN=MIDDLE ALT="tex2html_wrap_inline67938" SRC="img1718.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1718.gif"  >,  <IMG WIDTH=10 HEIGHT=19 ALIGN=MIDDLE ALT="tex2html_wrap_inline67940" SRC="img1719.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1719.gif"  >,  <IMG WIDTH=10 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline67942" SRC="img1720.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1720.gif"  > and  <IMG WIDTH=10 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline61776" SRC="img812.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img812.gif"  >.
+	For each of the set implementations listed in Exercise&nbsp;<A HREF="page414.html#exercisesetsi" tppabs="http://www.brpreiss.com/books/opus4/html/page414.html#exercisesetsi"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+	show how to implement the remaining operators.<LI>
+	The <em>symmetric difference</em><A NAME=30119>&#160;</A><A NAME=30120>&#160;</A> of two sets <I>S</I> and <I>T</I>,
+	written  <IMG WIDTH=40 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline67950" SRC="img1721.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1721.gif"  > is given by
+	<P> <IMG WIDTH=344 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath67926" SRC="img1722.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1722.gif"  ><P>
+	For each of the set implementations listed in Exercise&nbsp;<A HREF="page414.html#exercisesetsi" tppabs="http://www.brpreiss.com/books/opus4/html/page414.html#exercisesetsi"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+	devise an algorithm to compute symmetric difference.
+	What is the running time of your algorithm?<LI>
+	The <em>complement</em><A NAME=30125>&#160;</A>
+	of a set <I>S</I> over universe <I>U</I>,
+	written <I>S</I>' is given by
+	<P> <IMG WIDTH=290 HEIGHT=14 ALIGN=BOTTOM ALT="displaymath67927" SRC="img1723.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1723.gif"  ><P>
+	Devise an algorithm to compute the complement of
+	a set represented as a bit vector.
+	What is the running time of your algorithm?<LI>
+	Devise an algorithm to sort a list of integers using a multiset.
+	What is the running time of your algorithm?
+	<b>Hint</b>: See Section&nbsp;<A HREF="page516.html#secsortingbucket" tppabs="http://www.brpreiss.com/books/opus4/html/page516.html#secsortingbucket"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.<LI> <A NAME="exercisesetsmultiseti">&#160;</A>
+	Consider a multiset implemented using linked lists.
+	When the multiset contains duplicate items,
+	each of those items occupies a separate list element.
+	An alternative is to use a linked list of ordered pairs
+	of the form  <IMG WIDTH=38 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline67958" SRC="img1724.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1724.gif"  > where <I>i</I> an the element of the universal set <I>U</I>
+	and  <IMG WIDTH=13 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline62818" SRC="img972.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img972.gif"  > is a non-negative integer that counts the number
+	of instances of the element <I>i</I> in the multiset.
+<P>
+	Derive an expression for the total memory space required
+	to represent a multiset which contains of <I>n</I> instances
+	of <I>m</I> distinct element drawn from the universe  <IMG WIDTH=150 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline67278" SRC="img1605.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1605.gif"  >.<LI> <A NAME="exercisesetsmultisetii">&#160;</A>
+	Consider a multiset implemented
+	as described in Exercise&nbsp;<A HREF="page414.html#exercisesetsmultiseti" tppabs="http://www.brpreiss.com/books/opus4/html/page414.html#exercisesetsmultiseti"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+	Devise algorithms for set union, intersection and difference.
+	What are the running times of your algorithms?<LI> <A NAME="exercisesetspartition">&#160;</A>
+	Consider the initial partition
+	 <IMG WIDTH=198 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline67974" SRC="img1725.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1725.gif"  >.
+	For each of the methods of computing the union listed below
+	show the result of the following sequence <em>join</em> operations:
+	 <IMG WIDTH=62 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline67976" SRC="img1726.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1726.gif"  >,
+	 <IMG WIDTH=63 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline67978" SRC="img1727.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1727.gif"  >,
+	 <IMG WIDTH=62 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline67980" SRC="img1728.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1728.gif"  >,
+	 <IMG WIDTH=63 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline67982" SRC="img1729.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1729.gif"  >,
+	 <IMG WIDTH=62 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline67984" SRC="img1730.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1730.gif"  >,
+	 <IMG WIDTH=63 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline67986" SRC="img1731.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1731.gif"  >,
+	 <IMG WIDTH=62 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline67988" SRC="img1732.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1732.gif"  >,
+	 <IMG WIDTH=63 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline67990" SRC="img1733.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1733.gif"  >,
+	 <IMG WIDTH=62 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline67992" SRC="img1734.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1734.gif"  >.
+	<OL><LI> simple union,<LI> union by size,<LI> union by height, and<LI> union by rank.
+	</OL><LI>
+	For each final partition obtained in Exercise&nbsp;<A HREF="page414.html#exercisesetspartition" tppabs="http://www.brpreiss.com/books/opus4/html/page414.html#exercisesetspartition"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+	show the result of performing a <em>collapsing find</em>
+	operation for item&nbsp;9.<LI>
+	Consider the initial partition <I>P</I>
+	of the universe  <IMG WIDTH=150 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline67278" SRC="img1605.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1605.gif"  >
+	comprised of <I>N</I> sets[<A HREF="page619.html#horowitz2" tppabs="http://www.brpreiss.com/books/opus4/html/page619.html#horowitz2">19</A>].
+	<OL><LI>
+		Show that <I>N</I>-1 join operations can be performed
+		before the number of elements in the partition
+		is reduced to one.<LI>
+		Show that if <I>n</I> join operations are done ( <IMG WIDTH=73 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline68004" SRC="img1735.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1735.gif"  >),
+		the size of the largest element of the partition is
+		at most <I>n</I>+1.<LI>
+		A <em>singleton</em><A NAME=30149>&#160;</A>
+		is an element of a partition
+		that contains only one element of the universal set.
+		Show that when <I>n</I> join operations are done ( <IMG WIDTH=73 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline68004" SRC="img1735.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1735.gif"  >),
+		at least  <IMG WIDTH=111 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline68012" SRC="img1736.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1736.gif"  > singletons are left.<LI>
+		Show that if less that  <IMG WIDTH=40 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline68014" SRC="img1737.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1737.gif"  > join operations
+		are done,
+		at least one singleton is left.
+	</OL></OL><HR><A NAME="tex2html7037" HREF="page415.html" tppabs="http://www.brpreiss.com/books/opus4/html/page415.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7035" HREF="page387.html" tppabs="http://www.brpreiss.com/books/opus4/html/page387.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7029" HREF="page413.html" tppabs="http://www.brpreiss.com/books/opus4/html/page413.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7039" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7040" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

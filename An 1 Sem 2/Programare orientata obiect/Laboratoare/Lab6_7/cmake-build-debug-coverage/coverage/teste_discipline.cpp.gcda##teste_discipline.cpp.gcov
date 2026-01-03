@@ -1,0 +1,5169 @@
+        -:    0:Source:D:/C,C++/CLion 2024.3.4/Projects/Lab6_7/Test/teste_discipline.cpp
+        -:    0:Graph:D:\C,C++\CLion 2024.3.4\Projects\Lab6_7\cmake-build-debug-coverage\CMakeFiles\Lab6_7.dir\Test\teste_discipline.cpp.gcno
+        -:    0:Data:D:\C,C++\CLion 2024.3.4\Projects\Lab6_7\cmake-build-debug-coverage\CMakeFiles\Lab6_7.dir\Test\teste_discipline.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include "teste_discipline.h"
+        -:    2:
+        -:    3:
+function _ZN15TesteDiscipline13test_validareEv called 1 returned 100% blocks executed 64%
+        1:    4:void TesteDiscipline::test_validare() {
+        1:    5:    RepoDisciplinaMem repo;
+        1:    6:    ServiceDisciplina service{repo};
+        1:    6-block  0
+call    0 returned 1
+        -:    7:
+        5:    8:    service.adauga_service("a", 1, "Real", "M");
+        1:    8-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:    8-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:    8-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:    8-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:    8-block  4
+call   12 returned 1
+        1:    8-block  5
+call   13 returned 1
+        1:    8-block  6
+call   14 returned 1
+    $$$$$:    8-block  7
+call   15 never executed
+    $$$$$:    8-block  8
+    $$$$$:    8-block  9
+    $$$$$:    8-block 10
+call   16 never executed
+    $$$$$:    8-block 11
+    $$$$$:    8-block 12
+    $$$$$:    8-block 13
+call   17 never executed
+    $$$$$:    8-block 14
+    $$$$$:    8-block 15
+       1*:    9:    assert(repo.getAll().size() == 1);
+        1:    9-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 0 (fallthrough)
+branch  3 taken 1
+    %%%%%:    9-block  1
+call    4 never executed
+        1:    9-block  2
+        -:   10:
+        -:   11:    try {
+       6*:   12:        service.adauga_service("", 12, "Real", "X");
+        1:   12-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   12-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   12-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:   12-block  3
+call    9 returned 1
+branch 10 taken 0 (fallthrough)
+branch 11 taken 1 (throw)
+    %%%%%:   12-block  4
+call   12 never executed
+    %%%%%:   12-block  5
+call   13 never executed
+    %%%%%:   12-block  6
+call   14 never executed
+        1:   12-block  7
+call   15 returned 1
+        1:   12-block  8
+        1:   12-block  9
+        1:   12-block 10
+call   16 returned 1
+        1:   12-block 11
+        1:   12-block 12
+        1:   12-block 13
+call   17 returned 1
+        1:   12-block 14
+        1:   12-block 15
+    #####:   13:        assert(false);
+    %%%%%:   13-block  0
+call    0 never executed
+        1:   14:    } catch (const ValidationException &e) {
+        1:   14-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+        1:   14-block  1
+call    2 returned 1
+        2:   15:        assert(static_cast<string>(e.what()) == "Numele nu poate fi gol!\n");
+        1:   15-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   15-block  1
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:   15-block  2
+branch  7 taken 0 (fallthrough)
+branch  8 taken 1
+    $$$$$:   15-block  3
+call    9 never executed
+        1:   15-block  4
+        1:   15-block  5
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0
+        1:   15-block  6
+call   12 returned 1
+        1:   15-block  7
+branch 13 taken 1 (fallthrough)
+branch 14 taken 0
+    $$$$$:   15-block  8
+branch 15 never executed (fallthrough)
+branch 16 never executed
+    $$$$$:   15-block  9
+call   17 never executed
+    $$$$$:   15-block 10
+    $$$$$:   15-block 11
+branch 18 never executed (fallthrough)
+branch 19 never executed
+    $$$$$:   15-block 12
+        1:   16:    }
+        1:   16-block  0
+call    0 returned 1
+    $$$$$:   16-block  1
+call    1 never executed
+        -:   17:
+        -:   18:    try {
+        6:   19:        service.adauga_service("", -12, "Mimi", "");
+        1:   19-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   19-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   19-block  2
+call    6 returned 1
+branch  7 taken 0 (fallthrough)
+branch  8 taken 1 (throw)
+    $$$$$:   19-block  3
+call    9 never executed
+    $$$$$:   19-block  4
+call   10 never executed
+    $$$$$:   19-block  5
+call   11 never executed
+        1:   19-block  6
+call   12 returned 1
+branch 13 taken 1 (fallthrough)
+branch 14 taken 0 (throw)
+        1:   19-block  7
+call   15 returned 1
+        1:   19-block  8
+        1:   19-block  9
+        1:   19-block 10
+call   16 returned 1
+        1:   19-block 11
+        1:   19-block 12
+        1:   19-block 13
+call   17 returned 1
+        1:   19-block 14
+        1:   19-block 15
+    =====:   20:        assert(false);
+    $$$$$:   20-block  0
+call    0 never executed
+        1:   21:    } catch (const ValidationException &e) {
+        1:   21-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+        1:   21-block  1
+call    2 returned 1
+        1:   22:        assert(
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   22-block  0
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    $$$$$:   22-block  1
+call    6 never executed
+        1:   22-block  2
+        -:   23:            e.getMesaj() ==
+        -:   24:            "Numele nu poate fi gol!\nNumarul de ore trebuie sa fie pozitiv!\nTipul poate fi doar 'Uman', 'Real' sau '??'!\nProfesorul nu poate fi gol!\n");
+        1:   25:    }
+        1:   25-block  0
+call    0 returned 1
+    $$$$$:   25-block  1
+call    1 never executed
+        -:   26:
+        -:   27:    try {
+        6:   28:        service.modifica_service(0, "", -12, "Mimi", "");
+        1:   28-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   28-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   28-block  2
+call    6 returned 1
+branch  7 taken 0 (fallthrough)
+branch  8 taken 1 (throw)
+    $$$$$:   28-block  3
+call    9 never executed
+    $$$$$:   28-block  4
+call   10 never executed
+    $$$$$:   28-block  5
+call   11 never executed
+        1:   28-block  6
+call   12 returned 1
+branch 13 taken 1 (fallthrough)
+branch 14 taken 0 (throw)
+        1:   28-block  7
+call   15 returned 1
+        1:   28-block  8
+        1:   28-block  9
+        1:   28-block 10
+call   16 returned 1
+        1:   28-block 11
+        1:   28-block 12
+        1:   28-block 13
+call   17 returned 1
+        1:   28-block 14
+        1:   28-block 15
+    =====:   29:        assert(false);
+    $$$$$:   29-block  0
+call    0 never executed
+        1:   30:    } catch (const ValidationException &e) {
+        1:   30-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+        1:   30-block  1
+call    2 returned 1
+        1:   31:        assert(
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   31-block  0
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    $$$$$:   31-block  1
+call    6 never executed
+        1:   31-block  2
+        -:   32:            e.getMesaj() ==
+        -:   33:            "Numele nu poate fi gol!\nNumarul de ore trebuie sa fie pozitiv!\nTipul poate fi doar 'Uman', 'Real' sau '??'!\nProfesorul nu poate fi gol!\n");
+        1:   34:    }
+        1:   34-block  0
+call    0 returned 1
+    $$$$$:   34-block  1
+call    1 never executed
+        -:   35:
+        -:   36:    //testam tiparirea
+        5:   37:    const Disciplina d("Matematica", 4, "Real", "Petru");
+        1:   37-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   37-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   37-block  2
+call    6 returned 1
+call    7 returned 1
+        1:   37-block  3
+call    8 returned 1
+        1:   37-block  4
+call    9 returned 1
+        1:   37-block  5
+call   10 returned 1
+branch 11 taken 1 (fallthrough)
+branch 12 taken 0 (throw)
+    $$$$$:   37-block  6
+    $$$$$:   37-block  7
+    $$$$$:   37-block  8
+call   13 never executed
+    $$$$$:   37-block  9
+    $$$$$:   37-block 10
+    $$$$$:   37-block 11
+call   14 never executed
+    $$$$$:   37-block 12
+    $$$$$:   37-block 13
+        1:   38:    ostringstream out;
+        1:   38-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   39:    out << d;
+        1:   39-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   40:    const string expected = "Nume: Matematica | Ore: 4 | Tip: Real | Profesor: Petru";
+        1:   40-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+    $$$$$:   40-block  1
+        1:   41:    assert(out.str() == expected);
+        1:   41-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   41-block  1
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    $$$$$:   41-block  2
+call    6 never executed
+        1:   41-block  3
+        1:   41-block  4
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0
+        1:   41-block  5
+call    9 returned 1
+    $$$$$:   41-block  6
+branch 10 never executed (fallthrough)
+branch 11 never executed
+    $$$$$:   41-block  7
+call   12 never executed
+    $$$$$:   41-block  8
+        1:   42:}
+        1:   42-block  0
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+call    3 returned 1
+call    4 returned 1
+    $$$$$:   42-block  1
+call    5 never executed
+    $$$$$:   42-block  2
+call    6 never executed
+    $$$$$:   42-block  3
+call    7 never executed
+    $$$$$:   42-block  4
+call    8 never executed
+    $$$$$:   42-block  5
+call    9 never executed
+        -:   43:
+        -:   44:
+function _ZN15TesteDiscipline13test_adaugareER17ServiceDisciplina called 3 returned 100% blocks executed 63%
+        3:   45:void TesteDiscipline::test_adaugare(ServiceDisciplina &service) {
+       3*:   46:    assert(service.getAll().empty());
+        3:   46-block  0
+call    0 returned 3
+call    1 returned 3
+branch  2 taken 0 (fallthrough)
+branch  3 taken 3
+    %%%%%:   46-block  1
+call    4 never executed
+        3:   46-block  2
+       15:   47:    service.adauga_service("A", 1, "Real", "A");
+        3:   47-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:   47-block  1
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+        3:   47-block  2
+call    6 returned 3
+branch  7 taken 3 (fallthrough)
+branch  8 taken 0 (throw)
+        3:   47-block  3
+call    9 returned 3
+branch 10 taken 3 (fallthrough)
+branch 11 taken 0 (throw)
+        3:   47-block  4
+call   12 returned 3
+        3:   47-block  5
+call   13 returned 3
+        3:   47-block  6
+call   14 returned 3
+    $$$$$:   47-block  7
+call   15 never executed
+    $$$$$:   47-block  8
+    $$$$$:   47-block  9
+    $$$$$:   47-block 10
+call   16 never executed
+    $$$$$:   47-block 11
+    $$$$$:   47-block 12
+    $$$$$:   47-block 13
+call   17 never executed
+    $$$$$:   47-block 14
+    $$$$$:   47-block 15
+call   18 never executed
+       3*:   48:    assert(service.getAll().size() == 1);
+        3:   48-block  0
+call    0 returned 3
+call    1 returned 3
+branch  2 taken 0 (fallthrough)
+branch  3 taken 3
+    %%%%%:   48-block  1
+call    4 never executed
+        3:   48-block  2
+       15:   49:    service.adauga_service("B", 2, "Real", "B");
+        3:   49-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:   49-block  1
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+        3:   49-block  2
+call    6 returned 3
+branch  7 taken 3 (fallthrough)
+branch  8 taken 0 (throw)
+        3:   49-block  3
+call    9 returned 3
+branch 10 taken 3 (fallthrough)
+branch 11 taken 0 (throw)
+        3:   49-block  4
+call   12 returned 3
+        3:   49-block  5
+call   13 returned 3
+        3:   49-block  6
+call   14 returned 3
+    $$$$$:   49-block  7
+call   15 never executed
+    $$$$$:   49-block  8
+    $$$$$:   49-block  9
+    $$$$$:   49-block 10
+call   16 never executed
+    $$$$$:   49-block 11
+    $$$$$:   49-block 12
+    $$$$$:   49-block 13
+call   17 never executed
+    $$$$$:   49-block 14
+    $$$$$:   49-block 15
+call   18 never executed
+       3*:   50:    assert(service.getAll().size() == 2);
+        3:   50-block  0
+call    0 returned 3
+call    1 returned 3
+branch  2 taken 0 (fallthrough)
+branch  3 taken 3
+    %%%%%:   50-block  1
+call    4 never executed
+        3:   50-block  2
+       3*:   51:    assert(service.getAll()[0].getOre() == 1);
+        3:   51-block  0
+call    0 returned 3
+call    1 returned 3
+call    2 returned 3
+branch  3 taken 0 (fallthrough)
+branch  4 taken 3
+    %%%%%:   51-block  1
+call    5 never executed
+        3:   51-block  2
+        -:   52:
+        -:   53:    try {
+      18*:   54:        service.adauga_service("B", 2, "Real", "B");
+        3:   54-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:   54-block  1
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+        3:   54-block  2
+call    6 returned 3
+branch  7 taken 3 (fallthrough)
+branch  8 taken 0 (throw)
+        3:   54-block  3
+call    9 returned 3
+branch 10 taken 0 (fallthrough)
+branch 11 taken 3 (throw)
+    %%%%%:   54-block  4
+call   12 never executed
+    %%%%%:   54-block  5
+call   13 never executed
+    %%%%%:   54-block  6
+call   14 never executed
+        3:   54-block  7
+call   15 returned 3
+        3:   54-block  8
+        3:   54-block  9
+        3:   54-block 10
+call   16 returned 3
+        3:   54-block 11
+        3:   54-block 12
+        3:   54-block 13
+call   17 returned 3
+        3:   54-block 14
+        3:   54-block 15
+    #####:   55:        assert(false);
+    %%%%%:   55-block  0
+call    0 never executed
+        3:   56:    } catch (const RepoException &e) {
+        3:   56-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 3
+        3:   56-block  1
+call    2 returned 3
+        3:   57:        assert(e.getMesaj() == "Disciplina exista deja!");
+call    0 returned 3
+call    1 returned 3
+branch  2 taken 3 (fallthrough)
+branch  3 taken 0 (throw)
+        3:   57-block  0
+branch  4 taken 0 (fallthrough)
+branch  5 taken 3
+    $$$$$:   57-block  1
+call    6 never executed
+        3:   57-block  2
+        3:   58:    }
+        3:   58-block  0
+call    0 returned 3
+    $$$$$:   58-block  1
+call    1 never executed
+        3:   59:}
+        -:   60:
+        -:   61:
+function _ZN15TesteDiscipline15test_modificareER17ServiceDisciplina called 3 returned 100% blocks executed 65%
+        3:   62:void TesteDiscipline::test_modificare(ServiceDisciplina &service) {
+        3:   62-block  0
+       18:   63:    service.adauga_service("A", 1, "Real", "A");
+        3:   63-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:   63-block  1
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+        3:   63-block  2
+call    6 returned 3
+branch  7 taken 3 (fallthrough)
+branch  8 taken 0 (throw)
+        3:   63-block  3
+call    9 returned 3
+branch 10 taken 3 (fallthrough)
+branch 11 taken 0 (throw)
+        3:   63-block  4
+call   12 returned 3
+        3:   63-block  5
+call   13 returned 3
+        3:   63-block  6
+call   14 returned 3
+        3:   63-block  7
+    $$$$$:   63-block  8
+call   15 never executed
+    $$$$$:   63-block  9
+    $$$$$:   63-block 10
+    $$$$$:   63-block 11
+call   16 never executed
+    $$$$$:   63-block 12
+    $$$$$:   63-block 13
+    $$$$$:   63-block 14
+call   17 never executed
+    $$$$$:   63-block 15
+    $$$$$:   63-block 16
+call   18 never executed
+       15:   64:    service.modifica_service(0, "B", 8, "Uman", "P");
+        3:   64-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:   64-block  1
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+        3:   64-block  2
+call    6 returned 3
+branch  7 taken 3 (fallthrough)
+branch  8 taken 0 (throw)
+        3:   64-block  3
+call    9 returned 3
+branch 10 taken 3 (fallthrough)
+branch 11 taken 0 (throw)
+        3:   64-block  4
+call   12 returned 3
+        3:   64-block  5
+call   13 returned 3
+        3:   64-block  6
+call   14 returned 3
+    $$$$$:   64-block  7
+call   15 never executed
+    $$$$$:   64-block  8
+    $$$$$:   64-block  9
+    $$$$$:   64-block 10
+call   16 never executed
+    $$$$$:   64-block 11
+    $$$$$:   64-block 12
+    $$$$$:   64-block 13
+call   17 never executed
+    $$$$$:   64-block 14
+    $$$$$:   64-block 15
+call   18 never executed
+       3*:   65:    assert(service.getAll()[0].getProfesor() == "P");
+        3:   65-block  0
+call    0 returned 3
+call    1 returned 3
+call    2 returned 3
+call    3 returned 3
+branch  4 taken 0 (fallthrough)
+branch  5 taken 3
+    %%%%%:   65-block  1
+call    6 never executed
+        3:   65-block  2
+        -:   66:
+        -:   67:    try {
+      18*:   68:        service.modifica_service(0, "B", 8, "Uman", "P");
+        3:   68-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:   68-block  1
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+        3:   68-block  2
+call    6 returned 3
+branch  7 taken 3 (fallthrough)
+branch  8 taken 0 (throw)
+        3:   68-block  3
+call    9 returned 3
+branch 10 taken 0 (fallthrough)
+branch 11 taken 3 (throw)
+    %%%%%:   68-block  4
+call   12 never executed
+    %%%%%:   68-block  5
+call   13 never executed
+    %%%%%:   68-block  6
+call   14 never executed
+        3:   68-block  7
+call   15 returned 3
+        3:   68-block  8
+        3:   68-block  9
+        3:   68-block 10
+call   16 returned 3
+        3:   68-block 11
+        3:   68-block 12
+        3:   68-block 13
+call   17 returned 3
+        3:   68-block 14
+        3:   68-block 15
+    #####:   69:        assert(false);
+    %%%%%:   69-block  0
+call    0 never executed
+        3:   70:    } catch (const RepoException &e) {
+        3:   70-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 3
+        3:   70-block  1
+call    2 returned 3
+        3:   71:        assert(e.getMesaj() == "Disciplina exista deja!");
+call    0 returned 3
+call    1 returned 3
+branch  2 taken 3 (fallthrough)
+branch  3 taken 0 (throw)
+        3:   71-block  0
+branch  4 taken 0 (fallthrough)
+branch  5 taken 3
+    $$$$$:   71-block  1
+call    6 never executed
+        3:   71-block  2
+        3:   72:    }
+        3:   72-block  0
+call    0 returned 3
+    $$$$$:   72-block  1
+call    1 never executed
+        -:   73:
+        -:   74:    try {
+       18:   75:        service.modifica_service(50, "B", 8, "Uman", "P");
+        3:   75-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:   75-block  1
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+        3:   75-block  2
+call    6 returned 3
+branch  7 taken 0 (fallthrough)
+branch  8 taken 3 (throw)
+    $$$$$:   75-block  3
+call    9 never executed
+    $$$$$:   75-block  4
+call   10 never executed
+    $$$$$:   75-block  5
+call   11 never executed
+        3:   75-block  6
+call   12 returned 3
+branch 13 taken 3 (fallthrough)
+branch 14 taken 0 (throw)
+        3:   75-block  7
+call   15 returned 3
+        3:   75-block  8
+        3:   75-block  9
+        3:   75-block 10
+call   16 returned 3
+        3:   75-block 11
+        3:   75-block 12
+        3:   75-block 13
+call   17 returned 3
+        3:   75-block 14
+        3:   75-block 15
+    =====:   76:        assert(false);
+    $$$$$:   76-block  0
+call    0 never executed
+        3:   77:    } catch (const RepoException &e) {
+        3:   77-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 3
+        3:   77-block  1
+call    2 returned 3
+        3:   78:        assert(e.getMesaj() == "Disciplina nu a fost gasita!");
+call    0 returned 3
+call    1 returned 3
+branch  2 taken 3 (fallthrough)
+branch  3 taken 0 (throw)
+        3:   78-block  0
+branch  4 taken 0 (fallthrough)
+branch  5 taken 3
+    $$$$$:   78-block  1
+call    6 never executed
+        3:   78-block  2
+        3:   79:    }
+        3:   79-block  0
+call    0 returned 3
+    $$$$$:   79-block  1
+call    1 never executed
+        3:   80:}
+        -:   81:
+        -:   82:
+function _ZN15TesteDiscipline13test_stergereER17ServiceDisciplina called 3 returned 100% blocks executed 57%
+        3:   83:void TesteDiscipline::test_stergere(ServiceDisciplina &service) {
+        3:   83-block  0
+       18:   84:    service.adauga_service("A", 1, "Real", "A");
+        3:   84-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:   84-block  1
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+        3:   84-block  2
+call    6 returned 3
+branch  7 taken 3 (fallthrough)
+branch  8 taken 0 (throw)
+        3:   84-block  3
+call    9 returned 3
+branch 10 taken 3 (fallthrough)
+branch 11 taken 0 (throw)
+        3:   84-block  4
+call   12 returned 3
+        3:   84-block  5
+call   13 returned 3
+        3:   84-block  6
+call   14 returned 3
+        3:   84-block  7
+    $$$$$:   84-block  8
+call   15 never executed
+    $$$$$:   84-block  9
+    $$$$$:   84-block 10
+    $$$$$:   84-block 11
+call   16 never executed
+    $$$$$:   84-block 12
+    $$$$$:   84-block 13
+    $$$$$:   84-block 14
+call   17 never executed
+    $$$$$:   84-block 15
+    $$$$$:   84-block 16
+call   18 never executed
+       15:   85:    service.adauga_service("B", 2, "Uman", "B");
+        3:   85-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:   85-block  1
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+        3:   85-block  2
+call    6 returned 3
+branch  7 taken 3 (fallthrough)
+branch  8 taken 0 (throw)
+        3:   85-block  3
+call    9 returned 3
+branch 10 taken 3 (fallthrough)
+branch 11 taken 0 (throw)
+        3:   85-block  4
+call   12 returned 3
+        3:   85-block  5
+call   13 returned 3
+        3:   85-block  6
+call   14 returned 3
+    $$$$$:   85-block  7
+call   15 never executed
+    $$$$$:   85-block  8
+    $$$$$:   85-block  9
+    $$$$$:   85-block 10
+call   16 never executed
+    $$$$$:   85-block 11
+    $$$$$:   85-block 12
+    $$$$$:   85-block 13
+call   17 never executed
+    $$$$$:   85-block 14
+    $$$$$:   85-block 15
+call   18 never executed
+        -:   86:
+        -:   87:    try {
+        3:   88:        service.sterge_service(2);
+        3:   88-block  0
+call    0 returned 3
+branch  1 taken 0 (fallthrough)
+branch  2 taken 3 (throw)
+    #####:   89:        assert(false);
+    %%%%%:   89-block  0
+call    0 never executed
+        3:   90:    } catch (const RepoException &e) {
+        3:   90-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 3
+        3:   90-block  1
+call    2 returned 3
+        6:   91:        assert(static_cast<string>(e.what()) == "Disciplina nu a fost gasita!");
+        3:   91-block  0
+call    0 returned 3
+call    1 returned 3
+branch  2 taken 3 (fallthrough)
+branch  3 taken 0 (throw)
+        3:   91-block  1
+call    4 returned 3
+branch  5 taken 3 (fallthrough)
+branch  6 taken 0 (throw)
+        3:   91-block  2
+branch  7 taken 0 (fallthrough)
+branch  8 taken 3
+    $$$$$:   91-block  3
+call    9 never executed
+        3:   91-block  4
+        3:   91-block  5
+branch 10 taken 3 (fallthrough)
+branch 11 taken 0
+        3:   91-block  6
+call   12 returned 3
+        3:   91-block  7
+branch 13 taken 3 (fallthrough)
+branch 14 taken 0
+    $$$$$:   91-block  8
+branch 15 never executed (fallthrough)
+branch 16 never executed
+    $$$$$:   91-block  9
+call   17 never executed
+    $$$$$:   91-block 10
+    $$$$$:   91-block 11
+branch 18 never executed (fallthrough)
+branch 19 never executed
+    $$$$$:   91-block 12
+        3:   92:    }
+        3:   92-block  0
+call    0 returned 3
+    $$$$$:   92-block  1
+call    1 never executed
+        -:   93:
+        3:   94:    service.sterge_service(0);
+call    0 returned 3
+        3:   95:    assert(service.getAll().size() == 1);
+    $$$$$:   95-block  0
+call    0 never executed
+        3:   95-block  1
+call    1 returned 3
+call    2 returned 3
+branch  3 taken 0
+branch  4 taken 3
+        3:   96:    assert(service.getAll()[0].getNume() == "B");
+        3:   96-block  0
+call    0 returned 3
+call    1 returned 3
+call    2 returned 3
+call    3 returned 3
+branch  4 taken 0 (fallthrough)
+branch  5 taken 3
+    $$$$$:   96-block  1
+call    6 never executed
+        3:   96-block  2
+        -:   97:
+        3:   98:    service.sterge_service(0);
+        3:   98-block  0
+call    0 returned 3
+        3:   99:    assert(service.getAll().empty());
+call    0 returned 3
+call    1 returned 3
+branch  2 taken 0 (fallthrough)
+branch  3 taken 3
+    $$$$$:   99-block  0
+call    4 never executed
+        3:   99-block  1
+        -:  100:
+        -:  101:    try {
+        3:  102:        service.sterge_service(0);
+        3:  102-block  0
+call    0 returned 3
+branch  1 taken 0 (fallthrough)
+branch  2 taken 3 (throw)
+    =====:  103:        assert(false);
+    $$$$$:  103-block  0
+call    0 never executed
+        3:  104:    } catch (const RepoException &e) {
+        3:  104-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 3
+        3:  104-block  1
+call    2 returned 3
+        3:  105:        assert(e.getMesaj() == "Disciplina nu a fost gasita!");
+call    0 returned 3
+call    1 returned 3
+branch  2 taken 3 (fallthrough)
+branch  3 taken 0 (throw)
+        3:  105-block  0
+branch  4 taken 0 (fallthrough)
+branch  5 taken 3
+    $$$$$:  105-block  1
+call    6 never executed
+        3:  105-block  2
+        3:  106:    }
+        3:  106-block  0
+call    0 returned 3
+    $$$$$:  106-block  1
+call    1 never executed
+        -:  107:
+        -:  108:    try {
+        3:  109:        service.sterge_service(-1);
+call    0 returned 3
+branch  1 taken 0 (fallthrough)
+branch  2 taken 3 (throw)
+    =====:  110:        assert(false);
+    $$$$$:  110-block  0
+call    0 never executed
+        3:  111:    } catch (const RepoException &e) {
+        3:  111-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 3
+        3:  111-block  1
+call    2 returned 3
+        3:  112:        assert(e.getMesaj() == "Elementele sunt doar pe pozitii pozitive!");
+call    0 returned 3
+call    1 returned 3
+branch  2 taken 3 (fallthrough)
+branch  3 taken 0 (throw)
+        3:  112-block  0
+branch  4 taken 0 (fallthrough)
+branch  5 taken 3
+    $$$$$:  112-block  1
+call    6 never executed
+        3:  112-block  2
+        3:  113:    }
+        3:  113-block  0
+call    0 returned 3
+    $$$$$:  113-block  1
+call    1 never executed
+        3:  114:}
+        -:  115:
+        -:  116:
+        -:  117:
+function _ZN15TesteDiscipline9test_undoER17ServiceDisciplina called 3 returned 100% blocks executed 51%
+        3:  118:void TesteDiscipline::test_undo(ServiceDisciplina &service) {
+        -:  119:    try {
+        3:  120:        service.undo();
+        3:  120-block  0
+call    0 returned 3
+branch  1 taken 0 (fallthrough)
+branch  2 taken 3 (throw)
+    #####:  121:        assert(false);
+    %%%%%:  121-block  0
+call    0 never executed
+        3:  122:    } catch (const RepoException &re) {
+        3:  122-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 3
+        3:  122-block  1
+call    2 returned 3
+        3:  123:        assert(re.getMesaj() == "Nu mai exista operatii de refacut!");
+call    0 returned 3
+call    1 returned 3
+branch  2 taken 3 (fallthrough)
+branch  3 taken 0 (throw)
+        3:  123-block  0
+branch  4 taken 0 (fallthrough)
+branch  5 taken 3
+    $$$$$:  123-block  1
+call    6 never executed
+        3:  123-block  2
+        3:  124:    }
+        3:  124-block  0
+call    0 returned 3
+    $$$$$:  124-block  1
+call    1 never executed
+        -:  125:
+       18:  126:    service.adauga_service("Limba Romana", 8, "Uman", "Oana");
+        3:  126-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:  126-block  1
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+        3:  126-block  2
+call    6 returned 3
+branch  7 taken 3 (fallthrough)
+branch  8 taken 0 (throw)
+        3:  126-block  3
+call    9 returned 3
+        3:  126-block  4
+call   10 returned 3
+        3:  126-block  5
+call   11 returned 3
+        3:  126-block  6
+        3:  126-block  7
+call   12 returned 3
+branch 13 taken 3 (fallthrough)
+branch 14 taken 0 (throw)
+    $$$$$:  126-block  8
+call   15 never executed
+    $$$$$:  126-block  9
+    $$$$$:  126-block 10
+    $$$$$:  126-block 11
+call   16 never executed
+    $$$$$:  126-block 12
+    $$$$$:  126-block 13
+    $$$$$:  126-block 14
+call   17 never executed
+    $$$$$:  126-block 15
+    $$$$$:  126-block 16
+call   18 never executed
+       18:  127:    service.adauga_service("Matematica", 8, "Real", "Petru");
+        3:  127-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:  127-block  1
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+        3:  127-block  2
+call    6 returned 3
+branch  7 taken 3 (fallthrough)
+branch  8 taken 0 (throw)
+        3:  127-block  3
+call    9 returned 3
+branch 10 taken 3 (fallthrough)
+branch 11 taken 0 (throw)
+        3:  127-block  4
+call   12 returned 3
+        3:  127-block  5
+call   13 returned 3
+        3:  127-block  6
+call   14 returned 3
+        3:  127-block  7
+    $$$$$:  127-block  8
+call   15 never executed
+    $$$$$:  127-block  9
+    $$$$$:  127-block 10
+    $$$$$:  127-block 11
+call   16 never executed
+    $$$$$:  127-block 12
+    $$$$$:  127-block 13
+    $$$$$:  127-block 14
+call   17 never executed
+    $$$$$:  127-block 15
+    $$$$$:  127-block 16
+call   18 never executed
+       18:  128:    service.adauga_service("Desen", 2, "Uman", "Bianca");
+        3:  128-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:  128-block  1
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+        3:  128-block  2
+call    6 returned 3
+branch  7 taken 3 (fallthrough)
+branch  8 taken 0 (throw)
+        3:  128-block  3
+call    9 returned 3
+branch 10 taken 3 (fallthrough)
+branch 11 taken 0 (throw)
+        3:  128-block  4
+call   12 returned 3
+        3:  128-block  5
+call   13 returned 3
+        3:  128-block  6
+call   14 returned 3
+        3:  128-block  7
+    $$$$$:  128-block  8
+call   15 never executed
+    $$$$$:  128-block  9
+    $$$$$:  128-block 10
+    $$$$$:  128-block 11
+call   16 never executed
+    $$$$$:  128-block 12
+    $$$$$:  128-block 13
+    $$$$$:  128-block 14
+call   17 never executed
+    $$$$$:  128-block 15
+    $$$$$:  128-block 16
+call   18 never executed
+       18:  129:    service.adauga_service("Sport", 4, "Real", "Dani");
+        3:  129-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:  129-block  1
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+        3:  129-block  2
+call    6 returned 3
+branch  7 taken 3 (fallthrough)
+branch  8 taken 0 (throw)
+        3:  129-block  3
+call    9 returned 3
+branch 10 taken 3 (fallthrough)
+branch 11 taken 0 (throw)
+        3:  129-block  4
+call   12 returned 3
+        3:  129-block  5
+call   13 returned 3
+        3:  129-block  6
+call   14 returned 3
+        3:  129-block  7
+    $$$$$:  129-block  8
+call   15 never executed
+    $$$$$:  129-block  9
+    $$$$$:  129-block 10
+    $$$$$:  129-block 11
+call   16 never executed
+    $$$$$:  129-block 12
+    $$$$$:  129-block 13
+    $$$$$:  129-block 14
+call   17 never executed
+    $$$$$:  129-block 15
+    $$$$$:  129-block 16
+call   18 never executed
+       18:  130:    service.adauga_service("Istorie", 4, "Uman", "Vlad");
+        3:  130-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:  130-block  1
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+        3:  130-block  2
+call    6 returned 3
+branch  7 taken 3 (fallthrough)
+branch  8 taken 0 (throw)
+        3:  130-block  3
+call    9 returned 3
+branch 10 taken 3 (fallthrough)
+branch 11 taken 0 (throw)
+        3:  130-block  4
+call   12 returned 3
+        3:  130-block  5
+call   13 returned 3
+        3:  130-block  6
+call   14 returned 3
+        3:  130-block  7
+    $$$$$:  130-block  8
+call   15 never executed
+    $$$$$:  130-block  9
+    $$$$$:  130-block 10
+    $$$$$:  130-block 11
+call   16 never executed
+    $$$$$:  130-block 12
+    $$$$$:  130-block 13
+    $$$$$:  130-block 14
+call   17 never executed
+    $$$$$:  130-block 15
+    $$$$$:  130-block 16
+call   18 never executed
+       18:  131:    service.adauga_service("Politica", 4, "Uman", "Tarlea");
+        3:  131-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:  131-block  1
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+        3:  131-block  2
+call    6 returned 3
+branch  7 taken 3 (fallthrough)
+branch  8 taken 0 (throw)
+        3:  131-block  3
+call    9 returned 3
+branch 10 taken 3 (fallthrough)
+branch 11 taken 0 (throw)
+        3:  131-block  4
+call   12 returned 3
+        3:  131-block  5
+call   13 returned 3
+        3:  131-block  6
+call   14 returned 3
+        3:  131-block  7
+    $$$$$:  131-block  8
+call   15 never executed
+    $$$$$:  131-block  9
+    $$$$$:  131-block 10
+    $$$$$:  131-block 11
+call   16 never executed
+    $$$$$:  131-block 12
+    $$$$$:  131-block 13
+    $$$$$:  131-block 14
+call   17 never executed
+    $$$$$:  131-block 15
+    $$$$$:  131-block 16
+call   18 never executed
+       18:  132:    service.adauga_service("Informatica", 8, "Real", "Miha");
+        3:  132-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:  132-block  1
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+        3:  132-block  2
+call    6 returned 3
+branch  7 taken 3 (fallthrough)
+branch  8 taken 0 (throw)
+        3:  132-block  3
+call    9 returned 3
+branch 10 taken 3 (fallthrough)
+branch 11 taken 0 (throw)
+        3:  132-block  4
+call   12 returned 3
+        3:  132-block  5
+call   13 returned 3
+        3:  132-block  6
+call   14 returned 3
+        3:  132-block  7
+    $$$$$:  132-block  8
+call   15 never executed
+    $$$$$:  132-block  9
+    $$$$$:  132-block 10
+    $$$$$:  132-block 11
+call   16 never executed
+    $$$$$:  132-block 12
+    $$$$$:  132-block 13
+    $$$$$:  132-block 14
+call   17 never executed
+    $$$$$:  132-block 15
+    $$$$$:  132-block 16
+call   18 never executed
+       18:  133:    service.adauga_service("Film", 6, "Uman", "Petru");
+        3:  133-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:  133-block  1
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+        3:  133-block  2
+call    6 returned 3
+branch  7 taken 3 (fallthrough)
+branch  8 taken 0 (throw)
+        3:  133-block  3
+call    9 returned 3
+branch 10 taken 3 (fallthrough)
+branch 11 taken 0 (throw)
+        3:  133-block  4
+call   12 returned 3
+        3:  133-block  5
+call   13 returned 3
+        3:  133-block  6
+call   14 returned 3
+        3:  133-block  7
+    $$$$$:  133-block  8
+call   15 never executed
+    $$$$$:  133-block  9
+    $$$$$:  133-block 10
+    $$$$$:  133-block 11
+call   16 never executed
+    $$$$$:  133-block 12
+    $$$$$:  133-block 13
+    $$$$$:  133-block 14
+call   17 never executed
+    $$$$$:  133-block 15
+    $$$$$:  133-block 16
+call   18 never executed
+       18:  134:    service.adauga_service("Chestii random", 6, "??", "Gabi");
+        3:  134-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:  134-block  1
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+        3:  134-block  2
+call    6 returned 3
+branch  7 taken 3 (fallthrough)
+branch  8 taken 0 (throw)
+        3:  134-block  3
+call    9 returned 3
+branch 10 taken 3 (fallthrough)
+branch 11 taken 0 (throw)
+        3:  134-block  4
+call   12 returned 3
+        3:  134-block  5
+call   13 returned 3
+        3:  134-block  6
+call   14 returned 3
+        3:  134-block  7
+    $$$$$:  134-block  8
+call   15 never executed
+    $$$$$:  134-block  9
+    $$$$$:  134-block 10
+    $$$$$:  134-block 11
+call   16 never executed
+    $$$$$:  134-block 12
+    $$$$$:  134-block 13
+    $$$$$:  134-block 14
+call   17 never executed
+    $$$$$:  134-block 15
+    $$$$$:  134-block 16
+call   18 never executed
+       15:  135:    service.adauga_service("Biologie", 6, "Real", "Rares");
+        3:  135-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:  135-block  1
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+        3:  135-block  2
+call    6 returned 3
+branch  7 taken 3 (fallthrough)
+branch  8 taken 0 (throw)
+        3:  135-block  3
+call    9 returned 3
+branch 10 taken 3 (fallthrough)
+branch 11 taken 0 (throw)
+        3:  135-block  4
+call   12 returned 3
+        3:  135-block  5
+call   13 returned 3
+        3:  135-block  6
+call   14 returned 3
+    $$$$$:  135-block  7
+call   15 never executed
+    $$$$$:  135-block  8
+    $$$$$:  135-block  9
+    $$$$$:  135-block 10
+call   16 never executed
+    $$$$$:  135-block 11
+    $$$$$:  135-block 12
+    $$$$$:  135-block 13
+call   17 never executed
+    $$$$$:  135-block 14
+    $$$$$:  135-block 15
+call   18 never executed
+        -:  136:
+        3:  137:    service.sterge_service(4);
+        3:  137-block  0
+call    0 returned 3
+       18:  138:    service.adauga_service("Opera", 4, "Uman", "Sopranos");
+        3:  138-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:  138-block  1
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+        3:  138-block  2
+call    6 returned 3
+branch  7 taken 3 (fallthrough)
+branch  8 taken 0 (throw)
+        3:  138-block  3
+call    9 returned 3
+branch 10 taken 3 (fallthrough)
+branch 11 taken 0 (throw)
+        3:  138-block  4
+call   12 returned 3
+        3:  138-block  5
+call   13 returned 3
+        3:  138-block  6
+call   14 returned 3
+        3:  138-block  7
+    $$$$$:  138-block  8
+call   15 never executed
+    $$$$$:  138-block  9
+    $$$$$:  138-block 10
+    $$$$$:  138-block 11
+call   16 never executed
+    $$$$$:  138-block 12
+    $$$$$:  138-block 13
+    $$$$$:  138-block 14
+call   17 never executed
+    $$$$$:  138-block 15
+    $$$$$:  138-block 16
+call   18 never executed
+       15:  139:    service.modifica_service(6, "Movies", 6, "Uman", "Petru");
+        3:  139-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:  139-block  1
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+        3:  139-block  2
+call    6 returned 3
+branch  7 taken 3 (fallthrough)
+branch  8 taken 0 (throw)
+        3:  139-block  3
+call    9 returned 3
+branch 10 taken 3 (fallthrough)
+branch 11 taken 0 (throw)
+        3:  139-block  4
+call   12 returned 3
+        3:  139-block  5
+call   13 returned 3
+        3:  139-block  6
+call   14 returned 3
+    $$$$$:  139-block  7
+call   15 never executed
+    $$$$$:  139-block  8
+    $$$$$:  139-block  9
+    $$$$$:  139-block 10
+call   16 never executed
+    $$$$$:  139-block 11
+    $$$$$:  139-block 12
+    $$$$$:  139-block 13
+call   17 never executed
+    $$$$$:  139-block 14
+        3:  140:    service.sterge_service(6);
+        3:  140-block  0
+call    0 returned 3
+        -:  141:
+        -:  142:
+        3:  143:    service.undo();
+call    0 returned 3
+        3:  144:    assert(service.getAll()[6].getNume() == "Movies");
+call    0 returned 3
+call    1 returned 3
+call    2 returned 3
+call    3 returned 3
+branch  4 taken 0 (fallthrough)
+branch  5 taken 3
+    $$$$$:  144-block  0
+call    6 never executed
+        3:  144-block  1
+        -:  145:
+        3:  146:    service.undo();
+        3:  146-block  0
+call    0 returned 3
+        3:  147:    assert(service.getAll()[6].getNume() == "Film");
+call    0 returned 3
+call    1 returned 3
+call    2 returned 3
+call    3 returned 3
+branch  4 taken 0 (fallthrough)
+branch  5 taken 3
+    $$$$$:  147-block  0
+call    6 never executed
+        3:  147-block  1
+        -:  148:
+        3:  149:    service.undo();
+        3:  149-block  0
+call    0 returned 3
+        3:  150:    assert(service.getAll().size() == 9);
+call    0 returned 3
+call    1 returned 3
+branch  2 taken 0 (fallthrough)
+branch  3 taken 3
+    $$$$$:  150-block  0
+call    4 never executed
+        3:  150-block  1
+        3:  151:    assert(service.getAll()[8].getNume() == "Biologie");
+        3:  151-block  0
+call    0 returned 3
+call    1 returned 3
+call    2 returned 3
+call    3 returned 3
+branch  4 taken 0 (fallthrough)
+branch  5 taken 3
+    $$$$$:  151-block  1
+call    6 never executed
+        3:  151-block  2
+        -:  152:
+        3:  153:    service.undo();
+        3:  153-block  0
+call    0 returned 3
+        3:  154:    assert(service.getAll()[4].getNume() == "Istorie");
+call    0 returned 3
+call    1 returned 3
+call    2 returned 3
+call    3 returned 3
+branch  4 taken 0 (fallthrough)
+branch  5 taken 3
+    $$$$$:  154-block  0
+call    6 never executed
+        3:  154-block  1
+        3:  155:}
+        3:  155-block  0
+        -:  156:
+        -:  157:
+function _ZN15TesteDiscipline12test_memorieEv called 1 returned 100% blocks executed 53%
+        1:  158:void TesteDiscipline::test_memorie() {
+        1:  159:    RepoDisciplinaMem repo_add;
+        1:  160:    ServiceDisciplina service_mem_add{repo_add};
+        1:  160-block  0
+call    0 returned 1
+        -:  161:
+        1:  162:    RepoDisciplinaMem repo_mod;
+        1:  163:    ServiceDisciplina service_mem_mod{repo_mod};
+call    0 returned 1
+        -:  164:
+        1:  165:    RepoDisciplinaMem repo_del;
+        1:  166:    ServiceDisciplina service_mem_del{repo_del};
+call    0 returned 1
+        -:  167:
+        1:  168:    RepoDisciplinaMem repo_undo;
+        1:  169:    ServiceDisciplina service_mem_undo{repo_undo};
+call    0 returned 1
+        -:  170:
+        -:  171:
+        1:  172:    test_adaugare(service_mem_add);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  173:    test_modificare(service_mem_mod);
+        1:  173-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  174:    test_stergere(service_mem_del);
+        1:  174-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  175:    test_undo(service_mem_undo);
+        1:  175-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  176:}
+        1:  176-block  0
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+call    3 returned 1
+call    4 returned 1
+call    5 returned 1
+call    6 returned 1
+call    7 returned 1
+    $$$$$:  176-block  1
+call    8 never executed
+    $$$$$:  176-block  2
+call    9 never executed
+    $$$$$:  176-block  3
+call   10 never executed
+    $$$$$:  176-block  4
+call   11 never executed
+    $$$$$:  176-block  5
+call   12 never executed
+    $$$$$:  176-block  6
+call   13 never executed
+    $$$$$:  176-block  7
+call   14 never executed
+    $$$$$:  176-block  8
+call   15 never executed
+        -:  177:
+        -:  178:
+function _ZN15TesteDiscipline12test_fisiereEv called 1 returned 100% blocks executed 54%
+        1:  179:void TesteDiscipline::test_fisiere() { {
+        -:  180:        char temp[L_tmpnam];
+        1:  181:        tmpnam(temp);
+        1:  181-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  182:
+        1:  183:        RepoDisciplinaFile repo(temp);
+        1:  183-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  183-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  183-block  2
+call    6 returned 1
+    $$$$$:  183-block  3
+call    7 never executed
+    $$$$$:  183-block  4
+    $$$$$:  183-block  5
+        1:  184:        ServiceDisciplina service{repo};
+        1:  184-block  0
+call    0 returned 1
+        -:  185:
+        1:  186:        test_adaugare(service);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  187:
+        1:  188:        remove(temp);
+        1:  188-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  189:    } {
+        1:  189-block  0
+call    0 returned 1
+call    1 returned 1
+    $$$$$:  189-block  1
+call    2 never executed
+    $$$$$:  189-block  2
+call    3 never executed
+        -:  190:        char temp[L_tmpnam];
+        1:  191:        tmpnam(temp);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  192:
+        1:  193:        RepoDisciplinaFile repo(temp);
+        1:  193-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  193-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  193-block  2
+call    6 returned 1
+    $$$$$:  193-block  3
+call    7 never executed
+    $$$$$:  193-block  4
+    $$$$$:  193-block  5
+        1:  194:        ServiceDisciplina service{repo};
+        1:  194-block  0
+call    0 returned 1
+        -:  195:
+        1:  196:        test_modificare(service);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  197:
+        1:  198:        remove(temp);
+        1:  198-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  199:    } {
+        1:  199-block  0
+call    0 returned 1
+call    1 returned 1
+    $$$$$:  199-block  1
+call    2 never executed
+    $$$$$:  199-block  2
+call    3 never executed
+        -:  200:        char temp[L_tmpnam];
+        1:  201:        tmpnam(temp);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  202:
+        1:  203:        RepoDisciplinaFile repo(temp);
+        1:  203-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  203-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  203-block  2
+call    6 returned 1
+    $$$$$:  203-block  3
+call    7 never executed
+    $$$$$:  203-block  4
+    $$$$$:  203-block  5
+        1:  204:        ServiceDisciplina service{repo};
+        1:  204-block  0
+call    0 returned 1
+        -:  205:
+        1:  206:        test_stergere(service);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  207:
+        1:  208:        remove(temp);
+        1:  208-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  209:    } {
+        1:  209-block  0
+call    0 returned 1
+call    1 returned 1
+    $$$$$:  209-block  1
+call    2 never executed
+    $$$$$:  209-block  2
+call    3 never executed
+        -:  210:        char temp[L_tmpnam];
+        1:  211:        tmpnam(temp);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  212:
+        1:  213:        RepoDisciplinaFile repo(temp);
+        1:  213-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  213-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  213-block  2
+call    6 returned 1
+    $$$$$:  213-block  3
+call    7 never executed
+    $$$$$:  213-block  4
+    $$$$$:  213-block  5
+        1:  214:        ServiceDisciplina service{repo};
+        1:  214-block  0
+call    0 returned 1
+        -:  215:
+        1:  216:        test_undo(service);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  217:
+        1:  218:        remove(temp);
+        1:  218-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  219:    }
+        1:  219-block  0
+call    0 returned 1
+call    1 returned 1
+    $$$$$:  219-block  1
+call    2 never executed
+    $$$$$:  219-block  2
+call    3 never executed
+        1:  220:}
+        -:  221:
+        -:  222:
+function _ZN15TesteDiscipline12test_cautareEv called 1 returned 100% blocks executed 56%
+        1:  223:void TesteDiscipline::test_cautare() {
+        1:  224:    RepoDisciplinaMem repo;
+        1:  225:    ServiceDisciplina service{repo};
+        1:  225-block  0
+call    0 returned 1
+        -:  226:
+        5:  227:    service.adauga_service("A", 1, "Real", "A");
+        1:  227-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  227-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  227-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  227-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  227-block  4
+call   12 returned 1
+        1:  227-block  5
+call   13 returned 1
+        1:  227-block  6
+call   14 returned 1
+    $$$$$:  227-block  7
+call   15 never executed
+    $$$$$:  227-block  8
+    $$$$$:  227-block  9
+    $$$$$:  227-block 10
+call   16 never executed
+    $$$$$:  227-block 11
+    $$$$$:  227-block 12
+    $$$$$:  227-block 13
+call   17 never executed
+    $$$$$:  227-block 14
+    $$$$$:  227-block 15
+        -:  228:    try {
+        1:  229:        service.cauta_service(1);
+        1:  229-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1 (throw)
+    #####:  230:        assert(false);
+    %%%%%:  230-block  0
+call    0 never executed
+        1:  231:    } catch (const RepoException &e) {
+        1:  231-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+        1:  231-block  1
+call    2 returned 1
+        1:  232:        assert(e.getMesaj() == "Disciplina nu a fost gasita!");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  232-block  0
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    $$$$$:  232-block  1
+call    6 never executed
+        1:  232-block  2
+        1:  233:    }
+        1:  233-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+    $$$$$:  233-block  1
+call    3 never executed
+        -:  234:
+        -:  235:    try {
+        1:  236:        service.cauta_service(-1);
+        1:  236-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1 (throw)
+    =====:  237:        assert(false);
+    $$$$$:  237-block  0
+call    0 never executed
+        1:  238:    } catch (const RepoException &e) {
+        1:  238-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+        1:  238-block  1
+call    2 returned 1
+        1:  239:        assert(e.getMesaj() == "Elementele sunt doar pe pozitii pozitive!");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  239-block  0
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    $$$$$:  239-block  1
+call    6 never executed
+        1:  239-block  2
+        1:  240:    }
+        1:  240-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+    $$$$$:  240-block  1
+call    3 never executed
+        -:  241:
+        1:  242:    const Disciplina &d = service.cauta_service(0);
+        1:  242-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  243:
+        1:  244:    assert(d.getNume() == "A");
+        1:  244-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  244-block  1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    $$$$$:  244-block  2
+call    6 never executed
+        1:  244-block  3
+        1:  245:}
+        1:  245-block  0
+call    0 returned 1
+call    1 returned 1
+    $$$$$:  245-block  1
+call    2 never executed
+    $$$$$:  245-block  2
+call    3 never executed
+        -:  246:
+function _ZN15TesteDiscipline14test_falsitateEv called 1 returned 100% blocks executed 65%
+        1:  247:void TesteDiscipline::test_falsitate() {
+        -:  248:    try {
+        1:  249:        RepoDisciplinaFals repo_fals{5};
+        1:  249-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1 (throw)
+    #####:  250:        assert(false);
+    %%%%%:  250-block  0
+call    0 never executed
+        1:  251:    } catch (const ValidationException &ve) {
+    $$$$$:  251-block  0
+call    0 never executed
+        1:  251-block  1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+        1:  251-block  2
+call    3 returned 1
+        1:  252:        assert(ve.getMesaj() == "Probabilitatea trebuie sa fie intre 0 si 1!");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  252-block  0
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    $$$$$:  252-block  1
+call    6 never executed
+        1:  252-block  2
+        1:  253:    }
+        1:  253-block  0
+call    0 returned 1
+    $$$$$:  253-block  1
+call    1 never executed
+        -:  254:
+        1:  255:    RepoDisciplinaFals repo_fail(1.0);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  256:    ServiceDisciplina service_fail(repo_fail);
+        1:  256-block  0
+call    0 returned 1
+        -:  257:
+        -:  258:    try {
+        6:  259:        service_fail.adauga_service("Chimie", 3, "Real", "Ana");
+        1:  259-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  259-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  259-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  259-block  3
+call    9 returned 1
+branch 10 taken 0 (fallthrough)
+branch 11 taken 1 (throw)
+    $$$$$:  259-block  4
+call   12 never executed
+    $$$$$:  259-block  5
+call   13 never executed
+    $$$$$:  259-block  6
+call   14 never executed
+        1:  259-block  7
+call   15 returned 1
+        1:  259-block  8
+        1:  259-block  9
+        1:  259-block 10
+call   16 returned 1
+        1:  259-block 11
+        1:  259-block 12
+        1:  259-block 13
+call   17 returned 1
+        1:  259-block 14
+        1:  259-block 15
+    =====:  260:        assert(false);
+    $$$$$:  260-block  0
+call    0 never executed
+        1:  261:    } catch (const RepoException &re) {
+        1:  261-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+        1:  261-block  1
+call    2 returned 1
+        1:  262:        assert(re.getMesaj() == "Exceptie aruncata de repo!");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  262-block  0
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    $$$$$:  262-block  1
+call    6 never executed
+        1:  262-block  2
+        1:  263:    }
+        1:  263-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+    $$$$$:  263-block  1
+call    3 never executed
+        -:  264:
+        1:  265:    RepoDisciplinaFals repo_add{0.0};
+        1:  265-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  266:    ServiceDisciplina service_add{repo_add};
+        1:  266-block  0
+call    0 returned 1
+        -:  267:
+        1:  268:    RepoDisciplinaFals repo_mod{0.0};
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  269:    ServiceDisciplina service_mod{repo_mod};
+        1:  269-block  0
+call    0 returned 1
+        -:  270:
+        1:  271:    RepoDisciplinaFals repo_del{0.0};
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  272:    ServiceDisciplina service_del{repo_del};
+        1:  272-block  0
+call    0 returned 1
+        -:  273:
+        1:  274:    RepoDisciplinaFals repo_undo{0};
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  275:    ServiceDisciplina service_undo{repo_undo};
+        1:  275-block  0
+call    0 returned 1
+        -:  276:
+        -:  277:
+        1:  278:    test_adaugare(service_add);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  279:    test_modificare(service_mod);
+        1:  279-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  280:    test_stergere(service_del);
+        1:  280-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  281:    test_undo(service_undo);
+        1:  281-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  282:}
+        1:  282-block  0
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+call    3 returned 1
+call    4 returned 1
+call    5 returned 1
+call    6 returned 1
+call    7 returned 1
+call    8 returned 1
+call    9 returned 1
+    $$$$$:  282-block  1
+call   10 never executed
+    $$$$$:  282-block  2
+call   11 never executed
+    $$$$$:  282-block  3
+call   12 never executed
+    $$$$$:  282-block  4
+call   13 never executed
+    $$$$$:  282-block  5
+call   14 never executed
+    $$$$$:  282-block  6
+call   15 never executed
+    $$$$$:  282-block  7
+call   16 never executed
+    $$$$$:  282-block  8
+call   17 never executed
+    $$$$$:  282-block  9
+call   18 never executed
+    $$$$$:  282-block 10
+call   19 never executed
+        -:  283:
+        -:  284:
+function _ZN15TesteDiscipline13test_filtrareEv called 1 returned 100% blocks executed 50%
+        1:  285:void TesteDiscipline::test_filtrare() {
+        1:  286:    RepoDisciplinaMem repo;
+        1:  287:    ServiceDisciplina service{repo};
+        1:  287-block  0
+call    0 returned 1
+        1:  288:    vector<Disciplina> out;
+        -:  289:
+        -:  290:
+        6:  291:    service.adauga_service("Limba Romana", 8, "Uman", "Oana");
+        1:  291-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  291-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  291-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  291-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  291-block  4
+call   12 returned 1
+        1:  291-block  5
+call   13 returned 1
+        1:  291-block  6
+call   14 returned 1
+        1:  291-block  7
+    $$$$$:  291-block  8
+call   15 never executed
+    $$$$$:  291-block  9
+    $$$$$:  291-block 10
+    $$$$$:  291-block 11
+call   16 never executed
+    $$$$$:  291-block 12
+    $$$$$:  291-block 13
+    $$$$$:  291-block 14
+call   17 never executed
+    $$$$$:  291-block 15
+    $$$$$:  291-block 16
+        6:  292:    service.adauga_service("Matematica", 8, "Real", "Petru");
+        1:  292-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  292-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  292-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  292-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  292-block  4
+call   12 returned 1
+        1:  292-block  5
+call   13 returned 1
+        1:  292-block  6
+call   14 returned 1
+        1:  292-block  7
+    $$$$$:  292-block  8
+call   15 never executed
+    $$$$$:  292-block  9
+    $$$$$:  292-block 10
+    $$$$$:  292-block 11
+call   16 never executed
+    $$$$$:  292-block 12
+    $$$$$:  292-block 13
+    $$$$$:  292-block 14
+call   17 never executed
+    $$$$$:  292-block 15
+    $$$$$:  292-block 16
+        6:  293:    service.adauga_service("Desen", 2, "Uman", "Bianca");
+        1:  293-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  293-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  293-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  293-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  293-block  4
+call   12 returned 1
+        1:  293-block  5
+call   13 returned 1
+        1:  293-block  6
+call   14 returned 1
+        1:  293-block  7
+    $$$$$:  293-block  8
+call   15 never executed
+    $$$$$:  293-block  9
+    $$$$$:  293-block 10
+    $$$$$:  293-block 11
+call   16 never executed
+    $$$$$:  293-block 12
+    $$$$$:  293-block 13
+    $$$$$:  293-block 14
+call   17 never executed
+    $$$$$:  293-block 15
+    $$$$$:  293-block 16
+        6:  294:    service.adauga_service("Sport", 4, "Real", "Dani");
+        1:  294-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  294-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  294-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  294-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  294-block  4
+call   12 returned 1
+        1:  294-block  5
+call   13 returned 1
+        1:  294-block  6
+call   14 returned 1
+        1:  294-block  7
+    $$$$$:  294-block  8
+call   15 never executed
+    $$$$$:  294-block  9
+    $$$$$:  294-block 10
+    $$$$$:  294-block 11
+call   16 never executed
+    $$$$$:  294-block 12
+    $$$$$:  294-block 13
+    $$$$$:  294-block 14
+call   17 never executed
+    $$$$$:  294-block 15
+    $$$$$:  294-block 16
+        6:  295:    service.adauga_service("Istorie", 4, "Uman", "Vlad");
+        1:  295-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  295-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  295-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  295-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  295-block  4
+call   12 returned 1
+        1:  295-block  5
+call   13 returned 1
+        1:  295-block  6
+call   14 returned 1
+        1:  295-block  7
+    $$$$$:  295-block  8
+call   15 never executed
+    $$$$$:  295-block  9
+    $$$$$:  295-block 10
+    $$$$$:  295-block 11
+call   16 never executed
+    $$$$$:  295-block 12
+    $$$$$:  295-block 13
+    $$$$$:  295-block 14
+call   17 never executed
+    $$$$$:  295-block 15
+    $$$$$:  295-block 16
+        6:  296:    service.adauga_service("Politica", 4, "Uman", "Tarlea");
+        1:  296-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  296-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  296-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  296-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  296-block  4
+call   12 returned 1
+        1:  296-block  5
+call   13 returned 1
+        1:  296-block  6
+call   14 returned 1
+        1:  296-block  7
+    $$$$$:  296-block  8
+call   15 never executed
+    $$$$$:  296-block  9
+    $$$$$:  296-block 10
+    $$$$$:  296-block 11
+call   16 never executed
+    $$$$$:  296-block 12
+    $$$$$:  296-block 13
+    $$$$$:  296-block 14
+call   17 never executed
+    $$$$$:  296-block 15
+    $$$$$:  296-block 16
+        6:  297:    service.adauga_service("Informatica", 8, "Real", "Miha");
+        1:  297-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  297-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  297-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  297-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  297-block  4
+call   12 returned 1
+        1:  297-block  5
+call   13 returned 1
+        1:  297-block  6
+call   14 returned 1
+        1:  297-block  7
+    $$$$$:  297-block  8
+call   15 never executed
+    $$$$$:  297-block  9
+    $$$$$:  297-block 10
+    $$$$$:  297-block 11
+call   16 never executed
+    $$$$$:  297-block 12
+    $$$$$:  297-block 13
+    $$$$$:  297-block 14
+call   17 never executed
+    $$$$$:  297-block 15
+    $$$$$:  297-block 16
+        6:  298:    service.adauga_service("Film", 6, "Uman", "Petru");
+        1:  298-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  298-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  298-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  298-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  298-block  4
+call   12 returned 1
+        1:  298-block  5
+call   13 returned 1
+        1:  298-block  6
+call   14 returned 1
+        1:  298-block  7
+    $$$$$:  298-block  8
+call   15 never executed
+    $$$$$:  298-block  9
+    $$$$$:  298-block 10
+    $$$$$:  298-block 11
+call   16 never executed
+    $$$$$:  298-block 12
+    $$$$$:  298-block 13
+    $$$$$:  298-block 14
+call   17 never executed
+    $$$$$:  298-block 15
+    $$$$$:  298-block 16
+        6:  299:    service.adauga_service("Chestii random", 6, "??", "Gabi");
+        1:  299-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  299-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  299-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  299-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  299-block  4
+call   12 returned 1
+        1:  299-block  5
+call   13 returned 1
+        1:  299-block  6
+call   14 returned 1
+        1:  299-block  7
+    $$$$$:  299-block  8
+call   15 never executed
+    $$$$$:  299-block  9
+    $$$$$:  299-block 10
+    $$$$$:  299-block 11
+call   16 never executed
+    $$$$$:  299-block 12
+    $$$$$:  299-block 13
+    $$$$$:  299-block 14
+call   17 never executed
+    $$$$$:  299-block 15
+    $$$$$:  299-block 16
+        5:  300:    service.adauga_service("Biologie", 6, "Real", "Rares");
+        1:  300-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  300-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  300-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  300-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  300-block  4
+call   12 returned 1
+        1:  300-block  5
+call   13 returned 1
+        1:  300-block  6
+call   14 returned 1
+    $$$$$:  300-block  7
+call   15 never executed
+    $$$$$:  300-block  8
+    $$$$$:  300-block  9
+    $$$$$:  300-block 10
+call   16 never executed
+    $$$$$:  300-block 11
+    $$$$$:  300-block 12
+    $$$$$:  300-block 13
+call   17 never executed
+    $$$$$:  300-block 14
+    $$$$$:  300-block 15
+        -:  301:
+        1:  302:    service.filtrare_ore(4, out);
+        1:  302-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+       1*:  303:    assert(out.size() == 3);
+        1:  303-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  303-block  1
+call    3 never executed
+        1:  303-block  2
+       1*:  304:    assert(out[0].getNume() == "Sport");
+        1:  304-block  0
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+branch  3 taken 1 (fallthrough)
+branch  4 taken 0 (throw)
+        1:  304-block  1
+branch  5 taken 0 (fallthrough)
+branch  6 taken 1
+    %%%%%:  304-block  2
+call    7 never executed
+        1:  304-block  3
+        -:  305:
+        1:  306:    service.filtrare_ore(100, out);
+        1:  306-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+       1*:  307:    assert(out.empty());
+        1:  307-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  307-block  1
+call    3 never executed
+        1:  307-block  2
+        -:  308:
+        1:  309:    service.filtrare_profesor("Petru", out);
+        1:  309-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  309-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  309-block  2
+call    6 returned 1
+    $$$$$:  309-block  3
+call    7 never executed
+    $$$$$:  309-block  4
+    $$$$$:  309-block  5
+       1*:  310:    assert(out.size() == 2);
+        1:  310-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  310-block  1
+call    3 never executed
+        1:  310-block  2
+       1*:  311:    assert(out[0].getNume() == "Matematica");
+        1:  311-block  0
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+branch  3 taken 1 (fallthrough)
+branch  4 taken 0 (throw)
+        1:  311-block  1
+branch  5 taken 0 (fallthrough)
+branch  6 taken 1
+    %%%%%:  311-block  2
+call    7 never executed
+        1:  311-block  3
+        -:  312:
+        1:  313:    service.filtrare_profesor("Mark", out);
+        1:  313-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  313-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  313-block  2
+call    6 returned 1
+    $$$$$:  313-block  3
+call    7 never executed
+    $$$$$:  313-block  4
+    $$$$$:  313-block  5
+       1*:  314:    assert(out.empty());
+        1:  314-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  314-block  1
+call    3 never executed
+        1:  314-block  2
+        1:  315:}
+        1:  315-block  0
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+    $$$$$:  315-block  1
+call    3 never executed
+    $$$$$:  315-block  2
+call    4 never executed
+    $$$$$:  315-block  3
+call    5 never executed
+        -:  316:
+        -:  317:
+function _ZN15TesteDiscipline12test_sortareEv called 1 returned 100% blocks executed 53%
+        1:  318:void TesteDiscipline::test_sortare() {
+        1:  319:    RepoDisciplinaMem repo;
+        1:  320:    ServiceDisciplina service{repo};
+        1:  320-block  0
+call    0 returned 1
+        1:  321:    vector<Disciplina> out;
+        -:  322:
+        6:  323:    service.adauga_service("Limba Romana", 8, "Uman", "Oana");
+        1:  323-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  323-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  323-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  323-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  323-block  4
+call   12 returned 1
+        1:  323-block  5
+call   13 returned 1
+        1:  323-block  6
+call   14 returned 1
+        1:  323-block  7
+    $$$$$:  323-block  8
+call   15 never executed
+    $$$$$:  323-block  9
+    $$$$$:  323-block 10
+    $$$$$:  323-block 11
+call   16 never executed
+    $$$$$:  323-block 12
+    $$$$$:  323-block 13
+    $$$$$:  323-block 14
+call   17 never executed
+    $$$$$:  323-block 15
+    $$$$$:  323-block 16
+        6:  324:    service.adauga_service("Matematica", 8, "Real", "Petru");
+        1:  324-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  324-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  324-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  324-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  324-block  4
+call   12 returned 1
+        1:  324-block  5
+call   13 returned 1
+        1:  324-block  6
+call   14 returned 1
+        1:  324-block  7
+    $$$$$:  324-block  8
+call   15 never executed
+    $$$$$:  324-block  9
+    $$$$$:  324-block 10
+    $$$$$:  324-block 11
+call   16 never executed
+    $$$$$:  324-block 12
+    $$$$$:  324-block 13
+    $$$$$:  324-block 14
+call   17 never executed
+    $$$$$:  324-block 15
+    $$$$$:  324-block 16
+        6:  325:    service.adauga_service("Desen", 2, "Uman", "Bianca");
+        1:  325-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  325-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  325-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  325-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  325-block  4
+call   12 returned 1
+        1:  325-block  5
+call   13 returned 1
+        1:  325-block  6
+call   14 returned 1
+        1:  325-block  7
+    $$$$$:  325-block  8
+call   15 never executed
+    $$$$$:  325-block  9
+    $$$$$:  325-block 10
+    $$$$$:  325-block 11
+call   16 never executed
+    $$$$$:  325-block 12
+    $$$$$:  325-block 13
+    $$$$$:  325-block 14
+call   17 never executed
+    $$$$$:  325-block 15
+    $$$$$:  325-block 16
+        6:  326:    service.adauga_service("Sport", 4, "Real", "Dani");
+        1:  326-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  326-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  326-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  326-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  326-block  4
+call   12 returned 1
+        1:  326-block  5
+call   13 returned 1
+        1:  326-block  6
+call   14 returned 1
+        1:  326-block  7
+    $$$$$:  326-block  8
+call   15 never executed
+    $$$$$:  326-block  9
+    $$$$$:  326-block 10
+    $$$$$:  326-block 11
+call   16 never executed
+    $$$$$:  326-block 12
+    $$$$$:  326-block 13
+    $$$$$:  326-block 14
+call   17 never executed
+    $$$$$:  326-block 15
+    $$$$$:  326-block 16
+        6:  327:    service.adauga_service("Istorie", 4, "Uman", "Vlad");
+        1:  327-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  327-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  327-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  327-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  327-block  4
+call   12 returned 1
+        1:  327-block  5
+call   13 returned 1
+        1:  327-block  6
+call   14 returned 1
+        1:  327-block  7
+    $$$$$:  327-block  8
+call   15 never executed
+    $$$$$:  327-block  9
+    $$$$$:  327-block 10
+    $$$$$:  327-block 11
+call   16 never executed
+    $$$$$:  327-block 12
+    $$$$$:  327-block 13
+    $$$$$:  327-block 14
+call   17 never executed
+    $$$$$:  327-block 15
+    $$$$$:  327-block 16
+        6:  328:    service.adauga_service("Politica", 4, "Uman", "Tarlea");
+        1:  328-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  328-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  328-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  328-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  328-block  4
+call   12 returned 1
+        1:  328-block  5
+call   13 returned 1
+        1:  328-block  6
+call   14 returned 1
+        1:  328-block  7
+    $$$$$:  328-block  8
+call   15 never executed
+    $$$$$:  328-block  9
+    $$$$$:  328-block 10
+    $$$$$:  328-block 11
+call   16 never executed
+    $$$$$:  328-block 12
+    $$$$$:  328-block 13
+    $$$$$:  328-block 14
+call   17 never executed
+    $$$$$:  328-block 15
+    $$$$$:  328-block 16
+        6:  329:    service.adauga_service("Informatica", 8, "Real", "Miha");
+        1:  329-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  329-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  329-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  329-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  329-block  4
+call   12 returned 1
+        1:  329-block  5
+call   13 returned 1
+        1:  329-block  6
+call   14 returned 1
+        1:  329-block  7
+    $$$$$:  329-block  8
+call   15 never executed
+    $$$$$:  329-block  9
+    $$$$$:  329-block 10
+    $$$$$:  329-block 11
+call   16 never executed
+    $$$$$:  329-block 12
+    $$$$$:  329-block 13
+    $$$$$:  329-block 14
+call   17 never executed
+    $$$$$:  329-block 15
+    $$$$$:  329-block 16
+        6:  330:    service.adauga_service("Film", 6, "Uman", "Petru");
+        1:  330-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  330-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  330-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  330-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  330-block  4
+call   12 returned 1
+        1:  330-block  5
+call   13 returned 1
+        1:  330-block  6
+call   14 returned 1
+        1:  330-block  7
+    $$$$$:  330-block  8
+call   15 never executed
+    $$$$$:  330-block  9
+    $$$$$:  330-block 10
+    $$$$$:  330-block 11
+call   16 never executed
+    $$$$$:  330-block 12
+    $$$$$:  330-block 13
+    $$$$$:  330-block 14
+call   17 never executed
+    $$$$$:  330-block 15
+    $$$$$:  330-block 16
+        6:  331:    service.adauga_service("Chestii random", 6, "??", "Gabi");
+        1:  331-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  331-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  331-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  331-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  331-block  4
+call   12 returned 1
+        1:  331-block  5
+call   13 returned 1
+        1:  331-block  6
+call   14 returned 1
+        1:  331-block  7
+    $$$$$:  331-block  8
+call   15 never executed
+    $$$$$:  331-block  9
+    $$$$$:  331-block 10
+    $$$$$:  331-block 11
+call   16 never executed
+    $$$$$:  331-block 12
+    $$$$$:  331-block 13
+    $$$$$:  331-block 14
+call   17 never executed
+    $$$$$:  331-block 15
+    $$$$$:  331-block 16
+        5:  332:    service.adauga_service("Biologie", 6, "Real", "Rares");
+        1:  332-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  332-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  332-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  332-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  332-block  4
+call   12 returned 1
+        1:  332-block  5
+call   13 returned 1
+        1:  332-block  6
+call   14 returned 1
+    $$$$$:  332-block  7
+call   15 never executed
+    $$$$$:  332-block  8
+    $$$$$:  332-block  9
+    $$$$$:  332-block 10
+call   16 never executed
+    $$$$$:  332-block 11
+    $$$$$:  332-block 12
+    $$$$$:  332-block 13
+call   17 never executed
+    $$$$$:  332-block 14
+    $$$$$:  332-block 15
+        -:  333:
+        1:  334:    service.sortare_nume(out);
+        1:  334-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  335:    const Disciplina *prev = nullptr;
+       11:  336:    for (const auto &d: out) {
+        1:  336-block  0
+call    0 returned 1
+call    1 returned 1
+       10:  336-block  1
+call    2 returned 10
+       11:  336-block  2
+call    3 returned 11
+branch  4 taken 10
+branch  5 taken 1 (fallthrough)
+       10:  337:        if (prev != nullptr)
+branch  0 taken 9 (fallthrough)
+branch  1 taken 1
+       9*:  338:            assert(prev->getNume() <= d.getNume());
+        9:  338-block  0
+call    0 returned 9
+call    1 returned 9
+call    2 returned 9
+call    3 returned 9
+call    4 returned 9
+branch  5 taken 0 (fallthrough)
+branch  6 taken 9
+    %%%%%:  338-block  1
+call    7 never executed
+        9:  338-block  2
+        9:  338-block  3
+    $$$$$:  338-block  4
+       10:  339:        prev = &d;
+       10:  339-block  0
+call    0 returned 10
+        -:  340:    }
+        -:  341:
+        1:  342:    service.sortare_ore(out);
+        1:  342-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  343:    prev = nullptr;
+       11:  344:    for (const auto &d: out) {
+        1:  344-block  0
+call    0 returned 1
+call    1 returned 1
+       10:  344-block  1
+call    2 returned 10
+       11:  344-block  2
+call    3 returned 11
+branch  4 taken 10
+branch  5 taken 1 (fallthrough)
+       10:  345:        if (prev != nullptr)
+branch  0 taken 9 (fallthrough)
+branch  1 taken 1
+       9*:  346:            assert(prev->getOre() <= d.getOre());
+        9:  346-block  0
+call    0 returned 9
+call    1 returned 9
+branch  2 taken 0 (fallthrough)
+branch  3 taken 9
+    %%%%%:  346-block  1
+call    4 never executed
+        9:  346-block  2
+       10:  347:        prev = &d;
+       10:  347-block  0
+call    0 returned 10
+        -:  348:    }
+        -:  349:
+        1:  350:    service.sortare_profesor_tip(out);
+        1:  350-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  351:    prev = nullptr;
+       11:  352:    for (const auto &d: out) {
+        1:  352-block  0
+call    0 returned 1
+call    1 returned 1
+       10:  352-block  1
+call    2 returned 10
+       11:  352-block  2
+call    3 returned 11
+branch  4 taken 10
+branch  5 taken 1 (fallthrough)
+       10:  353:        if (prev != nullptr)
+branch  0 taken 9 (fallthrough)
+branch  1 taken 1
+       9*:  354:            assert(
+        9:  354-block  0
+call    0 returned 9
+call    1 returned 9
+call    2 returned 9
+call    3 returned 9
+call    4 returned 9
+branch  5 taken 1 (fallthrough)
+branch  6 taken 8
+        1:  354-block  1
+call    7 returned 1
+call    8 returned 1
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0
+        1:  354-block  2
+call   12 returned 1
+call   13 returned 1
+call   14 returned 1
+call   15 returned 1
+call   16 returned 1
+branch 17 taken 0 (fallthrough)
+branch 18 taken 1
+    %%%%%:  354-block  3
+call   19 never executed
+        9:  354-block  4
+        9:  354-block  5
+    $$$$$:  354-block  6
+    $$$$$:  354-block  7
+        -:  355:            prev->getProfesor() < d.getProfesor() || (prev->getProfesor() == d.getProfesor() && prev->getTip() < d.
+        -:  356:                getTip()));
+       10:  357:        prev = &d;
+       10:  357-block  0
+call    0 returned 10
+        -:  358:    }
+        1:  359:}
+        1:  359-block  0
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+    $$$$$:  359-block  1
+call    3 never executed
+    $$$$$:  359-block  2
+call    4 never executed
+    $$$$$:  359-block  3
+call    5 never executed
+        -:  360:
+        -:  361:
+function _ZN15TesteDiscipline15test_raport_tipEv called 1 returned 100% blocks executed 48%
+        1:  362:void TesteDiscipline::test_raport_tip() {
+        1:  363:    RepoDisciplinaMem repo;
+        1:  364:    ServiceDisciplina service{repo};
+        1:  364-block  0
+call    0 returned 1
+        -:  365:
+        6:  366:    service.adauga_service("Limba Romana", 8, "Uman", "Oana");
+        1:  366-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  366-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  366-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  366-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  366-block  4
+call   12 returned 1
+        1:  366-block  5
+call   13 returned 1
+        1:  366-block  6
+call   14 returned 1
+        1:  366-block  7
+    $$$$$:  366-block  8
+call   15 never executed
+    $$$$$:  366-block  9
+    $$$$$:  366-block 10
+    $$$$$:  366-block 11
+call   16 never executed
+    $$$$$:  366-block 12
+    $$$$$:  366-block 13
+    $$$$$:  366-block 14
+call   17 never executed
+    $$$$$:  366-block 15
+    $$$$$:  366-block 16
+        6:  367:    service.adauga_service("Matematica", 8, "Real", "Petru");
+        1:  367-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  367-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  367-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  367-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  367-block  4
+call   12 returned 1
+        1:  367-block  5
+call   13 returned 1
+        1:  367-block  6
+call   14 returned 1
+        1:  367-block  7
+    $$$$$:  367-block  8
+call   15 never executed
+    $$$$$:  367-block  9
+    $$$$$:  367-block 10
+    $$$$$:  367-block 11
+call   16 never executed
+    $$$$$:  367-block 12
+    $$$$$:  367-block 13
+    $$$$$:  367-block 14
+call   17 never executed
+    $$$$$:  367-block 15
+    $$$$$:  367-block 16
+        6:  368:    service.adauga_service("Desen", 2, "Uman", "Bianca");
+        1:  368-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  368-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  368-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  368-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  368-block  4
+call   12 returned 1
+        1:  368-block  5
+call   13 returned 1
+        1:  368-block  6
+call   14 returned 1
+        1:  368-block  7
+    $$$$$:  368-block  8
+call   15 never executed
+    $$$$$:  368-block  9
+    $$$$$:  368-block 10
+    $$$$$:  368-block 11
+call   16 never executed
+    $$$$$:  368-block 12
+    $$$$$:  368-block 13
+    $$$$$:  368-block 14
+call   17 never executed
+    $$$$$:  368-block 15
+    $$$$$:  368-block 16
+        6:  369:    service.adauga_service("Sport", 4, "Real", "Dani");
+        1:  369-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  369-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  369-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  369-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  369-block  4
+call   12 returned 1
+        1:  369-block  5
+call   13 returned 1
+        1:  369-block  6
+call   14 returned 1
+        1:  369-block  7
+    $$$$$:  369-block  8
+call   15 never executed
+    $$$$$:  369-block  9
+    $$$$$:  369-block 10
+    $$$$$:  369-block 11
+call   16 never executed
+    $$$$$:  369-block 12
+    $$$$$:  369-block 13
+    $$$$$:  369-block 14
+call   17 never executed
+    $$$$$:  369-block 15
+    $$$$$:  369-block 16
+        6:  370:    service.adauga_service("Istorie", 4, "Uman", "Vlad");
+        1:  370-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  370-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  370-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  370-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  370-block  4
+call   12 returned 1
+        1:  370-block  5
+call   13 returned 1
+        1:  370-block  6
+call   14 returned 1
+        1:  370-block  7
+    $$$$$:  370-block  8
+call   15 never executed
+    $$$$$:  370-block  9
+    $$$$$:  370-block 10
+    $$$$$:  370-block 11
+call   16 never executed
+    $$$$$:  370-block 12
+    $$$$$:  370-block 13
+    $$$$$:  370-block 14
+call   17 never executed
+    $$$$$:  370-block 15
+    $$$$$:  370-block 16
+        6:  371:    service.adauga_service("Politica", 4, "Uman", "Tarlea");
+        1:  371-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  371-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  371-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  371-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  371-block  4
+call   12 returned 1
+        1:  371-block  5
+call   13 returned 1
+        1:  371-block  6
+call   14 returned 1
+        1:  371-block  7
+    $$$$$:  371-block  8
+call   15 never executed
+    $$$$$:  371-block  9
+    $$$$$:  371-block 10
+    $$$$$:  371-block 11
+call   16 never executed
+    $$$$$:  371-block 12
+    $$$$$:  371-block 13
+    $$$$$:  371-block 14
+call   17 never executed
+    $$$$$:  371-block 15
+    $$$$$:  371-block 16
+        6:  372:    service.adauga_service("Informatica", 8, "Real", "Miha");
+        1:  372-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  372-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  372-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  372-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  372-block  4
+call   12 returned 1
+        1:  372-block  5
+call   13 returned 1
+        1:  372-block  6
+call   14 returned 1
+        1:  372-block  7
+    $$$$$:  372-block  8
+call   15 never executed
+    $$$$$:  372-block  9
+    $$$$$:  372-block 10
+    $$$$$:  372-block 11
+call   16 never executed
+    $$$$$:  372-block 12
+    $$$$$:  372-block 13
+    $$$$$:  372-block 14
+call   17 never executed
+    $$$$$:  372-block 15
+    $$$$$:  372-block 16
+        6:  373:    service.adauga_service("Geometrie", 6, "Uman", "Sergiu");
+        1:  373-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  373-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  373-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  373-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  373-block  4
+call   12 returned 1
+        1:  373-block  5
+call   13 returned 1
+        1:  373-block  6
+call   14 returned 1
+        1:  373-block  7
+    $$$$$:  373-block  8
+call   15 never executed
+    $$$$$:  373-block  9
+    $$$$$:  373-block 10
+    $$$$$:  373-block 11
+call   16 never executed
+    $$$$$:  373-block 12
+    $$$$$:  373-block 13
+    $$$$$:  373-block 14
+call   17 never executed
+    $$$$$:  373-block 15
+    $$$$$:  373-block 16
+        6:  374:    service.adauga_service("Chestii random", 6, "??", "Gabi");
+        1:  374-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  374-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  374-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  374-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  374-block  4
+call   12 returned 1
+        1:  374-block  5
+call   13 returned 1
+        1:  374-block  6
+call   14 returned 1
+        1:  374-block  7
+    $$$$$:  374-block  8
+call   15 never executed
+    $$$$$:  374-block  9
+    $$$$$:  374-block 10
+    $$$$$:  374-block 11
+call   16 never executed
+    $$$$$:  374-block 12
+    $$$$$:  374-block 13
+    $$$$$:  374-block 14
+call   17 never executed
+    $$$$$:  374-block 15
+    $$$$$:  374-block 16
+        5:  375:    service.adauga_service("Biologie", 6, "Real", "Rares");
+        1:  375-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  375-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  375-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  375-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  375-block  4
+call   12 returned 1
+        1:  375-block  5
+call   13 returned 1
+        1:  375-block  6
+call   14 returned 1
+    $$$$$:  375-block  7
+call   15 never executed
+    $$$$$:  375-block  8
+    $$$$$:  375-block  9
+    $$$$$:  375-block 10
+call   16 never executed
+    $$$$$:  375-block 11
+    $$$$$:  375-block 12
+    $$$$$:  375-block 13
+call   17 never executed
+    $$$$$:  375-block 14
+    $$$$$:  375-block 15
+        -:  376:
+        1:  377:    auto raport = service.raport_tip();
+        1:  377-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+       2*:  378:    assert(raport["Uman"].getCount() == 5);
+        1:  378-block  0
+        1:  378-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  378-block  2
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  378-block  3
+call    6 returned 1
+branch  7 taken 0 (fallthrough)
+branch  8 taken 1
+    %%%%%:  378-block  4
+call    9 never executed
+        1:  378-block  5
+        1:  378-block  6
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0
+        1:  378-block  7
+call   12 returned 1
+        1:  378-block  8
+branch 13 taken 1 (fallthrough)
+branch 14 taken 0
+    $$$$$:  378-block  9
+branch 15 never executed (fallthrough)
+branch 16 never executed
+    $$$$$:  378-block 10
+call   17 never executed
+    $$$$$:  378-block 11
+    $$$$$:  378-block 12
+branch 18 never executed (fallthrough)
+branch 19 never executed
+    $$$$$:  378-block 13
+       2*:  379:    assert(raport["Real"].getCount() == 4);
+        1:  379-block  0
+        1:  379-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  379-block  2
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  379-block  3
+call    6 returned 1
+branch  7 taken 0 (fallthrough)
+branch  8 taken 1
+    %%%%%:  379-block  4
+call    9 never executed
+        1:  379-block  5
+        1:  379-block  6
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0
+        1:  379-block  7
+call   12 returned 1
+        1:  379-block  8
+branch 13 taken 1 (fallthrough)
+branch 14 taken 0
+    $$$$$:  379-block  9
+branch 15 never executed (fallthrough)
+branch 16 never executed
+    $$$$$:  379-block 10
+call   17 never executed
+    $$$$$:  379-block 11
+    $$$$$:  379-block 12
+branch 18 never executed (fallthrough)
+branch 19 never executed
+    $$$$$:  379-block 13
+       2*:  380:    assert(raport["??"].getCount() == 1);
+        1:  380-block  0
+        1:  380-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  380-block  2
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  380-block  3
+call    6 returned 1
+branch  7 taken 0 (fallthrough)
+branch  8 taken 1
+    %%%%%:  380-block  4
+call    9 never executed
+        1:  380-block  5
+        1:  380-block  6
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0
+        1:  380-block  7
+call   12 returned 1
+        1:  380-block  8
+branch 13 taken 1 (fallthrough)
+branch 14 taken 0
+    $$$$$:  380-block  9
+branch 15 never executed (fallthrough)
+branch 16 never executed
+    $$$$$:  380-block 10
+call   17 never executed
+    $$$$$:  380-block 11
+    $$$$$:  380-block 12
+branch 18 never executed (fallthrough)
+branch 19 never executed
+    $$$$$:  380-block 13
+        1:  381:}
+        1:  381-block  0
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+    $$$$$:  381-block  1
+call    3 never executed
+    $$$$$:  381-block  2
+call    4 never executed
+    $$$$$:  381-block  3
+call    5 never executed
+        -:  382:
+        -:  383:
+function _ZN15TesteDiscipline22test_contract_adaugareEv called 1 returned 100% blocks executed 62%
+        1:  384:void TesteDiscipline::test_contract_adaugare() {
+        1:  385:    RepoDisciplinaMem repo;
+        1:  386:    ServiceDisciplina service{repo};
+        1:  386-block  0
+call    0 returned 1
+        -:  387:
+        6:  388:    service.adauga_service("Limba Romana", 8, "Uman", "Oana");
+        1:  388-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  388-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  388-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  388-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  388-block  4
+call   12 returned 1
+        1:  388-block  5
+call   13 returned 1
+        1:  388-block  6
+call   14 returned 1
+        1:  388-block  7
+    $$$$$:  388-block  8
+call   15 never executed
+    $$$$$:  388-block  9
+    $$$$$:  388-block 10
+    $$$$$:  388-block 11
+call   16 never executed
+    $$$$$:  388-block 12
+    $$$$$:  388-block 13
+    $$$$$:  388-block 14
+call   17 never executed
+    $$$$$:  388-block 15
+    $$$$$:  388-block 16
+        6:  389:    service.adauga_service("Matematica", 8, "Real", "Petru");
+        1:  389-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  389-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  389-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  389-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  389-block  4
+call   12 returned 1
+        1:  389-block  5
+call   13 returned 1
+        1:  389-block  6
+call   14 returned 1
+        1:  389-block  7
+    $$$$$:  389-block  8
+call   15 never executed
+    $$$$$:  389-block  9
+    $$$$$:  389-block 10
+    $$$$$:  389-block 11
+call   16 never executed
+    $$$$$:  389-block 12
+    $$$$$:  389-block 13
+    $$$$$:  389-block 14
+call   17 never executed
+    $$$$$:  389-block 15
+    $$$$$:  389-block 16
+        5:  390:    service.adauga_service("Matematica", 6, "Uman", "Sergiu");
+        1:  390-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  390-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  390-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  390-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  390-block  4
+call   12 returned 1
+        1:  390-block  5
+call   13 returned 1
+        1:  390-block  6
+call   14 returned 1
+    $$$$$:  390-block  7
+call   15 never executed
+    $$$$$:  390-block  8
+    $$$$$:  390-block  9
+    $$$$$:  390-block 10
+call   16 never executed
+    $$$$$:  390-block 11
+    $$$$$:  390-block 12
+    $$$$$:  390-block 13
+call   17 never executed
+    $$$$$:  390-block 14
+    $$$$$:  390-block 15
+        -:  391:
+       1*:  392:    assert(service.contract_getAll().empty());
+        1:  392-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 0 (fallthrough)
+branch  3 taken 1
+    %%%%%:  392-block  1
+call    4 never executed
+        1:  392-block  2
+        5:  393:    service.contract_adauga("Limba Romana");
+        1:  393-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  393-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  393-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  393-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  393-block  4
+call   12 returned 1
+        1:  393-block  5
+call   13 returned 1
+        1:  393-block  6
+call   14 returned 1
+    $$$$$:  393-block  7
+call   15 never executed
+    $$$$$:  393-block  8
+    $$$$$:  393-block  9
+    $$$$$:  393-block 10
+call   16 never executed
+    $$$$$:  393-block 11
+    $$$$$:  393-block 12
+    $$$$$:  393-block 13
+call   17 never executed
+    $$$$$:  393-block 14
+    $$$$$:  393-block 15
+       1*:  394:    assert(service.contract_getAll().size() == 1);
+        1:  394-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 0 (fallthrough)
+branch  3 taken 1
+    %%%%%:  394-block  1
+call    4 never executed
+        1:  394-block  2
+       1*:  395:    assert(service.contract_getAll()[0].getProfesor() == "Oana");
+        1:  395-block  0
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  395-block  1
+branch  6 taken 0 (fallthrough)
+branch  7 taken 1
+    %%%%%:  395-block  2
+call    8 never executed
+        1:  395-block  3
+        -:  396:
+        -:  397:    try {
+       6*:  398:        service.contract_adauga("Nu exista damn");
+        1:  398-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  398-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  398-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  398-block  3
+call    9 returned 1
+branch 10 taken 0 (fallthrough)
+branch 11 taken 1 (throw)
+    %%%%%:  398-block  4
+call   12 never executed
+    %%%%%:  398-block  5
+call   13 never executed
+    %%%%%:  398-block  6
+call   14 never executed
+        1:  398-block  7
+call   15 returned 1
+        1:  398-block  8
+        1:  398-block  9
+        1:  398-block 10
+call   16 returned 1
+        1:  398-block 11
+        1:  398-block 12
+        1:  398-block 13
+call   17 returned 1
+        1:  398-block 14
+        1:  398-block 15
+    #####:  399:        assert(false);
+    %%%%%:  399-block  0
+call    0 never executed
+        1:  400:    } catch (const ContractException &ce) {
+        1:  400-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+        1:  400-block  1
+call    2 returned 1
+        1:  401:        assert(ce.getMesaj() == "Disciplina nu exista in catalog!");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  401-block  0
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    $$$$$:  401-block  1
+call    6 never executed
+        1:  401-block  2
+        1:  402:    }
+        1:  402-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+    $$$$$:  402-block  1
+call    3 never executed
+        -:  403:
+        -:  404:    try {
+        6:  405:        service.contract_adauga("Matematica");
+        1:  405-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  405-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  405-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  405-block  3
+call    9 returned 1
+branch 10 taken 0 (fallthrough)
+branch 11 taken 1 (throw)
+    $$$$$:  405-block  4
+call   12 never executed
+    $$$$$:  405-block  5
+call   13 never executed
+    $$$$$:  405-block  6
+call   14 never executed
+        1:  405-block  7
+call   15 returned 1
+        1:  405-block  8
+        1:  405-block  9
+        1:  405-block 10
+call   16 returned 1
+        1:  405-block 11
+        1:  405-block 12
+        1:  405-block 13
+call   17 returned 1
+        1:  405-block 14
+        1:  405-block 15
+    =====:  406:        assert(false);
+    $$$$$:  406-block  0
+call    0 never executed
+        1:  407:    } catch (const ContractException &ce) {
+        1:  407-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+        1:  407-block  1
+call    2 returned 1
+        2:  408:        assert(
+        1:  408-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  408-block  1
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:  408-block  2
+branch  7 taken 0 (fallthrough)
+branch  8 taken 1
+    $$$$$:  408-block  3
+call    9 never executed
+        1:  408-block  4
+        1:  408-block  5
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0
+        1:  408-block  6
+call   12 returned 1
+        1:  408-block  7
+branch 13 taken 1 (fallthrough)
+branch 14 taken 0
+    $$$$$:  408-block  8
+branch 15 never executed (fallthrough)
+branch 16 never executed
+    $$$$$:  408-block  9
+call   17 never executed
+    $$$$$:  408-block 10
+    $$$$$:  408-block 11
+branch 18 never executed (fallthrough)
+branch 19 never executed
+    $$$$$:  408-block 12
+        -:  409:            static_cast<string>(ce.what()) == "Exista mai multe discipline cu acest nume. Doriti un profesor anume?: ");
+        1:  410:    }
+        1:  410-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+    $$$$$:  410-block  1
+call    3 never executed
+        -:  411:
+        5:  412:    service.contract_adauga("Matematica", "Sergiu", "Perchance");
+        1:  412-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  412-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  412-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  412-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  412-block  4
+call   12 returned 1
+        1:  412-block  5
+call   13 returned 1
+        1:  412-block  6
+call   14 returned 1
+    $$$$$:  412-block  7
+call   15 never executed
+    $$$$$:  412-block  8
+    $$$$$:  412-block  9
+    $$$$$:  412-block 10
+call   16 never executed
+    $$$$$:  412-block 11
+    $$$$$:  412-block 12
+    $$$$$:  412-block 13
+call   17 never executed
+    $$$$$:  412-block 14
+    $$$$$:  412-block 15
+        1:  413:    assert(service.contract_getAll().size() == 2);
+        1:  413-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 0 (fallthrough)
+branch  3 taken 1
+    $$$$$:  413-block  1
+call    4 never executed
+        1:  413-block  2
+        1:  414:    assert(service.contract_getAll()[1].getOre() == 6);
+        1:  414-block  0
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+branch  3 taken 0 (fallthrough)
+branch  4 taken 1
+    $$$$$:  414-block  1
+call    5 never executed
+        1:  414-block  2
+        -:  415:
+        5:  416:    service.contract_adauga("Matematica", "", "Nah");
+        1:  416-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  416-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  416-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  416-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  416-block  4
+call   12 returned 1
+        1:  416-block  5
+call   13 returned 1
+        1:  416-block  6
+call   14 returned 1
+    $$$$$:  416-block  7
+call   15 never executed
+    $$$$$:  416-block  8
+    $$$$$:  416-block  9
+    $$$$$:  416-block 10
+call   16 never executed
+    $$$$$:  416-block 11
+    $$$$$:  416-block 12
+    $$$$$:  416-block 13
+call   17 never executed
+    $$$$$:  416-block 14
+    $$$$$:  416-block 15
+        1:  417:    assert(service.contract_getAll().size() == 3);
+        1:  417-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 0 (fallthrough)
+branch  3 taken 1
+    $$$$$:  417-block  1
+call    4 never executed
+        1:  417-block  2
+        1:  418:    assert(service.contract_getAll()[2].getOre() == 8);
+        1:  418-block  0
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+branch  3 taken 0 (fallthrough)
+branch  4 taken 1
+    $$$$$:  418-block  1
+call    5 never executed
+        1:  418-block  2
+        -:  419:
+        -:  420:    try {
+        6:  421:        service.contract_adauga("Matematica", "Pipi", "Yea");
+        1:  421-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  421-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  421-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  421-block  3
+call    9 returned 1
+branch 10 taken 0 (fallthrough)
+branch 11 taken 1 (throw)
+    $$$$$:  421-block  4
+call   12 never executed
+    $$$$$:  421-block  5
+call   13 never executed
+    $$$$$:  421-block  6
+call   14 never executed
+        1:  421-block  7
+call   15 returned 1
+        1:  421-block  8
+        1:  421-block  9
+        1:  421-block 10
+call   16 returned 1
+        1:  421-block 11
+        1:  421-block 12
+        1:  421-block 13
+call   17 returned 1
+        1:  421-block 14
+        1:  421-block 15
+    =====:  422:        assert(false);
+    $$$$$:  422-block  0
+call    0 never executed
+        1:  423:    } catch (const ContractException &ce) {
+        1:  423-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+        1:  423-block  1
+call    2 returned 1
+        1:  424:        assert(ce.getMesaj() == "Nu exista disciplina cu acel profesor!");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  424-block  0
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    $$$$$:  424-block  1
+call    6 never executed
+        1:  424-block  2
+        1:  425:    }
+        1:  425-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+    $$$$$:  425-block  1
+call    3 never executed
+        -:  426:
+        -:  427:    try {
+        6:  428:        service.contract_adauga("Limba Romana");
+        1:  428-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  428-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  428-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  428-block  3
+call    9 returned 1
+branch 10 taken 0 (fallthrough)
+branch 11 taken 1 (throw)
+    $$$$$:  428-block  4
+call   12 never executed
+    $$$$$:  428-block  5
+call   13 never executed
+    $$$$$:  428-block  6
+call   14 never executed
+        1:  428-block  7
+call   15 returned 1
+        1:  428-block  8
+        1:  428-block  9
+        1:  428-block 10
+call   16 returned 1
+        1:  428-block 11
+        1:  428-block 12
+        1:  428-block 13
+call   17 returned 1
+        1:  428-block 14
+        1:  428-block 15
+    =====:  429:        assert(false);
+    $$$$$:  429-block  0
+call    0 never executed
+        1:  430:    } catch (const ContractException &ce) {
+        1:  430-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+        1:  430-block  1
+call    2 returned 1
+        1:  431:        assert(ce.getMesaj() == "Disciplina exista deja in contract!");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  431-block  0
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    $$$$$:  431-block  1
+call    6 never executed
+        1:  431-block  2
+        1:  432:    }
+        1:  432-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+    $$$$$:  432-block  1
+call    3 never executed
+        1:  433:}
+        1:  433-block  0
+call    0 returned 1
+call    1 returned 1
+    $$$$$:  433-block  1
+call    2 never executed
+    $$$$$:  433-block  2
+call    3 never executed
+        -:  434:
+        -:  435:
+function _ZN15TesteDiscipline21test_contract_golesteEv called 1 returned 100% blocks executed 51%
+        1:  436:void TesteDiscipline::test_contract_goleste() {
+        1:  437:    RepoDisciplinaMem repo;
+        1:  438:    ServiceDisciplina service{repo};
+        1:  438-block  0
+call    0 returned 1
+        -:  439:
+        6:  440:    service.adauga_service("Limba Romana", 8, "Uman", "Oana");
+        1:  440-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  440-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  440-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  440-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  440-block  4
+call   12 returned 1
+        1:  440-block  5
+call   13 returned 1
+        1:  440-block  6
+call   14 returned 1
+        1:  440-block  7
+    $$$$$:  440-block  8
+call   15 never executed
+    $$$$$:  440-block  9
+    $$$$$:  440-block 10
+    $$$$$:  440-block 11
+call   16 never executed
+    $$$$$:  440-block 12
+    $$$$$:  440-block 13
+    $$$$$:  440-block 14
+call   17 never executed
+    $$$$$:  440-block 15
+    $$$$$:  440-block 16
+        6:  441:    service.adauga_service("Matematica", 8, "Real", "Petru");
+        1:  441-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  441-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  441-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  441-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  441-block  4
+call   12 returned 1
+        1:  441-block  5
+call   13 returned 1
+        1:  441-block  6
+call   14 returned 1
+        1:  441-block  7
+    $$$$$:  441-block  8
+call   15 never executed
+    $$$$$:  441-block  9
+    $$$$$:  441-block 10
+    $$$$$:  441-block 11
+call   16 never executed
+    $$$$$:  441-block 12
+    $$$$$:  441-block 13
+    $$$$$:  441-block 14
+call   17 never executed
+    $$$$$:  441-block 15
+    $$$$$:  441-block 16
+        -:  442:
+        6:  443:    service.contract_adauga("Limba Romana");
+        1:  443-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  443-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  443-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  443-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  443-block  4
+call   12 returned 1
+        1:  443-block  5
+call   13 returned 1
+        1:  443-block  6
+call   14 returned 1
+        1:  443-block  7
+    $$$$$:  443-block  8
+call   15 never executed
+    $$$$$:  443-block  9
+    $$$$$:  443-block 10
+    $$$$$:  443-block 11
+call   16 never executed
+    $$$$$:  443-block 12
+    $$$$$:  443-block 13
+    $$$$$:  443-block 14
+call   17 never executed
+    $$$$$:  443-block 15
+    $$$$$:  443-block 16
+        5:  444:    service.contract_adauga("Matematica");
+        1:  444-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  444-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  444-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  444-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  444-block  4
+call   12 returned 1
+        1:  444-block  5
+call   13 returned 1
+        1:  444-block  6
+call   14 returned 1
+    $$$$$:  444-block  7
+call   15 never executed
+    $$$$$:  444-block  8
+    $$$$$:  444-block  9
+    $$$$$:  444-block 10
+call   16 never executed
+    $$$$$:  444-block 11
+    $$$$$:  444-block 12
+    $$$$$:  444-block 13
+call   17 never executed
+    $$$$$:  444-block 14
+    $$$$$:  444-block 15
+        -:  445:
+       1*:  446:    assert(service.contract_getAll().size() == 2);
+        1:  446-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 0 (fallthrough)
+branch  3 taken 1
+    %%%%%:  446-block  1
+call    4 never executed
+        1:  446-block  2
+        -:  447:
+        1:  448:    service.contract_goleste();
+        1:  448-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+       1*:  449:    assert(service.contract_getAll().empty());
+        1:  449-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 0 (fallthrough)
+branch  3 taken 1
+    %%%%%:  449-block  1
+call    4 never executed
+        1:  449-block  2
+        -:  450:
+        -:  451:    try {
+        1:  452:        service.contract_goleste();
+        1:  452-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1 (throw)
+    #####:  453:        assert(false);
+    %%%%%:  453-block  0
+call    0 never executed
+        1:  454:    } catch (const ContractException &ce) {
+        1:  454-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+        1:  454-block  1
+call    2 returned 1
+        1:  455:        assert(ce.getMesaj() == "Contractul este deja gol!");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  455-block  0
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    $$$$$:  455-block  1
+call    6 never executed
+        1:  455-block  2
+        1:  456:    }
+        1:  456-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+    $$$$$:  456-block  1
+call    3 never executed
+        1:  457:}
+        1:  457-block  0
+call    0 returned 1
+call    1 returned 1
+    $$$$$:  457-block  1
+call    2 never executed
+    $$$$$:  457-block  2
+call    3 never executed
+        -:  458:
+        -:  459:
+function _ZN15TesteDiscipline22test_contract_generareEv called 1 returned 100% blocks executed 52%
+        1:  460:void TesteDiscipline::test_contract_generare() {
+        1:  461:    RepoDisciplinaMem repo;
+        1:  462:    ServiceDisciplina service{repo};
+        1:  462-block  0
+call    0 returned 1
+        -:  463:
+        6:  464:    service.adauga_service("Limba Romana", 8, "Uman", "Oana");
+        1:  464-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  464-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  464-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  464-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  464-block  4
+call   12 returned 1
+        1:  464-block  5
+call   13 returned 1
+        1:  464-block  6
+call   14 returned 1
+        1:  464-block  7
+    $$$$$:  464-block  8
+call   15 never executed
+    $$$$$:  464-block  9
+    $$$$$:  464-block 10
+    $$$$$:  464-block 11
+call   16 never executed
+    $$$$$:  464-block 12
+    $$$$$:  464-block 13
+    $$$$$:  464-block 14
+call   17 never executed
+    $$$$$:  464-block 15
+    $$$$$:  464-block 16
+        6:  465:    service.adauga_service("Matematica", 8, "Real", "Petru");
+        1:  465-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  465-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  465-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  465-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  465-block  4
+call   12 returned 1
+        1:  465-block  5
+call   13 returned 1
+        1:  465-block  6
+call   14 returned 1
+        1:  465-block  7
+    $$$$$:  465-block  8
+call   15 never executed
+    $$$$$:  465-block  9
+    $$$$$:  465-block 10
+    $$$$$:  465-block 11
+call   16 never executed
+    $$$$$:  465-block 12
+    $$$$$:  465-block 13
+    $$$$$:  465-block 14
+call   17 never executed
+    $$$$$:  465-block 15
+    $$$$$:  465-block 16
+        6:  466:    service.adauga_service("Desen", 2, "Uman", "Bianca");
+        1:  466-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  466-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  466-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  466-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  466-block  4
+call   12 returned 1
+        1:  466-block  5
+call   13 returned 1
+        1:  466-block  6
+call   14 returned 1
+        1:  466-block  7
+    $$$$$:  466-block  8
+call   15 never executed
+    $$$$$:  466-block  9
+    $$$$$:  466-block 10
+    $$$$$:  466-block 11
+call   16 never executed
+    $$$$$:  466-block 12
+    $$$$$:  466-block 13
+    $$$$$:  466-block 14
+call   17 never executed
+    $$$$$:  466-block 15
+    $$$$$:  466-block 16
+        6:  467:    service.adauga_service("Sport", 4, "Real", "Dani");
+        1:  467-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  467-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  467-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  467-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  467-block  4
+call   12 returned 1
+        1:  467-block  5
+call   13 returned 1
+        1:  467-block  6
+call   14 returned 1
+        1:  467-block  7
+    $$$$$:  467-block  8
+call   15 never executed
+    $$$$$:  467-block  9
+    $$$$$:  467-block 10
+    $$$$$:  467-block 11
+call   16 never executed
+    $$$$$:  467-block 12
+    $$$$$:  467-block 13
+    $$$$$:  467-block 14
+call   17 never executed
+    $$$$$:  467-block 15
+    $$$$$:  467-block 16
+        6:  468:    service.adauga_service("Istorie", 4, "Uman", "Vlad");
+        1:  468-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  468-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  468-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  468-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  468-block  4
+call   12 returned 1
+        1:  468-block  5
+call   13 returned 1
+        1:  468-block  6
+call   14 returned 1
+        1:  468-block  7
+    $$$$$:  468-block  8
+call   15 never executed
+    $$$$$:  468-block  9
+    $$$$$:  468-block 10
+    $$$$$:  468-block 11
+call   16 never executed
+    $$$$$:  468-block 12
+    $$$$$:  468-block 13
+    $$$$$:  468-block 14
+call   17 never executed
+    $$$$$:  468-block 15
+    $$$$$:  468-block 16
+        6:  469:    service.adauga_service("Politica", 4, "Uman", "Tarlea");
+        1:  469-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  469-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  469-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  469-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  469-block  4
+call   12 returned 1
+        1:  469-block  5
+call   13 returned 1
+        1:  469-block  6
+call   14 returned 1
+        1:  469-block  7
+    $$$$$:  469-block  8
+call   15 never executed
+    $$$$$:  469-block  9
+    $$$$$:  469-block 10
+    $$$$$:  469-block 11
+call   16 never executed
+    $$$$$:  469-block 12
+    $$$$$:  469-block 13
+    $$$$$:  469-block 14
+call   17 never executed
+    $$$$$:  469-block 15
+    $$$$$:  469-block 16
+        5:  470:    service.adauga_service("Informatica", 8, "Real", "Miha");
+        1:  470-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  470-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  470-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  470-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  470-block  4
+call   12 returned 1
+        1:  470-block  5
+call   13 returned 1
+        1:  470-block  6
+call   14 returned 1
+    $$$$$:  470-block  7
+call   15 never executed
+    $$$$$:  470-block  8
+    $$$$$:  470-block  9
+    $$$$$:  470-block 10
+call   16 never executed
+    $$$$$:  470-block 11
+    $$$$$:  470-block 12
+    $$$$$:  470-block 13
+call   17 never executed
+    $$$$$:  470-block 14
+    $$$$$:  470-block 15
+        -:  471:
+        1:  472:    service.contract_generare(5);
+        1:  472-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+       1*:  473:    assert(service.contract_getAll().size() == 5);
+        1:  473-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 0 (fallthrough)
+branch  3 taken 1
+    %%%%%:  473-block  1
+call    4 never executed
+        1:  473-block  2
+        -:  474:
+        1:  475:    service.contract_generare(7);
+        1:  475-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+       1*:  476:    assert(service.contract_getAll().size() == 7);
+        1:  476-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 0 (fallthrough)
+branch  3 taken 1
+    %%%%%:  476-block  1
+call    4 never executed
+        1:  476-block  2
+        -:  477:
+        1:  478:    const auto &gen = service.contract_getAll();
+        1:  478-block  0
+call    0 returned 1
+        7:  479:    for (size_t i = 0; i < gen.size() - 1; ++i)
+        6:  479-block  0
+        7:  479-block  1
+call    0 returned 7
+branch  1 taken 6
+branch  2 taken 1 (fallthrough)
+       27:  480:        for (size_t j = i + 1; j < gen.size(); ++j)
+        6:  480-block  0
+       21:  480-block  1
+       27:  480-block  2
+call    0 returned 27
+branch  1 taken 21
+branch  2 taken 6 (fallthrough)
+      21*:  481:            assert(gen[i] != gen[j]);
+       21:  481-block  0
+call    0 returned 21
+call    1 returned 21
+call    2 returned 21
+branch  3 taken 0 (fallthrough)
+branch  4 taken 21
+    %%%%%:  481-block  1
+call    5 never executed
+       21:  481-block  2
+        -:  482:
+        -:  483:    try {
+        1:  484:        service.contract_generare(-1);
+        1:  484-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1 (throw)
+    #####:  485:        assert(false);
+    %%%%%:  485-block  0
+call    0 never executed
+        1:  486:    } catch (const ContractException &ce) {
+        1:  486-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+        1:  486-block  1
+call    2 returned 1
+        1:  487:        assert(ce.getMesaj() == "Nu se poate genera un contract cu un numar negativ de discipline!");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  487-block  0
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    $$$$$:  487-block  1
+call    6 never executed
+        1:  487-block  2
+        1:  488:    }
+        1:  488-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+    $$$$$:  488-block  1
+call    3 never executed
+        -:  489:
+        -:  490:    try {
+        1:  491:        service.contract_generare(12);
+        1:  491-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1 (throw)
+    =====:  492:        assert(false);
+    $$$$$:  492-block  0
+call    0 never executed
+        1:  493:    } catch (const ContractException &ce) {
+        1:  493-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+        1:  493-block  1
+call    2 returned 1
+        1:  494:        assert(ce.getMesaj() == "Nu exista atatea discipline in catalog!");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  494-block  0
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    $$$$$:  494-block  1
+call    6 never executed
+        1:  494-block  2
+        1:  495:    }
+        1:  495-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+    $$$$$:  495-block  1
+call    3 never executed
+        1:  496:}
+        1:  496-block  0
+call    0 returned 1
+call    1 returned 1
+    $$$$$:  496-block  1
+call    2 never executed
+    $$$$$:  496-block  2
+call    3 never executed
+        -:  497:
+        -:  498:
+function _ZN15TesteDiscipline20test_contract_exportEv called 1 returned 100% blocks executed 55%
+        1:  499:void TesteDiscipline::test_contract_export() {
+        1:  500:    RepoDisciplinaMem repo;
+        1:  501:    ServiceDisciplina service{repo};
+        1:  501-block  0
+call    0 returned 1
+        -:  502:
+        6:  503:    service.adauga_service("Limba Romana", 8, "Uman", "Oana");
+        1:  503-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  503-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  503-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  503-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  503-block  4
+call   12 returned 1
+        1:  503-block  5
+call   13 returned 1
+        1:  503-block  6
+call   14 returned 1
+        1:  503-block  7
+    $$$$$:  503-block  8
+call   15 never executed
+    $$$$$:  503-block  9
+    $$$$$:  503-block 10
+    $$$$$:  503-block 11
+call   16 never executed
+    $$$$$:  503-block 12
+    $$$$$:  503-block 13
+    $$$$$:  503-block 14
+call   17 never executed
+    $$$$$:  503-block 15
+    $$$$$:  503-block 16
+        6:  504:    service.adauga_service("Matematica", 8, "Real", "Petru");
+        1:  504-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  504-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  504-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  504-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  504-block  4
+call   12 returned 1
+        1:  504-block  5
+call   13 returned 1
+        1:  504-block  6
+call   14 returned 1
+        1:  504-block  7
+    $$$$$:  504-block  8
+call   15 never executed
+    $$$$$:  504-block  9
+    $$$$$:  504-block 10
+    $$$$$:  504-block 11
+call   16 never executed
+    $$$$$:  504-block 12
+    $$$$$:  504-block 13
+    $$$$$:  504-block 14
+call   17 never executed
+    $$$$$:  504-block 15
+    $$$$$:  504-block 16
+        -:  505:
+        6:  506:    service.contract_adauga("Limba Romana");
+        1:  506-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  506-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  506-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  506-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  506-block  4
+call   12 returned 1
+        1:  506-block  5
+call   13 returned 1
+        1:  506-block  6
+call   14 returned 1
+        1:  506-block  7
+    $$$$$:  506-block  8
+call   15 never executed
+    $$$$$:  506-block  9
+    $$$$$:  506-block 10
+    $$$$$:  506-block 11
+call   16 never executed
+    $$$$$:  506-block 12
+    $$$$$:  506-block 13
+    $$$$$:  506-block 14
+call   17 never executed
+    $$$$$:  506-block 15
+    $$$$$:  506-block 16
+        5:  507:    service.contract_adauga("Matematica");
+        1:  507-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  507-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  507-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  507-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  507-block  4
+call   12 returned 1
+        1:  507-block  5
+call   13 returned 1
+        1:  507-block  6
+call   14 returned 1
+    $$$$$:  507-block  7
+call   15 never executed
+    $$$$$:  507-block  8
+    $$$$$:  507-block  9
+    $$$$$:  507-block 10
+call   16 never executed
+    $$$$$:  507-block 11
+    $$$$$:  507-block 12
+    $$$$$:  507-block 13
+call   17 never executed
+    $$$$$:  507-block 14
+    $$$$$:  507-block 15
+        -:  508:
+        -:  509:    char temp_path[L_tmpnam];
+        1:  510:    tmpnam(temp_path);
+        1:  510-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  511:    const string file_path = temp_path;
+        1:  511-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+    $$$$$:  511-block  1
+        -:  512:
+        1:  513:    service.contract_exporta(file_path);
+        1:  513-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  514:
+        1:  515:    ifstream in(file_path);
+        1:  515-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+       1*:  516:    assert(in.is_open());
+        1:  516-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  516-block  1
+call    3 never executed
+        1:  516-block  2
+        -:  517:
+        1:  518:    string line;
+        1:  518-block  0
+call    0 returned 1
+        1:  519:    int line_count = 0;
+        1:  520:    bool found_romana = false, found_mate = false;
+        -:  521:
+        3:  522:    while (getline(in, line)) {
+        3:  522-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:  522-block  1
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+        3:  522-block  2
+branch  6 taken 2
+branch  7 taken 1 (fallthrough)
+        2:  523:        ++line_count;
+        2:  524:        if (line.find("Limba Romana") != std::string::npos)
+        2:  524-block  0
+call    0 returned 2
+branch  1 taken 1 (fallthrough)
+branch  2 taken 1
+        1:  525:            found_romana = true;
+        1:  525-block  0
+        2:  526:        if (line.find("Matematica") != std::string::npos)
+        2:  526-block  0
+call    0 returned 2
+branch  1 taken 1 (fallthrough)
+branch  2 taken 1
+        1:  527:            found_mate = true;
+        1:  527-block  0
+        -:  528:    }
+        -:  529:
+        1:  530:    in.close();
+        1:  530-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  531:    remove(file_path.c_str());
+        1:  531-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        -:  532:
+       1*:  533:    assert(line_count == 2);
+        1:  533-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  533-block  1
+call    2 never executed
+        1:  533-block  2
+       1*:  534:    assert(found_romana);
+        1:  534-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  534-block  1
+call    2 never executed
+        1:  534-block  2
+       1*:  535:    assert(found_mate);
+        1:  535-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  535-block  1
+call    2 never executed
+        1:  535-block  2
+        -:  536:
+        -:  537:
+        -:  538:    try {
+       2*:  539:        service.contract_exporta("/Mimi/mumu");
+        1:  539-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  539-block  1
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1 (throw)
+    %%%%%:  539-block  2
+call    6 never executed
+        1:  539-block  3
+call    7 returned 1
+        1:  539-block  4
+        1:  539-block  5
+    #####:  540:        assert(false);
+    %%%%%:  540-block  0
+call    0 never executed
+        1:  541:    } catch (const FileException &fe) {
+        1:  541-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+        1:  541-block  1
+call    2 returned 1
+        1:  542:        assert(fe.getMesaj() == "Nu s-a putut scrie in fisier!");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  542-block  0
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    $$$$$:  542-block  1
+call    6 never executed
+        1:  542-block  2
+        2:  543:        assert(static_cast<string>(fe.what()) == "Nu s-a putut scrie in fisier!");
+        1:  543-block  0
+        1:  543-block  1
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  543-block  2
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:  543-block  3
+branch  7 taken 0 (fallthrough)
+branch  8 taken 1
+    $$$$$:  543-block  4
+call    9 never executed
+        1:  543-block  5
+        1:  543-block  6
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0
+        1:  543-block  7
+call   12 returned 1
+        1:  543-block  8
+branch 13 taken 1 (fallthrough)
+branch 14 taken 0
+    $$$$$:  543-block  9
+branch 15 never executed (fallthrough)
+branch 16 never executed
+    $$$$$:  543-block 10
+call   17 never executed
+    $$$$$:  543-block 11
+    $$$$$:  543-block 12
+branch 18 never executed (fallthrough)
+branch 19 never executed
+    $$$$$:  543-block 13
+        1:  544:    }
+        1:  544-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+    $$$$$:  544-block  1
+call    3 never executed
+        1:  545:}
+        1:  545-block  0
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+call    3 returned 1
+call    4 returned 1
+    $$$$$:  545-block  1
+call    5 never executed
+    $$$$$:  545-block  2
+call    6 never executed
+    $$$$$:  545-block  3
+call    7 never executed
+    $$$$$:  545-block  4
+call    8 never executed
+    $$$$$:  545-block  5
+call    9 never executed
+        -:  546:
+        -:  547:
+function _ZN15TesteDiscipline7testAllEv called 1 returned 100% blocks executed 100%
+        1:  548:void TesteDiscipline::testAll() {
+        1:  549:    test_validare();
+        1:  549-block  0
+call    0 returned 1
+        1:  550:    test_cautare();
+call    0 returned 1
+        -:  551:
+        1:  552:    test_memorie();
+call    0 returned 1
+        1:  553:    test_fisiere();
+call    0 returned 1
+        1:  554:    test_falsitate();
+call    0 returned 1
+        -:  555:
+        1:  556:    test_filtrare();
+call    0 returned 1
+        1:  557:    test_sortare();
+call    0 returned 1
+        -:  558:
+        1:  559:    test_raport_tip();
+call    0 returned 1
+        -:  560:
+        1:  561:    test_contract_adaugare();
+call    0 returned 1
+        1:  562:    test_contract_goleste();
+call    0 returned 1
+        1:  563:    test_contract_generare();
+call    0 returned 1
+        -:  564:
+        1:  565:    test_contract_export();
+call    0 returned 1
+        1:  566:}

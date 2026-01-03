@@ -1,0 +1,61 @@
+<HTML>
+<HEAD>
+<TITLE>Inserting Items in a Sorted List</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html4265" HREF="page191.html" tppabs="http://www.brpreiss.com/books/opus4/html/page191.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4263" HREF="page189.html" tppabs="http://www.brpreiss.com/books/opus4/html/page189.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4257" HREF="page189.html" tppabs="http://www.brpreiss.com/books/opus4/html/page189.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4267" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4268" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION008211000000000000000">Inserting Items in a Sorted List</A></H3>
+<P>
+When inserting an item into a sorted list
+we have as a precondition that the list is already sorted.
+Furthermore, once the item is inserted,
+we have the postcondition that the list must still be sorted.
+Therefore, all the items initially in the list that are larger
+than the item to be inserted
+need to be moved to the right by one position
+as shown in Figure&nbsp;<A HREF="page190.html#figlists3" tppabs="http://www.brpreiss.com/books/opus4/html/page190.html#figlists3"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+<P>
+<P><A NAME="10727">&#160;</A><A NAME="figlists3">&#160;</A> <IMG WIDTH=575 HEIGHT=182 ALIGN=BOTTOM ALT="figure10520" SRC="img849.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img849.gif"  ><BR>
+<STRONG>Figure:</STRONG> Inserting an Item into a Sorted List Implemented as an Array<BR>
+<P>
+<P>
+Program&nbsp;<A HREF="page190.html#progsorted1c" tppabs="http://www.brpreiss.com/books/opus4/html/page190.html#progsorted1c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> defines the <tt>Insert</tt> member function
+for the <tt>SortedListAsArray</tt> class.
+This function takes as its lone argument
+a reference to the <tt>Object</tt> to be inserted in the list.
+Recall that the <tt>Insert</tt> function
+provided by the <tt>ListAsLinkedList</tt> class
+simply adds items at the end of the array.
+While this is both efficient and easy to implement,
+it is not suitable for the <tt>SortedListAsArray</tt> class
+since the items in the array must be end up in order.
+<P>
+<P><A NAME="11048">&#160;</A><A NAME="progsorted1c">&#160;</A> <IMG WIDTH=575 HEIGHT=258 ALIGN=BOTTOM ALT="program10737" SRC="img850.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img850.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>SortedListAsArray</tt> Class 	<tt>Insert</tt> Member Function Definition<BR>
+<P>
+<P>
+The <tt>Insert</tt> function given in Program&nbsp;<A HREF="page190.html#progsorted1c" tppabs="http://www.brpreiss.com/books/opus4/html/page190.html#progsorted1c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+first checks that there is still room in the array for one more item.
+Then, to insert the item into the list,
+all the items in the list that are larger than the one to be inserted
+are moved to the right.
+This is accomplished by the loop on lines&nbsp;5-10.
+Finally, a pointer to the item to be inserted is recorded in the
+appropriate array position on line&nbsp;11.
+<P>
+In the worst case, the item to be inserted is smaller than
+all the items already in the sorted list.
+In this case, all  <IMG WIDTH=72 HEIGHT=9 ALIGN=BOTTOM ALT="tex2html_wrap_inline61308" SRC="img709.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img709.gif"  > items must be moved
+one position to the right.
+Therefore, the running time of the <tt>Insert</tt> routine is <I>O</I>(<I>n</I>).
+<P>
+<HR><A NAME="tex2html4265" HREF="page191.html" tppabs="http://www.brpreiss.com/books/opus4/html/page191.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4263" HREF="page189.html" tppabs="http://www.brpreiss.com/books/opus4/html/page189.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4257" HREF="page189.html" tppabs="http://www.brpreiss.com/books/opus4/html/page189.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4267" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4268" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

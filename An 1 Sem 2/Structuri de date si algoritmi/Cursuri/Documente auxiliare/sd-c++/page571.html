@@ -1,0 +1,67 @@
+<HTML>
+<HEAD>
+<TITLE>Floyd's Algorithm</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html8969" HREF="page572.html" tppabs="http://www.brpreiss.com/books/opus4/html/page572.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8967" HREF="page570.html" tppabs="http://www.brpreiss.com/books/opus4/html/page570.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8961" HREF="page570.html" tppabs="http://www.brpreiss.com/books/opus4/html/page570.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8971" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8972" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0017421000000000000000">Floyd's Algorithm</A></H3>
+<P>
+<em>Floyd's algorithm</em><A NAME=52110>&#160;</A> uses the
+dynamic programming method
+to solve the all-pairs shortest-path problem on a dense graph.
+The method makes efficient use of
+an adjacency matrix to solve the problem.
+Consider an edge-weighted graph  <IMG WIDTH=72 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71355" SRC="img2282.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2282.gif"  >,
+where <I>C</I>(<I>v</I>,<I>w</I>) represents the weight on edge (<I>v</I>,<I>w</I>).
+Suppose the vertices are numbered from 1 to  <IMG WIDTH=17 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71781" SRC="img2365.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2365.gif"  >.
+I.e., let  <IMG WIDTH=146 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline72689" SRC="img2488.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2488.gif"  >.
+Furthermore,
+let  <IMG WIDTH=16 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline72691" SRC="img2489.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2489.gif"  > be the set comprised of the first <I>k</I> vertices in  <IMG WIDTH=10 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline71357" SRC="img2283.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2283.gif"  >.
+I.e.,  <IMG WIDTH=148 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72697" SRC="img2490.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2490.gif"  >, for  <IMG WIDTH=77 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72699" SRC="img2491.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2491.gif"  >.
+<P>
+Let  <IMG WIDTH=55 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72701" SRC="img2492.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2492.gif"  > be the shortest path from vertex <I>v</I> to <I>w</I>
+that passes only through vertices in  <IMG WIDTH=16 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline72691" SRC="img2489.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2489.gif"  >,
+if such a path exists.
+I.e., the path  <IMG WIDTH=55 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72701" SRC="img2492.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2492.gif"  > has the form
+<P> <IMG WIDTH=330 HEIGHT=35 ALIGN=BOTTOM ALT="displaymath72669" SRC="img2493.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2493.gif"  ><P>
+<P>
+Let  <IMG WIDTH=58 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72711" SRC="img2494.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2494.gif"  > be the <em>length</em> of path  <IMG WIDTH=55 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72701" SRC="img2492.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2492.gif"  >:
+<P> <IMG WIDTH=390 HEIGHT=48 ALIGN=BOTTOM ALT="displaymath72670" SRC="img2495.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2495.gif"  ><P>
+<P>
+Since  <IMG WIDTH=45 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline72715" SRC="img2496.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2496.gif"  >,
+the  <IMG WIDTH=16 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline67626" SRC="img1657.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1657.gif"  > paths are correspond to the edges of <I>G</I>:
+<P> <IMG WIDTH=372 HEIGHT=48 ALIGN=BOTTOM ALT="displaymath72671" SRC="img2497.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2497.gif"  ><P>
+<P>
+Therefore, the  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline72721" SRC="img2498.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2498.gif"  > path lengths correspond to the weights on the edges of <I>G</I>:
+<P> <IMG WIDTH=366 HEIGHT=48 ALIGN=BOTTOM ALT="displaymath72672" SRC="img2499.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2499.gif"  ><P>
+<P>
+Floyd's algorithm computes the sequence of matrices
+ <IMG WIDTH=113 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline72725" SRC="img2500.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2500.gif"  >.
+The distances in  <IMG WIDTH=16 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline72727" SRC="img2501.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2501.gif"  > represent paths with intermediate vertices in  <IMG WIDTH=13 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline72729" SRC="img2502.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2502.gif"  >.
+Since  <IMG WIDTH=129 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline72731" SRC="img2503.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2503.gif"  >,
+we can obtain the distances in  <IMG WIDTH=32 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72733" SRC="img2504.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2504.gif"  > from those in  <IMG WIDTH=16 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline72727" SRC="img2501.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2501.gif"  >
+by considering only the paths that pass through vertex  <IMG WIDTH=28 HEIGHT=16 ALIGN=MIDDLE ALT="tex2html_wrap_inline71519" SRC="img2316.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2316.gif"  >.
+Figure&nbsp;<A HREF="page571.html#figgraph14" tppabs="http://www.brpreiss.com/books/opus4/html/page571.html#figgraph14"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> illustrates how this is done.
+<P>
+<P><A NAME="52330">&#160;</A><A NAME="figgraph14">&#160;</A> <IMG WIDTH=575 HEIGHT=143 ALIGN=BOTTOM ALT="figure52132" SRC="img2505.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2505.gif"  ><BR>
+<STRONG>Figure:</STRONG> Calculating  <IMG WIDTH=32 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72733" SRC="img2504.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2504.gif"  > in Floyd's Algorithm<BR>
+<P>
+<P>
+For every pair of vertices (<I>v</I>,<I>w</I>),
+we compare the distance  <IMG WIDTH=56 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72755" SRC="img2506.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2506.gif"  >,
+(which represents the shortest path from <I>v</I> to <I>w</I>
+that does not pass through  <IMG WIDTH=28 HEIGHT=16 ALIGN=MIDDLE ALT="tex2html_wrap_inline71519" SRC="img2316.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2316.gif"  >)
+with the sum  <IMG WIDTH=172 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline72763" SRC="img2507.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2507.gif"  >
+(which represents the shortest path from <I>v</I> to <I>w</I>
+that does pass through  <IMG WIDTH=28 HEIGHT=16 ALIGN=MIDDLE ALT="tex2html_wrap_inline71519" SRC="img2316.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2316.gif"  >).
+Thus,  <IMG WIDTH=32 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline72733" SRC="img2504.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2504.gif"  > is computed as follows:
+<P> <IMG WIDTH=439 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath72673" SRC="img2508.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2508.gif"  ><P><HR><A NAME="tex2html8969" HREF="page572.html" tppabs="http://www.brpreiss.com/books/opus4/html/page572.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8967" HREF="page570.html" tppabs="http://www.brpreiss.com/books/opus4/html/page570.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8961" HREF="page570.html" tppabs="http://www.brpreiss.com/books/opus4/html/page570.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8971" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8972" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

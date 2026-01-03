@@ -1,0 +1,53 @@
+<HTML>
+<HEAD>
+<TITLE>Removing Arbitrary Items by Position</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html4085" HREF="page177.html" tppabs="http://www.brpreiss.com/books/opus4/html/page177.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4083" HREF="page168.html" tppabs="http://www.brpreiss.com/books/opus4/html/page168.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4079" HREF="page175.html" tppabs="http://www.brpreiss.com/books/opus4/html/page175.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4087" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4088" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION008118000000000000000">Removing Arbitrary Items by Position</A></H3>
+<P>
+The final member function of the <tt>ListAsArray</tt> class that we will
+consider is the <tt>Withdraw</tt> function which takes
+a <tt>const</tt> reference to a <tt>Position</tt>.
+The desired effect of this function is to remove from the ordered list
+the item at the specified position.
+<P>
+Figure&nbsp;<A HREF="page176.html#figlists2" tppabs="http://www.brpreiss.com/books/opus4/html/page176.html#figlists2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> shows the way in which to delete
+an item from an ordered list which implemented with an array.
+All of the items remaining in the list to the right of the deleted item
+need to be shifted to the left in the array by one position.
+<P>
+<P><A NAME="10088">&#160;</A><A NAME="figlists2">&#160;</A> <IMG WIDTH=575 HEIGHT=284 ALIGN=BOTTOM ALT="figure9830" SRC="img799.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img799.gif"  ><BR>
+<STRONG>Figure:</STRONG> Withdrawing an Item from an Ordered List Implemented as an Array<BR>
+<P>
+<P>
+Program&nbsp;<A HREF="page176.html#proglist6c" tppabs="http://www.brpreiss.com/books/opus4/html/page176.html#proglist6c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives the implementation of the <tt>Withdraw</tt>
+member function.
+As has been the pattern in all of the member functions which take
+a <tt>const</tt> reference to a <tt>Position</tt>,
+that argument is first dynamically cast to a <tt>ListAsArray::Pos</tt>.
+After checking the validity of the position,
+all of the items following the item to be withdraw are moved
+one position to the left in the array.
+<P>
+<P><A NAME="10539">&#160;</A><A NAME="proglist6c">&#160;</A> <IMG WIDTH=575 HEIGHT=238 ALIGN=BOTTOM ALT="program10096" SRC="img800.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img800.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>ListAsArray</tt> Class 	<tt>Withdraw</tt> Member Function Definition<BR>
+<P>
+<P>
+The running time of the <tt>Withdraw</tt> function
+depends on the position in the array of the item being deleted
+and on the number of items in the ordered lists.
+In the worst case, the item to be deleted is in the first position.
+In this case, the work required to move the remaining items left is <I>O</I>(<I>n</I>),
+where  <IMG WIDTH=72 HEIGHT=9 ALIGN=BOTTOM ALT="tex2html_wrap_inline61308" SRC="img709.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img709.gif"  >.
+<P>
+<HR><A NAME="tex2html4085" HREF="page177.html" tppabs="http://www.brpreiss.com/books/opus4/html/page177.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4083" HREF="page168.html" tppabs="http://www.brpreiss.com/books/opus4/html/page168.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4079" HREF="page175.html" tppabs="http://www.brpreiss.com/books/opus4/html/page175.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4087" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4088" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

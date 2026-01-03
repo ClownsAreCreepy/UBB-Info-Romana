@@ -1,0 +1,149 @@
+//DIJKSTRA - mat de adiacenta
+#include <iostream>
+
+using namespace std;
+
+int G[50][50], n, E; //E-muchii
+
+///DIJKSTRA
+
+int minDist(const int dist[], const bool viz[]) {
+    int min = INT_MAX, minIndex;
+
+    for (int i = 0; i < n; i++) {
+        if (!viz[i] && dist[i] <= min) {
+            min = dist[i];
+            minIndex = i;
+        }
+    }
+
+    return minIndex;
+
+}
+
+void dijkstra(int rad) {
+
+    int dist[n];
+    bool viz[n];
+
+    //initiliazare
+    for (int i = 0; i < n; i++) {
+        dist[i] = INT_MAX;
+        viz[i] = false;
+    }
+
+    dist[rad] = 0;
+    for (int i = 0; i < n; i++) {
+        int m = minDist(dist, viz);
+        viz[m] = true;
+
+        for (int j = 0; j < n; j++) {
+            if (!viz[j] && G[m][j] && dist[m] != INT_MAX && dist[m] + G[m][j] < dist[j]) {
+                dist[j] = dist[m] + G[m][j];
+            }
+        }
+
+    }
+
+}
+
+
+//BELLMAN-FORD - struct
+
+struct bellman {
+    int x, y, c; // x,y-noduri, c-cost
+} muchie[100];
+
+
+//relaxarea unei muchii - actualizare dist minima catre nodul v prin nodul u cu cost c
+void relax(int u, int v, int c) {
+    if (dist[v] > dist[u] + c)
+        dist[v] = dist[u] + c;
+}
+
+
+//
+bool BellmanFord(int src) {
+
+    //prima init
+    for (int i = 1; i <= n; i++)
+        dist[i] = inf;
+
+    dist[src] = 0;
+
+   //parcurgere muchii pentru relaxare
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= m; j++) {
+            relax(muchie[j].x, muchie[j].y, muchie[j].c);
+        }
+    }
+
+    for (int j = 1; j <= m; j++) {
+        //ciclu negativ
+        if (dist[muchie[j].y] > dist[muchie[j].x] + muchie[j].c)
+            return false;
+    }
+
+    return true;
+}
+
+//BFS
+bool visited[101];
+    for(int i=1; i<=n; i++){
+        p[i]=-1;
+        visited[i]=false;
+    }
+
+    queue<int> Q;
+    Q.push(nodSursa);
+
+    visited[nodSursa] = true;
+
+
+    while (!Q.empty()) {
+        int nodCurent = Q.front();
+
+        for (int j = 1; j <= n; j++) {
+            if (G[nodCurent][j] == 1 && !visited[j]) {
+                Q.push(j);
+                visited[j] = true;
+                l[j] = l[nodCurent] + 1;
+                p[j] = nodCurent;
+            }
+        }
+
+        Q.pop();
+    }
+
+
+//DFS
+
+vector<int> G[maxn];
+bool visited[maxn];
+
+// Funcția DFS recursivă
+void dfs(int node) {
+    visited[node] = true;
+    // Parcurgem toate nodurile adiacente nodului curent
+    for (int neighbor : G[node]) {
+        // Dacă un nod adiacent nu a fost vizitat, apelăm recursiv DFS pentru el
+        if (!visited[neighbor]) {
+            dfs(neighbor);
+        }
+    }
+}
+
+bool verifyCycle(){
+    for(int nod=1; nod<=n; nod++){
+        if(!visited[nod]){
+            dfs(nod);
+        }
+    }
+    // Verificăm dacă există un ciclu în graf
+    for (int i = 1; i <= n; i++) {
+        if (!visited[i]) {
+            return false; // Dacă există noduri nevizitate, graful nu este conex
+        }
+    }
+    return true; // Dacă toate nodurile sunt vizitate, graful este conex
+}

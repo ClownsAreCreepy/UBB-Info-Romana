@@ -1,0 +1,10 @@
+1 3 XOXOXOOXO X Terminat
+2 3 XOXOOXOX- X In_derulare
+3 4 XOXXOOXXOOXXOXXX O Terminat
+4 3 XOXOXOXOX O Terminat
+5 5 XOXOXOXOXOXOXOXOXOXOXOXOX O Terminat
+6 4 XO--OX--XOOX-X-- X In_derulare
+7 3 XO-OX-XO- X In_derulare
+8 4 ------------ X Neinceput
+9 3 --------- X Neinceput
+10 5 XOX--OX---OXOX--OXOXOXOX X In_derulare

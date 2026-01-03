@@ -1,0 +1,85 @@
+<HTML>
+<HEAD>
+<TITLE>Adjacency Matrices</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html8502" HREF="page534.html" tppabs="http://www.brpreiss.com/books/opus4/html/page534.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8500" HREF="page532.html" tppabs="http://www.brpreiss.com/books/opus4/html/page532.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8494" HREF="page532.html" tppabs="http://www.brpreiss.com/books/opus4/html/page532.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8504" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8505" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0017111000000000000000">Adjacency Matrices</A></H3>
+<P>
+Consider a directed graph  <IMG WIDTH=72 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71355" SRC="img2282.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2282.gif"  > with <I>n</I> vertices,
+ <IMG WIDTH=137 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71661" SRC="img2346.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2346.gif"  >.
+The simplest graph representation scheme
+uses an  <IMG WIDTH=38 HEIGHT=14 ALIGN=MIDDLE ALT="tex2html_wrap_inline68887" SRC="img1918.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1918.gif"  > matrix <I>A</I> of zeroes and ones given by
+<P> <IMG WIDTH=332 HEIGHT=48 ALIGN=BOTTOM ALT="displaymath71647" SRC="img2347.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2347.gif"  ><P>
+I.e., the  <IMG WIDTH=43 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline61089" SRC="img639.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img639.gif"  > element of the matrix,
+is a one only if  <IMG WIDTH=51 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline71669" SRC="img2348.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2348.gif"  > is an edge in <I>G</I>.
+The matrix <I>A</I> is called an
+<em>adjacency matrix</em><A NAME=49354>&#160;</A><A NAME=49355>&#160;</A>.
+<P>
+For example, the adjacency matrix for graph  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline71449" SRC="img2298.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2298.gif"  > in Figure&nbsp;<A HREF="page525.html#figgraph1" tppabs="http://www.brpreiss.com/books/opus4/html/page525.html#figgraph1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> is
+<P> <IMG WIDTH=323 HEIGHT=76 ALIGN=BOTTOM ALT="displaymath71648" SRC="img2349.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2349.gif"  ><P>
+Clearly, the number of ones in the adjacency matrix is equal
+to the number of edges in the graph.
+<P>
+One advantage of using an adjacency matrix is that it is easy to
+determine the sets of edges emanating from and incident on a given vertex.
+E.g., consider vertex  <IMG WIDTH=11 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline71521" SRC="img2317.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2317.gif"  >.
+Each one in the  <IMG WIDTH=17 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58387" SRC="img77.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img77.gif"  > row corresponds to an edge
+that emanates from vertex  <IMG WIDTH=11 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline71521" SRC="img2317.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2317.gif"  >.
+Conversely, each one in the  <IMG WIDTH=17 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58387" SRC="img77.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img77.gif"  > column
+corresponds to an edge incident on vertex  <IMG WIDTH=11 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline71521" SRC="img2317.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2317.gif"  >.
+<P>
+We can also use adjacency matrices to represent undirected graphs.
+I.e., we represent an undirected graph  <IMG WIDTH=72 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71355" SRC="img2282.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2282.gif"  > with <I>n</I> vertices,
+using an  <IMG WIDTH=38 HEIGHT=14 ALIGN=MIDDLE ALT="tex2html_wrap_inline68887" SRC="img1918.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1918.gif"  > matrix <I>A</I> of zeroes and ones given by
+<P> <IMG WIDTH=334 HEIGHT=48 ALIGN=BOTTOM ALT="displaymath71649" SRC="img2350.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2350.gif"  ><P>
+Since the two sets  <IMG WIDTH=47 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline71695" SRC="img2351.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2351.gif"  > and  <IMG WIDTH=47 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline71697" SRC="img2352.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2352.gif"  > are equivalent,
+matrix <I>A</I> is symmetric about the diagonal.
+I.e.,  <IMG WIDTH=73 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71701" SRC="img2353.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2353.gif"  >.
+Furthermore, all of the entries on the diagonal are zero.
+I.e.,  <IMG WIDTH=54 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71703" SRC="img2354.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2354.gif"  > for  <IMG WIDTH=64 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline69739" SRC="img2095.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2095.gif"  >.
+<P>
+For example, the adjacency matrix for graph  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline71603" SRC="img2334.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2334.gif"  > in Figure&nbsp;<A HREF="page529.html#figgraph3" tppabs="http://www.brpreiss.com/books/opus4/html/page529.html#figgraph3"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> is
+<P> <IMG WIDTH=318 HEIGHT=76 ALIGN=BOTTOM ALT="displaymath71650" SRC="img2355.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2355.gif"  ><P>
+In this case, there are twice as many ones in the adjacency
+matrix as there are edges in the undirected graph.
+<P>
+A simple variation allows us to use an adjacency matrix
+to represent an edge-labeled graph.
+For example, given numeric edge labels,
+we can represent a graph (directed or undirected)
+using an  <IMG WIDTH=38 HEIGHT=14 ALIGN=MIDDLE ALT="tex2html_wrap_inline68887" SRC="img1918.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1918.gif"  > matrix <I>A</I> in which the  <IMG WIDTH=25 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline68907" SRC="img1924.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1924.gif"  >
+is the numeric label associated with edge  <IMG WIDTH=45 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline71715" SRC="img2356.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2356.gif"  >
+in the case of a directed graph,
+and edge  <IMG WIDTH=47 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline71695" SRC="img2351.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2351.gif"  >,
+in an undirected graph.
+<P>
+For example, the adjacency matrix for the graph  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline71633" SRC="img2343.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2343.gif"  > in Figure&nbsp;<A HREF="page531.html#figgraph4" tppabs="http://www.brpreiss.com/books/opus4/html/page531.html#figgraph4"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> is
+<P> <IMG WIDTH=334 HEIGHT=76 ALIGN=BOTTOM ALT="displaymath71651" SRC="img2357.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2357.gif"  ><P>
+In this case, the array entries corresponding to non-existent edges
+have all been set to  <IMG WIDTH=14 HEIGHT=7 ALIGN=BOTTOM ALT="tex2html_wrap_inline69187" SRC="img1984.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1984.gif"  >.
+Here  <IMG WIDTH=14 HEIGHT=7 ALIGN=BOTTOM ALT="tex2html_wrap_inline69187" SRC="img1984.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1984.gif"  > serves as a kind of <em>sentinel</em><A NAME=49376>&#160;</A>.
+The value to use for the sentinel depends on the application.
+For example, if the edges represent routes between geographic locations,
+then a route of length  <IMG WIDTH=14 HEIGHT=7 ALIGN=BOTTOM ALT="tex2html_wrap_inline69187" SRC="img1984.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1984.gif"  > is much like one that does not exist.
+<P>
+Since the adjacency matrix has  <IMG WIDTH=24 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline71641" SRC="img2344.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2344.gif"  > entries,
+the amount of spaced needed to represent the edges of
+a graph is  <IMG WIDTH=50 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline71729" SRC="img2358.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2358.gif"  >,
+<em>regardless of the actual number of edges</em> in the graph.
+If the graph contains relatively few edges,
+e.g., if  <IMG WIDTH=68 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline71731" SRC="img2359.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2359.gif"  >,
+then most of the elements of the adjacency matrix will be zero (or  <IMG WIDTH=14 HEIGHT=7 ALIGN=BOTTOM ALT="tex2html_wrap_inline69187" SRC="img1984.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1984.gif"  >).
+A matrix in which most of the elements are zero (or  <IMG WIDTH=14 HEIGHT=7 ALIGN=BOTTOM ALT="tex2html_wrap_inline69187" SRC="img1984.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1984.gif"  >)
+is a <em>sparse matrix</em><A NAME=49379>&#160;</A><A NAME=49380>&#160;</A>.
+<P>
+<HR><A NAME="tex2html8502" HREF="page534.html" tppabs="http://www.brpreiss.com/books/opus4/html/page534.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8500" HREF="page532.html" tppabs="http://www.brpreiss.com/books/opus4/html/page532.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8494" HREF="page532.html" tppabs="http://www.brpreiss.com/books/opus4/html/page532.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8504" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8505" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,64 @@
+<HTML>
+<HEAD>
+<TITLE>Hash Tables</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html4657" HREF="page223.html" tppabs="http://www.brpreiss.com/books/opus4/html/page223.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4655" HREF="page203.html" tppabs="http://www.brpreiss.com/books/opus4/html/page203.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4649" HREF="page221.html" tppabs="http://www.brpreiss.com/books/opus4/html/page221.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4659" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4660" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION009400000000000000000">Hash Tables</A></H1>
+<P>
+<P><A NAME="11637">&#160;</A><A NAME="figclasses4">&#160;</A> <IMG WIDTH=575 HEIGHT=114 ALIGN=BOTTOM ALT="figure11633" SRC="img966.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img966.gif"  ><BR>
+<STRONG>Figure:</STRONG> Object Class Hierarchy<BR>
+<P>
+<P>
+A <em>hash table</em><A NAME=11641>&#160;</A> is a searchable container.
+As such, its interface provides functions
+for putting an object into the container,
+finding an object in the container,
+and removing an object from the container.
+Program&nbsp;<A HREF="page222.html#proghashtbl1h" tppabs="http://www.brpreiss.com/books/opus4/html/page222.html#proghashtbl1h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> declares the <tt>HashTable</tt> class and
+Program&nbsp;<A HREF="page222.html#proghashtbl1c" tppabs="http://www.brpreiss.com/books/opus4/html/page222.html#proghashtbl1c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+gives the definition of the <tt>HashTable</tt> constructor and
+the member function <tt>H</tt>.
+<P>
+<P><A NAME="11733">&#160;</A><A NAME="proghashtbl1h">&#160;</A> <IMG WIDTH=575 HEIGHT=161 ALIGN=BOTTOM ALT="program11647" SRC="img967.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img967.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>HashTable</tt> Class Definition<BR>
+<P>
+<P>
+<P><A NAME="11737">&#160;</A><A NAME="proghashtbl1c">&#160;</A> <IMG WIDTH=575 HEIGHT=126 ALIGN=BOTTOM ALT="program11658" SRC="img968.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img968.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>HashTable</tt> Class Constructor 	and <tt>H</tt> Member Function Definitions<BR>
+<P>
+<P>
+The <tt>HashTable</tt> constructor takes a single argument,
+and initializes the member variable <tt>length</tt> accordingly.
+The <tt>HashTable::H</tt> member function
+corresponds to the composition  <IMG WIDTH=62 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline62574" SRC="img922.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img922.gif"  >
+discussed in Section&nbsp;<A HREF="page215.html#sechashingimpl" tppabs="http://www.brpreiss.com/books/opus4/html/page215.html#sechashingimpl"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+The member function <tt>H</tt>
+takes as its sole argument a <tt>const</tt> reference to an object.
+That object is hashed
+and the result of the hash modulo <tt>length</tt> is returned by <tt>H</tt>.
+<P>
+In the following we will consider various ways of implementing hash tables.
+In all cases,
+the underlying implementation makes use of an array.
+The position of an object in the array is determined by hashing the object.
+The main problem to be resolved is how to deal with collisions--two different objects cannot occupy the same array position at the same time.
+In the following section,
+we consider an approach which solves the problem of collisions
+by keeping objects that collide in a linked list.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html4661" HREF="page223.html#SECTION009410000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page223.html#SECTION009410000000000000000">Separate Chaining</A>
+<LI> <A NAME="tex2html4662" HREF="page228.html#SECTION009420000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page228.html#SECTION009420000000000000000">Average Case Analysis</A>
+</UL>
+<HR><A NAME="tex2html4657" HREF="page223.html" tppabs="http://www.brpreiss.com/books/opus4/html/page223.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4655" HREF="page203.html" tppabs="http://www.brpreiss.com/books/opus4/html/page203.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4649" HREF="page221.html" tppabs="http://www.brpreiss.com/books/opus4/html/page221.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4659" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4660" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

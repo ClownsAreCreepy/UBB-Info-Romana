@@ -1,0 +1,44 @@
+<HTML>
+<HEAD>
+<TITLE>Implementing M-Way Search Trees</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html6018" HREF="page332.html" tppabs="http://www.brpreiss.com/books/opus4/html/page332.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6016" HREF="page330.html" tppabs="http://www.brpreiss.com/books/opus4/html/page330.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6010" HREF="page330.html" tppabs="http://www.brpreiss.com/books/opus4/html/page330.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6020" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6021" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0011610000000000000000">Implementing <I>M</I>-Way Search Trees</A></H2>
+<P>
+<A NAME="secsrchtreemwayimpl">&#160;</A>
+<P>
+In order to illustrate the basic ideas,
+this section describes an implementation
+of <I>M</I>-way search trees in main memory.
+According to Definition&nbsp;<A HREF="page301.html#defnmwaytree" tppabs="http://www.brpreiss.com/books/opus4/html/page301.html#defnmwaytree"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+each internal node of an <I>M</I>-way search tree has <I>n</I> subtrees,
+where <I>n</I> is at least two and at most <I>M</I>.
+Furthermore, if a node has <I>n</I> subtrees,
+it must contain <I>n</I>-1 keys.
+<P>
+Figure&nbsp;<A HREF="page331.html#figmway" tppabs="http://www.brpreiss.com/books/opus4/html/page331.html#figmway"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> shows how we can implement
+a single node of an <I>M</I>-way search tree.
+The idea is that we use two arrays in each node--the first holds the keys
+and the second contains pointers to the subtrees.
+Since there are at most <I>M</I>-1 keys and <I>M</I> subtrees,
+the first array is one element shorter than the second array.
+<P>
+<P><A NAME="21497">&#160;</A><A NAME="figmway">&#160;</A> <IMG WIDTH=575 HEIGHT=193 ALIGN=BOTTOM ALT="figure21140" SRC="img1355.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1355.gif"  ><BR>
+<STRONG>Figure:</STRONG> Representing a Node of an <I>M</I>-Way Search Tree<BR>
+<P><BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html6022" HREF="page332.html#SECTION0011611000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page332.html#SECTION0011611000000000000000">Implementation</A>
+<LI> <A NAME="tex2html6023" HREF="page333.html#SECTION0011612000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page333.html#SECTION0011612000000000000000">Member Functions</A>
+<LI> <A NAME="tex2html6024" HREF="page334.html#SECTION0011613000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page334.html#SECTION0011613000000000000000">Inorder Traversal</A>
+</UL>
+<HR><A NAME="tex2html6018" HREF="page332.html" tppabs="http://www.brpreiss.com/books/opus4/html/page332.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html6016" HREF="page330.html" tppabs="http://www.brpreiss.com/books/opus4/html/page330.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html6010" HREF="page330.html" tppabs="http://www.brpreiss.com/books/opus4/html/page330.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html6020" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html6021" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,44 @@
+<HTML>
+<HEAD>
+<TITLE>Scatter Tables</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html4743" HREF="page230.html" tppabs="http://www.brpreiss.com/books/opus4/html/page230.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4741" HREF="page203.html" tppabs="http://www.brpreiss.com/books/opus4/html/page203.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4735" HREF="page228.html" tppabs="http://www.brpreiss.com/books/opus4/html/page228.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4745" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4746" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION009500000000000000000">Scatter Tables</A></H1>
+<P>
+The separately chained hash table described in the preceding section
+is essentially a pointer-based implementation.
+We have seen both pointer-based and array-based implementations
+for all of the data structures considered so far
+and hash tables are no exception.
+Array-based hash tables are called <em>scatter tables</em><A NAME=12031>&#160;</A>.
+<P>
+The essential idea behind a scatter table is that
+all of the information is stored within a fixed size array.
+Hashing is used to identify the position where an item should be stored.
+When a collision occurs,
+the colliding item is stored somewhere else in the array.
+<P>
+One of the motivations for using scatter tables can be seen by
+considering again the pointer-based hash table shown in Figure&nbsp;<A HREF="page223.html#fighash1" tppabs="http://www.brpreiss.com/books/opus4/html/page223.html#fighash1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+Since most of the linked lists are empty,
+much of the array is unused.
+At the same time, for each item that is added to the table,
+dynamic memory is consumed.
+Why not simply store the data in the unused array positions?
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html4747" HREF="page230.html#SECTION009510000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page230.html#SECTION009510000000000000000">Chained Scatter Table</A>
+<LI> <A NAME="tex2html4748" HREF="page236.html#SECTION009520000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page236.html#SECTION009520000000000000000">Average Case Analysis</A>
+</UL>
+<HR><A NAME="tex2html4743" HREF="page230.html" tppabs="http://www.brpreiss.com/books/opus4/html/page230.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4741" HREF="page203.html" tppabs="http://www.brpreiss.com/books/opus4/html/page203.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4735" HREF="page228.html" tppabs="http://www.brpreiss.com/books/opus4/html/page228.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4745" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4746" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

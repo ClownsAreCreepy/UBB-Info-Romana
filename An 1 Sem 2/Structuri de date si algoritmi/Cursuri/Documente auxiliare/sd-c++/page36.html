@@ -1,0 +1,131 @@
+<HTML>
+<HEAD>
+<TITLE>The Basic Axioms</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html2340" HREF="page37.html" tppabs="http://www.brpreiss.com/books/opus4/html/page37.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2338" HREF="page35.html" tppabs="http://www.brpreiss.com/books/opus4/html/page35.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2332" HREF="page35.html" tppabs="http://www.brpreiss.com/books/opus4/html/page35.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2342" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2343" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION003110000000000000000">The Basic Axioms</A></H2>
+<P>
+The running time performance of the C++ virtual machine
+is given by a set of axioms which we shall now postulate.
+For now we consider only operations on integers.
+The first axiom addresses the running time of simple variable references:
+<P>
+<BLOCKQUOTE> <b>Axiom</b><A NAME="axiomi">&#160;</A>
+The time required to fetch an integer operand from memory is a constant,
+ <IMG WIDTH=33 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline58177" SRC="img7.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img7.gif"  >,
+and the time required to store an integer result in memory is a constant,
+ <IMG WIDTH=33 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline58179" SRC="img8.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img8.gif"  >.
+</BLOCKQUOTE>
+<P>
+According to Axiom&nbsp;<A HREF="page36.html#axiomi" tppabs="http://www.brpreiss.com/books/opus4/html/page36.html#axiomi"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+the assignment statement
+<PRE>y = x;</PRE>
+has running time  <IMG WIDTH=88 HEIGHT=20 ALIGN=MIDDLE ALT="tex2html_wrap_inline58181" SRC="img9.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img9.gif"  >.
+I.e., the time taken to fetch the value of variable <tt>x</tt> is  <IMG WIDTH=33 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline58177" SRC="img7.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img7.gif"  >
+and the time taken to store the value in variable <tt>y</tt> is  <IMG WIDTH=33 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline58179" SRC="img8.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img8.gif"  >.
+<P>
+We shall apply Axiom&nbsp;<A HREF="page36.html#axiomi" tppabs="http://www.brpreiss.com/books/opus4/html/page36.html#axiomi"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> to manifest constants too:
+The assignment
+<PRE>y = 1;</PRE>
+also has running time  <IMG WIDTH=88 HEIGHT=20 ALIGN=MIDDLE ALT="tex2html_wrap_inline58181" SRC="img9.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img9.gif"  >.
+To see why this should be the case,
+consider that the constant typically needs to be stored in the memory
+of the computer,
+and we can expect the cost of fetching it to be the same as that
+of fetching any other operand.
+<P>
+The next axiom addresses the running time of simple
+arithmetic operations on integers:
+<P>
+<BLOCKQUOTE> <b>Axiom</b><A NAME="axiomii">&#160;</A>
+The times required to perform elementary operations on integers,
+such as addition, subtraction, multiplication, division, and comparison,
+are all constants.
+These times are denoted by
+ <IMG WIDTH=16 HEIGHT=16 ALIGN=MIDDLE ALT="tex2html_wrap_inline58189" SRC="img10.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img10.gif"  >,  <IMG WIDTH=15 HEIGHT=11 ALIGN=MIDDLE ALT="tex2html_wrap_inline58191" SRC="img11.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img11.gif"  >,  <IMG WIDTH=15 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline58193" SRC="img12.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img12.gif"  >,  <IMG WIDTH=15 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline58195" SRC="img13.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img13.gif"  >, and  <IMG WIDTH=15 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline58197" SRC="img14.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img14.gif"  >, respectively.
+</BLOCKQUOTE>
+<P>
+According to Axiom&nbsp;<A HREF="page36.html#axiomii" tppabs="http://www.brpreiss.com/books/opus4/html/page36.html#axiomii"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+all the simple operations on integers can be accomplished in a fixed
+amount of time.
+In order for this to be feasible,
+the number of bits used to represent an integer must be fixed.
+Typically, between 16 and 64 bits are used to represent an integer.
+It is precisely because the number of bits used is fixed
+that we can say that the running times are also fixed.
+If arbitrarily large integers are allowed,
+then the basic arithmetic operations can take an arbitrarily
+long amount of time.
+<P>
+By applying Axioms&nbsp;<A HREF="page36.html#axiomi" tppabs="http://www.brpreiss.com/books/opus4/html/page36.html#axiomi"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> and&nbsp;<A HREF="page36.html#axiomii" tppabs="http://www.brpreiss.com/books/opus4/html/page36.html#axiomii"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+we can determine that the running time of a statement like
+<PRE>y = y + 1;</PRE>
+is  <IMG WIDTH=132 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline58199" SRC="img15.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img15.gif"  >.
+This is because we need to fetch two operands, <tt>y</tt> and <tt>1</tt>;
+add them; and, store the result back in <tt>y</tt>.
+<P>
+C++ syntax provides several alternative ways to express the same
+computation:
+<PRE>y += 1;
+++y;
+y++;</PRE>
+We shall assume that these alternatives require exactly the same
+running time as the original statement.
+<P>
+The third basic axiom addresses the function call/return overhead:
+<BLOCKQUOTE> <b>Axiom</b><A NAME="axiomiii">&#160;</A>
+The time required to call a function is a constant,  <IMG WIDTH=26 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline58201" SRC="img16.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img16.gif"  >,
+and the time required to return from a function is a constant,  <IMG WIDTH=42 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline58203" SRC="img17.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img17.gif"  >.
+</BLOCKQUOTE>
+<P>
+When a function is called,
+certain housekeeping operations need to be performed.
+Typically this includes saving the return address so that
+program execution can resume at the correct place after the call,
+saving the state of any partially completed computations
+so that they may be resumed after the call,
+and the allocation of a new execution context
+(stack frame<A NAME=309>&#160;</A>
+or activation record<A NAME=310>&#160;</A>)
+in which the called function can be evaluated.
+Conversely, on the return from a function,
+all of this work is undone.
+While the function call/return overhead may be rather large,
+nevertheless it entails a constant amount of work.
+<P>
+In addition to the function call/return overhead,
+additional overhead is incurred when parameters are passed
+to the function:
+<P>
+<BLOCKQUOTE> <b>Axiom</b><A NAME="axiomiv">&#160;</A>
+The time required to pass an integer argument to a function or procedure
+is the same as the time required to store an integer in memory,  <IMG WIDTH=33 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline58179" SRC="img8.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img8.gif"  >.
+</BLOCKQUOTE>
+<P>
+The rationale for making the overhead associated with parameter passing
+the same as the time to store a value in memory is that
+the passing of an argument is conceptually the same as
+assignment of the actual parameter value to the formal parameter
+of the function.
+<P>
+According to Axiom&nbsp;<A HREF="page38.html#axiomv" tppabs="http://www.brpreiss.com/books/opus4/html/page38.html#axiomv"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+the running time of the statement
+<PRE>y = f (x);</PRE>
+would be  <IMG WIDTH=192 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline58207" SRC="img18.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img18.gif"  >,
+where  <IMG WIDTH=30 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline58209" SRC="img19.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img19.gif"  > is the running time of function <tt>f</tt>
+for input <tt>x</tt>.
+The first of the two stores is due to the passing of the parameter <tt>x</tt>
+to the function <tt>f</tt>;
+the second arises from the assignment to the variable <tt>y</tt>.
+<P>
+<HR><A NAME="tex2html2340" HREF="page37.html" tppabs="http://www.brpreiss.com/books/opus4/html/page37.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2338" HREF="page35.html" tppabs="http://www.brpreiss.com/books/opus4/html/page35.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2332" HREF="page35.html" tppabs="http://www.brpreiss.com/books/opus4/html/page35.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2342" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2343" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

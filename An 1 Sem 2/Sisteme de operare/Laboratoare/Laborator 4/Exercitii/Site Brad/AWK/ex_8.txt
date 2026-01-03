@@ -1,0 +1,5 @@
+Petru Popescu 10 4 7
+Oana Chiorean 8 9 7
+Miha Russu 10 10 10
+Mihai Rusu 1 6 1
+Teo Calugaritoiu 10 8 10

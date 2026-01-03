@@ -1,0 +1,43 @@
+<HTML>
+<HEAD>
+<TITLE>Height,
+AdjustHeight and BalanceFactor Member Functions</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html5918" HREF="page324.html" tppabs="http://www.brpreiss.com/books/opus4/html/page324.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5916" HREF="page321.html" tppabs="http://www.brpreiss.com/books/opus4/html/page321.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5912" HREF="page322.html" tppabs="http://www.brpreiss.com/books/opus4/html/page322.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5920" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5921" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0011512000000000000000"><tt>Height</tt>,
+<tt>AdjustHeight</tt> and <tt>BalanceFactor</tt> Member Functions</A></H3>
+<P>
+The <tt>Height</tt> member function is implemented as
+an <tt>AVLTree</tt> member variable accessor that simply returns the value
+of the <tt>height</tt> member variable.
+Clearly the running time of this function is constant.
+<P>
+The purpose of <tt>AdjustHeight</tt> is to recompute the height
+of a node and to update the <tt>height</tt> member variable.
+This routine must be called whenever the height of one of the subtrees
+changes in order to ensure the <tt>height</tt> variable is always up to date.
+The <tt>AdjustHeight</tt> routine determines the height of a node
+by adding one to the height of the highest subtree.
+Since the running time of the <tt>Height</tt> function is constant,
+so too is the running time of <tt>AdjustHeight</tt>.
+<P>
+The <tt>BalanceFactor</tt> member function simply returns the
+difference between the heights of the left and right subtrees
+of a given AVL tree.
+By Definition&nbsp;<A HREF="page320.html#defnsrchtreeavl" tppabs="http://www.brpreiss.com/books/opus4/html/page320.html#defnsrchtreeavl"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+the empty node is AVL balanced.
+Therefore, the <tt>BalanceFactor</tt> routines zero for an empty tree.
+Again, since the running time of the <tt>Height</tt> function is constant,
+the running time of <tt>BalanceFactor</tt> is also constant.
+<P>
+<HR><A NAME="tex2html5918" HREF="page324.html" tppabs="http://www.brpreiss.com/books/opus4/html/page324.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html5916" HREF="page321.html" tppabs="http://www.brpreiss.com/books/opus4/html/page321.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html5912" HREF="page322.html" tppabs="http://www.brpreiss.com/books/opus4/html/page322.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html5920" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html5921" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

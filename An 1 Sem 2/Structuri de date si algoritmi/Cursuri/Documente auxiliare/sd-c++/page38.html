@@ -1,0 +1,43 @@
+<HTML>
+<HEAD>
+<TITLE>Array Subscripting Operations</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html2364" HREF="page39.html" tppabs="http://www.brpreiss.com/books/opus4/html/page39.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2362" HREF="page35.html" tppabs="http://www.brpreiss.com/books/opus4/html/page35.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2356" HREF="page37.html" tppabs="http://www.brpreiss.com/books/opus4/html/page37.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2366" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2367" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION003130000000000000000">Array Subscripting Operations</A></H2>
+<P>
+We now address the question of accessing the elements of an array of data.
+In general, the elements of a one-dimensional array are stored
+in consecutive memory locations.
+Therefore, given the address of the first element of the array,
+a simple addition suffices to determine the address of an arbitrary
+element of the array:
+<P>
+<BLOCKQUOTE> <b>Axiom</b><A NAME="axiomv">&#160;</A>
+The time required for the <em>address calculation</em> implied by an
+array subscripting operation, e.g., <tt>a[i]</tt>,
+is a constant,  <IMG WIDTH=19 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline58237" SRC="img31.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img31.gif"  >.
+This time does not include the time to compute the subscript expression,
+nor does it include the time to access (i.e., fetch or store)
+the array element.
+</BLOCKQUOTE>
+<P>
+By applying Axiom&nbsp;<A HREF="page38.html#axiomv" tppabs="http://www.brpreiss.com/books/opus4/html/page38.html#axiomv"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+we can determine that the running time for the statement
+<PRE>y = a [i];</PRE>
+is  <IMG WIDTH=134 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline58239" SRC="img32.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img32.gif"  >.
+Three operand fetches are required:
+the first to fetch <tt>a</tt>, the base address of the array;,
+the second to fetch <tt>i</tt>, the index into the array; and,
+the third to fetch array element <tt>a[i]</tt>.
+<P>
+<HR><A NAME="tex2html2364" HREF="page39.html" tppabs="http://www.brpreiss.com/books/opus4/html/page39.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2362" HREF="page35.html" tppabs="http://www.brpreiss.com/books/opus4/html/page35.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2356" HREF="page37.html" tppabs="http://www.brpreiss.com/books/opus4/html/page37.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2366" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2367" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

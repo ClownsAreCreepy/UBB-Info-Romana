@@ -1,0 +1,66 @@
+<HTML>
+<HEAD>
+<TITLE>Solving Recurrence Relations-Repeated Substitution</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html2399" HREF="page42.html" tppabs="http://www.brpreiss.com/books/opus4/html/page42.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2397" HREF="page40.html" tppabs="http://www.brpreiss.com/books/opus4/html/page40.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2393" HREF="page40.html" tppabs="http://www.brpreiss.com/books/opus4/html/page40.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2401" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2402" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION003151000000000000000">Solving Recurrence Relations-Repeated Substitution</A></H3>
+<P>
+In this section we present a technique for solving a recurrence
+relation such as Equation&nbsp;<A HREF="page40.html#eqnmodelrecurrence" tppabs="http://www.brpreiss.com/books/opus4/html/page40.html#eqnmodelrecurrence"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> called
+<em>repeated substitution</em><A NAME=468>&#160;</A>.
+The basic idea is this:
+Given that  <IMG WIDTH=147 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline58309" SRC="img55.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img55.gif"  >,
+then we may also write  <IMG WIDTH=174 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline58311" SRC="img56.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img56.gif"  >, provided <I>n</I><I>&gt;</I>1.
+Since <I>T</I>(<I>n</I>-1) appears in the right-hand side of the former equation,
+we can substitute for it the entire right-hand side of the latter.
+By repeating this process we get
+<P> <IMG WIDTH=500 HEIGHT=141 ALIGN=BOTTOM ALT="eqnarray469" SRC="img57.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img57.gif"  ><P>
+<P>
+The next step takes a little intuition:
+We must try to discern the pattern which is emerging.
+In this case it is obvious:
+<P>
+<P> <IMG WIDTH=330 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath58307" SRC="img58.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img58.gif"  ><P>
+where  <IMG WIDTH=68 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline58317" SRC="img59.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img59.gif"  >.
+Of course, if we have doubts about our intuition,
+we can always check our result by induction:
+<P>
+<b>Base Case</b>
+Clearly the formula is correct for <I>k</I>=1,
+since  <IMG WIDTH=271 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline58321" SRC="img60.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img60.gif"  >.
+<P>
+<b>Inductive Hypothesis</b>
+Assume that  <IMG WIDTH=157 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline58323" SRC="img61.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img61.gif"  > for  <IMG WIDTH=94 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline58325" SRC="img62.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img62.gif"  >.
+By this assumption
+<P><A NAME="eqnmodela">&#160;</A> <IMG WIDTH=500 HEIGHT=16 ALIGN=BOTTOM ALT="equation473" SRC="img63.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img63.gif"  ><P>
+Note also that using the original recurrence relation we can write
+<P><A NAME="eqnmodelb">&#160;</A> <IMG WIDTH=500 HEIGHT=16 ALIGN=BOTTOM ALT="equation476" SRC="img64.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img64.gif"  ><P>
+for  <IMG WIDTH=36 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline58327" SRC="img65.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img65.gif"  >.
+Substituting Equation&nbsp;<A HREF="page41.html#eqnmodela" tppabs="http://www.brpreiss.com/books/opus4/html/page41.html#eqnmodela"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+in the right-hand side of Equation&nbsp;<A HREF="page41.html#eqnmodelb" tppabs="http://www.brpreiss.com/books/opus4/html/page41.html#eqnmodelb"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives
+<P> <IMG WIDTH=500 HEIGHT=39 ALIGN=BOTTOM ALT="eqnarray481" SRC="img66.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img66.gif"  ><P>
+Therefore, by induction on <I>l</I>, our formula is correct
+for all  <IMG WIDTH=68 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline58331" SRC="img67.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img67.gif"  >.
+<P>
+So, we have shown that  <IMG WIDTH=157 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline58323" SRC="img61.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img61.gif"  >, for  <IMG WIDTH=68 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline58317" SRC="img59.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img59.gif"  >.
+Now, if <I>n</I> was known,
+we would repeat the process of substitution until we got <I>T</I>(0)
+on the right hand side.
+The fact that <I>n</I> is unknown should not deter us--we get <I>T</I>(0) on the right hand side when <I>n</I>-<I>k</I>=0.
+I.e., <I>k</I>=<I>n</I>.
+Letting <I>k</I>=<I>n</I> we get
+<P><A NAME="eqnmodelfactorialc">&#160;</A> <IMG WIDTH=500 HEIGHT=63 ALIGN=BOTTOM ALT="eqnarray483" SRC="img68.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img68.gif"  ><P>
+where  <IMG WIDTH=176 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline58303" SRC="img53.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img53.gif"  > and
+ <IMG WIDTH=350 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline58305" SRC="img54.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img54.gif"  >.
+<P>
+<HR><A NAME="tex2html2399" HREF="page42.html" tppabs="http://www.brpreiss.com/books/opus4/html/page42.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2397" HREF="page40.html" tppabs="http://www.brpreiss.com/books/opus4/html/page40.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2393" HREF="page40.html" tppabs="http://www.brpreiss.com/books/opus4/html/page40.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2401" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2402" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

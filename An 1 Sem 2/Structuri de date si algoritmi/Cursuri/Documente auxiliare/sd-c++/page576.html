@@ -1,0 +1,47 @@
+<HTML>
+<HEAD>
+<TITLE>Minimum-Cost Spanning Trees</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html9029" HREF="page577.html" tppabs="http://www.brpreiss.com/books/opus4/html/page577.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html9027" HREF="page574.html" tppabs="http://www.brpreiss.com/books/opus4/html/page574.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html9023" HREF="page575.html" tppabs="http://www.brpreiss.com/books/opus4/html/page575.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html9031" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html9032" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0017502000000000000000">Minimum-Cost Spanning Trees</A></H3>
+<P>
+The total <em>cost</em> of an edge-weighted undirected graph is
+simply the sum of the weights on all the edges in that graph.
+A minimum-cost spanning tree of a graph is
+a spanning tree of that graph that has the least total cost:
+<P>
+<BLOCKQUOTE> <b>Definition (Minimal Spanning Tree)</b><A NAME="defngraphsminspantree">&#160;</A>
+Consider an <em>edge-weighted</em>,
+undirected, connected graph  <IMG WIDTH=72 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71355" SRC="img2282.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2282.gif"  >,
+where <I>C</I>(<I>v</I>,<I>w</I>) represents the weight on edge  <IMG WIDTH=69 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71613" SRC="img2338.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2338.gif"  >.
+The <em>minimum spanning tree</em><A NAME=52614>&#160;</A><A NAME=52615>&#160;</A> of <I>G</I>
+is the spanning tree  <IMG WIDTH=76 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline72831" SRC="img2520.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2520.gif"  >
+that has the smallest total cost,
+<P> <IMG WIDTH=305 HEIGHT=38 ALIGN=BOTTOM ALT="displaymath72931" SRC="img2531.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2531.gif"  ><P></BLOCKQUOTE>
+<P>
+Figure&nbsp;<A HREF="page576.html#figgraph16" tppabs="http://www.brpreiss.com/books/opus4/html/page576.html#figgraph16"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> shows edge-weighted graph  <IMG WIDTH=24 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline72943" SRC="img2532.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2532.gif"  >
+together with its minimum-cost spanning tree  <IMG WIDTH=22 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline72945" SRC="img2533.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2533.gif"  >.
+In general, it is possible for a graph to have several different
+minimum-cost spanning trees.
+However, in this case there is only one.
+<P>
+<P><A NAME="52972">&#160;</A><A NAME="figgraph16">&#160;</A> <IMG WIDTH=575 HEIGHT=181 ALIGN=BOTTOM ALT="figure52621" SRC="img2534.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2534.gif"  ><BR>
+<STRONG>Figure:</STRONG> An Edge-Weighted, Undirected Graph and a Minimum-Cost Spanning Tree<BR>
+<P>
+<P>
+The two sections that follow
+present two different algorithms
+for finding the minimum-cost spanning tree.
+Both algorithms are similar in that they build the tree one edge at a time.
+<P>
+<HR><A NAME="tex2html9029" HREF="page577.html" tppabs="http://www.brpreiss.com/books/opus4/html/page577.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html9027" HREF="page574.html" tppabs="http://www.brpreiss.com/books/opus4/html/page574.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html9023" HREF="page575.html" tppabs="http://www.brpreiss.com/books/opus4/html/page575.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html9031" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html9032" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,87 @@
+<HTML>
+<HEAD>
+<TITLE>Average Running Time</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html7974" HREF="page491.html" tppabs="http://www.brpreiss.com/books/opus4/html/page491.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7972" HREF="page487.html" tppabs="http://www.brpreiss.com/books/opus4/html/page487.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7966" HREF="page489.html" tppabs="http://www.brpreiss.com/books/opus4/html/page489.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7976" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7977" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0016320000000000000000">Average Running Time</A></H2>
+<A NAME="secsortingavg">&#160;</A>
+<P>
+The best case running time of insertion sorting is <I>O</I>(<I>n</I>)
+but the worst-case running time is  <IMG WIDTH=40 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59179" SRC="img261.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img261.gif"  >.
+Therefore, we might suspect that the average running time
+falls somewhere in between.
+In order to determine it,
+we must define more precisely what we mean by the <em>average</em> running time.
+A simple definition of average running time is to say that it is
+the running time needed to sort the average sequence.
+But what is the average sequence?
+<P>
+The usual way to determine the average running time of a sorting algorithm
+is to consider only sequences that contain no duplicates.
+Since every sorted sequence of length <I>n</I>
+is simply a permutation of an unsorted one,
+we can represent every such sequence by a permutation of
+the sequence  <IMG WIDTH=131 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69885" SRC="img2118.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2118.gif"  >.
+When computing the average running time,
+we assume that every permutation is equally likely.
+Therefore, the average running time of a sorting algorithm
+is the running time averaged over all permutations of the sequence <I>S</I>.
+<P>
+Consider a permutation  <IMG WIDTH=162 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69729" SRC="img2091.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2091.gif"  >
+of the sequence <I>S</I>.
+An <em>inversion</em><A NAME=35314>&#160;</A>
+in <I>P</I> consists of two elements,
+say  <IMG WIDTH=13 HEIGHT=14 ALIGN=MIDDLE ALT="tex2html_wrap_inline58415" SRC="img85.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img85.gif"  > and  <IMG WIDTH=15 HEIGHT=16 ALIGN=MIDDLE ALT="tex2html_wrap_inline69897" SRC="img2119.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2119.gif"  >,
+such that  <IMG WIDTH=49 HEIGHT=20 ALIGN=MIDDLE ALT="tex2html_wrap_inline69899" SRC="img2120.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2120.gif"  > but <I>i</I><I>&lt;</I><I>j</I>.
+I.e., an inversion in <I>P</I> is a pair of elements that are in the wrong order.
+For example, the permutation  <IMG WIDTH=67 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69905" SRC="img2121.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2121.gif"  > contains three inversions--(4,3), (4,2), and (3,2).
+The following theorem tells us how many inversions we can expect
+in the average sequence:
+<P>
+<BLOCKQUOTE> <b>Theorem</b><A NAME="theoremsortingi">&#160;</A>
+The average number of inversions in a permutation of <I>n</I>
+distinct elements is <I>n</I>(<I>n</I>-1)/4.
+</BLOCKQUOTE>
+<P>
+	extbfProof
+Let <I>S</I> be an arbitrary sequence of <I>n</I> distinct elements
+and let  <IMG WIDTH=18 HEIGHT=14 ALIGN=BOTTOM ALT="tex2html_wrap_inline69921" SRC="img2122.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2122.gif"  > be the same sequence, but in reverse.
+<P>
+E.g., if  <IMG WIDTH=157 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69689" SRC="img2088.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2088.gif"  >,
+then  <IMG WIDTH=203 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline69925" SRC="img2123.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2123.gif"  >.
+<P>
+Consider any pair of distinct elements in S,
+say  <IMG WIDTH=9 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline69747" SRC="img2098.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2098.gif"  > and  <IMG WIDTH=12 HEIGHT=16 ALIGN=MIDDLE ALT="tex2html_wrap_inline69749" SRC="img2099.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2099.gif"  > where  <IMG WIDTH=93 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69931" SRC="img2124.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2124.gif"  >.
+There are two distinct possibilities:
+Either  <IMG WIDTH=46 HEIGHT=20 ALIGN=MIDDLE ALT="tex2html_wrap_inline69933" SRC="img2125.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2125.gif"  >, in which case  <IMG WIDTH=44 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline69935" SRC="img2126.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2126.gif"  > is an inversion is  <IMG WIDTH=18 HEIGHT=14 ALIGN=BOTTOM ALT="tex2html_wrap_inline69921" SRC="img2122.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2122.gif"  >;
+or  <IMG WIDTH=45 HEIGHT=20 ALIGN=MIDDLE ALT="tex2html_wrap_inline69939" SRC="img2127.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2127.gif"  >, in which case  <IMG WIDTH=44 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline69941" SRC="img2128.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2128.gif"  > is an inversion is <I>S</I>.
+Therefore, every pair contributes exactly
+one inversion either to <I>S</I> or to  <IMG WIDTH=18 HEIGHT=14 ALIGN=BOTTOM ALT="tex2html_wrap_inline69921" SRC="img2122.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2122.gif"  >.
+<P>
+The total number of pairs in <I>S</I> is  <IMG WIDTH=116 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline69951" SRC="img2129.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2129.gif"  >.
+Since every such pair contributes an inversion either to <I>S</I> or to  <IMG WIDTH=18 HEIGHT=14 ALIGN=BOTTOM ALT="tex2html_wrap_inline69921" SRC="img2122.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2122.gif"  >,
+we expect <em>on average</em> that half of the inversions will appear in <I>S</I>.
+Therefore, the average number of inversions in a sequence of <I>n</I>
+distinct elements is <I>n</I>(<I>n</I>-1)/4.
+<P>
+What do inversions have to do with sorting?
+As a list is sorted, inversions are removed.
+In fact, since the inner loop of the insertion sort routine
+swaps <em>adjacent</em> array elements,
+inversions are removed <em>one at a time</em>!
+Since a swap takes constant time,
+and since the average number of inversions is <I>n</I>(<I>n</I>-1)/4,
+the <em>average</em> running time
+for the insertion sort routine is  <IMG WIDTH=40 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59179" SRC="img261.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img261.gif"  >.
+<P>
+<HR><A NAME="tex2html7974" HREF="page491.html" tppabs="http://www.brpreiss.com/books/opus4/html/page491.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7972" HREF="page487.html" tppabs="http://www.brpreiss.com/books/opus4/html/page487.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7966" HREF="page489.html" tppabs="http://www.brpreiss.com/books/opus4/html/page489.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7976" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7977" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

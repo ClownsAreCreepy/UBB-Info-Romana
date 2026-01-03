@@ -1,0 +1,83 @@
+        -:    0:Source:D:/C,C++/CLion 2024.3.4/Projects/Lab6_7/Repo/repository_file_discipline.h
+        -:    0:Graph:D:\C,C++\CLion 2024.3.4\Projects\Lab6_7\cmake-build-debug-coverage\CMakeFiles\Lab6_7.dir\Test\teste_discipline.cpp.gcno
+        -:    0:Data:D:\C,C++\CLion 2024.3.4\Projects\Lab6_7\cmake-build-debug-coverage\CMakeFiles\Lab6_7.dir\Test\teste_discipline.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#pragma once
+        -:    2:#include "repository_discipline.h"
+        -:    3:#include <sstream>
+        -:    4:
+        -:    5:using std::ifstream;
+        -:    6:using std::ofstream;
+        -:    7:using std::getline;
+        -:    8:using std::stringstream;
+        -:    9:
+        -:   10:/**
+        -:   11: * Clasa RepoDisciplinaFile
+        -:   12: * Contine un vector dinamic, numit discipline, de discipline si functioneaza pe fisiere
+        -:   13: */
+        -:   14:class RepoDisciplinaFile final : public RepoDisciplinaMem {
+        -:   15:private:
+        -:   16:    string file_path;
+        -:   17:
+        -:   18:    /**
+        -:   19:     * Functia citeste dintr-un fisier
+        -:   20:     */
+        -:   21:    void load_from_file();
+        -:   22:
+        -:   23:    /**
+        -:   24:     * Functai scrie intr-un fisier (write)
+        -:   25:     */
+        -:   26:    void save_to_file() const;
+        -:   27:
+        -:   28:public:
+        -:   29:    /**
+        -:   30:     * Constructor explicit
+        -:   31:     * Creeaza un repository ce lucreaza cu un fisier
+        -:   32:     * @param file_path calea catre fisier
+        -:   33:     */
+function _ZN18RepoDisciplinaFileC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 0 returned 0% blocks executed 0%
+    #####:   34:    explicit RepoDisciplinaFile(string file_path) : file_path(move(file_path)) {
+    %%%%%:   34-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+    #####:   35:        load_from_file();
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed (throw)
+    #####:   36:    }
+    %%%%%:   36-block  0
+    $$$$$:   36-block  1
+call    0 never executed
+    $$$$$:   36-block  2
+call    1 never executed
+        -:   37:
+        -:   38:
+        -:   39:    /**
+        -:   40:     * Functia adauga disciplina in repo si in fisier
+        -:   41:     * @param dis disciplina adaugata
+        -:   42:     */
+        -:   43:    void adauga(const Disciplina &dis) override;
+        -:   44:
+        -:   45:    /**
+        -:   46:     * Functia modifica o disciplina din repo si din fisier
+        -:   47:     * @param index pozitia disciplinei care va fi modificata
+        -:   48:     * @param ot disciplina noua care va lua locul disciplinei modificate
+        -:   49:     */
+        -:   50:    void modifica(size_t index, const Disciplina &ot) override;
+        -:   51:
+        -:   52:    /**
+        -:   53:     * Functia sterge o disciplina din repo si din fisier
+        -:   54:     * @param index pozitia disciplinei care va fi stearsa
+        -:   55:     */
+        -:   56:    void sterge(int index) override;
+        -:   57:
+        -:   58:    /**
+        -:   59:     * Functia virtuala protejata pentru inserare la o pozitie
+        -:   60:     * Permite undo-ului sa insereze disciplina inapoi la index
+        -:   61:     * @param index pozitia in care adaugam
+        -:   62:     * @param d disciplina pe care o adaugam
+        -:   63:     */
+        -:   64:    void inserare_la_index(size_t index, const Disciplina &d) override;
+        -:   65:
+        -:   66:};

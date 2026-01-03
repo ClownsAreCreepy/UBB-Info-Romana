@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="\">
+        <file>Imagini/Oreo_cer.jpg</file>
+        <file>Imagini/Oreo_close_up.jpg</file>
+        <file>Imagini/Oreo_geam.jpg</file>
+        <file>Imagini/Oreo_sniff.jpg</file>
+        <file>Imagini/Oreo_toanta.jpg</file>
+        <file>Imagini/Oreo_top_down.jpg</file>
+        <file>Imagini/Oreo_usa.jpg</file>
+    </qresource>
+</RCC>

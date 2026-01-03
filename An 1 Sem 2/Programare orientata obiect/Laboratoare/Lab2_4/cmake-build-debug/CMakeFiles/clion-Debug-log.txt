@@ -1,0 +1,10 @@
+"D:\C,C++\CLion 2024.3.4\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "MinGW Makefiles" -S "D:\C,C++\CLion 2024.3.4\Projects\Lab2_4" -B "D:\C,C++\CLion 2024.3.4\Projects\Lab2_4\cmake-build-debug"
+-- The C compiler identification is GNU 13.1.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: D:/C,C++/CLion 2024.3.4/bin/mingw/bin/gcc.exe - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Configuring done (1.8s)
+-- Generating done (0.0s)
+-- Build files have been written to: D:/C,C++/CLion 2024.3.4/Projects/Lab2_4/cmake-build-debug

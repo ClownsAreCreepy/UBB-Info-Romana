@@ -1,0 +1,62 @@
+<HTML>
+<HEAD>
+<TITLE>Example-Computing #tex2html_wrap_inline69477#</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html7823" HREF="page479.html" tppabs="http://www.brpreiss.com/books/opus4/html/page479.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7821" HREF="page477.html" tppabs="http://www.brpreiss.com/books/opus4/html/page477.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7817" HREF="page477.html" tppabs="http://www.brpreiss.com/books/opus4/html/page477.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7825" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7826" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0015531000000000000000">Example-Computing  <IMG WIDTH=9 HEIGHT=7 ALIGN=BOTTOM ALT="tex2html_wrap_inline69477" SRC="img2047.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2047.gif"  ></A></H3>
+<P>
+This section presents a simple, Monte Carlo algorithm
+to compute the value of  <IMG WIDTH=9 HEIGHT=7 ALIGN=BOTTOM ALT="tex2html_wrap_inline69477" SRC="img2047.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2047.gif"  > from a sequence of random numbers.
+Consider a square positioned in the <I>x</I>-<I>y</I> plane
+with its bottom left corner at the origin as shown in Figure&nbsp;<A HREF="page478.html#figmontecarlo" tppabs="http://www.brpreiss.com/books/opus4/html/page478.html#figmontecarlo"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+The area of the square is  <IMG WIDTH=14 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline69485" SRC="img2048.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2048.gif"  >,
+where <I>r</I> is the length of its sides.
+A quarter circle is inscribed within the square.
+Its radius is <I>r</I> and its center is at the origin of <I>x</I>-<I>y</I> plane.
+The area of the quarter circle is  <IMG WIDTH=41 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline69495" SRC="img2049.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2049.gif"  >.
+<P>
+<P><A NAME="34294">&#160;</A><A NAME="figmontecarlo">&#160;</A> <IMG WIDTH=575 HEIGHT=193 ALIGN=BOTTOM ALT="figure34129" SRC="img2050.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2050.gif"  ><BR>
+<STRONG>Figure:</STRONG> Illustration of a Monte Carlo Method for Computing  <IMG WIDTH=9 HEIGHT=7 ALIGN=BOTTOM ALT="tex2html_wrap_inline69477" SRC="img2047.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2047.gif"  ><BR>
+<P>
+<P>
+Suppose we select a large number of points at random inside the square.
+Some fraction of these points will also lie inside the quarter circle.
+If the selected points are uniformly distributed,
+we expect the fraction of points in the quarter circle to be
+<P> <IMG WIDTH=306 HEIGHT=35 ALIGN=BOTTOM ALT="displaymath69475" SRC="img2051.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2051.gif"  ><P>
+Therefore by measuring <I>f</I>, we can compute  <IMG WIDTH=9 HEIGHT=7 ALIGN=BOTTOM ALT="tex2html_wrap_inline69477" SRC="img2047.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2047.gif"  >.
+Program&nbsp;<A HREF="page478.html#progalgs7c" tppabs="http://www.brpreiss.com/books/opus4/html/page478.html#progalgs7c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> shows how this can be done.
+<P>
+<P><A NAME="34305">&#160;</A><A NAME="progalgs7c">&#160;</A> <IMG WIDTH=575 HEIGHT=238 ALIGN=BOTTOM ALT="program34302" SRC="img2052.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2052.gif"  ><BR>
+<STRONG>Program:</STRONG> Monte Carlo Program to Compute  <IMG WIDTH=9 HEIGHT=7 ALIGN=BOTTOM ALT="tex2html_wrap_inline69477" SRC="img2047.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2047.gif"  ><BR>
+<P>
+<P>
+The <tt>Pi</tt> routine uses the <tt>RandomNumberGenerator</tt> defined
+to generate (<I>x</I>,<I>y</I>) pairs uniformly distributed on the unit square (<I>r</I>=1).
+Each point is tested to see if it falls inside the quarter circle.
+A given point is inside the circle when its distance from the origin,
+ <IMG WIDTH=68 HEIGHT=31 ALIGN=MIDDLE ALT="tex2html_wrap_inline69519" SRC="img2053.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2053.gif"  > is less than <I>r</I>.
+In this case since <I>r</I>=1,
+we simply test whether  <IMG WIDTH=78 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline69525" SRC="img2054.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2054.gif"  >.
+<P>
+How well does Program&nbsp;<A HREF="page478.html#progalgs7c" tppabs="http://www.brpreiss.com/books/opus4/html/page478.html#progalgs7c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> work?
+When 1000 trials are conducted,
+792 points are found to lie inside the circle.
+This gives the value of 3.168 for  <IMG WIDTH=9 HEIGHT=7 ALIGN=BOTTOM ALT="tex2html_wrap_inline69477" SRC="img2047.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2047.gif"  >,
+which is only 0.8% too large.
+When  <IMG WIDTH=22 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline69529" SRC="img2055.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2055.gif"  > trials are conducted,
+78535956 points are found to lie inside the circle.
+In this case, we get  <IMG WIDTH=113 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline69531" SRC="img2056.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2056.gif"  >
+which is within 0.005% of the correct value!
+<P>
+<HR><A NAME="tex2html7823" HREF="page479.html" tppabs="http://www.brpreiss.com/books/opus4/html/page479.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7821" HREF="page477.html" tppabs="http://www.brpreiss.com/books/opus4/html/page477.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7817" HREF="page477.html" tppabs="http://www.brpreiss.com/books/opus4/html/page477.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7825" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7826" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,64 @@
+<HTML>
+<HEAD>
+<TITLE>Running Time Analysis</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html8179" HREF="page508.html" tppabs="http://www.brpreiss.com/books/opus4/html/page508.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8177" HREF="page506.html" tppabs="http://www.brpreiss.com/books/opus4/html/page506.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8171" HREF="page506.html" tppabs="http://www.brpreiss.com/books/opus4/html/page506.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8181" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8182" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0016531000000000000000">Running Time Analysis</A></H3>
+<P>
+The <tt>BuildHeap</tt> routine does exactly  <IMG WIDTH=36 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline58823" SRC="img180.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img180.gif"  >
+<tt>PercolateDown</tt> operations.
+As discussed above, the running time for <tt>PercolateDown</tt> is  <IMG WIDTH=37 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline70367" SRC="img2192.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2192.gif"  >,
+where  <IMG WIDTH=12 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline62992" SRC="img1023.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1023.gif"  > is the height in the tree of the node at array position <I>i</I>.
+The highest node in the tree is the root
+and its height is  <IMG WIDTH=56 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59891" SRC="img403.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img403.gif"  >.
+If we make the simplifying assumption that the running time for
+<tt>PercolateDown</tt> is  <IMG WIDTH=56 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59891" SRC="img403.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img403.gif"  > for every value of <I>i</I>,
+we get that the total running time for <tt>BuildHeap</tt> is  <IMG WIDTH=68 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59897" SRC="img405.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img405.gif"  >.
+<P>
+However,  <IMG WIDTH=44 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline60803" SRC="img558.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img558.gif"  > is not a tight bound.
+The maximum number of iterations of the <tt>PercolateDown</tt>
+loop done during the entire process of building the heap
+is equal to the sum of the heights of all of the nodes in the tree!
+The following theorem shows that this is <I>O</I>(<I>n</I>).
+<P>
+<BLOCKQUOTE> <b>Theorem</b><A NAME="theoremsortingii">&#160;</A>
+Consider a <em>perfect</em> binary tree <I>T</I> of height <I>h</I>
+having  <IMG WIDTH=90 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline66162" SRC="img1433.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1433.gif"  > nodes.
+The sum of the heights of the nodes in <I>T</I>
+is  <IMG WIDTH=254 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline70393" SRC="img2193.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2193.gif"  >.
+</BLOCKQUOTE>
+<P>
+	extbfProof
+A perfect binary tree has 1 node at height <I>h</I>,
+2 nodes at height <I>h</I>-1, 4 nodes at height <I>h</I>-2 and so on.
+In general, there are  <IMG WIDTH=11 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline68283" SRC="img1789.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1789.gif"  > nodes at height <I>h</I>-<I>i</I>.
+Therefore, the sum of the heights of the nodes is  <IMG WIDTH=94 HEIGHT=33 ALIGN=MIDDLE ALT="tex2html_wrap_inline70405" SRC="img2194.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2194.gif"  >.
+<P>
+The summation can be solved as follows:
+First, we make the simple variable substitution <I>i</I>=<I>j</I>-1:
+<P><A NAME="eqnsortingviii">&#160;</A> <IMG WIDTH=500 HEIGHT=283 ALIGN=BOTTOM ALT="eqnarray41061" SRC="img2195.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2195.gif"  ><P>
+Note that the summation which appears on the right hand side
+is identical to that on the left.
+Rearranging Equation&nbsp;<A HREF="page507.html#eqnsortingviii" tppabs="http://www.brpreiss.com/books/opus4/html/page507.html#eqnsortingviii"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> and simplifying gives:
+<P> <IMG WIDTH=500 HEIGHT=71 ALIGN=BOTTOM ALT="eqnarray41089" SRC="img2196.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2196.gif"  ><P>
+<P>
+It follows directly from Theorem&nbsp;<A HREF="page507.html#theoremsortingii" tppabs="http://www.brpreiss.com/books/opus4/html/page507.html#theoremsortingii"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+that the sum of the heights of a perfect binary tree is <I>O</I>(<I>n</I>).
+But a heap is not a <em>perfect</em> tree--it is a <em>complete</em> tree.
+Nevertheless, it is easy to show that the same bound applies to
+a complete tree.
+The proof is left as an exercise for the reader (Exercise&nbsp;<A HREF="page521.html#exercisesortingcomplete" tppabs="http://www.brpreiss.com/books/opus4/html/page521.html#exercisesortingcomplete"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>).
+Therefore, the running time for the <tt>BuildHeap</tt> routine is <I>O</I>(<I>n</I>),
+were <I>n</I> is the length of the array to be heapified.
+<P>
+<HR><A NAME="tex2html8179" HREF="page508.html" tppabs="http://www.brpreiss.com/books/opus4/html/page508.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8177" HREF="page506.html" tppabs="http://www.brpreiss.com/books/opus4/html/page506.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8171" HREF="page506.html" tppabs="http://www.brpreiss.com/books/opus4/html/page506.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8181" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8182" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

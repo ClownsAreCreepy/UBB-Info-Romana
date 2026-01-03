@@ -1,0 +1,206 @@
+<HTML>
+<HEAD>
+<TITLE>Properties of Big Oh</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html2641" HREF="page61.html" tppabs="http://www.brpreiss.com/books/opus4/html/page61.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2639" HREF="page57.html" tppabs="http://www.brpreiss.com/books/opus4/html/page57.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2633" HREF="page59.html" tppabs="http://www.brpreiss.com/books/opus4/html/page59.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2643" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2644" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION004130000000000000000">Properties of Big Oh</A></H2>
+<P>
+In this section we examine some of the mathematical properties of big oh.
+In particular, suppose we know that  <IMG WIDTH=118 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59227" SRC="img265.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img265.gif"  > and  <IMG WIDTH=117 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59229" SRC="img266.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img266.gif"  >.
+<UL><LI> What can we say about the asymptotic behavior of the <em>sum</em> of
+	 <IMG WIDTH=35 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59231" SRC="img267.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img267.gif"  > and  <IMG WIDTH=35 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59233" SRC="img268.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img268.gif"  >?
+	(Theorems&nbsp;<A HREF="page60.html#theoremi" tppabs="http://www.brpreiss.com/books/opus4/html/page60.html#theoremi"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> and&nbsp;<A HREF="page60.html#theoremii" tppabs="http://www.brpreiss.com/books/opus4/html/page60.html#theoremii"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>).<LI> What can we say about the asymptotic behavior of the
+	<em>product</em> of  <IMG WIDTH=35 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59231" SRC="img267.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img267.gif"  > and  <IMG WIDTH=35 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59233" SRC="img268.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img268.gif"  >?
+	(Theorems&nbsp;<A HREF="page60.html#theoremiii" tppabs="http://www.brpreiss.com/books/opus4/html/page60.html#theoremiii"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> and&nbsp;<A HREF="page60.html#theoremiv" tppabs="http://www.brpreiss.com/books/opus4/html/page60.html#theoremiv"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>).<LI> How are  <IMG WIDTH=35 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59231" SRC="img267.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img267.gif"  > and  <IMG WIDTH=36 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59241" SRC="img269.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img269.gif"  > related when
+	 <IMG WIDTH=94 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59243" SRC="img270.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img270.gif"  >?
+	(Theorem&nbsp;<A HREF="page60.html#theoremv" tppabs="http://www.brpreiss.com/books/opus4/html/page60.html#theoremv"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>).
+</UL>
+<P>
+The first theorem addresses the asymptotic behavior of the sum
+of two functions whose asymptotic behaviors are known:
+<P>
+<BLOCKQUOTE> <b>Theorem</b><A NAME="theoremi">&#160;</A>
+If  <IMG WIDTH=118 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59227" SRC="img265.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img265.gif"  > and  <IMG WIDTH=117 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59229" SRC="img266.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img266.gif"  >,
+then
+<P> <IMG WIDTH=381 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath59215" SRC="img271.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img271.gif"  ><P></BLOCKQUOTE>
+<P>
+	extbfProof
+By Definition&nbsp;<A HREF="page57.html#defnbigoh" tppabs="http://www.brpreiss.com/books/opus4/html/page57.html#defnbigoh"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>, there exist two integers,  <IMG WIDTH=16 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline59249" SRC="img272.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img272.gif"  > and  <IMG WIDTH=16 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline59251" SRC="img273.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img273.gif"  >
+and two constants  <IMG WIDTH=13 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline59253" SRC="img274.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img274.gif"  > and  <IMG WIDTH=13 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline59255" SRC="img275.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img275.gif"  > such that
+ <IMG WIDTH=107 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59257" SRC="img276.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img276.gif"  > for  <IMG WIDTH=47 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline59259" SRC="img277.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img277.gif"  > and
+ <IMG WIDTH=107 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59261" SRC="img278.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img278.gif"  > for  <IMG WIDTH=47 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline59263" SRC="img279.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img279.gif"  >.
+<P>
+Let  <IMG WIDTH=119 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59265" SRC="img280.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img280.gif"  > and  <IMG WIDTH=122 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59267" SRC="img281.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img281.gif"  >.
+Consider the sum  <IMG WIDTH=91 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59269" SRC="img282.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img282.gif"  > for  <IMG WIDTH=46 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline59075" SRC="img242.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img242.gif"  >:
+<P> <IMG WIDTH=500 HEIGHT=63 ALIGN=BOTTOM ALT="eqnarray1403" SRC="img283.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img283.gif"  ><P>
+Thus,  <IMG WIDTH=259 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59273" SRC="img284.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img284.gif"  >.
+<P>
+According to Theorem&nbsp;<A HREF="page60.html#theoremi" tppabs="http://www.brpreiss.com/books/opus4/html/page60.html#theoremi"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+if we know that functions  <IMG WIDTH=35 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59231" SRC="img267.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img267.gif"  > and  <IMG WIDTH=35 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59233" SRC="img268.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img268.gif"  > are
+ <IMG WIDTH=60 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59279" SRC="img285.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img285.gif"  > and  <IMG WIDTH=59 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59281" SRC="img286.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img286.gif"  >, respectively,
+the <em>sum</em>  <IMG WIDTH=91 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59269" SRC="img282.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img282.gif"  > is  <IMG WIDTH=146 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59285" SRC="img287.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img287.gif"  >.
+The meaning of  <IMG WIDTH=121 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59287" SRC="img288.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img288.gif"  > is this context is
+the <em>function</em> <I>h</I>(<I>n</I>) where  <IMG WIDTH=173 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59291" SRC="img289.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img289.gif"  >
+for integers all  <IMG WIDTH=38 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59063" SRC="img241.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img241.gif"  >.
+<P>
+For example, consider the functions  <IMG WIDTH=65 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59295" SRC="img290.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img290.gif"  > and
+ <IMG WIDTH=144 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59297" SRC="img291.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img291.gif"  >.
+Then
+<P> <IMG WIDTH=500 HEIGHT=94 ALIGN=BOTTOM ALT="eqnarray1408" SRC="img292.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img292.gif"  ><P>
+<P>
+Theorem&nbsp;<A HREF="page60.html#theoremii" tppabs="http://www.brpreiss.com/books/opus4/html/page60.html#theoremii"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> helps us simplify the asymptotic analysis
+of the sum of functions by allowing us to drop the  <IMG WIDTH=30 HEIGHT=7 ALIGN=BOTTOM ALT="tex2html_wrap_inline59303" SRC="img293.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img293.gif"  >
+required by Theorem&nbsp;<A HREF="page60.html#theoremi" tppabs="http://www.brpreiss.com/books/opus4/html/page60.html#theoremi"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> in certain circumstances:
+<P>
+<BLOCKQUOTE> <b>Theorem</b><A NAME="theoremii">&#160;</A>
+If  <IMG WIDTH=144 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59305" SRC="img294.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img294.gif"  >
+in which  <IMG WIDTH=35 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59231" SRC="img267.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img267.gif"  > and  <IMG WIDTH=35 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59233" SRC="img268.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img268.gif"  > are both non-negative for all integers  <IMG WIDTH=38 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59063" SRC="img241.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img241.gif"  >
+such that  <IMG WIDTH=172 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59313" SRC="img295.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img295.gif"  >
+for some limit  <IMG WIDTH=38 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline59315" SRC="img296.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img296.gif"  >,
+then  <IMG WIDTH=113 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59317" SRC="img297.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img297.gif"  >.
+</BLOCKQUOTE>
+<P>
+	extbfProof
+According to the definition of limits<A NAME=1422>&#160;</A>, the notation
+<P> <IMG WIDTH=304 HEIGHT=38 ALIGN=BOTTOM ALT="displaymath59216" SRC="img298.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img298.gif"  ><P>
+means that, given any arbitrary positive value  <IMG WIDTH=6 HEIGHT=7 ALIGN=BOTTOM ALT="tex2html_wrap_inline59319" SRC="img299.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img299.gif"  >,
+it is possible to find a value  <IMG WIDTH=16 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline59043" SRC="img238.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img238.gif"  >
+such that for all  <IMG WIDTH=46 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline59075" SRC="img242.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img242.gif"  >
+<P> <IMG WIDTH=305 HEIGHT=40 ALIGN=BOTTOM ALT="displaymath59217" SRC="img300.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img300.gif"  ><P>
+<P>
+Thus, if we chose a particular value, say  <IMG WIDTH=13 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline59325" SRC="img301.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img301.gif"  >,
+then there exists a corresponding  <IMG WIDTH=16 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline59043" SRC="img238.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img238.gif"  > such that
+<P> <IMG WIDTH=500 HEIGHT=105 ALIGN=BOTTOM ALT="eqnarray1426" SRC="img302.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img302.gif"  ><P>
+<P>
+Consider the sum  <IMG WIDTH=144 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59305" SRC="img294.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img294.gif"  >:
+<P> <IMG WIDTH=500 HEIGHT=87 ALIGN=BOTTOM ALT="eqnarray1430" SRC="img303.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img303.gif"  ><P>
+where  <IMG WIDTH=138 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59331" SRC="img304.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img304.gif"  >.
+Thus,  <IMG WIDTH=113 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59317" SRC="img297.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img297.gif"  >.
+<P>
+Consider a pair of functions  <IMG WIDTH=35 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59231" SRC="img267.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img267.gif"  > and  <IMG WIDTH=35 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59233" SRC="img268.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img268.gif"  >,
+which are known to be  <IMG WIDTH=60 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59279" SRC="img285.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img285.gif"  > and  <IMG WIDTH=59 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59281" SRC="img286.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img286.gif"  >, respectively.
+According to Theorem&nbsp;<A HREF="page60.html#theoremi" tppabs="http://www.brpreiss.com/books/opus4/html/page60.html#theoremi"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+the sum  <IMG WIDTH=144 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59305" SRC="img294.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img294.gif"  > is  <IMG WIDTH=146 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59285" SRC="img287.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img287.gif"  >.
+However, Theorem&nbsp;<A HREF="page60.html#theoremii" tppabs="http://www.brpreiss.com/books/opus4/html/page60.html#theoremii"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> says that,
+if  <IMG WIDTH=140 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59347" SRC="img305.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img305.gif"  > exists,
+then the sum <I>f</I>(<I>n</I>) is simply  <IMG WIDTH=60 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59351" SRC="img306.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img306.gif"  > which,
+by the transitive property (see Theorem&nbsp;<A HREF="page60.html#theoremv" tppabs="http://www.brpreiss.com/books/opus4/html/page60.html#theoremv"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> below), is  <IMG WIDTH=60 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59279" SRC="img285.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img285.gif"  >.
+<P>
+In other words, if the ratio  <IMG WIDTH=80 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59355" SRC="img307.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img307.gif"  >
+asymptotically approaches a constant as <I>n</I> gets large,
+we can say that  <IMG WIDTH=91 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59269" SRC="img282.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img282.gif"  > is  <IMG WIDTH=60 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59279" SRC="img285.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img285.gif"  >,
+which is often a lot simpler than  <IMG WIDTH=146 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59285" SRC="img287.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img287.gif"  >.
+<P>
+Theorem&nbsp;<A HREF="page60.html#theoremii" tppabs="http://www.brpreiss.com/books/opus4/html/page60.html#theoremii"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> is particularly useful result.
+Consider  <IMG WIDTH=72 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59365" SRC="img308.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img308.gif"  > and  <IMG WIDTH=72 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59177" SRC="img260.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img260.gif"  >.
+<P> <IMG WIDTH=500 HEIGHT=95 ALIGN=BOTTOM ALT="eqnarray1437" SRC="img309.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img309.gif"  ><P>
+From this we can conclude that  <IMG WIDTH=228 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59369" SRC="img310.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img310.gif"  >.
+Thus, Theorem&nbsp;<A HREF="page60.html#theoremii" tppabs="http://www.brpreiss.com/books/opus4/html/page60.html#theoremii"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> suggests that
+the sum of a series of powers of <I>n</I> is  <IMG WIDTH=45 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59373" SRC="img311.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img311.gif"  >,
+where <I>m</I> is the largest power of <I>n</I> in the summation.
+We will confirm this result in Section&nbsp;<A HREF="page61.html#secasymptoticpolyi" tppabs="http://www.brpreiss.com/books/opus4/html/page61.html#secasymptoticpolyi"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> below.
+<P>
+The next theorem addresses the asymptotic behavior
+of the product of two functions whose asymptotic behaviors are known:
+<P>
+<BLOCKQUOTE> <b>Theorem</b><A NAME="theoremiii">&#160;</A>
+If  <IMG WIDTH=118 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59227" SRC="img265.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img265.gif"  > and  <IMG WIDTH=117 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59229" SRC="img266.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img266.gif"  >, then
+<P> <IMG WIDTH=367 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath59218" SRC="img312.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img312.gif"  ><P></BLOCKQUOTE>
+<P>
+	extbfProof
+By Definition&nbsp;<A HREF="page57.html#defnbigoh" tppabs="http://www.brpreiss.com/books/opus4/html/page57.html#defnbigoh"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>, there exist two integers,  <IMG WIDTH=16 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline59249" SRC="img272.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img272.gif"  > and  <IMG WIDTH=16 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline59251" SRC="img273.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img273.gif"  >
+and two constants  <IMG WIDTH=13 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline59253" SRC="img274.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img274.gif"  > and  <IMG WIDTH=13 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline59255" SRC="img275.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img275.gif"  > such that
+ <IMG WIDTH=107 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59257" SRC="img276.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img276.gif"  > for  <IMG WIDTH=47 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline59259" SRC="img277.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img277.gif"  > and
+ <IMG WIDTH=107 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59261" SRC="img278.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img278.gif"  > for  <IMG WIDTH=47 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline59263" SRC="img279.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img279.gif"  >.
+Furthermore, by Definition&nbsp;<A HREF="page57.html#defnbigoh" tppabs="http://www.brpreiss.com/books/opus4/html/page57.html#defnbigoh"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+ <IMG WIDTH=35 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59231" SRC="img267.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img267.gif"  > and  <IMG WIDTH=35 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59233" SRC="img268.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img268.gif"  > are both non-negative for all integers  <IMG WIDTH=38 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59063" SRC="img241.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img241.gif"  >.
+<P>
+Let  <IMG WIDTH=119 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59265" SRC="img280.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img280.gif"  > and  <IMG WIDTH=63 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline59407" SRC="img313.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img313.gif"  >.
+Consider the product  <IMG WIDTH=91 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59409" SRC="img314.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img314.gif"  > for  <IMG WIDTH=46 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline59075" SRC="img242.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img242.gif"  >:
+<P> <IMG WIDTH=500 HEIGHT=39 ALIGN=BOTTOM ALT="eqnarray1455" SRC="img315.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img315.gif"  ><P>
+Thus,  <IMG WIDTH=230 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59413" SRC="img316.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img316.gif"  >.
+<P>
+Theorem&nbsp;<A HREF="page60.html#theoremiii" tppabs="http://www.brpreiss.com/books/opus4/html/page60.html#theoremiii"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> describes a simple,
+but extremely useful property of big oh.
+Consider the functions  <IMG WIDTH=228 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59415" SRC="img317.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img317.gif"  > and 
+ <IMG WIDTH=192 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59417" SRC="img318.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img318.gif"  >.
+By Theorem&nbsp;<A HREF="page60.html#theoremiii" tppabs="http://www.brpreiss.com/books/opus4/html/page60.html#theoremiii"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+the asymptotic behavior of the product  <IMG WIDTH=91 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59409" SRC="img314.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img314.gif"  >
+is  <IMG WIDTH=139 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59421" SRC="img319.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img319.gif"  >.
+I.e., we are able to determine the asymptotic behavior of
+the product without having to go through the gory details of
+calculating that  <IMG WIDTH=326 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59423" SRC="img320.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img320.gif"  >.
+<P>
+The next theorem is closely related to the preceding one
+in that it also shows how big oh behaves with respect to multiplication.
+<P>
+<BLOCKQUOTE> <b>Theorem</b><A NAME="theoremiv">&#160;</A>
+If  <IMG WIDTH=118 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59227" SRC="img265.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img265.gif"  > and  <IMG WIDTH=36 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59241" SRC="img269.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img269.gif"  > is a function whose value is non-negative
+for integers  <IMG WIDTH=38 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59063" SRC="img241.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img241.gif"  >,
+then
+<P> <IMG WIDTH=366 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath59219" SRC="img321.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img321.gif"  ><P></BLOCKQUOTE>
+<P>
+	extbfProof
+By Definition&nbsp;<A HREF="page57.html#defnbigoh" tppabs="http://www.brpreiss.com/books/opus4/html/page57.html#defnbigoh"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>, there exist integers  <IMG WIDTH=16 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline59043" SRC="img238.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img238.gif"  >
+and constant  <IMG WIDTH=13 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline59433" SRC="img322.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img322.gif"  > such that
+ <IMG WIDTH=107 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59435" SRC="img323.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img323.gif"  > for  <IMG WIDTH=46 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline59075" SRC="img242.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img242.gif"  >.
+Since  <IMG WIDTH=36 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59241" SRC="img269.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img269.gif"  > is never negative,
+<P> <IMG WIDTH=393 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath59220" SRC="img324.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img324.gif"  ><P>
+Thus,  <IMG WIDTH=230 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59441" SRC="img325.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img325.gif"  >.
+<P>
+Theorem&nbsp;<A HREF="page60.html#theoremiv" tppabs="http://www.brpreiss.com/books/opus4/html/page60.html#theoremiv"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> applies when we multiply a function,  <IMG WIDTH=35 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59231" SRC="img267.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img267.gif"  >,
+whose asymptotic behavior is known to be  <IMG WIDTH=60 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59279" SRC="img285.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img285.gif"  >,
+by another function  <IMG WIDTH=36 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59241" SRC="img269.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img269.gif"  >.
+The asymptotic behavior of the result is simply  <IMG WIDTH=116 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59449" SRC="img326.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img326.gif"  >.
+<P>
+One way to interpret Theorem&nbsp;<A HREF="page60.html#theoremiv" tppabs="http://www.brpreiss.com/books/opus4/html/page60.html#theoremiv"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+is that it allows us to do the following mathematical manipulation:
+<P> <IMG WIDTH=500 HEIGHT=39 ALIGN=BOTTOM ALT="eqnarray1467" SRC="img327.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img327.gif"  ><P>
+I.e., Fallacy&nbsp;<A HREF="page59.html#fallacyi" tppabs="http://www.brpreiss.com/books/opus4/html/page59.html#fallacyi"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> notwithstanding,
+we can multiply both sides of the ``equation'' by  <IMG WIDTH=36 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59241" SRC="img269.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img269.gif"  >
+and the ``equality'' still holds.
+Furthermore, when we multiply  <IMG WIDTH=60 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59279" SRC="img285.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img285.gif"  > by  <IMG WIDTH=36 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59241" SRC="img269.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img269.gif"  >,
+we simply bring the  <IMG WIDTH=36 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59241" SRC="img269.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img269.gif"  > inside the  <IMG WIDTH=28 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline58163" SRC="img1.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1.gif"  >.
+<P>
+The last theorem in this section
+introduces the <em>transitive property</em> of big oh:
+<P>
+<BLOCKQUOTE> <b>Theorem (Transitive Property)</b><A NAME=1473>&#160;</A>
+<A NAME="theoremv">&#160;</A>
+If <I>f</I>(<I>n</I>)=<I>O</I>(<I>g</I>(<I>n</I>)) and <I>g</I>(<I>n</I>)=<I>O</I>(<I>h</I>(<I>n</I>))
+then <I>f</I>(<I>n</I>)=<I>O</I>(<I>h</I>(<I>n</I>)).
+</BLOCKQUOTE>
+<P>
+	extbfProof
+By Definition&nbsp;<A HREF="page57.html#defnbigoh" tppabs="http://www.brpreiss.com/books/opus4/html/page57.html#defnbigoh"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>, there exist two integers,  <IMG WIDTH=16 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline59249" SRC="img272.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img272.gif"  > and  <IMG WIDTH=16 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline59251" SRC="img273.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img273.gif"  >
+and two constants  <IMG WIDTH=13 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline59253" SRC="img274.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img274.gif"  > and  <IMG WIDTH=13 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline59255" SRC="img275.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img275.gif"  > such that
+ <IMG WIDTH=94 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59475" SRC="img328.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img328.gif"  > for  <IMG WIDTH=47 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline59259" SRC="img277.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img277.gif"  > and
+ <IMG WIDTH=96 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59479" SRC="img329.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img329.gif"  > for  <IMG WIDTH=47 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline59263" SRC="img279.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img279.gif"  >.
+<P>
+Let  <IMG WIDTH=119 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59265" SRC="img280.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img280.gif"  > and  <IMG WIDTH=63 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline59407" SRC="img313.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img313.gif"  >. Then
+<P> <IMG WIDTH=500 HEIGHT=63 ALIGN=BOTTOM ALT="eqnarray1478" SRC="img330.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img330.gif"  ><P>
+Thus, <I>f</I>(<I>n</I>)=<I>O</I>(<I>h</I>(<I>n</I>)).
+<P>
+The transitive property of big oh
+is useful in conjunction with Theorem&nbsp;<A HREF="page60.html#theoremii" tppabs="http://www.brpreiss.com/books/opus4/html/page60.html#theoremii"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+Consider  <IMG WIDTH=81 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59489" SRC="img331.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img331.gif"  > which is clearly  <IMG WIDTH=39 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59491" SRC="img332.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img332.gif"  >.
+If we add to  <IMG WIDTH=35 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59231" SRC="img267.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img267.gif"  > the function  <IMG WIDTH=81 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59495" SRC="img333.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img333.gif"  >,
+then by Theorem&nbsp;<A HREF="page60.html#theoremii" tppabs="http://www.brpreiss.com/books/opus4/html/page60.html#theoremii"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+the sum  <IMG WIDTH=91 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59269" SRC="img282.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img282.gif"  > is  <IMG WIDTH=60 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59351" SRC="img306.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img306.gif"  >
+because  <IMG WIDTH=169 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59501" SRC="img334.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img334.gif"  >.
+I.e.,  <IMG WIDTH=174 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59503" SRC="img335.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img335.gif"  >.
+The combination of the fact that  <IMG WIDTH=98 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59505" SRC="img336.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img336.gif"  >
+<em>and</em> the transitive property of big oh,
+allows us to conclude that the sum is  <IMG WIDTH=39 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline59491" SRC="img332.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img332.gif"  >.
+<P>
+<HR><A NAME="tex2html2641" HREF="page61.html" tppabs="http://www.brpreiss.com/books/opus4/html/page61.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html2639" HREF="page57.html" tppabs="http://www.brpreiss.com/books/opus4/html/page57.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html2633" HREF="page59.html" tppabs="http://www.brpreiss.com/books/opus4/html/page59.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html2643" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html2644" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

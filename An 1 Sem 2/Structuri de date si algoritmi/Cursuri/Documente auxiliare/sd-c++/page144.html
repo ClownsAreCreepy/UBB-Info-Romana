@@ -1,0 +1,94 @@
+<HTML>
+<HEAD>
+<TITLE>Applications</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html3688" HREF="page145.html" tppabs="http://www.brpreiss.com/books/opus4/html/page145.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3686" HREF="page131.html" tppabs="http://www.brpreiss.com/books/opus4/html/page131.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3682" HREF="page143.html" tppabs="http://www.brpreiss.com/books/opus4/html/page143.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3690" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3691" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION007130000000000000000">Applications</A></H2>
+<A NAME="secstacksapps">&#160;</A>
+<P>
+Consider the following expression:
+<P><A NAME="eqnstacksinfix">&#160;</A> <IMG WIDTH=500 HEIGHT=16 ALIGN=BOTTOM ALT="equation6183" SRC="img722.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img722.gif"  ><P>
+In order to determine the value of this expression,
+we first compute the sum 5+9 and then multiply that by 2.
+Then we compute the product  <IMG WIDTH=34 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline61390" SRC="img723.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img723.gif"  >
+and add it to the previous result to get the final answer.
+Notice that the order in which the operations are to be done is crucial.
+Clearly if the operations are not done in the correct order,
+the wrong result is computed.
+<P>
+The expression above is written using the usual mathematical notation.
+This notation is called <em>infix</em><A NAME=6187>&#160;</A> notation.
+What distinguishes this notation is the way that expressions
+involving binary operators are written.
+A <em>binary operator</em><A NAME=6189>&#160;</A>
+is an operator which has exactly two operands,
+such as + and  <IMG WIDTH=8 HEIGHT=14 ALIGN=MIDDLE ALT="tex2html_wrap_inline61394" SRC="img724.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img724.gif"  >.
+In infix notation, binary operators appear
+<em>in between</em> their operands.
+<P>
+Another characteristic of <em>infix</em> notation is that
+the order of operations is determined by
+<em>operator precedence</em><A NAME=6193>&#160;</A>.
+For example, the  <IMG WIDTH=8 HEIGHT=14 ALIGN=MIDDLE ALT="tex2html_wrap_inline61394" SRC="img724.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img724.gif"  > (multiplication) operator
+has higher precedence than does the + (addition) operator.
+When an evaluation order is desired
+that is different from that provided by the precedence,
+<em>parentheses</em><A NAME=6195>&#160;</A>, ``('' and ``)'',
+are used to override precedence rules.
+I.e., an expression in parentheses is evaluated first.
+<P>
+As an alternative to infix,
+the Polish logician
+<em>Jan  <IMG WIDTH=9 HEIGHT=11 ALIGN=BOTTOM ALT="tex2html_wrap61408" SRC="img725.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img725.gif"  > ukasiewicz</em><A NAME=6197>&#160;</A>
+introduced notations which require neither parentheses
+nor operator precedence rules.
+The first of these,
+the so-called <em>Polish notation</em><A NAME=6199>&#160;</A>,
+places the binary operators before their operands.
+I.e., for Equation&nbsp;<A HREF="page144.html#eqnstacksinfix" tppabs="http://www.brpreiss.com/books/opus4/html/page144.html#eqnstacksinfix"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> we would write:
+<P> <IMG WIDTH=314 HEIGHT=13 ALIGN=BOTTOM ALT="displaymath61382" SRC="img726.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img726.gif"  ><P>
+This is also called <em>prefix</em> notation,
+because the operators are written in front of their operands.
+<P>
+While prefix notation is completely unambiguous in the absence of parentheses,
+it is not very easy to read.
+A minor syntactic variation on prefix is to write the
+operands as a comma-separated list enclosed in parentheses as follows:
+<P> <IMG WIDTH=333 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath61383" SRC="img727.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img727.gif"  ><P>
+While this notation seems somewhat foreign,
+in fact it is precisely the notation that is used for
+function calls in C++:
+<PRE>operator+ (operator* (operator+ (5,9) ,2), operator* (6,5));</PRE>
+<P>
+The second form of  <IMG WIDTH=9 HEIGHT=11 ALIGN=BOTTOM ALT="tex2html_wrap61408" SRC="img725.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img725.gif"  > ukasiewicz notation is the so-called
+<em>Reverse-Polish notation</em><A NAME=6211>&#160;</A>
+(RPN<A NAME=6319>&#160;</A>).
+Equation&nbsp;<A HREF="page144.html#eqnstacksinfix" tppabs="http://www.brpreiss.com/books/opus4/html/page144.html#eqnstacksinfix"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> is written as follows in RPN:
+<P><A NAME="eqnstacksrpn">&#160;</A> <IMG WIDTH=500 HEIGHT=16 ALIGN=BOTTOM ALT="equation6214" SRC="img728.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img728.gif"  ><P>
+This notation is also called <em>postfix</em> notation for the obvious reason--the operators are written <em>after</em> their operands.
+<P>
+Postfix notation, like prefix notation,
+does not make use of operator precedence
+nor does it require the use of parentheses.
+A postfix expression can always be written without parentheses
+that expresses the desired evaluation order.
+E.g., the expression  <IMG WIDTH=61 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline61400" SRC="img729.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img729.gif"  >, in which the multiplication is done first,
+is written  <IMG WIDTH=67 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline61402" SRC="img730.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img730.gif"  >;
+whereas the expression  <IMG WIDTH=74 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline61404" SRC="img731.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img731.gif"  > is written  <IMG WIDTH=66 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline61406" SRC="img732.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img732.gif"  >.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html3692" HREF="page145.html#SECTION007131000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page145.html#SECTION007131000000000000000">Evaluating Postfix Expressions</A>
+<LI> <A NAME="tex2html3693" HREF="page146.html#SECTION007132000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page146.html#SECTION007132000000000000000">Implementation</A>
+</UL>
+<HR><A NAME="tex2html3688" HREF="page145.html" tppabs="http://www.brpreiss.com/books/opus4/html/page145.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3686" HREF="page131.html" tppabs="http://www.brpreiss.com/books/opus4/html/page131.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3682" HREF="page143.html" tppabs="http://www.brpreiss.com/books/opus4/html/page143.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3690" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3691" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,10 @@
+1,Problems,Mother Mother,folk
+2,Back to Black,Amy Winehouse,disco
+3,Good Luck Babe!,Chappel Roan,disco
+4,The Winner Takes it all,ABBA,pop
+5,Toxicity,System of a Down,rock
+6,Mirrors,Justin Timberlake,pop
+7,Mamma Mia,ABBA,disco
+8,Hurricane,Bridgit Mendler,pop
+9,Bathwater,No Doubt,folk
+10,Bad Romance,Lady Gaga,pop

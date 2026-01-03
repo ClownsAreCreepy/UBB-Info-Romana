@@ -1,0 +1,96 @@
+<HTML>
+<HEAD>
+<TITLE>Application: Typesetting Problem</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html7701" HREF="page469.html" tppabs="http://www.brpreiss.com/books/opus4/html/page469.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7699" HREF="page465.html" tppabs="http://www.brpreiss.com/books/opus4/html/page465.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7695" HREF="page467.html" tppabs="http://www.brpreiss.com/books/opus4/html/page467.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7703" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7704" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION0015430000000000000000">Application: Typesetting Problem</A></H2>
+<A NAME="secalgstypeset">&#160;</A>
+<P>
+Consider the problem of typesetting a paragraph of justified text.
+A paragraph can be viewed as a sequence of <I>n</I><I>&gt;</I>0 words,
+ <IMG WIDTH=114 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline68483" SRC="img1820.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1820.gif"  >.
+The objective is to determine how to break the sequence
+into individual lines of text of the appropriate size.
+Each word is separated from the next by some amount of space.
+By stretching or compressing the space between the words,
+the left and right ends of consecutive lines of text are made to line up.
+A paragraph looks best when the amount of
+stretching or compressing is minimized.
+<P>
+We can formulate the problem as follows:
+Assume that we are given the lengths of the words,  <IMG WIDTH=95 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69081" SRC="img1965.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1965.gif"  >,
+and that the desired length of a line is <I>D</I>.
+Let  <IMG WIDTH=27 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69085" SRC="img1966.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1966.gif"  > represent the sequence of words
+from  <IMG WIDTH=14 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline68467" SRC="img1818.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1818.gif"  > to  <IMG WIDTH=17 HEIGHT=16 ALIGN=MIDDLE ALT="tex2html_wrap_inline69089" SRC="img1967.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1967.gif"  > (inclusive).
+I.e.,
+<P> <IMG WIDTH=341 HEIGHT=17 ALIGN=BOTTOM ALT="displaymath69073" SRC="img1968.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1968.gif"  ><P>
+for  <IMG WIDTH=93 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69091" SRC="img1969.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1969.gif"  >.
+<P>
+Let  <IMG WIDTH=23 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69093" SRC="img1970.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1970.gif"  > be the sum of the lengths of the words in the sequence  <IMG WIDTH=27 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69085" SRC="img1966.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1966.gif"  >.
+I.e.,
+<P> <IMG WIDTH=293 HEIGHT=48 ALIGN=BOTTOM ALT="displaymath69074" SRC="img1971.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1971.gif"  ><P>
+The <em>natural length</em>,
+for the sequence  <IMG WIDTH=27 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69085" SRC="img1966.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1966.gif"  > is the sum of the lengths of the words,  <IMG WIDTH=23 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69093" SRC="img1970.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1970.gif"  >
+plus the normal amount of space between those words.
+Let <I>s</I> be the normal size of the space between two words.
+Then the natural length of  <IMG WIDTH=27 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69085" SRC="img1966.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1966.gif"  > is  <IMG WIDTH=96 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline69105" SRC="img1972.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1972.gif"  >.
+Note, we can also define  <IMG WIDTH=23 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69093" SRC="img1970.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1970.gif"  > <em>recursively</em> as follows:
+<P><A NAME="eqnalgslength">&#160;</A> <IMG WIDTH=500 HEIGHT=48 ALIGN=BOTTOM ALT="equation33454" SRC="img1973.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1973.gif"  ><P>
+<P>
+In general,
+when we typeset the sequence  <IMG WIDTH=27 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69085" SRC="img1966.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1966.gif"  > all on a single line,
+we need to stretch or compress the spaces between the words so 
+that the length of the line is the desired length <I>D</I>.
+Therefore, the amount of stretching or compressing is given by
+the difference  <IMG WIDTH=140 HEIGHT=27 ALIGN=MIDDLE ALT="tex2html_wrap_inline69113" SRC="img1974.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1974.gif"  >.
+However, if the sum of the lengths of the words,  <IMG WIDTH=23 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69093" SRC="img1970.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1970.gif"  >,
+is longer than the desired line length <I>D</I>,
+it is not possible to typeset the sequence on a single line.
+<P>
+Let  <IMG WIDTH=23 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69119" SRC="img1975.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1975.gif"  > be the <em>penalty</em> associated with typesetting
+the sequence  <IMG WIDTH=23 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69093" SRC="img1970.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1970.gif"  > on a single line.
+Then,
+<P><A NAME="eqnalgspenalty">&#160;</A> <IMG WIDTH=500 HEIGHT=48 ALIGN=BOTTOM ALT="equation33467" SRC="img1976.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1976.gif"  ><P>
+This definition is of penalty is consistent with the stated objectives:
+The penalty increases as the difference between
+the natural length of the sequence and the desired length increases and
+the infinite penalty disallows lines that are too long.
+<P>
+Finally, we define the quantity  <IMG WIDTH=24 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline68911" SRC="img1926.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1926.gif"  > for  <IMG WIDTH=93 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69091" SRC="img1969.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1969.gif"  >
+as the minimum total penalty required to typeset the sequence  <IMG WIDTH=27 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69085" SRC="img1966.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1966.gif"  >.
+In this case, the text may be all on one line
+or it may be split over more than one line.
+The quantity  <IMG WIDTH=24 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline68911" SRC="img1926.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1926.gif"  > is given by
+<P><A NAME="eqnalgscost">&#160;</A> <IMG WIDTH=500 HEIGHT=57 ALIGN=BOTTOM ALT="equation33479" SRC="img1977.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1977.gif"  ><P>
+<P>
+We obtain Equation&nbsp;<A HREF="page468.html#eqnalgscost" tppabs="http://www.brpreiss.com/books/opus4/html/page468.html#eqnalgscost"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> as follows:
+When <I>i</I>=<I>j</I> there is only one word in the paragraph.
+The minimum total penalty associated with typesetting the paragraph
+in this case is just the penalty which results from putting
+the one word on a single line.
+<P>
+In the general case, there is more than one word in the sequence  <IMG WIDTH=27 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69085" SRC="img1966.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1966.gif"  >.
+In order to determine the optimal way in which to typeset the paragraph
+we consider the cost of putting the first <I>k</I> words of the sequence
+on the first line of the paragraph,  <IMG WIDTH=24 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69137" SRC="img1978.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1978.gif"  >,
+plus the minimum total cost associated with typesetting
+the rest of the paragraph  <IMG WIDTH=43 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69139" SRC="img1979.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1979.gif"  >.
+The value of <I>k</I> which minimizes the total cost also
+specifies where the line break should occur.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html7705" HREF="page469.html#SECTION0015431000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page469.html#SECTION0015431000000000000000">Example</A>
+<LI> <A NAME="tex2html7706" HREF="page470.html#SECTION0015432000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page470.html#SECTION0015432000000000000000">Implementation</A>
+</UL>
+<HR><A NAME="tex2html7701" HREF="page469.html" tppabs="http://www.brpreiss.com/books/opus4/html/page469.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7699" HREF="page465.html" tppabs="http://www.brpreiss.com/books/opus4/html/page465.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7695" HREF="page467.html" tppabs="http://www.brpreiss.com/books/opus4/html/page467.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7703" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7704" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

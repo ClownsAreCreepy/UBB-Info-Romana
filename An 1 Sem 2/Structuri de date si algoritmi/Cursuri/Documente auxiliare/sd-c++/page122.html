@@ -1,0 +1,54 @@
+<HTML>
+<HEAD>
+<TITLE>The NullIterator Class</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html3417" HREF="page123.html" tppabs="http://www.brpreiss.com/books/opus4/html/page123.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3415" HREF="page109.html" tppabs="http://www.brpreiss.com/books/opus4/html/page109.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3409" HREF="page121.html" tppabs="http://www.brpreiss.com/books/opus4/html/page121.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3419" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3420" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION006280000000000000000">The <tt>NullIterator</tt> Class</A></H2>
+<A NAME="secadtsnulliter">&#160;</A>
+<P>
+A <tt>NullIterator</tt> is a concrete iterator that does nothing.
+As discussed in Section&nbsp;<A HREF="page117.html#secadtscontainers" tppabs="http://www.brpreiss.com/books/opus4/html/page117.html#secadtscontainers"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+every container has a <tt>NewIterator</tt> member function
+that returns a reference to an iterator instance.
+If a particular concrete container class does not provide
+an associated iterator class,
+its <tt>NewIterator</tt> member function returns a reference
+to a <tt>NullIterator</tt>.
+Program&nbsp;<A HREF="page122.html#progiterator2h" tppabs="http://www.brpreiss.com/books/opus4/html/page122.html#progiterator2h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> gives the declaration of the <tt>NullIterator</tt> class.
+<P>
+<P><A NAME="5525">&#160;</A><A NAME="progiterator2h">&#160;</A> <IMG WIDTH=575 HEIGHT=180 ALIGN=BOTTOM ALT="program5101" SRC="img695.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img695.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>NullIterator</tt> Class Definition<BR>
+<P>
+<P>
+Because it is a concrete class,
+<tt>NullIterator</tt> provides implementations for all
+the pure virtual member functions of the <tt>Iterator</tt> class.
+As shown in Program&nbsp;<A HREF="page122.html#progiterator1c" tppabs="http://www.brpreiss.com/books/opus4/html/page122.html#progiterator1c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+the implementation is trivial:
+The <tt>IsDone</tt> member function always returns <tt>true</tt>;
+the <tt>operator*</tt> member function always returns a reference
+to the <tt>NullObject</tt> instance;
+and the remaining functions do nothing at all.
+<P>
+<P><A NAME="5532">&#160;</A><A NAME="progiterator1c">&#160;</A> <IMG WIDTH=575 HEIGHT=277 ALIGN=BOTTOM ALT="program5125" SRC="img696.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img696.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>NullIterator</tt> Class Member Function Definitions<BR>
+<P>
+<P>
+The default behavior of the <tt>NewIterator</tt> function
+of the <tt>Container</tt> class is to
+return a reference to a a new <tt>NullIterator</tt> instance
+as shown in Program&nbsp;<A HREF="page122.html#progcontainer3c" tppabs="http://www.brpreiss.com/books/opus4/html/page122.html#progcontainer3c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+<P>
+<P><A NAME="5538">&#160;</A><A NAME="progcontainer3c">&#160;</A> <IMG WIDTH=575 HEIGHT=48 ALIGN=BOTTOM ALT="program5145" SRC="img697.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img697.gif"  ><BR>
+<STRONG>Program:</STRONG> <tt>Container</tt> Class <tt>NewIterator</tt> Member Function Definition<BR>
+<P><HR><A NAME="tex2html3417" HREF="page123.html" tppabs="http://www.brpreiss.com/books/opus4/html/page123.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3415" HREF="page109.html" tppabs="http://www.brpreiss.com/books/opus4/html/page109.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3409" HREF="page121.html" tppabs="http://www.brpreiss.com/books/opus4/html/page121.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3419" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3420" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

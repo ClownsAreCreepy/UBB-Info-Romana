@@ -1,0 +1,59 @@
+<HTML>
+<HEAD>
+<TITLE>Undirected Graphs</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html8455" HREF="page530.html" tppabs="http://www.brpreiss.com/books/opus4/html/page530.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8453" HREF="page524.html" tppabs="http://www.brpreiss.com/books/opus4/html/page524.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8447" HREF="page528.html" tppabs="http://www.brpreiss.com/books/opus4/html/page528.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8457" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8458" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0017105000000000000000">Undirected Graphs</A></H3>
+<P>
+An undirected graph is a graph in which the nodes are connected by
+<em>undirected arcs</em><A NAME=49012>&#160;</A><A NAME=49013>&#160;</A>.
+An undirected arc is an edge that has no arrow.
+Both ends of an undirected arc are equivalent--there is no head or tail.
+Therefore, we represent an edge in an undirected graph
+as a set rather than an ordered pair:
+<P>
+<BLOCKQUOTE> <b>Definition (Undirected Graph)</b><A NAME="defngraph">&#160;</A>
+An <em>undirected graph</em><A NAME=49018>&#160;</A><A NAME=49019>&#160;</A>
+is an ordered pair  <IMG WIDTH=72 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71355" SRC="img2282.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2282.gif"  > with the following properties:
+<OL><LI>
+	The first component,  <IMG WIDTH=10 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline71357" SRC="img2283.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2283.gif"  >, is a finite, non-empty set.
+	The elements of  <IMG WIDTH=10 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline71357" SRC="img2283.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2283.gif"  > are called the <em>vertices</em> of <I>G</I>.<LI>
+	The second component,  <IMG WIDTH=9 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline71363" SRC="img2284.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2284.gif"  >, is a finite set of sets.
+	Each element of  <IMG WIDTH=9 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline71363" SRC="img2284.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2284.gif"  > is a set that is comprised of
+	exactly two (distinct) vertices.
+	The elements of  <IMG WIDTH=9 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline71363" SRC="img2284.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2284.gif"  > are called the <em>edges</em> of <I>G</I>.
+</OL></BLOCKQUOTE>
+<P>
+For example, consider the undirected graph  <IMG WIDTH=91 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71601" SRC="img2332.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2332.gif"  >
+comprised of four vertices and four edges:
+<P> <IMG WIDTH=500 HEIGHT=40 ALIGN=BOTTOM ALT="eqnarray49025" SRC="img2333.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2333.gif"  ><P>
+The graph  <IMG WIDTH=18 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline71603" SRC="img2334.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2334.gif"  > can be represented
+<em>graphically</em> as shown in Figure&nbsp;<A HREF="page529.html#figgraph3" tppabs="http://www.brpreiss.com/books/opus4/html/page529.html#figgraph3"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>.
+The vertices are represented by appropriately labeled circles,
+and the edges are represented by lines
+that connect associated vertices.
+<P>
+<P><A NAME="49154">&#160;</A><A NAME="figgraph3">&#160;</A> <IMG WIDTH=575 HEIGHT=136 ALIGN=BOTTOM ALT="figure49029" SRC="img2335.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2335.gif"  ><BR>
+<STRONG>Figure:</STRONG> An Undirected Graph<BR>
+<P>
+<P>
+Notice that because an edge in an undirected graph is a set,
+ <IMG WIDTH=94 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71607" SRC="img2336.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2336.gif"  >,
+and since  <IMG WIDTH=15 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline71609" SRC="img2337.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2337.gif"  > is also a set,
+it cannot contain more than one instance of a given edge.
+Another consequence of Definition&nbsp;<A HREF="page529.html#defngraph" tppabs="http://www.brpreiss.com/books/opus4/html/page529.html#defngraph"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> is that there cannot be an
+edge from a node to itself in an undirected graph
+because an edge is a set of size two
+and a set cannot contain duplicates.
+<P>
+<HR><A NAME="tex2html8455" HREF="page530.html" tppabs="http://www.brpreiss.com/books/opus4/html/page530.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8453" HREF="page524.html" tppabs="http://www.brpreiss.com/books/opus4/html/page524.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8447" HREF="page528.html" tppabs="http://www.brpreiss.com/books/opus4/html/page528.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8457" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8458" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

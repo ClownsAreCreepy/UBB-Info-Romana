@@ -1,0 +1,83 @@
+<HTML>
+<HEAD>
+<TITLE>Exercises</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html3929" HREF="page165.html" tppabs="http://www.brpreiss.com/books/opus4/html/page165.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3927" HREF="page130.html" tppabs="http://www.brpreiss.com/books/opus4/html/page130.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3921" HREF="page163.html" tppabs="http://www.brpreiss.com/books/opus4/html/page163.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3931" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3932" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION007400000000000000000">Exercises</A></H1>
+<P>
+<OL><LI> <A NAME="eqnstacksdouble">&#160;</A>
+	The array-based stack implementation
+	shown in Programs&nbsp;<A HREF="page132.html#progstack2h" tppabs="http://www.brpreiss.com/books/opus4/html/page132.html#progstack2h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>, <A HREF="page134.html#progstack1c" tppabs="http://www.brpreiss.com/books/opus4/html/page134.html#progstack1c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>, <A HREF="page135.html#progstack2c" tppabs="http://www.brpreiss.com/books/opus4/html/page135.html#progstack2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> and&nbsp;<A HREF="page136.html#progstack3c" tppabs="http://www.brpreiss.com/books/opus4/html/page136.html#progstack3c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+	uses a fixed length array.
+	As a result, it is possible for the stack to become full.
+	However, the <tt>Array&lt;T&gt;</tt> class defined in Chapter&nbsp;<A HREF="page79.html#chapfds" tppabs="http://www.brpreiss.com/books/opus4/html/page79.html#chapfds"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+	provides a <tt>SetLength</tt> member function which can be used
+	to change the length of the array.
+	<OL><LI>
+		Rewrite the <tt>Push</tt> routine so that it doubles
+		the length of the array when the array is full.<LI>
+		Rewrite the <tt>Pop</tt> routine so that it halves
+		the length of the array when the array is less than half full.<LI>
+		Show that the <em>average</em> time for both push and pop
+		operations is <I>O</I>(1).
+		<b>Hint</b>: Consider the running time required to
+		push  <IMG WIDTH=45 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline58795" SRC="img171.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img171.gif"  > items onto an empty stack, where  <IMG WIDTH=36 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline61524" SRC="img761.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img761.gif"  >.
+	</OL><LI>
+	Consider a sequence <I>S</I> of push and pop operations
+	performed on a stack that is initially empty.
+	The sequence <I>S</I> is a valid sequence of operations if
+	at no point is a pop operation attempted on an empty stack
+	and if the stack is empty at the end of the sequence.
+	Design a set of rules for generating a valid sequence.<LI>
+	Devise an implementation of the <tt>Queue</tt>
+	abstract data type <em>using two stacks</em>.
+	Give algorithms for the <tt>Enqueue</tt> and <tt>Dequeue</tt> operations,
+	and derive tight big-oh expressions for the running times
+	of your implementation.<LI>
+	Write each of the following <em>infix</em> expressions
+	in <em>postfix</em> notation:
+	<OL><LI>  <IMG WIDTH=88 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline61530" SRC="img762.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img762.gif"  >,<LI>  <IMG WIDTH=101 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline61532" SRC="img763.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img763.gif"  >,<LI>  <IMG WIDTH=100 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline61534" SRC="img764.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img764.gif"  >,<LI>  <IMG WIDTH=112 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline61536" SRC="img765.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img765.gif"  >,<LI>  <IMG WIDTH=100 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline61538" SRC="img766.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img766.gif"  >, and<LI>  <IMG WIDTH=112 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline61540" SRC="img767.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img767.gif"  >.
+	</OL><LI>
+	Write each of the following <em>postfix</em> expressions
+	in <em>infix</em> notation:
+	<OL><LI>  <IMG WIDTH=89 HEIGHT=18 ALIGN=MIDDLE ALT="tex2html_wrap_inline61542" SRC="img768.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img768.gif"  >,<LI>  <IMG WIDTH=90 HEIGHT=18 ALIGN=MIDDLE ALT="tex2html_wrap_inline61544" SRC="img769.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img769.gif"  >,<LI>  <IMG WIDTH=88 HEIGHT=18 ALIGN=MIDDLE ALT="tex2html_wrap_inline61546" SRC="img770.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img770.gif"  >,<LI>  <IMG WIDTH=90 HEIGHT=18 ALIGN=MIDDLE ALT="tex2html_wrap_inline61548" SRC="img771.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img771.gif"  >,<LI>  <IMG WIDTH=88 HEIGHT=18 ALIGN=MIDDLE ALT="tex2html_wrap_inline61550" SRC="img772.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img772.gif"  >, and<LI>  <IMG WIDTH=90 HEIGHT=18 ALIGN=MIDDLE ALT="tex2html_wrap_inline61552" SRC="img773.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img773.gif"  >.
+	</OL><LI> <A NAME="exercisestacksreverse">&#160;</A>
+	Devise an algorithm which translates a <em>postfix</em> expression
+	to a <em>prefix</em> expression.
+	<b>Hint</b>: Use a stack of strings.<LI>
+	The array-based queue implementation
+	shown in Programs&nbsp;<A HREF="page148.html#progqueue2h" tppabs="http://www.brpreiss.com/books/opus4/html/page148.html#progqueue2h"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>, <A HREF="page150.html#progqueue1c" tppabs="http://www.brpreiss.com/books/opus4/html/page150.html#progqueue1c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> and&nbsp;<A HREF="page151.html#progqueue2c" tppabs="http://www.brpreiss.com/books/opus4/html/page151.html#progqueue2c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+	uses a fixed length array.
+	As a result, it is possible for the queue to become full.
+	<OL><LI>
+		Rewrite the <tt>Enqueue</tt> routine so that it doubles
+		the length of the array when the array is full.<LI>
+		Rewrite the <tt>Dequeue</tt> routine so that it halves
+		the length of the array when the array is less than half full.<LI>
+		Show that the <em>average</em> time for both enqueue and dequeue
+		operations is <I>O</I>(1).
+	</OL><LI>
+	Stacks and queues can be viewed as special cases of deques.
+	Show how all the operations on stacks and queues
+	can be mapped to operations on a deque.
+	Discuss the merits of using a deque to implement a stack or a queue.<LI>
+	Suppose we add a new operation to the stack ADT
+	called <tt>FindMinimum</tt>
+	that returns a reference to the smallest element in the stack.
+	Show that is its possible to provide an implementation
+	for <tt>FindMinimum</tt> that has a worst case running time of <I>O</I>(1).<LI> <A NAME="exercisestacksreverse2">&#160;</A>
+	The <em>breadth-first traversal</em> routine shown in Program&nbsp;<A HREF="page157.html#progapp02c" tppabs="http://www.brpreiss.com/books/opus4/html/page157.html#progapp02c"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+	visits the nodes of a tree in the order of their levels in the tree.
+	Modify the algorithm so that the nodes are visited in reverse.
+	<b>Hint</b>: Use a stack.
+</OL><HR><A NAME="tex2html3929" HREF="page165.html" tppabs="http://www.brpreiss.com/books/opus4/html/page165.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html3927" HREF="page130.html" tppabs="http://www.brpreiss.com/books/opus4/html/page130.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html3921" HREF="page163.html" tppabs="http://www.brpreiss.com/books/opus4/html/page163.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html3931" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html3932" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

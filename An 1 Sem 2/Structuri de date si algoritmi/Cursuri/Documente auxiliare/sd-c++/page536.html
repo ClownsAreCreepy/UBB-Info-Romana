@@ -1,0 +1,40 @@
+<HTML>
+<HEAD>
+<TITLE>Implementing Graphs</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html8536" HREF="page537.html" tppabs="http://www.brpreiss.com/books/opus4/html/page537.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8534" HREF="page523.html" tppabs="http://www.brpreiss.com/books/opus4/html/page523.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8528" HREF="page535.html" tppabs="http://www.brpreiss.com/books/opus4/html/page535.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8538" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8539" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H1><A NAME="SECTION0017200000000000000000">Implementing Graphs</A></H1>
+<P>
+In keeping with the design framework used throughout this text,
+we view graphs as specialized containers.
+Formally, the graph  <IMG WIDTH=72 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline71355" SRC="img2282.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2282.gif"  > is an ordered pair
+comprised of two sets--a set of vertices and a set of edges.
+Informally, we can view a graph as a container with two compartments,
+one which holds vertices and one which holds edges.
+Therefore, there are three kinds of objects--vertices, edges, and graphs.
+Accordingly, we need three object classes:
+<tt>Vertex</tt>, <tt>Edge</tt>, and <tt>Graph</tt>.
+(See Figure&nbsp;<A HREF="page536.html#figclasses9" tppabs="http://www.brpreiss.com/books/opus4/html/page536.html#figclasses9"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>).
+<P>
+<P><A NAME="49674">&#160;</A><A NAME="figclasses9">&#160;</A> <IMG WIDTH=575 HEIGHT=174 ALIGN=BOTTOM ALT="figure49670" SRC="img2372.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2372.gif"  ><BR>
+<STRONG>Figure:</STRONG> Object Class Hierarchy<BR>
+<P><BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html8540" HREF="page537.html#SECTION0017210000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page537.html#SECTION0017210000000000000000">Implementing Vertices</A>
+<LI> <A NAME="tex2html8541" HREF="page538.html#SECTION0017220000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page538.html#SECTION0017220000000000000000">Implementing Edges</A>
+<LI> <A NAME="tex2html8542" HREF="page539.html#SECTION0017230000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page539.html#SECTION0017230000000000000000">Abstract Graphs and Digraphs</A>
+<LI> <A NAME="tex2html8543" HREF="page543.html#SECTION0017240000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page543.html#SECTION0017240000000000000000">Implementing Undirected Graphs</A>
+<LI> <A NAME="tex2html8544" HREF="page546.html#SECTION0017250000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page546.html#SECTION0017250000000000000000">Edge-Weighted and Vertex-Weighted Graphs</A>
+<LI> <A NAME="tex2html8545" HREF="page547.html#SECTION0017260000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page547.html#SECTION0017260000000000000000">Comparison of Graph Representations</A>
+</UL>
+<HR><A NAME="tex2html8536" HREF="page537.html" tppabs="http://www.brpreiss.com/books/opus4/html/page537.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html8534" HREF="page523.html" tppabs="http://www.brpreiss.com/books/opus4/html/page523.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html8528" HREF="page535.html" tppabs="http://www.brpreiss.com/books/opus4/html/page535.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html8538" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html8539" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

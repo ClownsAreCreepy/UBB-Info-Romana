@@ -1,0 +1,10 @@
+1,Caca,Pute,20.0
+2,Pipi,Mmm,10.0
+3,Mumu,Ceva,5.5
+4,Damn,Uuh,8.3
+5,Soare,Valeu,70.5
+6,Oops,Scuze,10.2
+7,Pupu,Oaua,90.3
+8,Kiki,Kuku,87.7
+9,Mancare,Uuuu,60.4
+10,Apa,Nah,99.9

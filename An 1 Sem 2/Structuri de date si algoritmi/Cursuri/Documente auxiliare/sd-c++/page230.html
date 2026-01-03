@@ -1,0 +1,79 @@
+<HTML>
+<HEAD>
+<TITLE>Chained Scatter Table</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html4757" HREF="page231.html" tppabs="http://www.brpreiss.com/books/opus4/html/page231.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4755" HREF="page229.html" tppabs="http://www.brpreiss.com/books/opus4/html/page229.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4749" HREF="page229.html" tppabs="http://www.brpreiss.com/books/opus4/html/page229.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4759" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4760" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H2><A NAME="SECTION009510000000000000000">Chained Scatter Table</A></H2>
+<P>
+Figure&nbsp;<A HREF="page230.html#fighash2" tppabs="http://www.brpreiss.com/books/opus4/html/page230.html#fighash2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> illustrates a
+<em>chained scatter table</em><A NAME=12036>&#160;</A>.
+The elements of a chained scatter table are ordered pairs.
+Each array element contains a key and a pointer.
+All keys are stored in the table itself.
+Consequently, there is a fixed limit on the number of items
+that can be stored in a scatter table.
+<P>
+<P><A NAME="12410">&#160;</A><A NAME="fighash2">&#160;</A> <IMG WIDTH=575 HEIGHT=380 ALIGN=BOTTOM ALT="figure12037" SRC="img994.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img994.gif"  ><BR>
+<STRONG>Figure:</STRONG> Chained Scatter Table<BR>
+<P>
+<P>
+Since the pointers point to other elements in the array,
+they are implemented as integer-valued array subscripts
+rather than as address-valued pointer variables.
+Since valid array subscripts start from the value zero,
+the <em>null</em> pointer must be represented not as zero,
+but by an integer value that is outside the array bounds.
+<P>
+To find an item in a chained scatter table,
+we begin by hashing that item to determine the location
+from which to begin the search.
+E.g., to find the string <tt>&quot;&#229;tta&quot;</tt>,
+which hashes to the value  <IMG WIDTH=89 HEIGHT=21 ALIGN=MIDDLE ALT="tex2html_wrap_inline62902" SRC="img995.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img995.gif"  >,
+we begin the search in array location  <IMG WIDTH=12 HEIGHT=21 ALIGN=MIDDLE ALT="tex2html_wrap_inline62904" SRC="img996.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img996.gif"  >.
+The item at that location is <tt>&quot;tv&#229;&quot;</tt>,
+which does not match.
+So we follow the pointer in location  <IMG WIDTH=12 HEIGHT=21 ALIGN=MIDDLE ALT="tex2html_wrap_inline62904" SRC="img996.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img996.gif"  >
+to location  <IMG WIDTH=14 HEIGHT=21 ALIGN=MIDDLE ALT="tex2html_wrap_inline62908" SRC="img997.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img997.gif"  >.
+The item there, <tt>&quot;fyra&quot;</tt>, does not match either.
+We follow the pointer again,
+this time to location  <IMG WIDTH=13 HEIGHT=21 ALIGN=MIDDLE ALT="tex2html_wrap_inline62910" SRC="img998.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img998.gif"  > where we ultimately
+find the string we are looking for.
+<P>
+Comparing Figures&nbsp;<A HREF="page223.html#fighash1" tppabs="http://www.brpreiss.com/books/opus4/html/page223.html#fighash1"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> and&nbsp;<A HREF="page230.html#fighash2" tppabs="http://www.brpreiss.com/books/opus4/html/page230.html#fighash2"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+we see that the chained scatter table has embedded within
+it the linked lists which appear
+to be the same as those in the separately chained hash table.
+However, the lists are not exactly identical.
+When using the chained scatter table,
+it is possible for lists to <em>coalesce</em><A NAME=12425>&#160;</A>.
+<P>
+For example, when using separate chaining,
+the keys <tt>&quot;tre&quot;</tt> and <tt>&quot;sju&quot;</tt> appear in a separate
+list from the key <tt>&quot;tolv&quot;</tt>.
+This is because both <tt>&quot;tre&quot;</tt> and <tt>&quot;sju&quot;</tt>
+hash to position  <IMG WIDTH=14 HEIGHT=21 ALIGN=MIDDLE ALT="tex2html_wrap_inline62912" SRC="img999.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img999.gif"  >,
+whereas <tt>&quot;tolv&quot;</tt> hashes to position  <IMG WIDTH=13 HEIGHT=21 ALIGN=MIDDLE ALT="tex2html_wrap_inline62914" SRC="img1000.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img1000.gif"  >.
+The same keys appear together in a single list
+starting at position  <IMG WIDTH=14 HEIGHT=21 ALIGN=MIDDLE ALT="tex2html_wrap_inline62912" SRC="img999.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img999.gif"  >
+in the chained scatter table.
+The two lists have <em>coalesced</em>.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html4761" HREF="page231.html#SECTION009511000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page231.html#SECTION009511000000000000000">Implementation</A>
+<LI> <A NAME="tex2html4762" HREF="page232.html#SECTION009512000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page232.html#SECTION009512000000000000000">Constructors and Destructor</A>
+<LI> <A NAME="tex2html4763" HREF="page233.html#SECTION009513000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page233.html#SECTION009513000000000000000">Inserting and Finding an Item</A>
+<LI> <A NAME="tex2html4764" HREF="page234.html#SECTION009514000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page234.html#SECTION009514000000000000000">Removing Items</A>
+<LI> <A NAME="tex2html4765" HREF="page235.html#SECTION009515000000000000000" tppabs="http://www.brpreiss.com/books/opus4/html/page235.html#SECTION009515000000000000000">Worst-Case Running Time</A>
+</UL>
+<HR><A NAME="tex2html4757" HREF="page231.html" tppabs="http://www.brpreiss.com/books/opus4/html/page231.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4755" HREF="page229.html" tppabs="http://www.brpreiss.com/books/opus4/html/page229.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4749" HREF="page229.html" tppabs="http://www.brpreiss.com/books/opus4/html/page229.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4759" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4760" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,66 @@
+<HTML>
+<HEAD>
+<TITLE>The Minimal Standard Random Number Generator</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html7767" HREF="page474.html" tppabs="http://www.brpreiss.com/books/opus4/html/page474.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7765" HREF="page472.html" tppabs="http://www.brpreiss.com/books/opus4/html/page472.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7759" HREF="page472.html" tppabs="http://www.brpreiss.com/books/opus4/html/page472.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7769" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7770" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION0015511000000000000000">The Minimal Standard Random Number Generator</A></H3>
+<P>
+A great deal of research has gone into the question of finding
+an appropriate set of parameters to use in Lehmer's algorithm.
+A good generator has the following characteristics:
+<UL><LI> It is a <em>full period</em> generator.<LI> The generated sequence passes statistical tests of <em>randomness</em>.<LI> The generator can be implemented efficiently
+	using 32-bit integer arithmetic.
+</UL>
+<P>
+The choice of modulus depends on the arithmetic precision used
+to implement the algorithm.
+A signed 32-bit integer can represent values between  <IMG WIDTH=32 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline69363" SRC="img2012.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2012.gif"  > and  <IMG WIDTH=48 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline69365" SRC="img2013.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2013.gif"  >.
+Fortunately, the quantity  <IMG WIDTH=158 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69367" SRC="img2014.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2014.gif"  >
+is a prime number!<A NAME="tex2html907" HREF="footnode.html#34152" tppabs="http://www.brpreiss.com/books/opus4/html/footnode.html#34152"><IMG  ALIGN=BOTTOM ALT="gif" SRC="foot_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/foot_motif.gif"></A>
+Therefore, it is an excellent choice for the modulus <I>m</I>.
+<P>
+Because Equation&nbsp;<A HREF="page472.html#eqnalgsmcrng" tppabs="http://www.brpreiss.com/books/opus4/html/page472.html#eqnalgsmcrng"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> is slightly simpler than Equation&nbsp;<A HREF="page472.html#eqnalgslcrng" tppabs="http://www.brpreiss.com/books/opus4/html/page472.html#eqnalgslcrng"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>,
+we choose to implement a multiplicative congruential generator (<I>c</I>=0).
+The choice of a suitable multiplier is more difficult.
+However, a popular choice is  <IMG WIDTH=72 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline69375" SRC="img2016.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2016.gif"  >
+because it satisfies all three criteria given above:
+It results in a full period random number generator;
+the generated sequence passes a wide variety of statistical tests
+for randomness; and
+it is possible to compute Equation&nbsp;<A HREF="page472.html#eqnalgsmcrng" tppabs="http://www.brpreiss.com/books/opus4/html/page472.html#eqnalgsmcrng"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A>
+using 32-bit arithmetic without overflow.
+<P>
+The algorithm is derived as follows:
+First, let  <IMG WIDTH=79 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline69377" SRC="img2017.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2017.gif"  > and  <IMG WIDTH=90 HEIGHT=11 ALIGN=BOTTOM ALT="tex2html_wrap_inline69379" SRC="img2018.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2018.gif"  >.<A NAME="tex2html908" HREF="footnode.html#33980" tppabs="http://www.brpreiss.com/books/opus4/html/footnode.html#33980"><IMG  ALIGN=BOTTOM ALT="gif" SRC="foot_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/foot_motif.gif"></A>
+In this case,  <IMG WIDTH=79 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline69385" SRC="img2021.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2021.gif"  >,  <IMG WIDTH=63 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline69387" SRC="img2022.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2022.gif"  > and <I>r</I><I>&lt;</I><I>q</I>.
+<P>
+Next, we rewrite Equation&nbsp;<A HREF="page472.html#eqnalgsmcrng" tppabs="http://www.brpreiss.com/books/opus4/html/page472.html#eqnalgsmcrng"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> as follows:
+<P> <IMG WIDTH=500 HEIGHT=62 ALIGN=BOTTOM ALT="eqnarray33982" SRC="img2023.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2023.gif"  ><P>
+This somewhat complicated formula can be simplified
+if we let  <IMG WIDTH=201 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69391" SRC="img2024.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2024.gif"  >:
+<P> <IMG WIDTH=500 HEIGHT=63 ALIGN=BOTTOM ALT="eqnarray33985" SRC="img2025.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2025.gif"  ><P>
+<P>
+Finally, we make use of the fact that <I>m</I>=<I>aq</I>-<I>r</I> to get
+<P><A NAME="eqnalgsschrage">&#160;</A> <IMG WIDTH=500 HEIGHT=16 ALIGN=BOTTOM ALT="equation33988" SRC="img2026.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2026.gif"  ><P>
+<P>
+Equation&nbsp;<A HREF="page473.html#eqnalgsschrage" tppabs="http://www.brpreiss.com/books/opus4/html/page473.html#eqnalgsschrage"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> has several nice properties:
+Both  <IMG WIDTH=86 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69395" SRC="img2027.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2027.gif"  > and  <IMG WIDTH=72 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69397" SRC="img2028.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2028.gif"  >
+are positive integers between 0 and <I>m</I>-1.
+Therefore the difference  <IMG WIDTH=169 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69403" SRC="img2029.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2029.gif"  >
+can be represented using a signed 32-bit integer without overflow.
+Finally,  <IMG WIDTH=37 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69405" SRC="img2030.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2030.gif"  > is either a zero or a one.
+Specifically, it is zero when the sum of the first two terms
+in Equation&nbsp;<A HREF="page473.html#eqnalgsschrage" tppabs="http://www.brpreiss.com/books/opus4/html/page473.html#eqnalgsschrage"><IMG  ALIGN=BOTTOM ALT="gif" SRC="cross_ref_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cross_ref_motif.gif"></A> is negative and it is one when the sum is positive.
+As a result, it is not necessary to compute  <IMG WIDTH=37 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline69405" SRC="img2030.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img2030.gif"  >--a simple test suffices to determine whether the third term is 0 or <I>m</I>.
+<P>
+<HR><A NAME="tex2html7767" HREF="page474.html" tppabs="http://www.brpreiss.com/books/opus4/html/page474.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html7765" HREF="page472.html" tppabs="http://www.brpreiss.com/books/opus4/html/page472.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html7759" HREF="page472.html" tppabs="http://www.brpreiss.com/books/opus4/html/page472.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html7769" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html7770" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>

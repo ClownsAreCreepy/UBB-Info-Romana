@@ -1,0 +1,36 @@
+<HTML>
+<HEAD>
+<TITLE>Spreading Keys Evenly</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+ <img src="cover75.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/cover75.gif" alt="Logo" align=right>
+<b>Data Structures and Algorithms 
+with Object-Oriented Design Patterns in C++</b><br>
+<A NAME="tex2html4485" HREF="page209.html" tppabs="http://www.brpreiss.com/books/opus4/html/page209.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4483" HREF="page206.html" tppabs="http://www.brpreiss.com/books/opus4/html/page206.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4477" HREF="page207.html" tppabs="http://www.brpreiss.com/books/opus4/html/page207.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4487" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4488" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <BR><HR>
+<H3><A NAME="SECTION009112000000000000000">Spreading Keys Evenly</A></H3>
+<P>
+Let  <IMG WIDTH=13 HEIGHT=14 ALIGN=MIDDLE ALT="tex2html_wrap_inline58415" SRC="img85.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img85.gif"  > be the probability that the hash function  <IMG WIDTH=52 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline62210" SRC="img877.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img877.gif"  >.
+A hash function which spreads keys evenly has the property that
+for  <IMG WIDTH=71 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline62212" SRC="img878.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img878.gif"  >,  <IMG WIDTH=67 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline62214" SRC="img879.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img879.gif"  >
+In other words,
+the hash values computed by the function  <IMG WIDTH=24 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline59195" SRC="img264.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img264.gif"  >
+are <em>uniformly distributed</em><A NAME=11200>&#160;</A>.
+Unfortunately,
+in order to say something about the distribution of the hash values,
+we need to know something about the distribution of the keys.
+<P>
+In the absence of any information to the contrary,
+we assume that the keys are equiprobable.
+Let  <IMG WIDTH=16 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline62218" SRC="img880.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img880.gif"  > be the set of keys that map to the value <I>i</I>.
+I.e.,  <IMG WIDTH=167 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline62222" SRC="img881.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img881.gif"  >.
+If this is the case,
+the requirement to spread the keys uniformly implies that   <IMG WIDTH=94 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline62224" SRC="img882.gif" tppabs="http://www.brpreiss.com/books/opus4/html/img882.gif"  >.
+An equal number of keys should map into each array position.
+<P>
+<HR><A NAME="tex2html4485" HREF="page209.html" tppabs="http://www.brpreiss.com/books/opus4/html/page209.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/next_motif.gif"></A> <A NAME="tex2html4483" HREF="page206.html" tppabs="http://www.brpreiss.com/books/opus4/html/page206.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/up_motif.gif"></A> <A NAME="tex2html4477" HREF="page207.html" tppabs="http://www.brpreiss.com/books/opus4/html/page207.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/previous_motif.gif"></A> <A NAME="tex2html4487" HREF="page9.html" tppabs="http://www.brpreiss.com/books/opus4/html/page9.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/contents_motif.gif"></A> <A NAME="tex2html4488" HREF="page620.html" tppabs="http://www.brpreiss.com/books/opus4/html/page620.html"><IMG WIDTH=43 HEIGHT=24 ALIGN=BOTTOM ALT="index" SRC="index_motif.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/index_motif.gif"></A> <P><ADDRESS>
+<img src="bruno.gif" tppabs="http://www.brpreiss.com/books/opus4/icons/bruno.gif" alt="Bruno" align=right>
+<a href="copyright.html" tppabs="http://www.brpreiss.com/books/opus4/copyright.html">Copyright &#169; 1997</a> by <a href="signature.html" tppabs="http://www.brpreiss.com/books/opus4/signature.html">Bruno R. Preiss, P.Eng.</a>  All rights reserved.
+
+</ADDRESS>
+</BODY>
+</HTML>
