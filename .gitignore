@@ -1,0 +1,25 @@
+# ide/editor
+.idea/
+.vscode/
+*.iml
+
+# os junk
+.DS_Store
+Thumbs.db
+
+# build/artifacts
+bin/
+obj/
+out/
+build/
+dist/
+
+# logs/temp
+*.log
+tmp/
+temp/
+
+# node/python (if you have them anywhere)
+node_modules/
+__pycache__/
+.venv/
