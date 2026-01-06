@@ -1,0 +1,6 @@
+SDA:
+1. scrieti un subalgoritm resucrisv cu complexitate favorabila theta(n) si defavorabila theta(n^3) 
+2. 1 se da o tabela de dispersie cu liste interpatrunse si dispersia prin diviziune, dupa aia sa stergi o anumita cheie
+   2. 2 sa exemplific o simpla rotatie la dreapta nevoita dupa stergerea unui nod dintr un AVL
+  3. 4 grile
+4. subalgoritm stergere coada cu prioritati, reprezentare ansamblu cuaternar, sa stergi al treilea element cel mai prioritar
