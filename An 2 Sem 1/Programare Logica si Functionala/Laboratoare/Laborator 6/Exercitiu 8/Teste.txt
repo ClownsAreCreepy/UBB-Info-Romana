@@ -1,0 +1,4 @@
+Teste:
+1. (A (B) (C (D) (E))) -> (B A D C E)
+2. (A (B (C) ()) (D (E (F) (G)) ())) -> (C B A F E G D)
+3. (A (B (D) (C () (E))) () ) -> (D B C E A)

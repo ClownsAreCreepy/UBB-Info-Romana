@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="scs.ui.controllers.ProfileController"
+           style="-fx-background-color: #f0f2f5">
+
+    <VBox alignment="TOP_CENTER" maxWidth="400" maxHeight="500" spacing="20"
+          style="-fx-background-color: white; -fx-background-radius: 15; -fx-padding: 30;">
+
+        <effect>
+            <DropShadow color="#00000020" radius="10" spread="0.1"/>
+        </effect>
+
+        <VBox alignment="CENTER" spacing="10">
+            <StackPane>
+                <Circle fx:id="avatarCircle" radius="50" fill="#34495e" stroke="WHITE" strokeWidth="3"/>
+                <Label fx:id="initialsLabel" text="U" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="24.0"/>
+                    </font>
+                </Label>
+            </StackPane>
+
+            <Label fx:id="usernameLabel" text="Username" textFill="#2c3e50">
+                <font>
+                    <Font name="System Bold" size="24.0"/>
+                </font>
+            </Label>
+
+                <Label fx:id="typeBadge" text="Unknown Entity"
+                       style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-padding: 5 15; -fx-background-radius: 20; -fx-font-weight: bold;"/>
+        </VBox>
+
+        <VBox alignment="CENTER" spacing="10">
+            <Label fx:id="relationBadge" visible="false" managed="false"
+                   style="-fx-font-size: 10px; -fx-font-weight: bold; -fx-padding: 3 8; -fx-border-radius: 10; -fx-background-radius: 10; -fx-border-width: 1;"/>
+
+            <HBox fx:id="accountActionsBox" alignment="CENTER" spacing="10" visible="false" managed="false">
+                <Button fx:id="btnLogout" text="Log Out" onAction="#onLogout"
+                        style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;"/>
+                <Button fx:id="btnDelete" text="Delete Account" onAction="#onDeleteAccount"
+                        style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;"/>
+            </HBox>
+        </VBox>
+
+        <Separator/>
+
+        <GridPane fx:id="vitalsGrid" hgap="20" vgap="15" alignment="CENTER">
+            <columnConstraints>
+                <ColumnConstraints halignment="RIGHT" minWidth="100"/>
+                <ColumnConstraints halignment="LEFT" minWidth="150"/>
+            </columnConstraints>
+        </GridPane>
+
+        <Region VBox.vgrow="ALWAYS"/>
+
+        <Separator/>
+
+        <VBox spacing="5" alignment="CENTER">
+            <Label text="CONTACT INFO" style="-fx-font-size: 10px; -fx-text-fill: #95a5a6; -fx-font-weight: bold;"/>
+            <Label fx:id="emailLabel" text="user@example.com" textFill="#7f8c8d">
+                <font>
+                    <Font size="14.0"/>
+                </font>
+            </Label>
+        </VBox>
+
+    </VBox>
+</StackPane>

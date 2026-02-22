@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="20" alignment="CENTER" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="ui.MainController">
+
+    <Label text="Duck Social Network" style="-fx-font-size: 26px;"/>
+
+    <Button text="List Users" onAction="#onListUsers"/>
+    <Button text="Show Communities" onAction="#onShowCommunities"/>
+    <Button text="Exit" onAction="#onExit"/>
+</VBox>

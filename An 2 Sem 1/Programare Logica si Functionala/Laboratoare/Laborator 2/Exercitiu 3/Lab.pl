@@ -1,0 +1,58 @@
+% is_in(E: Intreg, L: Lista de Intreg)
+% model de flux: is_in(i,i)
+% L - Lista in care cautam
+% E - Valoarea pe care o cautam
+
+is_in(E, [E|_]):- !.
+
+is_in(E, [_|T]):-
+    is_in(E, T).
+
+
+% multime_acc(L: Lista de Intreg, Seen: Lista de Intreg, R: Lista de
+% intreg)
+% model de flux: multime_acc(i,i,o)
+% L - Lista care o transformam in multime
+% Seen - Lista care contine elementele pe care le-am vazut deja
+% R - Lista de tip multime cu elementele lui L
+
+multime_acc([], _, []):- !.
+
+multime_acc([H|T], Seen, R):-
+    is_in(H,Seen),
+    multime_acc(T, Seen, R),
+    !.
+
+multime_acc([H|T],Seen, [H|R]):-
+    multime_acc(T, [H|Seen], R).
+
+
+% multime(L: Lista de Intreg, R: Lista de Intreg)
+% model de flux: multime(i, o)
+% L - Lista pe care o transformam in multime
+% R - Lista de tip multime cu elementele lui L
+
+multime(L, R):-
+    multime_acc(L, [], R).
+
+
+
+% par_impar(L: Lista de Intreg, P: Lista de Intreg, I: Lista de Intreg,
+% CP: Intreg, CI: Intreg)
+% model de flux: par_impar(i, o, o, o, o)
+% L - Lista de unde luam elementele
+% P - Lista cu elementele pare
+% I - Lista cu elementele impare
+% CP - Numarul de elemente pare
+% CI - Numarul de elemente impare
+
+par_impar([], [], [], 0, 0):- !.
+
+par_impar([H|T], [H|P], I, CPP, CI):-
+    H mod 2 =:= 0, !,
+    par_impar(T, P, I, CP, CI),
+    CPP is CP + 1.
+
+par_impar([H|T], P, [H|I], CP, CIP):-
+    par_impar(T, P, I, CP, CI),
+    CIP is CI + 1.

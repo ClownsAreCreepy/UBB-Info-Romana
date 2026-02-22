@@ -1,0 +1,2781 @@
+package scs.ui.controllers.logins;
+
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleButton;
+import scs.domain.user.User;
+import scs.service.social.UserService;
+
+import java.io.IOException;
+
+public class LoginController {
+    @FXML
+    private TextField emailField;
+    @FXML
+    private PasswordField passHiddenField;
+    @FXML
+    private TextField passTextField;
+    @FXML
+    private ToggleButton togglePassBtn;
+    @FXML
+    private Label errorLabel;
+
+    private UserService userService;
+    private LoginAction onLoginSuccess;
+
+    public interface LoginAction {
+        void onLogin(User user);
+    }
+
+    public void setService(UserService service, LoginAction action) {
+        this.userService = service;
+        this.onLoginSuccess = action;
+
+        passHiddenField.textProperty().bindBidirectional(passTextField.textProperty());
+    }
+
+    @FXML
+    public void onLogin() {
+        String email = emailField.getText();
+        String pass = passHiddenField.getText();
+
+        try {
+            User user = userService.login(email, pass);
+            errorLabel.setVisible(false);
+
+            if (onLoginSuccess != null)
+                onLoginSuccess.onLogin(user);
+        } catch (Exception e) {
+            errorLabel.setText(e.getMessage());
+            errorLabel.setVisible(true);
+            // System.out.println(e.getMessage());
+        }
+    }
+
+    @FXML
+    public void onTogglePassword() {
+        boolean show = togglePassBtn.isSelected();
+
+        passHiddenField.setVisible(!show);
+        passHiddenField.setManaged(!show);
+
+        passTextField.setVisible(show);
+        passTextField.setManaged(show);
+    }
+
+    @FXML
+    public void onGoToSignUp() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/scs/side-views/logins/signup-view.fxml"));
+            Parent root = loader.load();
+
+            SignUpController ctrl = loader.getController();
+            ctrl.setService(userService, onLoginSuccess);
+
+            emailField.getScene().setRoot(root);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+package scs.ui.controllers.logins;
+
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import scs.domain.user.User;
+import scs.service.social.UserService;
+import scs.ui.controllers.logins.LoginController.LoginAction;
+
+import javafx.fxml.FXML;
+import javafx.scene.control.*;
+import javafx.scene.layout.VBox;
+import scs.utilities.errors.ValidationException;
+
+import java.io.IOException;
+import java.time.LocalDate;
+
+public class SignUpController {
+    @FXML
+    private ComboBox<String> typeSelector;
+    @FXML
+    private TextField usernameField;
+    @FXML
+    private TextField emailField;
+    @FXML
+    private PasswordField passHidden;
+    @FXML
+    private TextField passText;
+
+    @FXML
+    private VBox personFields;
+    @FXML
+    private TextField firstNameField;
+    @FXML
+    private TextField lastNameField;
+    @FXML
+    private TextField jobField;
+    @FXML
+    private DatePicker birthDate;
+
+    @FXML
+    private VBox duckFields;
+    @FXML
+    private TextField speedField;
+    @FXML
+    private TextField resistanceField;
+    @FXML
+    private ComboBox<String> duckSpeciesSelector;
+
+    @FXML
+    private Label errorLabel;
+
+    private UserService userService;
+    private LoginAction onLoginSuccess;
+
+    public void setService(UserService service, LoginAction action) {
+        this.userService = service;
+        this.onLoginSuccess = action;
+    }
+
+    @FXML
+    public void initialize() {
+        typeSelector.setOnAction(e -> {
+            boolean isPerson = typeSelector.getValue().equals("Person");
+
+            personFields.setVisible(isPerson);
+            personFields.setManaged(isPerson);
+
+            duckFields.setVisible(!isPerson);
+            duckFields.setManaged(!isPerson);
+        });
+
+        passHidden.textProperty().bindBidirectional(passText.textProperty());
+    }
+
+    @FXML
+    public void onRegister() {
+        try {
+            String username = usernameField.getText();
+            String email = emailField.getText();
+            String pass = passHidden.getText();
+            String type = typeSelector.getValue();
+
+            User newUser;
+
+            if (type.equals("Person")) {
+                String first = firstNameField.getText();
+                String last = lastNameField.getText();
+                String job = jobField.getText();
+                LocalDate dob = birthDate.getValue();
+
+                newUser = userService.createPerson(username, email, pass, last, first, dob, job);
+            } else {
+                double speed = Double.parseDouble(speedField.getText());
+                double res = Double.parseDouble(resistanceField.getText());
+                String species = duckSpeciesSelector.getValue();
+
+                if (species == null)
+                    throw new ValidationException("duck type", "Please select a species");
+
+                newUser = switch (species) {
+                    case "SWIMMING" -> userService.createSwimmingDuck(username, email, pass, speed, res);
+                    case "FLYING" -> userService.createFlyingDuck(username, email, pass, speed, res);
+                    default -> userService.createHybridDuck(username, email, pass, speed, res);
+                };
+            }
+
+            if (onLoginSuccess != null)
+                onLoginSuccess.onLogin(newUser);
+        } catch (NumberFormatException e) {
+            errorLabel.setText("Speed and Resistance must be a valid number.");
+            errorLabel.setVisible(true);
+        } catch (Exception e) {
+            errorLabel.setText("Error: " + e.getMessage());
+            errorLabel.setVisible(true);
+        }
+    }
+
+    @FXML
+    public void onTogglePassword() {
+        boolean show = !passHidden.isVisible();
+
+        passHidden.setVisible(show);
+        passHidden.setManaged(show);
+
+        passText.setVisible(!show);
+        passText.setManaged(!show);
+    }
+
+    @FXML
+    public void onGoToLogin() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/scs/side-views/logins/login-view.fxml"));
+            Parent root = loader.load();
+
+            LoginController ctrl = loader.getController();
+            ctrl.setService(userService, onLoginSuccess);
+
+            usernameField.getScene().setRoot(root);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+package scs.ui.controllers;
+
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
+import scs.domain.user.*;
+import scs.service.social.UserService;
+import scs.ui.controllers.logins.LoginController;
+
+import java.io.IOException;
+import java.util.Optional;
+
+public class ProfileController {
+    @FXML
+    private Label initialsLabel;
+    @FXML
+    private Circle avatarCircle;
+    @FXML
+    private Label usernameLabel;
+    @FXML
+    private Label typeBadge;
+    @FXML
+    private GridPane vitalsGrid;
+    @FXML
+    private Label emailLabel;
+    @FXML
+    private Label relationBadge;
+    @FXML
+    private HBox accountActionsBox;
+    @FXML
+    private Button btnLogout;
+    @FXML
+    private Button btnDelete;
+
+
+    private User currentUser;
+    private UserService userService;
+    private Runnable logoutHandler;
+
+    public void setContext(User user, UserService service, Runnable logoutHandler) {
+        this.currentUser = user;
+        this.userService = service;
+        this.logoutHandler = logoutHandler;
+        updateUI();
+    }
+
+    public void updateUI() {
+        if (currentUser == null)
+            return;
+
+        usernameLabel.setText(currentUser.getUsername());
+        emailLabel.setText(currentUser.getEmail());
+
+        setAvatar(currentUser);
+
+        vitalsGrid.getChildren().clear();
+
+        if (currentUser instanceof Person p)
+            setupPersonUi(p);
+        else if (currentUser instanceof Duck d)
+            setupDuckUI(d);
+    }
+
+    private void setupPersonUi(Person p) {
+        typeBadge.setText("\uD83D\uDC64 PERSON"); // 👤
+        typeBadge.setStyle("-fx-background-color: #3498db; -fx-text-fill: white; -fx-padding: 5 15; -fx-background-radius: 20; -fx-font-weight: bold;");
+
+        addVitalRow(0, "Full Name", p.getFullName());
+        addVitalRow(1, "Occupation", p.getOccupation());
+        addVitalRow(2, "Age", p.getAge() + " years old");
+    }
+
+    private void setupDuckUI(Duck d) {
+        String badgeText = "\uD83E\uDD86 DUCK"; // 🦆
+        String color = "#27ae60";
+
+        if (d instanceof FlyingDuck) {
+            badgeText += " (FLYING)";
+            color = "#e67e22";
+        } else if (d instanceof SwimmingDuck) {
+            badgeText += " (SWIMMING)";
+            color = "#2980b9";
+        } else if (d instanceof HybridDuck) {
+            badgeText += " (HYBRID";
+            color = "#8e44ad";
+        }
+
+        typeBadge.setText(badgeText);
+        typeBadge.setStyle("-fx-background-color: " + color + "; -fx-text-fill: white; -fx-padding: 5 15; -fx-background-radius: 20; -fx-font-weight: bold;");
+
+        addVitalRow(0, "Speed", String.format("%.1f km/h", d.getSpeed()));
+        addVitalRow(1, "Resistance", String.format("%.1f", d.getResistance()));
+    }
+
+    private void addVitalRow(int row, String labelText, String valueText) {
+        Label label = new Label(labelText + ":");
+        label.setStyle("-fx-font-weight: bold; -fx-text-fill: #7f8c8d");
+
+        Label value = new Label(valueText);
+        value.setStyle("-fx-text-fill: #2c3e50; -fx-font-size: 14px;");
+
+        vitalsGrid.add(label, 0, row);
+        vitalsGrid.add(value, 1, row);
+    }
+
+    private void setAvatar(User user) {
+        String name = user.getUsername();
+        if (name != null && !name.isEmpty())
+            initialsLabel.setText(name.substring(0, 1).toUpperCase());
+
+        String colorHex = "#95a5a6";
+
+        if (user instanceof Person)
+            colorHex = "#3498db";
+        else if (user instanceof Duck d)
+            if (d instanceof FlyingDuck)
+                colorHex = "#e67e22";
+            else if (d instanceof SwimmingDuck)
+                colorHex = "#2980b9";
+            else if (d instanceof HybridDuck)
+                colorHex = "#8e44ad";
+            else
+                colorHex = "#27ae60";
+
+        avatarCircle.setFill(Color.web(colorHex));
+    }
+
+    public void setRelationStatus(boolean isMe, boolean isFriend) {
+        if (isMe) {
+            relationBadge.setVisible(false);
+            relationBadge.setManaged(false);
+
+            if (accountActionsBox != null) {
+                accountActionsBox.setVisible(true);
+                accountActionsBox.setManaged(true);
+            }
+
+//            relationBadge.setText("IT'S YOU");
+//            relationBadge.setStyle("-fx-text-fill: #7f8c8d; -fx-border-color: #7f8c8d; -fx-border-radius: 10; -fx-padding: 3 8;");
+//            relationBadge.setVisible(true);
+//            relationBadge.setVisible(true);
+        } else {
+            if (accountActionsBox != null) {
+                accountActionsBox.setVisible(false);
+                accountActionsBox.setManaged(false);
+            }
+
+            relationBadge.setVisible(true);
+            relationBadge.setManaged(true);
+
+            if (isFriend) {
+                relationBadge.setText("FRIEND");
+                relationBadge.setStyle("-fx-text-fill: #27ae60; -fx-border-color: #27ae60; -fx-border-radius: 10; -fx-padding: 3 8;");
+            } else {
+                relationBadge.setText("STRANGER");
+                relationBadge.setStyle("-fx-text-fill: #e67e22; -fx-border-color: #e67e22; -fx-border-radius: 10; -fx-padding: 3 8;");
+            }
+        }
+    }
+
+    @FXML public void onLogout() {
+        if (confirmAction("Log Out", "Are you sure you want to log out?"))
+            if (logoutHandler != null)
+                logoutHandler.run();
+    }
+
+    @FXML public void onDeleteAccount() {
+        if (confirmAction("Delete Account", "WARNING: This cannot be undone. Are you sure?")) {
+            try {
+                userService.deleteUser(currentUser.getId());
+                if (logoutHandler != null)
+                    logoutHandler.run();
+            } catch (Exception e) {
+                new Alert(Alert.AlertType.ERROR, "Could not delete accound: " + e.getMessage()).show();
+            }
+        }
+    }
+
+    private boolean confirmAction(String title, String content) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+
+        Optional<ButtonType> result = alert.showAndWait();
+        return result.isPresent() && result.get() == ButtonType.OK;
+    }
+}
+
+package scs.ui.controllers.race;
+
+import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.fxml.FXML;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import scs.domain.event.Event;
+import scs.domain.user.User;
+import scs.service.EventService;
+import scs.service.social.UserService;
+import scs.utilities.events.EntityChangeEvent;
+import scs.utilities.observer.Observer;
+
+import java.util.List;
+
+public class EventController implements Observer<EntityChangeEvent<Event>> {
+    @FXML private FlowPane eventsGrid;
+    @FXML private TextField newEventName;
+
+    private Stage activePopupStage;
+    private ListView<String> activePopupList;
+    private Long activePopupEventId;
+
+    private EventService eventService;
+    private UserService userService;
+    private User currentUser;
+
+    public void setServices(EventService es, UserService us, User user) {
+        this.eventService = es;
+        this.userService = us;
+        this.currentUser = user;
+
+        this.eventService.addObserver(this);
+
+        refreshGrid();
+    }
+
+    @Override
+    public void update(EntityChangeEvent<Event> event) {
+        Platform.runLater(() -> {
+            Event e = event.data();
+            switch (event.type()) {
+                case ADD:
+                    addCardToGrid(e);
+                    break;
+                case DELETE:
+                    removeCardFromGrid(e.getId());
+                    break;
+                case UPDATE:
+                    updateCardInGrid(e);
+                    break;
+            }
+        });
+    }
+
+    private void refreshGrid() {
+        eventsGrid.getChildren().clear();
+
+        for (Event event : eventService.getAll()) {
+            VBox card = createEventCard(event);
+            eventsGrid.getChildren().add(card);
+        }
+    }
+
+    private Node findCardById(Long id) {
+        for (Node node : eventsGrid.getChildren())
+            if (id.equals(node.getUserData()))
+                return node;
+        return null;
+    }
+
+    private void addCardToGrid(Event event) {
+        if (findCardById(event.getId()) != null)
+            return;
+
+        VBox card = createEventCard(event);
+        eventsGrid.getChildren().add(card);
+    }
+
+    private void removeCardFromGrid(Long id) {
+        Node target = findCardById(id);
+        if (target != null)
+            eventsGrid.getChildren().remove(target);
+
+        if (id.equals(activePopupEventId) && activePopupStage != null)
+            activePopupStage.close();
+    }
+
+    private void updateCardInGrid(Event event) {
+        Node target = findCardById(event.getId());
+        if (target != null){
+            int index = eventsGrid.getChildren().indexOf(target);
+            VBox newCard = createEventCard(event);
+            eventsGrid.getChildren().set(index, newCard);
+        } else
+            addCardToGrid(event);
+
+        if (event.getId().equals(activePopupEventId))
+            refreshActivePopup(event);
+    }
+
+    private VBox createEventCard(Event event) {
+        // Card look
+        VBox card = new VBox(10);
+        card.setPrefSize(200, 150);
+        card.setStyle("-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 15;");
+        card.setAlignment(Pos.CENTER);
+
+        card.setUserData(event.getId());
+
+        // Shadow Effect
+        DropShadow shadow = new DropShadow();
+        shadow.setColor(Color.gray(0.2, 0.3));
+        shadow.setRadius(10);
+        card.setEffect(shadow);
+
+        // Name
+        Label nameLbl = new Label(event.getName());
+        nameLbl.setFont(Font.font("System Bold", 18));
+        nameLbl.setWrapText(true);
+        nameLbl.setAlignment(Pos.CENTER);
+
+        // Subscriber count
+        int subCount = event.getSubscribers().size();
+        Hyperlink subLink = new Hyperlink(subCount + " Subscribers");
+        subLink.setStyle("-fx-text-fill: #3498db; -fx-font-size: 12px; -fx-border-color: transparent;");
+
+        subLink.setOnAction(e -> showSubscribersPopup(event));
+
+
+        // Smart Button
+        Button actionBtn = new Button();
+        boolean isSubscribed = event.getSubscribers().contains(currentUser.getId());
+
+        if (isSubscribed) {
+            actionBtn.setText("Unsubscribe");
+            actionBtn.setStyle("-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;");
+            actionBtn.setOnAction(e -> handleUnsubscribe(event));
+        } else {
+            actionBtn.setText("Subscribe");
+            actionBtn.setStyle("-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;");
+            actionBtn.setOnAction(e -> handleSubscribe(event));
+        }
+
+        actionBtn.setMaxWidth(Double.MAX_VALUE);
+
+        card.getChildren().addAll(nameLbl, subLink, actionBtn);
+        return card;
+    }
+
+    private void showSubscribersPopup(Event event) {
+        if (activePopupStage != null) activePopupStage.close();
+
+        activePopupEventId = event.getId();
+        activePopupStage = new Stage();
+        activePopupStage.initModality(Modality.NONE);
+        activePopupStage.setTitle("Subscribers: " + event.getName());
+
+        activePopupStage.setOnHidden(e -> {
+            activePopupStage = null;
+            activePopupList = null;
+            activePopupEventId = null;
+        });
+
+        VBox layout = new VBox(10);
+        layout.setPadding(new Insets(15));
+        layout.setStyle("-fx-background-color: white;");
+
+        Label header = new Label("Who is watching?");
+        header.setFont(Font.font("System Bold", 14));
+
+        activePopupList = new ListView<>();
+        activePopupList.setPrefHeight(200);
+
+        refreshActivePopup(event);
+
+        layout.getChildren().addAll(header, activePopupList);
+
+        activePopupStage.setScene(new Scene(layout, 250, 300));
+        activePopupStage.show();
+    }
+
+    private void refreshActivePopup(Event freshEvent) {
+        if (activePopupList == null)
+            return;
+
+        List<String> names = freshEvent.getSubscribers().stream()
+                .map(id -> {
+                    User u = userService.findById(id);
+                    return u != null ? u.getUsername() : "Unknown ID: " + id;
+                })
+                .toList();
+
+        activePopupList.setItems(FXCollections.observableArrayList(names));
+    }
+
+    private void handleSubscribe(Event event) {
+        try {
+            eventService.subscribe(event.getId(), currentUser.getId());
+        } catch (Exception e) {
+            showAlert("Failed to subscribe: " + e.getMessage());
+        }
+    }
+
+    private void handleUnsubscribe(Event event) {
+        try {
+            eventService.unsubscribe(event.getId(), currentUser.getId());
+        } catch (Exception e) {
+            showAlert("Failed to unsubscribe: " + e.getMessage());
+        }
+    }
+
+    private void showAlert(String msg){
+        new Alert(Alert.AlertType.ERROR, msg).show();
+    }
+
+    @FXML
+    public void onCreateEvent() {
+        String name = newEventName.getText();
+        if (name.isBlank())
+            return;
+
+        try {
+            Event newEvent = eventService.createEvent(name);
+            eventService.subscribe(newEvent.getId(), currentUser.getId());
+            newEventName.clear();
+        } catch (Exception ex) {
+            showAlert("Error: " + ex.getMessage());
+        }
+    }
+
+    public void cleanup() {
+        if (eventService != null)
+            eventService.removeObserver(this);
+    }
+}
+
+//    @FXML
+//    public void onDeleteEvent() {
+//        Event selected = eventSelector.getValue();
+//
+//        try {
+//            eventService.deleteEvent(selected.getId());
+//            refreshEventCombo();
+//        } catch (Exception ex) {
+//            showAlert("Error: " + ex.getMessage());
+//        }
+//    }
+//
+//    @FXML
+//    public void onSubscribe() {
+//        Event selectedEvent = eventSelector.getValue();
+//        User selectedUser = availableList.getSelectionModel().getSelectedItem();
+//
+//        if (selectedEvent == null || selectedUser == null)
+//            return;
+//
+//        long currentEvent = selectedEvent.getId();
+//
+//        try {
+//            eventService.subscribe(selectedEvent.getId(), selectedUser.getId());
+//
+//            // reset
+//            refreshEventCombo();
+//            restoreSelection(currentEvent);
+//        } catch (Exception ex) {
+//            showAlert("Error: " + ex.getMessage());
+//        }
+//    }
+//
+//    @FXML
+//    public void onUnsubscribe() {
+//        Event selectedEvent = eventSelector.getValue();
+//        User selectedUser = subscribedList.getSelectionModel().getSelectedItem();
+//
+//        long currentEvent = selectedEvent.getId();
+//
+//        try {
+//            eventService.unsubscribe(selectedEvent.getId(), selectedUser.getId());
+//
+//            // reset
+//            refreshEventCombo();
+//            restoreSelection(currentEvent);
+//        } catch (Exception ex) {
+//            showAlert("Error: " + ex.getMessage());
+//        }
+//    }
+//
+//    private void refreshEventCombo() {
+//        eventSelector.setItems(FXCollections.observableArrayList(eventService.getAll()));
+//    }
+//
+//    private void loadLists(Event event) {
+//        // Get fresh event data
+//        Event freshEvent = eventService.findById(event.getId());
+//        Set<Long> subIds = freshEvent.getSubscribers();
+//
+//        // Get users
+//        List<User> allUsers = userService.getAll();
+//
+//        // Split into 2 buckets
+//        List<User> subs = allUsers.stream()
+//                .filter(u -> subIds.contains(u.getId()))
+//                .toList();
+//
+//        List<User> avail = allUsers.stream()
+//                .filter(u -> !subIds.contains(u.getId()))
+//                .toList();
+//
+//        // Update UI
+//        subscribedList.setItems(FXCollections.observableArrayList(subs));
+//        availableList.setItems(FXCollections.observableArrayList(avail));
+//    }
+//
+//    private void restoreSelection(long eventId){
+//        for(Event e : eventSelector.getItems())
+//            if (e.getId() == eventId) {
+//                eventSelector.getSelectionModel().select(e);
+//                return;
+//            }
+//    }
+package scs.ui.controllers.race;
+
+import javafx.application.Platform;
+import javafx.collections.ObservableList;
+import javafx.scene.control.*;
+import scs.domain.group.Herd;
+import scs.domain.group.Performance;
+import scs.domain.user.Duck;
+import scs.domain.user.User;
+import scs.service.HerdService;
+import scs.utilities.events.EntityChangeEvent;
+import scs.utilities.observer.Observer;
+
+import javafx.fxml.FXML;
+import javafx.scene.layout.VBox;
+import javafx.collections.FXCollections;
+import javafx.concurrent.Task;
+
+public class HerdController implements Observer<EntityChangeEvent<Herd<Duck>>> {
+    @FXML
+    private ListView<Herd<Duck>> herdList;
+    @FXML
+    private TextField newHerdName;
+    @FXML
+    private VBox detailsBox;
+    @FXML
+    private Label lblHerdName;
+    @FXML
+    private Label lblStats;
+    @FXML
+    private ListView<Duck> memberList;
+    @FXML
+    private Button actionBtn;
+
+    private final ObservableList<Herd<Duck>> herdsModel = FXCollections.observableArrayList();
+    private final ObservableList<Duck> membersModel = FXCollections.observableArrayList();
+
+    private HerdService herdService;
+    private User currentUser;
+    private boolean isDuck;
+
+    private Herd<Duck> currentDisplayedHerd;
+
+    public void setService(HerdService hs, User user) {
+        this.herdService = hs;
+        this.currentUser = user;
+        this.isDuck = (user instanceof Duck);
+
+        this.herdService.addObserver(this);
+
+        initUI();
+        herdsModel.setAll(herdService.getAll());
+        // System.out.println("HerdController init: User=" + user.getUsername() + ", isDuck=" + isDuck);
+    }
+
+    private void initUI() {
+        herdList.setItems(herdsModel);
+        memberList.setItems(membersModel);
+
+        herdList.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
+
+            if (newVal != null)
+                fetchAndShowDetails(newVal);
+            else {
+                detailsBox.setVisible(false);
+                currentDisplayedHerd = null;
+            }
+        });
+    }
+
+    @Override
+    public void update(EntityChangeEvent<Herd<Duck>> event) {
+        Platform.runLater(() -> {
+            Herd<Duck> data = event.data();
+
+            boolean wasSelected = isCurrentSelection(data.getId());
+
+            switch (event.type()) {
+                case ADD:
+                    herdsModel.add(data);
+                    break;
+
+                case DELETE:
+                    herdsModel.removeIf(h -> h.getId().equals(data.getId()));
+
+                    if (isCurrentSelection(data.getId())) {
+                        detailsBox.setVisible(false);
+                        currentDisplayedHerd = null;
+                        herdList.getSelectionModel().clearSelection();
+                    }
+                    break;
+
+                case UPDATE:
+                    int idx = findIndexById(data.getId());
+                    if (idx != -1) {
+                        herdsModel.set(idx, data);
+
+                        if (wasSelected) {
+                            herdList.getSelectionModel().select(idx);
+                            updateDetailsUi(data);
+                        }
+                    }
+                    break;
+            }
+        });
+    }
+
+    private int findIndexById(Long id) {
+        for (int i = 0; i < herdList.getItems().size(); ++i)
+            if (herdList.getItems().get(i).getId().equals(id))
+                return i;
+        return -1;
+    }
+
+    private boolean isCurrentSelection(Long herdId) {
+        Herd<Duck> selected = herdList.getSelectionModel().getSelectedItem();
+        return selected != null && selected.getId().equals(herdId);
+    }
+
+    private void fetchAndShowDetails(Herd<Duck> herd) {
+        detailsBox.setVisible(true);
+        lblHerdName.setText(herd.getName());
+        lblStats.setText("Loading stats...");
+
+        // Clear list immediately to show we are working
+        memberList.getItems().clear();
+
+        // Create a background task
+        Task<Void> task = new Task<>() {
+            @Override
+            protected Void call() {
+                // This runs background thread
+                // 1. Force a fresh fetch from DB
+                Herd<Duck> freshHerd = herdService.findById(herd.getId());
+
+                // 3. Update UI on the JavaFx Application Thread
+                Platform.runLater(() -> updateDetailsUi(freshHerd));
+
+                return null;
+            }
+        };
+
+        // Handle errors
+        task.setOnFailed(e -> {
+            lblStats.setText("Error loading data");
+            showAlert("Failed to load herd details: " + task.getException().getMessage());
+        });
+
+        new Thread(task).start();
+    }
+
+    private void updateDetailsUi(Herd<Duck> herd) {
+        currentDisplayedHerd = herd;
+
+        lblHerdName.setText(herd.getName());
+
+        Performance stats = herd.getAvgPerformance();
+        lblStats.setText(String.format("Avg Speed: %.2f | Avg Res: %.2f",
+                stats.avgSpeed(), stats.avgResistance()));
+
+        membersModel.setAll(herd.getMembers());
+        updateActionButtonState(herd);
+    }
+
+    private boolean isMemberOf(Herd<Duck> herd) {
+        if (herd == null || herd.getMembers() == null)
+            return false;
+        return herd.getMembers().stream().anyMatch(d -> d.getId().equals(currentUser.getId()));
+    }
+
+    private void updateActionButtonState(Herd<Duck> herd) {
+        if (!isDuck) {
+            actionBtn.setText("Spectator Only");
+            actionBtn.setDisable(true);
+            actionBtn.setStyle("-fx-background-color: #bdc3c7; -fx-text-fill: #7f8c8d;");
+            return;
+        }
+
+        boolean isMember = isMemberOf(herd);
+        actionBtn.setDisable(false);
+
+        if (isMember) {
+            actionBtn.setText("Leave Herd");
+            actionBtn.setStyle("-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-weight: bold;");
+        } else {
+            actionBtn.setText("Join Herd");
+            actionBtn.setStyle("-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold;");
+        }
+    }
+
+    @FXML
+    public void onActionBtnClicked() {
+        Herd<Duck> selectedHerd = this.currentDisplayedHerd;
+
+        if (selectedHerd == null || !isDuck) return;
+
+        try {
+            boolean isMember = isMemberOf(selectedHerd);
+
+            if (isMember)
+                herdService.deleteDuck(selectedHerd.getId(), currentUser.getId());
+            else {
+                herdService.addDuck(selectedHerd.getId(), (Duck) currentUser);
+                // System.out.println(currentUser.getUsername() + " joined herd " + selectedHerd.getName());
+            }
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "Action failed: " + e.getMessage()).show();
+        }
+    }
+
+    private void showAlert(String msg) {
+        new Alert(Alert.AlertType.ERROR, msg).show();
+    }
+
+    @FXML
+    public void onCreateHerd() {
+        if (!isDuck) {
+            showAlert("Only ducks can create herds!");
+            newHerdName.clear();
+            return;
+        }
+
+        String name = newHerdName.getText();
+        if (name.isBlank())
+            return;
+
+        try {
+            Herd<Duck> newHerd = herdService.createHerd(name);
+
+            herdService.addDuck(newHerd.getId(), (Duck) currentUser);
+
+            newHerdName.clear();
+
+            // herdList.getSelectionModel().select(newHerd); -> it's kinda async
+        } catch (Exception e) {
+            showAlert("Creation Failed: " + e.getMessage());
+        }
+    }
+
+    public void cleanup() {
+        if (herdService != null)
+            herdService.removeObserver(this);
+    }
+}
+
+//    @FXML
+//    public void onAddDuck() {
+//        Herd<Duck> selected = herdList.getSelectionModel().getSelectedItem();
+//        if (selected == null)
+//            return;
+//
+//        try {
+//            long duckId = Long.parseLong(duckIdInput.getText());
+//
+//            User u = userService.findById(duckId);
+//            if (u instanceof Duck d) {
+//                herdService.addDuck(selected.getId(), d);
+//                showDetails(selected);  // refresh
+//                refreshMasterList();
+//                duckIdInput.clear();
+//            } else
+//                showAlert("Error: Not a Duck!");
+//        } catch (Exception e) {
+//            showAlert("Error: " + e.getMessage());
+//        }
+//    }
+//
+//    @FXML
+//    public void onRemoveDuck() {
+//        Herd<Duck> selectedHerd = herdList.getSelectionModel().getSelectedItem();
+//        Duck selectedDuck = memberList.getSelectionModel().getSelectedItem();
+//
+//        if (selectedHerd != null && selectedDuck != null) {
+//            herdService.deleteDuck(selectedHerd.getId(), selectedDuck.getId());
+//            showDetails(selectedHerd);  // refresh
+//            refreshMasterList();
+//        }
+//    }
+//    @FXML
+//    public void onDeleteHerd() {
+//        Herd<Duck> selected = herdList.getSelectionModel().getSelectedItem();
+//        if (selected == null)
+//            return;
+//
+//        herdService.deleteHerd(selected.getId());
+//        refreshMasterList();
+//        detailsBox.setVisible(false);
+//    }
+
+package scs.ui.controllers.race;
+
+import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import javafx.util.StringConverter;
+import scs.domain.event.Event;
+import scs.domain.event.RaceEvent;
+import scs.domain.group.Herd;
+import scs.domain.user.Duck;
+import scs.domain.user.User;
+import scs.service.EventService;
+import scs.service.HerdService;
+import scs.service.social.UserService;
+import scs.utilities.errors.ValidationException;
+import scs.utilities.events.EntityChangeEvent;
+import scs.utilities.observer.Observable;
+import scs.utilities.observer.Observer;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class RaceController implements Observer<EntityChangeEvent<?>> {
+    @FXML private ComboBox<Event> eventSelector;
+    @FXML private ComboBox<Herd<Duck>> herdSelector;
+    @FXML private TextField txtLanes;
+    @FXML private VBox lanesContainer;  // DYNAMIC CONTAINER
+    @FXML private Label statusLabel;
+
+    private final ObservableList<Event> eventsModel = FXCollections.observableArrayList();
+    private final ObservableList<Herd<Duck>> herdsModel = FXCollections.observableArrayList();
+
+    private HerdService herdService;
+    private EventService eventService;
+    private User currentUser;
+
+    private List<TextField> laneInputs = new ArrayList<>();
+
+    public void setServices(HerdService hs, EventService es, User loggedIn) {
+        this.herdService = hs;
+        this.eventService = es;
+        this.currentUser = loggedIn;
+
+        ((Observable) this.herdService).addObserver(this);
+        ((Observable) this.eventService).addObserver(this);
+
+        initUi();
+
+        eventsModel.setAll(eventService.getAll());
+        herdsModel.setAll(herdService.getAll());
+    }
+
+    private void initUi() {
+        eventSelector.setItems(eventsModel);
+        herdSelector.setItems(herdsModel);
+
+        eventSelector.setConverter(new StringConverter<>() {
+            @Override
+            public String toString(Event event) {
+                return (event == null) ?  "" : event.getName();
+            }
+
+            @Override
+            public Event fromString(String s) {
+                return null;
+            }
+        });
+
+        herdSelector.setConverter(new StringConverter<>() {
+            @Override
+            public String toString(Herd<Duck> herd) {
+                return (herd == null) ? "" : herd.getName();
+            }
+
+            @Override
+            public Herd<Duck> fromString(String s) {
+                return null;
+            }
+        });
+    }
+
+    @Override
+    public void update(EntityChangeEvent<?> event) {
+        Platform.runLater(() -> {
+            Object data = event.data();
+
+            if (data instanceof Event )
+                handleEventUpdate((EntityChangeEvent<Event>) event);
+            else if  (data instanceof Herd)
+                handleHerdUpdate((EntityChangeEvent<Herd<Duck>>) event);
+        });
+    }
+
+    private void handleEventUpdate(EntityChangeEvent<Event> event) {
+        Event data = event.data();
+        switch (event.type()) {
+            case ADD:
+                eventsModel.add(data);
+                break;
+
+            case DELETE:
+                eventsModel.removeIf(e -> e.getId().equals(data.getId()));
+                if (isSelected(eventSelector, data.getId()))
+                    eventSelector.getSelectionModel().clearSelection();
+                break;
+
+            case UPDATE:
+                int idx = findIndexByEventId(eventsModel, data.getId());
+                if (idx != -1) {
+                    eventsModel.set(idx, data);
+                    if (isSelected(eventSelector, data.getId()))
+                        eventSelector.getSelectionModel().select(idx);
+                }
+                break;
+        }
+    }
+
+    private void handleHerdUpdate(EntityChangeEvent<Herd<Duck>> event) {
+        Herd<Duck> data = event.data();
+        switch (event.type()) {
+            case ADD:
+                herdsModel.add(data);
+                break;
+
+            case DELETE:
+                herdsModel.removeIf(h -> h.getId().equals(data.getId()));
+                if (isSelected(herdSelector, data.getId()))
+                    herdSelector.getSelectionModel().clearSelection();
+                break;
+
+            case UPDATE:
+                int idx = findIndexByIdHerds(herdsModel, data.getId());
+                if (idx != -1) {
+                    herdsModel.set(idx, data);
+                    if (isSelected(herdSelector, data.getId()))
+                        herdSelector.getSelectionModel().select(idx);
+                }
+                break;
+        }
+    }
+
+    private int findIndexByEventId(ObservableList<Event> list, Long id) {
+        for (int i = 0; i < list.size(); ++i)
+            if (list.get(i).getId().equals(id))
+                return i;
+        return -1;
+    }
+
+    private int findIndexByIdHerds(ObservableList<Herd<Duck>> list, long id) {
+        for (int i = 0; i < list.size(); ++i)
+            if (list.get(i).getId().equals(id))
+                return i;
+        return -1;
+    }
+
+    private boolean isSelected(ComboBox<?> box, Long id) {
+        Object selected = box.getValue();
+        return switch (selected) {
+            case Event e -> e.getId().equals(id);
+            case Herd<?> h -> h.getId().equals(id);
+            case null, default -> false;
+        };
+
+    }
+
+    @FXML public void onGenerateTrack() {
+        lanesContainer.getChildren().clear();
+        laneInputs.clear();
+        statusLabel.setText("");
+
+        try {
+            int m = Integer.parseInt(txtLanes.getText());
+            if (m <= 0 || m > 50)
+                throw new ValidationException("lane range", "InvalidRange");
+
+            for (int i = 0; i < m; ++i) {
+                HBox raw = new HBox(10);
+                Label lbl = new Label("Lane " + (i + 1) + " Distance:");
+                TextField tf = new TextField("100.0");
+
+                raw.getChildren().addAll(lbl, tf);
+                lanesContainer.getChildren().add(raw);
+
+                laneInputs.add(tf);
+            }
+        } catch (NumberFormatException e) {
+            statusLabel.setText("Please enter a number of lanes (1-50).");
+        }
+    }
+
+    @FXML
+    public void onRunRace() {
+        Event selectedEvent = eventSelector.getValue();
+        Herd<Duck> selectedHerd = herdSelector.getValue();
+
+        if (selectedHerd == null || selectedEvent == null) {
+            statusLabel.setText("Please select both a Spectator Event and a Racing Herd.");
+            return;
+        }
+
+        if (laneInputs.isEmpty()) {
+            statusLabel.setText("Please generate track lanes first.");
+            return;
+        }
+
+        try {
+            // read inputs
+            double[] lanes = new double[laneInputs.size()];
+            for (int i = 0; i < laneInputs.size(); ++i)
+                lanes[i] = Double.parseDouble(laneInputs.get(i).getText());
+
+            // prepare data
+            List<Duck> allMembers = herdService.members(selectedHerd.getId());
+
+            // Filter swimmers
+            List<Duck> qualifiedRacers = allMembers.stream()
+                    .filter(RaceEvent::canSwim)
+                    .toList();
+
+            if (qualifiedRacers.size() < lanes.length) {
+                statusLabel.setText("Not enough swimming ducks in herd for " + lanes.length + " lanes." +
+                                    "(Herd has " + allMembers.size() + ", but only " + qualifiedRacers.size() + " can swim.");
+                return;
+            }
+
+            List<Duck> actualRacers = qualifiedRacers.subList(0, lanes.length);
+
+            openSimulationWindow(selectedEvent, actualRacers, lanes);
+
+        } catch (ValidationException e) {
+            statusLabel.setText("Invalid distance value in lanes.");
+        } catch (Exception e) {
+            e.printStackTrace();
+            statusLabel.setText("Error: " + e.getMessage());
+        }
+    }
+
+    private void openSimulationWindow(Event event, List<Duck> racers, double[] distances) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/scs/side-views/race/race-simulation-view.fxml"));
+            Parent root = loader.load();
+
+            RaceSimulationController ctrl = loader.getController();
+
+            ctrl.initRace(event, racers, distances, eventService);
+
+            Stage stage = new Stage();
+            stage.setTitle("LIVE RACE: " + event.getName());
+            stage.setScene(new Scene(root));
+
+            stage.setOnCloseRequest(e -> ctrl.stopRace());
+
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            statusLabel.setText("Failed to open simulation: " + e.getMessage());
+        }
+    }
+
+    public void cleanup() {
+        if (herdService != null) ((Observable) herdService).removeObserver(this);
+        if (eventService != null) ((Observable) herdService).removeObserver(this);
+    }
+}
+
+package scs.ui.controllers.race;
+
+import javafx.application.Platform;
+import javafx.concurrent.Task;
+import javafx.fxml.FXML;
+import javafx.geometry.Pos;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.VBox;
+import scs.domain.event.Event;
+import scs.domain.user.Duck;
+import scs.service.EventService;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
+
+public class RaceSimulationController {
+    @FXML
+    private Label raceTitleLabel;
+
+    @FXML
+    private VBox trackContainer;
+
+    @FXML
+    private Button startBtn;
+
+    @FXML private Label winnerLabel;
+
+    private Event currentEvent;
+    private List<Duck> racers;
+    private double[] laneDistances;
+    private EventService eventService;
+
+    private final List<Thread> activeThreads = new ArrayList<>();
+    private final AtomicBoolean raceFinished = new AtomicBoolean(false);
+
+    private static class RaceTask extends Task<Double> {
+        private final Duck duck;
+        private final double totalDistance;
+
+        public RaceTask(Duck duck, double totalDistance) {
+            this.duck = duck;
+            this.totalDistance = totalDistance;
+        }
+
+        @Override
+        protected Double call() throws Exception {
+            double currentDist = 0;
+            double currentSpeed = duck.getSpeed();
+            double resistance = duck.getResistance();
+
+            long startTime = System.currentTimeMillis();
+
+            while (currentDist < totalDistance) {
+                if (isCancelled())
+                    break;
+
+                Thread.sleep(50);
+
+                // Move
+                double move = currentSpeed / 5.0;
+                currentDist += move;
+
+                // Fatigue
+                double fatigue = (10.0 - Math.min(resistance, 10.0)) / 200.0;
+                currentSpeed = Math.max(1.0, currentSpeed - fatigue);
+
+                updateProgress(currentDist, totalDistance);
+                updateMessage(String.format("%.1fm / %.0fm", Math.min(currentDist, totalDistance), totalDistance));
+            }
+
+            long endTime = System.currentTimeMillis();
+            return (endTime - startTime) / 1000.0; // seconds
+        }
+    }
+
+    public void initRace(Event event, List<Duck> racers, double[] distances, EventService service) {
+        this.currentEvent = event;
+        this.racers = racers;
+        this.laneDistances = distances;
+        this.eventService = service;
+
+        raceTitleLabel.setText("RACE: " + event.getName().toUpperCase());
+        setupTrackVisuals();
+    }
+
+    private void setupTrackVisuals() {
+        trackContainer.getChildren().clear();
+
+        for (int i = 0; i < racers.size(); ++i) {
+            Duck d = racers.get(i);
+
+            Label nameLbl = new Label(d.getUsername());
+            nameLbl.setStyle("-fx-text-fill: white; -fx-font-weight: bold; -fx-min-width: 80;");
+
+            ProgressBar pb = new ProgressBar(0.0);
+            pb.setMaxWidth(Double.MAX_VALUE);
+            pb.setStyle("-fx-accent: " + getColorForDuck(i) + ";");
+            HBox.setHgrow(pb, Priority.ALWAYS);
+
+            pb.setUserData(i);
+
+            Label statsLb = new Label("0m / " + (int)laneDistances[i] + "m");
+
+            HBox lane = new HBox(10, nameLbl, pb, statsLb);
+            lane.setAlignment(Pos.CENTER_LEFT);
+            lane.setStyle("-fx-padding: 5; -fx-background-color: rgba(0, 0, 0, 0.2); -fx-background-radius: 5;");
+
+            trackContainer.getChildren().add(lane);
+        }
+    }
+
+    @FXML
+    public void onStartRace() {
+        startBtn.setDisable(true);
+        winnerLabel.setText("RACE STARTED!");
+
+        for (int i = 0; i < racers.size(); ++i) {
+            Duck duck = racers.get(i);
+            double distance = laneDistances[i];
+
+            HBox laneBox = (HBox) trackContainer.getChildren().get(i);
+            ProgressBar bar = (ProgressBar) laneBox.getChildren().get(1);
+            Label statLbl = (Label) laneBox.getChildren().get(2);
+
+            RaceTask task = new RaceTask(duck, distance);
+
+            bar.progressProperty().bind(task.progressProperty());
+
+            task.messageProperty().addListener((obs, old, msg) -> {
+                Platform.runLater(() -> statLbl.setText(msg));
+            });
+
+            task.setOnSucceeded(e -> {
+                if (raceFinished.compareAndSet(false, true))
+                    declareWinner(duck, task.getValue());
+            });
+
+            Thread th = new Thread(task);
+            th.setDaemon(true);     // they die if app closes
+            activeThreads.add(th);
+            th.start();
+        }
+    }
+
+    private void declareWinner(Duck winner, double time) {
+        String timeStr = String.format("%.2f", time);
+
+        Platform.runLater(() -> {
+            winnerLabel.setText("WINNER: " + winner.getUsername());
+
+            String msg = "RACE UPDATE: " + winner.getUsername() +
+                         " has won the '" + currentEvent.getName() +
+                         "' race in " + timeStr + "s!";
+
+            try {
+                eventService.notifySubscribers(currentEvent.getId(), msg);
+            } catch (Exception e) {
+                System.err.println("Failed to send notification: " + e.getMessage());
+            }
+        });
+    }
+
+    public void stopRace() {
+        for (Thread t: activeThreads)
+            if (t.isAlive())
+                t.interrupt();
+    }
+
+    private String getColorForDuck(int index) {
+        String[] colors = {"#e74c3c", "#3498db", "#2ecc71", "#f1c40f", "#9b59b6", "#e67e22"};
+        return colors[index % colors.length];
+    }
+}
+
+package scs.ui.controllers.social;
+
+import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.geometry.Insets;
+import javafx.scene.control.*;
+import javafx.scene.layout.VBox;
+import scs.domain.interactions.Friendship;
+import scs.domain.interactions.Message;
+import scs.domain.user.Duck;
+import scs.domain.user.User;
+import scs.service.friend.FriendshipService;
+import scs.service.social.MessageService;
+import scs.service.social.UserService;
+import scs.utilities.events.ChangeEventType;
+import scs.utilities.events.EntityChangeEvent;
+
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
+public class ChatController {
+    @FXML
+    private Label lblUser;
+    @FXML
+    private ListView<User> friendsList;
+    @FXML
+    private VBox chatPanel;
+    @FXML
+    private Label headerLabel;
+    @FXML
+    private ListView<Message> messageList;
+    @FXML
+    private Label replyLabel;
+    @FXML
+    private TextArea inputField;
+
+    private final ObservableList<User> friendsModel = FXCollections.observableArrayList();
+    private final ObservableList<Message> messagesModel = FXCollections.observableArrayList();
+
+    private MessageService messageService;
+    private UserService userService;
+    private FriendshipService friendshipService;
+
+    private User currentUser;
+    private User currentPartner;
+    private Message replyTarget = null;
+
+    public void setServices(MessageService ms, UserService us, FriendshipService fs) {
+        this.messageService = ms;
+        this.userService = us;
+        this.friendshipService = fs;
+
+        this.messageService.addObserver(this::onMessageEvent);
+        this.friendshipService.addObserver(this::onFriendshipEvent);
+        this.userService.addObserver(this::onUserEvent);
+
+        initLogic();
+    }
+
+    private void onMessageEvent(EntityChangeEvent<Message> event) {
+        if (event.type() == ChangeEventType.ADD) {
+            Message msg = event.data();
+            if (currentUser == null || currentPartner == null)
+                return;
+
+            long me = currentUser.getId();
+            long partner = currentPartner.getId();
+            long sender = msg.getFrom().getId();
+
+            boolean incoming = (sender == partner && msg.getTo().stream().anyMatch(u -> u.getId() == me));
+            boolean outgoing = (sender == me && msg.getTo().stream().anyMatch(u -> u.getId() == partner));
+
+            boolean isBot = (sender == UserService.RACE_BOT_ID && partner == UserService.RACE_BOT_ID);
+
+            if (incoming || outgoing || isBot)
+                Platform.runLater(() -> {
+                    messagesModel.add(msg);
+                    messageList.scrollTo(messageList.getItems().size() - 1);
+                });
+        }
+    }
+
+    private void onFriendshipEvent(EntityChangeEvent<Friendship> event) {
+        if (currentUser == null) return;
+        Friendship f = event.data();
+
+        if (!f.involves(currentUser.getId()))
+            return;
+
+        Platform.runLater(() -> {
+            if (event.type() == ChangeEventType.ADD) {
+                Long friendId = f.user1().equals(currentUser.getId()) ? f.user2() : f.user1();
+
+                User newFriend = userService.findById(friendId);
+                if (newFriend != null)
+                    friendsModel.add(newFriend);
+            } else if (event.type() == ChangeEventType.DELETE) {
+                Long friendId = f.user1().equals(currentUser.getId()) ? f.user2() : f.user1();
+                friendsModel.removeIf(u -> u.getId().equals(friendId));
+
+                if (currentPartner != null && currentPartner.getId().equals(friendId)) {
+                    chatPanel.setVisible(false);
+                    currentPartner = null;
+                }
+            }
+        });
+    }
+
+    private void onUserEvent(EntityChangeEvent<User> event) {
+        Platform.runLater(() -> {
+            User u = event.data();
+            switch (event.type()) {
+                case DELETE:
+                    boolean removed = friendsModel.removeIf(friend -> friend.getId().equals(u.getId()));
+
+                    if (removed && currentPartner != null && currentPartner.getId().equals(u.getId())) {
+                        chatPanel.setVisible(false);
+                        currentPartner = null;
+                        messageList.getItems().clear();
+                    }
+                    break;
+
+                case UPDATE:
+                    for (int i = 0; i < friendsModel.size(); ++i)
+                        if (friendsModel.get(i).getId().equals(u.getId())) {
+                            friendsModel.set(i, u);
+                            break;
+                        }
+
+                    if (currentPartner != null && currentPartner.getId().equals(u.getId())) {
+                        currentPartner = u;
+                        headerLabel.setText("Chat with " + u.getUsername());
+                    }
+
+                    break;
+            }
+        });
+    }
+
+    public void setLoggedInUser(User user) {
+        this.currentUser = user;
+        lblUser.setText("Your friends:");
+        initialLoadFriends();
+    }
+
+    private void initLogic() {
+        friendsList.setItems(friendsModel);
+        messageList.setItems(messagesModel);
+
+        // When friend selected, open chat
+        friendsList.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
+            if (newVal != null) {
+                currentPartner = newVal;
+                openChat();
+            }
+        });
+
+        // When message clicked, set as reply
+        messageList.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
+            if (newVal != null) {
+                replyTarget = newVal;
+                replyLabel.setText("Replying to: " + (newVal.getText().length() > 20 ? newVal.getText().substring(0, 20) + "..." : newVal.getText()));
+            }
+        });
+
+        // Formatting
+        messageList.setCellFactory(param -> new ListCell<>() {
+            private final Label header = new Label();
+            private final Label body = new Label();
+            private final VBox container = new VBox(3, header, body);
+
+            {
+                header.setStyle("-fx-font-weight: bold; -fx-text-fill: #7f8c8d; -fx-font-size: 10px");
+
+                body.setStyle("-fx-font-size: 13px; -fx-text-fill: #2c3e50");
+                body.setWrapText(true);
+                body.setPadding(new Insets(0, 0, 0, 10));
+
+                body.maxWidthProperty().bind(messageList.widthProperty().subtract(50));
+            }
+
+            @Override
+            protected void updateItem(Message item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setGraphic(null);
+                    setText(null);
+                } else {
+                    String senderName = (item.getFrom().getId().equals(currentUser.getId())) ? "ME" : item.getFrom().getUsername();
+                    String time = item.getDate().format(DateTimeFormatter.ofPattern("HH:mm"));
+
+                    String replyInfo = "";
+                    if (item.getReply() != null) {
+                        String quotedText = item.getReply().getText();
+
+                        if (quotedText.length() > 30)
+                            quotedText = quotedText.substring(0, 30) + "...";
+
+                        String replyName = (item.getReply().getFrom().getId().equals(currentUser.getId())) ? "ME" : item.getReply().getFrom().getUsername();
+                        replyInfo = " -> Replying to " + replyName + ": " + quotedText;
+                    }
+
+                    header.setText(senderName + " . " + time + replyInfo);
+                    body.setText(item.getText());
+
+                    setGraphic(container);
+                    setText(null);
+                }
+            }
+        });
+
+        friendsList.setCellFactory(param -> new ListCell<>() {
+            @Override
+            protected void updateItem(User item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null)
+                    setText(null);
+                else
+                    setText(item.getUsername() + ", id: " + item.getId() + (item instanceof Duck ? " - Duck" : " - Person"));
+            }
+        });
+    }
+
+    private void initialLoadFriends() {
+        if (currentUser == null)
+            return;
+
+        Set<Long> friendIds = friendshipService.getFriendsOf(currentUser.getId());
+
+        List<User> friendList = new ArrayList<>();
+
+        if (!friendIds.isEmpty())
+            friendList.addAll(userService.findUsersByIds(friendIds));
+
+        User raceBot = userService.findById(UserService.RACE_BOT_ID);
+        if (raceBot != null) {
+            boolean alreadyThere = friendList.stream()
+                    .anyMatch(u -> u.getId().equals(UserService.RACE_BOT_ID));
+
+            if (!alreadyThere) {
+                friendList.addFirst(raceBot);
+            }
+        }
+
+        friendsModel.setAll(friendList);
+    }
+
+    private void openChat() {
+        chatPanel.setVisible(true);
+        headerLabel.setText("Chat with " + currentPartner.getUsername());
+        onClearReply();
+
+        List<Message> messages = messageService.getConversation(currentUser.getId(), currentPartner.getId());
+        messagesModel.setAll(messages);
+        messageList.scrollTo(messages.size() - 1);
+    }
+
+    @FXML
+    public void onClearReply() {
+        replyTarget = null;
+        replyLabel.setText("Click a message to reply");
+        messageList.getSelectionModel().clearSelection();
+    }
+
+    public void cleanup() {
+        if (messageService != null) messageService.removeObserver(this::onMessageEvent);
+        if (friendshipService != null) friendshipService.removeObserver(this::onFriendshipEvent);
+        if (userService != null) userService.removeObserver(this::onUserEvent);
+    }
+
+    @FXML
+    public void onSend() {
+        String text = inputField.getText();
+        if (text.isEmpty()) return;
+
+        try {
+            Long replyId = (replyTarget != null) ? replyTarget.getId() : null;
+            messageService.sendMessage(currentUser.getId(), List.of(currentPartner.getId()), text, replyId);
+
+            inputField.clear();
+            onClearReply();
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
+    }
+}
+
+//    @Override
+//    public void update(EntityChangeEvent<Message> event) {
+//        if (event.type() == ChangeEventType.ADD) {
+//            Message msg = event.data();
+//
+//            if (currentUser == null || currentPartner == null)
+//                return;
+//
+//            long me = currentUser.getId();
+//            long partner = currentPartner.getId();
+//            long sender = msg.getFrom().getId();
+//
+//            boolean amIRecipient = msg.getTo().stream().anyMatch(u -> u.getId() == me);
+//            boolean isPartnerRecipient = msg.getTo().stream().anyMatch(u -> u.getId() == partner);
+//
+//            boolean incoming = (sender == partner && amIRecipient);
+//            boolean outgoing = (sender == me && isPartnerRecipient);
+//
+//            if (incoming || outgoing)
+//                Platform.runLater(() -> {
+//                    messageList.getItems().add(msg);
+//                    messageList.scrollTo(messageList.getItems().size() - 1);
+//                });
+//        }
+//    }
+//
+//
+//    private void refreshMessages() {
+//        if (currentUser == null || currentPartner == null)
+//            return;
+//
+//        List<Message> messages = messageService.getConversation(currentUser.getId(), currentPartner.getId());
+//        messageList.setItems(FXCollections.observableArrayList(messages));
+//        messageList.scrollTo(messages.size() - 1);
+//    }
+
+package scs.ui.controllers.social;
+
+import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.*;
+import scs.domain.interactions.FriendRequest;
+import scs.domain.interactions.RequestStatus;
+import scs.domain.user.User;
+import scs.service.friend.CommunityService;
+import scs.service.friend.FriendshipService;
+import scs.service.social.UserService;
+
+import javafx.fxml.FXML;
+import scs.service.friend.RequestService;
+import scs.utilities.events.EntityChangeEvent;
+import scs.utilities.observer.Observer;
+
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+
+public class SocialController implements Observer<EntityChangeEvent<FriendRequest>> {
+    @FXML
+    private TextArea consoleLog;
+    @FXML
+    private ListView<FriendRequest> requestsList;
+
+    private final ObservableList<FriendRequest> requestsModel = FXCollections.observableArrayList();
+
+    private UserService users;
+    private FriendshipService friends;
+    private CommunityService community;
+    private RequestService requestService;
+    private User currentUser;
+
+    public void setServices(UserService u, FriendshipService f, CommunityService c, RequestService r, User loggedIn) {
+        this.users = u;
+        this.friends = f;
+        this.community = c;
+        this.requestService = r;
+        this.currentUser = loggedIn;
+
+        this.requestService.addObserver(this);
+
+        initRequestList();
+        initialLoad();
+        log("Services initialized for " + currentUser.getUsername());
+    }
+
+    private void log(String message) {
+        Platform.runLater(() -> consoleLog.appendText(message + "\n"));
+    }
+
+    @Override
+    public void update(EntityChangeEvent<FriendRequest> event) {
+        Platform.runLater(() -> {
+            FriendRequest req = event.data();
+
+            boolean isForMe = req.getTo().getId().equals(currentUser.getId());
+            boolean isFromMe = req.getFrom().getId().equals(currentUser.getId());
+
+            if (!isForMe && !isFromMe)
+                return;
+
+            switch (event.type()) {
+                case ADD:
+                    if (isForMe && req.getStatus() == RequestStatus.PENDING)
+                        requestsModel.addFirst(req);
+                    break;
+
+                case UPDATE:
+                    if (req.getStatus() != RequestStatus.PENDING)
+                        requestsModel.remove(req);
+                    break;
+
+                case DELETE:
+                    requestsModel.remove(req);
+                    break;
+            }
+        });
+    }
+
+    private void initRequestList() {
+        requestsList.setItems(requestsModel);
+
+        requestsList.setCellFactory(param -> new ListCell<>() {
+            @Override
+            protected void updateItem(FriendRequest item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null)
+                    setText(null);
+                else {
+                    String from = item.getFrom().getUsername();
+                    String date = item.getDate().format(DateTimeFormatter.ofPattern("dd/MM HH:mm"));
+                    setText(from + " (" + date + ")");
+                }
+            }
+        });
+    }
+
+    private void initialLoad() {
+        if (currentUser == null)
+            return;
+
+        List<FriendRequest> pending = requestService.getPendingRequests(currentUser.getId());
+        requestsModel.setAll(pending);
+    }
+
+    @FXML
+    public void onAccept() {
+        FriendRequest selected = requestsList.getSelectionModel().getSelectedItem();
+        if (selected == null) {
+            log("No requests selected.");
+            return;
+        }
+
+        try {
+            requestService.acceptRequest(selected);
+            log("Accepted request from " + selected.getFrom().getUsername());
+        } catch (Exception e) {
+            log("Error: " + e.getMessage());
+        }
+    }
+
+    @FXML
+    public void onReject() {
+        FriendRequest selected = requestsList.getSelectionModel().getSelectedItem();
+        if (selected == null)
+            return;
+
+        try {
+            requestService.rejectRequest(selected);
+            log("Rejected request from " + selected.getFrom().getUsername());
+        } catch (Exception e) {
+            log("Error: " + e.getMessage());
+        }
+    }
+
+    @FXML
+    public void onStats() {
+        log("--- Community Stats ---");
+        try {
+            log("Communities count: " + community.countCommunities());
+
+            var soc = community.mostSociableCommunity();
+            log("Most Sociable Diameter: " + soc.diameter());
+            log("Number of Members: " + soc.members().size());
+            log("Members: ");
+            soc.members().forEach(u -> log(" - " + u.getUsername() + " (ID: " + u.getId() + ")"));
+        } catch (Exception e) {
+            log("Error calculating stats: " + e.getMessage());
+        }
+    }
+
+    public void cleanup() {
+        if (requestService != null)
+            requestService.removeObserver(this);
+    }
+}
+
+//    @FXML
+//    public void onAddPerson() {
+//        // Dialog form
+//        Dialog<Person> dialog = new Dialog<>();
+//        dialog.setTitle("New Person");
+//        dialog.setHeaderText("Create a new Person");
+//
+//        // Buttons
+//        ButtonType createBtn = new ButtonType("Create", ButtonBar.ButtonData.OK_DONE);
+//        dialog.getDialogPane().getButtonTypes().addAll(createBtn, ButtonType.CANCEL);
+//
+//        // Layout
+//        GridPane grid = new GridPane();
+//        grid.setHgap(10);
+//        grid.setVgap(10);
+//        grid.setPadding(new Insets(20, 150, 10, 10));
+//
+//        TextField username = new TextField();
+//        TextField email = new TextField();
+//        TextField password = new PasswordField();
+//        TextField name = new TextField();
+//        TextField firstName = new TextField();
+//        DatePicker birthDate = new DatePicker(LocalDate.now().minusYears(18));
+//        TextField job = new TextField();
+//
+//        grid.addRow(0, new Label("Username:"), username);
+//        grid.addRow(1, new Label("Email:"), email);
+//        grid.addRow(2, new Label("Password:"), password);
+//        grid.addRow(3, new Label("Last name:"), name);
+//        grid.addRow(4, new Label("First nanme:"), firstName);
+//        grid.addRow(5, new Label("Job:"), job);
+//        grid.addRow(6, new Label("Birth date:"), birthDate);
+//
+//        dialog.getDialogPane().setContent(grid);
+//
+//        dialog.setResultConverter(dialogButton -> {
+//            if (dialogButton == createBtn)
+//                try {
+//                    return users.createPerson(username.getText(), email.getText(), password.getText(),
+//                            name.getText(), firstName.getText(), birthDate.getValue(), job.getText());
+//                } catch (Exception e) {
+//                    log("Error: " + e.getMessage());
+//                }
+//            return null;
+//        });
+//
+//        dialog.showAndWait().ifPresent(p -> log("SUCCESS: Created Person ID " + p.getId()));
+//    }
+//
+//    @FXML
+//    public void onAddDuck() {
+//        Dialog<Duck> dialog = new Dialog<>();
+//        dialog.setTitle("New Duck");
+//        dialog.setHeaderText("Create a new Duck");
+//
+//        ButtonType createBtn = new ButtonType("Create", ButtonBar.ButtonData.OK_DONE);
+//        dialog.getDialogPane().getButtonTypes().addAll(createBtn, ButtonType.CANCEL);
+//
+//        GridPane grid = new GridPane();
+//        grid.setHgap(10);
+//        grid.setVgap(10);
+//        grid.setPadding(new Insets(20, 150, 10, 10));
+//
+//        TextField username = new TextField();
+//        TextField email = new TextField();
+//        PasswordField password = new PasswordField();
+//        ComboBox<String> type = new ComboBox<>(FXCollections.observableArrayList("SWIMMING", "FLYING", "HYBRID"));
+//        type.getSelectionModel().selectFirst();
+//        TextField speed = new TextField();
+//        TextField resistance = new TextField();
+//
+//        grid.addRow(0, new Label("Username:"), username);
+//        grid.addRow(1, new Label("Email:"), email);
+//        grid.addRow(2, new Label("Password:"), password);
+//        grid.addRow(3, new Label("Speed:"), speed);
+//        grid.addRow(4, new Label("Resistance:"), resistance);
+//        grid.addRow(5, new Label("Type"), type);
+//
+//        dialog.getDialogPane().setContent(grid);
+//
+//        dialog.setResultConverter(dialogButton -> {
+//            if (dialogButton == createBtn)
+//                try {
+//                    String u = username.getText();
+//                    String e = email.getText();
+//                    String p = password.getText();
+//                    double s = Double.parseDouble(speed.getText());
+//                    double r = Double.parseDouble(resistance.getText());
+//                    String t = type.getValue();
+//
+//                    if (t.equals("SWIMMING"))
+//                        return users.createSwimmingDuck(u, e, p, s, r);
+//                    if (t.equals("FLYING"))
+//                        return users.createFlyingDuck(u, e, p, s, r);
+//                    return users.createHybridDuck(u, e, p, s, r);
+//                } catch (Exception e) {
+//                    log("Error: " + e.getMessage());
+//                }
+//            return null;
+//        });
+//
+
+//        dialog.showAndWait().ifPresent(d -> log("SUCCESS: Created Duck ID " + d.getId()));
+
+//    }
+//    @FXML
+//    public void onAddFriend() {
+//        String id1 = ask("Friendship", "ID of first user: ");
+//        if (id1 == null)
+//            return;
+//
+//        String id2 = ask("Friendship", "ID of second user:");
+//        if (id2 == null)
+//            return;
+//
+//        try {
+//            friends.addFriendship(Long.parseLong(id1), Long.parseLong(id2));
+//            log("SUCCESS: Friendship added.");
+//        } catch (Exception e) {
+//            log("ERROR: " + e.getMessage());
+//        }
+//    }
+//
+//    @FXML
+//    public void onRemoveFriend() {
+//        String id1 = ask("Unfriend", "ID of first user: ");
+//        if (id1 == null)
+//            return;
+//
+//        String id2 = ask("Unfriend", "ID of second user:");
+//        if (id2 == null)
+//            return;
+//
+//        try {
+//            long firstId = Long.parseLong(id1);
+//            long secondId = Long.parseLong(id2);
+//            friends.removeFriendship(firstId, secondId);
+//            log("SUCCESS: Friendship removed.");
+//        } catch (Exception e) {
+//            log("ERROR: " + e.getMessage());
+
+//        }
+//    }
+
+//    private String ask(String title, String content) {
+//        TextInputDialog dialog = new TextInputDialog();
+//
+//        dialog.setTitle(title);
+//        dialog.setHeaderText(null);
+//        dialog.setContentText(content);
+//
+//        Optional<String> result = dialog.showAndWait();
+//        return result.orElse(null);
+//    }
+//
+//    @FXML
+//    public void onDeleteUser() {
+//
+//        TextInputDialog dialog = new TextInputDialog();
+//        dialog.setTitle("Delete User");
+//        dialog.setContentText("User ID:");
+//        dialog.showAndWait().ifPresent(idStr -> {
+//            try {
+//                users.deleteUser(Long.parseLong(idStr));
+//                friends.syncWithUsers();
+//                log("SUCCESS: User " + idStr + " deleted.");
+//            } catch (Exception e) {
+//                log("ERROR: " + e.getMessage());
+//            }
+//        });
+//    }
+
+
+package scs.ui.controllers.social;
+
+import javafx.application.Platform;
+import javafx.beans.binding.Bindings;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.ObservableList;
+import javafx.concurrent.Task;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import scs.domain.user.*;
+import scs.service.social.UserService;
+import scs.service.friend.FriendshipService;
+import scs.service.friend.RequestService;
+import scs.ui.pages.ProfilePage;
+import scs.utilities.events.EntityChangeEvent;
+import scs.utilities.observer.Observer;
+import scs.utilities.paging.*;
+
+import javafx.collections.FXCollections;
+import javafx.fxml.FXML;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+
+import java.util.Set;
+
+public class UserController implements Observer<EntityChangeEvent<User>> {
+
+    @FXML
+    private TableView<User> usersTable;
+
+    // Columns
+    @FXML
+    private TableColumn<User, Long> colId;
+    @FXML
+    private TableColumn<User, String> colUser;
+    @FXML
+    private TableColumn<User, String> colEmail;
+
+    @FXML
+    private TableColumn<User, String> colName;
+    @FXML
+    private TableColumn<User, String> colJob;
+
+    @FXML
+    private TableColumn<User, Double> colSpeed;
+    @FXML
+    private TableColumn<User, Double> colRes;
+
+    // Filters
+    @FXML
+    private ComboBox<String> duckTypeCombo;
+    @FXML
+    private ComboBox<String> userTypeCombo;
+    @FXML
+    private ComboBox<String> relationCombo;
+
+    // Pagination
+    @FXML
+    private TextField pageSizeInput;
+    @FXML
+    private Label pageLabel;
+
+    private int currentPage = 0;
+    private int pageSize = 5;
+    private int totalRecords = 0;
+
+    private ContextMenu activeMenu = null;
+
+    // Services
+    private UserService userService;
+    private RequestService requestService;
+    private FriendshipService friendshipService;
+    private User currentUser;
+
+    private final ObservableList<User> tableModel = FXCollections.observableArrayList();
+
+    public void setContext(UserService service, RequestService reqService,
+                           FriendshipService friendService, User loggedIn) {
+        this.userService = service;
+        this.requestService = reqService;
+        this.friendshipService = friendService;
+        this.currentUser = loggedIn;
+
+        this.userService.addObserver(this);
+
+        initColumns();
+        initFilters();
+        initContextMenu();
+
+        usersTable.setItems(tableModel);
+        loadUsersBackground();
+    }
+
+    @Override
+    public void update(EntityChangeEvent<User> event) {
+        Platform.runLater(() -> {
+            User data = event.data();
+            switch (event.type()) {
+                case ADD:
+                    totalRecords++;
+                    updatePageLabel();
+
+                    if (!passesFilters(data))
+                        return;
+
+                    int targetPage = (totalRecords - 1) / pageSize;
+
+                    if (currentPage == targetPage)
+                        tableModel.add(data);
+                    break;
+
+                case DELETE:
+                    loadUsersBackground();
+                    break;
+
+                case UPDATE:
+                    int idx = findIndexById(data.getId());
+                    if (idx != -1) {
+                        tableModel.set(idx, data);
+                        usersTable.refresh();
+                    }
+                    break;
+            }
+        });
+    }
+
+    private boolean passesFilters(User u) {
+        String uType = userTypeCombo.getValue();
+        if (uType.equals("PERSON") && !(u instanceof Person)) return false;
+        if (uType.equals("DUCK") && !(u instanceof Duck)) return false;
+
+        if (u instanceof Duck) {
+            String dType = duckTypeCombo.getValue();
+            if (dType.equals("SWIMMING") && !(u instanceof SwimmingDuck)) return false;
+            if (dType.equals("FLYING") && !(u instanceof FlyingDuck)) return false;
+            if (dType.equals("HYBRID") && !(u instanceof HybridDuck)) return false;
+        }
+
+        String rel = relationCombo.getValue();
+        if (!"ALL".equals(rel)) {
+            boolean areFriends = friendshipService.areFriends(currentUser.getId(), u.getId());
+
+            if (rel.equals("FRIENDS") && !areFriends) return false;
+            if (rel.equals("NOT FRIENDS") && areFriends) return false;
+        }
+
+        return true;
+    }
+
+    private int findIndexById(Long id) {
+        for (int i = 0; i < tableModel.size(); ++i)
+            if (tableModel.get(i).getId().equals(id))
+                return i;
+
+        return -1;
+    }
+
+    private void initColumns() {
+        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colUser.setCellValueFactory(new PropertyValueFactory<>("username"));
+        colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+
+        colName.setCellValueFactory(cellData -> {
+            if (cellData.getValue() instanceof Person p)
+                return new SimpleStringProperty(p.getFullName());
+            return new SimpleStringProperty("-");
+        });
+        colJob.setCellValueFactory(cellData -> {
+            if (cellData.getValue() instanceof Person p)
+                return new SimpleStringProperty(p.getOccupation());
+            return new SimpleStringProperty("-");
+        });
+
+        colSpeed.setCellValueFactory(cellData -> {
+            if (cellData.getValue() instanceof Duck d)
+                return new SimpleObjectProperty<>(d.getSpeed());
+            return null;
+        });
+
+        colRes.setCellValueFactory(cellData -> {
+            if (cellData.getValue() instanceof Duck d)
+                return new SimpleObjectProperty<>(d.getResistance());
+            return null;
+        });
+    }
+
+    private void initFilters() {
+        userTypeCombo.setItems(FXCollections.observableArrayList("ALL", "PERSON", "DUCK"));
+        userTypeCombo.getSelectionModel().select("ALL");
+
+        duckTypeCombo.setItems(FXCollections.observableArrayList("ALL", "SWIMMING", "FLYING", "HYBRID"));
+        duckTypeCombo.getSelectionModel().select("ALL");
+        duckTypeCombo.setVisible(false);
+        duckTypeCombo.setManaged(false);
+
+        relationCombo.setItems(FXCollections.observableArrayList("ALL", "FRIENDS", "NOT FRIENDS"));
+        relationCombo.getSelectionModel().select("ALL");
+
+        userTypeCombo.setOnAction(e -> {
+            String selected = userTypeCombo.getValue();
+            boolean isDuckMode = "DUCK".equals(selected);
+
+            duckTypeCombo.setVisible(isDuckMode);
+            duckTypeCombo.setManaged(isDuckMode);
+
+            if (!isDuckMode)
+                duckTypeCombo.getSelectionModel().select("ALL");
+
+            this.currentPage = 0;
+            loadUsersBackground();
+        });
+
+        duckTypeCombo.setOnAction(e -> {
+            currentPage = 0;
+            loadUsersBackground();
+        });
+
+        relationCombo.setOnAction(e -> {
+            currentPage = 0;
+            loadUsersBackground();
+        });
+    }
+
+    private void initContextMenu() {
+        usersTable.setRowFactory(tv -> {
+            TableRow<User> row = new TableRow<>();
+
+            row.setOnContextMenuRequested(e -> {
+                User target = row.getItem();
+
+                if (target == null) {
+                    return;
+                }
+
+                if (activeMenu != null) {
+                    activeMenu.hide();
+                }
+
+                ContextMenu menu = new ContextMenu();
+                activeMenu = menu;
+
+                menu.getItems().clear();
+
+                MenuItem viewProfile = new MenuItem("View Profile");
+                viewProfile.setOnAction(event -> openProfileWindow(target));
+                menu.getItems().add(viewProfile);
+
+                if (!target.getId().equals(currentUser.getId())) {
+                    boolean isFriend = friendshipService.areFriends(currentUser.getId(), target.getId());
+
+                    if (isFriend) {
+                        MenuItem removeFriend = new MenuItem("Remove Friend");
+                        removeFriend.setStyle("-fx-text-fill: #e74c3c;");
+                        removeFriend.setOnAction(event -> removeFriendship(target));
+                        menu.getItems().add(removeFriend);
+                    } else {
+                        MenuItem sendReq = new MenuItem("Send Friend Request");
+                        sendReq.setOnAction(event -> sendFriendRequest(target));
+                        menu.getItems().add(sendReq);
+                    }
+                }
+
+                menu.show(row, e.getScreenX(), e.getScreenY());
+            });
+
+            return row;
+        });
+    }
+
+    private void removeFriendship(User target) {
+        Alert confirm = new Alert(Alert.AlertType.CONFIRMATION,
+                "Are you sure you want to remove " + target.getUsername() + " from you friends?");
+
+        confirm.showAndWait().ifPresent(response -> {
+            if (response == ButtonType.OK) {
+                try {
+                    friendshipService.removeFriendship(currentUser.getId(), target.getId());
+                    if (!relationCombo.getValue().equals("ALL"))
+                        loadUsersBackground();
+                } catch (Exception e) {
+                    new Alert(Alert.AlertType.ERROR, "Could not remove friendship: " +e.getMessage()).show();
+                }
+            }
+        });
+    }
+
+    private void sendFriendRequest(User target) {
+        try {
+            requestService.sendRequest(currentUser.getId(), target.getId());
+            new Alert(Alert.AlertType.INFORMATION, "Friend request sent to " + target.getUsername()).show();
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
+    }
+
+    private void openProfileWindow(User target) {
+        try {
+            boolean isFriend = friendshipService.areFriends(currentUser.getId(), target.getId());
+
+            ProfilePage page = new ProfilePage(target, false, isFriend, userService, null);
+
+            Stage stage = new Stage();
+            stage.setTitle("Profile: " + target.getUsername());
+            stage.setScene(new Scene(page.getView()));
+
+            stage.setResizable(false);
+
+            stage.show();
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "Could not open profile: " + e.getMessage()).show();
+            e.printStackTrace();
+        }
+    }
+
+    private void loadUsersBackground() {
+        if (currentUser == null)
+            return;
+
+        pageLabel.setText("Loading...");
+
+        String uType = userTypeCombo.getValue();
+        String dType = duckTypeCombo.getValue();
+        String relType = relationCombo.getValue();
+        Pageable p = new Pageable(currentPage, pageSize);
+
+        Task<Page<User>> task = new Task<>() {
+            @Override
+            protected Page<User> call() {
+                Set<Long> friendIds = friendshipService.getFriendsOf(currentUser.getId());
+                return userService.searchUsers(p, uType, dType, relType, currentUser.getId(), friendIds);
+            }
+        };
+
+        task.setOnSucceeded(e -> {
+            Page<User> res = task.getValue();
+            tableModel.setAll(res.getElementsOnPage());
+            totalRecords = res.getTotalElementCount();
+            updatePageLabel();
+        });
+
+        task.setOnFailed(e -> {
+            pageLabel.setText("Error loading data.");
+            new Alert(Alert.AlertType.ERROR, "Failed to load users: " + task.getException().getMessage()).show();
+        });
+
+        new Thread(task).start();
+    }
+
+    private void updatePageLabel() {
+        int totalPages = (int) Math.ceil((double) totalRecords / pageSize);
+        if (totalPages == 0)
+            totalPages = 1;
+
+        pageLabel.setText("Page " + (currentPage + 1) + " of " + totalPages);
+    }
+
+    @FXML
+    public void onSetPageSize() {
+        try {
+            int newSize = Integer.parseInt(pageSizeInput.getText());
+            if (newSize > 0) {
+                this.pageSize = newSize;
+                this.currentPage = 0;
+                loadUsersBackground();
+            } else {
+                pageSizeInput.setText(String.valueOf(pageSize));
+            }
+        } catch (NumberFormatException e) {
+            pageSizeInput.clear();
+        }
+    }
+
+    @FXML
+    public void onNextPage() {
+        int totalPages = (int) Math.ceil((double) totalRecords / pageSize);
+        if (currentPage < totalPages - 1) {
+            currentPage++;
+            loadUsersBackground();
+        }
+    }
+
+    @FXML
+    public void onPrevPage() {
+        if (currentPage > 0) {
+            currentPage--;
+            loadUsersBackground();
+        }
+    }
+
+    public void cleanup() {
+        if (userService != null)
+            userService.removeObserver(this);
+    }
+}
+
+package scs.ui;
+
+import javafx.animation.FadeTransition;
+import javafx.animation.PauseTransition;
+import javafx.animation.SequentialTransition;
+import javafx.application.Platform;
+import javafx.scene.control.Label;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
+import javafx.util.Duration;
+import scs.app.AppContext;
+
+import javafx.fxml.FXML;
+import scs.domain.interactions.FriendRequest;
+import scs.domain.interactions.Message;
+import scs.domain.user.User;
+import scs.service.friend.RequestService;
+import scs.service.social.MessageService;
+import scs.service.social.UserService;
+import scs.ui.controllers.race.EventController;
+import scs.ui.controllers.race.HerdController;
+import scs.ui.controllers.race.RaceController;
+import scs.ui.controllers.social.ChatController;
+import scs.ui.controllers.social.UserController;
+import scs.ui.controllers.social.SocialController;
+import scs.ui.pages.ProfilePage;
+import scs.utilities.events.ChangeEventType;
+import scs.utilities.events.EntityChangeEvent;
+
+
+public class MainController {
+    @FXML
+    private UserController userViewController;
+    @FXML
+    private SocialController socialViewController;
+    @FXML private HerdController herdViewController;
+    @FXML private EventController eventViewController;
+    @FXML private RaceController raceViewController;
+    @FXML
+    private ChatController chatViewController;
+
+    @FXML
+    private Label notificationLabel;
+
+    @FXML
+    private TabPane mainTabPane;
+
+    private RequestService requestService;
+    private MessageService messageService;
+    private User loggedInUser;
+
+    public void setContext(AppContext ctx, User user, Runnable logoutAction) {
+        this.loggedInUser = user;
+        this.requestService = ctx.PGRequestService;
+        this.messageService = ctx.PGMessageService;
+
+        ProfilePage profilePage = new ProfilePage(user, true, false, ctx.PGUserService, logoutAction);
+
+        Tab profileTab = new Tab("Profile");
+        profileTab.setContent(profilePage.getView());
+        profileTab.setClosable(false);
+
+        mainTabPane.getTabs().addFirst(profileTab);
+
+        userViewController.setContext(
+                ctx.PGUserService,
+                ctx.PGRequestService,
+                ctx.PGFriendshipService,
+                loggedInUser);
+
+        socialViewController.setServices(
+                ctx.PGUserService,
+                ctx.PGFriendshipService,
+                ctx.PGCommunityService,
+                ctx.PGRequestService,
+                loggedInUser);
+
+        herdViewController.setService(ctx.PGCardService, loggedInUser);
+
+        eventViewController.setServices(ctx.PGEventService, ctx.PGUserService, loggedInUser);
+
+        raceViewController.setServices(ctx.PGCardService, ctx.PGEventService, loggedInUser);
+
+        chatViewController.setServices(ctx.PGMessageService, ctx.PGUserService, ctx.PGFriendshipService);
+        chatViewController.setLoggedInUser(user);
+
+        this.requestService.addObserver(this::onFriendRequestEvent);
+        this.messageService.addObserver(this::onMessageEvent);
+    }
+
+    private void onFriendRequestEvent(EntityChangeEvent<FriendRequest> event) {
+        if (event.type() != ChangeEventType.ADD)
+            return;
+
+        FriendRequest req = event.data();
+
+        if (req.getTo().getId().equals(loggedInUser.getId())) {
+            String senderName = req.getFrom().getUsername();
+            Platform.runLater(() -> showNotification("New Friend Request from " + senderName));
+        }
+    }
+
+    private void onMessageEvent(EntityChangeEvent<Message> event) {
+        if (event.type() != ChangeEventType.ADD)
+            return;
+
+        Message msg = event.data();
+
+        boolean isForMe = msg.getTo().stream()
+                .anyMatch(u -> u.getId().equals(loggedInUser.getId()));
+
+        if (isForMe && msg.getFrom().getId().equals(UserService.RACE_BOT_ID)) {
+            String sender = msg.getFrom().getUsername();
+            String preview = msg.getText().length() > 50
+                    ? msg.getText().substring(0, 50) + "..."
+                    : msg.getText();
+
+            Platform.runLater(() -> showNotification(sender + ":\n" + preview));
+        }
+    }
+
+    private void showNotification(String message) {
+        notificationLabel.setText(message);
+        notificationLabel.setOpacity(0);
+        notificationLabel.setVisible(true);
+        notificationLabel.toFront();
+
+        // Fade in
+        FadeTransition fadeIn = new FadeTransition(Duration.millis(300), notificationLabel);
+        fadeIn.setFromValue(0);
+        fadeIn.setToValue(1.0);
+
+        // Stay Visible
+        PauseTransition stay = new PauseTransition(Duration.seconds(4));
+
+        // Fade out
+        FadeTransition fadeOut = new FadeTransition(Duration.millis(500), notificationLabel);
+        fadeOut.setFromValue(1.0);
+        fadeOut.setToValue(0);
+
+        // Chain
+        SequentialTransition seq = new SequentialTransition(fadeIn, stay, fadeOut);
+        seq.setOnFinished(e -> notificationLabel.setVisible(false));
+        seq.play();
+    }
+
+    public void cleanup() {
+        if (userViewController != null) userViewController.cleanup();
+        if (chatViewController != null) chatViewController.cleanup();
+        if (socialViewController != null) socialViewController.cleanup();
+        if (eventViewController != null) eventViewController.cleanup();
+        if (herdViewController != null) herdViewController.cleanup();
+        if (raceViewController != null) raceViewController.cleanup();
+
+        if (requestService != null) requestService.removeObserver(this::onFriendRequestEvent);
+        if (messageService != null) messageService.removeObserver(this::onMessageEvent);
+    }
+}
+
+package scs.ui.pages;
+
+import javafx.scene.Parent;
+
+public interface Page {
+    Parent getView();
+    void refresh();
+}
+
+package scs.ui.pages;
+
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import scs.domain.user.User;
+import scs.service.social.UserService;
+import scs.ui.controllers.ProfileController;
+
+import java.io.IOException;
+
+public class ProfilePage implements Page {
+    private Parent view;
+    private ProfileController controller;
+    private final User targetUser;
+
+    private final UserService userService;
+    private final Runnable logoutHandler;
+
+    public ProfilePage(User user, boolean isMe, boolean isFriend, UserService userService, Runnable logoutHandler) {
+        this.targetUser = user;
+        this.userService = userService;
+        this.logoutHandler = logoutHandler;
+
+        loadView(isMe, isFriend);
+    }
+
+    private void loadView(boolean isMe, boolean isFriend) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/scs/side-views/profile-view.fxml"));
+            this.view = loader.load();
+            this.controller = loader.getController();
+
+            if (this.controller != null) {
+                this.controller.setContext(targetUser, userService, logoutHandler);
+                this.controller.setRelationStatus(isMe, isFriend);
+            }
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to load Profile Page ", e);
+        }
+    }
+
+    @Override
+    public Parent getView() {
+        return view;
+    }
+
+    @Override
+    public void refresh() {
+        if (controller != null)
+            controller.updateUI();
+    }
+
+}
+

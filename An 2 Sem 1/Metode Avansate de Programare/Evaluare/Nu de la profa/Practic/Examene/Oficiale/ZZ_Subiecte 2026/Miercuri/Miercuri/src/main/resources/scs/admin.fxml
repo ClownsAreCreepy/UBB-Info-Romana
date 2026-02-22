@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<BorderPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="scs.ui.AdminController">
+    <top>
+        <Label text="Live Market Transactions" BorderPane.alignment="CENTER">
+            <font>
+                <Font name="System Bold" size="20.0"/>
+            </font>
+
+            <padding>
+                <Insets bottom="10.0" top="10.0"/>
+            </padding>
+        </Label>
+    </top>
+
+    <center>
+        <TableView fx:id="transTable" prefWidth="200.0" prefHeight="200.0" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn fx:id="colTime" prefWidth="150.0" text="Time"/>
+                <TableColumn fx:id="colTrader" prefWidth="150.0" text="Trader Name"/>
+                <TableColumn fx:id="colType" prefWidth="100.0" text="Type"/>
+                <TableColumn fx:id="colCoin" prefWidth="100.0" text="Coin"/>
+                <TableColumn fx:id="colPrice" prefWidth="120.0" text="Price"/>
+            </columns>
+        </TableView>
+    </center>
+</BorderPane>

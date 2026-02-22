@@ -1,0 +1,26 @@
+1. O vaza A are 2 bile notate cu 0, 2 cu 1 si una cu 2. O alta urna B are 2 bile notate cu 0, una cu 1 si una cu 2.
+Din urna A se extrage o bila X, iar, independent, din urna B se extrage o bila Y.
+a) P(X = 2, Y = 1) : 1/20
+b) P(X > Y) : 7/20
+c) P({ X = 1 } U { Y = 2 }) : 1/2
+d) P(X + Y <= 1 | X - Y >= 1) : 4/7
+e) E(3X - 2Y)
+f) Sunt X+Y si X-Y independente? : NU
+
+2. Fx, Fy: R-> [0,1]
+	
+	| 0, x < 0
+Fx(x) = | x^2/4, 0 <= x <= 2
+	| 1, x > 2
+
+	| 0, x < 0
+Fy(x) = | x/3, 0 <= x <= 3
+	| 1, x > 3
+
+Calculati: P({ X > 1 } intersectat { Y <= 2 }), P({ X > 1 } U { Y <= 2 }), E(X * Y)
+
+3. X1, .. , Xn variabile de selectie pt X; E(X) = 1, E(X^2) = 2, E(X^3) = 3
+a) Calculati a, unde (X1^3 + .. + Xn^3)/3n tinde aproape sigura la a
+b) Calculati      __ 
+	P(1.125 < X64 < 1.25), folosind un tabel de valori norm.cdf
+

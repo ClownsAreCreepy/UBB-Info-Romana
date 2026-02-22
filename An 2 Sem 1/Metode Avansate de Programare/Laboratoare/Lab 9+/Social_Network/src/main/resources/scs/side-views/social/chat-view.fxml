@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Button?>
+<SplitPane dividerPositions="0.3" xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="scs.ui.controllers.social.ChatController">
+
+    <VBox spacing="10" style="-fx-padding: 10">
+        <Label fx:id="lblUser" text="My Friends" style="-fx-text-fill: #2c3e50">
+            <font>
+                <Font name="System Bold" size="14.0"/>
+            </font>
+        </Label>
+
+        <ListView fx:id="friendsList" VBox.vgrow="ALWAYS"/>
+    </VBox>
+
+    <VBox fx:id="chatPanel" spacing="10" style="-fx-padding: 10;" visible="false">
+        <Label fx:id="headerLabel" text="Chat with...">
+            <font>
+                <Font name="System Bold" size="16.0"/>
+            </font>
+        </Label>
+
+        <ListView fx:id="messageList" VBox.vgrow="ALWAYS"/>
+
+        <Label fx:id="replyLabel" text="Click a message to reply" style="-fx-text-fill: gray; -fx-font-style: italic;"/>
+
+        <HBox spacing="10">
+            <TextArea fx:id="inputField" prefHeight="50" HBox.hgrow="ALWAYS" promptText="Type message..."/>
+            <Button text="Send" onAction="#onSend" prefHeight="50" minWidth="60"/>
+        </HBox>
+        <Button text="Clear Reply" onAction="#onClearReply" maxWidth="Infinity"/>
+    </VBox>
+
+</SplitPane>

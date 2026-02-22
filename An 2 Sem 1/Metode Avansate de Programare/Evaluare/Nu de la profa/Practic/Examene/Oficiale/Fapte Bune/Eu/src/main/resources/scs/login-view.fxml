@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<HBox spacing="20.0" xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="scs.ui.LoginController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+
+    <VBox spacing="10.0" prefWidth="300.0">
+        <Label text="Inregistrare Cont Nou" style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
+        <TextField fx:id="numeField" promptText="Nume"/>
+        <TextField fx:id="prenumeField" promptText="Prenume"/>
+        <TextField fx:id="usernameRegField" promptText="Username"/>
+        <PasswordField fx:id="parolaField" promptText="Parola"/>
+        <PasswordField fx:id="parolaConfirmField" promptText="Confirma Parola"/>
+        <ComboBox fx:id="orasComboBox" promptText="Alege Orasul" prefWidth="300.0"/>
+        <TextField fx:id="stradaField" promptText="Strada"/>
+        <TextField fx:id="numar_stradaField" promptText="Numar Strada"/>
+        <TextField fx:id="telefonField" promptText="Telefon"/>
+        <Button text="Inregistrare" onAction="#handleRegister" prefWidth="300.0"/>
+    </VBox>
+
+    <Separator orientation="VERTICAL"/>
+
+    <VBox spacing="10.0" prefWidth="250.0">
+        <Label text="Intra in cont (Login)" style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
+        <Label text="Selecteaza utilizatorul:"/>
+        <ListView fx:id="usersListView" prefHeight="250.0"/>
+        <Button text="Login" onAction="#handleLogin" prefWidth="250.0"/>
+    </VBox>
+</HBox>

@@ -1,0 +1,4 @@
+CREATE OR ALTER PROCEDURE reverseCompDefaultInstrument
+AS
+ALTER TABLE Compozitori
+DROP CONSTRAINT Compozitori_default_instrument_favorit

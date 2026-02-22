@@ -1,0 +1,12 @@
+(defun fc(x)
+    #'(lambda (y)
+        (mapcar y (cddr x))
+      )
+)
+
+; (funcall (fc (quote ((1) (2) (3) (4)))) #'car)
+; Fc returneaza Closure. Adica va primi o functie pentru lambda, si va aplica acea functie la mapcar pe lista (cddr x)
+; In cazul nostru, x = '((1) (2) (3) (4)), deci cddr de x va fi ((3) (4))
+; Lambda primeste ca functie #'car, deci va pune mapcar #'car ((3) (4))
+; Mapcarul imparte lista in 2: (3) si (4), iar car la fiecare da (3 4)
+; => (3 4)

@@ -1,0 +1,1108 @@
+package scs.domain;
+
+import java.util.Objects;
+
+public class Entity {   // our domain classes extend this
+    private Long id;
+
+    public Entity(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Entity entity)) return false;
+        return Objects.equals(id, entity.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+}
+package scs.domain;
+
+import java.time.LocalDateTime;
+
+public class Nevoie extends Entity {
+    private String titlu;
+    private String descriere;
+    private LocalDateTime deadline;
+    private long omInNevoie;
+    private Long omSalvator;
+    private String status;
+
+    public Nevoie(Long id, String titlu, String descriere, LocalDateTime deadline, long omInNevoie, Long omSalvator, String status) {
+        super(id);
+        this.titlu = titlu;
+        this.descriere = descriere;
+        this.deadline = deadline;
+        this.omInNevoie = omInNevoie;
+        this.omSalvator = omSalvator;
+        this.status = (status == null || status.isEmpty()) ? "Caut erou!" : status;
+    }
+
+    public String getTitlu() {
+        return titlu;
+    }
+
+    public void setTitlu(String titlu) {
+        this.titlu = titlu;
+    }
+
+    public String getDescriere() {
+        return descriere;
+    }
+
+    public void setDescriere(String descriere) {
+        this.descriere = descriere;
+    }
+
+    public LocalDateTime getDeadline() {
+        return deadline;
+    }
+
+    public void setDeadline(LocalDateTime deadline) {
+        this.deadline = deadline;
+    }
+
+    public long getOmInNevoie() {
+        return omInNevoie;
+    }
+
+    public void setOmInNevoie(long omInNevoie) {
+        this.omInNevoie = omInNevoie;
+    }
+
+    public Long getOmSalvator() {
+        return omSalvator;
+    }
+
+    public void setOmSalvator(Long omSalvator) {
+        this.omSalvator = omSalvator;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+}
+
+package scs.domain;
+
+public enum Oras {
+    CLUJ_NAPOCA,
+    BUCURESTI,
+    TIMISOARA,
+    IASI,
+    SIBIU
+}
+
+package scs.domain;
+
+public class Persoana extends Entity {
+    private String nume;
+    private String prenume;
+    private String username;
+    private String parola;
+    private Oras oras;
+    private String strada;
+    private String numar_strada;
+    private String telefon;
+
+    public Persoana(Long id, String nume, String prenume, String username, String parola, Oras oras, String strada, String numar_strada, String telefon) {
+        super(id);
+        this.nume = nume;
+        this.prenume = prenume;
+        this.username = username;
+        this.parola = parola;
+        this.oras = oras;
+        this.strada = strada;
+        this.numar_strada = numar_strada;
+        this.telefon = telefon;
+    }
+
+    public String getNume() {
+        return nume;
+    }
+
+    public void setNume(String nume) {
+        this.nume = nume;
+    }
+
+    public String getPrenume() {
+        return prenume;
+    }
+
+    public void setPrenume(String prenume) {
+        this.prenume = prenume;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getParola() {
+        return parola;
+    }
+
+    public void setParola(String parola) {
+        this.parola = parola;
+    }
+
+    public Oras getOras() {
+        return oras;
+    }
+
+    public void setOras(Oras oras) {
+        this.oras = oras;
+    }
+
+    public String getStrada() {
+        return strada;
+    }
+
+    public void setStrada(String strada) {
+        this.strada = strada;
+    }
+
+    public String getNumar_strada() {
+        return numar_strada;
+    }
+
+    public void setNumar_strada(String numar_strada) {
+        this.numar_strada = numar_strada;
+    }
+
+    public String getTelefon() {
+        return telefon;
+    }
+
+    public void setTelefon(String telefon) {
+        this.telefon = telefon;
+    }
+}
+
+package scs;
+
+import javafx.application.Application;
+import javafx.stage.Stage;
+import scs.repo.NevoieRepository;
+import scs.repo.PersoanaRepository;
+import scs.service.NevoieService;
+import scs.service.PersoanaService;
+import scs.ui.LoginController;
+import scs.ui.WindowManager;
+import scs.utilities.database.Db;
+// import your.domain.*;
+
+public class MainApp extends Application {
+    @Override
+    public void start(Stage stage) {
+        // 1. DB
+        Db.setGlobalConnection(System.getenv("DB_URL"), System.getenv("DB_USER"), System.getenv("DB_PASSWORD"));
+
+        PersoanaRepository persoanaRepository = new PersoanaRepository();
+        NevoieRepository nevoieRepository = new NevoieRepository();
+
+        PersoanaService persoanaService = new PersoanaService(persoanaRepository);
+        NevoieService nevoieService = new NevoieService(nevoieRepository, persoanaRepository);
+
+        // Or Single Window
+        WindowManager.openWindow("/scs/dashboard-view.fxml", "Fapte Bune - Login/Register",
+                (LoginController ctrl) -> ctrl.setService(persoanaService, nevoieService));
+    }
+    public static void main(String[] args) { launch(args); }
+}
+package scs.repo;
+
+import scs.utilities.database.Db;
+import scs.utilities.paging.Page;
+import scs.utilities.paging.Pageable;
+
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+public abstract class AbstractDbRepository<E> implements Repository<E> {
+
+    protected abstract String getTableName();      // e.g. "public.drivers"
+    protected abstract String getIdColumnName();   // e.g. "id_driver"
+
+    protected abstract String getInsertSql();
+    protected abstract String getUpdateSql();
+    protected abstract E mapResultSet(ResultSet rs) throws SQLException;
+    protected abstract void setInsertParams(PreparedStatement ps, E entity) throws SQLException;
+    protected abstract void setUpdateParams(PreparedStatement ps, E entity) throws SQLException;
+    protected abstract void setIdFromDb(E entity, Long id);
+
+    // --- GENERIC IMPLEMENTATION ---
+
+    @Override
+    public Optional<E> findOne(Long id) {
+        String sql = "SELECT * FROM " + getTableName() + " WHERE " + getIdColumnName() + " = ?";
+        try (Connection con = Db.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setLong(1, id);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) return Optional.of(mapResultSet(rs));
+            }
+        } catch (SQLException e) { throw new RuntimeException(e.getMessage()); }
+        return Optional.empty();
+    }
+
+    @Override
+    public List<E> findAll() {
+        List<E> list = new ArrayList<>();
+        try (Connection con = Db.getConnection();
+             PreparedStatement ps = con.prepareStatement("SELECT * FROM " + getTableName());
+             ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) list.add(mapResultSet(rs));
+        } catch (SQLException e) { throw new RuntimeException(e.getMessage()); }
+        return list;
+    }
+
+    @Override
+    public Page<E> findAll(Pageable pageable) {
+        String sql = "SELECT * FROM " + getTableName() + " LIMIT ? OFFSET ?";
+        List<E> list = new ArrayList<>();
+        try (Connection con = Db.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setInt(1, pageable.getPageSize());
+            ps.setInt(2, pageable.getOffset());
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) list.add(mapResultSet(rs));
+            }
+        } catch (SQLException e) { throw new RuntimeException(e.getMessage()); }
+        return new Page<>(list, 0, pageable.getPageSize());
+    }
+
+    @Override
+    public E save(E entity) {
+        try (Connection con = Db.getConnection();
+             PreparedStatement ps = con.prepareStatement(getInsertSql(), Statement.RETURN_GENERATED_KEYS)) {
+            setInsertParams(ps, entity);
+            ps.executeUpdate();
+            try (ResultSet rs = ps.getGeneratedKeys()) {
+                if (rs.next()) setIdFromDb(entity, rs.getLong(1));
+            }
+        } catch (SQLException e) { throw new RuntimeException(e.getMessage()); }
+        return entity;
+    }
+
+    @Override
+    public void update(E entity) {
+        try (Connection con = Db.getConnection();
+             PreparedStatement ps = con.prepareStatement(getUpdateSql())) {
+            setUpdateParams(ps, entity);
+            ps.executeUpdate();
+        } catch (SQLException e) { throw new RuntimeException(e.getMessage()); }
+    }
+
+    @Override
+    public void delete(Long id) {
+        String sql = "DELETE FROM " + getTableName() + " WHERE " + getIdColumnName() + " = ?";
+        try (Connection con = Db.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setLong(1, id);
+            ps.executeUpdate();
+        } catch (SQLException e) { throw new RuntimeException(e.getMessage()); }
+    }
+}
+package scs.repo;
+
+import scs.domain.Nevoie;
+
+import java.sql.*;
+
+public class NevoieRepository extends AbstractDbRepository<Nevoie> {
+    @Override
+    protected String getTableName() {
+        return "nevoie";
+    }
+
+    @Override
+    protected String getIdColumnName() {
+        return "id";
+    }
+
+    @Override
+    protected String getInsertSql() {
+        return "INSERT INTO nevoie (titlu, descriere, deadline, om_in_nevoie, om_salvator, status) VALUES (?, ?, ?, ?, ?, ?)";
+    }
+
+    @Override
+    protected String getUpdateSql() {
+        return "UPDATE nevoie SET titlu=?, descriere=?, deadline=?, om_in_nevoie=?, om_salvator=?, status=? WHERE id=?";
+    }
+
+    @Override
+    protected Nevoie mapResultSet(ResultSet rs) throws SQLException {
+        long salvatorId = rs.getLong("om_salvator");
+        Long omSalvator = rs.wasNull() ? null : salvatorId;
+
+        return new Nevoie(
+                rs.getLong("id"),
+                rs.getString("titlu"),
+                rs.getString("descriere"),
+                rs.getTimestamp("deadline").toLocalDateTime(),
+                rs.getLong("om_in_nevoie"),
+                omSalvator,
+                rs.getString("status")
+        );
+    }
+
+    @Override
+    protected void setInsertParams(PreparedStatement ps, Nevoie entity) throws SQLException {
+        ps.setString(1, entity.getTitlu());
+        ps.setString(2, entity.getDescriere());
+        ps.setTimestamp(3, Timestamp.valueOf(entity.getDeadline()));
+        ps.setLong(4, entity.getOmInNevoie());
+
+        if (entity.getOmSalvator() != null)
+            ps.setLong(5, entity.getOmSalvator());
+        else
+            ps.setNull(5, Types.BIGINT);
+
+        ps.setString(6, entity.getStatus());
+    }
+
+    @Override
+    protected void setUpdateParams(PreparedStatement ps, Nevoie entity) throws SQLException {
+        setInsertParams(ps, entity);
+        ps.setLong(7, entity.getId());
+    }
+
+    @Override
+    protected void setIdFromDb(Nevoie entity, Long id) {
+        entity.setId(id);
+    }
+}
+
+package scs.repo;
+
+import scs.domain.Oras;
+import scs.domain.Persoana;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class PersoanaRepository extends AbstractDbRepository<Persoana> {
+    @Override
+    protected String getTableName() {
+        return "persoana";
+    }
+
+    @Override
+    protected String getIdColumnName() {
+        return "id";
+    }
+
+    @Override
+    protected String getInsertSql() {
+        return "INSERT INTO persoana (nume, prenume, username, parola, oras, strada, numar_strada, telefon) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    }
+
+    @Override
+    protected String getUpdateSql() {
+        return "UPDATE persoana SET nume=?, prenume=?, username=?, parola=?, oras=, strada=?, numar_strada=?, telefon=? WHERE id=?";
+    }
+
+    @Override
+    protected Persoana mapResultSet(ResultSet rs) throws SQLException {
+        return new Persoana(
+                rs.getLong("id"),
+                rs.getString("nume"),
+                rs.getString("prenume"),
+                rs.getString("username"),
+                rs.getString("parola"),
+                Oras.valueOf(rs.getString("oras")),
+                rs.getString("strada"),
+                rs.getString("numar_strada"),
+                rs.getString("telefon")
+        );
+    }
+
+    @Override
+    protected void setInsertParams(PreparedStatement ps, Persoana entity) throws SQLException {
+        ps.setString(1, entity.getNume());
+        ps.setString(2, entity.getPrenume());
+        ps.setString(3, entity.getUsername());
+        ps.setString(4, entity.getParola());
+        ps.setString(5, entity.getOras().name());
+        ps.setString(6, entity.getStrada());
+        ps.setString(7, entity.getNumar_strada());
+        ps.setString(8, entity.getTelefon());
+    }
+
+    @Override
+    protected void setUpdateParams(PreparedStatement ps, Persoana entity) throws SQLException {
+        setInsertParams(ps, entity);
+        ps.setLong(9, entity.getId());
+    }
+
+    @Override
+    protected void setIdFromDb(Persoana entity, Long id) {
+        entity.setId(id);
+    }
+}
+
+package scs.repo;
+
+import scs.utilities.paging.Page;
+import scs.utilities.paging.Pageable;
+
+import java.util.List;
+import java.util.Optional;
+
+public interface Repository<E> {
+    E save(E entity);
+    Optional<E> findOne(Long id);
+    void update(E entity);
+    void delete(Long id);
+    List<E> findAll();
+    Page<E> findAll(Pageable pageable);
+}
+package scs.service;
+
+import javafx.application.Platform;
+import scs.repo.Repository;
+import scs.utilities.events.ChangeEventType;
+import scs.utilities.events.EntityChangeEvent;
+import scs.utilities.observer.Observable;
+
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.TimeUnit;
+
+public class GenericService<E> extends Observable<EntityChangeEvent<E>> {
+
+    protected final Repository<E> repo;
+
+    public GenericService(Repository<E> repo) {
+        this.repo = repo;
+    }
+
+    public List<E> getAll() {
+        return repo.findAll();
+    }
+
+    public E add(E entity) {
+        E saved = repo.save(entity);
+        notifyObservers(new EntityChangeEvent<>(ChangeEventType.ADD, saved));
+        return saved;
+    }
+
+    public void update(E entity) {
+        repo.update(entity);
+        notifyObservers(new EntityChangeEvent<>(ChangeEventType.UPDATE, entity));
+    }
+
+    public void delete(Long id) {
+        // try to find it first so we can notify the UI which object was deleted
+        E old = repo.findOne(id).orElse(null);
+        repo.delete(id);
+        if (old != null) {
+            notifyObservers(new EntityChangeEvent<>(ChangeEventType.DELETE, old));
+        }
+    }
+
+    public void processAsync(E entity, Runnable action) {
+        CompletableFuture.delayedExecutor(5, TimeUnit.SECONDS).execute(() -> {
+            try {
+                // run logic
+                action.run();
+
+                // notify UI
+                Platform.runLater(() -> {
+                    // force refresh or specific update
+                    notifyObservers(new EntityChangeEvent<>(ChangeEventType.UPDATE, entity));
+                });
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+    }
+}
+package scs.service;
+
+import scs.domain.Nevoie;
+import scs.domain.Oras;
+import scs.domain.Persoana;
+import scs.repo.Repository;
+
+import java.util.List;
+
+public class NevoieService extends GenericService<Nevoie> {
+    private final Repository<Persoana> persoanaRepo;
+
+
+    public NevoieService(Repository<Nevoie> repo, Repository<Persoana> persoanaRepo) {
+        super(repo);
+        this.persoanaRepo = persoanaRepo;
+    }
+
+    public List<Nevoie> getNevoiPentruOras(Oras oras, Long loggedInUserId) {
+        return repo.findAll().stream()
+                .filter(n -> n.getOmInNevoie() != loggedInUserId)
+                .filter(n -> {
+                    Persoana creator = persoanaRepo.findOne(n.getOmInNevoie()).orElse(null);
+                    return creator != null && creator.getOras() == oras;
+                })
+                .toList();
+    }
+
+    public List<Nevoie> getFapteBune(Long userId) {
+        return repo.findAll().stream()
+                .filter(n -> userId.equals(n.getOmSalvator()))
+                .toList();
+    }
+
+    public void preiaNevoie(Long nevoieId, Long salvatorId) {
+        Nevoie nevoie = repo.findOne(nevoieId).
+                orElseThrow(() -> new RuntimeException("Nevoia nu exista!"));
+
+        if ("Erou gasit!".equals(nevoie.getStatus())) {
+            throw new RuntimeException("Aceasta nevoia si-a gasit deja un erou!");
+        }
+
+        nevoie.setOmSalvator(salvatorId);
+        nevoie.setStatus("Erou gasit!");
+
+        super.update(nevoie);
+    }
+}
+
+package scs.service;
+
+import scs.domain.Persoana;
+import scs.repo.Repository;
+
+public class PersoanaService extends GenericService<Persoana> {
+
+    public PersoanaService(Repository<Persoana> repo) {
+        super(repo);
+    }
+
+    public Persoana findByUsername(String username) {
+        return repo.findAll().stream()
+                .filter(p -> p.getUsername().equals(username))
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("Utilizatorul nu a fost gasit!"));
+    }
+}
+
+package scs.ui;
+
+import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import scs.domain.Entity;
+import scs.domain.Nevoie;
+import scs.domain.Persoana;
+import scs.service.GenericService;
+import scs.service.NevoieService;
+import scs.service.PersoanaService;
+import scs.utilities.events.EntityChangeEvent;
+import scs.utilities.observer.Observer;
+
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+
+public class DashboardController implements Observer<EntityChangeEvent<Nevoie>> {
+    @FXML private TableView<Nevoie> nevoiOrasTable;
+    @FXML private TableColumn<Nevoie, String> colTitluOras;
+    @FXML private TableColumn<Nevoie, String> colDescriereOras;
+    @FXML private TableColumn<Nevoie, LocalDateTime> colDeadlineOras;
+    @FXML private TableColumn<Nevoie, String> colStatusOras;
+
+    @FXML private TableView<Nevoie> fapteBuneTable;
+    @FXML private TableColumn<Nevoie, String> colTitluFapte;
+    @FXML private TableColumn<Nevoie, String> colDescriereFapte;
+    @FXML private TableColumn<Nevoie, LocalDateTime> colDeadlineFapte;
+    @FXML private TableColumn<Nevoie, String> colStatusFapte;
+
+    @FXML private TextField titluNevoieField;
+    @FXML private TextArea descriereNevoieField;
+    @FXML private DatePicker deadlinePicker;
+
+    private NevoieService nevoieService;
+    private PersoanaService persoanaService;
+    private Persoana loggedInUser;
+
+    private ObservableList<Nevoie> modelNevoiOras = FXCollections.observableArrayList();
+    private ObservableList<Nevoie> modelFapteBune = FXCollections.observableArrayList();
+
+    public void setService(NevoieService nevoieService, PersoanaService persoanaService, Persoana loggedInUser) {
+        this.nevoieService = nevoieService;
+        this.persoanaService = persoanaService;
+        this.loggedInUser = loggedInUser;
+
+        this.nevoieService.addObserver(this);
+
+        initTables();
+        loadData();
+    }
+
+    private void initTables() {
+        colTitluOras.setCellValueFactory(new PropertyValueFactory<>("titlu"));
+        colDescriereOras.setCellValueFactory(new PropertyValueFactory<>("descriere"));
+        colDeadlineOras.setCellValueFactory(new PropertyValueFactory<>("deadline"));
+        colStatusOras.setCellValueFactory(new PropertyValueFactory<>("status"));
+        nevoiOrasTable.setItems(modelNevoiOras);
+
+        colTitluFapte.setCellValueFactory(new PropertyValueFactory<>("titlu"));
+        colDescriereFapte.setCellValueFactory(new PropertyValueFactory<>("descriere"));
+        colDeadlineFapte.setCellValueFactory(new PropertyValueFactory<>("deadline"));
+        colStatusFapte.setCellValueFactory(new PropertyValueFactory<>("status"));
+        fapteBuneTable.setItems(modelFapteBune);
+    }
+
+    private void loadData() {
+        modelNevoiOras.setAll(nevoieService.getNevoiPentruOras(loggedInUser.getOras(), loggedInUser.getId()));
+        modelFapteBune.setAll(nevoieService.getFapteBune(loggedInUser.getId()));
+    }
+
+    @FXML public void handlePreiaNevoie() {
+        Nevoie selected = nevoiOrasTable.getSelectionModel().getSelectedItem();
+        if (selected == null) {
+            showAlert("Eroare", "Selectati o nevoie pentru a o prelua!");
+            return;
+        }
+
+        if (selected.getStatus().equals("Erou gasit!")) {
+            showAlert("Eroare", "Aceasta nevoie si-a gasit deja un erou!");
+            return;
+        }
+
+        try {
+            nevoieService.preiaNevoie(selected.getId(), loggedInUser.getId());
+            showAlert("Success", "Nevoia ti-a fost atribuita!");
+        } catch (Exception e) {
+            showAlert("Eroare", e.getMessage());
+        }
+    }
+
+    @FXML public void handleAdaugaNevoie() {
+        try {
+            if (deadlinePicker.getValue() == null) {
+                throw new RuntimeException("Selectati un deadline!");
+            }
+
+            LocalDateTime deadline = LocalDateTime.of(deadlinePicker.getValue(), LocalTime.of(23, 59));
+
+            Nevoie n = new Nevoie(
+                    null,
+                    titluNevoieField.getText(),
+                    descriereNevoieField.getText(),
+                    deadline,
+                    loggedInUser.getId(),
+                    null,
+                    "Caut erou!"
+            );
+
+            nevoieService.add(n);
+            showAlert("Success", "Nevoia tia fost adaugata!");
+
+            titluNevoieField.clear();
+            descriereNevoieField.clear();
+            deadlinePicker.setValue(null);
+        } catch (Exception e) {
+            showAlert("Eroare", e.getMessage());
+        }
+    }
+
+    @Override
+    public void update(EntityChangeEvent<Nevoie> event) {
+        Platform.runLater(() -> {
+            loadData();
+        });
+    }
+
+    private void showAlert(String title, String message) {
+        Alert a = new Alert(Alert.AlertType.INFORMATION);
+        a.setTitle(title);
+        a.setContentText(message);
+        a.show();
+    }
+
+    public void close() { nevoieService.removeObserver(this); }
+}
+
+/*
+    private void initTable() {
+        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colName.setCellValueFactory(new PropertyValueFactory<>("name")); // Ensure getName() exists
+        mainTable.setItems(model);
+    }
+
+    private void loadData() {
+        model.setAll(service.getAll());
+    }
+
+    @FXML
+    public void onAsyncAction() {
+        Entity selected = table.getSelectionModel().getSelectedItem();
+        if (selected == null) return;
+
+        infoLabel.setText("Processing... (5s)");
+
+        service.processAsync(selected, () -> {
+            // LOGIC GOES HERE (Background Thread)
+            // e.g. selected.setStatus("ACCEPTED");
+            // service.update(selected);
+            System.out.println("Async task finished for " + selected.getId());
+        });
+    }
+ */
+package scs.ui;
+
+import javafx.collections.FXCollections;
+import javafx.fxml.FXML;
+import javafx.scene.control.*;
+import javafx.stage.Stage;
+import scs.domain.Oras;
+import scs.domain.Persoana;
+import scs.service.NevoieService;
+import scs.service.PersoanaService;
+
+public class LoginController {
+    @FXML private TextField numeField;
+    @FXML private TextField prenumeField;
+    @FXML private TextField usernameRegField;
+    @FXML private PasswordField parolaField;
+    @FXML private PasswordField parolaConfirmField;
+    @FXML private ComboBox<Oras> orasComboBox;
+    @FXML private TextField stradaField;
+    @FXML private TextField numar_stradaField;
+    @FXML private TextField telefonField;
+
+    @FXML private ListView<Persoana> usersListView;
+
+    private PersoanaService persoanaService;
+    private NevoieService nevoieService;
+
+    public void setService(PersoanaService persoanaService, NevoieService nevoieService) {
+        this.persoanaService = persoanaService;
+        this.nevoieService = nevoieService;
+
+        orasComboBox.setItems(FXCollections.observableArrayList(Oras.values()));
+
+        loadUsers();
+    }
+
+    private void loadUsers() {
+        usersListView.setItems(FXCollections.observableArrayList(persoanaService.getAll()));
+
+        usersListView.setCellFactory(param -> new ListCell<>() {
+            @Override
+            protected void updateItem(Persoana user, boolean empty) {
+                super.updateItem(user, empty);
+                setText(empty || user == null ? null : user.getUsername());
+            }
+        });
+    }
+
+    @FXML private void handleRegister() {
+        try{
+            if (!parolaField.getText().equals(parolaConfirmField.getText())) {
+                throw new RuntimeException("Parolele nu coincid!");
+            }
+
+            Persoana p = new Persoana(
+                    null,
+                    numeField.getText(),
+                    prenumeField.getText(),
+                    usernameRegField.getText(),
+                    parolaField.getText(),
+                    orasComboBox.getValue(),
+                    stradaField.getText(),
+                    numar_stradaField.getText(),
+                    telefonField.getText()
+            );
+
+            persoanaService.add(p);
+            showAlert("Success", "Inregistrare realizata cu success!");
+            loadUsers();
+        } catch (Exception e){
+            showAlert("Eroare Inregistrare", e.getMessage());
+        }
+    }
+
+    @FXML public void handleLogin() {
+        Persoana selectedUser = usersListView.getSelectionModel().getSelectedItem();
+        if (selectedUser == null) {
+            showAlert("Eroare", "Selectati un utilizator din lista!");
+            return;
+        }
+
+        openDashboard(selectedUser);
+    }
+
+    private void openDashboard(Persoana user) {
+        WindowManager.openWindow("/scs/dashboard-view.fxml", "Dashboard - " + user.getUsername(),
+                (DashboardController ctrl) -> ctrl.setService(nevoieService, persoanaService, user)
+        );
+
+        Stage stage = (Stage) usersListView.getScene().getWindow();
+        stage.close();
+    }
+
+    private void showAlert(String title, String message) {
+        Alert a = new Alert(Alert.AlertType.INFORMATION);
+        a.setTitle(title);
+        a.setContentText(message);
+        a.show();
+    }
+}
+
+package scs.ui;
+
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+import java.util.function.Consumer;
+
+public class WindowManager {
+    public static <T> void openWindow(String fxml, String title, Consumer<T> setup) {
+        try {
+            FXMLLoader loader = new FXMLLoader(WindowManager.class.getResource(fxml));
+            Parent root = loader.load();
+            T ctrl = loader.getController();
+            if (setup != null) setup.accept(ctrl);
+
+            Stage stage = new Stage();
+            stage.setTitle(title);
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) { e.printStackTrace(); }
+    }
+}
+
+/*
+// open Dashboard for a User
+    public static void openDashboard(User user) {
+        openWindow("/scs/dashboard-view.fxml",
+                   "App - " + user.getUsername(),
+                   (DashboardController ctrl) -> {
+                       ctrl.setService(context.getGenericService(), user);
+                   });
+    }
+
+    // login Window
+    public static void openLogin() {
+        openWindow("/scs/login-view.fxml", "Login",
+                   (LoginController ctrl) -> ctrl.setContext(context));
+    }
+ */
+package scs.utilities.database;
+
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+
+public class Db {
+    private static HikariDataSource DATA_SOURCE;
+
+    public static synchronized void setGlobalConnection(String url, String username, String password) {
+        if (DATA_SOURCE == null) {
+            HikariConfig config = new HikariConfig();
+            config.setJdbcUrl(url);
+            config.setUsername(username);
+            config.setPassword(password);
+            DATA_SOURCE = new HikariDataSource(config);
+        }
+    }
+
+    public static Connection getConnection() throws SQLException {
+        return DATA_SOURCE.getConnection();
+    }
+}
+package scs.utilities.events;
+
+public enum ChangeEventType {
+    ADD,
+    UPDATE,
+    DELETE
+}
+
+package scs.utilities.events;
+
+public record EntityChangeEvent<T>(ChangeEventType type, T data, T oldData) {
+    // Already have built-in ctor from the record class
+    // We use one without oldData for convenience because we don't use oldData that much
+    public EntityChangeEvent(ChangeEventType type, T data) {
+        this(type, data, null);
+    }
+}
+
+package scs.utilities.observer;
+
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
+
+public abstract class Observable<E> {
+    private final List<Observer<E>> observers = new CopyOnWriteArrayList<>();
+
+    public void addObserver(Observer<E> o) { observers.add(o); }
+    public void removeObserver(Observer<E> o) { observers.remove(o); }
+    protected void notifyObservers(E event) { observers.forEach(o -> o.update(event)); }
+}
+package scs.utilities.observer;
+
+@FunctionalInterface
+public interface Observer<E> {
+    void update(E event);
+}
+package scs.utilities.paging;
+
+import java.util.List;
+
+public class Page<E> {
+    private List<E> elements;
+    private int totalElementCount;
+
+    public Page(List<E> elements, int total, int size) { this.elements = elements; this.totalElementCount = total; }
+    public List<E> getElementsOnPage() { return elements; }
+    public int getTotalElementCount() { return totalElementCount; }
+}
+package scs.utilities.paging;
+
+public class Pageable {
+    private int pageNumber, pageSize;
+    public Pageable(int pageNumber, int pageSize) { this.pageNumber = pageNumber; this.pageSize = pageSize; }
+    public int getPageSize() { return pageSize; }
+    public int getOffset() { return pageNumber * pageSize; }
+}
+package scs.utilities.validator;
+
+import java.util.regex.Pattern;
+
+public class EmailValidator implements Validator<String> {
+    private static final Pattern EMAIL = Pattern.compile("^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$", Pattern.CASE_INSENSITIVE);
+
+    @Override
+    public void validate(String email) {
+        if (email == null || !EMAIL.matcher(email).matches())
+            throw new RuntimeException("email invalid.");
+    }
+}
+
+package scs.utilities.validator;
+
+public class NotBlankValidator implements Validator<String> {
+    private final String fieldName;
+
+    public NotBlankValidator(String fieldName) {
+        this.fieldName = fieldName;
+    }
+
+    @Override
+    public void validate(String value) {
+        if (value == null || value.trim().isEmpty())
+            throw new RuntimeException(fieldName + " cannot be empty.");
+    }
+}
+
+package scs.utilities.validator;
+
+import java.time.LocalDate;
+
+public class TimeValidator implements Validator<LocalDate> {
+    private final String field;
+    private final LocalDate minInclusive;
+    private final LocalDate maxInclusive;
+
+    public TimeValidator(String field, LocalDate minInclusive, LocalDate maxInclusive) {
+        this.field = field;
+        this.minInclusive = minInclusive;
+        this.maxInclusive = maxInclusive;
+    }
+
+    @Override
+    public void validate(LocalDate time) {
+        if (time == null || time.isBefore(minInclusive) || time.isAfter(maxInclusive))
+            throw new RuntimeException(field + " must be between " + minInclusive + " and " + maxInclusive);
+    }
+}
+
+package scs.utilities.validator;
+
+@FunctionalInterface
+public interface Validator<T> {
+    void validate(T value);
+
+    default Validator<T> and(Validator<T> other) {
+        return v -> {
+            this.validate(v);
+            other.validate(v);
+        };
+    }
+
+    static <T> Validator<T> optional(Validator<T> inner) {
+        return v -> {
+            if (v != null)
+                inner.validate(v);
+        };
+    }
+}
+package scs.utilities.validator;
+
+public final class Validators {
+    private Validators() {
+    }
+
+    public static <T extends Comparable<T>> Validator<T> maxValue(String field, T max) {
+        return v -> {
+            if (v != null && v.compareTo(max) > 0)
+                throw new RuntimeException(field + " must be <= " + max);
+        };
+    }
+
+    public static Validator<String> maxLength(String field, long max) {
+        return v -> {
+            if (v != null && v.length() > max)
+                throw new RuntimeException(field + " length must be < " + max);
+        };
+    }
+
+    public static <T extends Comparable<T>> Validator<T> minValue(String field, T min) {
+        return v -> {
+            if (v != null && v.compareTo(min) < 0)
+                throw new RuntimeException(field + " must be >= " + min);
+        };
+    }
+
+    public static Validator<String> minLength(String field, long min) {
+        return v -> {
+            if (v != null && v.length() < min)
+                throw new RuntimeException(field + " length must be >= " + min);
+        };
+    }
+}
+

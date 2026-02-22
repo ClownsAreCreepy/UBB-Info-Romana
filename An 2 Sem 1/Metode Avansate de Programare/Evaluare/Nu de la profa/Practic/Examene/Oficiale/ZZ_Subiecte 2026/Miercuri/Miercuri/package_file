@@ -1,0 +1,1008 @@
+package scs.domain;
+
+public class Coin  extends Entity{
+    private String symbol;
+    private String name;
+    private Double price;
+
+
+    public Coin(String symbol, String name, Double price) {
+        super(0L);
+        this.symbol = symbol;
+        this.name = name;
+        this.price = price;
+    }
+
+    public String getSymbol() {
+        return symbol;
+    }
+
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+}
+
+package scs.domain;
+
+import java.util.Objects;
+
+public class Entity {   // our domain classes extend this
+    private Long id;
+
+    public Entity(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Entity entity)) return false;
+        return Objects.equals(id, entity.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+}
+package scs.domain;
+
+import java.time.LocalDateTime;
+
+public class Transaction extends Entity {
+    private Long userid;
+    private String coinsymbol;
+    private String type;
+    private Double price;
+    private LocalDateTime timestamp;
+
+
+    public Transaction(Long id, Long userid, String coinsymbol, String type, Double price, LocalDateTime timestamp) {
+        super(id);
+        this.userid = userid;
+        this.coinsymbol = coinsymbol;
+        this.type = type;
+        this.price = price;
+        this.timestamp = timestamp;
+    }
+
+    public Long getUserid() {
+        return userid;
+    }
+
+    public void setUserid(Long userid) {
+        this.userid = userid;
+    }
+
+    public String getCoinsymbol() {
+        return coinsymbol;
+    }
+
+    public void setCoinsymbol(String coinsymbol) {
+        this.coinsymbol = coinsymbol;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public LocalDateTime getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(LocalDateTime timestamp) {
+        this.timestamp = timestamp;
+    }
+}
+
+package scs.domain;
+
+public class User extends Entity {
+    private String name;
+    private Double budget;
+
+    public User(Long id, String name, Double budget) {
+        super(id);
+        this.name = name;
+        this.budget = budget;
+    }
+
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Double getBudget() {
+        return budget;
+    }
+
+    public void setBudget(Double budget) {
+        this.budget = budget;
+    }
+
+    @Override
+    public String toString() {
+        return name;
+    }
+}
+
+package scs;
+
+import javafx.application.Application;
+import javafx.stage.Stage;
+import scs.repo.CoinRepository;
+import scs.repo.TransactionRepository;
+import scs.repo.UserRepository;
+import scs.service.MarketService;
+import scs.ui.AdminController;
+import scs.ui.TraderController;
+import scs.ui.WindowManager;
+import scs.utilities.database.Db;
+// import your.domain.*;
+
+public class MainApp extends Application {
+    @Override
+    public void start(Stage stage) {
+        // 1. DB
+        Db.setGlobalConnection(System.getenv("DB_URL"), System.getenv("DB_USER"), System.getenv("DB_PASSWORD"));
+
+        // 2. Repos & Services
+        var userRepo = new UserRepository();
+        var coinRepo = new CoinRepository();
+        var transactionRepo = new TransactionRepository();
+        var service = new MarketService(userRepo, coinRepo, transactionRepo);
+
+        // 3. Open Windows (Window per User)
+        service.getAllUsers().forEach(u -> WindowManager.openWindow("/scs/trader.fxml", "Trader: " + u.getName(), (TraderController ctrl) -> ctrl.setService(service, u)));
+
+        // Or Single Window
+        WindowManager.openWindow("/scs/admin.fxml", "Market Admin", (AdminController ctrl) -> ctrl.setService(service));
+    }
+    public static void main(String[] args) { launch(args); }
+}
+package scs.repo;
+
+import scs.utilities.database.Db;
+import scs.utilities.paging.Page;
+import scs.utilities.paging.Pageable;
+
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+public abstract class AbstractDbRepository<E> implements Repository<E> {
+
+    protected abstract String getTableName();      // e.g. "public.drivers"
+    protected abstract String getIdColumnName();   // e.g. "id_driver"
+
+    protected abstract String getInsertSql();
+    protected abstract String getUpdateSql();
+    protected abstract E mapResultSet(ResultSet rs) throws SQLException;
+    protected abstract void setInsertParams(PreparedStatement ps, E entity) throws SQLException;
+    protected abstract void setUpdateParams(PreparedStatement ps, E entity) throws SQLException;
+    protected abstract void setIdFromDb(E entity, Long id);
+
+    // --- GENERIC IMPLEMENTATION ---
+
+    @Override
+    public Optional<E> findOne(Long id) {
+        String sql = "SELECT * FROM " + getTableName() + " WHERE " + getIdColumnName() + " = ?";
+        try (Connection con = Db.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setLong(1, id);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) return Optional.of(mapResultSet(rs));
+            }
+        } catch (SQLException e) { throw new RuntimeException(e.getMessage()); }
+        return Optional.empty();
+    }
+
+    @Override
+    public List<E> findAll() {
+        List<E> list = new ArrayList<>();
+        try (Connection con = Db.getConnection();
+             PreparedStatement ps = con.prepareStatement("SELECT * FROM " + getTableName());
+             ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) list.add(mapResultSet(rs));
+        } catch (SQLException e) { throw new RuntimeException(e.getMessage()); }
+        return list;
+    }
+
+    @Override
+    public Page<E> findAll(Pageable pageable) {
+        String sql = "SELECT * FROM " + getTableName() + " LIMIT ? OFFSET ?";
+        List<E> list = new ArrayList<>();
+        try (Connection con = Db.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setInt(1, pageable.getPageSize());
+            ps.setInt(2, pageable.getOffset());
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) list.add(mapResultSet(rs));
+            }
+        } catch (SQLException e) { throw new RuntimeException(e.getMessage()); }
+        return new Page<>(list, 0, pageable.getPageSize());
+    }
+
+    @Override
+    public E save(E entity) {
+        try (Connection con = Db.getConnection();
+             PreparedStatement ps = con.prepareStatement(getInsertSql(), Statement.RETURN_GENERATED_KEYS)) {
+            setInsertParams(ps, entity);
+            ps.executeUpdate();
+            try (ResultSet rs = ps.getGeneratedKeys()) {
+                if (rs.next()) setIdFromDb(entity, rs.getLong(1));
+            }
+        } catch (SQLException e) { throw new RuntimeException(e.getMessage()); }
+        return entity;
+    }
+
+    @Override
+    public void update(E entity) {
+        try (Connection con = Db.getConnection();
+             PreparedStatement ps = con.prepareStatement(getUpdateSql())) {
+            setUpdateParams(ps, entity);
+            ps.executeUpdate();
+        } catch (SQLException e) { throw new RuntimeException(e.getMessage()); }
+    }
+
+    @Override
+    public void delete(Long id) {
+        String sql = "DELETE FROM " + getTableName() + " WHERE " + getIdColumnName() + " = ?";
+        try (Connection con = Db.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setLong(1, id);
+            ps.executeUpdate();
+        } catch (SQLException e) { throw new RuntimeException(e.getMessage()); }
+    }
+}
+package scs.repo;
+
+import scs.domain.Coin;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class CoinRepository extends AbstractDbRepository<Coin> {
+
+    @Override
+    protected String getTableName() {
+        return "public.coins";
+    }
+
+    // Works because we'll only use it for findAll()
+    // We will not use findOne(Long), thus we dont need an id of type Long
+    @Override
+    protected String getIdColumnName() {
+        return "id";
+    }
+
+    @Override
+    protected String getInsertSql() {
+        return "INSERT INTO public.coins (id, name, price) VALUES (?, ?, ?)";
+    }
+
+    @Override
+    protected String getUpdateSql() {
+        return "UPDATE  public.coins SET price=? WHERE id=?";
+    }
+
+    @Override
+    protected Coin mapResultSet(ResultSet rs) throws SQLException {
+        return new Coin(rs.getString("id"), rs.getString("name"), rs.getDouble("price"));
+    }
+
+    @Override
+    protected void setInsertParams(PreparedStatement ps, Coin entity) throws SQLException {
+        ps.setString(1, entity.getSymbol());
+        ps.setString(2, entity.getName());
+        ps.setDouble(3, entity.getPrice());
+    }
+
+    @Override
+    protected void setUpdateParams(PreparedStatement ps, Coin entity) throws SQLException {
+        ps.setDouble(1, entity.getPrice());
+        ps.setString(2, entity.getSymbol());
+    }
+
+    @Override
+    protected void setIdFromDb(Coin entity, Long id) {
+
+    }
+}
+
+package scs.repo;
+
+import scs.utilities.paging.Page;
+import scs.utilities.paging.Pageable;
+
+import java.util.List;
+import java.util.Optional;
+
+public interface Repository<E> {
+    E save(E entity);
+    Optional<E> findOne(Long id);
+    void update(E entity);
+    void delete(Long id);
+    List<E> findAll();
+    Page<E> findAll(Pageable pageable);
+}
+package scs.repo;
+
+import scs.domain.Transaction;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Timestamp;
+
+public class TransactionRepository extends AbstractDbRepository<Transaction> {
+    @Override
+    protected String getTableName() {
+        return "public.transactions";
+    }
+
+    @Override
+    protected String getIdColumnName() {
+        return "id";
+    }
+
+    @Override
+    protected String getInsertSql() {
+        return "INSERT INTO public.transactions (userid, coinsymbol, type, price, timestamp) VALUES (?, ?, ?, ?, ?)";
+    }
+
+    @Override
+    protected String getUpdateSql() {
+        return ""; // immutable
+    }
+
+    @Override
+    protected Transaction mapResultSet(ResultSet rs) throws SQLException {
+        return new Transaction(
+                rs.getLong("id"),
+                rs.getLong("userid"),
+                rs.getString("coinsymbol"),
+                rs.getString("type"),
+                rs.getDouble("price"),
+                rs.getTimestamp("timestamp").toLocalDateTime()
+        );
+    }
+
+    @Override
+    protected void setInsertParams(PreparedStatement ps, Transaction entity) throws SQLException {
+        ps.setLong(1, entity.getUserid());
+        ps.setString(2, entity.getCoinsymbol());
+        ps.setString(3, entity.getType());
+        ps.setDouble(4, entity.getPrice());
+        ps.setTimestamp(5, Timestamp.valueOf(entity.getTimestamp()));
+    }
+
+    @Override
+    protected void setUpdateParams(PreparedStatement ps, Transaction entity) throws SQLException {
+        // not needed
+    }
+
+    @Override
+    protected void setIdFromDb(Transaction entity, Long id) {
+        entity.setId(id);
+    }
+}
+
+package scs.repo;
+
+import scs.domain.User;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class UserRepository extends AbstractDbRepository<User> {
+    @Override
+    protected String getTableName() {
+        return "public.users";
+    }
+
+    @Override
+    protected String getIdColumnName() {
+        return "id";
+    }
+
+    @Override
+    protected String getInsertSql() {
+        return "INSERT INTO public.users (name, budget) VALUES (?, ?)";
+    }
+
+    @Override
+    protected String getUpdateSql() {
+        return "UPDATE public.users SET name = ?, budget = ? WHERE id = ?";
+    }
+
+    @Override
+    protected User mapResultSet(ResultSet rs) throws SQLException {
+        return new User(rs.getLong("id"),
+                rs.getString("name"),
+                rs.getDouble("budget")
+        );
+    }
+
+    @Override
+    protected void setInsertParams(PreparedStatement ps, User entity) throws SQLException {
+        ps.setString(1, entity.getName());
+        ps.setDouble(2, entity.getBudget());
+    }
+
+    @Override
+    protected void setUpdateParams(PreparedStatement ps, User entity) throws SQLException {
+        ps.setString(1, entity.getName());
+        ps.setDouble(2, entity.getBudget());
+        ps.setLong(3, entity.getId());
+    }
+
+    @Override
+    protected void setIdFromDb(User entity, Long id) {
+        entity.setId(id);
+    }
+}
+
+package scs.service;
+
+import javafx.application.Platform;
+import scs.repo.Repository;
+import scs.utilities.events.ChangeEventType;
+import scs.utilities.events.EntityChangeEvent;
+import scs.utilities.observer.Observable;
+
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.TimeUnit;
+
+public class GenericService<E> extends Observable<EntityChangeEvent<E>> {
+
+    protected final Repository<E> repo;
+
+    public GenericService(Repository<E> repo) {
+        this.repo = repo;
+    }
+
+    public List<E> getAll() {
+        return repo.findAll();
+    }
+
+    public E add(E entity) {
+        E saved = repo.save(entity);
+        notifyObservers(new EntityChangeEvent<>(ChangeEventType.ADD, saved));
+        return saved;
+    }
+
+    public void update(E entity) {
+        repo.update(entity);
+        notifyObservers(new EntityChangeEvent<>(ChangeEventType.UPDATE, entity));
+    }
+
+    public void delete(Long id) {
+        // try to find it first so we can notify the UI which object was deleted
+        E old = repo.findOne(id).orElse(null);
+        repo.delete(id);
+        if (old != null) {
+            notifyObservers(new EntityChangeEvent<>(ChangeEventType.DELETE, old));
+        }
+    }
+
+    public void processAsync(E entity, Runnable action) {
+        CompletableFuture.delayedExecutor(5, TimeUnit.SECONDS).execute(() -> {
+            try {
+                // run logic
+                action.run();
+
+                // notify UI
+                Platform.runLater(() -> {
+                    // force refresh or specific update
+                    notifyObservers(new EntityChangeEvent<>(ChangeEventType.UPDATE, entity));
+                });
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+    }
+}
+package scs.service;
+
+import javafx.application.Platform;
+import scs.domain.Coin;
+import scs.domain.Transaction;
+import scs.domain.User;
+import scs.repo.CoinRepository;
+import scs.repo.TransactionRepository;
+import scs.repo.UserRepository;
+import scs.utilities.events.ChangeEventType;
+import scs.utilities.events.EntityChangeEvent;
+import scs.utilities.observer.Observable;
+
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.TimeUnit;
+
+public class MarketService extends Observable<EntityChangeEvent<Object>> {
+    private final UserRepository userRepo;
+    private final CoinRepository coinRepo;
+    private final TransactionRepository transRepo;
+
+    public MarketService(UserRepository userRepo, CoinRepository coinRepo, TransactionRepository transRepo) {
+        this.userRepo = userRepo;
+        this.coinRepo = coinRepo;
+        this.transRepo = transRepo;
+    }
+
+    public List<User> getAllUsers() {
+        return userRepo.findAll();
+    }
+
+    public List<Coin> getAllCoins() {
+        return coinRepo.findAll();
+    }
+
+    public List<Transaction> getAllTransactions() {
+        return transRepo.findAll();
+    }
+
+    // how many of a specific coin does a user own
+    public int getHoldings(Long userId, String symbol) {
+        List<Transaction> history = transRepo.findAll().stream()
+                .filter(t -> t.getUserid().equals(userId) && t.getCoinsymbol().equals(symbol))
+                .toList();
+
+        int owned = 0;
+        for (Transaction t : history) {
+            if (t.getType().equals("BUY"))
+                owned++;
+            else
+                owned--;
+        }
+
+        return owned;
+    }
+
+    public void processTransactionAsync(Long userId, String coinSymbol, String type) {
+        CompletableFuture.delayedExecutor(3, TimeUnit.SECONDS).execute(() -> {
+            try {
+                if (type.equals("BUY"))
+                    buyCoin(userId, coinSymbol);
+                else
+                    sellCoin(userId, coinSymbol);
+
+                Platform.runLater(() -> {
+                    // force refresh or specific update
+                    notifyObservers(new EntityChangeEvent<>(ChangeEventType.UPDATE, null));
+                });
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+    private synchronized void buyCoin(Long userId, String coinSymbol) {
+        User user = userRepo.findOne(userId).orElseThrow();
+        Coin coin = getAllCoins().stream().filter(c -> c.getSymbol().equals(coinSymbol)).findFirst().orElseThrow();
+
+        if (user.getBudget() < coin.getPrice())
+            throw new RuntimeException("Insufficient funds! Cost: " + coin.getPrice() + ", You have:" + user.getBudget());
+
+        user.setBudget(user.getBudget() - coin.getPrice());
+        userRepo.update(user);
+
+        Transaction t = new Transaction(0L, userId, coinSymbol, "BUY", coin.getPrice(), LocalDateTime.now());
+        transRepo.save(t);
+    }
+
+    private synchronized void sellCoin(Long userId, String coinSymbol) {
+        User user = userRepo.findOne(userId).orElseThrow();
+        Coin coin = getAllCoins().stream().filter(c -> c.getSymbol().equals(coinSymbol)).findFirst().orElseThrow();
+
+        if (getHoldings(userId, coinSymbol) <= 0)
+            throw new RuntimeException("You dont own any" + coinSymbol + " to sell!");
+
+        user.setBudget(user.getBudget() + coin.getPrice());
+        userRepo.update(user);
+
+        Transaction t = new Transaction(0L, userId, coinSymbol, "SELL", coin.getPrice(), LocalDateTime.now());
+        transRepo.save(t);
+    }
+
+    public void updateCoinPrice(Coin coin) {
+        coinRepo.update(coin);
+        notifyObservers(new EntityChangeEvent<>(ChangeEventType.UPDATE, coin));
+    }
+}
+
+package scs.ui;
+
+import scs.service.MarketService;
+
+public class AdminController {
+    private MarketService service;
+
+    public void setService(MarketService service) {
+        this.service = service;
+    }
+}
+
+package scs.ui;
+
+import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import scs.domain.Entity;
+import scs.service.GenericService;
+import scs.utilities.events.EntityChangeEvent;
+import scs.utilities.observer.Observer;
+
+public class DashboardController implements Observer<EntityChangeEvent<Entity>> {
+    @FXML private TableView<Entity> table;
+    @FXML private TableColumn<Entity, Long> colId;
+    // @FXML private TableColumn<Entity, String> colName; // Add columns here
+    @FXML private Label infoLabel;
+
+    private GenericService<Entity> service;
+    private ObservableList<Entity> model = FXCollections.observableArrayList();
+
+    public void setService(GenericService<Entity> service) {
+        this.service = service;
+        this.service.addObserver(this);
+
+        // Setup Table
+        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        // colName.setCellValueFactory(new PropertyValueFactory<>("name"));
+
+        table.setItems(model);
+
+        // Load Data
+        model.setAll(service.getAll());
+    }
+
+    @Override
+    public void update(EntityChangeEvent<Entity> event) {
+        Platform.runLater(() -> {
+            Entity data = event.data();
+            switch (event.type()) {
+                case ADD -> model.add(data);
+                case DELETE -> model.removeIf(x -> x.getId().equals(data.getId()));
+                case UPDATE -> {
+                    for(int i=0; i<model.size(); i++)
+                        if(model.get(i).getId().equals(data.getId())) {
+                            model.set(i, data);
+                            break;
+                        }
+                }
+            }
+        });
+    }
+
+    private void showAlert(String title, String message) {
+        Alert a = new Alert(Alert.AlertType.INFORMATION);
+        a.setTitle(title);
+        a.setContentText(message);
+        a.show();
+    }
+
+    public void close() { service.removeObserver(this); }
+}
+
+/*
+    private void initTable() {
+        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colName.setCellValueFactory(new PropertyValueFactory<>("name")); // Ensure getName() exists
+        mainTable.setItems(model);
+    }
+
+    private void loadData() {
+        model.setAll(service.getAll());
+    }
+
+    @FXML
+    public void onAsyncAction() {
+        Entity selected = table.getSelectionModel().getSelectedItem();
+        if (selected == null) return;
+
+        infoLabel.setText("Processing... (5s)");
+
+        service.processAsync(selected, () -> {
+            // LOGIC GOES HERE (Background Thread)
+            // e.g. selected.setStatus("ACCEPTED");
+            // service.update(selected);
+            System.out.println("Async task finished for " + selected.getId());
+        });
+    }
+ */
+package scs.ui;
+
+import scs.domain.User;
+import scs.service.MarketService;
+
+public class TraderController {
+    private MarketService service;
+    private User currentUser;
+
+    public void setService(MarketService service, User user) {
+        this.service = service;
+        this.currentUser = user;
+    }
+}
+
+package scs.ui;
+
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+import java.util.function.Consumer;
+
+public class WindowManager {
+    public static <T> void openWindow(String fxml, String title, Consumer<T> setup) {
+        try {
+            FXMLLoader loader = new FXMLLoader(WindowManager.class.getResource(fxml));
+            Parent root = loader.load();
+            T ctrl = loader.getController();
+            if (setup != null) setup.accept(ctrl);
+
+            Stage stage = new Stage();
+            stage.setTitle(title);
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) { e.printStackTrace(); }
+    }
+}
+
+/*
+// open Dashboard for a User
+    public static void openDashboard(User user) {
+        openWindow("/scs/trader.fxml",
+                   "App - " + user.getUsername(),
+                   (DashboardController ctrl) -> {
+                       ctrl.setService(context.getGenericService(), user);
+                   });
+    }
+
+    // login Window
+    public static void openLogin() {
+        openWindow("/scs/login-view.fxml", "Login",
+                   (LoginController ctrl) -> ctrl.setContext(context));
+    }
+ */
+package scs.utilities.database;
+
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+
+public class Db {
+    private static HikariDataSource DATA_SOURCE;
+
+    public static synchronized void setGlobalConnection(String url, String username, String password) {
+        if (DATA_SOURCE == null) {
+            HikariConfig config = new HikariConfig();
+            config.setJdbcUrl(url);
+            config.setUsername(username);
+            config.setPassword(password);
+            DATA_SOURCE = new HikariDataSource(config);
+        }
+    }
+
+    public static Connection getConnection() throws SQLException {
+        return DATA_SOURCE.getConnection();
+    }
+}
+package scs.utilities.events;
+
+public enum ChangeEventType {
+    ADD,
+    UPDATE,
+    DELETE
+}
+
+package scs.utilities.events;
+
+public record EntityChangeEvent<T>(ChangeEventType type, T data, T oldData) {
+    // Already have built-in ctor from the record class
+    // We use one without oldData for convenience because we don't use oldData that much
+    public EntityChangeEvent(ChangeEventType type, T data) {
+        this(type, data, null);
+    }
+}
+
+package scs.utilities.observer;
+
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
+
+public abstract class Observable<E> {
+    private final List<Observer<E>> observers = new CopyOnWriteArrayList<>();
+
+    public void addObserver(Observer<E> o) { observers.add(o); }
+    public void removeObserver(Observer<E> o) { observers.remove(o); }
+    protected void notifyObservers(E event) { observers.forEach(o -> o.update(event)); }
+}
+package scs.utilities.observer;
+
+@FunctionalInterface
+public interface Observer<E> {
+    void update(E event);
+}
+package scs.utilities.paging;
+
+import java.util.List;
+
+public class Page<E> {
+    private List<E> elements;
+    private int totalElementCount;
+
+    public Page(List<E> elements, int total, int size) { this.elements = elements; this.totalElementCount = total; }
+    public List<E> getElementsOnPage() { return elements; }
+    public int getTotalElementCount() { return totalElementCount; }
+}
+package scs.utilities.paging;
+
+public class Pageable {
+    private int pageNumber, pageSize;
+    public Pageable(int pageNumber, int pageSize) { this.pageNumber = pageNumber; this.pageSize = pageSize; }
+    public int getPageSize() { return pageSize; }
+    public int getOffset() { return pageNumber * pageSize; }
+}
+package scs.utilities.validator;
+
+import java.util.regex.Pattern;
+
+public class EmailValidator implements Validator<String> {
+    private static final Pattern EMAIL = Pattern.compile("^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$", Pattern.CASE_INSENSITIVE);
+
+    @Override
+    public void validate(String email) {
+        if (email == null || !EMAIL.matcher(email).matches())
+            throw new RuntimeException("email invalid.");
+    }
+}
+
+package scs.utilities.validator;
+
+public class NotBlankValidator implements Validator<String> {
+    private final String fieldName;
+
+    public NotBlankValidator(String fieldName) {
+        this.fieldName = fieldName;
+    }
+
+    @Override
+    public void validate(String value) {
+        if (value == null || value.trim().isEmpty())
+            throw new RuntimeException(fieldName + " cannot be empty.");
+    }
+}
+
+package scs.utilities.validator;
+
+import java.time.LocalDate;
+
+public class TimeValidator implements Validator<LocalDate> {
+    private final String field;
+    private final LocalDate minInclusive;
+    private final LocalDate maxInclusive;
+
+    public TimeValidator(String field, LocalDate minInclusive, LocalDate maxInclusive) {
+        this.field = field;
+        this.minInclusive = minInclusive;
+        this.maxInclusive = maxInclusive;
+    }
+
+    @Override
+    public void validate(LocalDate time) {
+        if (time == null || time.isBefore(minInclusive) || time.isAfter(maxInclusive))
+            throw new RuntimeException(field + " must be between " + minInclusive + " and " + maxInclusive);
+    }
+}
+
+package scs.utilities.validator;
+
+@FunctionalInterface
+public interface Validator<T> {
+    void validate(T value);
+
+    default Validator<T> and(Validator<T> other) {
+        return v -> {
+            this.validate(v);
+            other.validate(v);
+        };
+    }
+
+    static <T> Validator<T> optional(Validator<T> inner) {
+        return v -> {
+            if (v != null)
+                inner.validate(v);
+        };
+    }
+}
+package scs.utilities.validator;
+
+public final class Validators {
+    private Validators() {
+    }
+
+    public static <T extends Comparable<T>> Validator<T> maxValue(String field, T max) {
+        return v -> {
+            if (v != null && v.compareTo(max) > 0)
+                throw new RuntimeException(field + " must be <= " + max);
+        };
+    }
+
+    public static Validator<String> maxLength(String field, long max) {
+        return v -> {
+            if (v != null && v.length() > max)
+                throw new RuntimeException(field + " length must be < " + max);
+        };
+    }
+
+    public static <T extends Comparable<T>> Validator<T> minValue(String field, T min) {
+        return v -> {
+            if (v != null && v.compareTo(min) < 0)
+                throw new RuntimeException(field + " must be >= " + min);
+        };
+    }
+
+    public static Validator<String> minLength(String field, long min) {
+        return v -> {
+            if (v != null && v.length() < min)
+                throw new RuntimeException(field + " length must be >= " + min);
+        };
+    }
+}
+

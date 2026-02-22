@@ -1,0 +1,62 @@
+---Baze---
+
+!!!nu uita sa verif ca datele sunt cf cerintei (sa se vada clar ca ai 1:m, m:n, etc) <-> sa ai indeed duplicate pt relatiile la care ti ar trebui
+
+--1:m -> m:1--
+
+-mama
+-am legit uitat ce am facut data trecuta va pwp viitorii mei cititori
+
+
+
+
+--1:m -> m:n--
+
+-adaugam tabela de legatura
+-adaugam datele in tabela noua
+-drop la foreign key
+-drop la coloana care avea foreign key
+
+
+
+
+--m:n -> 1:m--
+
+-adaugam col + constraint de fk unde treie (unde vrem)
+-adaugam in legaturi sterse ce trebuie sters
+-stergem ce trebuie sters - aparent mai bine le stergem ca sa putem sa adaugam in tabel dupa mai usor (vezi pas urm)
+ |---> se vede si in cod ca ne bazam pe datele inserate in legaturi_sterse ca sa putem sa stergem cel mai usor
+-adaugam in tabele in mod coresp inregistrarile care se pastreaza (aka fk ul coresp ca altcv n avem dar shh)
+-dam drop la tabela de legatura
+ |---> DO NOT DELETE IT inainte sa ajungi la acest pas - se tot foloseste ca sa ne faca viata mai usoara
+-yippie?
+
+
+
+
+
+--1:m -> 1:1--
+
+-adaugam in legaturi sterse ce trebuie sters
+-stergem ce trebuie sters
+-adaugam constraint de unicitate pe col care e fk
+-job well done putem sa ne culcam yayyyy!!! 
+
+
+
+!!!se vede din ce am scris ca logica/pasii au aceeasi ordine de fiecare data - makes sense
+   |---> mindblowing commentary de la yours truly
+
+
+
+
+
+
+
+
+
+
+
+
+
+

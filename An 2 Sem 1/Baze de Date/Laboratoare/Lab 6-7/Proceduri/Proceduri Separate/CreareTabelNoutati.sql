@@ -1,0 +1,8 @@
+CREATE OR ALTER PROCEDURE CreareTabelNoutati
+AS
+CREATE TABLE Noutati
+(
+	id_n INT PRIMARY KEY IDENTITY(1,1),
+	titlu NVARCHAR(100),
+	descriere NVARCHAR(1000)
+)

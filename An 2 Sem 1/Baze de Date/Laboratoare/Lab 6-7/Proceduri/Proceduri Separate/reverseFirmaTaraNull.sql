@@ -1,0 +1,4 @@
+CREATE OR ALTER PROCEDURE reverseFirmaTaraNull
+AS
+ALTER TABLE Firme
+ALTER COLUMN tara_origine VARCHAR(100)

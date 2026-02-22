@@ -1,0 +1,13 @@
+1. O variabila aleatoare X cu probabilitatile P(X = -1) = P(X = 1) = 1/6 si P(X = 0) = P(X = 2) = 2/6. Se genereaza aleator si independent 4 valori pentru X. Calculati:
+a) Probabilitatea ca toate numerele sa fie egale
+b) Probabilitatea ca toate numerele sa fie distincte
+c) Probabilitatea ca cel mult o valoare sa fie 1
+d) Probabilitatea ca cel putin o valoare sa fie 0 si cel putin o valoare sa fie 1
+e) F(X) = ?
+f) Un sir (Xn)n de v.a. independente si identic distribuite cu X. 1/n * (X1^2 + X2^2 + .... + Xn^2) tinde aproape sigur la ce valoare?
+
+2. S-o dat functia de repartie Fx = 0, x < 1 ; -x^2/16 + x/2, 1 <= x <= 4 ; 1, x > 4
+Calculati P(X E [2,3]), P(X<3 | X>2), E(X)
+
+3. Se da un tabel cu valorile si frecventele relative a 51 de date statistice. Pentru -4 era 18/51, pentru -2 era 4/51, pentru 2 era 18/51 si pentru 4 era 11/51.
+Calculati media de selectie si varianta de selectie. Pe baza valorilor din tabel, calculati intervalul de incredere de 0.95 pentru varianta

@@ -1,0 +1,4 @@
+CREATE OR ALTER PROCEDURE reverseAdaugaSeveritateCritici
+AS
+ALTER TABLE Critici_Oficiali
+DROP COLUMN severitate

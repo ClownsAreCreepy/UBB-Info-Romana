@@ -1,0 +1,33 @@
+% subs(L: Lista de TElem, E: TElem, Sub: Lista de TElem, R: Lista de
+% TElem)
+% model de flux: subs(i, i, i, o)
+% L - Lista de elemente pe care merem
+% E - Elementul pe care il substituim
+% Sub - Lista cu care substituim elementul
+% R - Lista rezultata dupa substituire
+
+subs([], _, _, []):- !.
+
+subs([E|T], E, Sub, [Sub|R]):-
+    subs(T, E, Sub, R),
+    !.
+
+subs([H|T], E, Sub, [H|R]):-
+    subs(T, E, Sub, R).
+
+
+
+% elim(L: Lista de TElem, N: Intreg, R: Lista de TElem)
+% model de flux: elim(i, i, o)
+% L - Lista de elemente pe care merem
+% N - Pozitia de pe care eliminam
+% R - Lista rezultata dupa eliminare
+
+elim([], _, []):- !.
+
+elim(L, 1, L):- !.
+
+elim([H|T], N, [H|R]):-
+    NM is N - 1,
+    elim(T, NM, R).
+

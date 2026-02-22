@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<StackPane style="-fx-background-color: #2c3e50;" xmlns="http://javafx.com/javafx/17.0.12"
+           xmlns:fx="http://javafx.com/fxml/1" fx:controller="scs.ui.controllers.logins.SignUpController">
+
+    <VBox alignment="CENTER" maxHeight="635.0" maxWidth="400" prefWidth="367.0" spacing="10"
+          style="-fx-background-color: white; -fx-padding: 30; -fx-background-radius: 10;">
+        <effect>
+            <DropShadow color="#00000040" spread="0.2"/>
+        </effect>
+
+        <Label text="Create Account" textFill="#2c3e50">
+            <font>
+                <Font name="System Bold" size="24.0"/>
+            </font>
+        </Label>
+
+        <VBox maxWidth="Infinity" spacing="8">
+            <ComboBox fx:id="typeSelector" maxWidth="Infinity" style="-fx-padding: 4;">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Person"/>
+                        <String fx:value="Duck"/>
+                    </FXCollections>
+                </items>
+                <value>
+                    <String fx:value="Person"/>
+                </value>
+            </ComboBox>
+
+            <TextField fx:id="usernameField" promptText="Username" style="-fx-padding: 8;"/>
+            <TextField fx:id="emailField" promptText="Email Address" style="-fx-padding: 8;"/>
+
+            <StackPane alignment="CENTER_RIGHT">
+                <TextField fx:id="passText" managed="false" promptText="Password" style="-fx-padding: 8;"
+                           visible="false"/>
+                <PasswordField fx:id="passHidden" promptText="Password" style="-fx-padding: 8;"/>
+                <ToggleButton focusTraversable="false" onAction="#onTogglePassword"
+                              style="-fx-background-color: transparent; -fx-cursor: hand;" text="👁"/>
+            </StackPane>
+        </VBox>
+
+        <VBox fx:id="personFields" maxWidth="Infinity" spacing="8">
+            <HBox spacing="5">
+                <TextField fx:id="firstNameField" promptText="First Name" style="-fx-padding: 8;" HBox.hgrow="ALWAYS"/>
+                <TextField fx:id="lastNameField" promptText="Last Name" style="-fx-padding: 8;" HBox.hgrow="ALWAYS"/>
+            </HBox>
+
+            <TextField fx:id="jobField" promptText="Occupation" style="-fx-padding: 8;"/>
+            <DatePicker fx:id="birthDate" maxWidth="Infinity" promptText="Birth Date" style="-fx-padding: 4;"/>
+        </VBox>
+
+        <VBox fx:id="duckFields" managed="false" maxWidth="Infinity" spacing="8" visible="false">
+            <HBox spacing="5">
+                <TextField fx:id="speedField" promptText="Speed (0.0)" style="-fx-padding: 8;" HBox.hgrow="ALWAYS"/>
+                <TextField fx:id="resistanceField" promptText="Resistance (0.0)" style="-fx-padding: 8;"
+                           HBox.hgrow="ALWAYS"/>
+            </HBox>
+            <ComboBox fx:id="duckSpeciesSelector" maxWidth="Infinity" promptText="Select Species">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="SWIMMING"/>
+                        <String fx:value="FLYING"/>
+                        <String fx:value="HYBRID"/>
+                    </FXCollections>
+                </items>
+            </ComboBox>
+        </VBox>
+
+        <Label fx:id="errorLabel" textFill="#e74c3c" visible="false" wrapText="true"/>
+
+        <Button maxWidth="Infinity" onAction="#onRegister"
+                style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px; -fx-padding: 10; -fx-cursor: hand;"
+                text="SIGN UP"/>
+
+        <Hyperlink onAction="#onGoToLogin" style="-fx-text-fill: #7f8c8d;"
+                   text="Already have an account? Log in here!"/>
+    </VBox>
+
+</StackPane>

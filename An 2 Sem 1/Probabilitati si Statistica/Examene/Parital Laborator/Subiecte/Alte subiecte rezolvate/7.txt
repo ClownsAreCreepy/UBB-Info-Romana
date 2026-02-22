@@ -1,0 +1,9 @@
+Timpul la ceva nu mai tin minte are distibutia exponentiala T ~ Exp(1/4).
+
+a) Generati 4 000 de astfel de valori pentru T
+
+b) Estimati deviatia standard a lui T
+
+c) Afisati o histograma a frecventelor relative generate la a) cu 12 bare pe intervalul [0, 18] si graficul functiei de densitate pe acest interval
+
+d) Estimati P(T>5), apoi afisati probabilitatea teoretica

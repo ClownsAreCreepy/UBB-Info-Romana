@@ -1,0 +1,63 @@
+1. FILME:
+ID
+Titlu
+Durata
+Gen
+ID_regizor
+ID_compozitor
+
+2. UTILIZATORI:
+ID
+Nume
+Varsta
+Tara de Origine
+
+3. RECENZII:
+ID_recenzie
+ID_media
+ID_utilizator
+Nota
+Text
+
+4. CRITICI OFICIALI:
+ID_utilizator
+Reputatie
+
+5. REGIZORI:
+ID
+Nume
+Varsta
+Nr_Filme_Realizate
+
+6. COMPOZITORI:
+ID
+Nume
+Varsta
+Instrument_favorit
+
+7. OSCAR:
+ID
+ID_film
+Tip
+an
+
+8. ACTORI:
+ID
+Nume
+Varsta
+Interview-uri_date
+
+9. Roluri:
+ID_film
+ID_actor
+Tip(principal, secundar, extra)
+Nume_personaj
+
+10. Firme:
+ID
+Tara origine
+Nume
+
+-- Publicatii: --
+ID_firme
+ID_film

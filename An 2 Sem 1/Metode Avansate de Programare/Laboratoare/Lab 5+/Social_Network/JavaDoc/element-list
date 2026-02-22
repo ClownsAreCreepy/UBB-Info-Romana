@@ -1,0 +1,13 @@
+app
+domain.behaviors
+domain.event
+domain.group
+domain.user
+error
+repo
+repo.herds
+repo.users
+service
+ui
+utilities
+utilities.validator
