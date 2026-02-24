@@ -1,0 +1,17 @@
+sb1. Mostenire vs Composition
+sa ii dai ex de un caz in care ar fi mai bine sa folosesti comp.
+
+sb2. cv grila de concurenta
+
+sb3. sa faci un stream pe o lista de obiecte a.i. sa iti rezulte timpul mediu de executie de un anumit tip (un obiect avea un tip, un timp in care e executat si alti parametrii)
+
+sb4.
+ti se dadea o clasa cu getteri, setteri, constructor deja implementate
+a) sa det. cate elemente de tipuri distincte au un timp mai mare decat o limita data
+
+b) sa stergi din lista toate elementele care au un timp mai mic decat o limita data (parca)
+
+c) sa sortezi crescator dupa tip si apoi, daca aveau tipuri egale, descrescator dupa o val numerica pe care o avea obiectul (dar nu mai tin minte ce exact)
+
+sb5.
+o grila de C# cu mostenire si suprascriere de metode

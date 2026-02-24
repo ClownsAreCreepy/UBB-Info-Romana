@@ -1,0 +1,18 @@
+Sub1. Try si catch. Rolul cuvintelor finally,throw,throws. Tipuri de exceptii, exemple.
+
+Sub2. Aveai o clasa abstracta si o interfata
+Aveai dupa o clasa care mostenea clasa abstracta si inplementa interfata apoi faceai functionalitatea aia si cv
+Te intreba cate erori de compilare is raspunsu era 0
+
+Sub3 aveai un Map<String, Integer> cu nume de persoane si scoruri
+Iti zicea sa faci un stream care calculeaza scoru cel mai mare si persoanele alea le pune intr o lista de string uri
+
+Sub4 aveai o clasa Book cu titlu autor si nr de pagini (nu trebuia scrisa si getteri si setteri se presupuneau acrisi)
+La A) trebuia sa scrii o functie care returneaza un string si primeste o lista de Book-uri si trebuia sa returnezi numele la autoru cu cele mai multe pagini scrise, daca erau mai multi afisai primu alfabetic
+la B) o functie void care primeste o lista de Book si sterge cartile cu pagini < nrMin si nrMin era parametru
+La c) sortate descrescator dupa ne de pagini si apoi alfabetic
+
+Sub 5 o clasa Box<T> si o clasa publica cu un parametrup public T Value
+
+Si aveai o functie care facea swap intre un obiect Box x cu value 5 si Box y cu value 10
+Dadeai dupa aia print(x spatiu y) si trb sa zici ce afiseaza
